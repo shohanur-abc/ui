@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative min-h-screen flex items-center overflow-hidden">
             {/* Full-width Background Image */}

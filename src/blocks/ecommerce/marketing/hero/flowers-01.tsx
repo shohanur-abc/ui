@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative overflow-hidden bg-gradient-to-b from-pink-50 to-background dark:from-pink-950/20">
             <FloralPattern />

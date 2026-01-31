@@ -13,7 +13,6 @@ export default function Component() {
     return (
         <section className="@container">
             <div className="grid @3xl:grid-cols-2 min-h-screen">
-                {/* Left Column - Content */}
                 <div className="flex items-center justify-center py-12 @md:py-16 @xl:py-20 @3xl:py-24 px-4 @sm:px-6 @md:px-8 @xl:px-12 bg-gradient-to-br from-background to-muted/20">
                     <div className="max-w-lg w-full">
                         <Eyebrow icon={Star} text="Product Designer" />
@@ -33,7 +32,6 @@ export default function Component() {
                     </div>
                 </div>
 
-                {/* Right Column - Image */}
                 <div className="relative bg-primary/5 flex items-center justify-center p-8 @md:p-12 @xl:p-16">
                     <HeroImage
                         src="https://avatars.githubusercontent.com/u/252440198?v=4"

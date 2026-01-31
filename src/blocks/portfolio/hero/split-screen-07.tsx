@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { ComponentType, FC } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container">
             <ul className="grid @3xl:grid-cols-2 min-h-screen overflow-hidden items-center gap-8 @md:gap-12 @2xl:gap-16 @4xl:gap-20 py-16 @md:py-20 @3xl:py-24 @5xl:py-32 px-4 @sm:px-6 @2xl:px-8">

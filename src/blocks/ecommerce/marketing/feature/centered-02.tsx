@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import Link from 'next/link'
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container">
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @md:px-8 @xl:px-12 py-12 @md:py-16 @xl:py-20 @3xl:py-24">
@@ -42,7 +42,7 @@ export default function Component() {
 }
 
 const FeatureList = ({ items }: { items: string[] }) => (
-    <ul className="grid @sm:grid-cols-2 gap-x-8 gap-y-4 text-left max-w-2xl mx-auto">
+    <ul className="grid @sm:grid-cols-2 gap-x-8 gap-y-4 text-left max-w-4xl mx-auto">
         {items.map((item, i) => (
             <li key={i} className="flex items-center gap-3">
                 <CheckCircle2 className="size-5 text-primary shrink-0" />

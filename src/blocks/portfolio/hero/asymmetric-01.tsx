@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative min-h-screen flex items-center overflow-hidden">
             <BackgroundDecorative />
@@ -96,7 +96,7 @@ const CTA = ({ items }: { items: { label: string; href: string; variant?: React.
 
 const HeroImage = ({ src, fallback }: { src?: string; fallback: string }) => (
     <div className="relative mx-auto w-64 h-64 @sm:w-72 @sm:h-72 @md:w-80 @md:h-80 @xl:w-96 @xl:h-96">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl rotate-6" />
+        <div className="absolute inset-0     from-primary/20 to-primary/5 rounded-3xl rotate-6" />
         <Avatar className="relative w-full h-full rounded-2xl shadow-2xl">
             <AvatarImage src={src} className="object-cover rounded-2xl" />
             <AvatarFallback className="rounded-2xl text-5xl bg-primary text-primary-foreground">{fallback}</AvatarFallback>
@@ -112,7 +112,7 @@ const FloatingCards = () => (
         <div className="absolute top-1/2 -right-4 @md:-right-8 p-3 @md:p-4 bg-card rounded-xl border shadow-lg backdrop-blur-sm animate-bounce [animation-duration:4s] [animation-delay:1s]">
             <Palette className="size-5 @md:size-6 text-primary" />
         </div>
-        <div className="absolute -bottom-4 left-1/4 p-3 @md:p-4 bg-card rounded-xl border shadow-lg backdrop-blur-sm animate-bounce [animation-duration:3.5s] [animation-delay:0.5s]">
+        <div className="absolute -bottom-4 left-1/4 p-3 @md:p-4 bg-card rounded-xl border shadow-lg backdrop-blur-sm animate-bounce animation-duration-[3.5s] [animation-delay:0.5s]">
             <Rocket className="size-5 @md:size-6 text-primary" />
         </div>
     </>

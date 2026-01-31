@@ -11,7 +11,7 @@ interface Stat {
     label: string
 }
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container min-h-screen bg-background">
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 h-full">

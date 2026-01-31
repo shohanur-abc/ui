@@ -1,6 +1,6 @@
 "use client"
 
-import { Suspense, ComponentType, useState } from "react"
+import { Suspense, ComponentType, useState, useMemo, useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Playground } from "@/components/Playground"
 import { Combobox } from "../combobox"
@@ -14,13 +14,18 @@ import dynamic from "next/dynamic"
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 
+const ITEMS_PER_LOAD = 12
+
 // Dynamically import block component
 const importBlock = (href: string): ComponentType => {
     // href format: "blocks/portfolio/hero/centered-01"
     const importPath = `@/${href}`
 
     return dynamic(() => import(`@/${href}.tsx`)
-        .catch(() => Promise.reject(new Error(`Failed to load: ${importPath}`))))
+        .catch(() => {
+            // Return a fallback component if block import fails
+            return { default: () => <div className="p-4 text-red-500">Block not found: {href}</div> }
+        }))
 }
 
 interface ClientFiltersProps {
@@ -52,6 +57,8 @@ export function ClientFilters({
     block = block || "blocks"
     variant = variant || "variants"
     const router = useRouter()
+    const [displayCount, setDisplayCount] = useState(ITEMS_PER_LOAD)
+    const observerTarget = useRef<HTMLDivElement>(null)
 
     // Parse dates from strings
     const [fromDate, setFromDate] = useState<Date | undefined>(
@@ -65,11 +72,35 @@ export function ClientFilters({
     const [fromTime, setFromTime] = useState({ hour: "12", minute: "00", period: "AM" as "AM" | "PM" })
     const [toTime, setToTime] = useState({ hour: "11", minute: "59", period: "PM" as "AM" | "PM" })
 
+    // Get visible blocks
+    const visibleBlocks = useMemo(() => {
+        return filteredBlocks.slice(0, displayCount)
+    }, [filteredBlocks, displayCount])
+
+    // Intersection Observer for infinite scroll
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && displayCount < filteredBlocks.length) {
+                    setDisplayCount(prev => Math.min(prev + ITEMS_PER_LOAD, filteredBlocks.length))
+                }
+            },
+            { threshold: 0.1 }
+        )
+
+        if (observerTarget.current) {
+            observer.observe(observerTarget.current)
+        }
+
+        return () => observer.disconnect()
+    }, [displayCount, filteredBlocks.length])
+
     const hasActiveFilters = website || block || variant || dateFrom || dateTo || sortOrder !== 'desc'
     const clearFilters = () => {
         router.push(`/blocks`)
         setFromDate(undefined)
         setToDate(undefined)
+        setDisplayCount(ITEMS_PER_LOAD)
     }
 
     const updateFilters = (updates: {
@@ -310,30 +341,49 @@ export function ClientFilters({
                         No blocks found matching the selected filters.
                     </div>
                 ) : (
-                    filteredBlocks.map((blockEntry) => {
-                        const Component = importBlock(blockEntry.href)
+                    <>
+                        {visibleBlocks.map((blockEntry) => {
+                            const Component = importBlock(blockEntry.href)
 
-                        return (
-                            <div key={blockEntry.href} className="border rounded-lg">
-                                <Playground
-                                    website={blockEntry.website}
-                                    block={blockEntry.block}
-                                    variant={blockEntry.name}
-                                    tags={blockEntry.tags}
-                                    href={blockEntry.href}
-                                    Preview={
-                                        <Suspense fallback={
-                                            <div className="flex items-center justify-center min-h-[33vh]">
-                                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                                            </div>
-                                        }>
-                                            <Component />
-                                        </Suspense>
-                                    }
-                                />
-                            </div>
-                        )
-                    })
+                            return (
+                                <div key={blockEntry.href} className="border rounded-lg">
+                                    <Playground
+                                        website={blockEntry.website}
+                                        block={blockEntry.block}
+                                        variant={blockEntry.name}
+                                        tags={blockEntry.tags}
+                                        href={blockEntry.href}
+                                        Preview={
+                                            <Suspense fallback={
+                                                <div className="flex items-center justify-center min-h-[33vh]">
+                                                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                                                </div>
+                                            }>
+                                                <Component />
+                                            </Suspense>
+                                        }
+                                    />
+                                </div>
+                            )
+                        })}
+
+                        {/* Infinite Scroll Trigger */}
+                        <div ref={observerTarget} className="col-span-full py-8 text-center">
+                            {displayCount < filteredBlocks.length && (
+                                <div className="flex items-center justify-center gap-2">
+                                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+                                    <span className="text-sm text-muted-foreground">
+                                        Loading more blocks... ({displayCount} of {filteredBlocks.length})
+                                    </span>
+                                </div>
+                            )}
+                            {displayCount >= filteredBlocks.length && filteredBlocks.length > 0 && (
+                                <span className="text-sm text-muted-foreground">
+                                    Showing all {filteredBlocks.length} blocks
+                                </span>
+                            )}
+                        </div>
+                    </>
                 )}
             </div>
         </div>

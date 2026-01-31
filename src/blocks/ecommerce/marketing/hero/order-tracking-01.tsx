@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative overflow-hidden bg-gradient-to-b from-orange-50 to-background dark:from-orange-950/20">
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20 @3xl:py-24">

@@ -17,7 +17,7 @@ interface Stat {
 }
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative overflow-hidden bg-background">
             <div className=" max-w-7xl relative mx-auto px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @2xl:py-20">

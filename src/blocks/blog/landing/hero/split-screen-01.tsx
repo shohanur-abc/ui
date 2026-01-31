@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative overflow-hidden bg-background py-12 @md:py-16 @xl:py-20 @3xl:py-24">
             <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-secondary/5" />

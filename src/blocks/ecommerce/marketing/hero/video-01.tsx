@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative min-h-screen flex items-center overflow-hidden">
             {/* Video Background */}

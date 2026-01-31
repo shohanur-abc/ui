@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative overflow-hidden bg-gradient-to-br from-amber-500 via-orange-500 to-red-500">
             <LoyaltyPattern />

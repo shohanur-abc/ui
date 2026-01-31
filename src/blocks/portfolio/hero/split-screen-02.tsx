@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { ComponentType, FC } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative min-h-screen flex items-center py-16 @md:py-20 @3xl:py-32 overflow-hidden">
             <BackgroundDecorative />

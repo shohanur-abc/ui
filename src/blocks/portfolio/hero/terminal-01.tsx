@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-background to-muted/30">
             <TerminalGrid />

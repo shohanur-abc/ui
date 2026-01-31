@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative overflow-hidden bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 text-white">
             <FlashPattern />

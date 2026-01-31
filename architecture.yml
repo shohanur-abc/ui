@@ -1,0 +1,95 @@
+name: Props-Driven Section Generation
+version: 1.1
+purpose: Generate creative Next.js UI sections with strict component composition rules.
+importance: These rules and guidelines are the single source of truth for all UI section generation tasks. Do not deviate from them in any way. Do not get confused by or follow any other structures..
+
+core_concepts:
+  - Parent: composition, layout, orchestration
+  - Children: implementation
+  - DataFlow: via props only; never hardcoded
+
+reusability:
+  question: Can I reuse this component in another page or project just by changing props?
+  yes: Component is self-contained and fully configurable via props.
+  no: Refactor to isolate logic and styles into the component.
+
+props_driven_design:
+  - NO hardcoded text inside reusable components
+  - All data must come via props
+  - example_usage: '<Eyebrow icon={Star} text="Product Designer" />'
+  - Reusable components must never hardcode text, numbers, labels, links, icons, etc.
+  - examples:
+      bad: 'const Title = () => <h1>Turning Ideas Into Reality</h1>'
+      good: 'const Title = ({ text }) => <h1>{text}</h1>'
+
+styles_guidelines:
+  - Use Tailwind CSS utility classes only
+  - Dark futuristic UI with black background, neon blue glow accents, radial gradient overlay, glassmorphism cards
+  - Monochromatic Accent UI or Single-Hue Accent System
+  - Consistency & Predictability (spacing, radius, motion, color usage)
+  - Design Tokens–first (colors, radius, shadow, motion as tokens, not ad-hoc)
+  - Subtle Motion, Not Flashy (micro-interactions > heavy animation)
+  - Hierarchy & Readability (clear visual hierarchy, controlled contrast)
+  - Accessibility-aware (focus-visible, contrast-safe glow, reduced motion)
+  - Density Control (enterprise UI = compact but breathable)
+  - State-driven UI (loading / empty / error / disabled states defined)
+  - Performance-safe Effects (GPU-friendly: transform, opacity only)
+  - Scalability (design should work for dashboards, tables, forms—not just landing)
+  - Restraint (glow is accent, not everywhere)
+  - One-line summary mindset: “Futuristic, but controlled. Premium, not flashy. Expressive, yet predictable.”
+  - dark: glow / tint / neon
+  - light: shadow / soft fill / low saturation
+  - Interaction states: hover/group-hover/focus/active: glow, shadow, scale transitions. (must use it)
+  - Decorative elements: subtle animated gradients, glowing borders, particle effects, light flares, etc. (optional). namaing convention: <*Decorative*/> (e.g. <GlowingBorderDecorative />, <AnimatedGradientDecorative />, etc.)
+  - theme:
+      - forbidden: 'never change color variables named (e.g. --color-primary, --color-accent) but you can change its value (e.g. --color-primary: oklch(0.145 0 0);)'
+      - create-custom-theme: to create a custom theme, you need to create a src/themes/<custom-theme>.css file and define your color variables there and import it in ./index.css. see examples src/themes/*.example.css
+      - implementation: '<section className="@container" data-theme="custom">...</section>'
+
+
+naming_conventions:
+  files: 'Use descriptive names reflecting section purpose: bento-03.tsx, split-screen-05.tsx, centered-05.tsx, tabs-01.tsx, zigzag-09.tsx, timeline-02.tsx, wizard-14.tsx, stacked-06.tsx, collapsible-04.tsx, card2x3.tsx, accordion-12.tsx, masonry-03.tsx, etc.'
+  folders: 'Use 3-layer structure: src/blocks/<website>/<group-of-similar-sections>/<SectionName>/*.tsx, where each SectionName folder contains all block variations (.tsx files) and a metadata.json.'
+  inside_code:
+    parent_component: 'export default function Main() { ... }'
+    child_component: 'const ComponentName = ({ prop1, prop2 }) => ( ... )'
+    common_props: 'items, label, href, icon, variant, text, src, alt, initials, value, etc. (use descriptive prop names reflecting their purpose)'
+
+components:
+  main_section:
+    syntax: '<section className="@container relative overflow-hidden" data-theme="custom"><div className="max-w-7xl mx-auto px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">...</div></section>'
+    rules:
+      - Layout: 'Use Layout classes: flex, grid, gap, padding, margin, max-width, width, height, etc.'
+      - Responsiveness: 'Use `@container` class as parent and responsive prefixes: @sm, @md, @lg, @xl, @2xl, @3xl, @4xl, @5xl, @6xl, @7xl.'
+      - Forbidden: 'No inline styles, hardcoded values, fixed widths/heights, absolute positioning unless necessary.'
+  common_child_components:
+    Eyebrow: '<Eyebrow icon={ComponentType} text="Descriptive Text" />'
+    Title: '<Title text="Main Title Text" highlight="Highlighted Text" />'
+    Subtitle: '<Subtitle text="Subtitle Text" />'
+    Description: '<Description text="To write multi-line descriptive text, you need to use the whitespace-pre-line class." />'
+    Button: '<CTA items=[{ label: "Statistic Label", href: "#projects", icon: ArrowRight, variant: "default" }, { label: "About Me", href: "#about", variant: "outline" }] />'
+    Image: '<HeroImage src="https://avatars.githubusercontent.com/u/252440198?v=4" alt="Description" initials="DP" />'
+    Statistics: '<Stats items=[{ label: "Projects Completed", value: "150+" }, { label: "Happy Clients", value: "100+" }] />'
+
+  common_use_cases of shadcn/ui components:
+  - Badge: 'Eyebrow, Badge'
+  - Button: 'CTA buttons'
+  - Card: 'Card, Product (note:Card"s default padding/margin may affect spacing)'
+  - Avatar: 'HeroImage, Profile Picture, User Icon, Avatar, etc.'
+  - InputGroup: 'Icon + Input, search bars, forms, etc.'
+  - Field: 'Forms, input fields, textareas, etc.'
+  - NavigationMenu: 'Navigation bars, menus, dropdowns, etc.'
+  - read_all_here: 'src/components/ui'
+
+output_expectations:
+  - production_ready_quality
+  - readable_and_maintainable
+  - easily_integratable_with_CMS_db_headless_data_sources
+
+show_examples:
+  - src/blocks/portfolio/hero/split-screen-06.tsx
+  - src/blocks/portfolio/feature/card-1x4-01.tsx
+
+before starting task:
+  - select or create a custom theme if needed
+  - Never write code manually if it already exists in src/components/ui

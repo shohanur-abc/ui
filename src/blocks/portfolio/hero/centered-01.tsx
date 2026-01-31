@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container min-h-[80vh] flex items-center">
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 w-full py-12 @md:py-16 @xl:py-20 @3xl:py-24">

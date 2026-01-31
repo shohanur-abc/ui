@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative overflow-hidden bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700">
             <VIPPattern />

@@ -7,7 +7,7 @@ import { ComponentType, FC } from 'react'
 
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container">
             <div className="grid @3xl:grid-cols-[1fr_1.1fr] gap-0 min-h-screen">

@@ -8,7 +8,7 @@ import { ComponentType, FC } from 'react'
 
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container">
             <div className="mx-auto px-4 @sm:px-6 @2xl:px-8">

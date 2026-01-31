@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative overflow-hidden">
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20 @3xl:py-24">

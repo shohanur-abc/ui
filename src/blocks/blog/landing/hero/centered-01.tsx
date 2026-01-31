@@ -5,7 +5,7 @@ import { ArrowRight, BookOpen, Mail, Sparkles, Users } from 'lucide-react'
 import { ComponentType } from 'react'
 
 
-export default function Component() {
+export default function Main() {
     return (
         <section className="@container relative overflow-hidden">
             <div className=" max-w-7xl relative mx-auto px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20 @3xl:py-24 bg-background ">
