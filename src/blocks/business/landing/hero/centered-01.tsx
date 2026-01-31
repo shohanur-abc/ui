@@ -6,7 +6,7 @@ import { ComponentType } from 'react'
 
 export default function Main() {
     return (
-        <section className="@container min-h-screen flex items-center" data-theme="business-neon">
+        <section className="@container min-h-screen flex items-center" data-theme="neon">
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32 w-full">
                 <div className="max-w-4xl mx-auto text-center">
                     <Eyebrow icon={Sparkles} text="Innovative Solutions" />

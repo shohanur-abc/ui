@@ -1,6 +1,6 @@
 "use client"
 
-import { Suspense, ComponentType, useState, useMemo, useRef, useEffect } from "react"
+import { Suspense, ComponentType, useState, useRef, useEffect, useMemo } from "react"
 import { useRouter } from "next/navigation"
 import { Playground } from "@/components/Playground"
 import { Combobox } from "../combobox"
@@ -10,7 +10,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { X, CalendarIcon } from "lucide-react"
 import type { IMetadataFlat } from "@/blocks/type"
-import dynamic from "next/dynamic"
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 
@@ -18,14 +17,19 @@ const ITEMS_PER_LOAD = 12
 
 // Lazy load block component
 const LazyBlock = ({ href }: { href: string }) => {
-    const Component = useMemo(() => {
-        return dynamic(() => import(`@/${href}.tsx`)
+    const [Component, setComponent] = useState<ComponentType | null>(null)
+
+    useEffect(() => {
+        import(`@/${href}.tsx`)
+            .then((mod) => setComponent(() => mod.default))
             .catch(() => {
-                // Return a fallback component if block import fails
-                return { default: () => <div className="p-4 text-red-500">Block not found: {href}</div> }
-            }), { ssr: false })
+                const ErrorComponent = () => <div className="p-4 text-red-500">Block not found: {href}</div>
+                ErrorComponent.displayName = 'BlockNotFound'
+                setComponent(() => ErrorComponent)
+            })
     }, [href])
 
+    if (!Component) return null
     return <Component />
 }
 

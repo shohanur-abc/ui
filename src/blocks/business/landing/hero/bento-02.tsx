@@ -7,7 +7,7 @@ import { ComponentType } from 'react'
 
 export default function Main() {
     return (
-        <section className="@container min-h-screen" data-theme="business-neon">
+        <section className="@container min-h-screen" data-theme="neon">
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
                 <div className="text-center mb-10 @md:mb-14">
                     <Eyebrow icon={Cpu} text="All-in-One Platform" />

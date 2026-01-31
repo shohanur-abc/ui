@@ -7,7 +7,7 @@ import { ComponentType } from 'react'
 
 export default function Main() {
     return (
-        <section className="@container min-h-screen flex items-center" data-theme="business-corporate">
+        <section className="@container min-h-screen flex items-center" data-theme="corporate">
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32 w-full">
                 <div className="grid @4xl:grid-cols-[1.2fr_1fr] gap-8 @xl:gap-12 items-center">
                     <BentoLayout items={[

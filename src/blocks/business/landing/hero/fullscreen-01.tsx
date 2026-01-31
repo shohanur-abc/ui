@@ -7,7 +7,7 @@ import { ComponentType } from 'react'
 
 export default function Main() {
     return (
-        <section className="@container min-h-screen relative overflow-hidden" data-theme="business-neon">
+        <section className="@container min-h-screen relative overflow-hidden" data-theme="neon">
             <FullscreenBackground 
                 image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop"
                 overlay

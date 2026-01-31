@@ -1,6 +1,5 @@
-@import "./minimal.example.css";
-@import "./business-neon.css";
-@import "./business-corporate.css";
-@import "./business-emerald.css";
-@import "./business-slate.css";
-@import "./business-amber.css";
+@import "./neon.css";
+@import "./corporate.css";
+@import "./emerald.css";
+@import "./slate.css";
+@import "./amber.css";

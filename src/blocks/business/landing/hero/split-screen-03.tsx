@@ -7,7 +7,7 @@ import { ComponentType } from 'react'
 
 export default function Main() {
     return (
-        <section className="@container min-h-screen" data-theme="business-corporate">
+        <section className="@container min-h-screen" data-theme="corporate">
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 h-full">
                 <div className="grid @3xl:grid-cols-2 min-h-screen gap-8 @xl:gap-16 items-center">
                     <div className="order-2 @3xl:order-1 py-8 @3xl:py-12">

@@ -6,7 +6,7 @@ import { ComponentType } from 'react'
 
 export default function Main() {
     return (
-        <section className="@container min-h-screen flex items-center relative overflow-hidden" data-theme="business-slate">
+        <section className="@container min-h-screen flex items-center relative overflow-hidden" data-theme="slate">
             <NewsletterDecorative />
             <div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32 w-full relative z-10">
                 <div className="max-w-2xl mx-auto text-center">
