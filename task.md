@@ -1,3 +1,24 @@
+1️⃣ File Naming Convention
+
+Must strictly follow layout-based names:
+
+✅ Examples: bento-03.tsx, split-screen-05.tsx, centered-05.tsx, tabs-01.tsx, zigzag-09.tsx, timeline-02.tsx, wizard, stacked-06.tsx, collapsible-04.tsx, card2x3, accordion-12.tsx and add more variants
+
+❌ Avoid generic/subjective names: beauty-01.tsx, modern-08.tsx, ai-design-01.tsx
+
+
+must follow this, very very important
+2️⃣ Component Styling Rules
+Never style the main component directly (export default function Component())
+
+Allowed: layout utility classes only: mx-auto, p-3, grid, flex, etc.
+
+For colors, typography, spacing, or functionality → pass as props
+
+
+3️⃣ Context Awareness
+Cannot fully mix unrelated categories, but Partial mixup is allowed where contextually relevant (e.g., placing testimonial or feature blocks under /hero if it makes sense)
+
 ### Requirements
 
 * Highly responsive, polished, professional UI
@@ -22,7 +43,7 @@
 * for visual appeal, use gradients, shadows, and hover effects tastefully, backdrop blur but avoid overuse
 * Build using `src/components/ui` as core primitives. Use shadcn/ui components wherever possible (e.g., Button, Card, Badge, Avatar, etc.)
 * Be careful about the default spacing of components, especially `src/components/ui/card.tsx` components.
-
+* use swiperjs for slideshow / carosel
 
 OTHER
 * 
@@ -60,3 +81,6 @@ OTHER
     alt="Taohid"
     />
 ```
+
+
+create 100x

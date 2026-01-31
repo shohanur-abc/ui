@@ -44,10 +44,10 @@ export const getFilteredBlocks = async (
 const storage = new Map<string, unknown>();
 
 export async function cache<T>(key: string, fn: () => Promise<T>): Promise<T> {
-    if (storage.has(key)) {
-        console.log(`Cache hit for key: ${key}`);
-        return storage.get(key) as T;
-    }
+    // if (storage.has(key)) {
+    //     console.log(`Cache hit for key: ${key}`);
+    //     return storage.get(key) as T;
+    // }
 
     const value = await fn();
     storage.set(key, value);
