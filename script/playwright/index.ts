@@ -21,5 +21,14 @@ Object.assign(pw, Query);
 Object.assign(pw, PlaywrightUtils);
 
 // Export all individual classes for direct use
-export { BrowserManager, Cookies, Export, Interact, Navigation, PageManager, Query, PlaywrightUtils as Utils };
+export {
+	BrowserManager,
+	Cookies,
+	Export,
+	Interact,
+	Navigation,
+	PageManager,
+	Query,
+	PlaywrightUtils as Utils,
+};
 export default pw;

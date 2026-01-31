@@ -1,142 +1,176 @@
-"use client"
+'use client';
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { Star, ShoppingCart, Heart, Truck, Shield, type LucideIcon } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import {
+	Star,
+	ShoppingCart,
+	Heart,
+	Truck,
+	Shield,
+	type LucideIcon,
+} from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface ProductImageProps {
-  src: string
-  alt: string
+	src: string;
+	alt: string;
 }
 
 interface HeaderProps {
-  category: string
-  name: string
+	category: string;
+	name: string;
 }
 
 interface RatingProps {
-  rating: number
-  reviews: number
+	rating: number;
+	reviews: number;
 }
 
 interface PriceProps {
-  current: string
-  original?: string
-  discount?: string
+	current: string;
+	original?: string;
+	discount?: string;
 }
 
 interface BenefitsProps {
-  benefits: { icon: LucideIcon; text: string }[]
+	benefits: { icon: LucideIcon; text: string }[];
 }
 
 interface ActionsProps {
-  buttons: { label: string; href: string; icon?: LucideIcon; variant?: "default" | "outline" }[]
+	buttons: {
+		label: string;
+		href: string;
+		icon?: LucideIcon;
+		variant?: 'default' | 'outline';
+	}[];
 }
 
 const ProductImage = ({ src, alt }: ProductImageProps) => (
-  <div className="relative aspect-[4/5] overflow-hidden bg-muted rounded-xl">
-    <Image src={src} alt={alt} fill className="object-cover" />
-  </div>
-)
+	<div className="relative aspect-[4/5] overflow-hidden bg-muted rounded-xl">
+		<Image src={src} alt={alt} fill className="object-cover" />
+	</div>
+);
 
 const Header = ({ category, name }: HeaderProps) => (
-  <div className="space-y-2">
-    <Badge variant="secondary">{category}</Badge>
-    <h1 className="text-2xl @sm:text-3xl font-bold tracking-tight">{name}</h1>
-  </div>
-)
+	<div className="space-y-2">
+		<Badge variant="secondary">{category}</Badge>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight">{name}</h1>
+	</div>
+);
 
 const Rating = ({ rating, reviews }: RatingProps) => (
-  <div className="flex items-center gap-2">
-    <div className="flex">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className={`size-4 ${i < rating ? "fill-yellow-400 text-yellow-400" : "fill-muted text-muted"}`} />
-      ))}
-    </div>
-    <span className="font-medium">{rating}</span>
-    <span className="text-sm text-muted-foreground">({reviews.toLocaleString()} reviews)</span>
-  </div>
-)
+	<div className="flex items-center gap-2">
+		<div className="flex">
+			{Array.from({ length: 5 }).map((_, i) => (
+				<Star
+					key={i}
+					className={`size-4 ${i < rating ? 'fill-yellow-400 text-yellow-400' : 'fill-muted text-muted'}`}
+				/>
+			))}
+		</div>
+		<span className="font-medium">{rating}</span>
+		<span className="text-sm text-muted-foreground">
+			({reviews.toLocaleString()} reviews)
+		</span>
+	</div>
+);
 
 const Price = ({ current, original, discount }: PriceProps) => (
-  <div className="flex items-center gap-3">
-    <span className="text-3xl font-bold text-primary">{current}</span>
-    {original && <span className="text-lg text-muted-foreground line-through">{original}</span>}
-    {discount && <Badge variant="destructive">{discount}</Badge>}
-  </div>
-)
+	<div className="flex items-center gap-3">
+		<span className="text-3xl font-bold text-primary">{current}</span>
+		{original && (
+			<span className="text-lg text-muted-foreground line-through">
+				{original}
+			</span>
+		)}
+		{discount && <Badge variant="destructive">{discount}</Badge>}
+	</div>
+);
 
 const Benefits = ({ benefits }: BenefitsProps) => (
-  <div className="flex gap-4">
-    {benefits.map((benefit, i) => (
-      <div key={i} className="flex items-center gap-2 text-sm">
-        <benefit.icon className="size-4 text-primary" />
-        <span>{benefit.text}</span>
-      </div>
-    ))}
-  </div>
-)
+	<div className="flex gap-4">
+		{benefits.map((benefit, i) => (
+			<div key={i} className="flex items-center gap-2 text-sm">
+				<benefit.icon className="size-4 text-primary" />
+				<span>{benefit.text}</span>
+			</div>
+		))}
+	</div>
+);
 
 const Actions = ({ buttons }: ActionsProps) => (
-  <div className="flex gap-3">
-    {buttons.map((btn, i) => (
-      <Button key={i} variant={btn.variant || "default"} size="lg" className={`gap-2 ${i === 0 ? "flex-1" : ""}`} asChild>
-        <Link href={btn.href}>
-          {btn.icon && <btn.icon className="size-4" />}
-          {btn.label}
-        </Link>
-      </Button>
-    ))}
-  </div>
-)
+	<div className="flex gap-3">
+		{buttons.map((btn, i) => (
+			<Button
+				key={i}
+				variant={btn.variant || 'default'}
+				size="lg"
+				className={`gap-2 ${i === 0 ? 'flex-1' : ''}`}
+				asChild
+			>
+				<Link href={btn.href}>
+					{btn.icon && <btn.icon className="size-4" />}
+					{btn.label}
+				</Link>
+			</Button>
+		))}
+	</div>
+);
 
 export default function Main() {
-  return (
-    <section className="@container relative overflow-hidden" data-theme="neon">
-      <div className="max-w-7xl mx-auto px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
-        <Card className="overflow-hidden bg-card/50 backdrop-blur border-muted">
-          <CardContent className="p-0">
-            <div className="grid @lg:grid-cols-2">
-              <ProductImage
-                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
-                alt="Nike sneakers"
-              />
+	return (
+		<section className="@container relative overflow-hidden" data-theme="neon">
+			<div className="max-w-7xl mx-auto px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
+				<Card className="overflow-hidden bg-card/50 backdrop-blur border-muted">
+					<CardContent className="p-0">
+						<div className="grid @lg:grid-cols-2">
+							<ProductImage
+								src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
+								alt="Nike sneakers"
+							/>
 
-              <div className="p-6 @lg:p-10 flex flex-col gap-5">
-                <Header category="Running" name="Nike Air Max 90" />
+							<div className="p-6 @lg:p-10 flex flex-col gap-5">
+								<Header category="Running" name="Nike Air Max 90" />
 
-                <Rating rating={5} reviews={8432} />
+								<Rating rating={5} reviews={8432} />
 
-                <Price current="$130" original="$160" discount="-19%" />
+								<Price current="$130" original="$160" discount="-19%" />
 
-                <Separator />
+								<Separator />
 
-                <Benefits
-                  benefits={[
-                    { icon: Truck, text: "Free Shipping" },
-                    { icon: Shield, text: "2-Year Warranty" },
-                  ]}
-                />
+								<Benefits
+									benefits={[
+										{ icon: Truck, text: 'Free Shipping' },
+										{ icon: Shield, text: '2-Year Warranty' },
+									]}
+								/>
 
-                <p className="text-muted-foreground leading-relaxed">
-                  Nothing as iconic satisfies like an icon. The Nike Air Max 90 stays true to its OG running roots with the iconic Waffle sole, stitched overlays and classic TPU details.
-                </p>
+								<p className="text-muted-foreground leading-relaxed">
+									Nothing as iconic satisfies like an icon. The Nike Air Max 90
+									stays true to its OG running roots with the iconic Waffle
+									sole, stitched overlays and classic TPU details.
+								</p>
 
-                <Actions
-                  buttons={[
-                    { label: "Add to Cart", href: "#cart", icon: ShoppingCart },
-                    { label: "Save", href: "#wishlist", icon: Heart, variant: "outline" },
-                  ]}
-                />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </section>
-  )
+								<Actions
+									buttons={[
+										{ label: 'Add to Cart', href: '#cart', icon: ShoppingCart },
+										{
+											label: 'Save',
+											href: '#wishlist',
+											icon: Heart,
+											variant: 'outline',
+										},
+									]}
+								/>
+							</div>
+						</div>
+					</CardContent>
+				</Card>
+			</div>
+		</section>
+	);
 }

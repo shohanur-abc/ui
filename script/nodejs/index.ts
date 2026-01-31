@@ -13,7 +13,6 @@ import { Validation } from './validation';
 import { DateUtil } from './date';
 import { Logger } from './log';
 
-
 // Programmatically copy all static methods from all modules
 export default class nj {}
 Object.assign(nj, File);
@@ -32,6 +31,19 @@ Object.assign(nj, DateUtil);
 Object.assign(nj, Logger);
 
 // Export all individual classes for direct use
-export { File, Directory, Metadata, Search, PathUtil, StringUtil, ArrayUtil, ObjectUtil, AsyncUtil, EnvUtil, Command, Validation, DateUtil, Logger };
-
-
+export {
+	File,
+	Directory,
+	Metadata,
+	Search,
+	PathUtil,
+	StringUtil,
+	ArrayUtil,
+	ObjectUtil,
+	AsyncUtil,
+	EnvUtil,
+	Command,
+	Validation,
+	DateUtil,
+	Logger,
+};

@@ -1,6 +1,6 @@
-import dynamic from "next/dynamic"
+import dynamic from 'next/dynamic';
 
-export default function BlockSinglePage({href}: {href: string}) {
-    const Comp = dynamic(() => import(`@/${href}.tsx`))
-    return <Comp />
+export default function BlockSinglePage({ href }: { href: string }) {
+	const Comp = dynamic(() => import(`@/${href}.tsx`));
+	return <Comp />;
 }

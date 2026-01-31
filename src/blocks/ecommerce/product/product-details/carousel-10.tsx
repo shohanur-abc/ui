@@ -1,197 +1,269 @@
-"use client"
+'use client';
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { Star, ShoppingCart, Heart, ChevronLeft, ChevronRight, Truck, Shield, RotateCcw, type LucideIcon } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import {
+	Star,
+	ShoppingCart,
+	Heart,
+	ChevronLeft,
+	ChevronRight,
+	Truck,
+	Shield,
+	RotateCcw,
+	type LucideIcon,
+} from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface FadeCarouselProps {
-  images: { src: string; alt: string }[]
-  currentIndex: number
+	images: { src: string; alt: string }[];
+	currentIndex: number;
 }
 
 interface HeaderProps {
-  brand: string
-  name: string
-  tagline: string
+	brand: string;
+	name: string;
+	tagline: string;
 }
 
 interface RatingProps {
-  rating: number
-  reviews: number
+	rating: number;
+	reviews: number;
 }
 
 interface PriceProps {
-  current: string
-  original?: string
-  discount?: string
+	current: string;
+	original?: string;
+	discount?: string;
 }
 
 interface TrustIconsProps {
-  items: { icon: LucideIcon; text: string }[]
+	items: { icon: LucideIcon; text: string }[];
 }
 
 interface ActionsProps {
-  buttons: { label: string; href: string; icon?: LucideIcon; variant?: "default" | "outline" }[]
+	buttons: {
+		label: string;
+		href: string;
+		icon?: LucideIcon;
+		variant?: 'default' | 'outline';
+	}[];
 }
 
 const FadeCarousel = ({ images, currentIndex }: FadeCarouselProps) => (
-  <div className="relative">
-    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 to-pink-100 dark:from-rose-950/30 dark:to-pink-950/30">
-      {images.map((image, i) => (
-        <div
-          key={i}
-          className={`absolute inset-0 transition-opacity duration-500 ${i === currentIndex ? "opacity-100" : "opacity-0"}`}
-        >
-          <Image src={image.src} alt={image.alt} fill className="object-cover" />
-        </div>
-      ))}
-    </div>
-    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4">
-      <Button variant="outline" size="icon" className="bg-background/80 backdrop-blur-sm">
-        <ChevronLeft className="size-4" />
-      </Button>
-      <div className="flex gap-2">
-        {images.map((_, i) => (
-          <div
-            key={i}
-            className={`size-2 rounded-full transition-colors ${i === currentIndex ? "bg-primary" : "bg-muted-foreground/30"}`}
-          />
-        ))}
-      </div>
-      <Button variant="outline" size="icon" className="bg-background/80 backdrop-blur-sm">
-        <ChevronRight className="size-4" />
-      </Button>
-    </div>
-  </div>
-)
+	<div className="relative">
+		<div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 to-pink-100 dark:from-rose-950/30 dark:to-pink-950/30">
+			{images.map((image, i) => (
+				<div
+					key={i}
+					className={`absolute inset-0 transition-opacity duration-500 ${i === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+				>
+					<Image
+						src={image.src}
+						alt={image.alt}
+						fill
+						className="object-cover"
+					/>
+				</div>
+			))}
+		</div>
+		<div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4">
+			<Button
+				variant="outline"
+				size="icon"
+				className="bg-background/80 backdrop-blur-sm"
+			>
+				<ChevronLeft className="size-4" />
+			</Button>
+			<div className="flex gap-2">
+				{images.map((_, i) => (
+					<div
+						key={i}
+						className={`size-2 rounded-full transition-colors ${i === currentIndex ? 'bg-primary' : 'bg-muted-foreground/30'}`}
+					/>
+				))}
+			</div>
+			<Button
+				variant="outline"
+				size="icon"
+				className="bg-background/80 backdrop-blur-sm"
+			>
+				<ChevronRight className="size-4" />
+			</Button>
+		</div>
+	</div>
+);
 
 const Header = ({ brand, name, tagline }: HeaderProps) => (
-  <div className="space-y-2">
-    <p className="text-sm text-primary font-medium uppercase tracking-wider">{brand}</p>
-    <h1 className="text-2xl @sm:text-3xl font-bold tracking-tight">{name}</h1>
-    <p className="text-muted-foreground">{tagline}</p>
-  </div>
-)
+	<div className="space-y-2">
+		<p className="text-sm text-primary font-medium uppercase tracking-wider">
+			{brand}
+		</p>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight">{name}</h1>
+		<p className="text-muted-foreground">{tagline}</p>
+	</div>
+);
 
 const Rating = ({ rating, reviews }: RatingProps) => (
-  <div className="flex items-center gap-2">
-    <div className="flex">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} className={`size-4 ${i < rating ? "fill-yellow-400 text-yellow-400" : "fill-muted text-muted"}`} />
-      ))}
-    </div>
-    <span className="font-medium">{rating}</span>
-    <span className="text-sm text-muted-foreground">({reviews.toLocaleString()} reviews)</span>
-  </div>
-)
+	<div className="flex items-center gap-2">
+		<div className="flex">
+			{Array.from({ length: 5 }).map((_, i) => (
+				<Star
+					key={i}
+					className={`size-4 ${i < rating ? 'fill-yellow-400 text-yellow-400' : 'fill-muted text-muted'}`}
+				/>
+			))}
+		</div>
+		<span className="font-medium">{rating}</span>
+		<span className="text-sm text-muted-foreground">
+			({reviews.toLocaleString()} reviews)
+		</span>
+	</div>
+);
 
 const Price = ({ current, original, discount }: PriceProps) => (
-  <div className="flex items-center gap-3">
-    <span className="text-3xl font-bold text-primary">{current}</span>
-    {original && <span className="text-lg text-muted-foreground line-through">{original}</span>}
-    {discount && <Badge variant="destructive">{discount}</Badge>}
-  </div>
-)
+	<div className="flex items-center gap-3">
+		<span className="text-3xl font-bold text-primary">{current}</span>
+		{original && (
+			<span className="text-lg text-muted-foreground line-through">
+				{original}
+			</span>
+		)}
+		{discount && <Badge variant="destructive">{discount}</Badge>}
+	</div>
+);
 
 const TrustIcons = ({ items }: TrustIconsProps) => (
-  <div className="flex flex-wrap gap-4">
-    {items.map((item, i) => (
-      <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-        <item.icon className="size-4 text-primary" />
-        <span>{item.text}</span>
-      </div>
-    ))}
-  </div>
-)
+	<div className="flex flex-wrap gap-4">
+		{items.map((item, i) => (
+			<div
+				key={i}
+				className="flex items-center gap-2 text-sm text-muted-foreground"
+			>
+				<item.icon className="size-4 text-primary" />
+				<span>{item.text}</span>
+			</div>
+		))}
+	</div>
+);
 
 const Actions = ({ buttons }: ActionsProps) => (
-  <div className="flex gap-3">
-    {buttons.map((btn, i) => (
-      <Button key={i} variant={btn.variant || "default"} size="lg" className={`gap-2 ${i === 0 ? "flex-1" : ""}`} asChild>
-        <Link href={btn.href}>
-          {btn.icon && <btn.icon className="size-4" />}
-          {btn.label}
-        </Link>
-      </Button>
-    ))}
-  </div>
-)
+	<div className="flex gap-3">
+		{buttons.map((btn, i) => (
+			<Button
+				key={i}
+				variant={btn.variant || 'default'}
+				size="lg"
+				className={`gap-2 ${i === 0 ? 'flex-1' : ''}`}
+				asChild
+			>
+				<Link href={btn.href}>
+					{btn.icon && <btn.icon className="size-4" />}
+					{btn.label}
+				</Link>
+			</Button>
+		))}
+	</div>
+);
 
 export default function Main() {
-  return (
-    <section className="@container relative overflow-hidden" data-theme="neon">
-      <div className="max-w-7xl mx-auto px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
-        <div className="grid @lg:grid-cols-2 gap-8 @xl:gap-12">
-          {/* Fade carousel */}
-          <FadeCarousel
-            images={[
-              { src: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800", alt: "Dress front" },
-              { src: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800", alt: "Dress back" },
-              { src: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800", alt: "Dress detail" },
-              { src: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800", alt: "Dress styled" },
-            ]}
-            currentIndex={0}
-          />
+	return (
+		<section className="@container relative overflow-hidden" data-theme="neon">
+			<div className="max-w-7xl mx-auto px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
+				<div className="grid @lg:grid-cols-2 gap-8 @xl:gap-12">
+					{/* Fade carousel */}
+					<FadeCarousel
+						images={[
+							{
+								src: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800',
+								alt: 'Dress front',
+							},
+							{
+								src: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800',
+								alt: 'Dress back',
+							},
+							{
+								src: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800',
+								alt: 'Dress detail',
+							},
+							{
+								src: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800',
+								alt: 'Dress styled',
+							},
+						]}
+						currentIndex={0}
+					/>
 
-          {/* Details */}
-          <div className="flex flex-col gap-5">
-            <Header
-              brand="Reformation"
-              name="Gavin Dress"
-              tagline="A timeless midi dress with a flattering silhouette"
-            />
+					{/* Details */}
+					<div className="flex flex-col gap-5">
+						<Header
+							brand="Reformation"
+							name="Gavin Dress"
+							tagline="A timeless midi dress with a flattering silhouette"
+						/>
 
-            <Rating rating={5} reviews={2341} />
+						<Rating rating={5} reviews={2341} />
 
-            <Price current="$278" original="$348" discount="-20%" />
+						<Price current="$278" original="$348" discount="-20%" />
 
-            <Separator />
+						<Separator />
 
-            <div className="space-y-3">
-              <p className="font-medium text-sm">Color: Black</p>
-              <div className="flex gap-2">
-                {["#000000", "#1e3a5f", "#722f37", "#f5f5f5"].map((color, i) => (
-                  <button
-                    key={i}
-                    className={`size-8 rounded-full border-2 ${i === 0 ? "border-primary ring-2 ring-primary/20" : "border-muted"}`}
-                    style={{ backgroundColor: color }}
-                  />
-                ))}
-              </div>
-            </div>
+						<div className="space-y-3">
+							<p className="font-medium text-sm">Color: Black</p>
+							<div className="flex gap-2">
+								{['#000000', '#1e3a5f', '#722f37', '#f5f5f5'].map(
+									(color, i) => (
+										<button
+											key={i}
+											className={`size-8 rounded-full border-2 ${i === 0 ? 'border-primary ring-2 ring-primary/20' : 'border-muted'}`}
+											style={{ backgroundColor: color }}
+										/>
+									),
+								)}
+							</div>
+						</div>
 
-            <div className="space-y-3">
-              <p className="font-medium text-sm">Size</p>
-              <div className="flex gap-2">
-                {["XS", "S", "M", "L", "XL"].map((size, i) => (
-                  <Button key={i} variant={i === 2 ? "default" : "outline"} size="sm" className="w-12">
-                    {size}
-                  </Button>
-                ))}
-              </div>
-            </div>
+						<div className="space-y-3">
+							<p className="font-medium text-sm">Size</p>
+							<div className="flex gap-2">
+								{['XS', 'S', 'M', 'L', 'XL'].map((size, i) => (
+									<Button
+										key={i}
+										variant={i === 2 ? 'default' : 'outline'}
+										size="sm"
+										className="w-12"
+									>
+										{size}
+									</Button>
+								))}
+							</div>
+						</div>
 
-            <TrustIcons
-              items={[
-                { icon: Truck, text: "Free shipping" },
-                { icon: RotateCcw, text: "Free returns" },
-                { icon: Shield, text: "Sustainably made" },
-              ]}
-            />
+						<TrustIcons
+							items={[
+								{ icon: Truck, text: 'Free shipping' },
+								{ icon: RotateCcw, text: 'Free returns' },
+								{ icon: Shield, text: 'Sustainably made' },
+							]}
+						/>
 
-            <Actions
-              buttons={[
-                { label: "Add to Cart", href: "#cart", icon: ShoppingCart },
-                { label: "Save", href: "#wishlist", icon: Heart, variant: "outline" },
-              ]}
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+						<Actions
+							buttons={[
+								{ label: 'Add to Cart', href: '#cart', icon: ShoppingCart },
+								{
+									label: 'Save',
+									href: '#wishlist',
+									icon: Heart,
+									variant: 'outline',
+								},
+							]}
+						/>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 }

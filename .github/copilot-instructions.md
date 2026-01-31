@@ -1,22 +1,27 @@
 # Verification Steps
 After every modification, ensure the following commands are executed to maintain code quality and functionality:
 
-1. **Lint the code**:  
+1. **Lint and check the code**:  
   ```bash
   bun run lint
   ```
 
-2. **Type-check the code**:  
+2. **Format the code**:  
+  ```bash
+  bun run format
+  ```
+
+3. **Type-check the code**:  
   ```bash
   bun run type-check
   ```
 
-3. **Run the development server**:  
+4. **Run the development server**:  
   ```bash
   bun dev
   ```
 
-4. **Build the project**:  
+5. **Build the project**:  
   ```bash
   bun build
   ```
