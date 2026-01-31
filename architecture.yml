@@ -106,10 +106,6 @@ props_driven_child_components:
     - ALL text, numbers, labels, links, icons, variants must come via props.
     - Components must NOT have hardcoded user-facing content.
     - Decorative/background elements are allowed ONLY inside child components.
-  bad_example: |
-    const Title = () => <h1>Turning Ideas Into Reality</h1>
-  good_example: |
-    const Title = ({ text }) => <h1>{text}</h1>
 
 array_driven_rendering:
   rule: >

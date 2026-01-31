@@ -16,16 +16,17 @@ import { cn } from "@/lib/utils"
 
 const ITEMS_PER_LOAD = 12
 
-// Dynamically import block component
-const importBlock = (href: string): ComponentType => {
-    // href format: "blocks/portfolio/hero/centered-01"
-    const importPath = `@/${href}`
+// Lazy load block component
+const LazyBlock = ({ href }: { href: string }) => {
+    const Component = useMemo(() => {
+        return dynamic(() => import(`@/${href}.tsx`)
+            .catch(() => {
+                // Return a fallback component if block import fails
+                return { default: () => <div className="p-4 text-red-500">Block not found: {href}</div> }
+            }), { ssr: false })
+    }, [href])
 
-    return dynamic(() => import(`@/${href}.tsx`)
-        .catch(() => {
-            // Return a fallback component if block import fails
-            return { default: () => <div className="p-4 text-red-500">Block not found: {href}</div> }
-        }))
+    return <Component />
 }
 
 interface ClientFiltersProps {
@@ -343,8 +344,6 @@ export function ClientFilters({
                 ) : (
                     <>
                         {visibleBlocks.map((blockEntry) => {
-                            const Component = importBlock(blockEntry.href)
-
                             return (
                                 <div key={blockEntry.href} className="border rounded-lg">
                                     <Playground
@@ -359,7 +358,7 @@ export function ClientFilters({
                                                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
                                                 </div>
                                             }>
-                                                <Component />
+                                                <LazyBlock href={blockEntry.href} />
                                             </Suspense>
                                         }
                                     />

@@ -1,0 +1,27 @@
+
+strictly follow #file:architecture.yml 
+keep in mind
+
+layout_in_main:
+  rule: >
+    LAYOUT CLASSES (grid, flex, spacing, padding, margin, responsive breakpoints, container widths) ARE ALLOWED IN MAIN.
+    YOU MUST NEVER PLACE HEADINGS, PARAGRAPHS, BUTTONS, CARDS, ICONS, IMAGES, OR DECORATIVE JSX IN MAIN RETURN.
+  rationale: >
+    Main component is a BLUEPRINT: decides “what blocks exist” and “where they go”.
+    Child components handle all UI, styling, and visuals.
+
+props_driven_child_components:
+  mandatory:
+    - ALL text, numbers, labels, links, icons, variants must come via props.
+    - Components must NOT have hardcoded user-facing content.
+    - Decorative/background elements are allowed ONLY inside child components.
+
+    before starting task:
+      - select or create a custom theme if needed
+      - Never write code manually if it already exists in src/components/ui
+      - Always prioritize components belonging to the block’s folder (high-priority). Completely irrelevant components (e.g., Testimonials, FAQ in Hero sections) must never be included in full. Partial or selective use of other components is allowed only if contextually appropriate and does not override the block’s core relevance.
+
+      naming_conventions:
+        files: 'Use descriptive names reflecting section purpose: bento-03.tsx, split-screen-05.tsx, centered-05.tsx, tabs-01.tsx, zigzag-09.tsx, timeline-02.tsx, wizard-14.tsx, stacked-06.tsx, collapsible-04.tsx, card2x3.tsx, accordion-12.tsx, masonry-03.tsx, etc.'
+      never do this: modern-01.tsx. bestsellter-01.tsx, coming-soon-01.tsx
+    
