@@ -1,0 +1,58 @@
+/* Settings Theme - Dark futuristic with purple/violet neon glow accents */
+[data-theme="settings"] {
+	--background: oklch(0.1 0.012 280);
+	--foreground: oklch(0.97 0.005 280);
+
+	--primary: oklch(0.68 0.18 280);
+	--primary-foreground: oklch(0.1 0.012 280);
+
+	--secondary: oklch(0.18 0.022 280);
+	--secondary-foreground: oklch(0.95 0.005 280);
+
+	--muted: oklch(0.16 0.016 280);
+	--muted-foreground: oklch(0.6 0.012 280);
+
+	--accent: oklch(0.62 0.16 300);
+	--accent-foreground: oklch(0.1 0.012 280);
+
+	--card: oklch(0.13 0.016 280);
+	--card-foreground: oklch(0.97 0.005 280);
+
+	--destructive: oklch(0.58 0.22 25);
+
+	--border: oklch(0.23 0.028 280);
+	--input: oklch(0.18 0.022 280);
+	--ring: oklch(0.68 0.18 280);
+
+	--chart-1: oklch(0.68 0.18 280);
+	--chart-2: oklch(0.62 0.16 300);
+	--chart-3: oklch(0.7 0.17 200);
+	--chart-4: oklch(0.65 0.18 145);
+	--chart-5: oklch(0.6 0.2 340);
+}
+
+.dark [data-theme="settings"] {
+	--background: oklch(0.08 0.012 280);
+	--foreground: oklch(0.98 0.005 280);
+
+	--primary: oklch(0.72 0.2 280);
+	--primary-foreground: oklch(0.08 0.012 280);
+
+	--secondary: oklch(0.15 0.022 280);
+	--secondary-foreground: oklch(0.95 0.005 280);
+
+	--muted: oklch(0.13 0.016 280);
+	--muted-foreground: oklch(0.55 0.012 280);
+
+	--accent: oklch(0.66 0.18 300);
+	--accent-foreground: oklch(0.08 0.012 280);
+
+	--card: oklch(0.11 0.016 280);
+	--card-foreground: oklch(0.98 0.005 280);
+
+	--destructive: oklch(0.62 0.24 25);
+
+	--border: oklch(0.21 0.028 280);
+	--input: oklch(0.15 0.022 280);
+	--ring: oklch(0.72 0.2 280);
+}
