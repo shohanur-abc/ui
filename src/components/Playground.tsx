@@ -227,7 +227,7 @@ const Head = ({ website, block, category, variant, tags, href }: { website?: str
             )}
 
 
-            {href && <Badge variant="outline" className="cursor-pointer border-2 border-violet-900 focus:ring-2 active:bg-violet-900 " onClick={() => navigator.clipboard.writeText(href)}>path</Badge>}
+            {href && <Badge variant="outline" className="cursor-pointer border-2 border-violet-900 focus:ring-2 active:bg-violet-900 " onClick={() => navigator.clipboard.writeText(href+".tsx")}>path</Badge>}
         </div>
     )
 }
