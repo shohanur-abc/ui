@@ -29,7 +29,9 @@ const CompactRadio = ({
 		</div>
 		<div className="flex items-center gap-3">
 			<span className="text-sm text-muted-foreground">{time}</span>
-			<span className={`font-bold ${free ? 'text-green-600 dark:text-green-400' : 'text-primary'}`}>
+			<span
+				className={`font-bold ${free ? 'text-green-600 dark:text-green-400' : 'text-primary'}`}
+			>
 				{price}
 			</span>
 		</div>
@@ -59,7 +61,9 @@ const DetailedRadio = ({
 				${bestValue ? 'ring-2 ring-primary/20' : ''}
 			`}
 		>
-			{bestValue && <Badge className="absolute -top-2.5 right-4">Best Value</Badge>}
+			{bestValue && (
+				<Badge className="absolute -top-2.5 right-4">Best Value</Badge>
+			)}
 			<div className="flex items-start gap-4">
 				<RadioGroupItem value={value} id={value} className="mt-1" />
 				<div className="flex-1">
@@ -86,7 +90,13 @@ const DetailedRadio = ({
 
 export default function Main() {
 	const compactOptions = [
-		{ value: 'free', name: 'Free Shipping', time: '7-10 days', price: 'Free', free: true },
+		{
+			value: 'free',
+			name: 'Free Shipping',
+			time: '7-10 days',
+			price: 'Free',
+			free: true,
+		},
 		{ value: 'standard', name: 'Standard', time: '5-7 days', price: '$5.99' },
 	];
 
@@ -104,7 +114,11 @@ export default function Main() {
 			name: 'Overnight',
 			time: 'Next business day',
 			price: '$24.99',
-			features: ['Guaranteed delivery', 'Signature required', 'Premium support'],
+			features: [
+				'Guaranteed delivery',
+				'Signature required',
+				'Premium support',
+			],
 		},
 	];
 
@@ -122,7 +136,9 @@ export default function Main() {
 				</div>
 
 				<div className="mb-6">
-					<h2 className="text-sm font-medium text-muted-foreground mb-3">ECONOMY OPTIONS</h2>
+					<h2 className="text-sm font-medium text-muted-foreground mb-3">
+						ECONOMY OPTIONS
+					</h2>
 					<RadioGroup defaultValue="free" className="space-y-2">
 						{compactOptions.map((option) => (
 							<CompactRadio key={option.value} {...option} />
@@ -133,7 +149,9 @@ export default function Main() {
 				<Separator className="my-6" />
 
 				<div>
-					<h2 className="text-sm font-medium text-muted-foreground mb-3">FAST DELIVERY</h2>
+					<h2 className="text-sm font-medium text-muted-foreground mb-3">
+						FAST DELIVERY
+					</h2>
 					<RadioGroup className="space-y-4">
 						{detailedOptions.map((option) => (
 							<DetailedRadio key={option.value} {...option} />

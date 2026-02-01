@@ -1,16 +1,17 @@
 'use client';
 
 import { Cell, Pie, PieChart, Bar, BarChart, XAxis, YAxis } from 'recharts';
-import {
-	Calendar,
-	Download,
-	FileText,
-	TrendingUp,
-} from 'lucide-react';
+import { Calendar, Download, FileText, TrendingUp } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	ChartConfig,
 	ChartContainer,
@@ -36,7 +37,10 @@ const ReportCard = ({ period, revenue, orders, growth }: ReportSummary) => (
 	<div className="rounded-xl border bg-card p-4">
 		<div className="flex items-center justify-between">
 			<p className="text-sm font-medium">{period}</p>
-			<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+			<Badge
+				variant="secondary"
+				className="bg-emerald-500/10 text-emerald-500 text-xs"
+			>
 				{growth}
 			</Badge>
 		</div>
@@ -63,9 +67,24 @@ const pieConfig: ChartConfig = {
 
 export default function Main() {
 	const monthlySummaries: ReportSummary[] = [
-		{ period: 'December 2024', revenue: '$98,432', orders: '2,521', growth: '+28%' },
-		{ period: 'November 2024', revenue: '$87,654', orders: '2,234', growth: '+22%' },
-		{ period: 'October 2024', revenue: '$76,543', orders: '1,987', growth: '+18%' },
+		{
+			period: 'December 2024',
+			revenue: '$98,432',
+			orders: '2,521',
+			growth: '+28%',
+		},
+		{
+			period: 'November 2024',
+			revenue: '$87,654',
+			orders: '2,234',
+			growth: '+22%',
+		},
+		{
+			period: 'October 2024',
+			revenue: '$76,543',
+			orders: '1,987',
+			growth: '+18%',
+		},
 	];
 
 	const quarterlySummaries: ReportSummary[] = [
@@ -98,7 +117,9 @@ export default function Main() {
 						<CardHeader className="flex-row items-center justify-between">
 							<div>
 								<CardTitle>Reports Dashboard</CardTitle>
-								<CardDescription>View and export performance reports</CardDescription>
+								<CardDescription>
+									View and export performance reports
+								</CardDescription>
 							</div>
 							<Button variant="outline" size="sm" className="gap-2">
 								<Download className="size-4" />
@@ -130,21 +151,47 @@ export default function Main() {
 									<div className="grid gap-6 @xl:grid-cols-2">
 										<div>
 											<p className="mb-4 text-sm font-medium">Sales Trend</p>
-											<ChartContainer config={salesConfig} className="h-[200px] w-full">
+											<ChartContainer
+												config={salesConfig}
+												className="h-[200px] w-full"
+											>
 												<BarChart data={salesData}>
-													<XAxis dataKey="month" tickLine={false} axisLine={false} />
-													<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v/1000}K`} />
+													<XAxis
+														dataKey="month"
+														tickLine={false}
+														axisLine={false}
+													/>
+													<YAxis
+														tickLine={false}
+														axisLine={false}
+														tickFormatter={(v) => `$${v / 1000}K`}
+													/>
 													<ChartTooltip content={<ChartTooltipContent />} />
-													<Bar dataKey="value" fill="var(--color-value)" radius={[4, 4, 0, 0]} />
+													<Bar
+														dataKey="value"
+														fill="var(--color-value)"
+														radius={[4, 4, 0, 0]}
+													/>
 												</BarChart>
 											</ChartContainer>
 										</div>
 										<div>
-											<p className="mb-4 text-sm font-medium">Sales by Category</p>
+											<p className="mb-4 text-sm font-medium">
+												Sales by Category
+											</p>
 											<div className="flex items-center gap-6">
-												<ChartContainer config={pieConfig} className="size-[160px]">
+												<ChartContainer
+													config={pieConfig}
+													className="size-[160px]"
+												>
 													<PieChart>
-														<Pie data={categoryData} dataKey="value" nameKey="name" innerRadius={45} outerRadius={70}>
+														<Pie
+															data={categoryData}
+															dataKey="value"
+															nameKey="name"
+															innerRadius={45}
+															outerRadius={70}
+														>
 															{categoryData.map((entry, index) => (
 																<Cell key={`cell-${index}`} fill={entry.fill} />
 															))}
@@ -154,9 +201,14 @@ export default function Main() {
 												<div className="space-y-2">
 													{categoryData.map((item, i) => (
 														<div key={i} className="flex items-center gap-2">
-															<div className="size-3 rounded-full" style={{ backgroundColor: item.fill }} />
+															<div
+																className="size-3 rounded-full"
+																style={{ backgroundColor: item.fill }}
+															/>
 															<span className="text-sm">{item.name}</span>
-															<span className="text-sm font-medium">{item.value}%</span>
+															<span className="text-sm font-medium">
+																{item.value}%
+															</span>
 														</div>
 													))}
 												</div>

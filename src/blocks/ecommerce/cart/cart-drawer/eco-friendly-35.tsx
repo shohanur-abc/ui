@@ -11,7 +11,17 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Check, Leaf, Minus, Package, Plus, Recycle, ShoppingBag, Truck, X } from 'lucide-react';
+import {
+	Check,
+	Leaf,
+	Minus,
+	Package,
+	Plus,
+	Recycle,
+	ShoppingBag,
+	Truck,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -103,7 +113,9 @@ const EcoOptionsSection = ({
 	<div className="space-y-3">
 		<div className="flex items-center gap-2">
 			<Leaf className="size-4 text-green-600" />
-			<span className="text-sm font-medium text-green-800 dark:text-green-200">{title}</span>
+			<span className="text-sm font-medium text-green-800 dark:text-green-200">
+				{title}
+			</span>
 		</div>
 		<div className="space-y-2">
 			{options.map((option) => (
@@ -126,7 +138,9 @@ const EcoOptionsSection = ({
 					</div>
 					<div className="flex-1">
 						<div className="flex items-center gap-2">
-							<span className={`${option.selected ? 'text-green-700 dark:text-green-300' : ''}`}>
+							<span
+								className={`${option.selected ? 'text-green-700 dark:text-green-300' : ''}`}
+							>
 								<EcoIcon type={option.icon} />
 							</span>
 							<h4 className="text-sm font-medium">{option.label}</h4>
@@ -164,7 +178,9 @@ const EcoSummary = ({
 					Total CO₂ Saved
 				</span>
 			</div>
-			<span className="font-bold text-green-700 dark:text-green-300">{co2Saved}</span>
+			<span className="font-bold text-green-700 dark:text-green-300">
+				{co2Saved}
+			</span>
 		</div>
 		<div className="flex justify-between text-lg">
 			<span className="font-medium">Total</span>
@@ -185,14 +201,16 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Sustainable Sneakers',
 				price: 149.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Eco Running Shoes',
 				price: 129.99,
 				quantity: 1,
@@ -230,11 +248,15 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const co2Saved = cartData.ecoOptions
-		.filter((o) => o.selected)
-		.reduce((sum, o) => sum + parseFloat(o.co2Saved), 0)
-		.toFixed(1) + 'kg';
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const co2Saved =
+		cartData.ecoOptions
+			.filter((o) => o.selected)
+			.reduce((sum, o) => sum + parseFloat(o.co2Saved), 0)
+			.toFixed(1) + 'kg';
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

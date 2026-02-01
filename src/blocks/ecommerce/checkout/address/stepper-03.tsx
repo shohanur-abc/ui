@@ -1,7 +1,13 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
@@ -12,12 +18,7 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
-import {
-	ArrowRight,
-	ArrowLeft,
-	Check,
-	Circle,
-} from 'lucide-react';
+import { ArrowRight, ArrowLeft, Check, Circle } from 'lucide-react';
 import { useState } from 'react';
 
 interface FieldProps {
@@ -160,7 +161,11 @@ const AddressForm = ({
 	states: { value: string; label: string }[];
 }) => (
 	<div className="space-y-4">
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apartment / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">

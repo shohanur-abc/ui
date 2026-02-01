@@ -69,7 +69,11 @@ const ChannelIcon = ({ channel }: { channel: SupportTicket['channel'] }) => {
 	);
 };
 
-const PriorityBadge = ({ priority }: { priority: SupportTicket['priority'] }) => {
+const PriorityBadge = ({
+	priority,
+}: {
+	priority: SupportTicket['priority'];
+}) => {
 	const config = {
 		urgent: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
 		high: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
@@ -78,7 +82,10 @@ const PriorityBadge = ({ priority }: { priority: SupportTicket['priority'] }) =>
 	};
 
 	return (
-		<Badge variant="outline" className={`text-xs uppercase ${config[priority]}`}>
+		<Badge
+			variant="outline"
+			className={`text-xs uppercase ${config[priority]}`}
+		>
 			{priority}
 		</Badge>
 	);
@@ -86,10 +93,22 @@ const PriorityBadge = ({ priority }: { priority: SupportTicket['priority'] }) =>
 
 const StatusBadge = ({ status }: { status: SupportTicket['status'] }) => {
 	const config = {
-		open: { label: 'Open', className: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
-		in_progress: { label: 'In Progress', className: 'bg-purple-500/20 text-purple-400 border-purple-500/30' },
-		waiting: { label: 'Waiting', className: 'bg-amber-500/20 text-amber-400 border-amber-500/30' },
-		resolved: { label: 'Resolved', className: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
+		open: {
+			label: 'Open',
+			className: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+		},
+		in_progress: {
+			label: 'In Progress',
+			className: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+		},
+		waiting: {
+			label: 'Waiting',
+			className: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+		},
+		resolved: {
+			label: 'Resolved',
+			className: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+		},
 	};
 
 	return (
@@ -115,7 +134,9 @@ const TicketCard = ({ ticket }: { ticket: SupportTicket }) => (
 						<PriorityBadge priority={ticket.priority} />
 						<StatusBadge status={ticket.status} />
 					</div>
-					<span className="text-xs text-muted-foreground">{ticket.timestamp}</span>
+					<span className="text-xs text-muted-foreground">
+						{ticket.timestamp}
+					</span>
 				</div>
 				<h4 className="font-medium text-foreground mb-1 line-clamp-1">
 					{ticket.subject}
@@ -173,17 +194,23 @@ const SupportStats = ({ stats }: { stats: SupportStreamProps['stats'] }) => (
 	<div className="grid grid-cols-3 gap-3">
 		<div className="flex flex-col p-3 rounded-lg bg-rose-500/10 border border-rose-500/20">
 			<AlertCircle className="size-4 text-rose-400 mb-1" />
-			<span className="text-xl font-bold text-rose-400">{stats.openTickets}</span>
+			<span className="text-xl font-bold text-rose-400">
+				{stats.openTickets}
+			</span>
 			<span className="text-xs text-muted-foreground">Open</span>
 		</div>
 		<div className="flex flex-col p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
 			<Clock className="size-4 text-blue-400 mb-1" />
-			<span className="text-xl font-bold text-blue-400">{stats.avgResponseTime}</span>
+			<span className="text-xl font-bold text-blue-400">
+				{stats.avgResponseTime}
+			</span>
 			<span className="text-xs text-muted-foreground">Avg Response</span>
 		</div>
 		<div className="flex flex-col p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
 			<CheckCircle2 className="size-4 text-emerald-400 mb-1" />
-			<span className="text-xl font-bold text-emerald-400">{stats.resolvedToday}</span>
+			<span className="text-xl font-bold text-emerald-400">
+				{stats.resolvedToday}
+			</span>
 			<span className="text-xs text-muted-foreground">Resolved</span>
 		</div>
 	</div>
@@ -233,7 +260,8 @@ export default function Main() {
 			customer: { name: 'Mike Johnson', initials: 'MJ' },
 			status: 'open',
 			waitTime: '15 min',
-			lastMessage: 'The product arrived broken and I need a refund or replacement.',
+			lastMessage:
+				'The product arrived broken and I need a refund or replacement.',
 			timestamp: '15m ago',
 		},
 		{

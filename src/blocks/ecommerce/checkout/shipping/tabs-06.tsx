@@ -79,13 +79,33 @@ const ShippingMethod = ({
 
 export default function Main() {
 	const savedAddresses = [
-		{ value: 'home', type: 'Home', name: 'John Doe', address: '123 Main St, New York, NY 10001' },
-		{ value: 'work', type: 'Work', name: 'John Doe', address: '456 Business Ave, New York, NY 10002' },
+		{
+			value: 'home',
+			type: 'Home',
+			name: 'John Doe',
+			address: '123 Main St, New York, NY 10001',
+		},
+		{
+			value: 'work',
+			type: 'Work',
+			name: 'John Doe',
+			address: '456 Business Ave, New York, NY 10002',
+		},
 	];
 
 	const shippingMethods = [
-		{ value: 'standard', name: 'Standard', time: '5-7 business days', price: 'Free' },
-		{ value: 'express', name: 'Express', time: '2-3 business days', price: '$12.99' },
+		{
+			value: 'standard',
+			name: 'Standard',
+			time: '5-7 business days',
+			price: 'Free',
+		},
+		{
+			value: 'express',
+			name: 'Express',
+			time: '2-3 business days',
+			price: '$12.99',
+		},
 	];
 
 	return (
@@ -118,8 +138,16 @@ export default function Main() {
 									<FormField label="First Name" placeholder="John" half />
 									<FormField label="Last Name" placeholder="Doe" half />
 								</div>
-								<FormField label="Email" placeholder="john@example.com" type="email" />
-								<FormField label="Phone" placeholder="+1 (555) 123-4567" type="tel" />
+								<FormField
+									label="Email"
+									placeholder="john@example.com"
+									type="email"
+								/>
+								<FormField
+									label="Phone"
+									placeholder="+1 (555) 123-4567"
+									type="tel"
+								/>
 							</CardContent>
 						</Card>
 
@@ -131,15 +159,24 @@ export default function Main() {
 								</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-4">
-								<FormField label="Street Address" placeholder="123 Main Street" />
-								<FormField label="Apartment, Suite, etc." placeholder="Apt 4B (optional)" />
+								<FormField
+									label="Street Address"
+									placeholder="123 Main Street"
+								/>
+								<FormField
+									label="Apartment, Suite, etc."
+									placeholder="Apt 4B (optional)"
+								/>
 								<div className="flex flex-col @sm:flex-row gap-4">
 									<FormField label="City" placeholder="New York" half />
 									<FormField label="ZIP Code" placeholder="10001" half />
 								</div>
 								<div className="flex items-center gap-2 pt-2">
 									<Checkbox id="save-address" />
-									<Label htmlFor="save-address" className="text-sm cursor-pointer">
+									<Label
+										htmlFor="save-address"
+										className="text-sm cursor-pointer"
+									>
 										Save this address for future orders
 									</Label>
 								</div>
@@ -184,7 +221,9 @@ export default function Main() {
 				</Card>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

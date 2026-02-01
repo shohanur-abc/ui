@@ -3,7 +3,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-type BudgetData = { label: string; allocated: number; spent: number; color: string };
+type BudgetData = {
+	label: string;
+	allocated: number;
+	spent: number;
+	color: string;
+};
 
 const BudgetDonut = ({ data }: { data: BudgetData }) => {
 	const percentage = (data.spent / data.allocated) * 100;
@@ -19,7 +24,14 @@ const BudgetDonut = ({ data }: { data: BudgetData }) => {
 		<div className="flex items-center gap-4 p-4 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors">
 			<div className="relative w-16 h-16 flex-shrink-0">
 				<svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-					<circle cx="50" cy="50" r={radius} fill="none" stroke="hsl(var(--muted))" strokeWidth={strokeWidth} />
+					<circle
+						cx="50"
+						cy="50"
+						r={radius}
+						fill="none"
+						stroke="hsl(var(--muted))"
+						strokeWidth={strokeWidth}
+					/>
 					<circle
 						cx="50"
 						cy="50"
@@ -29,11 +41,15 @@ const BudgetDonut = ({ data }: { data: BudgetData }) => {
 						strokeWidth={strokeWidth}
 						strokeLinecap="round"
 						strokeDasharray={circumference}
-						strokeDashoffset={circumference - (displayPercentage / 100) * circumference}
+						strokeDashoffset={
+							circumference - (displayPercentage / 100) * circumference
+						}
 					/>
 				</svg>
 				<div className="absolute inset-0 flex items-center justify-center">
-					<span className={`text-xs font-bold ${isOverBudget ? 'text-rose-500' : ''}`}>
+					<span
+						className={`text-xs font-bold ${isOverBudget ? 'text-rose-500' : ''}`}
+					>
 						{percentage.toFixed(0)}%
 					</span>
 				</div>
@@ -42,7 +58,9 @@ const BudgetDonut = ({ data }: { data: BudgetData }) => {
 				<div className="flex items-center justify-between">
 					<span className="text-sm font-medium truncate">{data.label}</span>
 					{isOverBudget && (
-						<Badge variant="destructive" className="text-xs ml-2">Over</Badge>
+						<Badge variant="destructive" className="text-xs ml-2">
+							Over
+						</Badge>
 					)}
 				</div>
 				<div className="flex items-center justify-between text-xs text-muted-foreground mt-1">
@@ -74,12 +92,21 @@ export default function Main() {
 					<CardHeader className="pb-2">
 						<div className="flex items-start justify-between">
 							<div>
-								<CardTitle className="text-sm font-medium">Budget Utilization</CardTitle>
-								<p className="text-xs text-muted-foreground">Department spending vs allocation</p>
+								<CardTitle className="text-sm font-medium">
+									Budget Utilization
+								</CardTitle>
+								<p className="text-xs text-muted-foreground">
+									Department spending vs allocation
+								</p>
 							</div>
 							<div className="text-right">
-								<p className="text-lg font-bold">${totalSpent.toLocaleString()}</p>
-								<p className="text-xs text-muted-foreground">of ${totalAllocated.toLocaleString()} ({((totalSpent / totalAllocated) * 100).toFixed(1)}%)</p>
+								<p className="text-lg font-bold">
+									${totalSpent.toLocaleString()}
+								</p>
+								<p className="text-xs text-muted-foreground">
+									of ${totalAllocated.toLocaleString()} (
+									{((totalSpent / totalAllocated) * 100).toFixed(1)}%)
+								</p>
 							</div>
 						</div>
 					</CardHeader>

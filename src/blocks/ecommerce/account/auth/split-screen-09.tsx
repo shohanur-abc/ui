@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Lock, User, ArrowRight, Crown, Star, Award, Diamond } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	ArrowRight,
+	Crown,
+	Star,
+	Award,
+	Diamond,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,7 +20,12 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 const TierPanel = ({
 	tiers,
 }: {
-	tiers: Array<{ name: string; icon: React.ElementType; benefits: string[]; color: string }>;
+	tiers: Array<{
+		name: string;
+		icon: React.ElementType;
+		benefits: string[];
+		color: string;
+	}>;
 }) => (
 	<div className="relative hidden @lg:flex flex-col justify-center p-8 @xl:p-12 bg-gradient-to-br from-muted/50 to-muted/30">
 		<h2 className="text-2xl font-bold mb-6">Member Tiers</h2>
@@ -32,7 +46,10 @@ const TierPanel = ({
 					</div>
 					<ul className="space-y-1.5">
 						{tier.benefits.map((benefit, j) => (
-							<li key={j} className="text-sm text-muted-foreground flex items-center gap-2">
+							<li
+								key={j}
+								className="text-sm text-muted-foreground flex items-center gap-2"
+							>
 								<Star className="size-3 text-primary" />
 								{benefit}
 							</li>
@@ -44,7 +61,13 @@ const TierPanel = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -55,7 +78,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -129,7 +154,11 @@ export default function Main() {
 			name: 'Gold',
 			icon: Crown,
 			color: '#f59e0b',
-			benefits: ['Free shipping always', '10% cashback', 'Early access to sales'],
+			benefits: [
+				'Free shipping always',
+				'10% cashback',
+				'Early access to sales',
+			],
 		},
 		{
 			name: 'Diamond',
@@ -145,17 +174,39 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="RewardsClub" icon={Crown} />
-						<Title text="Join our rewards program" subtitle="Start earning points with every purchase" />
+						<Title
+							text="Join our rewards program"
+							subtitle="Start earning points with every purchase"
+						/>
 
 						<form className="space-y-5">
-							<FormField label="Full Name" type="text" placeholder="John Doe" icon={User} />
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Full Name"
+								type="text"
+								placeholder="John Doe"
+								icon={User}
+							/>
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<SubmitButton label="Start Earning Rewards" icon={ArrowRight} />
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="Already a member?" linkText="Sign in" href="/login" />
+							<FooterLink
+								text="Already a member?"
+								linkText="Sign in"
+								href="/login"
+							/>
 						</div>
 					</div>
 				</div>

@@ -1,9 +1,25 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
-import { ShieldCheck, Lock, CreditCard, AlertTriangle, CheckCircle, XCircle, Eye, Ban } from 'lucide-react';
+import {
+	ShieldCheck,
+	Lock,
+	CreditCard,
+	AlertTriangle,
+	CheckCircle,
+	XCircle,
+	Eye,
+	Ban,
+} from 'lucide-react';
 
 interface FraudCheck {
 	name: string;
@@ -47,19 +63,43 @@ interface FraudCheckRowProps {
 }
 
 const RiskScoreIndicator = ({ score, level }: RiskScoreIndicatorProps) => {
-	const config: Record<typeof level, { color: string; bgColor: string; label: string }> = {
+	const config: Record<
+		typeof level,
+		{ color: string; bgColor: string; label: string }
+	> = {
 		low: { color: 'text-accent', bgColor: 'bg-accent', label: 'Low Risk' },
-		medium: { color: 'text-yellow-500', bgColor: 'bg-yellow-500', label: 'Medium Risk' },
-		high: { color: 'text-destructive', bgColor: 'bg-destructive', label: 'High Risk' },
+		medium: {
+			color: 'text-yellow-500',
+			bgColor: 'bg-yellow-500',
+			label: 'Medium Risk',
+		},
+		high: {
+			color: 'text-destructive',
+			bgColor: 'bg-destructive',
+			label: 'High Risk',
+		},
 	};
 	const { color, bgColor, label } = config[level];
 	return (
 		<div className="flex items-center gap-3">
 			<div className="relative size-16">
 				<svg className="size-16 -rotate-90">
-					<circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="4" className="text-muted/30" />
 					<circle
-						cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="4"
+						cx="32"
+						cy="32"
+						r="28"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="4"
+						className="text-muted/30"
+					/>
+					<circle
+						cx="32"
+						cy="32"
+						r="28"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="4"
 						strokeDasharray={`${score * 1.76} 176`}
 						className={color}
 					/>
@@ -77,7 +117,10 @@ const RiskScoreIndicator = ({ score, level }: RiskScoreIndicatorProps) => {
 };
 
 const FraudCheckRow = ({ check }: FraudCheckRowProps) => {
-	const icons: Record<FraudCheck['status'], { icon: typeof CheckCircle; className: string }> = {
+	const icons: Record<
+		FraudCheck['status'],
+		{ icon: typeof CheckCircle; className: string }
+	> = {
 		passed: { icon: CheckCircle, className: 'text-accent' },
 		warning: { icon: AlertTriangle, className: 'text-yellow-500' },
 		failed: { icon: XCircle, className: 'text-destructive' },
@@ -102,7 +145,9 @@ const InfoRow = ({ label, value }: { label: string; value: string }) => (
 );
 
 const SecureOrderCard = ({ order, labels }: SecureOrderCardProps) => (
-	<Card className={`border-border/50 bg-card/50 backdrop-blur-sm ${order.riskLevel === 'high' ? 'border-destructive/30' : ''}`}>
+	<Card
+		className={`border-border/50 bg-card/50 backdrop-blur-sm ${order.riskLevel === 'high' ? 'border-destructive/30' : ''}`}
+	>
 		<CardHeader className="pb-4">
 			<div className="flex items-start justify-between">
 				<div className="flex items-center gap-3">
@@ -115,7 +160,13 @@ const SecureOrderCard = ({ order, labels }: SecureOrderCardProps) => (
 					</div>
 				</div>
 				<Badge
-					variant={order.verificationStatus === 'verified' ? 'default' : order.verificationStatus === 'pending' ? 'secondary' : 'destructive'}
+					variant={
+						order.verificationStatus === 'verified'
+							? 'default'
+							: order.verificationStatus === 'pending'
+								? 'secondary'
+								: 'destructive'
+					}
 					className="gap-1"
 				>
 					<Lock className="size-3" />
@@ -127,11 +178,15 @@ const SecureOrderCard = ({ order, labels }: SecureOrderCardProps) => (
 			<div className="flex items-center gap-4">
 				<Avatar className="size-10">
 					<AvatarImage src={order.customer.avatar} alt={order.customer.name} />
-					<AvatarFallback className="bg-primary/10 text-primary">{order.customer.initials}</AvatarFallback>
+					<AvatarFallback className="bg-primary/10 text-primary">
+						{order.customer.initials}
+					</AvatarFallback>
 				</Avatar>
 				<div className="flex-1">
 					<p className="font-medium">{order.customer.name}</p>
-					<p className="text-sm text-muted-foreground">{order.customer.email}</p>
+					<p className="text-sm text-muted-foreground">
+						{order.customer.email}
+					</p>
 				</div>
 				<span className="text-xl font-bold">{order.amount}</span>
 			</div>
@@ -156,7 +211,10 @@ const SecureOrderCard = ({ order, labels }: SecureOrderCardProps) => (
 			</div>
 		</CardContent>
 		<CardFooter className="gap-3 border-t border-border/50">
-			<Button variant="ghost" className="flex-1 gap-1.5 text-muted-foreground hover:text-destructive hover:bg-destructive/10">
+			<Button
+				variant="ghost"
+				className="flex-1 gap-1.5 text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+			>
 				<Ban className="size-4" />
 				{labels.block}
 			</Button>
@@ -186,7 +244,12 @@ export default function Main() {
 
 	const order = {
 		id: 'ORD-2024-001',
-		customer: { name: 'John Smith', email: 'john.smith@email.com', avatar: '', initials: 'JS' },
+		customer: {
+			name: 'John Smith',
+			email: 'john.smith@email.com',
+			avatar: '',
+			initials: 'JS',
+		},
 		riskScore: 35,
 		riskLevel: 'medium' as const,
 		verificationStatus: 'pending' as const,
@@ -195,10 +258,26 @@ export default function Main() {
 		location: 'New York, US',
 		amount: '$1,249.00',
 		fraudChecks: [
-			{ name: 'Card Verification', status: 'passed' as const, detail: 'CVV and AVS match' },
-			{ name: 'IP Geolocation', status: 'warning' as const, detail: 'Different from billing address' },
-			{ name: 'Velocity Check', status: 'passed' as const, detail: 'Normal order frequency' },
-			{ name: 'Device Fingerprint', status: 'passed' as const, detail: 'Known device' },
+			{
+				name: 'Card Verification',
+				status: 'passed' as const,
+				detail: 'CVV and AVS match',
+			},
+			{
+				name: 'IP Geolocation',
+				status: 'warning' as const,
+				detail: 'Different from billing address',
+			},
+			{
+				name: 'Velocity Check',
+				status: 'passed' as const,
+				detail: 'Normal order frequency',
+			},
+			{
+				name: 'Device Fingerprint',
+				status: 'passed' as const,
+				detail: 'Known device',
+			},
 		],
 	};
 

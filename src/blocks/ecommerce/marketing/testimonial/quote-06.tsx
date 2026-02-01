@@ -72,7 +72,9 @@ const NumberedQuote = ({ item }: { item: TestimonialItem }) => (
 						</AvatarFallback>
 					</Avatar>
 					<div>
-						<p className="font-semibold text-sm text-foreground">{item.author}</p>
+						<p className="font-semibold text-sm text-foreground">
+							{item.author}
+						</p>
 						<p className="text-xs text-muted-foreground">
 							{item.role} · {item.company}
 						</p>
@@ -92,7 +94,8 @@ export default function Main() {
 			author: 'Jack Foster',
 			role: 'CEO',
 			company: 'FirstImpressions',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'JF',
 			rating: 5,
 		},
@@ -103,7 +106,8 @@ export default function Main() {
 			author: 'Kelly Chen',
 			role: 'CTO',
 			company: 'TechSecond',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'KC',
 			rating: 5,
 		},
@@ -114,14 +118,18 @@ export default function Main() {
 			author: 'Leo Park',
 			role: 'VP Engineering',
 			company: 'IntegratePro',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'LP',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Numbered"

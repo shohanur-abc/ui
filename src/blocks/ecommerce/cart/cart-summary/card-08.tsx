@@ -8,7 +8,13 @@ import {
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
-import { Gift, MessageSquare, Package, Sparkles, type LucideIcon } from 'lucide-react';
+import {
+	Gift,
+	MessageSquare,
+	Package,
+	Sparkles,
+	type LucideIcon,
+} from 'lucide-react';
 import Link from 'next/link';
 
 type SummaryRowProps = {
@@ -62,7 +68,13 @@ const SummaryRow = ({ label, value }: SummaryRowProps) => (
 
 export default function Main() {
 	const giftOptions: GiftOptionCardProps[] = [
-		{ id: 'wrap', icon: Gift, title: 'Gift Wrap', price: '+$7.99', enabled: true },
+		{
+			id: 'wrap',
+			icon: Gift,
+			title: 'Gift Wrap',
+			price: '+$7.99',
+			enabled: true,
+		},
 		{ id: 'message', icon: MessageSquare, title: 'Gift Note', price: 'Free' },
 		{ id: 'box', icon: Package, title: 'Gift Box', price: '+$14.99' },
 	];

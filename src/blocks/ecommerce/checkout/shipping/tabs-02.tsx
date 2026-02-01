@@ -22,21 +22,25 @@ const AddressCard = ({
 	isDefault?: boolean;
 }) => (
 	<Label htmlFor={value} className="cursor-pointer block">
-		<Card
-			className="transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
-		>
+		<Card className="transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
 			<CardContent className="p-4">
 				<div className="flex items-start gap-3">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
 					<div className="flex-1">
 						<div className="flex items-center gap-2 mb-1">
 							<span className="font-semibold">{name}</span>
-							{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+							{isDefault && (
+								<Badge variant="secondary" className="text-xs">
+									Default
+								</Badge>
+							)}
 						</div>
 						<p className="text-sm text-muted-foreground">{address}</p>
 						<p className="text-sm text-muted-foreground mt-1">{phone}</p>
 					</div>
-					<Button variant="ghost" size="sm">Edit</Button>
+					<Button variant="ghost" size="sm">
+						Edit
+					</Button>
 				</div>
 			</CardContent>
 		</Card>
@@ -57,9 +61,7 @@ const PickupLocation = ({
 	distance: string;
 }) => (
 	<Label htmlFor={value} className="cursor-pointer block">
-		<Card
-			className="transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
-		>
+		<Card className="transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
 			<CardContent className="p-4">
 				<div className="flex items-start gap-3">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
@@ -148,8 +150,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Delivery Options</h1>
-					<p className="text-muted-foreground">Where would you like to receive your order?</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Delivery Options
+					</h1>
+					<p className="text-muted-foreground">
+						Where would you like to receive your order?
+					</p>
 				</div>
 
 				<Tabs defaultValue="home" className="w-full">
@@ -201,7 +207,9 @@ export default function Main() {
 				</Tabs>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue</Button>
 				</div>
 			</div>

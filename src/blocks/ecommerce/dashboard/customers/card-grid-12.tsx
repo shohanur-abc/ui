@@ -15,7 +15,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	DropdownMenu,
@@ -55,13 +60,29 @@ interface BillingCustomer {
 }
 
 const StatusConfig = {
-	current: { label: 'Current', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-	overdue: { label: 'Overdue', className: 'bg-red-500/10 text-red-500 border-red-500/20' },
-	partial: { label: 'Partial Paid', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-	disputed: { label: 'Disputed', className: 'bg-violet-500/10 text-violet-500 border-violet-500/20' },
+	current: {
+		label: 'Current',
+		className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+	},
+	overdue: {
+		label: 'Overdue',
+		className: 'bg-red-500/10 text-red-500 border-red-500/20',
+	},
+	partial: {
+		label: 'Partial Paid',
+		className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+	},
+	disputed: {
+		label: 'Disputed',
+		className: 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+	},
 };
 
-const BillingStatusBadge = ({ status }: { status: BillingCustomer['billingStatus'] }) => (
+const BillingStatusBadge = ({
+	status,
+}: {
+	status: BillingCustomer['billingStatus'];
+}) => (
 	<Badge variant="outline" className={StatusConfig[status].className}>
 		{StatusConfig[status].label}
 	</Badge>
@@ -153,12 +174,16 @@ const InfoRow = ({
 			<Icon className="size-3.5" />
 			{label}
 		</span>
-		<span className={highlight ? 'font-semibold text-red-500' : 'font-medium'}>{value}</span>
+		<span className={highlight ? 'font-semibold text-red-500' : 'font-medium'}>
+			{value}
+		</span>
 	</div>
 );
 
 const BillingCard = ({ customer }: { customer: BillingCustomer }) => (
-	<Card className={`group transition-shadow hover:shadow-lg ${customer.billingStatus === 'overdue' ? 'border-red-500/30' : ''}`}>
+	<Card
+		className={`group transition-shadow hover:shadow-lg ${customer.billingStatus === 'overdue' ? 'border-red-500/30' : ''}`}
+	>
 		<CardHeader className="pb-3">
 			<div className="flex items-start justify-between">
 				<div className="flex items-center gap-3">
@@ -212,14 +237,22 @@ const BillingCard = ({ customer }: { customer: BillingCustomer }) => (
 				<div className="rounded-lg border bg-muted/30 p-2.5">
 					<p className="text-muted-foreground text-xs">Last Payment</p>
 					<p className="font-semibold">{customer.lastPayment.amount}</p>
-					<p className="text-muted-foreground text-xs">{customer.lastPayment.date}</p>
+					<p className="text-muted-foreground text-xs">
+						{customer.lastPayment.date}
+					</p>
 				</div>
-				<div className={`rounded-lg border p-2.5 ${customer.billingStatus === 'overdue' ? 'bg-red-500/10 border-red-500/30' : 'bg-muted/30'}`}>
+				<div
+					className={`rounded-lg border p-2.5 ${customer.billingStatus === 'overdue' ? 'bg-red-500/10 border-red-500/30' : 'bg-muted/30'}`}
+				>
 					<p className="text-muted-foreground text-xs">Next Due</p>
-					<p className={`font-semibold ${customer.billingStatus === 'overdue' ? 'text-red-500' : ''}`}>
+					<p
+						className={`font-semibold ${customer.billingStatus === 'overdue' ? 'text-red-500' : ''}`}
+					>
 						{customer.nextDue.amount}
 					</p>
-					<p className={`text-xs ${customer.billingStatus === 'overdue' ? 'text-red-400' : 'text-muted-foreground'}`}>
+					<p
+						className={`text-xs ${customer.billingStatus === 'overdue' ? 'text-red-400' : 'text-muted-foreground'}`}
+					>
 						{customer.nextDue.date}
 					</p>
 				</div>
@@ -259,7 +292,11 @@ export default function Main() {
 			currentBalance: '$4,250',
 			creditLimit: '$10,000',
 			creditUsed: 42,
-			lastPayment: { amount: '$1,500', date: 'Jan 15, 2024', method: 'Bank Transfer' },
+			lastPayment: {
+				amount: '$1,500',
+				date: 'Jan 15, 2024',
+				method: 'Bank Transfer',
+			},
 			nextDue: { amount: '$2,000', date: 'Feb 15, 2024' },
 			paymentHistory: { onTime: 18, late: 2, missed: 0 },
 			outstandingInvoices: 1,
@@ -275,7 +312,11 @@ export default function Main() {
 			currentBalance: '$8,750',
 			creditLimit: '$10,000',
 			creditUsed: 87,
-			lastPayment: { amount: '$500', date: 'Dec 10, 2023', method: 'Credit Card' },
+			lastPayment: {
+				amount: '$500',
+				date: 'Dec 10, 2023',
+				method: 'Credit Card',
+			},
 			nextDue: { amount: '$3,500', date: 'Overdue 15 days' },
 			paymentHistory: { onTime: 8, late: 5, missed: 2 },
 			outstandingInvoices: 3,
@@ -307,7 +348,11 @@ export default function Main() {
 			currentBalance: '$2,100',
 			creditLimit: '$7,500',
 			creditUsed: 28,
-			lastPayment: { amount: '$2,500', date: 'Jan 5, 2024', method: 'Bank Transfer' },
+			lastPayment: {
+				amount: '$2,500',
+				date: 'Jan 5, 2024',
+				method: 'Bank Transfer',
+			},
 			nextDue: { amount: '$1,500', date: 'Feb 5, 2024' },
 			paymentHistory: { onTime: 20, late: 1, missed: 0 },
 			outstandingInvoices: 1,
@@ -323,7 +368,11 @@ export default function Main() {
 			currentBalance: '$1,500',
 			creditLimit: '$15,000',
 			creditUsed: 10,
-			lastPayment: { amount: '$5,000', date: 'Jan 25, 2024', method: 'Wire Transfer' },
+			lastPayment: {
+				amount: '$5,000',
+				date: 'Jan 25, 2024',
+				method: 'Wire Transfer',
+			},
 			nextDue: { amount: '$1,500', date: 'Feb 25, 2024' },
 			paymentHistory: { onTime: 24, late: 0, missed: 0 },
 			outstandingInvoices: 0,
@@ -355,8 +404,12 @@ export default function Main() {
 						<Receipt className="size-5" />
 					</div>
 					<div>
-						<h1 className="text-2xl font-bold tracking-tight">Billing & Payments</h1>
-						<p className="text-muted-foreground text-sm">Monitor customer billing status and payment history</p>
+						<h1 className="text-2xl font-bold tracking-tight">
+							Billing & Payments
+						</h1>
+						<p className="text-muted-foreground text-sm">
+							Monitor customer billing status and payment history
+						</p>
 					</div>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-3">

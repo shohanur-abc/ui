@@ -15,7 +15,10 @@ type PeriodComparisonCardProps = {
 	periods: PeriodData[];
 };
 
-const PeriodComparisonCard = ({ title, periods }: PeriodComparisonCardProps) => (
+const PeriodComparisonCard = ({
+	title,
+	periods,
+}: PeriodComparisonCardProps) => (
 	<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
 		<CardHeader className="flex flex-row items-center gap-3 pb-4">
 			<div className="p-2 rounded-lg bg-primary/10 text-primary">

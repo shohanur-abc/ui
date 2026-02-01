@@ -56,13 +56,7 @@ type TaxExemption = {
 	validUntil: string;
 };
 
-const TaxRateRow = ({
-	region,
-	country,
-	rate,
-	type,
-	enabled,
-}: TaxRate) => (
+const TaxRateRow = ({ region, country, rate, type, enabled }: TaxRate) => (
 	<TableRow>
 		<TableCell>
 			<div className="flex items-center gap-2">
@@ -86,11 +80,7 @@ const TaxRateRow = ({
 	</TableRow>
 );
 
-const ExemptionCard = ({
-	name,
-	reason,
-	validUntil,
-}: TaxExemption) => (
+const ExemptionCard = ({ name, reason, validUntil }: TaxExemption) => (
 	<div className="flex items-center justify-between rounded-lg border p-4">
 		<div>
 			<h4 className="font-medium">{name}</h4>
@@ -107,16 +97,61 @@ const ExemptionCard = ({
 
 export default function Main() {
 	const taxRates: TaxRate[] = [
-		{ id: '1', region: 'California', country: 'United States', rate: '7.25%', type: 'Sales Tax', enabled: true },
-		{ id: '2', region: 'New York', country: 'United States', rate: '8.875%', type: 'Sales Tax', enabled: true },
-		{ id: '3', region: 'European Union', country: 'EU', rate: '20%', type: 'VAT', enabled: true },
-		{ id: '4', region: 'United Kingdom', country: 'UK', rate: '20%', type: 'VAT', enabled: false },
-		{ id: '5', region: 'Australia', country: 'Australia', rate: '10%', type: 'GST', enabled: true },
+		{
+			id: '1',
+			region: 'California',
+			country: 'United States',
+			rate: '7.25%',
+			type: 'Sales Tax',
+			enabled: true,
+		},
+		{
+			id: '2',
+			region: 'New York',
+			country: 'United States',
+			rate: '8.875%',
+			type: 'Sales Tax',
+			enabled: true,
+		},
+		{
+			id: '3',
+			region: 'European Union',
+			country: 'EU',
+			rate: '20%',
+			type: 'VAT',
+			enabled: true,
+		},
+		{
+			id: '4',
+			region: 'United Kingdom',
+			country: 'UK',
+			rate: '20%',
+			type: 'VAT',
+			enabled: false,
+		},
+		{
+			id: '5',
+			region: 'Australia',
+			country: 'Australia',
+			rate: '10%',
+			type: 'GST',
+			enabled: true,
+		},
 	];
 
 	const exemptions: TaxExemption[] = [
-		{ id: '1', name: 'Non-Profit Organization', reason: 'Tax-exempt status 501(c)(3)', validUntil: 'Dec 31, 2026' },
-		{ id: '2', name: 'Reseller Certificate', reason: 'Wholesale purchases exempt', validUntil: 'Jun 30, 2026' },
+		{
+			id: '1',
+			name: 'Non-Profit Organization',
+			reason: 'Tax-exempt status 501(c)(3)',
+			validUntil: 'Dec 31, 2026',
+		},
+		{
+			id: '2',
+			name: 'Reseller Certificate',
+			reason: 'Wholesale purchases exempt',
+			validUntil: 'Jun 30, 2026',
+		},
 	];
 
 	return (
@@ -197,7 +232,9 @@ export default function Main() {
 											<SelectValue placeholder="Select default" />
 										</SelectTrigger>
 										<SelectContent>
-											<SelectItem value="auto">Auto-detect by location</SelectItem>
+											<SelectItem value="auto">
+												Auto-detect by location
+											</SelectItem>
 											<SelectItem value="us">US Sales Tax</SelectItem>
 											<SelectItem value="eu">EU VAT</SelectItem>
 											<SelectItem value="none">No Tax</SelectItem>
@@ -231,10 +268,14 @@ export default function Main() {
 							<div>
 								<h4 className="font-semibold">Tax Compliance</h4>
 								<p className="mt-1 text-sm text-muted-foreground">
-									Tax laws vary by region. Consult with a tax professional to ensure
-									compliance with local tax regulations.
+									Tax laws vary by region. Consult with a tax professional to
+									ensure compliance with local tax regulations.
 								</p>
-								<Button variant="link" size="sm" className="mt-2 h-auto p-0 gap-2">
+								<Button
+									variant="link"
+									size="sm"
+									className="mt-2 h-auto p-0 gap-2"
+								>
 									Learn more about tax compliance
 									<ExternalLink className="size-3" />
 								</Button>

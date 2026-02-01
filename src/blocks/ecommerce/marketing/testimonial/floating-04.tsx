@@ -95,7 +95,9 @@ const BubbleCard = ({
 						</AvatarFallback>
 					</Avatar>
 					<div>
-						<p className="font-semibold text-xs text-foreground">{item.author}</p>
+						<p className="font-semibold text-xs text-foreground">
+							{item.author}
+						</p>
 						<p className="text-[10px] text-muted-foreground">{item.company}</p>
 					</div>
 				</div>
@@ -114,62 +116,63 @@ export default function Main() {
 			author: 'Emma Chen',
 			role: 'CEO',
 			company: 'BubbleTech',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'EC',
 			rating: 5,
 			size: 'large',
 		},
 		{
-			quote:
-				'Outstanding support team. Always responsive.',
+			quote: 'Outstanding support team. Always responsive.',
 			author: 'Frank Park',
 			role: 'COO',
 			company: 'SupportCo',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'FP',
 			rating: 5,
 			size: 'small',
 		},
 		{
-			quote:
-				'Security is top-notch. Passed all our compliance audits.',
+			quote: 'Security is top-notch. Passed all our compliance audits.',
 			author: 'Grace Lee',
 			role: 'CISO',
 			company: 'SecureBubble',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'GL',
 			rating: 5,
 			size: 'small',
 		},
 		{
-			quote:
-				'Integration was seamless. We were up and running quickly.',
+			quote: 'Integration was seamless. We were up and running quickly.',
 			author: 'Henry Kim',
 			role: 'CTO',
 			company: 'IntegratePro',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'HK',
 			rating: 5,
 			size: 'medium',
 		},
 		{
-			quote:
-				'ROI was visible within 30 days. Best investment.',
+			quote: 'ROI was visible within 30 days. Best investment.',
 			author: 'Iris Foster',
 			role: 'CFO',
 			company: 'ROIMasters',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'IF',
 			rating: 5,
 			size: 'small',
 		},
 		{
-			quote:
-				'Scales perfectly. We went from startup to enterprise.',
+			quote: 'Scales perfectly. We went from startup to enterprise.',
 			author: 'Jack Davis',
 			role: 'VP Engineering',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'JD',
 			rating: 5,
 			size: 'medium',
@@ -177,7 +180,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Interactive Bubbles"

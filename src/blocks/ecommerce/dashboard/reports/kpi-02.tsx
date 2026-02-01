@@ -1,6 +1,13 @@
 'use client';
 
-import { ArrowUpRight, ArrowDownRight, Target, TrendingUp, BarChart3, Zap } from 'lucide-react';
+import {
+	ArrowUpRight,
+	ArrowDownRight,
+	Target,
+	TrendingUp,
+	BarChart3,
+	Zap,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 import {
@@ -22,7 +29,15 @@ type GoalKPIProps = {
 	trendValue: string;
 };
 
-const GoalKPI = ({ icon: Icon, title, current, target, progress, trend, trendValue }: GoalKPIProps) => (
+const GoalKPI = ({
+	icon: Icon,
+	title,
+	current,
+	target,
+	progress,
+	trend,
+	trendValue,
+}: GoalKPIProps) => (
 	<Card className="border-border/30 bg-card/60">
 		<CardContent className="p-5">
 			<div className="flex items-center justify-between">
@@ -51,7 +66,9 @@ const GoalKPI = ({ icon: Icon, title, current, target, progress, trend, trendVal
 					<span className="text-sm text-muted-foreground">of {target}</span>
 				</div>
 				<Progress value={progress} className="mt-3 h-2" />
-				<p className="mt-2 text-xs text-muted-foreground">{progress}% of target achieved</p>
+				<p className="mt-2 text-xs text-muted-foreground">
+					{progress}% of target achieved
+				</p>
 			</div>
 		</CardContent>
 	</Card>

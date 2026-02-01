@@ -1,12 +1,31 @@
-import { Package, Shield, Gift, Leaf, Clock, Check, Info, HelpCircle } from 'lucide-react';
+import {
+	Package,
+	Shield,
+	Gift,
+	Leaf,
+	Clock,
+	Check,
+	Info,
+	HelpCircle,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 const AddonAccordion = ({
 	value,
@@ -25,7 +44,10 @@ const AddonAccordion = ({
 	details: string[];
 	recommended?: boolean;
 }) => (
-	<AccordionItem value={value} className={`border rounded-xl ${recommended ? 'ring-2 ring-primary/30' : ''}`}>
+	<AccordionItem
+		value={value}
+		className={`border rounded-xl ${recommended ? 'ring-2 ring-primary/30' : ''}`}
+	>
 		<div className="flex items-center gap-3 px-4 py-3">
 			<Checkbox id={value} />
 			<AccordionTrigger className="hover:no-underline flex-1 py-0">
@@ -120,8 +142,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Shipping Add-ons</h1>
-					<p className="text-muted-foreground">Customize your shipping experience</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Shipping Add-ons
+					</h1>
+					<p className="text-muted-foreground">
+						Customize your shipping experience
+					</p>
 				</div>
 
 				<TooltipProvider>
@@ -152,7 +178,9 @@ export default function Main() {
 				</div>
 
 				<div className="flex gap-3">
-					<Button variant="outline" className="flex-1">Skip Add-ons</Button>
+					<Button variant="outline" className="flex-1">
+						Skip Add-ons
+					</Button>
 					<Button className="flex-1">Continue with Add-ons</Button>
 				</div>
 			</div>

@@ -234,8 +234,7 @@ export default function Main() {
 			trackingNumber: '1Z999AA10123456784',
 			customer: 'Mike Johnson',
 			destination: 'Los Angeles, CA',
-			message:
-				'Weather delay - Package stuck at Denver hub due to snowstorm.',
+			message: 'Weather delay - Package stuck at Denver hub due to snowstorm.',
 			eta: 'Mar 20 (was Mar 18)',
 			timestamp: '1 hour ago',
 		},
@@ -270,8 +269,7 @@ export default function Main() {
 			trackingNumber: '111222333444',
 			customer: 'Jordan Lee',
 			destination: 'Seattle, WA',
-			message:
-				'Package returned to sender - Customer refused delivery.',
+			message: 'Package returned to sender - Customer refused delivery.',
 			timestamp: '5 hours ago',
 		},
 	];

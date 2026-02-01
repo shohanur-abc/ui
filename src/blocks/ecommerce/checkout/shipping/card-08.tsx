@@ -40,9 +40,7 @@ const SpeedCard = ({
 		`}
 		onClick={onSelect}
 	>
-		{badge && (
-			<Badge className="absolute top-4 right-4">{badge}</Badge>
-		)}
+		{badge && <Badge className="absolute top-4 right-4">{badge}</Badge>}
 		<CardHeader className="pb-0">
 			<div className="flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/60 text-primary-foreground shadow-lg shadow-primary/30">
 				<Icon className="size-7" />
@@ -89,7 +87,11 @@ export default function Main() {
 			time: '5-7 business days',
 			price: '$5.99',
 			description: 'Reliable ground shipping',
-			features: ['Package tracking', 'Delivery confirmation', 'Standard packaging'],
+			features: [
+				'Package tracking',
+				'Delivery confirmation',
+				'Standard packaging',
+			],
 		},
 		{
 			icon: Truck,
@@ -97,7 +99,11 @@ export default function Main() {
 			time: '2-3 business days',
 			price: '$14.99',
 			description: 'Fast and dependable',
-			features: ['Priority handling', 'Real-time tracking', 'Insurance included'],
+			features: [
+				'Priority handling',
+				'Real-time tracking',
+				'Insurance included',
+			],
 			highlighted: true,
 			badge: 'Best Value',
 		},
@@ -107,7 +113,11 @@ export default function Main() {
 			time: 'Next business day',
 			price: '$29.99',
 			description: 'When time is critical',
-			features: ['Next-day guarantee', 'Premium packaging', 'Signature delivery'],
+			features: [
+				'Next-day guarantee',
+				'Premium packaging',
+				'Signature delivery',
+			],
 		},
 	];
 
@@ -116,7 +126,9 @@ export default function Main() {
 			<GlowDecorative />
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-12">
-					<h1 className="text-4xl font-bold tracking-tight mb-3">How Fast Do You Need It?</h1>
+					<h1 className="text-4xl font-bold tracking-tight mb-3">
+						How Fast Do You Need It?
+					</h1>
 					<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
 						Choose the delivery speed that fits your schedule
 					</p>

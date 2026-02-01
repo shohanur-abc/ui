@@ -1,12 +1,12 @@
-import { 
-	Check, 
-	Copy, 
-	Eye, 
-	EyeOff, 
-	Key, 
-	Plus, 
-	RefreshCw, 
-	Settings, 
+import {
+	Check,
+	Copy,
+	Eye,
+	EyeOff,
+	Key,
+	Plus,
+	RefreshCw,
+	Settings,
 	Trash2,
 	AlertTriangle,
 } from 'lucide-react';
@@ -82,7 +82,11 @@ const ApiKeyRow = ({
 		<TableCell>
 			<Badge
 				variant={status === 'active' ? 'default' : 'secondary'}
-				className={status === 'active' ? 'bg-emerald-500/10 text-emerald-500 border-0' : ''}
+				className={
+					status === 'active'
+						? 'bg-emerald-500/10 text-emerald-500 border-0'
+						: ''
+				}
 			>
 				{status}
 			</Badge>
@@ -243,8 +247,8 @@ export default function Main() {
 							<div className="flex-1">
 								<h4 className="font-medium">API Rate Limits</h4>
 								<p className="mt-1 text-sm text-muted-foreground">
-									You have used 8,432 of 10,000 requests this month. Consider upgrading
-									for higher limits.
+									You have used 8,432 of 10,000 requests this month. Consider
+									upgrading for higher limits.
 								</p>
 							</div>
 							<Button variant="outline" size="sm">

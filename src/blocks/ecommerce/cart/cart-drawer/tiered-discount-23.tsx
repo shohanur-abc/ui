@@ -54,10 +54,13 @@ const TierProgress = ({
 	tiers: Tier[];
 	currentSpend: number;
 }) => {
-	const activeTier = tiers.reduce((active, tier) => {
-		if (currentSpend >= tier.minSpend) return tier;
-		return active;
-	}, null as Tier | null);
+	const activeTier = tiers.reduce(
+		(active, tier) => {
+			if (currentSpend >= tier.minSpend) return tier;
+			return active;
+		},
+		null as Tier | null,
+	);
 
 	const nextTier = tiers.find((tier) => currentSpend < tier.minSpend);
 
@@ -141,10 +144,13 @@ const TieredSummary = ({
 	tiers: Tier[];
 	checkoutLabel: string;
 }) => {
-	const activeTier = tiers.reduce((active, tier) => {
-		if (subtotal >= tier.minSpend) return tier;
-		return active;
-	}, null as Tier | null);
+	const activeTier = tiers.reduce(
+		(active, tier) => {
+			if (subtotal >= tier.minSpend) return tier;
+			return active;
+		},
+		null as Tier | null,
+	);
 
 	const discount = activeTier ? subtotal * (activeTier.discount / 100) : 0;
 	const total = subtotal - discount;
@@ -185,21 +191,24 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 				name: 'Premium Headphones',
 				price: 299.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
 				name: 'Phone Case',
 				price: 29.99,
 				quantity: 1,
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
 				name: 'Wireless Charger',
 				price: 49.99,
 				quantity: 1,
@@ -217,7 +226,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

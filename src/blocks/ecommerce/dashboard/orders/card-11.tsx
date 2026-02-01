@@ -1,9 +1,22 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import { Package, Truck, Warehouse, Clock, CheckCircle2, AlertTriangle } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	Warehouse,
+	Clock,
+	CheckCircle2,
+	AlertTriangle,
+} from 'lucide-react';
 
 interface FulfillmentMetric {
 	label: string;
@@ -16,7 +29,11 @@ interface FulfillmentCardProps {
 	title: string;
 	subtitle: string;
 	metrics: FulfillmentMetric[];
-	stats: { label: string; value: string; icon: React.ComponentType<{ className?: string }> }[];
+	stats: {
+		label: string;
+		value: string;
+		icon: React.ComponentType<{ className?: string }>;
+	}[];
 }
 
 interface MetricRowProps {
@@ -39,7 +56,10 @@ const MetricRow = ({ metric }: MetricRowProps) => {
 					<span className="text-muted-foreground ml-1.5">({percentage}%)</span>
 				</span>
 			</div>
-			<Progress value={percentage} className={`h-2 ${statusColors[metric.status]}`} />
+			<Progress
+				value={percentage}
+				className={`h-2 ${statusColors[metric.status]}`}
+			/>
 		</div>
 	);
 };
@@ -56,7 +76,12 @@ const StatCard = ({ stat }: { stat: FulfillmentCardProps['stats'][0] }) => (
 	</div>
 );
 
-const FulfillmentCard = ({ title, subtitle, metrics, stats }: FulfillmentCardProps) => (
+const FulfillmentCard = ({
+	title,
+	subtitle,
+	metrics,
+	stats,
+}: FulfillmentCardProps) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardHeader className="pb-4">
 			<div className="flex items-center gap-3">

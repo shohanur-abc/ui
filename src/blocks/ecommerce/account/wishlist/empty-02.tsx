@@ -19,7 +19,11 @@ interface EmptyProps {
 const SuggestionCard = ({ item }: { item: SuggestedItem }) => (
 	<div className="group rounded-xl overflow-hidden bg-card border hover:border-primary transition-colors">
 		<div className="aspect-square relative overflow-hidden bg-muted">
-			<img src={item.image} alt={item.name} className="size-full object-cover group-hover:scale-105 transition-transform" />
+			<img
+				src={item.image}
+				alt={item.name}
+				className="size-full object-cover group-hover:scale-105 transition-transform"
+			/>
 			<Button
 				variant="ghost"
 				size="icon"
@@ -41,10 +45,42 @@ const SuggestionCard = ({ item }: { item: SuggestedItem }) => (
 
 export default function Main() {
 	const suggestions: SuggestedItem[] = [
-		{ id: '1', name: 'Wireless Earbuds', price: 149, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop', rating: 4.8, href: '/product/1' },
-		{ id: '2', name: 'Smart Watch', price: 299, image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop', rating: 4.7, href: '/product/2' },
-		{ id: '3', name: 'Leather Wallet', price: 79, image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=400&fit=crop', rating: 4.9, href: '/product/3' },
-		{ id: '4', name: 'Sunglasses', price: 175, image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=400&fit=crop', rating: 4.6, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Wireless Earbuds',
+			price: 149,
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop',
+			rating: 4.8,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Smart Watch',
+			price: 299,
+			image:
+				'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop',
+			rating: 4.7,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Leather Wallet',
+			price: 79,
+			image:
+				'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=400&fit=crop',
+			rating: 4.9,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Sunglasses',
+			price: 175,
+			image:
+				'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=400&fit=crop',
+			rating: 4.6,
+			href: '/product/4',
+		},
 	];
 
 	return (
@@ -57,7 +93,8 @@ export default function Main() {
 					<h1 className="text-2xl font-bold">Nothing saved yet</h1>
 					<p className="text-muted-foreground mt-2">
 						When you find something you love, tap the{' '}
-						<Heart className="inline size-4 text-primary fill-primary" /> to save it here.
+						<Heart className="inline size-4 text-primary fill-primary" /> to
+						save it here.
 					</p>
 				</div>
 
@@ -71,7 +108,8 @@ export default function Main() {
 						<div className="flex-1 text-center @md:text-left">
 							<h2 className="text-lg font-bold">Create a gift wishlist</h2>
 							<p className="text-muted-foreground text-sm mt-1">
-								Share your wishlist with friends and family for special occasions.
+								Share your wishlist with friends and family for special
+								occasions.
 							</p>
 						</div>
 						<Button className="gap-2">
@@ -84,7 +122,9 @@ export default function Main() {
 				<div>
 					<div className="flex items-center justify-between mb-6">
 						<h2 className="text-lg font-bold">You might like</h2>
-						<Button variant="ghost" size="sm">See All</Button>
+						<Button variant="ghost" size="sm">
+							See All
+						</Button>
 					</div>
 					<div className="grid grid-cols-2 @sm:grid-cols-4 gap-4">
 						{suggestions.map((item) => (

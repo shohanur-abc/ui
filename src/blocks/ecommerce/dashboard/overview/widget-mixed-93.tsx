@@ -1,4 +1,12 @@
-import { ArrowUpRight, Clock, DollarSign, Package, ShoppingCart, TrendingUp, Users } from 'lucide-react';
+import {
+	ArrowUpRight,
+	Clock,
+	DollarSign,
+	Package,
+	ShoppingCart,
+	TrendingUp,
+	Users,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -61,14 +69,56 @@ const ListWidget = ({ title, items }: WidgetItem) => (
 
 export default function Main() {
 	const widgets: WidgetItem[] = [
-		{ id: '1', type: 'stat', title: 'Revenue', value: '$48.2K', icon: DollarSign },
-		{ id: '2', type: 'stat', title: 'Orders', value: '1,284', icon: ShoppingCart },
-		{ id: '3', type: 'progress', title: 'Monthly Goal', value: '72%', progress: 72 },
-		{ id: '4', type: 'progress', title: 'Weekly Target', value: '85%', progress: 85 },
+		{
+			id: '1',
+			type: 'stat',
+			title: 'Revenue',
+			value: '$48.2K',
+			icon: DollarSign,
+		},
+		{
+			id: '2',
+			type: 'stat',
+			title: 'Orders',
+			value: '1,284',
+			icon: ShoppingCart,
+		},
+		{
+			id: '3',
+			type: 'progress',
+			title: 'Monthly Goal',
+			value: '72%',
+			progress: 72,
+		},
+		{
+			id: '4',
+			type: 'progress',
+			title: 'Weekly Target',
+			value: '85%',
+			progress: 85,
+		},
 		{ id: '5', type: 'stat', title: 'Customers', value: '3,845', icon: Users },
 		{ id: '6', type: 'stat', title: 'Products', value: '542', icon: Package },
-		{ id: '7', type: 'list', title: 'Top Categories', items: [{ label: 'Electronics', value: '$12.4K' }, { label: 'Clothing', value: '$8.2K' }, { label: 'Accessories', value: '$5.8K' }] },
-		{ id: '8', type: 'list', title: 'Recent', items: [{ label: 'New Orders', value: '24' }, { label: 'Pending', value: '12' }, { label: 'Shipped', value: '18' }] },
+		{
+			id: '7',
+			type: 'list',
+			title: 'Top Categories',
+			items: [
+				{ label: 'Electronics', value: '$12.4K' },
+				{ label: 'Clothing', value: '$8.2K' },
+				{ label: 'Accessories', value: '$5.8K' },
+			],
+		},
+		{
+			id: '8',
+			type: 'list',
+			title: 'Recent',
+			items: [
+				{ label: 'New Orders', value: '24' },
+				{ label: 'Pending', value: '12' },
+				{ label: 'Shipped', value: '18' },
+			],
+		},
 	];
 
 	const renderWidget = (widget: WidgetItem) => {

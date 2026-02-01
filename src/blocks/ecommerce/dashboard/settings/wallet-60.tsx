@@ -97,11 +97,7 @@ const TransactionRow = ({
 	);
 };
 
-const CreditSourceCard = ({
-	name,
-	amount,
-	expiry,
-}: StoreCreditSource) => (
+const CreditSourceCard = ({ name, amount, expiry }: StoreCreditSource) => (
 	<div className="flex items-center justify-between rounded-lg border p-3">
 		<div>
 			<p className="font-medium">{name}</p>
@@ -115,11 +111,41 @@ const CreditSourceCard = ({
 
 export default function Main() {
 	const transactions: WalletTransaction[] = [
-		{ id: '1', type: 'bonus', amount: '$25.00', description: 'Welcome bonus', date: 'Jan 20, 2026' },
-		{ id: '2', type: 'debit', amount: '$15.00', description: 'Order #12345', date: 'Jan 18, 2026' },
-		{ id: '3', type: 'credit', amount: '$50.00', description: 'Refund - Order #12340', date: 'Jan 15, 2026' },
-		{ id: '4', type: 'credit', amount: '$10.00', description: 'Referral reward', date: 'Jan 12, 2026' },
-		{ id: '5', type: 'debit', amount: '$30.00', description: 'Order #12338', date: 'Jan 10, 2026' },
+		{
+			id: '1',
+			type: 'bonus',
+			amount: '$25.00',
+			description: 'Welcome bonus',
+			date: 'Jan 20, 2026',
+		},
+		{
+			id: '2',
+			type: 'debit',
+			amount: '$15.00',
+			description: 'Order #12345',
+			date: 'Jan 18, 2026',
+		},
+		{
+			id: '3',
+			type: 'credit',
+			amount: '$50.00',
+			description: 'Refund - Order #12340',
+			date: 'Jan 15, 2026',
+		},
+		{
+			id: '4',
+			type: 'credit',
+			amount: '$10.00',
+			description: 'Referral reward',
+			date: 'Jan 12, 2026',
+		},
+		{
+			id: '5',
+			type: 'debit',
+			amount: '$30.00',
+			description: 'Order #12338',
+			date: 'Jan 10, 2026',
+		},
 	];
 
 	const creditSources: StoreCreditSource[] = [
@@ -149,8 +175,12 @@ export default function Main() {
 							</CardHeader>
 							<CardContent className="pt-6">
 								<div className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 p-6 text-center">
-									<p className="text-sm text-muted-foreground">Available Balance</p>
-									<p className="text-4xl font-bold text-primary mt-1">$110.00</p>
+									<p className="text-sm text-muted-foreground">
+										Available Balance
+									</p>
+									<p className="text-4xl font-bold text-primary mt-1">
+										$110.00
+									</p>
 									<div className="mt-4 flex gap-2">
 										<Button className="gap-2">
 											<Plus className="size-4" />
@@ -168,7 +198,9 @@ export default function Main() {
 						<Card>
 							<CardHeader className="border-b">
 								<div className="flex items-center justify-between">
-									<CardTitle className="text-base">Recent Transactions</CardTitle>
+									<CardTitle className="text-base">
+										Recent Transactions
+									</CardTitle>
 									<Button variant="ghost" size="sm">
 										View All
 									</Button>
@@ -245,7 +277,11 @@ export default function Main() {
 										<p className="mt-1 text-sm text-muted-foreground">
 											Refer friends and earn $10 for each successful referral.
 										</p>
-										<Button variant="link" size="sm" className="mt-2 h-auto p-0">
+										<Button
+											variant="link"
+											size="sm"
+											className="mt-2 h-auto p-0"
+										>
 											Invite Friends
 										</Button>
 									</div>

@@ -5,7 +5,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 type DataPoint = { label: string; value: number };
 type Annotation = { index: number; label: string; description: string };
 
-const AnnotatedLineChart = ({ data, annotations }: { data: DataPoint[]; annotations: Annotation[] }) => {
+const AnnotatedLineChart = ({
+	data,
+	annotations,
+}: {
+	data: DataPoint[];
+	annotations: Annotation[];
+}) => {
 	const max = Math.max(...data.map((d) => d.value));
 	const min = Math.min(...data.map((d) => d.value));
 	const range = max - min || 1;
@@ -24,10 +30,25 @@ const AnnotatedLineChart = ({ data, annotations }: { data: DataPoint[]; annotati
 
 	return (
 		<div className="relative h-72 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
-				<path d={pathD} fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
+				<path
+					d={pathD}
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="0.5"
+				/>
 				{points.map((p, i) => (
-					<circle key={i} cx={p.x} cy={p.y} r="0.5" fill="hsl(var(--primary))" />
+					<circle
+						key={i}
+						cx={p.x}
+						cy={p.y}
+						r="0.5"
+						fill="hsl(var(--primary))"
+					/>
 				))}
 				{annotations.map((a, i) => {
 					const point = points[a.index];
@@ -43,8 +64,21 @@ const AnnotatedLineChart = ({ data, annotations }: { data: DataPoint[]; annotati
 								strokeWidth="0.2"
 								strokeDasharray="1,0.5"
 							/>
-							<circle cx={point.x} cy={point.y} r="1.5" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="0.3" />
-							<text x={point.x} y={point.y - 17} textAnchor="middle" fontSize="2.5" fill="hsl(var(--foreground))">
+							<circle
+								cx={point.x}
+								cy={point.y}
+								r="1.5"
+								fill="hsl(var(--primary))"
+								stroke="hsl(var(--background))"
+								strokeWidth="0.3"
+							/>
+							<text
+								x={point.x}
+								y={point.y - 17}
+								textAnchor="middle"
+								fontSize="2.5"
+								fill="hsl(var(--foreground))"
+							>
 								{a.label}
 							</text>
 						</g>
@@ -52,9 +86,11 @@ const AnnotatedLineChart = ({ data, annotations }: { data: DataPoint[]; annotati
 				})}
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
-				{data.filter((_, i) => i % 2 === 0).map((d, i) => (
-					<span key={i}>{d.label}</span>
-				))}
+				{data
+					.filter((_, i) => i % 2 === 0)
+					.map((d, i) => (
+						<span key={i}>{d.label}</span>
+					))}
 			</div>
 		</div>
 	);
@@ -87,11 +123,18 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Annual Sales with Events</CardTitle>
-						<p className="text-xs text-muted-foreground">Key events and their impact on revenue</p>
+						<CardTitle className="text-sm font-medium">
+							Annual Sales with Events
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Key events and their impact on revenue
+						</p>
 					</CardHeader>
 					<CardContent>
-						<AnnotatedLineChart data={salesData} annotations={salesAnnotations} />
+						<AnnotatedLineChart
+							data={salesData}
+							annotations={salesAnnotations}
+						/>
 						<div className="mt-4 flex flex-wrap gap-4">
 							{salesAnnotations.map((a, i) => (
 								<div key={i} className="flex items-center gap-2 text-xs">

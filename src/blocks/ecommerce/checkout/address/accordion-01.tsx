@@ -108,7 +108,11 @@ const AddressSection = ({
 	states: { value: string; label: string }[];
 }) => (
 	<div className="space-y-4 pt-4">
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -118,7 +122,10 @@ const AddressSection = ({
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="same-billing" defaultChecked />
-			<Label htmlFor="same-billing" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="same-billing"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Billing address same as shipping
 			</Label>
 		</div>
@@ -163,9 +170,7 @@ export default function Main() {
 		<section className="@container" data-theme="neon">
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-8">
-					<h1 className="text-2xl @md:text-3xl font-bold mb-2">
-						Checkout
-					</h1>
+					<h1 className="text-2xl @md:text-3xl font-bold mb-2">Checkout</h1>
 					<p className="text-muted-foreground">
 						Complete your order details below
 					</p>

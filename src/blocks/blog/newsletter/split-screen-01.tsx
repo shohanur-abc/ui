@@ -35,18 +35,16 @@ const NewsletterImage = ({ src, alt }: ImageProps) => (
 
 const Content = ({ title, description }: ContentProps) => (
 	<div className="flex flex-col gap-3">
-		<h2 className="text-2xl @md:text-3xl @xl:text-4xl font-bold tracking-tight">{title}</h2>
+		<h2 className="text-2xl @md:text-3xl @xl:text-4xl font-bold tracking-tight">
+			{title}
+		</h2>
 		<p className="text-muted-foreground text-sm @md:text-base">{description}</p>
 	</div>
 );
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 w-full">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="flex-1 h-11"
-		/>
+		<Input type="email" placeholder={placeholder} className="flex-1 h-11" />
 		<Button size="lg" className="gap-2 h-11">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}
@@ -59,7 +57,10 @@ const Features = ({ items }: FeaturesProps) => (
 		{items.map((item, i) => {
 			const Icon = item.icon;
 			return (
-				<div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+				<div
+					key={i}
+					className="flex items-center gap-2 text-sm text-muted-foreground"
+				>
 					<Icon className="size-4 text-primary" />
 					<span>{item.text}</span>
 				</div>

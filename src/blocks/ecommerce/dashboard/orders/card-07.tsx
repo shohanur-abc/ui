@@ -1,8 +1,23 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { RotateCcw, Package, AlertTriangle, Clock, CheckCircle, XCircle, MessageCircle } from 'lucide-react';
+import {
+	RotateCcw,
+	Package,
+	AlertTriangle,
+	Clock,
+	CheckCircle,
+	XCircle,
+	MessageCircle,
+} from 'lucide-react';
 
 interface ReturnRequest {
 	id: string;
@@ -34,7 +49,14 @@ interface StatusBadgeProps {
 }
 
 const StatusBadge = ({ status }: StatusBadgeProps) => {
-	const config: Record<ReturnRequest['status'], { icon: typeof Clock; variant: 'default' | 'secondary' | 'destructive' | 'outline'; label: string }> = {
+	const config: Record<
+		ReturnRequest['status'],
+		{
+			icon: typeof Clock;
+			variant: 'default' | 'secondary' | 'destructive' | 'outline';
+			label: string;
+		}
+	> = {
 		pending: { icon: Clock, variant: 'outline', label: 'Pending Review' },
 		approved: { icon: CheckCircle, variant: 'secondary', label: 'Approved' },
 		rejected: { icon: XCircle, variant: 'destructive', label: 'Rejected' },
@@ -62,7 +84,15 @@ const ProductInfo = ({ product }: { product: ReturnRequest['product'] }) => (
 	</div>
 );
 
-const InfoRow = ({ label, value, icon: Icon }: { label: string; value: string; icon?: React.ComponentType<{ className?: string }> }) => (
+const InfoRow = ({
+	label,
+	value,
+	icon: Icon,
+}: {
+	label: string;
+	value: string;
+	icon?: React.ComponentType<{ className?: string }>;
+}) => (
 	<div className="flex items-start gap-2">
 		{Icon && <Icon className="size-4 text-muted-foreground mt-0.5" />}
 		<div>
@@ -90,22 +120,36 @@ const ReturnCard = ({ returnRequest, labels }: ReturnCardProps) => (
 		</CardHeader>
 		<CardContent className="space-y-4">
 			<ProductInfo product={returnRequest.product} />
-			
+
 			<div className="grid grid-cols-2 gap-4">
-				<InfoRow icon={AlertTriangle} label={labels.reason} value={returnRequest.reason} />
-				<InfoRow icon={Clock} label="Request Date" value={returnRequest.requestDate} />
+				<InfoRow
+					icon={AlertTriangle}
+					label={labels.reason}
+					value={returnRequest.reason}
+				/>
+				<InfoRow
+					icon={Clock}
+					label="Request Date"
+					value={returnRequest.requestDate}
+				/>
 			</div>
 
 			<div>
-				<p className="text-xs text-muted-foreground mb-1">{labels.description}</p>
-				<p className="text-sm bg-muted/30 rounded-lg p-3 border border-border/50">{returnRequest.description}</p>
+				<p className="text-xs text-muted-foreground mb-1">
+					{labels.description}
+				</p>
+				<p className="text-sm bg-muted/30 rounded-lg p-3 border border-border/50">
+					{returnRequest.description}
+				</p>
 			</div>
 
 			<Separator />
 
 			<div className="flex items-center justify-between">
 				<span className="text-sm text-muted-foreground">{labels.refund}</span>
-				<span className="text-xl font-bold text-accent">{returnRequest.refundAmount}</span>
+				<span className="text-xl font-bold text-accent">
+					{returnRequest.refundAmount}
+				</span>
 			</div>
 		</CardContent>
 		{returnRequest.status === 'pending' && (
@@ -117,9 +161,7 @@ const ReturnCard = ({ returnRequest, labels }: ReturnCardProps) => (
 				<Button variant="destructive" className="flex-1">
 					{labels.reject}
 				</Button>
-				<Button className="flex-1">
-					{labels.approve}
-				</Button>
+				<Button className="flex-1">{labels.approve}</Button>
 			</CardFooter>
 		)}
 	</Card>
@@ -140,9 +182,14 @@ export default function Main() {
 	const returnRequest: ReturnRequest = {
 		id: 'RET-001',
 		orderId: 'ORD-7891',
-		product: { name: 'Wireless Headphones Pro', variant: 'Black / Over-ear', price: '$199.00' },
+		product: {
+			name: 'Wireless Headphones Pro',
+			variant: 'Black / Over-ear',
+			price: '$199.00',
+		},
 		reason: 'Defective Product',
-		description: 'The left speaker stopped working after 2 weeks of normal use. I\'ve tried resetting and updating firmware but the issue persists.',
+		description:
+			"The left speaker stopped working after 2 weeks of normal use. I've tried resetting and updating firmware but the issue persists.",
 		status: 'pending',
 		requestDate: 'Jan 28, 2026',
 		refundAmount: '$199.00',

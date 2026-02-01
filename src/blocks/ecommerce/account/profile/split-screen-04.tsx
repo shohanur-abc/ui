@@ -100,7 +100,12 @@ const WishlistPreview = ({
 	items,
 	total,
 }: {
-	items: { image: string; name: string; price: string; originalPrice?: string }[];
+	items: {
+		image: string;
+		name: string;
+		price: string;
+		originalPrice?: string;
+	}[];
 	total: number;
 }) => (
 	<div className="space-y-3">
@@ -116,16 +121,26 @@ const WishlistPreview = ({
 		</div>
 		<div className="space-y-2">
 			{items.map((item, i) => (
-				<div key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+				<div
+					key={i}
+					className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
+				>
 					<div className="size-12 relative rounded-md overflow-hidden bg-muted shrink-0">
-						<Image src={item.image} alt={item.name} fill className="object-cover" />
+						<Image
+							src={item.image}
+							alt={item.name}
+							fill
+							className="object-cover"
+						/>
 					</div>
 					<div className="flex-1 min-w-0">
 						<p className="text-sm font-medium truncate">{item.name}</p>
 						<div className="flex items-center gap-2">
 							<span className="text-sm font-bold">{item.price}</span>
 							{item.originalPrice && (
-								<span className="text-xs text-muted-foreground line-through">{item.originalPrice}</span>
+								<span className="text-xs text-muted-foreground line-through">
+									{item.originalPrice}
+								</span>
 							)}
 						</div>
 					</div>
@@ -141,7 +156,13 @@ const WishlistPreview = ({
 const RecentOrders = ({
 	items,
 }: {
-	items: { id: string; date: string; status: string; statusColor: string; total: string }[];
+	items: {
+		id: string;
+		date: string;
+		status: string;
+		statusColor: string;
+		total: string;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
@@ -180,7 +201,8 @@ export default function Main() {
 	const profileData = {
 		banner: {
 			coverUrl: '',
-			avatarSrc: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+			avatarSrc:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
 			avatarFallback: 'TM',
 			name: 'Thomas Miller',
 			tagline: 'Fashion Enthusiast | VIP Member',
@@ -191,21 +213,63 @@ export default function Main() {
 			],
 		},
 		recentlyViewed: [
-			{ image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200', name: 'Sneakers', price: '$129' },
-			{ image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200', name: 'Watch', price: '$299' },
-			{ image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200', name: 'Perfume', price: '$85' },
-			{ image: 'https://images.unsplash.com/photo-1491553895911-0055uj?w=200', name: 'Headphones', price: '$199' },
+			{
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200',
+				name: 'Sneakers',
+				price: '$129',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
+				name: 'Watch',
+				price: '$299',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200',
+				name: 'Perfume',
+				price: '$85',
+			},
+			{
+				image: 'https://images.unsplash.com/photo-1491553895911-0055uj?w=200',
+				name: 'Headphones',
+				price: '$199',
+			},
 		],
 		wishlist: {
 			items: [
-				{ image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200', name: 'Running Shoes', price: '$145', originalPrice: '$180' },
-				{ image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200', name: 'Polaroid Camera', price: '$99' },
+				{
+					image:
+						'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200',
+					name: 'Running Shoes',
+					price: '$145',
+					originalPrice: '$180',
+				},
+				{
+					image:
+						'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200',
+					name: 'Polaroid Camera',
+					price: '$99',
+				},
 			],
 			total: 12,
 		},
 		recentOrders: [
-			{ id: '48291', date: 'Jan 28, 2026', status: 'Delivered', statusColor: 'bg-green-500/20 text-green-600 border-green-500/30', total: '$247.00' },
-			{ id: '47832', date: 'Jan 15, 2026', status: 'Shipped', statusColor: 'bg-blue-500/20 text-blue-600 border-blue-500/30', total: '$89.99' },
+			{
+				id: '48291',
+				date: 'Jan 28, 2026',
+				status: 'Delivered',
+				statusColor: 'bg-green-500/20 text-green-600 border-green-500/30',
+				total: '$247.00',
+			},
+			{
+				id: '47832',
+				date: 'Jan 15, 2026',
+				status: 'Shipped',
+				statusColor: 'bg-blue-500/20 text-blue-600 border-blue-500/30',
+				total: '$89.99',
+			},
 		],
 	};
 

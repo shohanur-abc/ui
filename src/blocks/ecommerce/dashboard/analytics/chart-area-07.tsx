@@ -26,7 +26,11 @@ const RealtimeAreaChart = ({ data }: { data: HourlyData[] }) => {
 
 	return (
 		<div className="relative h-48 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				<defs>
 					<linearGradient id="realtimeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
 						<stop offset="0%" stopColor="#3b82f6" stopOpacity="0.1" />
@@ -38,15 +42,32 @@ const RealtimeAreaChart = ({ data }: { data: HourlyData[] }) => {
 					</linearGradient>
 				</defs>
 				<path d={areaD} fill="url(#realtimeGrad)" />
-				<path d={pathD} fill="none" stroke="url(#realtimeLine)" strokeWidth="0.5" />
-				<circle cx={points[points.length - 1].x} cy={points[points.length - 1].y} r="1.5" fill="#3b82f6">
-					<animate attributeName="r" values="1.5;2;1.5" dur="1s" repeatCount="indefinite" />
+				<path
+					d={pathD}
+					fill="none"
+					stroke="url(#realtimeLine)"
+					strokeWidth="0.5"
+				/>
+				<circle
+					cx={points[points.length - 1].x}
+					cy={points[points.length - 1].y}
+					r="1.5"
+					fill="#3b82f6"
+				>
+					<animate
+						attributeName="r"
+						values="1.5;2;1.5"
+						dur="1s"
+						repeatCount="indefinite"
+					/>
 				</circle>
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
-				{data.filter((_, i) => i % 4 === 0).map((d, i) => (
-					<span key={i}>{d.hour}</span>
-				))}
+				{data
+					.filter((_, i) => i % 4 === 0)
+					.map((d, i) => (
+						<span key={i}>{d.hour}</span>
+					))}
 			</div>
 		</div>
 	);
@@ -58,7 +79,9 @@ const realtimeData: HourlyData[] = Array.from({ length: 24 }, (_, i) => ({
 }));
 
 const currentValue = realtimeData[realtimeData.length - 1].value;
-const avgValue = Math.floor(realtimeData.reduce((a, b) => a + b.value, 0) / realtimeData.length);
+const avgValue = Math.floor(
+	realtimeData.reduce((a, b) => a + b.value, 0) / realtimeData.length,
+);
 const peakValue = Math.max(...realtimeData.map((d) => d.value));
 
 export default function Main() {
@@ -69,7 +92,9 @@ export default function Main() {
 					<CardHeader className="flex flex-row items-center justify-between pb-2">
 						<div className="flex items-center gap-3">
 							<div className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-							<CardTitle className="text-sm font-medium">Real-time Visitors</CardTitle>
+							<CardTitle className="text-sm font-medium">
+								Real-time Visitors
+							</CardTitle>
 						</div>
 						<Badge variant="outline">Live</Badge>
 					</CardHeader>

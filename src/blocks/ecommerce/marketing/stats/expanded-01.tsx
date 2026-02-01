@@ -1,6 +1,13 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { TrendingUp, TrendingDown, DollarSign, ShoppingCart, Users, Repeat } from 'lucide-react';
+import {
+	TrendingUp,
+	TrendingDown,
+	DollarSign,
+	ShoppingCart,
+	Users,
+	Repeat,
+} from 'lucide-react';
 
 interface ExpandedStatProps {
 	icon: React.ElementType;
@@ -10,7 +17,13 @@ interface ExpandedStatProps {
 	details: { label: string; value: string }[];
 }
 
-const ExpandedStat = ({ icon: Icon, label, value, change, details }: ExpandedStatProps) => {
+const ExpandedStat = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	details,
+}: ExpandedStatProps) => {
 	const isPositive = change >= 0;
 
 	return (
@@ -22,12 +35,21 @@ const ExpandedStat = ({ icon: Icon, label, value, change, details }: ExpandedSta
 							<div className="rounded-lg bg-primary/10 p-2">
 								<Icon className="size-4 text-primary" />
 							</div>
-							<span className="text-sm font-medium text-muted-foreground">{label}</span>
+							<span className="text-sm font-medium text-muted-foreground">
+								{label}
+							</span>
 						</div>
 						<p className="text-3xl font-bold tracking-tight">{value}</p>
 					</div>
-					<Badge variant={isPositive ? 'default' : 'destructive'} className="gap-1">
-						{isPositive ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+					<Badge
+						variant={isPositive ? 'default' : 'destructive'}
+						className="gap-1"
+					>
+						{isPositive ? (
+							<TrendingUp className="size-3" />
+						) : (
+							<TrendingDown className="size-3" />
+						)}
 						{Math.abs(change)}%
 					</Badge>
 				</div>

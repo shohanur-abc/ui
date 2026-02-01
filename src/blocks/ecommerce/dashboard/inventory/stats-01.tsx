@@ -10,7 +10,13 @@ import {
 	ArrowDownRight,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 type StatItem = {
@@ -34,7 +40,10 @@ const StatCard = ({ stat }: StatCardProps) => (
 				<div className="flex size-10 items-center justify-center rounded-lg bg-primary/10">
 					{stat.icon}
 				</div>
-				<Badge variant={stat.trend === 'up' ? 'default' : 'destructive'} className="flex items-center gap-1">
+				<Badge
+					variant={stat.trend === 'up' ? 'default' : 'destructive'}
+					className="flex items-center gap-1"
+				>
 					{stat.trend === 'up' ? (
 						<ArrowUpRight className="size-3" />
 					) : (
@@ -97,8 +106,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<div className="space-y-6">
 					<div>
-						<h2 className="text-xl font-semibold @lg:text-2xl">Inventory Stats</h2>
-						<p className="text-sm text-muted-foreground">Key performance metrics</p>
+						<h2 className="text-xl font-semibold @lg:text-2xl">
+							Inventory Stats
+						</h2>
+						<p className="text-sm text-muted-foreground">
+							Key performance metrics
+						</p>
 					</div>
 					<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 						{stats.map((stat) => (

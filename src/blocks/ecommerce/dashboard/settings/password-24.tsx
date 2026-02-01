@@ -1,4 +1,12 @@
-import { AlertTriangle, Check, Eye, EyeOff, Lock, Shield, X } from 'lucide-react';
+import {
+	AlertTriangle,
+	Check,
+	Eye,
+	EyeOff,
+	Lock,
+	Shield,
+	X,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -34,7 +42,9 @@ const RequirementCheck = ({ label, met }: PasswordRequirement) => (
 		>
 			{met ? <Check className="size-3" /> : <X className="size-3" />}
 		</div>
-		<span className={`text-sm ${met ? 'text-foreground' : 'text-muted-foreground'}`}>
+		<span
+			className={`text-sm ${met ? 'text-foreground' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</span>
 	</div>
@@ -100,7 +110,11 @@ const PasswordInput = ({
 	id,
 	label,
 	placeholder,
-}: { id: string; label: string; placeholder: string }) => (
+}: {
+	id: string;
+	label: string;
+	placeholder: string;
+}) => (
 	<div className="space-y-2">
 		<Label htmlFor={id}>{label}</Label>
 		<div className="relative">
@@ -198,9 +212,7 @@ export default function Main() {
 					<Card>
 						<CardHeader>
 							<CardTitle className="text-base">Password History</CardTitle>
-							<CardDescription>
-								Your recent password changes
-							</CardDescription>
+							<CardDescription>Your recent password changes</CardDescription>
 						</CardHeader>
 						<CardContent className="divide-y">
 							{passwordHistory.map((item) => (

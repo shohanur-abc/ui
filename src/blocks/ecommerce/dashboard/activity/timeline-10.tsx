@@ -41,7 +41,10 @@ const CategoryIcon = ({ category }: { category: Milestone['category'] }) => {
 		Milestone['category'],
 		{ icon: LucideIcon; className: string }
 	> = {
-		revenue: { icon: TrendingUp, className: 'bg-emerald-500/20 text-emerald-400' },
+		revenue: {
+			icon: TrendingUp,
+			className: 'bg-emerald-500/20 text-emerald-400',
+		},
 		orders: { icon: Target, className: 'bg-blue-500/20 text-blue-400' },
 		customers: { icon: Award, className: 'bg-purple-500/20 text-purple-400' },
 		engagement: { icon: Zap, className: 'bg-amber-500/20 text-amber-400' },
@@ -115,7 +118,11 @@ const ProgressDisplay = ({
 			</div>
 			<div className="flex items-center justify-between text-xs text-muted-foreground">
 				<span>{percentage}% complete</span>
-				<span>{target - current > 0 ? `${(target - current).toLocaleString()} ${unit} remaining` : 'Target reached!'}</span>
+				<span>
+					{target - current > 0
+						? `${(target - current).toLocaleString()} ${unit} remaining`
+						: 'Target reached!'}
+				</span>
 			</div>
 		</div>
 	);
@@ -123,16 +130,15 @@ const ProgressDisplay = ({
 
 const AssigneeAvatars = ({
 	assignees,
-}: { assignees: Milestone['assignees'] }) => {
+}: {
+	assignees: Milestone['assignees'];
+}) => {
 	if (!assignees || assignees.length === 0) return null;
 
 	return (
 		<div className="flex items-center -space-x-2">
 			{assignees.slice(0, 3).map((assignee, index) => (
-				<Avatar
-					key={index}
-					className="size-7 border-2 border-card ring-0"
-				>
+				<Avatar key={index} className="size-7 border-2 border-card ring-0">
 					<AvatarImage src={assignee.avatar} alt={assignee.name} />
 					<AvatarFallback className="text-[10px] bg-secondary">
 						{assignee.initials}

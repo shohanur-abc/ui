@@ -33,7 +33,11 @@ interface ArticleProps {
 }
 
 const CategoryLabel = ({ text, href }: { text: string; href: string }) => (
-	<Badge variant="outline" className="gap-1.5 text-xs uppercase tracking-wider" asChild>
+	<Badge
+		variant="outline"
+		className="gap-1.5 text-xs uppercase tracking-wider"
+		asChild
+	>
 		<Link href={href}>
 			<span className="size-1.5 rounded-full bg-primary animate-pulse" />
 			{text}
@@ -48,9 +52,7 @@ const Title = ({ text }: { text: string }) => (
 );
 
 const Excerpt = ({ text }: { text: string }) => (
-	<p className="text-lg text-muted-foreground leading-relaxed">
-		{text}
-	</p>
+	<p className="text-lg text-muted-foreground leading-relaxed">{text}</p>
 );
 
 const MetaInfo = ({
@@ -94,7 +96,9 @@ const AudioPlayer = ({ duration, progress }: AudioProps) => (
 				</div>
 				<div className="flex items-center gap-3">
 					<Progress value={progress} className="flex-1 h-1.5" />
-					<span className="text-xs text-muted-foreground shrink-0">{duration}</span>
+					<span className="text-xs text-muted-foreground shrink-0">
+						{duration}
+					</span>
 				</div>
 			</div>
 			<Button variant="ghost" size="icon-sm" className="shrink-0">
@@ -115,11 +119,17 @@ const HeroImage = ({ src, alt }: { src: string; alt: string }) => (
 	</div>
 );
 
-const ContentSection = ({ sections }: { sections: { heading: string; paragraphs: string[] }[] }) => (
+const ContentSection = ({
+	sections,
+}: {
+	sections: { heading: string; paragraphs: string[] }[];
+}) => (
 	<div className="space-y-10 @md:space-y-14">
 		{sections.map((section, sectionIndex) => (
 			<div key={sectionIndex} className="space-y-4">
-				<h2 className="text-xl @md:text-2xl font-bold tracking-tight">{section.heading}</h2>
+				<h2 className="text-xl @md:text-2xl font-bold tracking-tight">
+					{section.heading}
+				</h2>
 				{section.paragraphs.map((paragraph, paragraphIndex) => (
 					<p
 						key={paragraphIndex}
@@ -139,10 +149,11 @@ export default function Main() {
 		categoryHref: '/blog/category/science',
 		title: 'Breakthrough in Fusion Energy: What It Means for Our Future',
 		excerpt:
-			'Recent achievements in fusion research have brought us closer than ever to clean, virtually limitless energy. Here\'s what you need to know.',
+			"Recent achievements in fusion research have brought us closer than ever to clean, virtually limitless energy. Here's what you need to know.",
 		author: {
 			name: 'Dr. Rachel Kim',
-			avatar: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=100&h=100&fit=crop',
 			initials: 'RK',
 		},
 		publishDate: 'February 1, 2026',
@@ -176,7 +187,10 @@ export default function Main() {
 		<section className="@container relative" data-theme="article">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-6 @md:gap-8">
-					<CategoryLabel text={articleData.category} href={articleData.categoryHref} />
+					<CategoryLabel
+						text={articleData.category}
+						href={articleData.categoryHref}
+					/>
 					<Title text={articleData.title} />
 					<Excerpt text={articleData.excerpt} />
 					<MetaInfo
@@ -184,7 +198,10 @@ export default function Main() {
 						publishDate={articleData.publishDate}
 						readTime={articleData.readTime}
 					/>
-					<AudioPlayer duration={articleData.audio.duration} progress={articleData.audio.progress} />
+					<AudioPlayer
+						duration={articleData.audio.duration}
+						progress={articleData.audio.progress}
+					/>
 					<HeroImage src={articleData.heroImage} alt={articleData.heroAlt} />
 					<Separator className="my-4" />
 					<ContentSection sections={articleData.content} />

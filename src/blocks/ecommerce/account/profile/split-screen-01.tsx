@@ -63,11 +63,19 @@ const ProfileSidebar = ({
 const StatsGrid = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; value: string; color: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		color: string;
+	}[];
 }) => (
 	<div className="grid grid-cols-3 gap-3">
 		{items.map((stat, i) => (
-			<div key={i} className="text-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+			<div
+				key={i}
+				className="text-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors"
+			>
 				<stat.icon className={`size-5 mx-auto mb-2 ${stat.color}`} />
 				<p className="text-lg font-bold">{stat.value}</p>
 				<p className="text-xs text-muted-foreground">{stat.label}</p>
@@ -87,7 +95,10 @@ const ContactInfo = ({
 		</h3>
 		<div className="space-y-2">
 			{items.map((item, i) => (
-				<div key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/30 transition-colors">
+				<div
+					key={i}
+					className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/30 transition-colors"
+				>
 					<div className="p-2 rounded-md bg-muted">
 						<item.icon className="size-4 text-muted-foreground" />
 					</div>
@@ -118,7 +129,11 @@ export default function Main() {
 		contact: [
 			{ icon: Mail, label: 'Email', value: 'james.b@example.com' },
 			{ icon: Phone, label: 'Phone', value: '+1 (555) 987-6543' },
-			{ icon: MapPin, label: 'Address', value: '123 Main St, Boston, MA 02101' },
+			{
+				icon: MapPin,
+				label: 'Address',
+				value: '123 Main St, Boston, MA 02101',
+			},
 		],
 	};
 

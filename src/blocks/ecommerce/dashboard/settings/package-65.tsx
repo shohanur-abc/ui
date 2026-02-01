@@ -112,12 +112,48 @@ const PackageRow = ({
 
 export default function Main() {
 	const packages: PackageTemplate[] = [
-		{ id: '1', name: 'Small Box', dimensions: '6" x 4" x 3"', maxWeight: '1 lb', isDefault: false },
-		{ id: '2', name: 'Medium Box', dimensions: '12" x 9" x 6"', maxWeight: '5 lb', isDefault: true },
-		{ id: '3', name: 'Large Box', dimensions: '18" x 14" x 10"', maxWeight: '20 lb', isDefault: false },
-		{ id: '4', name: 'Flat Envelope', dimensions: '12" x 9" x 0.5"', maxWeight: '0.5 lb', isDefault: false },
-		{ id: '5', name: 'Padded Envelope', dimensions: '10" x 8" x 1"', maxWeight: '1 lb', isDefault: false },
-		{ id: '6', name: 'Tube', dimensions: '36" x 4" x 4"', maxWeight: '5 lb', isDefault: false },
+		{
+			id: '1',
+			name: 'Small Box',
+			dimensions: '6" x 4" x 3"',
+			maxWeight: '1 lb',
+			isDefault: false,
+		},
+		{
+			id: '2',
+			name: 'Medium Box',
+			dimensions: '12" x 9" x 6"',
+			maxWeight: '5 lb',
+			isDefault: true,
+		},
+		{
+			id: '3',
+			name: 'Large Box',
+			dimensions: '18" x 14" x 10"',
+			maxWeight: '20 lb',
+			isDefault: false,
+		},
+		{
+			id: '4',
+			name: 'Flat Envelope',
+			dimensions: '12" x 9" x 0.5"',
+			maxWeight: '0.5 lb',
+			isDefault: false,
+		},
+		{
+			id: '5',
+			name: 'Padded Envelope',
+			dimensions: '10" x 8" x 1"',
+			maxWeight: '1 lb',
+			isDefault: false,
+		},
+		{
+			id: '6',
+			name: 'Tube',
+			dimensions: '36" x 4" x 4"',
+			maxWeight: '5 lb',
+			isDefault: false,
+		},
 	];
 
 	return (

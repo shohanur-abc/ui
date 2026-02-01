@@ -1,4 +1,11 @@
-import { User, MapPin, Truck, CreditCard, Check, ChevronRight } from 'lucide-react';
+import {
+	User,
+	MapPin,
+	Truck,
+	CreditCard,
+	Check,
+	ChevronRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,10 +24,12 @@ const SectionHeader = ({
 	completed?: boolean;
 }) => (
 	<div className="flex items-center gap-3 mb-4">
-		<div className={`
+		<div
+			className={`
 			flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-bold
 			${completed ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}
-		`}>
+		`}
+		>
 			{completed ? <Check className="size-4" /> : number}
 		</div>
 		<h2 className="text-lg font-semibold">{title}</h2>
@@ -70,9 +79,24 @@ const ShippingOption = ({
 
 export default function Main() {
 	const shippingOptions = [
-		{ value: 'standard', name: 'Standard', time: '5-7 business days', price: 'Free' },
-		{ value: 'express', name: 'Express', time: '2-3 business days', price: '$9.99' },
-		{ value: 'overnight', name: 'Overnight', time: 'Next business day', price: '$24.99' },
+		{
+			value: 'standard',
+			name: 'Standard',
+			time: '5-7 business days',
+			price: 'Free',
+		},
+		{
+			value: 'express',
+			name: 'Express',
+			time: '2-3 business days',
+			price: '$9.99',
+		},
+		{
+			value: 'overnight',
+			name: 'Overnight',
+			time: 'Next business day',
+			price: '$24.99',
+		},
 	];
 
 	return (
@@ -90,8 +114,16 @@ export default function Main() {
 							<FormField label="First Name" placeholder="John" />
 							<FormField label="Last Name" placeholder="Doe" />
 						</div>
-						<FormField label="Email" placeholder="john@example.com" type="email" />
-						<FormField label="Phone" placeholder="+1 (555) 123-4567" type="tel" />
+						<FormField
+							label="Email"
+							placeholder="john@example.com"
+							type="email"
+						/>
+						<FormField
+							label="Phone"
+							placeholder="+1 (555) 123-4567"
+							type="tel"
+						/>
 					</CardContent>
 				</Card>
 
@@ -102,7 +134,10 @@ export default function Main() {
 					</CardHeader>
 					<CardContent className="space-y-4">
 						<FormField label="Street Address" placeholder="123 Main Street" />
-						<FormField label="Apartment, Suite, etc." placeholder="Apt 4B (optional)" />
+						<FormField
+							label="Apartment, Suite, etc."
+							placeholder="Apt 4B (optional)"
+						/>
 						<div className="grid @sm:grid-cols-2 gap-4">
 							<FormField label="City" placeholder="New York" />
 							<FormField label="State" placeholder="NY" />

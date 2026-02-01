@@ -141,9 +141,15 @@ const ReminderOption = ({
 	description,
 	active,
 }: ReminderOptionProps) => (
-	<div className={`flex items-center gap-3 p-3 rounded-lg border ${active ? 'border-primary bg-primary/5' : 'border-muted'}`}>
-		<div className={`size-10 rounded-lg flex items-center justify-center ${active ? 'bg-primary/10' : 'bg-muted'}`}>
-			<Icon className={`size-5 ${active ? 'text-primary' : 'text-muted-foreground'}`} />
+	<div
+		className={`flex items-center gap-3 p-3 rounded-lg border ${active ? 'border-primary bg-primary/5' : 'border-muted'}`}
+	>
+		<div
+			className={`size-10 rounded-lg flex items-center justify-center ${active ? 'bg-primary/10' : 'bg-muted'}`}
+		>
+			<Icon
+				className={`size-5 ${active ? 'text-primary' : 'text-muted-foreground'}`}
+			/>
 		</div>
 		<div className="flex-1">
 			<p className="font-medium text-sm">{label}</p>
@@ -193,7 +199,10 @@ const PaymentCard = ({
 				<div>
 					<p className="text-sm text-muted-foreground">Payment Status</p>
 					<div className="flex items-center gap-2 mt-1">
-						<Badge variant="outline" className="text-emerald-600 border-emerald-200">
+						<Badge
+							variant="outline"
+							className="text-emerald-600 border-emerald-200"
+						>
 							{status}
 						</Badge>
 					</div>

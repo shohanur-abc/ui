@@ -27,7 +27,10 @@ const statusConfig = {
 	churned: { label: 'At Risk', variant: 'destructive' as const },
 };
 
-const CustomerInsightCard = ({ title, customers }: CustomerInsightCardProps) => (
+const CustomerInsightCard = ({
+	title,
+	customers,
+}: CustomerInsightCardProps) => (
 	<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
 		<CardHeader className="flex flex-row items-center gap-3 pb-4">
 			<div className="p-2 rounded-lg bg-primary/10 text-primary">
@@ -75,7 +78,8 @@ export default function Main() {
 		{
 			name: 'Sarah Johnson',
 			email: 'sarah.j@example.com',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
 			initials: 'SJ',
 			totalSpent: '$4,250',
 			orders: 28,
@@ -84,7 +88,8 @@ export default function Main() {
 		{
 			name: 'Michael Chen',
 			email: 'michael.c@example.com',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
 			initials: 'MC',
 			totalSpent: '$3,890',
 			orders: 22,
@@ -93,7 +98,8 @@ export default function Main() {
 		{
 			name: 'Emily Davis',
 			email: 'emily.d@example.com',
-			avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100',
+			avatar:
+				'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100',
 			initials: 'ED',
 			totalSpent: '$520',
 			orders: 3,
@@ -102,7 +108,8 @@ export default function Main() {
 		{
 			name: 'James Wilson',
 			email: 'james.w@example.com',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100',
 			initials: 'JW',
 			totalSpent: '$2,150',
 			orders: 12,
@@ -114,7 +121,10 @@ export default function Main() {
 		<section className="@container" data-theme="sales">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12">
 				<div className="max-w-2xl mx-auto">
-					<CustomerInsightCard title="Customer Insights" customers={customers} />
+					<CustomerInsightCard
+						title="Customer Insights"
+						customers={customers}
+					/>
 				</div>
 			</div>
 		</section>

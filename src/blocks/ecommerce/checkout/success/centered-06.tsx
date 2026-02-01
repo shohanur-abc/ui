@@ -51,9 +51,7 @@ const Title = ({ text }: { text: string }) => (
 );
 
 const Description = ({ text }: { text: string }) => (
-	<p className="text-muted-foreground text-center text-sm max-w-xs">
-		{text}
-	</p>
+	<p className="text-muted-foreground text-center text-sm max-w-xs">{text}</p>
 );
 
 const ProductThumbnails = ({ products }: { products: ProductThumbProps[] }) => (
@@ -114,11 +112,7 @@ const SummaryRow = ({ label, value, highlight }: SummaryRowProps) => (
 	</div>
 );
 
-const OrderSummaryCard = ({
-	items,
-}: {
-	items: SummaryRowProps[];
-}) => (
+const OrderSummaryCard = ({ items }: { items: SummaryRowProps[] }) => (
 	<Card className="w-full max-w-sm">
 		<CardContent className="pt-6 space-y-3">
 			{items.map((item, i) => (

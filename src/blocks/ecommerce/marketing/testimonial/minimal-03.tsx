@@ -46,7 +46,8 @@ export default function Main() {
 			quote: 'Streamlined our entire workflow. Incredibly intuitive.',
 			author: 'Tina Chen',
 			role: 'Operations Director',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'TC',
 			rating: 5,
 		},
@@ -54,7 +55,8 @@ export default function Main() {
 			quote: 'Support team responds within minutes. Impressive.',
 			author: 'Uma Park',
 			role: 'Customer Success',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'UP',
 			rating: 5,
 		},
@@ -62,7 +64,8 @@ export default function Main() {
 			quote: 'Best-in-class security features. Highly secure.',
 			author: 'Victor Lee',
 			role: 'Security Engineer',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'VL',
 			rating: 5,
 		},
@@ -70,7 +73,8 @@ export default function Main() {
 			quote: 'Integration was painless. Up and running in hours.',
 			author: 'Wendy Kim',
 			role: 'Tech Lead',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'WK',
 			rating: 5,
 		},

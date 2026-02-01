@@ -14,7 +14,13 @@ interface TestimonialItem {
 	rating: number;
 }
 
-const Eyebrow = ({ icon: Icon, text }: { icon: React.ElementType; text: string }) => (
+const Eyebrow = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ElementType;
+	text: string;
+}) => (
 	<div className="inline-flex items-center gap-2 text-sm text-muted-foreground mb-4 @md:mb-6">
 		<Icon className="size-4 text-primary" />
 		<span className="uppercase tracking-wider font-medium">{text}</span>
@@ -111,7 +117,8 @@ export default function Main() {
 			author: 'Sarah Mitchell',
 			role: 'Product Manager',
 			company: 'TechFlow Inc',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'SM',
 			rating: 5,
 		},
@@ -121,7 +128,8 @@ export default function Main() {
 			author: 'James Rodriguez',
 			role: 'CEO',
 			company: 'StartupHub',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'JR',
 			rating: 5,
 		},
@@ -131,14 +139,18 @@ export default function Main() {
 			author: 'Emily Chen',
 			role: 'Design Lead',
 			company: 'Creative Studio',
-			avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
 			initials: 'EC',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<div className="text-center mb-12 @lg:mb-16">
 					<Eyebrow icon={Star} text="Customer Stories" />

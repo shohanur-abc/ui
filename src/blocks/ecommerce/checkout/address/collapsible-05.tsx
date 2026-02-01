@@ -159,7 +159,11 @@ const AddressForm = ({
 	onComplete: () => void;
 }) => (
 	<div className="space-y-4">
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -175,19 +179,28 @@ const PreferencesForm = ({ onComplete }: { onComplete: () => void }) => (
 	<div className="space-y-4">
 		<div className="flex items-center gap-2">
 			<Checkbox id="billing-same" defaultChecked />
-			<Label htmlFor="billing-same" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="billing-same"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Billing address same as shipping
 			</Label>
 		</div>
 		<div className="flex items-center gap-2">
 			<Checkbox id="save-address" defaultChecked />
-			<Label htmlFor="save-address" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="save-address"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Save this address for future orders
 			</Label>
 		</div>
 		<div className="flex items-center gap-2">
 			<Checkbox id="newsletter" />
-			<Label htmlFor="newsletter" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="newsletter"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Subscribe to order updates via SMS
 			</Label>
 		</div>
@@ -226,9 +239,7 @@ export default function Main() {
 						<h1 className="text-2xl @md:text-3xl font-bold">
 							Complete Your Details
 						</h1>
-						<Badge variant="outline">
-							{completedSteps.length}/3 Complete
-						</Badge>
+						<Badge variant="outline">{completedSteps.length}/3 Complete</Badge>
 					</div>
 					<Progress value={progress} className="h-2" />
 				</div>

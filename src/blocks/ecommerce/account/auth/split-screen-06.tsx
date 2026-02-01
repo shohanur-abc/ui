@@ -19,7 +19,9 @@ const IllustrationPanel = () => (
 				<KeyRound className="size-8 text-accent" />
 			</div>
 		</div>
-		<h3 className="text-xl font-semibold mt-12 text-center">Password Recovery</h3>
+		<h3 className="text-xl font-semibold mt-12 text-center">
+			Password Recovery
+		</h3>
 		<p className="text-muted-foreground text-center mt-2 max-w-xs">
 			We&apos;ll send you a secure link to reset your password
 		</p>
@@ -36,7 +38,9 @@ const Logo = ({ icon: Icon }: { icon: React.ElementType }) => (
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -122,7 +126,11 @@ export default function Main() {
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="Remember your password?" linkText="Back to sign in" href="/login" />
+							<FooterLink
+								text="Remember your password?"
+								linkText="Back to sign in"
+								href="/login"
+							/>
 						</div>
 					</div>
 				</div>

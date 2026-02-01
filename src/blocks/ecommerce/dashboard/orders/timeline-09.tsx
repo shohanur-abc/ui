@@ -1,6 +1,15 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Package, Warehouse, ScanLine, Box, Truck, CheckCircle2, Clock, User } from 'lucide-react';
+import {
+	Package,
+	Warehouse,
+	ScanLine,
+	Box,
+	Truck,
+	CheckCircle2,
+	Clock,
+	User,
+} from 'lucide-react';
 
 interface FulfillmentStep {
 	id: string;
@@ -36,26 +45,38 @@ const FulfillmentStepItem = ({ step, isLast }: FulfillmentStepItemProps) => {
 	return (
 		<div className="flex gap-4">
 			<div className="flex flex-col items-center">
-				<div className={`size-12 rounded-xl flex items-center justify-center ${icon}`}>
+				<div
+					className={`size-12 rounded-xl flex items-center justify-center ${icon}`}
+				>
 					<step.icon className="size-6" />
 				</div>
-				{!isLast && <div className={`w-0.5 flex-1 my-2 ${step.status === 'completed' ? line : 'bg-border'}`} />}
+				{!isLast && (
+					<div
+						className={`w-0.5 flex-1 my-2 ${step.status === 'completed' ? line : 'bg-border'}`}
+					/>
+				)}
 			</div>
 
 			<div className={`flex-1 ${isLast ? '' : 'pb-6'}`}>
-				<div className={`p-4 rounded-xl border ${step.status === 'current' ? 'bg-primary/5 border-primary/30' : 'bg-muted/20 border-border/50'}`}>
+				<div
+					className={`p-4 rounded-xl border ${step.status === 'current' ? 'bg-primary/5 border-primary/30' : 'bg-muted/20 border-border/50'}`}
+				>
 					<div className="flex items-start justify-between mb-2">
 						<div>
 							<div className="flex items-center gap-2">
 								<p className="font-semibold">{step.title}</p>
 								{step.status === 'current' && (
-									<Badge className="bg-primary text-primary-foreground text-xs">In Progress</Badge>
+									<Badge className="bg-primary text-primary-foreground text-xs">
+										In Progress
+									</Badge>
 								)}
 								{step.status === 'completed' && (
 									<CheckCircle2 className="size-4 text-accent" />
 								)}
 							</div>
-							<p className="text-sm text-muted-foreground">{step.description}</p>
+							<p className="text-sm text-muted-foreground">
+								{step.description}
+							</p>
 						</div>
 						<div className="text-right text-xs text-muted-foreground">
 							{step.timestamp && <p>{step.timestamp}</p>}
@@ -87,12 +108,59 @@ const FulfillmentStepItem = ({ step, isLast }: FulfillmentStepItemProps) => {
 
 export default function Main() {
 	const steps: FulfillmentStep[] = [
-		{ id: '1', status: 'completed', title: 'Order Received', description: 'Order entered into fulfillment queue', timestamp: '10:00 AM', duration: '0m', icon: Package },
-		{ id: '2', status: 'completed', title: 'Picking', description: 'Items collected from warehouse shelves', timestamp: '10:15 AM', duration: '12m', worker: 'John S.', icon: ScanLine, items: [{ name: 'Headphones', quantity: 1 }, { name: 'USB Cable', quantity: 2 }] },
-		{ id: '3', status: 'current', title: 'Packing', description: 'Items being packed for shipment', timestamp: '10:27 AM', worker: 'Maria G.', icon: Box },
-		{ id: '4', status: 'upcoming', title: 'Quality Check', description: 'Final verification before shipping', icon: CheckCircle2 },
-		{ id: '5', status: 'upcoming', title: 'Ready for Pickup', description: 'Waiting for carrier pickup', icon: Warehouse },
-		{ id: '6', status: 'upcoming', title: 'Shipped', description: 'Handed off to shipping carrier', icon: Truck },
+		{
+			id: '1',
+			status: 'completed',
+			title: 'Order Received',
+			description: 'Order entered into fulfillment queue',
+			timestamp: '10:00 AM',
+			duration: '0m',
+			icon: Package,
+		},
+		{
+			id: '2',
+			status: 'completed',
+			title: 'Picking',
+			description: 'Items collected from warehouse shelves',
+			timestamp: '10:15 AM',
+			duration: '12m',
+			worker: 'John S.',
+			icon: ScanLine,
+			items: [
+				{ name: 'Headphones', quantity: 1 },
+				{ name: 'USB Cable', quantity: 2 },
+			],
+		},
+		{
+			id: '3',
+			status: 'current',
+			title: 'Packing',
+			description: 'Items being packed for shipment',
+			timestamp: '10:27 AM',
+			worker: 'Maria G.',
+			icon: Box,
+		},
+		{
+			id: '4',
+			status: 'upcoming',
+			title: 'Quality Check',
+			description: 'Final verification before shipping',
+			icon: CheckCircle2,
+		},
+		{
+			id: '5',
+			status: 'upcoming',
+			title: 'Ready for Pickup',
+			description: 'Waiting for carrier pickup',
+			icon: Warehouse,
+		},
+		{
+			id: '6',
+			status: 'upcoming',
+			title: 'Shipped',
+			description: 'Handed off to shipping carrier',
+			icon: Truck,
+		},
 	];
 
 	return (
@@ -103,7 +171,9 @@ export default function Main() {
 						<div className="flex items-center justify-between">
 							<div>
 								<CardTitle className="text-lg">Fulfillment Progress</CardTitle>
-								<Badge variant="outline" className="font-mono text-xs mt-1">ORD-2024-001</Badge>
+								<Badge variant="outline" className="font-mono text-xs mt-1">
+									ORD-2024-001
+								</Badge>
 							</div>
 							<div className="text-right">
 								<p className="text-xs text-muted-foreground">Est. Completion</p>
@@ -113,7 +183,11 @@ export default function Main() {
 					</CardHeader>
 					<CardContent>
 						{steps.map((step, i) => (
-							<FulfillmentStepItem key={step.id} step={step} isLast={i === steps.length - 1} />
+							<FulfillmentStepItem
+								key={step.id}
+								step={step}
+								isLast={i === steps.length - 1}
+							/>
 						))}
 					</CardContent>
 				</Card>

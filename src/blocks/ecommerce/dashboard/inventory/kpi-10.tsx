@@ -11,7 +11,13 @@ import {
 	Zap,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 type SparklineKPIProps = {
@@ -23,16 +29,25 @@ type SparklineKPIProps = {
 	icon: React.ReactNode;
 };
 
-const SparklineKPI = ({ title, value, change, data, color, icon }: SparklineKPIProps) => {
+const SparklineKPI = ({
+	title,
+	value,
+	change,
+	data,
+	color,
+	icon,
+}: SparklineKPIProps) => {
 	const maxValue = Math.max(...data);
 	const minValue = Math.min(...data);
 	const range = maxValue - minValue || 1;
 
-	const points = data.map((v, i) => {
-		const x = (i / (data.length - 1)) * 100;
-		const y = 100 - ((v - minValue) / range) * 100;
-		return `${x},${y}`;
-	}).join(' ');
+	const points = data
+		.map((v, i) => {
+			const x = (i / (data.length - 1)) * 100;
+			const y = 100 - ((v - minValue) / range) * 100;
+			return `${x},${y}`;
+		})
+		.join(' ');
 
 	const isPositive = change.value >= 0;
 
@@ -40,11 +55,17 @@ const SparklineKPI = ({ title, value, change, data, color, icon }: SparklineKPIP
 		<Card>
 			<CardContent className="p-6">
 				<div className="flex items-center justify-between">
-					<div className={`flex size-10 items-center justify-center rounded-lg`} style={{ backgroundColor: `${color}20`, color }}>
+					<div
+						className={`flex size-10 items-center justify-center rounded-lg`}
+						style={{ backgroundColor: `${color}20`, color }}
+					>
 						{icon}
 					</div>
-					<div className={`text-sm font-medium ${isPositive ? 'text-emerald-500' : 'text-destructive'}`}>
-						{isPositive ? '+' : ''}{change.value}%
+					<div
+						className={`text-sm font-medium ${isPositive ? 'text-emerald-500' : 'text-destructive'}`}
+					>
+						{isPositive ? '+' : ''}
+						{change.value}%
 					</div>
 				</div>
 				<div className="mt-4">
@@ -52,11 +73,27 @@ const SparklineKPI = ({ title, value, change, data, color, icon }: SparklineKPIP
 					<p className="text-sm text-muted-foreground">{title}</p>
 				</div>
 				<div className="mt-4 h-12">
-					<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="size-full">
+					<svg
+						viewBox="0 0 100 100"
+						preserveAspectRatio="none"
+						className="size-full"
+					>
 						<defs>
-							<linearGradient id={`gradient-${title}`} x1="0%" y1="0%" x2="0%" y2="100%">
-								<stop offset="0%" style={{ stopColor: color, stopOpacity: 0.3 }} />
-								<stop offset="100%" style={{ stopColor: color, stopOpacity: 0 }} />
+							<linearGradient
+								id={`gradient-${title}`}
+								x1="0%"
+								y1="0%"
+								x2="0%"
+								y2="100%"
+							>
+								<stop
+									offset="0%"
+									style={{ stopColor: color, stopOpacity: 0.3 }}
+								/>
+								<stop
+									offset="100%"
+									style={{ stopColor: color, stopOpacity: 0 }}
+								/>
 							</linearGradient>
 						</defs>
 						<polygon
@@ -119,7 +156,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<div className="mb-6">
 					<h2 className="text-xl font-semibold @lg:text-2xl">Live Metrics</h2>
-					<p className="text-sm text-muted-foreground">Real-time inventory performance with sparklines</p>
+					<p className="text-sm text-muted-foreground">
+						Real-time inventory performance with sparklines
+					</p>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 					{kpis.map((kpi) => (

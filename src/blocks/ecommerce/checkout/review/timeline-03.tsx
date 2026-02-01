@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -53,7 +59,9 @@ const TimelineItem = ({
 				)}
 			</div>
 			{!isLast && (
-				<div className={`w-0.5 flex-1 ${step.completed ? 'bg-primary' : 'bg-muted'}`} />
+				<div
+					className={`w-0.5 flex-1 ${step.completed ? 'bg-primary' : 'bg-muted'}`}
+				/>
 			)}
 		</div>
 		<div className="flex-1 pb-8">
@@ -81,31 +89,21 @@ const ProductItem = ({ item }: { item: CartItem }) => (
 		</div>
 		<div className="text-right">
 			<p className="text-sm font-semibold">${item.price.toFixed(2)}</p>
-			<Badge variant="secondary" className="text-xs">×{item.qty}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				×{item.qty}
+			</Badge>
 		</div>
 	</div>
 );
 
-const AddressInfo = ({
-	name,
-	address,
-}: {
-	name: string;
-	address: string;
-}) => (
+const AddressInfo = ({ name, address }: { name: string; address: string }) => (
 	<div className="rounded-lg bg-muted/50 p-3">
 		<p className="font-medium">{name}</p>
 		<p className="text-sm text-muted-foreground">{address}</p>
 	</div>
 );
 
-const DeliveryInfo = ({
-	method,
-	date,
-}: {
-	method: string;
-	date: string;
-}) => (
+const DeliveryInfo = ({ method, date }: { method: string; date: string }) => (
 	<div className="flex items-center gap-3 rounded-lg bg-muted/50 p-3">
 		<Truck className="size-5 text-primary" />
 		<div>
@@ -115,16 +113,12 @@ const DeliveryInfo = ({
 	</div>
 );
 
-const PaymentInfo = ({
-	brand,
-	last4,
-}: {
-	brand: string;
-	last4: string;
-}) => (
+const PaymentInfo = ({ brand, last4 }: { brand: string; last4: string }) => (
 	<div className="flex items-center gap-3 rounded-lg bg-muted/50 p-3">
 		<CreditCard className="size-5 text-primary" />
-		<p className="font-medium">{brand} •••• {last4}</p>
+		<p className="font-medium">
+			{brand} •••• {last4}
+		</p>
 	</div>
 );
 
@@ -139,9 +133,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -153,7 +151,8 @@ export default function Main() {
 			variant: 'Blue / Size 10',
 			price: 129.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -161,7 +160,8 @@ export default function Main() {
 			variant: 'White / 3-Pack',
 			price: 19.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -193,9 +193,7 @@ export default function Main() {
 			icon: Truck,
 			title: 'Delivery Method',
 			completed: true,
-			content: (
-				<DeliveryInfo method="Express" date="Arrives Dec 20-21, 2025" />
-			),
+			content: <DeliveryInfo method="Express" date="Arrives Dec 20-21, 2025" />,
 		},
 		{
 			icon: CreditCard,

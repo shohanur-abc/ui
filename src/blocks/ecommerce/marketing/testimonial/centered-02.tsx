@@ -97,13 +97,17 @@ export default function Main() {
 		author: 'Nathan Park',
 		role: 'VP of Operations',
 		company: 'Enterprise Solutions',
-		avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 		initials: 'NP',
 		rating: 5,
 	};
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Featured Review"

@@ -1,5 +1,14 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Zap, Clock, RotateCcw, Shield, Truck } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Zap,
+	Clock,
+	RotateCcw,
+	Shield,
+	Truck,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,7 +18,11 @@ import { Checkbox } from '@/components/ui/checkbox';
 const FeatureCarousel = ({
 	features,
 }: {
-	features: Array<{ icon: React.ElementType; title: string; description: string }>;
+	features: Array<{
+		icon: React.ElementType;
+		title: string;
+		description: string;
+	}>;
 }) => (
 	<div className="relative hidden @lg:flex flex-col justify-center p-8 @xl:p-12 bg-gradient-to-b from-primary/10 via-background to-accent/10">
 		<div className="space-y-6">
@@ -33,7 +46,13 @@ const FeatureCarousel = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -44,7 +63,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -133,17 +154,20 @@ export default function Main() {
 		{
 			icon: Truck,
 			title: 'Free & Fast Shipping',
-			description: 'Get your orders delivered in 2 days or less with our express shipping.',
+			description:
+				'Get your orders delivered in 2 days or less with our express shipping.',
 		},
 		{
 			icon: RotateCcw,
 			title: 'Easy Returns',
-			description: '30-day hassle-free returns on all purchases. No questions asked.',
+			description:
+				'30-day hassle-free returns on all purchases. No questions asked.',
 		},
 		{
 			icon: Shield,
 			title: 'Secure Shopping',
-			description: 'Your payment information is always protected with 256-bit encryption.',
+			description:
+				'Your payment information is always protected with 256-bit encryption.',
 		},
 	];
 
@@ -153,11 +177,24 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="ExpressShop" icon={Zap} />
-						<Title text="Sign in to ExpressShop" subtitle="Fast shipping, easy returns" />
+						<Title
+							text="Sign in to ExpressShop"
+							subtitle="Fast shipping, easy returns"
+						/>
 
 						<form className="space-y-5">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<RememberForgot
 								rememberLabel="Stay signed in"
 								forgotLabel="Forgot password?"
@@ -167,7 +204,11 @@ export default function Main() {
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="New here?" linkText="Create an account" href="/signup" />
+							<FooterLink
+								text="New here?"
+								linkText="Create an account"
+								href="/signup"
+							/>
 						</div>
 					</div>
 				</div>

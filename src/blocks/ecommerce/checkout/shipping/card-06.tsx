@@ -139,8 +139,12 @@ export default function Main() {
 						<Plus className="size-4" />
 						Shipping Add-ons
 					</div>
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Enhance Your Delivery</h1>
-					<p className="text-muted-foreground">Add optional services to your shipment</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Enhance Your Delivery
+					</h1>
+					<p className="text-muted-foreground">
+						Add optional services to your shipment
+					</p>
 				</div>
 
 				<div className="space-y-4 mb-8">
@@ -166,7 +170,9 @@ export default function Main() {
 				<PriceSummary items={priceSummary.items} total={priceSummary.total} />
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

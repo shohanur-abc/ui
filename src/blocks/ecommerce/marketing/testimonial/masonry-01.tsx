@@ -37,7 +37,13 @@ const SectionHeader = ({
 	</div>
 );
 
-const StarRating = ({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'md' }) => (
+const StarRating = ({
+	rating,
+	size = 'sm',
+}: {
+	rating: number;
+	size?: 'sm' | 'md';
+}) => (
 	<div className="flex gap-0.5">
 		{Array.from({ length: 5 }).map((_, i) => (
 			<Star
@@ -65,7 +71,9 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 	>
 		<CardContent className="p-5 @md:p-6">
 			{item.featured && (
-				<Badge className="mb-4 bg-primary text-primary-foreground">Featured Review</Badge>
+				<Badge className="mb-4 bg-primary text-primary-foreground">
+					Featured Review
+				</Badge>
 			)}
 			<StarRating rating={item.rating} size={item.featured ? 'md' : 'sm'} />
 			<p
@@ -84,7 +92,9 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 						</AvatarFallback>
 					</Avatar>
 					<div>
-						<p className="font-semibold text-sm text-foreground">{item.author}</p>
+						<p className="font-semibold text-sm text-foreground">
+							{item.author}
+						</p>
 						<p className="text-xs text-muted-foreground">{item.role}</p>
 					</div>
 				</div>
@@ -101,7 +111,8 @@ export default function Main() {
 				'Absolutely game-changing for our team. We saw immediate improvements in our workflow and communication.',
 			author: 'Michael Torres',
 			role: 'Engineering Lead',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'MT',
 			rating: 5,
 			helpful: 47,
@@ -111,7 +122,8 @@ export default function Main() {
 			quote: 'Simple, effective, and reliable. Exactly what we needed.',
 			author: 'Lisa Park',
 			role: 'Founder',
-			avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
 			initials: 'LP',
 			rating: 5,
 			helpful: 23,
@@ -121,7 +133,8 @@ export default function Main() {
 				'The customer support is phenomenal. They went above and beyond to help us with the integration.',
 			author: 'David Kim',
 			role: 'CTO',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'DK',
 			rating: 5,
 			helpful: 31,
@@ -130,7 +143,8 @@ export default function Main() {
 			quote: 'Best tool in its category. Period.',
 			author: 'Rachel Green',
 			role: 'Product Manager',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'RG',
 			rating: 5,
 			helpful: 18,
@@ -140,16 +154,19 @@ export default function Main() {
 				'We evaluated dozens of solutions before choosing this one. No regrets. The ROI has been incredible.',
 			author: 'Chris Anderson',
 			role: 'VP of Operations',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'CA',
 			rating: 5,
 			helpful: 52,
 		},
 		{
-			quote: 'Intuitive interface, powerful features. What more could you ask for?',
+			quote:
+				'Intuitive interface, powerful features. What more could you ask for?',
 			author: 'Sophia Martinez',
 			role: 'Designer',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'SM',
 			rating: 4,
 			helpful: 15,
@@ -157,7 +174,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					eyebrow="Customer Reviews"

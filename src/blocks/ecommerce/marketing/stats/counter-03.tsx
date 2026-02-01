@@ -8,11 +8,17 @@ interface CounterStatProps {
 }
 
 const CounterStat = ({ value, label, highlight }: CounterStatProps) => (
-	<div className={`relative p-6 text-center transition-all duration-300 @md:p-8 ${highlight ? 'bg-primary text-primary-foreground rounded-2xl' : ''}`}>
-		<p className={`text-4xl font-bold tracking-tighter @sm:text-5xl @xl:text-6xl ${highlight ? '' : ''}`}>
+	<div
+		className={`relative p-6 text-center transition-all duration-300 @md:p-8 ${highlight ? 'bg-primary text-primary-foreground rounded-2xl' : ''}`}
+	>
+		<p
+			className={`text-4xl font-bold tracking-tighter @sm:text-5xl @xl:text-6xl ${highlight ? '' : ''}`}
+		>
 			{value}
 		</p>
-		<p className={`mt-3 text-sm font-medium @sm:text-base ${highlight ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+		<p
+			className={`mt-3 text-sm font-medium @sm:text-base ${highlight ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</p>
 	</div>
@@ -31,10 +37,16 @@ export default function Main() {
 				<Card className="overflow-hidden">
 					<div className="flex flex-col items-center @lg:flex-row">
 						{stats.map((stat, i) => (
-							<div key={i} className="flex flex-1 flex-col items-center @lg:flex-row">
+							<div
+								key={i}
+								className="flex flex-1 flex-col items-center @lg:flex-row"
+							>
 								<CounterStat {...stat} />
 								{i < stats.length - 1 && (
-									<Separator orientation="vertical" className="hidden h-20 @lg:block" />
+									<Separator
+										orientation="vertical"
+										className="hidden h-20 @lg:block"
+									/>
 								)}
 								{i < stats.length - 1 && (
 									<Separator className="w-32 @lg:hidden" />

@@ -9,13 +9,7 @@ import {
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Input } from '@/components/ui/input';
-import {
-	Percent,
-	Sparkles,
-	Gift,
-	Coins,
-	type LucideIcon,
-} from 'lucide-react';
+import { Percent, Sparkles, Gift, Coins, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 
 type SummaryRowProps = {
@@ -34,7 +28,11 @@ type RewardProps = {
 const SummaryRow = ({ label, value, isDiscount }: SummaryRowProps) => (
 	<div className="flex items-center justify-between text-sm">
 		<span
-			className={isDiscount ? 'text-green-600 dark:text-green-400' : 'text-muted-foreground'}
+			className={
+				isDiscount
+					? 'text-green-600 dark:text-green-400'
+					: 'text-muted-foreground'
+			}
 		>
 			{label}
 		</span>
@@ -50,7 +48,11 @@ const TotalRow = ({
 	label,
 	value,
 	originalValue,
-}: { label: string; value: string; originalValue?: string }) => (
+}: {
+	label: string;
+	value: string;
+	originalValue?: string;
+}) => (
 	<div className="flex items-center justify-between">
 		<span className="text-lg font-semibold">{label}</span>
 		<div className="text-right">
@@ -84,7 +86,10 @@ const RewardCard = ({ icon: Icon, title, value, action }: RewardProps) => (
 const PromoInput = ({
 	placeholder,
 	buttonLabel,
-}: { placeholder: string; buttonLabel: string }) => (
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="space-y-2">
 		<p className="text-sm font-medium">Promo Code</p>
 		<div className="flex gap-2">
@@ -145,10 +150,7 @@ export default function Main() {
 								<RewardCard key={i} {...reward} />
 							))}
 							<Separator />
-							<PromoInput
-								placeholder="Enter code"
-								buttonLabel="Apply"
-							/>
+							<PromoInput placeholder="Enter code" buttonLabel="Apply" />
 						</CardContent>
 					</Card>
 					<Card className="h-fit">
@@ -167,11 +169,7 @@ export default function Main() {
 								))}
 							</div>
 							<Separator />
-							<TotalRow
-								label="Total"
-								value="$545.51"
-								originalValue="$629.41"
-							/>
+							<TotalRow label="Total" value="$545.51" originalValue="$629.41" />
 							<div className="rounded-lg bg-green-500/10 p-3 text-center">
 								<p className="text-sm font-medium text-green-600 dark:text-green-400">
 									You&apos;re saving $83.90 on this order!

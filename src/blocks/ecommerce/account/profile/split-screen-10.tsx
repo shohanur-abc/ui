@@ -36,16 +36,20 @@ const OrderHeader = ({
 			<h2 className="text-lg font-semibold">Order #{orderId}</h2>
 			<p className="text-sm text-muted-foreground">Placed on {orderDate}</p>
 		</div>
-		<Badge className={`${statusColor} text-sm px-3 py-1`}>
-			{status}
-		</Badge>
+		<Badge className={`${statusColor} text-sm px-3 py-1`}>{status}</Badge>
 	</div>
 );
 
 const TrackingTimeline = ({
 	steps,
 }: {
-	steps: { title: string; description: string; date: string; completed: boolean; current: boolean }[];
+	steps: {
+		title: string;
+		description: string;
+		date: string;
+		completed: boolean;
+		current: boolean;
+	}[];
 }) => (
 	<div className="space-y-4">
 		<h3 className="font-medium">Tracking</h3>
@@ -63,11 +67,15 @@ const TrackingTimeline = ({
 							<Circle className="size-6 text-muted-foreground" />
 						)}
 						{i < steps.length - 1 && (
-							<div className={`w-0.5 flex-1 mt-2 ${step.completed ? 'bg-primary' : 'bg-border'}`} />
+							<div
+								className={`w-0.5 flex-1 mt-2 ${step.completed ? 'bg-primary' : 'bg-border'}`}
+							/>
 						)}
 					</div>
 					<div className="flex-1 pb-2">
-						<p className={`font-medium ${step.completed || step.current ? 'text-foreground' : 'text-muted-foreground'}`}>
+						<p
+							className={`font-medium ${step.completed || step.current ? 'text-foreground' : 'text-muted-foreground'}`}
+						>
 							{step.title}
 						</p>
 						<p className="text-sm text-muted-foreground">{step.description}</p>
@@ -84,7 +92,13 @@ const TrackingTimeline = ({
 const OrderItems = ({
 	items,
 }: {
-	items: { image: string; name: string; variant: string; quantity: number; price: string }[];
+	items: {
+		image: string;
+		name: string;
+		variant: string;
+		quantity: number;
+		price: string;
+	}[];
 }) => (
 	<div className="space-y-4">
 		<h3 className="font-medium">Items</h3>
@@ -92,12 +106,19 @@ const OrderItems = ({
 			{items.map((item, i) => (
 				<div key={i} className="flex gap-4 p-3 rounded-lg bg-muted/30">
 					<div className="size-16 relative rounded-lg overflow-hidden bg-muted shrink-0">
-						<Image src={item.image} alt={item.name} fill className="object-cover" />
+						<Image
+							src={item.image}
+							alt={item.name}
+							fill
+							className="object-cover"
+						/>
 					</div>
 					<div className="flex-1 min-w-0">
 						<p className="font-medium text-sm truncate">{item.name}</p>
 						<p className="text-xs text-muted-foreground">{item.variant}</p>
-						<p className="text-xs text-muted-foreground">Qty: {item.quantity}</p>
+						<p className="text-xs text-muted-foreground">
+							Qty: {item.quantity}
+						</p>
 					</div>
 					<p className="font-medium text-sm">{item.price}</p>
 				</div>
@@ -171,11 +192,22 @@ const OrderSummary = ({
 const OrderActions = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; variant?: 'default' | 'outline' | 'ghost' }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		variant?: 'default' | 'outline' | 'ghost';
+	}[];
 }) => (
 	<div className="flex flex-wrap gap-2">
 		{items.map((action, i) => (
-			<Button key={i} variant={action.variant || 'outline'} size="sm" className="gap-2" asChild>
+			<Button
+				key={i}
+				variant={action.variant || 'outline'}
+				size="sm"
+				className="gap-2"
+				asChild
+			>
 				<Link href={action.href}>
 					<action.icon className="size-4" />
 					{action.label}
@@ -194,15 +226,59 @@ export default function Main() {
 			statusColor: 'bg-blue-500/20 text-blue-600 border-blue-500/30',
 		},
 		tracking: [
-			{ title: 'Order Placed', description: 'Your order has been confirmed', date: 'Jan 28, 10:30 AM', completed: true, current: false },
-			{ title: 'Processing', description: 'Preparing your items', date: 'Jan 28, 2:15 PM', completed: true, current: false },
-			{ title: 'Shipped', description: 'Package picked up by carrier', date: 'Jan 29, 9:00 AM', completed: true, current: false },
-			{ title: 'In Transit', description: 'On the way to your address', date: 'Jan 30, 11:45 AM', completed: false, current: true },
-			{ title: 'Delivered', description: 'Package will be delivered', date: 'Expected Feb 1', completed: false, current: false },
+			{
+				title: 'Order Placed',
+				description: 'Your order has been confirmed',
+				date: 'Jan 28, 10:30 AM',
+				completed: true,
+				current: false,
+			},
+			{
+				title: 'Processing',
+				description: 'Preparing your items',
+				date: 'Jan 28, 2:15 PM',
+				completed: true,
+				current: false,
+			},
+			{
+				title: 'Shipped',
+				description: 'Package picked up by carrier',
+				date: 'Jan 29, 9:00 AM',
+				completed: true,
+				current: false,
+			},
+			{
+				title: 'In Transit',
+				description: 'On the way to your address',
+				date: 'Jan 30, 11:45 AM',
+				completed: false,
+				current: true,
+			},
+			{
+				title: 'Delivered',
+				description: 'Package will be delivered',
+				date: 'Expected Feb 1',
+				completed: false,
+				current: false,
+			},
 		],
 		items: [
-			{ image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200', name: 'Premium Smart Watch', variant: 'Black / 44mm', quantity: 1, price: '$299.00' },
-			{ image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200', name: 'Wireless Earbuds Pro', variant: 'White', quantity: 1, price: '$149.00' },
+			{
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
+				name: 'Premium Smart Watch',
+				variant: 'Black / 44mm',
+				quantity: 1,
+				price: '$299.00',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200',
+				name: 'Wireless Earbuds Pro',
+				variant: 'White',
+				quantity: 1,
+				price: '$149.00',
+			},
 		],
 		shipping: {
 			name: 'Alex Thompson',
@@ -217,7 +293,12 @@ export default function Main() {
 			total: '$403.20',
 		},
 		actions: [
-			{ icon: Truck, label: 'Track Package', href: '/tracking/48291', variant: 'default' as const },
+			{
+				icon: Truck,
+				label: 'Track Package',
+				href: '/tracking/48291',
+				variant: 'default' as const,
+			},
 			{ icon: RotateCcw, label: 'Return Items', href: '/returns/new' },
 			{ icon: FileText, label: 'Invoice', href: '/invoices/48291' },
 			{ icon: Star, label: 'Review', href: '/reviews/new' },

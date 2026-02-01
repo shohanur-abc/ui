@@ -1,10 +1,30 @@
 'use client';
 
-import { ArrowLeft, Check, CreditCard, Heart, Lock, Minus, Plus, RefreshCcw, Shield, Sparkles, Star, Trash2, X, Zap } from 'lucide-react';
+import {
+	ArrowLeft,
+	Check,
+	CreditCard,
+	Heart,
+	Lock,
+	Minus,
+	Plus,
+	RefreshCcw,
+	Shield,
+	Sparkles,
+	Star,
+	Trash2,
+	X,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -17,7 +37,15 @@ interface DonationTier {
 	impact: string;
 }
 
-const DrawerHeader = ({ title, subtitle, onClose }: { title: string; subtitle: string; onClose: () => void }) => (
+const DrawerHeader = ({
+	title,
+	subtitle,
+	onClose,
+}: {
+	title: string;
+	subtitle: string;
+	onClose: () => void;
+}) => (
 	<div className="flex items-start justify-between">
 		<div>
 			<div className="flex items-center gap-2 mb-1">
@@ -32,19 +60,33 @@ const DrawerHeader = ({ title, subtitle, onClose }: { title: string; subtitle: s
 	</div>
 );
 
-const DonationTiers = ({ tiers, selected, onSelect }: { tiers: DonationTier[]; selected: string; onSelect: (id: string) => void }) => (
+const DonationTiers = ({
+	tiers,
+	selected,
+	onSelect,
+}: {
+	tiers: DonationTier[];
+	selected: string;
+	onSelect: (id: string) => void;
+}) => (
 	<div className="space-y-3">
 		{tiers.map((tier) => (
 			<div
 				key={tier.id}
 				onClick={() => onSelect(tier.id)}
 				className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
-					selected === tier.id ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/30'
+					selected === tier.id
+						? 'border-primary bg-primary/5'
+						: 'border-border hover:border-primary/30'
 				}`}
 			>
-				<div className={`size-10 rounded-full flex items-center justify-center font-bold ${
-					selected === tier.id ? 'bg-primary text-primary-foreground' : 'bg-muted'
-				}`}>
+				<div
+					className={`size-10 rounded-full flex items-center justify-center font-bold ${
+						selected === tier.id
+							? 'bg-primary text-primary-foreground'
+							: 'bg-muted'
+					}`}
+				>
 					{tier.amount}
 				</div>
 				<div className="flex-1">
@@ -57,12 +99,26 @@ const DonationTiers = ({ tiers, selected, onSelect }: { tiers: DonationTier[]; s
 	</div>
 );
 
-const CustomAmount = ({ value, onChange }: { value: string; onChange: (value: string) => void }) => (
+const CustomAmount = ({
+	value,
+	onChange,
+}: {
+	value: string;
+	onChange: (value: string) => void;
+}) => (
 	<div className="space-y-2">
 		<Label className="text-sm">Or enter custom amount</Label>
 		<div className="relative">
-			<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
-			<Input type="number" placeholder="0.00" value={value} onChange={(e) => onChange(e.target.value)} className="pl-8" />
+			<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+				$
+			</span>
+			<Input
+				type="number"
+				placeholder="0.00"
+				value={value}
+				onChange={(e) => onChange(e.target.value)}
+				className="pl-8"
+			/>
 		</div>
 	</div>
 );
@@ -116,7 +172,9 @@ const DonorInfo = () => (
 		</div>
 		<div className="flex items-center gap-3">
 			<Checkbox id="newsletter" defaultChecked />
-			<Label htmlFor="newsletter" className="text-sm cursor-pointer">Send me updates about impact</Label>
+			<Label htmlFor="newsletter" className="text-sm cursor-pointer">
+				Send me updates about impact
+			</Label>
 		</div>
 	</div>
 );
@@ -133,10 +191,18 @@ const ImpactMessage = ({ amount }: { amount: string }) => (
 	</div>
 );
 
-const DonationTotal = ({ amount, isRecurring }: { amount: string; isRecurring?: boolean }) => (
+const DonationTotal = ({
+	amount,
+	isRecurring,
+}: {
+	amount: string;
+	isRecurring?: boolean;
+}) => (
 	<div className="flex items-center justify-between p-4 rounded-xl bg-muted/30">
 		<div>
-			<span className="text-sm text-muted-foreground">{isRecurring ? 'Monthly donation' : 'One-time donation'}</span>
+			<span className="text-sm text-muted-foreground">
+				{isRecurring ? 'Monthly donation' : 'One-time donation'}
+			</span>
 			<p className="text-2xl font-bold">{amount}</p>
 		</div>
 		<Heart className="size-8 text-rose-500" />
@@ -145,9 +211,24 @@ const DonationTotal = ({ amount, isRecurring }: { amount: string; isRecurring?: 
 
 export default function Main() {
 	const tiers: DonationTier[] = [
-		{ id: '25', amount: '$25', title: 'Supporter', impact: 'Feed 2 families for a week' },
-		{ id: '50', amount: '$50', title: 'Champion', impact: 'Feed 5 families for a week' },
-		{ id: '100', amount: '$100', title: 'Hero', impact: 'Feed 10 families for a week' },
+		{
+			id: '25',
+			amount: '$25',
+			title: 'Supporter',
+			impact: 'Feed 2 families for a week',
+		},
+		{
+			id: '50',
+			amount: '$50',
+			title: 'Champion',
+			impact: 'Feed 5 families for a week',
+		},
+		{
+			id: '100',
+			amount: '$100',
+			title: 'Hero',
+			impact: 'Feed 10 families for a week',
+		},
 	];
 
 	return (
@@ -155,7 +236,11 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm @sm:max-w-md mx-auto">
 					<CardHeader>
-						<DrawerHeader title="Make a Donation" subtitle="Support our mission to end hunger" onClose={() => {}} />
+						<DrawerHeader
+							title="Make a Donation"
+							subtitle="Support our mission to end hunger"
+							onClose={() => {}}
+						/>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<DonationTiers tiers={tiers} selected="50" onSelect={() => {}} />

@@ -124,17 +124,27 @@ const CartProduct = ({ item }: { item: CartItem }) => (
 			</div>
 			<div className="mt-auto flex items-center justify-between">
 				<div className="flex items-center rounded-full border border-border bg-muted/50">
-					<Button size="icon-sm" variant="ghost" className="size-7 rounded-full">
+					<Button
+						size="icon-sm"
+						variant="ghost"
+						className="size-7 rounded-full"
+					>
 						<Minus className="size-3" />
 					</Button>
 					<span className="w-8 text-center text-sm font-medium">
 						{item.quantity}
 					</span>
-					<Button size="icon-sm" variant="ghost" className="size-7 rounded-full">
+					<Button
+						size="icon-sm"
+						variant="ghost"
+						className="size-7 rounded-full"
+					>
 						<Plus className="size-3" />
 					</Button>
 				</div>
-				<span className="font-bold">${(item.price * item.quantity).toFixed(2)}</span>
+				<span className="font-bold">
+					${(item.price * item.quantity).toFixed(2)}
+				</span>
 			</div>
 		</div>
 	</div>
@@ -147,7 +157,10 @@ const CartSummary = ({
 	items: CartItem[];
 	checkoutLabel: string;
 }) => {
-	const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 
 	return (
 		<div className="space-y-4 pt-4">
@@ -173,33 +186,37 @@ export default function Main() {
 		giftProgressLabel: 'Spend',
 		freeGift: {
 			name: 'Travel Pouch',
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 			minSpend: 150,
 		},
 		checkoutLabel: 'Checkout with Gift',
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1609003841768-c7022adc8b2f?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1609003841768-c7022adc8b2f?w=200&h=200&fit=crop',
 				name: 'Vitamin C Serum',
 				variant: '30ml',
-				price: 45.00,
+				price: 45.0,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=200&h=200&fit=crop',
 				name: 'Retinol Night Cream',
 				variant: '50ml',
-				price: 68.00,
+				price: 68.0,
 				quantity: 1,
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&h=200&fit=crop',
 				name: 'SPF 50 Sunscreen',
 				variant: '60ml',
-				price: 32.00,
+				price: 32.0,
 				quantity: 1,
 			},
 		],
@@ -209,7 +226,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

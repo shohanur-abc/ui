@@ -81,7 +81,11 @@ interface VisibilityToggleProps {
 	labels: { visible: string; hidden: string };
 }
 
-const VisibilityToggle = ({ visible, onChange, labels }: VisibilityToggleProps) => (
+const VisibilityToggle = ({
+	visible,
+	onChange,
+	labels,
+}: VisibilityToggleProps) => (
 	<div className="flex items-center gap-2">
 		<Switch checked={visible} onCheckedChange={onChange} />
 		<span className="text-sm text-muted-foreground">
@@ -108,7 +112,10 @@ const StockAlert = ({ stock, threshold, labels }: StockAlertProps) => {
 
 	if (stock <= threshold) {
 		return (
-			<Badge variant="secondary" className="gap-1 text-amber-600 dark:text-amber-400">
+			<Badge
+				variant="secondary"
+				className="gap-1 text-amber-600 dark:text-amber-400"
+			>
 				<AlertTriangle className="size-3" />
 				{labels.low}
 			</Badge>
@@ -134,7 +141,9 @@ const PositionControls = ({
 	isLast,
 }: PositionControlsProps) => (
 	<div className="flex items-center gap-1">
-		<span className="mr-2 text-sm font-medium text-muted-foreground">#{position}</span>
+		<span className="mr-2 text-sm font-medium text-muted-foreground">
+			#{position}
+		</span>
 		<Button
 			variant="ghost"
 			size="icon-sm"
@@ -257,7 +266,8 @@ export default function Main() {
 			id: '1',
 			name: 'Featured Wireless Headphones',
 			sku: 'FEA-WH-001',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
 			price: 299.99,
 			stock: 45,
 			visibility: true,
@@ -268,7 +278,8 @@ export default function Main() {
 			id: '2',
 			name: 'Smart Watch Series X',
 			sku: 'FEA-SW-002',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
 			price: 499.99,
 			stock: 8,
 			visibility: true,
@@ -279,7 +290,8 @@ export default function Main() {
 			id: '3',
 			name: 'Premium Leather Bag',
 			sku: 'FEA-LB-003',
-			image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=100&h=100&fit=crop',
 			price: 189.99,
 			stock: 0,
 			visibility: false,
@@ -290,7 +302,8 @@ export default function Main() {
 			id: '4',
 			name: 'Minimalist Desk Lamp',
 			sku: 'FEA-DL-004',
-			image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=100&h=100&fit=crop',
 			price: 129.99,
 			stock: 67,
 			visibility: true,
@@ -301,7 +314,8 @@ export default function Main() {
 			id: '5',
 			name: 'Ceramic Coffee Mug Set',
 			sku: 'FEA-CM-005',
-			image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=100&h=100&fit=crop',
 			price: 49.99,
 			stock: 234,
 			visibility: true,
@@ -313,12 +327,15 @@ export default function Main() {
 	const actions = [
 		{ label: 'Edit', onClick: (id: string) => console.log('Edit', id) },
 		{ label: 'View Details', onClick: (id: string) => console.log('View', id) },
-		{ label: 'Remove from Featured', onClick: (id: string) => console.log('Remove', id) },
+		{
+			label: 'Remove from Featured',
+			onClick: (id: string) => console.log('Remove', id),
+		},
 	];
 
 	const handleVisibilityChange = (id: string, visible: boolean) => {
 		setProducts((prev) =>
-			prev.map((p) => (p.id === id ? { ...p, visibility: visible } : p))
+			prev.map((p) => (p.id === id ? { ...p, visibility: visible } : p)),
 		);
 	};
 
@@ -327,7 +344,10 @@ export default function Main() {
 			const idx = prev.findIndex((p) => p.id === id);
 			if (idx <= 0) return prev;
 			const newProducts = [...prev];
-			[newProducts[idx - 1], newProducts[idx]] = [newProducts[idx], newProducts[idx - 1]];
+			[newProducts[idx - 1], newProducts[idx]] = [
+				newProducts[idx],
+				newProducts[idx - 1],
+			];
 			return newProducts.map((p, i) => ({ ...p, position: i + 1 }));
 		});
 	};
@@ -337,7 +357,10 @@ export default function Main() {
 			const idx = prev.findIndex((p) => p.id === id);
 			if (idx === -1 || idx >= prev.length - 1) return prev;
 			const newProducts = [...prev];
-			[newProducts[idx], newProducts[idx + 1]] = [newProducts[idx + 1], newProducts[idx]];
+			[newProducts[idx], newProducts[idx + 1]] = [
+				newProducts[idx + 1],
+				newProducts[idx],
+			];
 			return newProducts.map((p, i) => ({ ...p, position: i + 1 }));
 		});
 	};

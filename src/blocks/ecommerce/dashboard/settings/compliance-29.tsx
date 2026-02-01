@@ -108,7 +108,9 @@ const AuditLogRow = ({ period, status, findings, date }: AuditLog) => (
 		</div>
 		<div className="flex items-center gap-3">
 			{status === 'completed' && (
-				<span className="text-sm text-muted-foreground">{findings} findings</span>
+				<span className="text-sm text-muted-foreground">
+					{findings} findings
+				</span>
 			)}
 			<Badge
 				variant={
@@ -119,7 +121,9 @@ const AuditLogRow = ({ period, status, findings, date }: AuditLog) => (
 							: 'outline'
 				}
 				className={
-					status === 'completed' ? 'bg-emerald-500/10 text-emerald-500 border-0' : ''
+					status === 'completed'
+						? 'bg-emerald-500/10 text-emerald-500 border-0'
+						: ''
 				}
 			>
 				{status.charAt(0).toUpperCase() + status.slice(1).replace('-', ' ')}
@@ -207,14 +211,44 @@ export default function Main() {
 	];
 
 	const auditLogs: AuditLog[] = [
-		{ id: '1', period: 'Q4 2025 Audit', status: 'completed', findings: 2, date: 'Jan 15, 2026' },
-		{ id: '2', period: 'Q1 2026 Audit', status: 'in-progress', findings: 0, date: 'In Progress' },
-		{ id: '3', period: 'Q2 2026 Audit', status: 'scheduled', findings: 0, date: 'Apr 1, 2026' },
+		{
+			id: '1',
+			period: 'Q4 2025 Audit',
+			status: 'completed',
+			findings: 2,
+			date: 'Jan 15, 2026',
+		},
+		{
+			id: '2',
+			period: 'Q1 2026 Audit',
+			status: 'in-progress',
+			findings: 0,
+			date: 'In Progress',
+		},
+		{
+			id: '3',
+			period: 'Q2 2026 Audit',
+			status: 'scheduled',
+			findings: 0,
+			date: 'Apr 1, 2026',
+		},
 	];
 
 	const certificates: Certificate[] = [
-		{ id: '1', name: 'SSL/TLS Certificate', issuer: 'Let\'s Encrypt', validUntil: 'Mar 15, 2026', status: 'valid' },
-		{ id: '2', name: 'Code Signing Certificate', issuer: 'DigiCert', validUntil: 'Feb 10, 2026', status: 'expiring' },
+		{
+			id: '1',
+			name: 'SSL/TLS Certificate',
+			issuer: "Let's Encrypt",
+			validUntil: 'Mar 15, 2026',
+			status: 'valid',
+		},
+		{
+			id: '2',
+			name: 'Code Signing Certificate',
+			issuer: 'DigiCert',
+			validUntil: 'Feb 10, 2026',
+			status: 'expiring',
+		},
 	];
 
 	return (
@@ -225,7 +259,9 @@ export default function Main() {
 						<Card className="bg-emerald-500/5 border-emerald-500/20">
 							<CardContent className="pt-6 text-center">
 								<div className="text-3xl font-bold text-emerald-500">94%</div>
-								<p className="text-sm text-muted-foreground">Compliance Score</p>
+								<p className="text-sm text-muted-foreground">
+									Compliance Score
+								</p>
 							</CardContent>
 						</Card>
 						<Card>

@@ -16,7 +16,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -109,9 +114,18 @@ const EngagementBar = ({ score }: { score: number }) => {
 
 const RiskBadge = ({ level }: { level: CustomerInsight['riskLevel'] }) => {
 	const config = {
-		low: { label: 'Low Risk', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		medium: { label: 'Medium Risk', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		high: { label: 'High Risk', className: 'bg-red-500/10 text-red-500 border-red-500/20' },
+		low: {
+			label: 'Low Risk',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		medium: {
+			label: 'Medium Risk',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		high: {
+			label: 'High Risk',
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[level].className}>
@@ -179,16 +193,35 @@ const InsightCard = ({ customer }: { customer: CustomerInsight }) => (
 					<p className="text-muted-foreground text-xs">Lifetime Value</p>
 					<div className="flex items-center gap-2">
 						<p className="text-xl font-bold">{customer.lifetimeValue}</p>
-						<TrendIndicator trend={customer.trend} value={customer.trendValue} />
+						<TrendIndicator
+							trend={customer.trend}
+							value={customer.trendValue}
+						/>
 					</div>
 				</div>
 				<RiskBadge level={customer.riskLevel} />
 			</div>
 			<div className="space-y-2 border-t pt-3">
-				<MetricItem icon={DollarSign} label="Avg Order" value={customer.avgOrderValue} />
-				<MetricItem icon={Package} label="Frequency" value={customer.purchaseFrequency} />
-				<MetricItem icon={Clock} label="Last Purchase" value={customer.lastPurchase} />
-				<MetricItem icon={ShoppingCart} label="Next Purchase" value={customer.nextPredictedPurchase} />
+				<MetricItem
+					icon={DollarSign}
+					label="Avg Order"
+					value={customer.avgOrderValue}
+				/>
+				<MetricItem
+					icon={Package}
+					label="Frequency"
+					value={customer.purchaseFrequency}
+				/>
+				<MetricItem
+					icon={Clock}
+					label="Last Purchase"
+					value={customer.lastPurchase}
+				/>
+				<MetricItem
+					icon={ShoppingCart}
+					label="Next Purchase"
+					value={customer.nextPredictedPurchase}
+				/>
 			</div>
 			<EngagementBar score={customer.engagementScore} />
 			<div className="flex flex-wrap gap-1">
@@ -313,7 +346,9 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
 				<div>
-					<h1 className="text-2xl font-bold tracking-tight">Customer Insights</h1>
+					<h1 className="text-2xl font-bold tracking-tight">
+						Customer Insights
+					</h1>
 					<p className="text-muted-foreground text-sm">
 						Analyze customer behavior and lifetime value
 					</p>

@@ -1,4 +1,12 @@
-import { Truck, Zap, Package, Star, Clock, Check, ChevronRight } from 'lucide-react';
+import {
+	Truck,
+	Zap,
+	Package,
+	Star,
+	Clock,
+	Check,
+	ChevronRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -30,7 +38,11 @@ const IconRadioOption = ({
 				${popular ? 'ring-2 ring-primary/30' : ''}
 			`}
 		>
-			{popular && <Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">Most Popular</Badge>}
+			{popular && (
+				<Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+					Most Popular
+				</Badge>
+			)}
 			<CardContent className="p-6 text-center">
 				<RadioGroupItem value={value} id={value} className="sr-only" />
 				<div className="flex size-16 mx-auto mb-4 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -72,7 +84,11 @@ export default function Main() {
 			time: '2-3 days',
 			price: '$12.99',
 			popular: true,
-			features: ['Real-time tracking', 'Priority handling', 'Insurance included'],
+			features: [
+				'Real-time tracking',
+				'Priority handling',
+				'Insurance included',
+			],
 		},
 		{
 			value: 'overnight',
@@ -88,11 +104,18 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Shipping Speed</h1>
-					<p className="text-muted-foreground">Select your preferred delivery option</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Shipping Speed
+					</h1>
+					<p className="text-muted-foreground">
+						Select your preferred delivery option
+					</p>
 				</div>
 
-				<RadioGroup defaultValue="express" className="grid @md:grid-cols-3 gap-6">
+				<RadioGroup
+					defaultValue="express"
+					className="grid @md:grid-cols-3 gap-6"
+				>
 					{options.map((option) => (
 						<IconRadioOption key={option.value} {...option} />
 					))}

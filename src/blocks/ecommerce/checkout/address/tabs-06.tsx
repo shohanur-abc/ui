@@ -15,12 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import {
-	MapPin,
-	FileText,
-	ArrowRight,
-	CheckCircle2,
-} from 'lucide-react';
+import { MapPin, FileText, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface FieldProps {
 	label: string;
@@ -102,12 +97,20 @@ const AddressTab = ({
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="City" required />
-			<SelectField label="State" placeholder="State" options={states} required />
+			<SelectField
+				label="State"
+				placeholder="State"
+				options={states}
+				required
+			/>
 			<Field label="ZIP" placeholder="12345" required />
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="save-address" />
-			<Label htmlFor="save-address" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="save-address"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Save for future orders
 			</Label>
 		</div>
@@ -135,13 +138,9 @@ const ReviewTab = () => (
 				<p className="text-sm text-muted-foreground mt-1">
 					123 Main Street, Apt 4B
 				</p>
-				<p className="text-sm text-muted-foreground">
-					San Francisco, CA 94102
-				</p>
+				<p className="text-sm text-muted-foreground">San Francisco, CA 94102</p>
 				<p className="text-sm text-muted-foreground">United States</p>
-				<p className="text-sm text-muted-foreground mt-2">
-					+1 (555) 000-0000
-				</p>
+				<p className="text-sm text-muted-foreground mt-2">+1 (555) 000-0000</p>
 			</div>
 		</div>
 

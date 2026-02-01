@@ -123,12 +123,7 @@ const TransactionRow = ({
 	);
 };
 
-const SummaryCard = ({
-	label,
-	value,
-	change,
-	changeType,
-}: Summary) => (
+const SummaryCard = ({ label, value, change, changeType }: Summary) => (
 	<Card>
 		<CardContent className="pt-6">
 			<p className="text-sm text-muted-foreground">{label}</p>
@@ -201,8 +196,18 @@ export default function Main() {
 	];
 
 	const summaries: Summary[] = [
-		{ label: 'Total Spent', value: '$1,234.56', change: '+12%', changeType: 'positive' },
-		{ label: 'This Month', value: '$329.99', change: '-5%', changeType: 'negative' },
+		{
+			label: 'Total Spent',
+			value: '$1,234.56',
+			change: '+12%',
+			changeType: 'positive',
+		},
+		{
+			label: 'This Month',
+			value: '$329.99',
+			change: '-5%',
+			changeType: 'negative',
+		},
 		{ label: 'Pending', value: '$500.00' },
 		{ label: 'Refunded', value: '$49.99' },
 	];
@@ -229,7 +234,10 @@ export default function Main() {
 								<div className="flex gap-2">
 									<div className="relative flex-1 @md:w-64">
 										<Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-										<Input placeholder="Search transactions..." className="pl-9" />
+										<Input
+											placeholder="Search transactions..."
+											className="pl-9"
+										/>
 									</div>
 									<Select defaultValue="all">
 										<SelectTrigger className="w-32">

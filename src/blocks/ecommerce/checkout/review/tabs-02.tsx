@@ -2,7 +2,13 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
@@ -84,7 +90,9 @@ const AddressDisplay = ({
 	lines: string[];
 }) => (
 	<div className="rounded-lg bg-muted/50 p-4">
-		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">{label}</p>
+		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">
+			{label}
+		</p>
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
 			<p key={i} className="text-sm text-muted-foreground">
@@ -129,7 +137,9 @@ const PaymentDisplay = ({
 			<CreditCard className="size-7 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{type} •••• {last4}</p>
+			<p className="font-medium">
+				{type} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -146,9 +156,13 @@ const PriceRow = ({
 	bold?: boolean;
 	discount?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={discount ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={discount ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -160,7 +174,8 @@ export default function Main() {
 			options: '34" / Curved / 144Hz',
 			price: 599.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -168,7 +183,8 @@ export default function Main() {
 			options: 'Dual / Gas Spring',
 			price: 129.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -215,7 +231,10 @@ export default function Main() {
 							))}
 						</TabsContent>
 
-						<TabsContent value="address" className="mt-6 grid gap-4 @md:grid-cols-2">
+						<TabsContent
+							value="address"
+							className="mt-6 grid gap-4 @md:grid-cols-2"
+						>
 							<AddressDisplay
 								label="Shipping"
 								name="Michael Scott"

@@ -1,11 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -82,7 +77,11 @@ const TotalRow = ({
 	label,
 	value,
 	period,
-}: { label: string; value: string; period: string }) => (
+}: {
+	label: string;
+	value: string;
+	period: string;
+}) => (
 	<div className="space-y-1">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>
@@ -107,10 +106,7 @@ const SubscriptionSetting = ({
 				<p className="text-xs text-muted-foreground">{value}</p>
 			</div>
 		</div>
-		<Link
-			href={actionHref}
-			className="text-xs text-primary hover:underline"
-		>
+		<Link href={actionHref} className="text-xs text-primary hover:underline">
 			{actionLabel}
 		</Link>
 	</div>
@@ -202,14 +198,10 @@ export default function Main() {
 							/>
 							<div className="space-y-2">
 								<Button className="w-full" size="lg" asChild>
-									<Link href="/subscriptions/manage">
-										Manage Subscriptions
-									</Link>
+									<Link href="/subscriptions/manage">Manage Subscriptions</Link>
 								</Button>
 								<Button variant="ghost" className="w-full" asChild>
-									<Link href="/subscriptions/pause">
-										Skip Next Delivery
-									</Link>
+									<Link href="/subscriptions/pause">Skip Next Delivery</Link>
 								</Button>
 							</div>
 						</CardContent>

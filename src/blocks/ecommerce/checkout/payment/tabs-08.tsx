@@ -1,10 +1,26 @@
 'use client';
 
-import { ArrowRight, Clock, CreditCard, Gift, Globe, Lock, RefreshCcw, Smartphone, Truck, Wallet } from 'lucide-react';
+import {
+	ArrowRight,
+	Clock,
+	CreditCard,
+	Gift,
+	Globe,
+	Lock,
+	RefreshCcw,
+	Smartphone,
+	Truck,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -24,7 +40,17 @@ interface PaymentFeature {
 	label: string;
 }
 
-const ProductPreview = ({ name, variant, price, image }: { name: string; variant: string; price: string; image: string }) => (
+const ProductPreview = ({
+	name,
+	variant,
+	price,
+	image,
+}: {
+	name: string;
+	variant: string;
+	price: string;
+	image: string;
+}) => (
 	<div className="flex gap-4 p-4 rounded-xl bg-muted/30">
 		<div className="size-20 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-3xl">
 			{image}
@@ -37,7 +63,13 @@ const ProductPreview = ({ name, variant, price, image }: { name: string; variant
 	</div>
 );
 
-const ShippingOptionCard = ({ id, name, time, price, icon: Icon }: ShippingOption) => (
+const ShippingOptionCard = ({
+	id,
+	name,
+	time,
+	price,
+	icon: Icon,
+}: ShippingOption) => (
 	<Label
 		htmlFor={id}
 		className="flex items-center gap-3 p-3 rounded-xl border border-border/50 cursor-pointer transition-all hover:border-primary/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
@@ -71,14 +103,18 @@ const PaymentTab = () => (
 				<CreditCard className="size-5" />
 				<div className="text-left">
 					<span className="block text-sm">Credit/Debit Card</span>
-					<span className="text-xs text-muted-foreground">Visa, Mastercard, Amex</span>
+					<span className="text-xs text-muted-foreground">
+						Visa, Mastercard, Amex
+					</span>
 				</div>
 			</Button>
 			<Button variant="outline" className="w-full h-14 justify-start gap-4">
 				<Wallet className="size-5" />
 				<div className="text-left">
 					<span className="block text-sm">Digital Wallet</span>
-					<span className="text-xs text-muted-foreground">Apple Pay, Google Pay</span>
+					<span className="text-xs text-muted-foreground">
+						Apple Pay, Google Pay
+					</span>
 				</div>
 			</Button>
 			<Button variant="outline" className="w-full h-14 justify-start gap-4">
@@ -108,14 +144,16 @@ const GiftTab = () => (
 			</div>
 			<div className="space-y-2">
 				<Label className="text-sm">Gift Message (Optional)</Label>
-				<textarea 
+				<textarea
 					className="w-full h-24 px-3 py-2 rounded-lg border border-input bg-transparent text-sm resize-none"
 					placeholder="Add a personal message..."
 				/>
 			</div>
 			<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 				<input type="checkbox" className="size-4 rounded border-input" />
-				<Label className="text-sm cursor-pointer">Gift wrap this order (+$5.00)</Label>
+				<Label className="text-sm cursor-pointer">
+					Gift wrap this order (+$5.00)
+				</Label>
 			</div>
 		</div>
 	</div>
@@ -144,7 +182,9 @@ const ReviewTab = () => (
 					<Globe className="size-4 text-muted-foreground" />
 					<span className="font-medium">Shipping Address</span>
 				</div>
-				<p className="text-xs text-muted-foreground ml-6">123 Main St, New York, NY 10001</p>
+				<p className="text-xs text-muted-foreground ml-6">
+					123 Main St, New York, NY 10001
+				</p>
 			</div>
 		</div>
 	</div>
@@ -161,13 +201,21 @@ const FeaturesList = ({ features }: { features: PaymentFeature[] }) => (
 	</div>
 );
 
-const PriceSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean }[] }) => (
+const PriceSummary = ({
+	lines,
+}: {
+	lines: { label: string; value: string; isTotal?: boolean }[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isTotal ? '' : 'text-muted-foreground'}>{line.label}</span>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span className={line.isTotal ? '' : 'text-muted-foreground'}>
+						{line.label}
+					</span>
 					<span>{line.value}</span>
 				</div>
 			</div>
@@ -184,9 +232,27 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const shippingOptions: ShippingOption[] = [
-		{ id: 'express', name: 'Express', time: '1-2 days', price: '$12.99', icon: Truck },
-		{ id: 'standard', name: 'Standard', time: '3-5 days', price: '$5.99', icon: Clock },
-		{ id: 'free', name: 'Economy', time: '7-10 days', price: 'Free', icon: RefreshCcw },
+		{
+			id: 'express',
+			name: 'Express',
+			time: '1-2 days',
+			price: '$12.99',
+			icon: Truck,
+		},
+		{
+			id: 'standard',
+			name: 'Standard',
+			time: '3-5 days',
+			price: '$5.99',
+			icon: Clock,
+		},
+		{
+			id: 'free',
+			name: 'Economy',
+			time: '7-10 days',
+			price: 'Free',
+			icon: RefreshCcw,
+		},
 	];
 
 	const features: PaymentFeature[] = [
@@ -207,9 +273,9 @@ export default function Main() {
 			<div className="mx-auto max-w-md px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardHeader className="space-y-4">
-						<ProductPreview 
-							name="Premium Wireless Earbuds" 
-							variant="Midnight Black • 1 item" 
+						<ProductPreview
+							name="Premium Wireless Earbuds"
+							variant="Midnight Black • 1 item"
 							price="$249.00"
 							image="🎧"
 						/>

@@ -88,14 +88,20 @@ const ItemWithNote = ({
 							<Plus className="size-3" />
 						</Button>
 					</div>
-					<span className="font-bold">${(item.price * item.quantity).toFixed(2)}</span>
+					<span className="font-bold">
+						${(item.price * item.quantity).toFixed(2)}
+					</span>
 				</div>
 			</div>
 		</div>
 		{item.note !== undefined ? (
 			<NoteInput note={item.note} placeholder={notePlaceholder} />
 		) : (
-			<Button variant="ghost" size="sm" className="h-7 gap-1 text-xs text-muted-foreground">
+			<Button
+				variant="ghost"
+				size="sm"
+				className="h-7 gap-1 text-xs text-muted-foreground"
+			>
 				<MessageSquare className="size-3" />
 				{addNoteLabel}
 			</Button>
@@ -130,7 +136,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop',
 				name: 'Margherita Pizza',
 				price: 18.99,
 				quantity: 2,
@@ -138,7 +145,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop',
 				name: 'Classic Burger',
 				price: 14.99,
 				quantity: 1,
@@ -146,7 +154,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200&h=200&fit=crop',
 				name: 'Caesar Salad',
 				price: 12.99,
 				quantity: 1,
@@ -158,7 +167,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

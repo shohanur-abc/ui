@@ -97,7 +97,10 @@ const ComparisonTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{comparisons.map((comp, idx) => (
-							<TableRow key={idx} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={idx}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell className="font-medium">{comp.metric}</TableCell>
 								<TableCell className="text-right font-semibold">
 									{formatValue(comp.current, comp.format)}
@@ -127,7 +130,11 @@ const ComparisonTableCard = ({
 								</TableCell>
 								<TableCell>
 									<Badge variant={getTargetVariant(comp.targetStatus)}>
-										{comp.targetStatus === 'above' ? 'Above Target' : comp.targetStatus === 'below' ? 'Below Target' : 'On Track'}
+										{comp.targetStatus === 'above'
+											? 'Above Target'
+											: comp.targetStatus === 'below'
+												? 'Below Target'
+												: 'On Track'}
 									</Badge>
 								</TableCell>
 							</TableRow>
@@ -141,12 +148,66 @@ const ComparisonTableCard = ({
 
 export default function Main() {
 	const comparisons: ComparisonData[] = [
-		{ metric: 'Total Revenue', current: 142500, previous: 125000, change: 14, changeType: 'increase', format: 'currency', target: 140000, targetStatus: 'above' },
-		{ metric: 'Orders', current: 1250, previous: 1180, change: 5.9, changeType: 'increase', format: 'number', target: 1300, targetStatus: 'on-track' },
-		{ metric: 'Conversion Rate', current: 3.8, previous: 4.2, change: -9.5, changeType: 'decrease', format: 'percentage', target: 4.0, targetStatus: 'below' },
-		{ metric: 'Avg Order Value', current: 114, previous: 106, change: 7.5, changeType: 'increase', format: 'currency', target: 110, targetStatus: 'above' },
-		{ metric: 'Customer Acquisition', current: 320, previous: 320, change: 0, changeType: 'neutral', format: 'number', target: 350, targetStatus: 'below' },
-		{ metric: 'Return Rate', current: 4.2, previous: 5.1, change: -17.6, changeType: 'increase', format: 'percentage', target: 5.0, targetStatus: 'above' },
+		{
+			metric: 'Total Revenue',
+			current: 142500,
+			previous: 125000,
+			change: 14,
+			changeType: 'increase',
+			format: 'currency',
+			target: 140000,
+			targetStatus: 'above',
+		},
+		{
+			metric: 'Orders',
+			current: 1250,
+			previous: 1180,
+			change: 5.9,
+			changeType: 'increase',
+			format: 'number',
+			target: 1300,
+			targetStatus: 'on-track',
+		},
+		{
+			metric: 'Conversion Rate',
+			current: 3.8,
+			previous: 4.2,
+			change: -9.5,
+			changeType: 'decrease',
+			format: 'percentage',
+			target: 4.0,
+			targetStatus: 'below',
+		},
+		{
+			metric: 'Avg Order Value',
+			current: 114,
+			previous: 106,
+			change: 7.5,
+			changeType: 'increase',
+			format: 'currency',
+			target: 110,
+			targetStatus: 'above',
+		},
+		{
+			metric: 'Customer Acquisition',
+			current: 320,
+			previous: 320,
+			change: 0,
+			changeType: 'neutral',
+			format: 'number',
+			target: 350,
+			targetStatus: 'below',
+		},
+		{
+			metric: 'Return Rate',
+			current: 4.2,
+			previous: 5.1,
+			change: -17.6,
+			changeType: 'increase',
+			format: 'percentage',
+			target: 5.0,
+			targetStatus: 'above',
+		},
 	];
 
 	return (

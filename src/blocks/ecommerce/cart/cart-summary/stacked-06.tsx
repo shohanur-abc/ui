@@ -37,7 +37,11 @@ const TotalRow = ({
 	label,
 	value,
 	currency,
-}: { label: string; value: string; currency: string }) => (
+}: {
+	label: string;
+	value: string;
+	currency: string;
+}) => (
 	<div className="rounded-lg bg-primary/5 p-4">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>
@@ -52,7 +56,10 @@ const TotalRow = ({
 const Header = ({
 	title,
 	status,
-}: { title: string; status: { label: string; variant: 'default' | 'secondary' } }) => (
+}: {
+	title: string;
+	status: { label: string; variant: 'default' | 'secondary' };
+}) => (
 	<CardHeader className="border-b">
 		<CardTitle className="flex items-center justify-between">
 			{title}
@@ -84,7 +91,11 @@ const Actions = ({
 	label,
 	href,
 	termsText,
-}: { label: string; href: string; termsText: string }) => (
+}: {
+	label: string;
+	href: string;
+	termsText: string;
+}) => (
 	<div className="space-y-3">
 		<Button className="w-full" size="lg" asChild>
 			<Link href={href}>{label}</Link>

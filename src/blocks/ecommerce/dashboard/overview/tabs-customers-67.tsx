@@ -1,14 +1,15 @@
-import {
-	MapPin,
-	MoreHorizontal,
-	Star,
-	Users,
-} from 'lucide-react';
+import { MapPin, MoreHorizontal, Star, Users } from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
 	Table,
@@ -49,7 +50,9 @@ const CustomerRow = (customer: CustomerItem) => (
 		<TableCell>
 			<div className="flex items-center gap-3">
 				<Avatar className="size-9">
-					<AvatarFallback className="text-xs">{customer.initials}</AvatarFallback>
+					<AvatarFallback className="text-xs">
+						{customer.initials}
+					</AvatarFallback>
 				</Avatar>
 				<div>
 					<p className="font-medium">{customer.name}</p>
@@ -65,7 +68,9 @@ const CustomerRow = (customer: CustomerItem) => (
 		</TableCell>
 		<TableCell>{customer.orders}</TableCell>
 		<TableCell className="font-medium">{customer.spent}</TableCell>
-		<TableCell className="hidden @xl:table-cell text-muted-foreground">{customer.lastOrder}</TableCell>
+		<TableCell className="hidden @xl:table-cell text-muted-foreground">
+			{customer.lastOrder}
+		</TableCell>
 		<TableCell>
 			<Badge variant="secondary" className={getSegmentStyle(customer.segment)}>
 				{customer.segment}
@@ -81,12 +86,72 @@ const CustomerRow = (customer: CustomerItem) => (
 
 export default function Main() {
 	const allCustomers: CustomerItem[] = [
-		{ id: 'CUS-001', name: 'Sarah Wilson', email: 'sarah@example.com', initials: 'SW', location: 'New York, US', orders: 45, spent: '$4,521', lastOrder: 'Dec 12, 2024', segment: 'vip' },
-		{ id: 'CUS-002', name: 'Michael Chen', email: 'michael@example.com', initials: 'MC', location: 'San Francisco, US', orders: 38, spent: '$3,892', lastOrder: 'Dec 11, 2024', segment: 'vip' },
-		{ id: 'CUS-003', name: 'Emma Johnson', email: 'emma@example.com', initials: 'EJ', location: 'London, UK', orders: 32, spent: '$3,245', lastOrder: 'Dec 10, 2024', segment: 'regular' },
-		{ id: 'CUS-004', name: 'James Brown', email: 'james@example.com', initials: 'JB', location: 'Toronto, CA', orders: 12, spent: '$987', lastOrder: 'Dec 08, 2024', segment: 'regular' },
-		{ id: 'CUS-005', name: 'Lisa Davis', email: 'lisa@example.com', initials: 'LD', location: 'Sydney, AU', orders: 2, spent: '$234', lastOrder: 'Dec 12, 2024', segment: 'new' },
-		{ id: 'CUS-006', name: 'Robert Miller', email: 'robert@example.com', initials: 'RM', location: 'Berlin, DE', orders: 8, spent: '$456', lastOrder: 'Oct 15, 2024', segment: 'inactive' },
+		{
+			id: 'CUS-001',
+			name: 'Sarah Wilson',
+			email: 'sarah@example.com',
+			initials: 'SW',
+			location: 'New York, US',
+			orders: 45,
+			spent: '$4,521',
+			lastOrder: 'Dec 12, 2024',
+			segment: 'vip',
+		},
+		{
+			id: 'CUS-002',
+			name: 'Michael Chen',
+			email: 'michael@example.com',
+			initials: 'MC',
+			location: 'San Francisco, US',
+			orders: 38,
+			spent: '$3,892',
+			lastOrder: 'Dec 11, 2024',
+			segment: 'vip',
+		},
+		{
+			id: 'CUS-003',
+			name: 'Emma Johnson',
+			email: 'emma@example.com',
+			initials: 'EJ',
+			location: 'London, UK',
+			orders: 32,
+			spent: '$3,245',
+			lastOrder: 'Dec 10, 2024',
+			segment: 'regular',
+		},
+		{
+			id: 'CUS-004',
+			name: 'James Brown',
+			email: 'james@example.com',
+			initials: 'JB',
+			location: 'Toronto, CA',
+			orders: 12,
+			spent: '$987',
+			lastOrder: 'Dec 08, 2024',
+			segment: 'regular',
+		},
+		{
+			id: 'CUS-005',
+			name: 'Lisa Davis',
+			email: 'lisa@example.com',
+			initials: 'LD',
+			location: 'Sydney, AU',
+			orders: 2,
+			spent: '$234',
+			lastOrder: 'Dec 12, 2024',
+			segment: 'new',
+		},
+		{
+			id: 'CUS-006',
+			name: 'Robert Miller',
+			email: 'robert@example.com',
+			initials: 'RM',
+			location: 'Berlin, DE',
+			orders: 8,
+			spent: '$456',
+			lastOrder: 'Oct 15, 2024',
+			segment: 'inactive',
+		},
 	];
 
 	const vip = allCustomers.filter((c) => c.segment === 'vip');
@@ -108,24 +173,36 @@ export default function Main() {
 					<CardContent>
 						<Tabs defaultValue="all" className="w-full">
 							<TabsList className="mb-4">
-								<TabsTrigger value="all">All ({allCustomers.length})</TabsTrigger>
+								<TabsTrigger value="all">
+									All ({allCustomers.length})
+								</TabsTrigger>
 								<TabsTrigger value="vip">
 									<Star className="mr-1 size-3 fill-amber-500 text-amber-500" />
 									VIP ({vip.length})
 								</TabsTrigger>
-								<TabsTrigger value="regular">Regular ({regular.length})</TabsTrigger>
-								<TabsTrigger value="new">New ({newCustomers.length})</TabsTrigger>
-								<TabsTrigger value="inactive">Inactive ({inactive.length})</TabsTrigger>
+								<TabsTrigger value="regular">
+									Regular ({regular.length})
+								</TabsTrigger>
+								<TabsTrigger value="new">
+									New ({newCustomers.length})
+								</TabsTrigger>
+								<TabsTrigger value="inactive">
+									Inactive ({inactive.length})
+								</TabsTrigger>
 							</TabsList>
 							<TabsContent value="all">
 								<Table>
 									<TableHeader>
 										<TableRow>
 											<TableHead>Customer</TableHead>
-											<TableHead className="hidden @lg:table-cell">Location</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Location
+											</TableHead>
 											<TableHead>Orders</TableHead>
 											<TableHead>Total Spent</TableHead>
-											<TableHead className="hidden @xl:table-cell">Last Order</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Last Order
+											</TableHead>
 											<TableHead>Segment</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -142,10 +219,14 @@ export default function Main() {
 									<TableHeader>
 										<TableRow>
 											<TableHead>Customer</TableHead>
-											<TableHead className="hidden @lg:table-cell">Location</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Location
+											</TableHead>
 											<TableHead>Orders</TableHead>
 											<TableHead>Total Spent</TableHead>
-											<TableHead className="hidden @xl:table-cell">Last Order</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Last Order
+											</TableHead>
 											<TableHead>Segment</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -162,10 +243,14 @@ export default function Main() {
 									<TableHeader>
 										<TableRow>
 											<TableHead>Customer</TableHead>
-											<TableHead className="hidden @lg:table-cell">Location</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Location
+											</TableHead>
 											<TableHead>Orders</TableHead>
 											<TableHead>Total Spent</TableHead>
-											<TableHead className="hidden @xl:table-cell">Last Order</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Last Order
+											</TableHead>
 											<TableHead>Segment</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -182,10 +267,14 @@ export default function Main() {
 									<TableHeader>
 										<TableRow>
 											<TableHead>Customer</TableHead>
-											<TableHead className="hidden @lg:table-cell">Location</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Location
+											</TableHead>
 											<TableHead>Orders</TableHead>
 											<TableHead>Total Spent</TableHead>
-											<TableHead className="hidden @xl:table-cell">Last Order</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Last Order
+											</TableHead>
 											<TableHead>Segment</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -202,10 +291,14 @@ export default function Main() {
 									<TableHeader>
 										<TableRow>
 											<TableHead>Customer</TableHead>
-											<TableHead className="hidden @lg:table-cell">Location</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Location
+											</TableHead>
 											<TableHead>Orders</TableHead>
 											<TableHead>Total Spent</TableHead>
-											<TableHead className="hidden @xl:table-cell">Last Order</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Last Order
+											</TableHead>
 											<TableHead>Segment</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>

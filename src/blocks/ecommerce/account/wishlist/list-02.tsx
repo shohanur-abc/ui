@@ -19,7 +19,13 @@ interface ListProps {
 	items: WishlistItem[];
 }
 
-const DeliveryInfo = ({ estimate, freeShipping }: { estimate: string; freeShipping: boolean }) => (
+const DeliveryInfo = ({
+	estimate,
+	freeShipping,
+}: {
+	estimate: string;
+	freeShipping: boolean;
+}) => (
 	<div className="flex flex-wrap items-center gap-3 mt-2 text-sm">
 		<div className="flex items-center gap-1 text-muted-foreground">
 			<Clock className="size-3" />
@@ -37,21 +43,32 @@ const DeliveryInfo = ({ estimate, freeShipping }: { estimate: string; freeShippi
 const ListItem = ({ item }: { item: WishlistItem }) => (
 	<div className="flex gap-4 @sm:gap-6 py-6">
 		<div className="relative size-20 @sm:size-28 flex-shrink-0 rounded-lg overflow-hidden bg-muted">
-			<img src={item.image} alt={item.name} className="size-full object-cover" />
+			<img
+				src={item.image}
+				alt={item.name}
+				className="size-full object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0 flex flex-col">
 			<div className="flex items-start justify-between gap-2">
 				<div>
-					<p className="text-xs text-muted-foreground uppercase tracking-wider">{item.brand}</p>
+					<p className="text-xs text-muted-foreground uppercase tracking-wider">
+						{item.brand}
+					</p>
 					<Link href={item.href}>
-						<h3 className="font-semibold line-clamp-2 hover:text-primary transition-colors">{item.name}</h3>
+						<h3 className="font-semibold line-clamp-2 hover:text-primary transition-colors">
+							{item.name}
+						</h3>
 					</Link>
 				</div>
 				<Button variant="ghost" size="icon-sm" className="text-destructive">
 					<X className="size-4" />
 				</Button>
 			</div>
-			<DeliveryInfo estimate={item.estimatedDelivery} freeShipping={item.freeShipping} />
+			<DeliveryInfo
+				estimate={item.estimatedDelivery}
+				freeShipping={item.freeShipping}
+			/>
 			<div className="flex items-center justify-between mt-auto pt-3">
 				<span className="text-xl font-bold">${item.price.toFixed(2)}</span>
 				<Button size="sm" className="gap-1.5">
@@ -99,9 +116,39 @@ const SummaryBar = ({ items }: { items: WishlistItem[] }) => {
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Premium Leather Weekender Bag', brand: 'TUMI', price: 495.00, image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&h=200&fit=crop', estimatedDelivery: 'Arrives by Wed, Oct 25', freeShipping: true, href: '/product/1' },
-		{ id: '2', name: 'Merino Wool Travel Blazer', brand: 'BONOBOS', price: 325.00, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop', estimatedDelivery: 'Arrives by Thu, Oct 26', freeShipping: true, href: '/product/2' },
-		{ id: '3', name: 'Wireless Charging Travel Case', brand: 'NOMAD', price: 79.00, image: 'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=200&h=200&fit=crop', estimatedDelivery: 'Arrives by Fri, Oct 27', freeShipping: false, href: '/product/3' },
+		{
+			id: '1',
+			name: 'Premium Leather Weekender Bag',
+			brand: 'TUMI',
+			price: 495.0,
+			image:
+				'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&h=200&fit=crop',
+			estimatedDelivery: 'Arrives by Wed, Oct 25',
+			freeShipping: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Merino Wool Travel Blazer',
+			brand: 'BONOBOS',
+			price: 325.0,
+			image:
+				'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop',
+			estimatedDelivery: 'Arrives by Thu, Oct 26',
+			freeShipping: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Wireless Charging Travel Case',
+			brand: 'NOMAD',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=200&h=200&fit=crop',
+			estimatedDelivery: 'Arrives by Fri, Oct 27',
+			freeShipping: false,
+			href: '/product/3',
+		},
 	];
 
 	return (

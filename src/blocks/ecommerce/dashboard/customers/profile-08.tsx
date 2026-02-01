@@ -73,12 +73,35 @@ interface SubscriptionProfile {
 	lifetime: string;
 }
 
-const StatusBadge = ({ status }: { status: SubscriptionProfile['subscription']['status'] }) => {
-	const config: Record<string, { label: string; className: string; icon: React.ElementType }> = {
-		active: { label: 'Active', className: 'bg-emerald-500/10 text-emerald-500', icon: Play },
-		paused: { label: 'Paused', className: 'bg-amber-500/10 text-amber-500', icon: Pause },
-		cancelled: { label: 'Cancelled', className: 'bg-red-500/10 text-red-500', icon: XCircle },
-		'past-due': { label: 'Past Due', className: 'bg-orange-500/10 text-orange-500', icon: Clock },
+const StatusBadge = ({
+	status,
+}: {
+	status: SubscriptionProfile['subscription']['status'];
+}) => {
+	const config: Record<
+		string,
+		{ label: string; className: string; icon: React.ElementType }
+	> = {
+		active: {
+			label: 'Active',
+			className: 'bg-emerald-500/10 text-emerald-500',
+			icon: Play,
+		},
+		paused: {
+			label: 'Paused',
+			className: 'bg-amber-500/10 text-amber-500',
+			icon: Pause,
+		},
+		cancelled: {
+			label: 'Cancelled',
+			className: 'bg-red-500/10 text-red-500',
+			icon: XCircle,
+		},
+		'past-due': {
+			label: 'Past Due',
+			className: 'bg-orange-500/10 text-orange-500',
+			icon: Clock,
+		},
 	};
 	const { label, className, icon: Icon } = config[status];
 	return (
@@ -89,7 +112,15 @@ const StatusBadge = ({ status }: { status: SubscriptionProfile['subscription']['
 	);
 };
 
-const UsageBar = ({ current, limit, type }: { current: number; limit: number; type: string }) => {
+const UsageBar = ({
+	current,
+	limit,
+	type,
+}: {
+	current: number;
+	limit: number;
+	type: string;
+}) => {
 	const percentage = Math.min((current / limit) * 100, 100);
 	const getColor = (p: number) => {
 		if (p >= 90) return '[&>div]:bg-red-500';
@@ -100,7 +131,9 @@ const UsageBar = ({ current, limit, type }: { current: number; limit: number; ty
 		<div>
 			<div className="flex items-center justify-between mb-2 text-sm">
 				<span className="text-muted-foreground">{type} Usage</span>
-				<span className="font-medium">{current} / {limit}</span>
+				<span className="font-medium">
+					{current} / {limit}
+				</span>
 			</div>
 			<Progress value={percentage} className={`h-2 ${getColor(percentage)}`} />
 		</div>
@@ -131,7 +164,9 @@ const StatCard = ({
 const AddonItem = ({ addon }: { addon: SubscriptionProfile['addons'][0] }) => (
 	<div className="flex items-center justify-between py-2">
 		<div className="flex items-center gap-2">
-			<span className={`size-2 rounded-full ${addon.active ? 'bg-emerald-500' : 'bg-slate-400'}`} />
+			<span
+				className={`size-2 rounded-full ${addon.active ? 'bg-emerald-500' : 'bg-slate-400'}`}
+			/>
 			<span className="text-sm">{addon.name}</span>
 		</div>
 		<span className="text-sm font-medium">{addon.price}</span>
@@ -188,7 +223,9 @@ const ProfileHeader = ({ profile }: { profile: SubscriptionProfile }) => (
 							<DropdownMenuItem>View invoices</DropdownMenuItem>
 							<DropdownMenuItem>Update payment</DropdownMenuItem>
 							<DropdownMenuSeparator />
-							<DropdownMenuItem className="text-red-500">Cancel subscription</DropdownMenuItem>
+							<DropdownMenuItem className="text-red-500">
+								Cancel subscription
+							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
 				</div>
@@ -197,7 +234,11 @@ const ProfileHeader = ({ profile }: { profile: SubscriptionProfile }) => (
 	</div>
 );
 
-const SubscriptionCard = ({ subscription }: { subscription: SubscriptionProfile['subscription'] }) => (
+const SubscriptionCard = ({
+	subscription,
+}: {
+	subscription: SubscriptionProfile['subscription'];
+}) => (
 	<Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
 		<CardContent className="p-6">
 			<div className="flex items-start justify-between mb-4">
@@ -206,8 +247,12 @@ const SubscriptionCard = ({ subscription }: { subscription: SubscriptionProfile[
 					<p className="text-2xl font-bold">{subscription.plan}</p>
 				</div>
 				<div className="text-right">
-					<p className="text-3xl font-bold text-primary">{subscription.price}</p>
-					<p className="text-sm text-muted-foreground capitalize">/{subscription.billingCycle}</p>
+					<p className="text-3xl font-bold text-primary">
+						{subscription.price}
+					</p>
+					<p className="text-sm text-muted-foreground capitalize">
+						/{subscription.billingCycle}
+					</p>
 				</div>
 			</div>
 			<div className="grid grid-cols-3 gap-4 text-sm">
@@ -256,9 +301,24 @@ export default function Main() {
 			invoices: 12,
 		},
 		history: [
-			{ id: '1', action: 'Payment processed', date: 'Jan 15, 2024', details: '$49.00' },
-			{ id: '2', action: 'Plan upgraded', date: 'Dec 10, 2023', details: 'Basic → Professional' },
-			{ id: '3', action: 'Added addon', date: 'Nov 5, 2023', details: 'Priority Support' },
+			{
+				id: '1',
+				action: 'Payment processed',
+				date: 'Jan 15, 2024',
+				details: '$49.00',
+			},
+			{
+				id: '2',
+				action: 'Plan upgraded',
+				date: 'Dec 10, 2023',
+				details: 'Basic → Professional',
+			},
+			{
+				id: '3',
+				action: 'Added addon',
+				date: 'Nov 5, 2023',
+				details: 'Priority Support',
+			},
 			{ id: '4', action: 'Subscription started', date: 'Jan 15, 2023' },
 		],
 		addons: [
@@ -291,10 +351,30 @@ export default function Main() {
 				</div>
 
 				<div className="grid grid-cols-2 @lg:grid-cols-4 gap-4">
-					<StatCard label="MRR" value={profile.mrr} icon={DollarSign} subtext="Monthly recurring" />
-					<StatCard label="Lifetime Value" value={profile.lifetime} icon={CreditCard} subtext={`${profile.billing.invoices} invoices`} />
-					<StatCard label="Payment Method" value={`•••• ${profile.billing.last4}`} icon={CreditCard} subtext={profile.billing.method} />
-					<StatCard label="Next Invoice" value={profile.subscription.price} icon={Calendar} subtext={profile.subscription.nextBilling} />
+					<StatCard
+						label="MRR"
+						value={profile.mrr}
+						icon={DollarSign}
+						subtext="Monthly recurring"
+					/>
+					<StatCard
+						label="Lifetime Value"
+						value={profile.lifetime}
+						icon={CreditCard}
+						subtext={`${profile.billing.invoices} invoices`}
+					/>
+					<StatCard
+						label="Payment Method"
+						value={`•••• ${profile.billing.last4}`}
+						icon={CreditCard}
+						subtext={profile.billing.method}
+					/>
+					<StatCard
+						label="Next Invoice"
+						value={profile.subscription.price}
+						icon={Calendar}
+						subtext={profile.subscription.nextBilling}
+					/>
 				</div>
 
 				<div className="grid @lg:grid-cols-2 gap-6">
@@ -311,7 +391,11 @@ export default function Main() {
 									<AddonItem key={addon.id} addon={addon} />
 								))}
 							</div>
-							<Button variant="outline" size="sm" className="w-full mt-4 gap-1.5">
+							<Button
+								variant="outline"
+								size="sm"
+								className="w-full mt-4 gap-1.5"
+							>
 								<Settings className="size-3.5" />
 								Manage Add-ons
 							</Button>
@@ -327,12 +411,21 @@ export default function Main() {
 						</CardHeader>
 						<CardContent className="space-y-4">
 							{profile.history.map((event) => (
-								<div key={event.id} className="flex items-start justify-between text-sm">
+								<div
+									key={event.id}
+									className="flex items-start justify-between text-sm"
+								>
 									<div>
 										<p className="font-medium">{event.action}</p>
-										{event.details && <p className="text-muted-foreground text-xs">{event.details}</p>}
+										{event.details && (
+											<p className="text-muted-foreground text-xs">
+												{event.details}
+											</p>
+										)}
 									</div>
-									<span className="text-muted-foreground text-xs whitespace-nowrap">{event.date}</span>
+									<span className="text-muted-foreground text-xs whitespace-nowrap">
+										{event.date}
+									</span>
 								</div>
 							))}
 						</CardContent>

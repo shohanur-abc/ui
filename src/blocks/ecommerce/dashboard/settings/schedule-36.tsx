@@ -79,7 +79,9 @@ const ScheduledNotificationCard = ({
 			<div className="flex items-start gap-3">
 				<div
 					className={`flex size-10 items-center justify-center rounded-lg ${
-						active ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'
+						active
+							? 'bg-primary/10 text-primary'
+							: 'bg-muted text-muted-foreground'
 					}`}
 				>
 					<ChannelIcon channel={channel} />
@@ -94,7 +96,9 @@ const ScheduledNotificationCard = ({
 							</Badge>
 						)}
 					</div>
-					<p className="text-sm text-muted-foreground line-clamp-1">{message}</p>
+					<p className="text-sm text-muted-foreground line-clamp-1">
+						{message}
+					</p>
 				</div>
 			</div>
 			<div className="flex items-center gap-2">
@@ -196,9 +200,24 @@ export default function Main() {
 	];
 
 	const templates: NotificationTemplate[] = [
-		{ id: '1', name: 'Order Confirmation', type: 'Transactional', lastUsed: '2 hours ago' },
-		{ id: '2', name: 'Shipping Update', type: 'Transactional', lastUsed: '1 day ago' },
-		{ id: '3', name: 'Promotional Offer', type: 'Marketing', lastUsed: '1 week ago' },
+		{
+			id: '1',
+			name: 'Order Confirmation',
+			type: 'Transactional',
+			lastUsed: '2 hours ago',
+		},
+		{
+			id: '2',
+			name: 'Shipping Update',
+			type: 'Transactional',
+			lastUsed: '1 day ago',
+		},
+		{
+			id: '3',
+			name: 'Promotional Offer',
+			type: 'Marketing',
+			lastUsed: '1 week ago',
+		},
 	];
 
 	return (
@@ -228,7 +247,10 @@ export default function Main() {
 							</CardHeader>
 							<CardContent className="space-y-3 pt-6">
 								{scheduledNotifications.map((notification) => (
-									<ScheduledNotificationCard key={notification.id} {...notification} />
+									<ScheduledNotificationCard
+										key={notification.id}
+										{...notification}
+									/>
 								))}
 							</CardContent>
 						</Card>
@@ -241,7 +263,9 @@ export default function Main() {
 							</CardHeader>
 							<CardContent className="space-y-4">
 								<div className="flex items-center justify-between">
-									<span className="text-muted-foreground">Active schedules</span>
+									<span className="text-muted-foreground">
+										Active schedules
+									</span>
 									<span className="font-semibold">3</span>
 								</div>
 								<div className="flex items-center justify-between">
@@ -258,9 +282,7 @@ export default function Main() {
 						<Card>
 							<CardHeader>
 								<CardTitle className="text-base">Templates</CardTitle>
-								<CardDescription>
-									Quick-start templates
-								</CardDescription>
+								<CardDescription>Quick-start templates</CardDescription>
 							</CardHeader>
 							<CardContent className="divide-y">
 								{templates.map((template) => (

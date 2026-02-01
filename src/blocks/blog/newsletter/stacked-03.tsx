@@ -38,14 +38,13 @@ const Description = ({ text }: DescriptionProps) => (
 
 const Form = ({ placeholder, buttonText, checkboxLabel }: FormProps) => (
 	<form className="flex flex-col gap-4 w-full">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="h-11"
-		/>
+		<Input type="email" placeholder={placeholder} className="h-11" />
 		<div className="flex items-start gap-2">
 			<Checkbox id="consent" className="mt-0.5" />
-			<Label htmlFor="consent" className="text-sm text-muted-foreground leading-tight cursor-pointer">
+			<Label
+				htmlFor="consent"
+				className="text-sm text-muted-foreground leading-tight cursor-pointer"
+			>
 				{checkboxLabel}
 			</Label>
 		</div>
@@ -60,7 +59,10 @@ const TrustBadges = ({ items }: TrustBadgesProps) => (
 		{items.map((item, i) => {
 			const Icon = item.icon;
 			return (
-				<div key={i} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+				<div
+					key={i}
+					className="flex items-center gap-1.5 text-xs text-muted-foreground"
+				>
 					<Icon className="size-3.5" />
 					<span>{item.text}</span>
 				</div>

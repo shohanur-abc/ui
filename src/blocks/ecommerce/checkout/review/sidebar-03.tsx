@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -34,7 +40,9 @@ const ProductCard = ({ item }: { item: CartItem }) => (
 		</div>
 		<div className="text-right">
 			<p className="text-sm font-bold">${item.price.toFixed(2)}</p>
-			<Badge variant="secondary" className="text-xs">×{item.qty}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				×{item.qty}
+			</Badge>
 		</div>
 	</div>
 );
@@ -72,9 +80,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -86,7 +98,8 @@ export default function Main() {
 			variant: 'Electric / White Oak',
 			price: 699.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -94,7 +107,8 @@ export default function Main() {
 			variant: 'Mesh / Black',
 			price: 499.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -102,7 +116,8 @@ export default function Main() {
 			variant: 'Dual / Adjustable',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200&h=200&fit=crop',
 		},
 		{
 			id: '4',
@@ -110,7 +125,8 @@ export default function Main() {
 			variant: 'Leather / Large',
 			price: 59.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=200&h=200&fit=crop',
 		},
 	];
 

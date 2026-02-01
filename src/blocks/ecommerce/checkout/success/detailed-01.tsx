@@ -296,8 +296,7 @@ const EmailNotification = ({ email }: { email: string }) => (
 	<div className="flex items-center gap-3 p-4 rounded-xl bg-muted/30">
 		<Mail className="size-5 text-muted-foreground" />
 		<p className="text-sm">
-			Order confirmation sent to{' '}
-			<span className="font-medium">{email}</span>
+			Order confirmation sent to <span className="font-medium">{email}</span>
 		</p>
 	</div>
 );
@@ -370,7 +369,7 @@ export default function Main() {
 							items={orderItems}
 							subtotal={439.96}
 							shipping={0}
-							tax={35.20}
+							tax={35.2}
 							discount={50}
 							total={425.16}
 							currency="$"

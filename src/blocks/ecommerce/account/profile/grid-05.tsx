@@ -94,8 +94,12 @@ const StreakCard = ({
 					</div>
 				</div>
 				<div className="text-right">
-					<p className="text-sm">Longest: <span className="font-bold">{longest} days</span></p>
-					<p className="text-sm text-muted-foreground">{completed}/{weeklyGoal} this week</p>
+					<p className="text-sm">
+						Longest: <span className="font-bold">{longest} days</span>
+					</p>
+					<p className="text-sm text-muted-foreground">
+						{completed}/{weeklyGoal} this week
+					</p>
 				</div>
 			</div>
 		</CardContent>
@@ -147,7 +151,9 @@ const CourseProgressCard = ({
 				</div>
 			</div>
 			<CardContent className="p-4 flex-1">
-				<Badge variant="secondary" className="mb-2">Continue Learning</Badge>
+				<Badge variant="secondary" className="mb-2">
+					Continue Learning
+				</Badge>
 				<p className="font-semibold truncate">{title}</p>
 				<p className="text-xs text-muted-foreground">{instructor}</p>
 				<div className="flex items-center gap-2 mt-2">
@@ -179,7 +185,9 @@ const AchievementCard = ({
 				<span className="text-3xl">{icon}</span>
 				<div className="flex-1 min-w-0">
 					<p className="font-medium truncate">{name}</p>
-					<p className="text-xs text-muted-foreground truncate">{description}</p>
+					<p className="text-xs text-muted-foreground truncate">
+						{description}
+					</p>
 					{date && <p className="text-xs text-primary">{date}</p>}
 				</div>
 				{earned && <CheckCircle2 className="size-5 text-green-500 shrink-0" />}
@@ -229,13 +237,21 @@ const LeaderboardCard = ({
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{users.map((user, i) => (
-				<div key={i} className="flex items-center gap-3 p-2 rounded-lg bg-muted/30">
-					<span className={`size-6 rounded-full flex items-center justify-center text-xs font-bold ${
-						user.position === 1 ? 'bg-amber-500 text-white' :
-						user.position === 2 ? 'bg-gray-400 text-white' :
-						user.position === 3 ? 'bg-amber-700 text-white' :
-						'bg-muted text-muted-foreground'
-					}`}>
+				<div
+					key={i}
+					className="flex items-center gap-3 p-2 rounded-lg bg-muted/30"
+				>
+					<span
+						className={`size-6 rounded-full flex items-center justify-center text-xs font-bold ${
+							user.position === 1
+								? 'bg-amber-500 text-white'
+								: user.position === 2
+									? 'bg-gray-400 text-white'
+									: user.position === 3
+										? 'bg-amber-700 text-white'
+										: 'bg-muted text-muted-foreground'
+						}`}
+					>
 						{user.position}
 					</span>
 					<Avatar className="size-8">
@@ -243,7 +259,9 @@ const LeaderboardCard = ({
 						<AvatarFallback>{user.name[0]}</AvatarFallback>
 					</Avatar>
 					<span className="flex-1 font-medium text-sm">{user.name}</span>
-					<span className="text-sm text-muted-foreground">{user.xp.toLocaleString()} XP</span>
+					<span className="text-sm text-muted-foreground">
+						{user.xp.toLocaleString()} XP
+					</span>
 				</div>
 			))}
 		</CardContent>
@@ -264,14 +282,19 @@ const UpcomingCard = ({
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{events.map((event, i) => (
-				<div key={i} className="flex items-center justify-between p-2 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-2 rounded-lg bg-muted/30"
+				>
 					<div className="flex items-center gap-3">
 						<div className="p-2 rounded-lg bg-primary/10">
 							<Clock className="size-4 text-primary" />
 						</div>
 						<div>
 							<p className="font-medium text-sm">{event.title}</p>
-							<p className="text-xs text-muted-foreground">{event.date} at {event.time}</p>
+							<p className="text-xs text-muted-foreground">
+								{event.date} at {event.time}
+							</p>
 						</div>
 					</div>
 					<Badge variant="secondary">{event.type}</Badge>
@@ -296,21 +319,50 @@ export default function Main() {
 		stats: [
 			{ icon: BookOpen, label: 'Courses', value: '12', color: 'text-blue-500' },
 			{ icon: Clock, label: 'Hours', value: '156', color: 'text-green-500' },
-			{ icon: Award, label: 'Certificates', value: '8', color: 'text-amber-500' },
+			{
+				icon: Award,
+				label: 'Certificates',
+				value: '8',
+				color: 'text-amber-500',
+			},
 			{ icon: Zap, label: 'Skills', value: '24', color: 'text-purple-500' },
 		],
 		currentCourse: {
 			title: 'Advanced React Patterns',
 			instructor: 'Kent C. Dodds',
 			progress: 68,
-			thumbnail: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400',
+			thumbnail:
+				'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400',
 			nextLesson: 'Compound Components',
 		},
 		achievements: [
-			{ name: 'First Steps', description: 'Complete your first lesson', icon: '🎯', earned: true, date: 'Jan 2023' },
-			{ name: 'Quick Learner', description: 'Complete 10 lessons in a day', icon: '⚡', earned: true, date: 'Feb 2023' },
-			{ name: 'Dedicated', description: '30-day learning streak', icon: '🔥', earned: true, date: 'Mar 2023' },
-			{ name: 'Expert', description: 'Master 10 skills', icon: '🏆', earned: false },
+			{
+				name: 'First Steps',
+				description: 'Complete your first lesson',
+				icon: '🎯',
+				earned: true,
+				date: 'Jan 2023',
+			},
+			{
+				name: 'Quick Learner',
+				description: 'Complete 10 lessons in a day',
+				icon: '⚡',
+				earned: true,
+				date: 'Feb 2023',
+			},
+			{
+				name: 'Dedicated',
+				description: '30-day learning streak',
+				icon: '🔥',
+				earned: true,
+				date: 'Mar 2023',
+			},
+			{
+				name: 'Expert',
+				description: 'Master 10 skills',
+				icon: '🏆',
+				earned: false,
+			},
 		],
 		skills: [
 			{ name: 'React', level: 'Advanced', progress: 85, color: '' },
@@ -321,14 +373,39 @@ export default function Main() {
 		leaderboard: {
 			position: 12,
 			users: [
-				{ name: 'Alex Kim', avatar: 'https://i.pravatar.cc/32?img=1', xp: 45200, position: 1 },
-				{ name: 'Sarah Chen', avatar: 'https://i.pravatar.cc/32?img=2', xp: 42100, position: 2 },
-				{ name: 'Mike Johnson', avatar: 'https://i.pravatar.cc/32?img=3', xp: 38900, position: 3 },
+				{
+					name: 'Alex Kim',
+					avatar: 'https://i.pravatar.cc/32?img=1',
+					xp: 45200,
+					position: 1,
+				},
+				{
+					name: 'Sarah Chen',
+					avatar: 'https://i.pravatar.cc/32?img=2',
+					xp: 42100,
+					position: 2,
+				},
+				{
+					name: 'Mike Johnson',
+					avatar: 'https://i.pravatar.cc/32?img=3',
+					xp: 38900,
+					position: 3,
+				},
 			],
 		},
 		upcoming: [
-			{ title: 'Live Workshop: React Hooks', type: 'Workshop', date: 'Feb 1', time: '3:00 PM' },
-			{ title: 'Assessment: TypeScript', type: 'Quiz', date: 'Feb 3', time: '10:00 AM' },
+			{
+				title: 'Live Workshop: React Hooks',
+				type: 'Workshop',
+				date: 'Feb 1',
+				time: '3:00 PM',
+			},
+			{
+				title: 'Assessment: TypeScript',
+				type: 'Quiz',
+				date: 'Feb 3',
+				time: '10:00 AM',
+			},
 		],
 	};
 

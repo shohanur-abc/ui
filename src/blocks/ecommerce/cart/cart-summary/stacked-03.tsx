@@ -46,7 +46,10 @@ const TotalRow = ({ label, value }: { label: string; value: string }) => (
 const Header = ({
 	title,
 	description,
-}: { title: string; description: string }) => (
+}: {
+	title: string;
+	description: string;
+}) => (
 	<CardHeader>
 		<CardTitle>{title}</CardTitle>
 		<CardDescription>{description}</CardDescription>
@@ -86,7 +89,11 @@ const SecureCheckout = ({
 	label,
 	href,
 	badges,
-}: { label: string; href: string; badges: TrustBadgeProps[] }) => (
+}: {
+	label: string;
+	href: string;
+	badges: TrustBadgeProps[];
+}) => (
 	<div className="space-y-3">
 		<Button className="w-full" size="lg" asChild>
 			<Link href={href}>{label}</Link>

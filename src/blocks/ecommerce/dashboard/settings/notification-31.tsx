@@ -203,7 +203,9 @@ export default function Main() {
 						<CardHeader className="border-b">
 							<div className="flex items-center justify-between">
 								<div>
-									<CardTitle className="text-base">Notification Preferences</CardTitle>
+									<CardTitle className="text-base">
+										Notification Preferences
+									</CardTitle>
 									<CardDescription>
 										Customize notifications by category
 									</CardDescription>

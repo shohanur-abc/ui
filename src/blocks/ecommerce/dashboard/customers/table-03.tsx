@@ -66,10 +66,22 @@ const TabHeader = ({
 
 const SegmentBadge = ({ segment }: { segment: Customer['segment'] }) => {
 	const config = {
-		vip: { label: 'VIP', className: 'bg-violet-500/10 text-violet-500 border-violet-500/20' },
-		regular: { label: 'Regular', className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
-		new: { label: 'New', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		'at-risk': { label: 'At Risk', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
+		vip: {
+			label: 'VIP',
+			className: 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+		},
+		regular: {
+			label: 'Regular',
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
+		new: {
+			label: 'New',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		'at-risk': {
+			label: 'At Risk',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[segment].className}>
@@ -90,7 +102,11 @@ const TrendIndicator = ({
 		<span
 			className={`inline-flex items-center gap-0.5 text-sm ${isUp ? 'text-emerald-500' : 'text-red-500'}`}
 		>
-			{isUp ? <ArrowUpRight className="size-3.5" /> : <ArrowDownRight className="size-3.5" />}
+			{isUp ? (
+				<ArrowUpRight className="size-3.5" />
+			) : (
+				<ArrowDownRight className="size-3.5" />
+			)}
 			{value}
 		</span>
 	);
@@ -152,10 +168,18 @@ const CustomerRow = ({
 		</TableCell>
 		<TableCell>
 			<div className="flex items-center gap-1">
-				<Button variant="ghost" size="icon-sm" className="text-muted-foreground hover:text-foreground">
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					className="text-muted-foreground hover:text-foreground"
+				>
 					<Eye className="size-4" />
 				</Button>
-				<Button variant="ghost" size="icon-sm" className="text-muted-foreground hover:text-foreground">
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					className="text-muted-foreground hover:text-foreground"
+				>
 					<Mail className="size-4" />
 				</Button>
 			</div>
@@ -250,7 +274,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
 				<div className="flex items-center justify-between">
 					<div>
-						<h1 className="text-2xl font-bold tracking-tight">Customer Segments</h1>
+						<h1 className="text-2xl font-bold tracking-tight">
+							Customer Segments
+						</h1>
 						<p className="text-muted-foreground text-sm">
 							View and manage customers by segment
 						</p>
@@ -272,11 +298,19 @@ export default function Main() {
 											<Checkbox />
 										</TableHead>
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @md:table-cell">Email</TableHead>
-										<TableHead className="hidden @lg:table-cell">Segment</TableHead>
-										<TableHead className="hidden @xl:table-cell">Orders</TableHead>
+										<TableHead className="hidden @md:table-cell">
+											Email
+										</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Segment
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Orders
+										</TableHead>
 										<TableHead className="text-right">Spent</TableHead>
-										<TableHead className="hidden @lg:table-cell">Last Active</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Last Active
+										</TableHead>
 										<TableHead className="w-24">Actions</TableHead>
 									</TableRow>
 								</TableHeader>
@@ -300,11 +334,19 @@ export default function Main() {
 											<Checkbox />
 										</TableHead>
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @md:table-cell">Email</TableHead>
-										<TableHead className="hidden @lg:table-cell">Segment</TableHead>
-										<TableHead className="hidden @xl:table-cell">Orders</TableHead>
+										<TableHead className="hidden @md:table-cell">
+											Email
+										</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Segment
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Orders
+										</TableHead>
 										<TableHead className="text-right">Spent</TableHead>
-										<TableHead className="hidden @lg:table-cell">Last Active</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Last Active
+										</TableHead>
 										<TableHead className="w-24">Actions</TableHead>
 									</TableRow>
 								</TableHeader>
@@ -330,11 +372,19 @@ export default function Main() {
 											<Checkbox />
 										</TableHead>
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @md:table-cell">Email</TableHead>
-										<TableHead className="hidden @lg:table-cell">Segment</TableHead>
-										<TableHead className="hidden @xl:table-cell">Orders</TableHead>
+										<TableHead className="hidden @md:table-cell">
+											Email
+										</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Segment
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Orders
+										</TableHead>
 										<TableHead className="text-right">Spent</TableHead>
-										<TableHead className="hidden @lg:table-cell">Last Active</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Last Active
+										</TableHead>
 										<TableHead className="w-24">Actions</TableHead>
 									</TableRow>
 								</TableHeader>
@@ -360,11 +410,19 @@ export default function Main() {
 											<Checkbox />
 										</TableHead>
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @md:table-cell">Email</TableHead>
-										<TableHead className="hidden @lg:table-cell">Segment</TableHead>
-										<TableHead className="hidden @xl:table-cell">Orders</TableHead>
+										<TableHead className="hidden @md:table-cell">
+											Email
+										</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Segment
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Orders
+										</TableHead>
 										<TableHead className="text-right">Spent</TableHead>
-										<TableHead className="hidden @lg:table-cell">Last Active</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Last Active
+										</TableHead>
 										<TableHead className="w-24">Actions</TableHead>
 									</TableRow>
 								</TableHeader>

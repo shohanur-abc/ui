@@ -75,7 +75,10 @@ export default function Main() {
 								/>
 								<ChartTooltip
 									content={<ChartTooltipContent hideLabel />}
-									formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Sales']}
+									formatter={(value) => [
+										`$${Number(value).toLocaleString()}`,
+										'Sales',
+									]}
 								/>
 								<Bar
 									dataKey="sales"

@@ -18,17 +18,20 @@ const InfoBadge = ({ icon: Icon, text }: InfoBadgeProps) => (
 const PriceDisplay = ({
 	total,
 	itemCount,
-}: { total: string; itemCount: number }) => (
+}: {
+	total: string;
+	itemCount: number;
+}) => (
 	<div>
 		<span className="text-2xl font-bold">{total}</span>
-		<span className="ml-2 text-sm text-muted-foreground">({itemCount} items)</span>
+		<span className="ml-2 text-sm text-muted-foreground">
+			({itemCount} items)
+		</span>
 	</div>
 );
 
 export default function Main() {
-	const badges: InfoBadgeProps[] = [
-		{ icon: Package, text: 'Free Shipping' },
-	];
+	const badges: InfoBadgeProps[] = [{ icon: Package, text: 'Free Shipping' }];
 
 	return (
 		<section className="@container">

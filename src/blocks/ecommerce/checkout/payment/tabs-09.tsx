@@ -1,10 +1,26 @@
 'use client';
 
-import { BadgeCheck, Briefcase, Building2, CreditCard, Lock, Receipt, Shield, Sparkles, Users, Wallet } from 'lucide-react';
+import {
+	BadgeCheck,
+	Briefcase,
+	Building2,
+	CreditCard,
+	Lock,
+	Receipt,
+	Shield,
+	Sparkles,
+	Users,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -22,7 +38,15 @@ interface TeamSize {
 	perSeat: string;
 }
 
-const PageHeader = ({ title, subtitle, badge }: { title: string; subtitle: string; badge: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+	badge,
+}: {
+	title: string;
+	subtitle: string;
+	badge: string;
+}) => (
 	<div className="text-center mb-8">
 		<Badge variant="secondary" className="gap-1.5 mb-4">
 			<Sparkles className="size-3" />
@@ -33,12 +57,27 @@ const PageHeader = ({ title, subtitle, badge }: { title: string; subtitle: strin
 	</div>
 );
 
-const PlanCard = ({ name, price, period, features }: { name: string; price: string; period: string; features: PlanFeature[] }) => (
+const PlanCard = ({
+	name,
+	price,
+	period,
+	features,
+}: {
+	name: string;
+	price: string;
+	period: string;
+	features: PlanFeature[];
+}) => (
 	<div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
 		<div className="flex items-center justify-between mb-4">
 			<div>
 				<h3 className="font-semibold">{name}</h3>
-				<p className="text-2xl font-bold">{price}<span className="text-sm font-normal text-muted-foreground">/{period}</span></p>
+				<p className="text-2xl font-bold">
+					{price}
+					<span className="text-sm font-normal text-muted-foreground">
+						/{period}
+					</span>
+				</p>
 			</div>
 			<Badge className="gap-1">
 				<BadgeCheck className="size-3" />
@@ -47,7 +86,10 @@ const PlanCard = ({ name, price, period, features }: { name: string; price: stri
 		</div>
 		<div className="space-y-2">
 			{features.map((feature, index) => (
-				<div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
+				<div
+					key={index}
+					className="flex items-center gap-2 text-sm text-muted-foreground"
+				>
 					<BadgeCheck className="size-4 text-primary" />
 					<span>{feature.text}</span>
 				</div>
@@ -95,9 +137,13 @@ const TeamSizeSelector = ({ sizes }: { sizes: TeamSize[] }) => (
 				<RadioGroupItem value={size.id} id={size.id} />
 				<div className="flex-1">
 					<span className="font-medium">{size.label}</span>
-					<p className="text-xs text-muted-foreground">{size.perSeat} per seat</p>
+					<p className="text-xs text-muted-foreground">
+						{size.perSeat} per seat
+					</p>
 				</div>
-				<Badge variant="secondary" className="text-xs">{size.discount}</Badge>
+				<Badge variant="secondary" className="text-xs">
+					{size.discount}
+				</Badge>
 			</Label>
 		))}
 	</RadioGroup>
@@ -218,25 +264,30 @@ export default function Main() {
 
 	const teamSizes: TeamSize[] = [
 		{ id: 'small', label: '5-10 seats', discount: 'Save 10%', perSeat: '$19' },
-		{ id: 'medium', label: '11-25 seats', discount: 'Save 15%', perSeat: '$17' },
+		{
+			id: 'medium',
+			label: '11-25 seats',
+			discount: 'Save 15%',
+			perSeat: '$17',
+		},
 		{ id: 'large', label: '26-50 seats', discount: 'Save 20%', perSeat: '$15' },
 	];
 
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-md px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<PageHeader 
-					title="Complete Your Purchase" 
+				<PageHeader
+					title="Complete Your Purchase"
 					subtitle="Choose a payment option below"
 					badge="Pro Plan"
 				/>
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardHeader className="pb-0">
-						<PlanCard 
-							name="Pro Plan" 
-							price="$29" 
-							period="month" 
-							features={planFeatures} 
+						<PlanCard
+							name="Pro Plan"
+							price="$29"
+							period="month"
+							features={planFeatures}
 						/>
 					</CardHeader>
 					<CardContent className="pt-6">

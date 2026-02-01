@@ -1,14 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	TrendingUp,
-	TrendingDown,
-	ArrowUpRight,
-} from 'lucide-react';
+import { Package, TrendingUp, TrendingDown, ArrowUpRight } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 type DataPoint = {
@@ -31,7 +32,10 @@ const ChartBar = ({ data, maxValue, color, label }: ChartBarProps) => (
 				const height = (point.value / maxValue) * 100;
 				return (
 					<div key={index} className="flex-1 flex flex-col items-center gap-1">
-						<div className="w-full bg-muted rounded-t relative overflow-hidden" style={{ height: `${height}%` }}>
+						<div
+							className="w-full bg-muted rounded-t relative overflow-hidden"
+							style={{ height: `${height}%` }}
+						>
 							<div className={`absolute inset-0 ${color}`} />
 						</div>
 					</div>
@@ -40,7 +44,9 @@ const ChartBar = ({ data, maxValue, color, label }: ChartBarProps) => (
 		</div>
 		<div className="flex justify-between text-xs text-muted-foreground">
 			{data.map((point, index) => (
-				<span key={index} className="flex-1 text-center">{point.month}</span>
+				<span key={index} className="flex-1 text-center">
+					{point.month}
+				</span>
 			))}
 		</div>
 	</div>
@@ -65,8 +71,15 @@ const TrendCard = ({ title, value, change, data, color }: TrendCardProps) => {
 						<p className="text-sm text-muted-foreground">{title}</p>
 						<p className="mt-1 text-2xl font-bold">{value}</p>
 					</div>
-					<Badge variant={change >= 0 ? 'default' : 'destructive'} className="flex items-center gap-1">
-						{change >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+					<Badge
+						variant={change >= 0 ? 'default' : 'destructive'}
+						className="flex items-center gap-1"
+					>
+						{change >= 0 ? (
+							<TrendingUp className="size-3" />
+						) : (
+							<TrendingDown className="size-3" />
+						)}
 						{Math.abs(change)}%
 					</Badge>
 				</div>
@@ -111,8 +124,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<div className="space-y-6">
 					<div>
-						<h2 className="text-xl font-semibold @lg:text-2xl">Inventory Trends</h2>
-						<p className="text-sm text-muted-foreground">6-month performance overview</p>
+						<h2 className="text-xl font-semibold @lg:text-2xl">
+							Inventory Trends
+						</h2>
+						<p className="text-sm text-muted-foreground">
+							6-month performance overview
+						</p>
 					</div>
 					<div className="grid gap-4 @lg:grid-cols-3">
 						<TrendCard

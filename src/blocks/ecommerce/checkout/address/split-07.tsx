@@ -167,11 +167,7 @@ export default function Main() {
 								placeholder="john@example.com"
 								type="email"
 							/>
-							<Field
-								label="Phone"
-								placeholder="+1 (555) 000-0000"
-								type="tel"
-							/>
+							<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 							<SelectField
 								label="Country"
 								placeholder="Select country"

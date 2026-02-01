@@ -75,7 +75,9 @@ const TrackingTimeline = ({ events }: { events: TrackingEvent[] }) => (
 				<div className="flex-1 pb-4">
 					<p className="font-medium">{event.status}</p>
 					<p className="text-sm text-muted-foreground">{event.location}</p>
-					<p className="text-xs text-muted-foreground mt-1">{event.timestamp}</p>
+					<p className="text-xs text-muted-foreground mt-1">
+						{event.timestamp}
+					</p>
 				</div>
 			</div>
 		))}
@@ -98,19 +100,74 @@ const NotificationToggle = ({
 
 export default function Main() {
 	const trackingEvents: TrackingEvent[] = [
-		{ id: '1', status: 'Delivered', location: 'San Francisco, CA', timestamp: 'Jan 20, 2026 - 2:35 PM', isCompleted: true },
-		{ id: '2', status: 'Out for Delivery', location: 'San Francisco, CA', timestamp: 'Jan 20, 2026 - 8:15 AM', isCompleted: true },
-		{ id: '3', status: 'Arrived at Local Facility', location: 'San Francisco, CA', timestamp: 'Jan 19, 2026 - 11:42 PM', isCompleted: true },
-		{ id: '4', status: 'In Transit', location: 'Los Angeles, CA', timestamp: 'Jan 18, 2026 - 6:20 PM', isCompleted: true },
-		{ id: '5', status: 'Shipped', location: 'Los Angeles, CA', timestamp: 'Jan 17, 2026 - 3:00 PM', isCompleted: true },
+		{
+			id: '1',
+			status: 'Delivered',
+			location: 'San Francisco, CA',
+			timestamp: 'Jan 20, 2026 - 2:35 PM',
+			isCompleted: true,
+		},
+		{
+			id: '2',
+			status: 'Out for Delivery',
+			location: 'San Francisco, CA',
+			timestamp: 'Jan 20, 2026 - 8:15 AM',
+			isCompleted: true,
+		},
+		{
+			id: '3',
+			status: 'Arrived at Local Facility',
+			location: 'San Francisco, CA',
+			timestamp: 'Jan 19, 2026 - 11:42 PM',
+			isCompleted: true,
+		},
+		{
+			id: '4',
+			status: 'In Transit',
+			location: 'Los Angeles, CA',
+			timestamp: 'Jan 18, 2026 - 6:20 PM',
+			isCompleted: true,
+		},
+		{
+			id: '5',
+			status: 'Shipped',
+			location: 'Los Angeles, CA',
+			timestamp: 'Jan 17, 2026 - 3:00 PM',
+			isCompleted: true,
+		},
 	];
 
 	const notifications: NotificationTrigger[] = [
-		{ id: '1', event: 'Order Shipped', description: 'When order leaves warehouse', enabled: true },
-		{ id: '2', event: 'In Transit', description: 'Updates during shipment', enabled: true },
-		{ id: '3', event: 'Out for Delivery', description: 'When order is with courier', enabled: true },
-		{ id: '4', event: 'Delivered', description: 'When order is delivered', enabled: true },
-		{ id: '5', event: 'Delayed', description: 'When shipment is delayed', enabled: true },
+		{
+			id: '1',
+			event: 'Order Shipped',
+			description: 'When order leaves warehouse',
+			enabled: true,
+		},
+		{
+			id: '2',
+			event: 'In Transit',
+			description: 'Updates during shipment',
+			enabled: true,
+		},
+		{
+			id: '3',
+			event: 'Out for Delivery',
+			description: 'When order is with courier',
+			enabled: true,
+		},
+		{
+			id: '4',
+			event: 'Delivered',
+			description: 'When order is delivered',
+			enabled: true,
+		},
+		{
+			id: '5',
+			event: 'Delayed',
+			description: 'When shipment is delayed',
+			enabled: true,
+		},
 	];
 
 	return (
@@ -137,7 +194,10 @@ export default function Main() {
 								<div className="flex gap-2">
 									<div className="relative flex-1">
 										<Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-										<Input placeholder="Enter tracking number" className="pl-9" />
+										<Input
+											placeholder="Enter tracking number"
+											className="pl-9"
+										/>
 									</div>
 									<Button>Track</Button>
 								</div>
@@ -184,7 +244,9 @@ export default function Main() {
 										<SelectValue />
 									</SelectTrigger>
 									<SelectContent>
-										<SelectItem value="brand">Branded (Match store theme)</SelectItem>
+										<SelectItem value="brand">
+											Branded (Match store theme)
+										</SelectItem>
 										<SelectItem value="minimal">Minimal</SelectItem>
 										<SelectItem value="detailed">Detailed</SelectItem>
 									</SelectContent>
@@ -196,10 +258,10 @@ export default function Main() {
 					<div className="space-y-6">
 						<Card>
 							<CardHeader>
-								<CardTitle className="text-base">Tracking Notifications</CardTitle>
-								<CardDescription>
-									When to notify customers
-								</CardDescription>
+								<CardTitle className="text-base">
+									Tracking Notifications
+								</CardTitle>
+								<CardDescription>When to notify customers</CardDescription>
 							</CardHeader>
 							<CardContent className="divide-y">
 								{notifications.map((notif) => (

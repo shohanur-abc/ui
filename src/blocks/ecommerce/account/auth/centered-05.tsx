@@ -15,7 +15,13 @@ const GradientDecorative = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-8">
 		<Icon className="size-8 text-primary" />
 		<span className="text-2xl font-bold tracking-tight">{name}</span>
@@ -24,7 +30,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -169,20 +177,37 @@ export default function Main() {
 			<div className="relative min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo name="CartFlow" icon={ShoppingCart} />
-					<Title text="Sign in to your account" subtitle="Welcome back! Please enter your details" />
+					<Title
+						text="Sign in to your account"
+						subtitle="Welcome back! Please enter your details"
+					/>
 
 					<SocialButtons items={socialItems} />
 					<DividerText text="or continue with email" />
 
 					<form className="space-y-5">
-						<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-						<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+						<FormField
+							label="Email"
+							type="email"
+							placeholder="you@example.com"
+							icon={Mail}
+						/>
+						<FormField
+							label="Password"
+							type="password"
+							placeholder="••••••••"
+							icon={Lock}
+						/>
 						<ForgotLink href="/forgot-password" label="Forgot password?" />
 						<SubmitButton label="Sign in" icon={ArrowRight} />
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="Don't have an account?" linkText="Sign up for free" href="/signup" />
+						<FooterLink
+							text="Don't have an account?"
+							linkText="Sign up for free"
+							href="/signup"
+						/>
 					</div>
 				</div>
 			</div>

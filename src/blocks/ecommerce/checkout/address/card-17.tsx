@@ -36,12 +36,8 @@ const PageHeader = () => (
 			<MapPin className="size-7 text-primary-foreground" />
 		</div>
 		<div>
-			<h1 className="text-2xl @md:text-3xl font-bold">
-				Delivery Address
-			</h1>
-			<p className="text-muted-foreground">
-				Choose from 6 saved addresses
-			</p>
+			<h1 className="text-2xl @md:text-3xl font-bold">Delivery Address</h1>
+			<p className="text-muted-foreground">Choose from 6 saved addresses</p>
 		</div>
 	</div>
 );
@@ -112,11 +108,41 @@ const SelectedBanner = () => (
 
 export default function Main() {
 	const categories = [
-		{ icon: Home, label: 'Home', color: 'text-blue-600', bgColor: 'bg-blue-100 dark:bg-blue-500/20', count: 2 },
-		{ icon: Building2, label: 'Office', color: 'text-purple-600', bgColor: 'bg-purple-100 dark:bg-purple-500/20', count: 1 },
-		{ icon: Briefcase, label: 'Work', color: 'text-amber-600', bgColor: 'bg-amber-100 dark:bg-amber-500/20', count: 1 },
-		{ icon: Gift, label: 'Gift', color: 'text-pink-600', bgColor: 'bg-pink-100 dark:bg-pink-500/20', count: 1 },
-		{ icon: Heart, label: 'Family', color: 'text-red-600', bgColor: 'bg-red-100 dark:bg-red-500/20', count: 1 },
+		{
+			icon: Home,
+			label: 'Home',
+			color: 'text-blue-600',
+			bgColor: 'bg-blue-100 dark:bg-blue-500/20',
+			count: 2,
+		},
+		{
+			icon: Building2,
+			label: 'Office',
+			color: 'text-purple-600',
+			bgColor: 'bg-purple-100 dark:bg-purple-500/20',
+			count: 1,
+		},
+		{
+			icon: Briefcase,
+			label: 'Work',
+			color: 'text-amber-600',
+			bgColor: 'bg-amber-100 dark:bg-amber-500/20',
+			count: 1,
+		},
+		{
+			icon: Gift,
+			label: 'Gift',
+			color: 'text-pink-600',
+			bgColor: 'bg-pink-100 dark:bg-pink-500/20',
+			count: 1,
+		},
+		{
+			icon: Heart,
+			label: 'Family',
+			color: 'text-red-600',
+			bgColor: 'bg-red-100 dark:bg-red-500/20',
+			count: 1,
+		},
 	];
 
 	const addresses = [

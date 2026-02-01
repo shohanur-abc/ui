@@ -1,11 +1,31 @@
 'use client';
 
-import { AlertCircle, Check, CreditCard, Gift, Lock, Package, Shield, Truck, Wallet } from 'lucide-react';
+import {
+	AlertCircle,
+	Check,
+	CreditCard,
+	Gift,
+	Lock,
+	Package,
+	Shield,
+	Truck,
+	Wallet,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -30,7 +50,9 @@ const GiftWrappingContent = ({ options }: { options: GiftOption[] }) => (
 					<RadioGroupItem value={option.id} id={option.id} />
 					<div className="flex-1">
 						<span className="font-medium">{option.name}</span>
-						<p className="text-xs text-muted-foreground">{option.description}</p>
+						<p className="text-xs text-muted-foreground">
+							{option.description}
+						</p>
 					</div>
 					<span className="font-medium">{option.price}</span>
 				</Label>
@@ -54,7 +76,9 @@ const GiftMessageContent = () => (
 		</div>
 		<div className="flex items-center gap-2 text-xs text-muted-foreground">
 			<AlertCircle className="size-3" />
-			<span>Message will be printed on a gift card included with the order</span>
+			<span>
+				Message will be printed on a gift card included with the order
+			</span>
 		</div>
 	</div>
 );
@@ -67,11 +91,14 @@ const GiftReceiptContent = () => (
 			</div>
 			<div className="flex-1">
 				<span className="font-medium">Gift Receipt Enabled</span>
-				<p className="text-xs text-muted-foreground">Prices will be hidden from the recipient</p>
+				<p className="text-xs text-muted-foreground">
+					Prices will be hidden from the recipient
+				</p>
 			</div>
 		</div>
 		<p className="text-sm text-muted-foreground">
-			A gift receipt will be included with the package, showing order details without prices.
+			A gift receipt will be included with the package, showing order details
+			without prices.
 		</p>
 	</div>
 );
@@ -94,7 +121,9 @@ const DeliveryScheduleContent = () => (
 		</div>
 		<div className="p-3 rounded-lg bg-primary/5 border border-primary/20 text-sm">
 			<p className="font-medium">Scheduled delivery +$4.99</p>
-			<p className="text-xs text-muted-foreground">Choose a specific date and time</p>
+			<p className="text-xs text-muted-foreground">
+				Choose a specific date and time
+			</p>
 		</div>
 	</div>
 );
@@ -147,16 +176,37 @@ const GiftCardContent = () => (
 	</div>
 );
 
-const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isDiscount?: boolean }[] }) => (
+const OrderSummary = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isDiscount?: boolean;
+	}[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isDiscount ? 'text-emerald-600' : line.isTotal ? '' : 'text-muted-foreground'}>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={
+							line.isDiscount
+								? 'text-emerald-600'
+								: line.isTotal
+									? ''
+									: 'text-muted-foreground'
+						}
+					>
 						{line.label}
 					</span>
-					<span className={line.isDiscount ? 'text-emerald-600' : ''}>{line.value}</span>
+					<span className={line.isDiscount ? 'text-emerald-600' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
@@ -172,9 +222,24 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const giftOptions: GiftOption[] = [
-		{ id: 'none', name: 'No Gift Wrapping', description: 'Standard packaging', price: 'Free' },
-		{ id: 'standard', name: 'Standard Gift Wrap', description: 'Elegant gift paper with ribbon', price: '$5.99' },
-		{ id: 'premium', name: 'Premium Gift Box', description: 'Luxury box with satin ribbon', price: '$12.99' },
+		{
+			id: 'none',
+			name: 'No Gift Wrapping',
+			description: 'Standard packaging',
+			price: 'Free',
+		},
+		{
+			id: 'standard',
+			name: 'Standard Gift Wrap',
+			description: 'Elegant gift paper with ribbon',
+			price: '$5.99',
+		},
+		{
+			id: 'premium',
+			name: 'Premium Gift Box',
+			description: 'Luxury box with satin ribbon',
+			price: '$12.99',
+		},
 	];
 
 	const orderLines = [
@@ -204,7 +269,11 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Accordion type="multiple" defaultValue={['wrap', 'message', 'receipt']} className="w-full">
+						<Accordion
+							type="multiple"
+							defaultValue={['wrap', 'message', 'receipt']}
+							className="w-full"
+						>
 							<AccordionItem value="wrap">
 								<AccordionTrigger className="hover:no-underline">
 									<div className="flex items-center gap-2">
@@ -232,7 +301,9 @@ export default function Main() {
 									<div className="flex items-center gap-2">
 										<Gift className="size-4" />
 										<span className="font-medium">Gift Receipt</span>
-										<Badge variant="secondary" className="text-xs">Enabled</Badge>
+										<Badge variant="secondary" className="text-xs">
+											Enabled
+										</Badge>
 									</div>
 								</AccordionTrigger>
 								<AccordionContent>
@@ -266,7 +337,12 @@ export default function Main() {
 									<div className="flex items-center gap-2">
 										<Wallet className="size-4" />
 										<span className="font-medium">Apply Gift Card</span>
-										<Badge variant="secondary" className="text-xs text-emerald-600">-$50</Badge>
+										<Badge
+											variant="secondary"
+											className="text-xs text-emerald-600"
+										>
+											-$50
+										</Badge>
 									</div>
 								</AccordionTrigger>
 								<AccordionContent>

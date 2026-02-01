@@ -33,7 +33,11 @@ interface ArticleProps {
 }
 
 const DataBadge = ({ text, href }: { text: string; href: string }) => (
-	<Badge variant="secondary" className="gap-1.5 bg-primary/10 text-primary border-0" asChild>
+	<Badge
+		variant="secondary"
+		className="gap-1.5 bg-primary/10 text-primary border-0"
+		asChild
+	>
 		<Link href={href}>
 			<BarChart3 className="size-3.5" />
 			{text}
@@ -91,7 +95,9 @@ const KeyMetrics = ({ metrics }: { metrics: DataPoint[] }) => (
 				<CardContent className="p-4">
 					<p className="text-2xl @md:text-3xl font-bold">{metric.value}</p>
 					<div className="flex items-center gap-2 mt-1">
-						<span className="text-sm text-muted-foreground">{metric.label}</span>
+						<span className="text-sm text-muted-foreground">
+							{metric.label}
+						</span>
 						{metric.change !== undefined && (
 							<span
 								className={`flex items-center gap-0.5 text-xs font-medium ${
@@ -133,7 +139,9 @@ const ChartPlaceholder = ({ src, alt }: { src: string; alt: string }) => (
 const InsightBox = ({ title, content }: { title: string; content: string }) => (
 	<Card className="bg-primary/5 border-primary/20">
 		<CardContent className="p-4 @md:p-6">
-			<p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">{title}</p>
+			<p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
+				{title}
+			</p>
 			<p className="text-base leading-relaxed">{content}</p>
 		</CardContent>
 	</Card>
@@ -158,10 +166,11 @@ export default function Main() {
 		categoryHref: '/blog/category/data',
 		title: 'State of the Developer Ecosystem 2026',
 		subtitle:
-			'An in-depth analysis of trends, tools, and technologies shaping how developers work today and what\'s on the horizon.',
+			"An in-depth analysis of trends, tools, and technologies shaping how developers work today and what's on the horizon.",
 		author: {
 			name: 'Dr. Aisha Patel',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'AP',
 			role: 'Research Director',
 		},
@@ -178,7 +187,7 @@ export default function Main() {
 		heroAlt: 'Data visualization dashboard',
 		content: [
 			'Our annual developer survey represents the largest and most comprehensive look at the global developer community. This year, we heard from over 87,500 developers across 145 countries, painting a detailed picture of how the profession continues to evolve.',
-			'The most striking trend is the rapid adoption of AI-assisted development tools. Nearly three-quarters of respondents now use some form of AI tooling in their daily work—a dramatic increase from just 45% two years ago. These tools are no longer experimental; they\'ve become essential infrastructure.',
+			"The most striking trend is the rapid adoption of AI-assisted development tools. Nearly three-quarters of respondents now use some form of AI tooling in their daily work—a dramatic increase from just 45% two years ago. These tools are no longer experimental; they've become essential infrastructure.",
 			'Remote work has settled into a new equilibrium. While the initial surge has moderated slightly, the majority of developers still work remotely at least part of the time. Interestingly, hybrid arrangements have become the most common setup, suggesting that many teams have found a balance between flexibility and collaboration.',
 			'Language preferences continue to shift. TypeScript has overtaken JavaScript as the most beloved language, while Rust maintains its position as the technology developers most want to learn. Python remains dominant in data science and machine learning, cementing its role as the language of AI.',
 		],
@@ -188,7 +197,10 @@ export default function Main() {
 		<section className="@container relative" data-theme="article">
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-6 @md:gap-8">
-					<DataBadge text={articleData.category} href={articleData.categoryHref} />
+					<DataBadge
+						text={articleData.category}
+						href={articleData.categoryHref}
+					/>
 					<Title text={articleData.title} />
 					<Subtitle text={articleData.subtitle} />
 					<AuthorSection
@@ -197,7 +209,10 @@ export default function Main() {
 						readTime={articleData.readTime}
 					/>
 					<KeyMetrics metrics={articleData.keyMetrics} />
-					<ChartPlaceholder src={articleData.heroImage} alt={articleData.heroAlt} />
+					<ChartPlaceholder
+						src={articleData.heroImage}
+						alt={articleData.heroAlt}
+					/>
 					<InsightBox
 						title="Key Finding"
 						content="AI tool adoption has increased by 28% year-over-year, making it the fastest-growing category in developer tooling history."

@@ -10,7 +10,14 @@ import {
 	AlertTriangle,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -53,11 +60,17 @@ const UploadStep = ({ step, title, description, status }: UploadStepProps) => {
 
 	return (
 		<div className="flex gap-4">
-			<div className={`flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-medium ${getStatusColor()} ${status === 'pending' ? 'text-muted-foreground' : 'text-white'}`}>
+			<div
+				className={`flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-medium ${getStatusColor()} ${status === 'pending' ? 'text-muted-foreground' : 'text-white'}`}
+			>
 				{getStatusIcon()}
 			</div>
 			<div>
-				<p className={`font-medium ${status === 'pending' ? 'text-muted-foreground' : ''}`}>{title}</p>
+				<p
+					className={`font-medium ${status === 'pending' ? 'text-muted-foreground' : ''}`}
+				>
+					{title}
+				</p>
 				<p className="text-sm text-muted-foreground">{description}</p>
 			</div>
 		</div>
@@ -81,7 +94,10 @@ const DropZone = ({ onFileSelect }: DropZoneProps) => {
 	return (
 		<div
 			className={`rounded-lg border-2 border-dashed p-8 text-center transition-colors ${isDragging ? 'border-primary bg-primary/5' : 'border-muted'}`}
-			onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+			onDragOver={(e) => {
+				e.preventDefault();
+				setIsDragging(true);
+			}}
 			onDragLeave={() => setIsDragging(false)}
 			onDrop={handleDrop}
 		>
@@ -109,7 +125,12 @@ type ResultSummaryProps = {
 	warnings: number;
 };
 
-const ResultSummary = ({ total, success, errors, warnings }: ResultSummaryProps) => (
+const ResultSummary = ({
+	total,
+	success,
+	errors,
+	warnings,
+}: ResultSummaryProps) => (
 	<div className="grid gap-4 @sm:grid-cols-4">
 		<div className="rounded-lg border p-4 text-center">
 			<Package className="mx-auto size-6 text-primary" />
@@ -139,10 +160,30 @@ export default function Main() {
 	const [progress, setProgress] = React.useState(100);
 
 	const steps: UploadStepProps[] = [
-		{ step: 1, title: 'Upload File', description: 'Select CSV or Excel file', status: 'complete' },
-		{ step: 2, title: 'Validate Data', description: 'Check for errors and duplicates', status: 'complete' },
-		{ step: 3, title: 'Map Columns', description: 'Match columns to fields', status: 'complete' },
-		{ step: 4, title: 'Import', description: 'Add items to inventory', status: 'complete' },
+		{
+			step: 1,
+			title: 'Upload File',
+			description: 'Select CSV or Excel file',
+			status: 'complete',
+		},
+		{
+			step: 2,
+			title: 'Validate Data',
+			description: 'Check for errors and duplicates',
+			status: 'complete',
+		},
+		{
+			step: 3,
+			title: 'Map Columns',
+			description: 'Match columns to fields',
+			status: 'complete',
+		},
+		{
+			step: 4,
+			title: 'Import',
+			description: 'Add items to inventory',
+			status: 'complete',
+		},
 	];
 
 	return (
@@ -162,7 +203,12 @@ export default function Main() {
 							</div>
 							<div className="@lg:col-span-2">
 								{status === 'complete' ? (
-									<ResultSummary total={1250} success={1235} warnings={12} errors={3} />
+									<ResultSummary
+										total={1250}
+										success={1235}
+										warnings={12}
+										errors={3}
+									/>
 								) : (
 									<DropZone onFileSelect={(file) => console.log(file)} />
 								)}
@@ -171,7 +217,9 @@ export default function Main() {
 						{status === 'uploading' || status === 'processing' ? (
 							<div className="space-y-2">
 								<div className="flex justify-between text-sm">
-									<span>{status === 'uploading' ? 'Uploading...' : 'Processing...'}</span>
+									<span>
+										{status === 'uploading' ? 'Uploading...' : 'Processing...'}
+									</span>
 									<span>{progress}%</span>
 								</div>
 								<Progress value={progress} />

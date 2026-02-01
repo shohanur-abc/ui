@@ -1,10 +1,29 @@
 'use client';
 
-import { ArrowLeft, ArrowRight, Check, CreditCard, Download, Key, Lock, Mail, Server, Shield, Smartphone, Wallet, Zap } from 'lucide-react';
+import {
+	ArrowLeft,
+	ArrowRight,
+	Check,
+	CreditCard,
+	Download,
+	Key,
+	Lock,
+	Mail,
+	Server,
+	Shield,
+	Smartphone,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -20,7 +39,13 @@ interface LicenseOption {
 	popular?: boolean;
 }
 
-const AnimatedProgress = ({ currentStep, totalSteps }: { currentStep: number; totalSteps: number }) => (
+const AnimatedProgress = ({
+	currentStep,
+	totalSteps,
+}: {
+	currentStep: number;
+	totalSteps: number;
+}) => (
 	<div className="relative mb-8">
 		<div className="flex justify-between mb-2">
 			{Array.from({ length: totalSteps }, (_, i) => (
@@ -50,7 +75,10 @@ const AnimatedProgress = ({ currentStep, totalSteps }: { currentStep: number; to
 
 const LicenseSelectionContent = ({ options }: { options: LicenseOption[] }) => (
 	<div className="space-y-3">
-		<RadioGroup defaultValue={options.find(o => o.popular)?.id || options[0].id} className="space-y-3">
+		<RadioGroup
+			defaultValue={options.find((o) => o.popular)?.id || options[0].id}
+			className="space-y-3"
+		>
 			{options.map((option) => (
 				<Label
 					key={option.id}
@@ -72,12 +100,16 @@ const LicenseSelectionContent = ({ options }: { options: LicenseOption[] }) => (
 								<span className="font-medium">{option.name}</span>
 								<span className="text-lg font-bold">{option.price}</span>
 							</div>
-							<p className="text-xs text-muted-foreground">{option.description}</p>
+							<p className="text-xs text-muted-foreground">
+								{option.description}
+							</p>
 						</div>
 					</div>
 					<div className="ml-7 flex flex-wrap gap-2">
 						{option.features.map((feature, index) => (
-							<Badge key={index} variant="secondary" className="text-xs">{feature}</Badge>
+							<Badge key={index} variant="secondary" className="text-xs">
+								{feature}
+							</Badge>
 						))}
 					</div>
 				</Label>
@@ -94,7 +126,9 @@ const AccountSetupContent = () => (
 				<Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
 				<Input type="email" placeholder="you@example.com" className="pl-10" />
 			</div>
-			<p className="text-xs text-muted-foreground">License key will be sent here</p>
+			<p className="text-xs text-muted-foreground">
+				License key will be sent here
+			</p>
 		</div>
 		<div className="space-y-2">
 			<Label className="text-sm">Full Name</Label>
@@ -106,7 +140,9 @@ const AccountSetupContent = () => (
 		</div>
 		<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 			<Checkbox id="create-account" defaultChecked />
-			<Label htmlFor="create-account" className="text-sm cursor-pointer">Create account to manage licenses</Label>
+			<Label htmlFor="create-account" className="text-sm cursor-pointer">
+				Create account to manage licenses
+			</Label>
 		</div>
 	</div>
 );
@@ -114,7 +150,10 @@ const AccountSetupContent = () => (
 const PaymentMethodContent = () => (
 	<div className="space-y-4">
 		<div className="grid grid-cols-3 gap-2">
-			<Button variant="outline" className="h-14 flex-col gap-1 border-primary bg-primary/5">
+			<Button
+				variant="outline"
+				className="h-14 flex-col gap-1 border-primary bg-primary/5"
+			>
 				<CreditCard className="size-5" />
 				<span className="text-xs">Card</span>
 			</Button>
@@ -150,7 +189,11 @@ const PaymentMethodContent = () => (
 	</div>
 );
 
-const ConfirmationContent = ({ license }: { license: { name: string; price: string; features: string[] } }) => (
+const ConfirmationContent = ({
+	license,
+}: {
+	license: { name: string; price: string; features: string[] };
+}) => (
 	<div className="space-y-4">
 		<div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
 			<div className="flex items-center justify-between mb-4">
@@ -182,7 +225,14 @@ const ConfirmationContent = ({ license }: { license: { name: string; price: stri
 		<div className="flex items-start gap-3">
 			<Checkbox id="agree" className="mt-0.5" />
 			<Label htmlFor="agree" className="text-sm cursor-pointer">
-				I agree to the <a href="#" className="text-primary underline">License Agreement</a> and <a href="#" className="text-primary underline">Terms</a>
+				I agree to the{' '}
+				<a href="#" className="text-primary underline">
+					License Agreement
+				</a>{' '}
+				and{' '}
+				<a href="#" className="text-primary underline">
+					Terms
+				</a>
 			</Label>
 		</div>
 	</div>
@@ -203,7 +253,17 @@ const PurchaseSummary = ({ price }: { price: string }) => (
 	</div>
 );
 
-const NavigationButtons = ({ step, totalSteps, onPrev, onNext }: { step: number; totalSteps: number; onPrev: () => void; onNext: () => void }) => (
+const NavigationButtons = ({
+	step,
+	totalSteps,
+	onPrev,
+	onNext,
+}: {
+	step: number;
+	totalSteps: number;
+	onPrev: () => void;
+	onNext: () => void;
+}) => (
 	<div className="flex gap-3">
 		{step > 0 && (
 			<Button variant="outline" onClick={onPrev} className="gap-2">
@@ -248,9 +308,28 @@ export default function Main() {
 	const totalSteps = 4;
 
 	const licenses: LicenseOption[] = [
-		{ id: 'personal', name: 'Personal', description: 'For individual use', price: '$49', features: ['1 User', '1 Year'] },
-		{ id: 'pro', name: 'Pro', description: 'For professionals', price: '$99', features: ['1 User', 'Lifetime', 'Priority Support'], popular: true },
-		{ id: 'team', name: 'Team', description: 'For teams', price: '$249', features: ['5 Users', 'Lifetime', '24/7 Support'] },
+		{
+			id: 'personal',
+			name: 'Personal',
+			description: 'For individual use',
+			price: '$49',
+			features: ['1 User', '1 Year'],
+		},
+		{
+			id: 'pro',
+			name: 'Pro',
+			description: 'For professionals',
+			price: '$99',
+			features: ['1 User', 'Lifetime', 'Priority Support'],
+			popular: true,
+		},
+		{
+			id: 'team',
+			name: 'Team',
+			description: 'For teams',
+			price: '$249',
+			features: ['5 Users', 'Lifetime', '24/7 Support'],
+		},
 	];
 
 	return (
@@ -258,10 +337,15 @@ export default function Main() {
 			<div className="mx-auto max-w-lg px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardHeader>
-						<AnimatedProgress currentStep={currentStep} totalSteps={totalSteps} />
+						<AnimatedProgress
+							currentStep={currentStep}
+							totalSteps={totalSteps}
+						/>
 						<div className="text-center">
 							<h2 className="text-xl font-semibold">Payment Details</h2>
-							<p className="text-sm text-muted-foreground">Secure payment processing</p>
+							<p className="text-sm text-muted-foreground">
+								Secure payment processing
+							</p>
 						</div>
 					</CardHeader>
 					<CardContent>
@@ -269,7 +353,12 @@ export default function Main() {
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
 						<PurchaseSummary price="$99" />
-						<NavigationButtons step={currentStep} totalSteps={totalSteps} onPrev={() => {}} onNext={() => {}} />
+						<NavigationButtons
+							step={currentStep}
+							totalSteps={totalSteps}
+							onPrev={() => {}}
+							onNext={() => {}}
+						/>
 						<SecurityBadges />
 					</CardFooter>
 				</Card>

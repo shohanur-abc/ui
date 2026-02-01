@@ -82,7 +82,17 @@ const MetaRow = ({
 	</div>
 );
 
-const HeroImageOverlay = ({ src, alt, category, categoryHref }: { src: string; alt: string; category: string; categoryHref: string }) => (
+const HeroImageOverlay = ({
+	src,
+	alt,
+	category,
+	categoryHref,
+}: {
+	src: string;
+	alt: string;
+	category: string;
+	categoryHref: string;
+}) => (
 	<div className="relative aspect-[16/10] @lg:aspect-[21/9] overflow-hidden rounded-2xl @xl:rounded-3xl group">
 		<img
 			src={src}
@@ -96,7 +106,13 @@ const HeroImageOverlay = ({ src, alt, category, categoryHref }: { src: string; a
 	</div>
 );
 
-const DropCapParagraph = ({ text, isFirst }: { text: string; isFirst: boolean }) => (
+const DropCapParagraph = ({
+	text,
+	isFirst,
+}: {
+	text: string;
+	isFirst: boolean;
+}) => (
 	<p
 		className={`text-base @md:text-lg leading-[1.9] text-foreground/90 ${
 			isFirst
@@ -116,7 +132,11 @@ const ContentSection = ({ paragraphs }: { paragraphs: string[] }) => (
 	</div>
 );
 
-const RelatedTopics = ({ topics }: { topics: { label: string; href: string }[] }) => (
+const RelatedTopics = ({
+	topics,
+}: {
+	topics: { label: string; href: string }[];
+}) => (
 	<div className="flex flex-col gap-4 pt-8 border-t border-border">
 		<div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
 			<TrendingUp className="size-4" />
@@ -145,12 +165,14 @@ export default function Main() {
 	const articleData: ArticleProps = {
 		category: 'Business',
 		categoryHref: '/blog/category/business',
-		title: 'The Remote Work Revolution: Strategies for Building Distributed Teams',
+		title:
+			'The Remote Work Revolution: Strategies for Building Distributed Teams',
 		subtitle:
 			'How leading companies are reimagining collaboration, culture, and productivity in a post-office world.',
 		author: {
 			name: 'James Rodriguez',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'JR',
 		},
 		publishDate: 'Jan 25, 2026',
@@ -161,7 +183,7 @@ export default function Main() {
 		heroAlt: 'Modern remote work setup with laptop and coffee',
 		content: [
 			'The shift to remote work, accelerated by global events, has fundamentally altered how organizations operate. What began as a necessity has evolved into a strategic advantage for companies willing to embrace distributed work models.',
-			'Successful remote teams don\'t happen by accident. They require intentional design across multiple dimensions: communication protocols, async-first workflows, and deliberate culture building. The most effective distributed organizations treat remote work as their primary mode, not an accommodation.',
+			"Successful remote teams don't happen by accident. They require intentional design across multiple dimensions: communication protocols, async-first workflows, and deliberate culture building. The most effective distributed organizations treat remote work as their primary mode, not an accommodation.",
 			'Technology enables remote work, but culture sustains it. Companies thriving in this new paradigm invest heavily in documentation, reduce meeting overload, and create space for serendipitous connection. They understand that proximity is no longer a prerequisite for collaboration.',
 			'The talent implications are profound. Geographic constraints no longer limit hiring, opening access to global talent pools. For employees, remote work offers unprecedented flexibility and autonomy. The future belongs to organizations that master this new way of working.',
 		],

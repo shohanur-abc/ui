@@ -63,7 +63,10 @@ const ActionIcon = ({ action }: { action: FileActivity['action'] }) => {
 };
 
 const FileTypeIcon = ({ type }: { type: FileActivity['fileType'] }) => {
-	const config: Record<FileActivity['fileType'], { icon: LucideIcon; className: string }> = {
+	const config: Record<
+		FileActivity['fileType'],
+		{ icon: LucideIcon; className: string }
+	> = {
 		document: { icon: FileText, className: 'text-blue-400' },
 		image: { icon: Image, className: 'text-pink-400' },
 		spreadsheet: { icon: FileSpreadsheet, className: 'text-emerald-400' },
@@ -126,13 +129,7 @@ const ActivityCard = ({ activity }: { activity: FileActivity }) => (
 	</div>
 );
 
-const StorageIndicator = ({
-	used,
-	total,
-}: {
-	used: string;
-	total: string;
-}) => {
+const StorageIndicator = ({ used, total }: { used: string; total: string }) => {
 	const usedNum = parseFloat(used.replace(/[^0-9.]/g, ''));
 	const totalNum = parseFloat(total.replace(/[^0-9.]/g, ''));
 	const percentage = Math.min((usedNum / totalNum) * 100, 100);
@@ -140,7 +137,9 @@ const StorageIndicator = ({
 	return (
 		<div className="p-4 rounded-lg bg-muted/30 border border-border/50">
 			<div className="flex items-center justify-between mb-2">
-				<span className="text-sm font-medium text-foreground">Storage Used</span>
+				<span className="text-sm font-medium text-foreground">
+					Storage Used
+				</span>
 				<span className="text-sm text-muted-foreground">
 					{used} of {total}
 				</span>
@@ -148,7 +147,11 @@ const StorageIndicator = ({
 			<div className="h-2 w-full rounded-full bg-muted overflow-hidden">
 				<div
 					className={`h-full transition-all ${
-						percentage > 90 ? 'bg-rose-500' : percentage > 70 ? 'bg-amber-500' : 'bg-primary'
+						percentage > 90
+							? 'bg-rose-500'
+							: percentage > 70
+								? 'bg-amber-500'
+								: 'bg-primary'
 					}`}
 					style={{ width: `${percentage}%` }}
 				/>

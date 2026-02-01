@@ -1,14 +1,35 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Building2, Briefcase, Users, Globe } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Building2,
+	Briefcase,
+	Users,
+	Globe,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -113,8 +134,18 @@ const PersonalForm = () => (
 		<SocialButton icon={GoogleIcon} label="Continue with Google" />
 		<DividerText text="or" />
 		<form className="space-y-4">
-			<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-			<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+			<FormField
+				label="Email"
+				type="email"
+				placeholder="you@example.com"
+				icon={Mail}
+			/>
+			<FormField
+				label="Password"
+				type="password"
+				placeholder="••••••••"
+				icon={Lock}
+			/>
 			<ForgotLink href="/forgot-password" label="Forgot password?" />
 			<SubmitButton label="Sign in" icon={ArrowRight} />
 		</form>
@@ -123,8 +154,18 @@ const PersonalForm = () => (
 
 const BusinessForm = () => (
 	<form className="space-y-4">
-		<FormField label="Work Email" type="email" placeholder="you@company.com" icon={Mail} />
-		<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			label="Work Email"
+			type="email"
+			placeholder="you@company.com"
+			icon={Mail}
+		/>
+		<FormField
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<ForgotLink href="/forgot-password" label="Forgot password?" />
 		<SubmitButton label="Sign in to Business" icon={ArrowRight} />
 	</form>
@@ -165,7 +206,10 @@ export default function Main() {
 					<CardFooter className="justify-center">
 						<p className="text-sm text-muted-foreground">
 							New here?{' '}
-							<Link href="/signup" className="text-primary font-medium hover:underline">
+							<Link
+								href="/signup"
+								className="text-primary font-medium hover:underline"
+							>
 								Create account
 							</Link>
 						</p>

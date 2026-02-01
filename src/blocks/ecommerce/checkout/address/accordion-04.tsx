@@ -127,7 +127,11 @@ const AddressFormSection = ({
 		<Field label="Email" placeholder="john@example.com" type="email" />
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 		<Separator />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -216,7 +220,10 @@ export default function Main() {
 				</h1>
 
 				<Accordion type="single" collapsible defaultValue="address">
-					<AccordionItem value="address" className="border rounded-xl px-4 mb-4">
+					<AccordionItem
+						value="address"
+						className="border rounded-xl px-4 mb-4"
+					>
 						<AccordionTrigger className="hover:no-underline py-4">
 							<span className="font-semibold">1. Shipping Address</span>
 						</AccordionTrigger>
@@ -225,7 +232,10 @@ export default function Main() {
 						</AccordionContent>
 					</AccordionItem>
 
-					<AccordionItem value="shipping" className="border rounded-xl px-4 mb-4">
+					<AccordionItem
+						value="shipping"
+						className="border rounded-xl px-4 mb-4"
+					>
 						<AccordionTrigger className="hover:no-underline py-4">
 							<span className="font-semibold">2. Shipping Method</span>
 						</AccordionTrigger>

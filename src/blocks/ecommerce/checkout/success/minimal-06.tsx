@@ -30,13 +30,7 @@ const SuccessMessage = ({
 	</div>
 );
 
-const AppointmentTime = ({
-	date,
-	time,
-}: {
-	date: string;
-	time: string;
-}) => (
+const AppointmentTime = ({ date, time }: { date: string; time: string }) => (
 	<div className="p-4 rounded-xl bg-violet-500/10 text-center">
 		<p className="font-bold text-lg">{date}</p>
 		<div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-1">
@@ -68,10 +62,7 @@ export default function Main() {
 			<div className="mx-auto max-w-xs px-4 space-y-6 text-center">
 				<SuccessIcon />
 
-				<SuccessMessage
-					title="Booking Confirmed"
-					description="See you soon!"
-				/>
+				<SuccessMessage title="Booking Confirmed" description="See you soon!" />
 
 				<AppointmentTime date="Saturday, Jan 20" time="10:00 AM" />
 

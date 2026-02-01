@@ -87,7 +87,8 @@ export default function Main() {
 			iconColor: 'bg-blue-500/10 text-blue-500',
 			label: 'Home',
 			recipient: 'John Doe',
-			address: '123 Main Street, Apt 4B, San Francisco, CA 94102, United States',
+			address:
+				'123 Main Street, Apt 4B, San Francisco, CA 94102, United States',
 			badge: 'Default',
 			selected: true,
 		},
@@ -96,7 +97,8 @@ export default function Main() {
 			iconColor: 'bg-purple-500/10 text-purple-500',
 			label: 'Office',
 			recipient: 'John Doe',
-			address: '456 Market Street, Suite 100, San Francisco, CA 94103, United States',
+			address:
+				'456 Market Street, Suite 100, San Francisco, CA 94103, United States',
 		},
 		{
 			icon: Users,

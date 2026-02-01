@@ -31,7 +31,9 @@ interface TimelineProps {
 
 const StatusBadge = ({
 	status,
-}: { status: 'success' | 'pending' | 'processing' }) => {
+}: {
+	status: 'success' | 'pending' | 'processing';
+}) => {
 	const variants = {
 		success: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
 		pending: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
@@ -75,7 +77,9 @@ const TimelineItem = ({ item }: { item: ActivityItem }) => {
 					<span className="font-medium text-primary">{item.target}</span>
 				</div>
 				<div className="flex items-center gap-3">
-					<span className="text-xs text-muted-foreground">{item.timestamp}</span>
+					<span className="text-xs text-muted-foreground">
+						{item.timestamp}
+					</span>
 					<StatusBadge status={item.status} />
 				</div>
 			</div>

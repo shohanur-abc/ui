@@ -47,7 +47,8 @@ export default function Main() {
 			quote: 'Perfect for our needs. Simple and effective.',
 			author: 'Xavier Chen',
 			company: 'SimpleTech',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'XC',
 			rating: 5,
 		},
@@ -55,7 +56,8 @@ export default function Main() {
 			quote: 'Clean interface. Team loves it.',
 			author: 'Yara Park',
 			company: 'CleanDesign',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'YP',
 			rating: 5,
 		},
@@ -63,7 +65,8 @@ export default function Main() {
 			quote: 'Fast and reliable. No complaints.',
 			author: 'Zach Lee',
 			company: 'FastTrack',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'ZL',
 			rating: 5,
 		},
@@ -71,7 +74,8 @@ export default function Main() {
 			quote: 'Great value for money. Recommended.',
 			author: 'Amy Kim',
 			company: 'ValueFirst',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'AK',
 			rating: 5,
 		},

@@ -1,9 +1,24 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Minus, Plus, Trash2, Star, Package, Shield, RotateCcw, ArrowRight } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Trash2,
+	Star,
+	Package,
+	Shield,
+	RotateCcw,
+	ArrowRight,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -26,7 +41,11 @@ interface Guarantee {
 const Heading = ({ text, badge }: { text: string; badge?: string }) => (
 	<div className="flex items-center gap-3">
 		<h1 className="text-2xl font-bold @md:text-3xl">{text}</h1>
-		{badge && <Badge className="bg-gradient-to-r from-primary to-primary/80">{badge}</Badge>}
+		{badge && (
+			<Badge className="bg-gradient-to-r from-primary to-primary/80">
+				{badge}
+			</Badge>
+		)}
 	</div>
 );
 
@@ -69,7 +88,11 @@ const ProductDetails = ({
 }) => (
 	<div className="min-w-0 flex-1 space-y-2">
 		<h3 className="font-semibold leading-tight line-clamp-2">{name}</h3>
-		<SellerInfo name={seller.name} avatar={seller.avatar} rating={seller.rating} />
+		<SellerInfo
+			name={seller.name}
+			avatar={seller.avatar}
+			rating={seller.rating}
+		/>
 		<Badge variant={inStock ? 'outline' : 'destructive'} className="text-xs">
 			{inStock ? 'In Stock' : 'Low Stock'}
 		</Badge>
@@ -88,15 +111,27 @@ const QuantityPicker = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const ItemPrice = ({ price, quantity }: { price: number; quantity: number }) => (
+const ItemPrice = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => (
 	<div className="text-right">
 		<p className="text-xl font-bold">${(price * quantity).toFixed(2)}</p>
-		{quantity > 1 && <p className="text-xs text-muted-foreground">${price.toFixed(2)} each</p>}
+		{quantity > 1 && (
+			<p className="text-xs text-muted-foreground">${price.toFixed(2)} each</p>
+		)}
 	</div>
 );
 
 const DeleteAction = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<Trash2 className="size-4" />
 	</Button>
 );
@@ -107,7 +142,11 @@ const CartItemCard = ({ item }: { item: CartItem }) => (
 			<ProductImage src={item.image} alt={item.name} />
 			<div className="flex min-w-0 flex-1 flex-col gap-4">
 				<div className="flex items-start justify-between gap-2">
-					<ProductDetails name={item.name} seller={item.seller} inStock={item.inStock} />
+					<ProductDetails
+						name={item.name}
+						seller={item.seller}
+						inStock={item.inStock}
+					/>
 					<DeleteAction />
 				</div>
 				<div className="flex items-center justify-between mt-auto">
@@ -134,7 +173,13 @@ const GuaranteeItem = ({ guarantee }: { guarantee: Guarantee }) => {
 	);
 };
 
-const GuaranteesSection = ({ title, items }: { title: string; items: Guarantee[] }) => (
+const GuaranteesSection = ({
+	title,
+	items,
+}: {
+	title: string;
+	items: Guarantee[];
+}) => (
 	<Card>
 		<CardHeader className="pb-3">
 			<CardTitle className="text-sm">{title}</CardTitle>
@@ -160,7 +205,11 @@ const PriceLine = ({
 }) => (
 	<div className={`flex justify-between ${isBold ? 'text-lg font-bold' : ''}`}>
 		<span className={isBold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={isBold ? 'text-primary' : isSuccess ? 'text-green-500' : ''}>{value}</span>
+		<span
+			className={isBold ? 'text-primary' : isSuccess ? 'text-green-500' : ''}
+		>
+			{value}
+		</span>
 	</div>
 );
 
@@ -171,7 +220,12 @@ const SummarySection = ({
 	checkoutHref,
 }: {
 	title: string;
-	lines: { label: string; value: string; isBold?: boolean; isSuccess?: boolean }[];
+	lines: {
+		label: string;
+		value: string;
+		isBold?: boolean;
+		isSuccess?: boolean;
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
 }) => (
@@ -202,7 +256,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
 			name: 'Professional Studio Headphones with Active Noise Cancellation',
 			seller: { name: 'AudioPro', avatar: '/avatars/seller1.jpg', rating: 4.9 },
 			price: 349.99,
@@ -211,7 +266,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1593998066526-65fcab3021a2?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1593998066526-65fcab3021a2?w=300&h=300&fit=crop',
 			name: 'Mechanical Gaming Keyboard RGB Backlit',
 			seller: { name: 'TechGear', avatar: '/avatars/seller2.jpg', rating: 4.7 },
 			price: 159.99,
@@ -220,9 +276,14 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=300&fit=crop',
 			name: 'Ergonomic Wireless Mouse Premium Edition',
-			seller: { name: 'ComfortTech', avatar: '/avatars/seller3.jpg', rating: 4.8 },
+			seller: {
+				name: 'ComfortTech',
+				avatar: '/avatars/seller3.jpg',
+				rating: 4.8,
+			},
 			price: 89.99,
 			quantity: 2,
 			inStock: false,

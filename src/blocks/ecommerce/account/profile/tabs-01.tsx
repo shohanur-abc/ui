@@ -45,7 +45,9 @@ const ProfileHeader = ({
 		<div className="flex-1 text-center @sm:text-left">
 			<h1 className="text-2xl font-bold">{name}</h1>
 			<p className="text-muted-foreground">{email}</p>
-			<p className="text-sm text-muted-foreground mt-1">Member since {memberSince}</p>
+			<p className="text-sm text-muted-foreground mt-1">
+				Member since {memberSince}
+			</p>
 			<div className="flex items-center gap-2 mt-3 justify-center @sm:justify-start">
 				<Badge className="bg-amber-500/20 text-amber-600">
 					<Wallet className="size-3 mr-1" />
@@ -84,7 +86,11 @@ const OverviewTab = ({
 			</CardHeader>
 			<CardContent className="space-y-3">
 				{recentOrders.map((order, i) => (
-					<Link key={i} href={`/orders/${order.id}`} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50">
+					<Link
+						key={i}
+						href={`/orders/${order.id}`}
+						className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50"
+					>
 						<div>
 							<p className="font-medium">Order #{order.id}</p>
 							<p className="text-sm text-muted-foreground">{order.date}</p>
@@ -103,19 +109,31 @@ const OverviewTab = ({
 const OrdersTab = ({
 	orders,
 }: {
-	orders: { id: string; date: string; items: number; status: string; statusColor: string; total: string }[];
+	orders: {
+		id: string;
+		date: string;
+		items: number;
+		status: string;
+		statusColor: string;
+		total: string;
+	}[];
 }) => (
 	<Card>
 		<CardContent className="p-6 space-y-4">
 			{orders.map((order, i) => (
-				<div key={i} className="flex items-center justify-between p-4 rounded-lg border">
+				<div
+					key={i}
+					className="flex items-center justify-between p-4 rounded-lg border"
+				>
 					<div className="flex items-center gap-4">
 						<div className="p-3 rounded-lg bg-muted">
 							<Package className="size-5" />
 						</div>
 						<div>
 							<p className="font-medium">Order #{order.id}</p>
-							<p className="text-sm text-muted-foreground">{order.date} • {order.items} items</p>
+							<p className="text-sm text-muted-foreground">
+								{order.date} • {order.items} items
+							</p>
 						</div>
 					</div>
 					<div className="text-right">
@@ -138,8 +156,16 @@ const WishlistTab = ({
 			<Card key={i}>
 				<CardContent className="p-4">
 					<div className="aspect-square rounded-lg bg-muted mb-3 relative overflow-hidden">
-						<img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-						<Button variant="ghost" size="icon" className="absolute top-2 right-2 bg-background/80">
+						<img
+							src={item.image}
+							alt={item.name}
+							className="object-cover w-full h-full"
+						/>
+						<Button
+							variant="ghost"
+							size="icon"
+							className="absolute top-2 right-2 bg-background/80"
+						>
 							<Heart className="size-4 fill-red-500 text-red-500" />
 						</Button>
 					</div>
@@ -161,14 +187,19 @@ const SettingsTab = ({
 }) => (
 	<div className="grid @md:grid-cols-2 gap-4">
 		{sections.map((section, i) => (
-			<Card key={i} className="cursor-pointer hover:border-primary transition-colors">
+			<Card
+				key={i}
+				className="cursor-pointer hover:border-primary transition-colors"
+			>
 				<CardContent className="p-6 flex items-center gap-4">
 					<div className="p-3 rounded-lg bg-primary/10">
 						<section.icon className="size-6 text-primary" />
 					</div>
 					<div>
 						<h4 className="font-semibold">{section.title}</h4>
-						<p className="text-sm text-muted-foreground">{section.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{section.description}
+						</p>
 					</div>
 				</CardContent>
 			</Card>
@@ -193,26 +224,99 @@ export default function Main() {
 			{ label: 'Points', value: '12.5K' },
 		],
 		recentOrders: [
-			{ id: '48291', date: 'Jan 28, 2024', status: 'Delivered', total: '$156.00' },
-			{ id: '48287', date: 'Jan 25, 2024', status: 'In Transit', total: '$89.50' },
+			{
+				id: '48291',
+				date: 'Jan 28, 2024',
+				status: 'Delivered',
+				total: '$156.00',
+			},
+			{
+				id: '48287',
+				date: 'Jan 25, 2024',
+				status: 'In Transit',
+				total: '$89.50',
+			},
 		],
 		allOrders: [
-			{ id: '48291', date: 'Jan 28, 2024', items: 3, status: 'Delivered', statusColor: 'bg-green-500/20 text-green-600', total: '$156.00' },
-			{ id: '48287', date: 'Jan 25, 2024', items: 2, status: 'In Transit', statusColor: 'bg-blue-500/20 text-blue-600', total: '$89.50' },
-			{ id: '48280', date: 'Jan 20, 2024', items: 1, status: 'Delivered', statusColor: 'bg-green-500/20 text-green-600', total: '$234.00' },
+			{
+				id: '48291',
+				date: 'Jan 28, 2024',
+				items: 3,
+				status: 'Delivered',
+				statusColor: 'bg-green-500/20 text-green-600',
+				total: '$156.00',
+			},
+			{
+				id: '48287',
+				date: 'Jan 25, 2024',
+				items: 2,
+				status: 'In Transit',
+				statusColor: 'bg-blue-500/20 text-blue-600',
+				total: '$89.50',
+			},
+			{
+				id: '48280',
+				date: 'Jan 20, 2024',
+				items: 1,
+				status: 'Delivered',
+				statusColor: 'bg-green-500/20 text-green-600',
+				total: '$234.00',
+			},
 		],
 		wishlist: [
-			{ name: 'Wireless Earbuds Pro', price: '$149.99', image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300', inStock: true },
-			{ name: 'Smart Watch Series 8', price: '$399.99', image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=300', inStock: true },
-			{ name: 'Leather Backpack', price: '$89.99', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300', inStock: false },
+			{
+				name: 'Wireless Earbuds Pro',
+				price: '$149.99',
+				image:
+					'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300',
+				inStock: true,
+			},
+			{
+				name: 'Smart Watch Series 8',
+				price: '$399.99',
+				image:
+					'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=300',
+				inStock: true,
+			},
+			{
+				name: 'Leather Backpack',
+				price: '$89.99',
+				image:
+					'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300',
+				inStock: false,
+			},
 		],
 		settings: [
-			{ icon: User, title: 'Personal Information', description: 'Update your profile details' },
-			{ icon: MapPin, title: 'Addresses', description: 'Manage delivery addresses' },
-			{ icon: CreditCard, title: 'Payment Methods', description: 'Add or remove cards' },
-			{ icon: Bell, title: 'Notifications', description: 'Control your alerts' },
-			{ icon: Shield, title: 'Security', description: 'Password and 2FA settings' },
-			{ icon: Settings, title: 'Preferences', description: 'Language and theme' },
+			{
+				icon: User,
+				title: 'Personal Information',
+				description: 'Update your profile details',
+			},
+			{
+				icon: MapPin,
+				title: 'Addresses',
+				description: 'Manage delivery addresses',
+			},
+			{
+				icon: CreditCard,
+				title: 'Payment Methods',
+				description: 'Add or remove cards',
+			},
+			{
+				icon: Bell,
+				title: 'Notifications',
+				description: 'Control your alerts',
+			},
+			{
+				icon: Shield,
+				title: 'Security',
+				description: 'Password and 2FA settings',
+			},
+			{
+				icon: Settings,
+				title: 'Preferences',
+				description: 'Language and theme',
+			},
 		],
 	};
 
@@ -240,7 +344,10 @@ export default function Main() {
 						</TabsTrigger>
 					</TabsList>
 					<TabsContent value="overview" className="mt-6">
-						<OverviewTab stats={profileData.stats} recentOrders={profileData.recentOrders} />
+						<OverviewTab
+							stats={profileData.stats}
+							recentOrders={profileData.recentOrders}
+						/>
 					</TabsContent>
 					<TabsContent value="orders" className="mt-6">
 						<OrdersTab orders={profileData.allOrders} />

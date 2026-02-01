@@ -16,7 +16,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	DropdownMenu,
@@ -48,11 +53,21 @@ interface SupportCustomer {
 	preferredChannel: 'email' | 'phone' | 'chat';
 }
 
-const SupportTierBadge = ({ tier }: { tier: SupportCustomer['supportTier'] }) => {
+const SupportTierBadge = ({
+	tier,
+}: {
+	tier: SupportCustomer['supportTier'];
+}) => {
 	const config = {
-		standard: { label: 'Standard', className: 'bg-slate-500/10 text-slate-400' },
+		standard: {
+			label: 'Standard',
+			className: 'bg-slate-500/10 text-slate-400',
+		},
 		priority: { label: 'Priority', className: 'bg-blue-500/10 text-blue-500' },
-		premium: { label: 'Premium', className: 'bg-violet-500/10 text-violet-500' },
+		premium: {
+			label: 'Premium',
+			className: 'bg-violet-500/10 text-violet-500',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[tier].className}>
@@ -62,11 +77,18 @@ const SupportTierBadge = ({ tier }: { tier: SupportCustomer['supportTier'] }) =>
 	);
 };
 
-const TicketStatusBadge = ({ status }: { status: 'open' | 'pending' | 'resolved' }) => {
+const TicketStatusBadge = ({
+	status,
+}: {
+	status: 'open' | 'pending' | 'resolved';
+}) => {
 	const config = {
 		open: { label: 'Open', className: 'bg-blue-500/10 text-blue-500' },
 		pending: { label: 'Pending', className: 'bg-amber-500/10 text-amber-500' },
-		resolved: { label: 'Resolved', className: 'bg-emerald-500/10 text-emerald-500' },
+		resolved: {
+			label: 'Resolved',
+			className: 'bg-emerald-500/10 text-emerald-500',
+		},
 	};
 	return (
 		<Badge variant="outline" className={`${config[status].className} text-xs`}>
@@ -75,7 +97,11 @@ const TicketStatusBadge = ({ status }: { status: 'open' | 'pending' | 'resolved'
 	);
 };
 
-const PriorityIndicator = ({ priority }: { priority: 'low' | 'medium' | 'high' | 'urgent' }) => {
+const PriorityIndicator = ({
+	priority,
+}: {
+	priority: 'low' | 'medium' | 'high' | 'urgent';
+}) => {
 	const config = {
 		low: 'bg-slate-400',
 		medium: 'bg-blue-500',
@@ -125,7 +151,11 @@ const SatisfactionScore = ({ score }: { score: number }) => (
 	</div>
 );
 
-const ChannelIcon = ({ channel }: { channel: SupportCustomer['preferredChannel'] }) => {
+const ChannelIcon = ({
+	channel,
+}: {
+	channel: SupportCustomer['preferredChannel'];
+}) => {
 	const icons = {
 		email: MessageSquare,
 		phone: Phone,
@@ -136,9 +166,13 @@ const ChannelIcon = ({ channel }: { channel: SupportCustomer['preferredChannel']
 };
 
 const SupportCard = ({ customer }: { customer: SupportCustomer }) => {
-	const hasUrgentTicket = customer.activeTickets.some((t) => t.priority === 'urgent');
+	const hasUrgentTicket = customer.activeTickets.some(
+		(t) => t.priority === 'urgent',
+	);
 	return (
-		<Card className={`group transition-shadow hover:shadow-lg ${hasUrgentTicket ? 'border-red-500/30' : ''}`}>
+		<Card
+			className={`group transition-shadow hover:shadow-lg ${hasUrgentTicket ? 'border-red-500/30' : ''}`}
+		>
 			<CardHeader className="pb-3">
 				<div className="flex items-start justify-between">
 					<div className="flex items-center gap-3">
@@ -183,7 +217,9 @@ const SupportCard = ({ customer }: { customer: SupportCustomer }) => {
 						<p className="text-muted-foreground text-xs">Active</p>
 					</div>
 					<div className="rounded-lg bg-muted/50 p-2">
-						<p className="text-lg font-bold text-emerald-500">{customer.resolvedTickets}</p>
+						<p className="text-lg font-bold text-emerald-500">
+							{customer.resolvedTickets}
+						</p>
 						<p className="text-muted-foreground text-xs">Resolved</p>
 					</div>
 					<div className="rounded-lg bg-muted/50 p-2">
@@ -193,7 +229,9 @@ const SupportCard = ({ customer }: { customer: SupportCustomer }) => {
 				</div>
 				{customer.activeTickets.length > 0 && (
 					<div className="space-y-2">
-						<p className="text-muted-foreground text-xs font-medium">Active Tickets</p>
+						<p className="text-muted-foreground text-xs font-medium">
+							Active Tickets
+						</p>
 						{customer.activeTickets.slice(0, 2).map((ticket) => (
 							<TicketItem key={ticket.id} ticket={ticket} />
 						))}
@@ -224,7 +262,9 @@ const SupportCard = ({ customer }: { customer: SupportCustomer }) => {
 				<div className="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2 text-sm">
 					<ChannelIcon channel={customer.preferredChannel} />
 					<span className="text-muted-foreground">Prefers:</span>
-					<span className="font-medium capitalize">{customer.preferredChannel}</span>
+					<span className="font-medium capitalize">
+						{customer.preferredChannel}
+					</span>
 				</div>
 			</CardContent>
 			<CardFooter className="border-t bg-muted/20 px-4 py-3">
@@ -246,8 +286,20 @@ export default function Main() {
 			initials: 'ZM',
 			supportTier: 'premium',
 			activeTickets: [
-				{ id: 'TKT-5001', subject: 'Order delivery delay', status: 'open', priority: 'high', age: '2h ago' },
-				{ id: 'TKT-5002', subject: 'Refund not received', status: 'pending', priority: 'urgent', age: '1d ago' },
+				{
+					id: 'TKT-5001',
+					subject: 'Order delivery delay',
+					status: 'open',
+					priority: 'high',
+					age: '2h ago',
+				},
+				{
+					id: 'TKT-5002',
+					subject: 'Refund not received',
+					status: 'pending',
+					priority: 'urgent',
+					age: '1d ago',
+				},
 			],
 			totalTickets: 15,
 			resolvedTickets: 13,
@@ -263,7 +315,13 @@ export default function Main() {
 			initials: 'AT',
 			supportTier: 'priority',
 			activeTickets: [
-				{ id: 'TKT-4998', subject: 'Product exchange request', status: 'pending', priority: 'medium', age: '3h ago' },
+				{
+					id: 'TKT-4998',
+					subject: 'Product exchange request',
+					status: 'pending',
+					priority: 'medium',
+					age: '3h ago',
+				},
 			],
 			totalTickets: 8,
 			resolvedTickets: 7,
@@ -293,9 +351,27 @@ export default function Main() {
 			initials: 'CW',
 			supportTier: 'premium',
 			activeTickets: [
-				{ id: 'TKT-4995', subject: 'Account access issue', status: 'open', priority: 'urgent', age: '30m ago' },
-				{ id: 'TKT-4990', subject: 'Billing discrepancy', status: 'open', priority: 'high', age: '4h ago' },
-				{ id: 'TKT-4985', subject: 'Missing items in order', status: 'pending', priority: 'medium', age: '1d ago' },
+				{
+					id: 'TKT-4995',
+					subject: 'Account access issue',
+					status: 'open',
+					priority: 'urgent',
+					age: '30m ago',
+				},
+				{
+					id: 'TKT-4990',
+					subject: 'Billing discrepancy',
+					status: 'open',
+					priority: 'high',
+					age: '4h ago',
+				},
+				{
+					id: 'TKT-4985',
+					subject: 'Missing items in order',
+					status: 'pending',
+					priority: 'medium',
+					age: '1d ago',
+				},
 			],
 			totalTickets: 22,
 			resolvedTickets: 19,
@@ -311,7 +387,13 @@ export default function Main() {
 			initials: 'DF',
 			supportTier: 'priority',
 			activeTickets: [
-				{ id: 'TKT-4992', subject: 'Warranty claim', status: 'pending', priority: 'low', age: '2d ago' },
+				{
+					id: 'TKT-4992',
+					subject: 'Warranty claim',
+					status: 'pending',
+					priority: 'low',
+					age: '2d ago',
+				},
 			],
 			totalTickets: 12,
 			resolvedTickets: 11,
@@ -327,7 +409,13 @@ export default function Main() {
 			initials: 'EH',
 			supportTier: 'standard',
 			activeTickets: [
-				{ id: 'TKT-4988', subject: 'How to track my order?', status: 'open', priority: 'low', age: '5h ago' },
+				{
+					id: 'TKT-4988',
+					subject: 'How to track my order?',
+					status: 'open',
+					priority: 'low',
+					age: '5h ago',
+				},
 			],
 			totalTickets: 5,
 			resolvedTickets: 4,
@@ -347,7 +435,9 @@ export default function Main() {
 					</div>
 					<div>
 						<h1 className="text-2xl font-bold tracking-tight">Support Cases</h1>
-						<p className="text-muted-foreground text-sm">Monitor customer support tickets and satisfaction</p>
+						<p className="text-muted-foreground text-sm">
+							Monitor customer support tickets and satisfaction
+						</p>
 					</div>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-3">

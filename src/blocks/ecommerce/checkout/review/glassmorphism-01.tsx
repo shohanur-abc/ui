@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -27,7 +33,12 @@ interface Product {
 const GlassItem = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
 		<div className="relative size-18 shrink-0 overflow-hidden rounded-xl ring-2 ring-white/10">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="font-semibold">{product.name}</p>
@@ -55,7 +66,9 @@ const GlassInfo = ({
 }) => (
 	<div className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
 		<div className="mb-3 flex items-center gap-2">
-			<div className={`flex size-8 items-center justify-center rounded-lg ${accentColor || 'bg-primary/20'}`}>
+			<div
+				className={`flex size-8 items-center justify-center rounded-lg ${accentColor || 'bg-primary/20'}`}
+			>
 				<Icon className="size-4 text-primary" />
 			</div>
 			<span className="text-sm font-medium text-muted-foreground">{title}</span>
@@ -95,9 +108,15 @@ const SummaryLine = ({
 	bold?: boolean;
 	glow?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={glow ? 'text-green-400 drop-shadow-[0_0_6px_rgba(74,222,128,0.5)]' : ''}>
+		<span
+			className={
+				glow ? 'text-green-400 drop-shadow-[0_0_6px_rgba(74,222,128,0.5)]' : ''
+			}
+		>
 			{value}
 		</span>
 	</div>
@@ -111,7 +130,8 @@ export default function Main() {
 			option: '16000 DPI / RGB',
 			price: 79.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -119,12 +139,16 @@ export default function Main() {
 			option: '7-Port / Powered',
 			price: 34.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e4?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e4?w=200&h=200&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/10" data-theme="neon">
+		<section
+			className="@container relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/10"
+			data-theme="neon"
+		>
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent opacity-50" />
 			<div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
 
@@ -204,7 +228,10 @@ export default function Main() {
 								<SummaryLine label="Total" value="$128.24" bold />
 							</CardContent>
 							<CardFooter className="flex-col gap-4">
-								<Button size="lg" className="w-full gap-2 shadow-lg shadow-primary/30">
+								<Button
+									size="lg"
+									className="w-full gap-2 shadow-lg shadow-primary/30"
+								>
 									<Lock className="size-4" />
 									Pay $128.24
 									<ArrowRight className="size-4" />

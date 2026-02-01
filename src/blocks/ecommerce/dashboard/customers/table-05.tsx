@@ -92,7 +92,10 @@ const HeaderActions = ({
 		<div className="flex items-center gap-2">
 			<div className="relative">
 				<Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
-				<Input placeholder={searchPlaceholder} className="w-full pl-9 @sm:w-64" />
+				<Input
+					placeholder={searchPlaceholder}
+					className="w-full pl-9 @sm:w-64"
+				/>
 			</div>
 			<Button variant="outline" size="icon-sm">
 				<Download className="size-4" />
@@ -101,12 +104,28 @@ const HeaderActions = ({
 	</div>
 );
 
-const PriorityBadge = ({ priority }: { priority: SupportTicket['priority'] }) => {
+const PriorityBadge = ({
+	priority,
+}: {
+	priority: SupportTicket['priority'];
+}) => {
 	const config = {
-		low: { label: 'Low', className: 'bg-slate-500/10 text-slate-500 border-slate-500/20' },
-		medium: { label: 'Medium', className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
-		high: { label: 'High', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		urgent: { label: 'Urgent', className: 'bg-red-500/10 text-red-500 border-red-500/20' },
+		low: {
+			label: 'Low',
+			className: 'bg-slate-500/10 text-slate-500 border-slate-500/20',
+		},
+		medium: {
+			label: 'Medium',
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
+		high: {
+			label: 'High',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		urgent: {
+			label: 'Urgent',
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[priority].className}>
@@ -139,7 +158,10 @@ const TicketRow = ({ ticket }: { ticket: SupportTicket }) => (
 		<TableCell>
 			<div className="flex items-center gap-3">
 				<Avatar className="size-8">
-					<AvatarImage src={ticket.customer.avatar} alt={ticket.customer.name} />
+					<AvatarImage
+						src={ticket.customer.avatar}
+						alt={ticket.customer.name}
+					/>
 					<AvatarFallback className="bg-primary/10 text-primary text-xs">
 						{ticket.customer.initials}
 					</AvatarFallback>
@@ -201,7 +223,9 @@ const TicketRow = ({ ticket }: { ticket: SupportTicket }) => (
 					<DropdownMenuSeparator />
 					<DropdownMenuItem>Assign to me</DropdownMenuItem>
 					<DropdownMenuItem>Mark as resolved</DropdownMenuItem>
-					<DropdownMenuItem className="text-destructive">Close ticket</DropdownMenuItem>
+					<DropdownMenuItem className="text-destructive">
+						Close ticket
+					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
 		</TableCell>
@@ -229,7 +253,11 @@ export default function Main() {
 		{
 			id: '1',
 			ticketId: '#TKT-2024-156',
-			customer: { name: 'Rachel Green', email: 'rachel.g@email.com', initials: 'RG' },
+			customer: {
+				name: 'Rachel Green',
+				email: 'rachel.g@email.com',
+				initials: 'RG',
+			},
 			subject: 'Order not received after 7 days',
 			priority: 'high',
 			status: 'open',
@@ -253,7 +281,11 @@ export default function Main() {
 		{
 			id: '3',
 			ticketId: '#TKT-2024-154',
-			customer: { name: 'Lisa Park', email: 'lisa.p@email.com', initials: 'LP' },
+			customer: {
+				name: 'Lisa Park',
+				email: 'lisa.p@email.com',
+				initials: 'LP',
+			},
 			subject: 'Wrong item delivered',
 			priority: 'urgent',
 			status: 'open',
@@ -264,7 +296,11 @@ export default function Main() {
 		{
 			id: '4',
 			ticketId: '#TKT-2024-153',
-			customer: { name: 'Mark Chen', email: 'mark.c@email.com', initials: 'MC' },
+			customer: {
+				name: 'Mark Chen',
+				email: 'mark.c@email.com',
+				initials: 'MC',
+			},
 			subject: 'Question about product warranty',
 			priority: 'low',
 			status: 'resolved',
@@ -276,7 +312,11 @@ export default function Main() {
 		{
 			id: '5',
 			ticketId: '#TKT-2024-152',
-			customer: { name: 'Emma Wilson', email: 'emma.w@email.com', initials: 'EW' },
+			customer: {
+				name: 'Emma Wilson',
+				email: 'emma.w@email.com',
+				initials: 'EW',
+			},
 			subject: 'Payment failed but money deducted',
 			priority: 'urgent',
 			status: 'in-progress',
@@ -303,7 +343,9 @@ export default function Main() {
 							<Ticket className="size-5" />
 						</div>
 						<div>
-							<h1 className="text-2xl font-bold tracking-tight">Support Tickets</h1>
+							<h1 className="text-2xl font-bold tracking-tight">
+								Support Tickets
+							</h1>
 							<p className="text-muted-foreground text-sm">
 								Manage customer support requests
 							</p>
@@ -327,10 +369,16 @@ export default function Main() {
 								<TableHead>Ticket</TableHead>
 								<TableHead>Customer</TableHead>
 								<TableHead>Subject</TableHead>
-								<TableHead className="hidden @md:table-cell">Priority</TableHead>
+								<TableHead className="hidden @md:table-cell">
+									Priority
+								</TableHead>
 								<TableHead className="hidden @lg:table-cell">Created</TableHead>
-								<TableHead className="hidden @xl:table-cell">Last Update</TableHead>
-								<TableHead className="hidden @xl:table-cell">Assignee</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Last Update
+								</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Assignee
+								</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>

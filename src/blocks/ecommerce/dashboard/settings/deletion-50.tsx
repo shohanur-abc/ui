@@ -54,7 +54,8 @@ const ActionCard = ({
 	const variantStyles = {
 		default: 'border-border hover:border-primary/50',
 		warning: 'border-amber-500/30 bg-amber-500/5 hover:border-amber-500/50',
-		danger: 'border-destructive/30 bg-destructive/5 hover:border-destructive/50',
+		danger:
+			'border-destructive/30 bg-destructive/5 hover:border-destructive/50',
 	};
 
 	const iconStyles = {
@@ -117,7 +118,8 @@ export default function Main() {
 		{
 			id: 'deactivate',
 			title: 'Deactivate Account',
-			description: 'Temporarily disable your account. You can reactivate anytime.',
+			description:
+				'Temporarily disable your account. You can reactivate anytime.',
 			icon: Clock,
 			variant: 'warning',
 		},
@@ -131,10 +133,30 @@ export default function Main() {
 	];
 
 	const deletionSteps: DeletionStep[] = [
-		{ step: 1, title: 'Download your data', description: 'Get a copy of your information', completed: true },
-		{ step: 2, title: 'Confirm your identity', description: 'Verify it\'s really you', completed: true },
-		{ step: 3, title: 'Understand the consequences', description: 'Review what will be deleted', completed: false },
-		{ step: 4, title: 'Final confirmation', description: 'Confirm deletion request', completed: false },
+		{
+			step: 1,
+			title: 'Download your data',
+			description: 'Get a copy of your information',
+			completed: true,
+		},
+		{
+			step: 2,
+			title: 'Confirm your identity',
+			description: "Verify it's really you",
+			completed: true,
+		},
+		{
+			step: 3,
+			title: 'Understand the consequences',
+			description: 'Review what will be deleted',
+			completed: false,
+		},
+		{
+			step: 4,
+			title: 'Final confirmation',
+			description: 'Confirm deletion request',
+			completed: false,
+		},
 	];
 
 	return (
@@ -149,7 +171,9 @@ export default function Main() {
 									<AvatarFallback>JD</AvatarFallback>
 								</Avatar>
 								<div>
-									<CardTitle className="text-destructive">Account Deletion</CardTitle>
+									<CardTitle className="text-destructive">
+										Account Deletion
+									</CardTitle>
 									<CardDescription>
 										Manage or permanently delete your account
 									</CardDescription>
@@ -222,7 +246,9 @@ export default function Main() {
 						</CardHeader>
 						<CardContent className="space-y-4 pt-6">
 							<div className="space-y-2">
-								<Label htmlFor="confirmEmail">Enter your email to confirm</Label>
+								<Label htmlFor="confirmEmail">
+									Enter your email to confirm
+								</Label>
 								<Input
 									id="confirmEmail"
 									type="email"
@@ -239,9 +265,12 @@ export default function Main() {
 							</div>
 							<div className="flex items-start gap-3">
 								<Checkbox id="confirmUnderstand" className="mt-1" />
-								<Label htmlFor="confirmUnderstand" className="text-sm cursor-pointer">
-									I understand that this action is permanent and cannot be undone.
-									All my data will be permanently deleted.
+								<Label
+									htmlFor="confirmUnderstand"
+									className="text-sm cursor-pointer"
+								>
+									I understand that this action is permanent and cannot be
+									undone. All my data will be permanently deleted.
 								</Label>
 							</div>
 							<Button variant="destructive" className="w-full gap-2">

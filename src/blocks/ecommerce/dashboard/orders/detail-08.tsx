@@ -1,9 +1,27 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardFooter,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Headphones, MessageSquare, Clock, CheckCircle, AlertCircle, Star, ThumbsUp, ThumbsDown, ExternalLink, Phone, Mail } from 'lucide-react';
+import {
+	Headphones,
+	MessageSquare,
+	Clock,
+	CheckCircle,
+	AlertCircle,
+	Star,
+	ThumbsUp,
+	ThumbsDown,
+	ExternalLink,
+	Phone,
+	Mail,
+} from 'lucide-react';
 
 interface SupportDetailProps {
 	ticket: {
@@ -15,9 +33,19 @@ interface SupportDetailProps {
 		category: string;
 		created: string;
 		updated: string;
-		customer: { name: string; email: string; avatar?: string; initials: string };
+		customer: {
+			name: string;
+			email: string;
+			avatar?: string;
+			initials: string;
+		};
 		agent?: { name: string; avatar?: string; initials: string };
-		messages: { sender: 'customer' | 'agent'; name: string; message: string; time: string }[];
+		messages: {
+			sender: 'customer' | 'agent';
+			name: string;
+			message: string;
+			time: string;
+		}[];
 		resolution?: { rating: number; feedback: string };
 	};
 	labels: {
@@ -32,18 +60,42 @@ interface SupportDetailProps {
 	};
 }
 
-const StatusBadge = ({ status }: { status: SupportDetailProps['ticket']['status'] }) => {
+const StatusBadge = ({
+	status,
+}: {
+	status: SupportDetailProps['ticket']['status'];
+}) => {
 	const config = {
-		open: { className: 'bg-blue-500/10 text-blue-500 border-blue-500/30', label: 'Open' },
-		'in-progress': { className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30', label: 'In Progress' },
-		resolved: { className: 'bg-accent/10 text-accent border-accent/30', label: 'Resolved' },
-		closed: { className: 'bg-muted text-muted-foreground border-border', label: 'Closed' },
+		open: {
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/30',
+			label: 'Open',
+		},
+		'in-progress': {
+			className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30',
+			label: 'In Progress',
+		},
+		resolved: {
+			className: 'bg-accent/10 text-accent border-accent/30',
+			label: 'Resolved',
+		},
+		closed: {
+			className: 'bg-muted text-muted-foreground border-border',
+			label: 'Closed',
+		},
 	};
 	const { className, label } = config[status];
-	return <Badge variant="outline" className={className}>{label}</Badge>;
+	return (
+		<Badge variant="outline" className={className}>
+			{label}
+		</Badge>
+	);
 };
 
-const PriorityBadge = ({ priority }: { priority: SupportDetailProps['ticket']['priority'] }) => {
+const PriorityBadge = ({
+	priority,
+}: {
+	priority: SupportDetailProps['ticket']['priority'];
+}) => {
 	const config = {
 		low: 'bg-muted text-muted-foreground',
 		medium: 'bg-blue-500/10 text-blue-500',
@@ -53,16 +105,41 @@ const PriorityBadge = ({ priority }: { priority: SupportDetailProps['ticket']['p
 	return <Badge className={`capitalize ${config[priority]}`}>{priority}</Badge>;
 };
 
-const MessageBubble = ({ message, sender, name, time, isCustomer }: { message: string; sender: string; name: string; time: string; isCustomer: boolean }) => (
+const MessageBubble = ({
+	message,
+	sender,
+	name,
+	time,
+	isCustomer,
+}: {
+	message: string;
+	sender: string;
+	name: string;
+	time: string;
+	isCustomer: boolean;
+}) => (
 	<div className={`flex gap-3 ${isCustomer ? 'flex-row' : 'flex-row-reverse'}`}>
 		<Avatar className="size-8">
-			<AvatarFallback className={isCustomer ? 'bg-primary/10 text-primary' : 'bg-accent/10 text-accent'}>{name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+			<AvatarFallback
+				className={
+					isCustomer ? 'bg-primary/10 text-primary' : 'bg-accent/10 text-accent'
+				}
+			>
+				{name
+					.split(' ')
+					.map((n) => n[0])
+					.join('')}
+			</AvatarFallback>
 		</Avatar>
 		<div className={`flex-1 max-w-md ${isCustomer ? '' : 'text-right'}`}>
-			<div className={`inline-block p-3 rounded-xl ${isCustomer ? 'bg-muted/50 rounded-tl-none' : 'bg-primary/10 rounded-tr-none'}`}>
+			<div
+				className={`inline-block p-3 rounded-xl ${isCustomer ? 'bg-muted/50 rounded-tl-none' : 'bg-primary/10 rounded-tr-none'}`}
+			>
 				<p className="text-sm">{message}</p>
 			</div>
-			<p className="text-xs text-muted-foreground mt-1">{name} • {time}</p>
+			<p className="text-xs text-muted-foreground mt-1">
+				{name} • {time}
+			</p>
 		</div>
 	</div>
 );
@@ -70,7 +147,10 @@ const MessageBubble = ({ message, sender, name, time, isCustomer }: { message: s
 const StarRating = ({ rating }: { rating: number }) => (
 	<div className="flex items-center gap-0.5">
 		{[...Array(5)].map((_, i) => (
-			<Star key={i} className={`size-5 ${i < rating ? 'text-yellow-500 fill-yellow-500' : 'text-muted'}`} />
+			<Star
+				key={i}
+				className={`size-5 ${i < rating ? 'text-yellow-500 fill-yellow-500' : 'text-muted'}`}
+			/>
 		))}
 	</div>
 );
@@ -85,7 +165,9 @@ const SupportDetail = ({ ticket, labels }: SupportDetailProps) => (
 					</div>
 					<div>
 						<CardTitle className="text-lg">{ticket.subject}</CardTitle>
-						<p className="text-sm text-muted-foreground font-mono">{ticket.id} • Order {ticket.orderId}</p>
+						<p className="text-sm text-muted-foreground font-mono">
+							{ticket.id} • Order {ticket.orderId}
+						</p>
 					</div>
 				</div>
 				<div className="flex items-center gap-2">
@@ -96,15 +178,21 @@ const SupportDetail = ({ ticket, labels }: SupportDetailProps) => (
 
 			<div className="grid grid-cols-2 gap-4">
 				<div className="p-3 rounded-lg bg-muted/20">
-					<p className="text-xs text-muted-foreground mb-2">{labels.customer}</p>
+					<p className="text-xs text-muted-foreground mb-2">
+						{labels.customer}
+					</p>
 					<div className="flex items-center gap-3">
 						<Avatar className="size-10">
 							<AvatarImage src={ticket.customer.avatar} />
-							<AvatarFallback className="bg-primary/10 text-primary">{ticket.customer.initials}</AvatarFallback>
+							<AvatarFallback className="bg-primary/10 text-primary">
+								{ticket.customer.initials}
+							</AvatarFallback>
 						</Avatar>
 						<div>
 							<p className="font-medium">{ticket.customer.name}</p>
-							<p className="text-xs text-muted-foreground">{ticket.customer.email}</p>
+							<p className="text-xs text-muted-foreground">
+								{ticket.customer.email}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -115,7 +203,9 @@ const SupportDetail = ({ ticket, labels }: SupportDetailProps) => (
 						<div className="flex items-center gap-3">
 							<Avatar className="size-10">
 								<AvatarImage src={ticket.agent.avatar} />
-								<AvatarFallback className="bg-accent/10 text-accent">{ticket.agent.initials}</AvatarFallback>
+								<AvatarFallback className="bg-accent/10 text-accent">
+									{ticket.agent.initials}
+								</AvatarFallback>
 							</Avatar>
 							<div>
 								<p className="font-medium">{ticket.agent.name}</p>
@@ -127,18 +217,30 @@ const SupportDetail = ({ ticket, labels }: SupportDetailProps) => (
 			</div>
 
 			<div className="flex items-center gap-4 mt-4 text-xs text-muted-foreground">
-				<span className="flex items-center gap-1"><Clock className="size-3" /> Created: {ticket.created}</span>
-				<span className="flex items-center gap-1"><Clock className="size-3" /> Updated: {ticket.updated}</span>
-				<Badge variant="secondary" className="text-xs">{ticket.category}</Badge>
+				<span className="flex items-center gap-1">
+					<Clock className="size-3" /> Created: {ticket.created}
+				</span>
+				<span className="flex items-center gap-1">
+					<Clock className="size-3" /> Updated: {ticket.updated}
+				</span>
+				<Badge variant="secondary" className="text-xs">
+					{ticket.category}
+				</Badge>
 			</div>
 		</CardHeader>
 
 		<CardContent className="py-6 space-y-6">
 			<div>
-				<p className="text-sm font-semibold text-muted-foreground mb-4">{labels.conversation}</p>
+				<p className="text-sm font-semibold text-muted-foreground mb-4">
+					{labels.conversation}
+				</p>
 				<div className="space-y-4">
 					{ticket.messages.map((msg, i) => (
-						<MessageBubble key={i} {...msg} isCustomer={msg.sender === 'customer'} />
+						<MessageBubble
+							key={i}
+							{...msg}
+							isCustomer={msg.sender === 'customer'}
+						/>
 					))}
 				</div>
 			</div>
@@ -154,7 +256,9 @@ const SupportDetail = ({ ticket, labels }: SupportDetailProps) => (
 							</p>
 							<StarRating rating={ticket.resolution.rating} />
 						</div>
-						<p className="text-sm text-muted-foreground italic">"{ticket.resolution.feedback}"</p>
+						<p className="text-sm text-muted-foreground italic">
+							"{ticket.resolution.feedback}"
+						</p>
 					</div>
 				</>
 			)}
@@ -205,10 +309,34 @@ export default function Main() {
 		customer: { name: 'John Smith', email: 'john@email.com', initials: 'JS' },
 		agent: { name: 'Sarah Johnson', initials: 'SJ' },
 		messages: [
-			{ sender: 'customer' as const, name: 'John Smith', message: 'I received my order today but the headphones box was crushed and the product inside has visible damage. The left ear cup has a crack.', time: 'Jan 30, 10:00 AM' },
-			{ sender: 'agent' as const, name: 'Sarah Johnson', message: 'I\'m so sorry to hear about the damage to your order. I\'ve reviewed the photos you sent and I can confirm we\'ll send a replacement right away. No need to return the damaged item.', time: 'Jan 30, 10:30 AM' },
-			{ sender: 'customer' as const, name: 'John Smith', message: 'Thank you so much for the quick response! When can I expect the replacement?', time: 'Jan 30, 11:00 AM' },
-			{ sender: 'agent' as const, name: 'Sarah Johnson', message: 'The replacement is being processed now and should ship within 24 hours. You\'ll receive tracking information via email once it\'s on its way!', time: 'Jan 30, 11:15 AM' },
+			{
+				sender: 'customer' as const,
+				name: 'John Smith',
+				message:
+					'I received my order today but the headphones box was crushed and the product inside has visible damage. The left ear cup has a crack.',
+				time: 'Jan 30, 10:00 AM',
+			},
+			{
+				sender: 'agent' as const,
+				name: 'Sarah Johnson',
+				message:
+					"I'm so sorry to hear about the damage to your order. I've reviewed the photos you sent and I can confirm we'll send a replacement right away. No need to return the damaged item.",
+				time: 'Jan 30, 10:30 AM',
+			},
+			{
+				sender: 'customer' as const,
+				name: 'John Smith',
+				message:
+					'Thank you so much for the quick response! When can I expect the replacement?',
+				time: 'Jan 30, 11:00 AM',
+			},
+			{
+				sender: 'agent' as const,
+				name: 'Sarah Johnson',
+				message:
+					"The replacement is being processed now and should ship within 24 hours. You'll receive tracking information via email once it's on its way!",
+				time: 'Jan 30, 11:15 AM',
+			},
 		],
 	};
 

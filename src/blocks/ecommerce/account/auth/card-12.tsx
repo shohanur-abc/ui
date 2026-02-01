@@ -1,13 +1,35 @@
 import Link from 'next/link';
-import { Mail, Lock, User, ArrowRight, Leaf, Recycle, Trees, Droplets } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	ArrowRight,
+	Leaf,
+	Recycle,
+	Trees,
+	Droplets,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-green-500 to-emerald-600">
 			<Icon className="size-5 text-white" />
@@ -73,7 +95,11 @@ const SubmitButton = ({
 	label: string;
 	icon?: React.ElementType;
 }) => (
-	<Button type="submit" size="lg" className="w-full gap-2 group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700">
+	<Button
+		type="submit"
+		size="lg"
+		className="w-full gap-2 group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700"
+	>
 		{label}
 		{Icon && (
 			<Icon className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -114,20 +140,41 @@ export default function Main() {
 							<Logo name="EcoShop" icon={Leaf} />
 						</div>
 						<CardTitle className="text-2xl">Join the movement</CardTitle>
-						<CardDescription>Shop sustainably, live consciously</CardDescription>
+						<CardDescription>
+							Shop sustainably, live consciously
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<EcoStats stats={ecoStats} />
 						<form className="space-y-4">
-							<FormField label="Full Name" type="text" placeholder="John Doe" icon={User} />
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Full Name"
+								type="text"
+								placeholder="John Doe"
+								icon={User}
+							/>
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<EcoCheckbox label="I want to receive eco-tips and sustainable deals" />
 							<SubmitButton label="Join EcoShop" icon={ArrowRight} />
 						</form>
 					</CardContent>
 					<CardFooter>
-						<FooterLink text="Already a member?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already a member?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</CardFooter>
 				</Card>
 			</div>

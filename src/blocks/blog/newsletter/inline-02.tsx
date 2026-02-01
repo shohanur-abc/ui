@@ -22,17 +22,15 @@ const Content = ({ badge, title, description }: ContentProps) => (
 			{badge}
 		</Badge>
 		<h2 className="text-2xl @md:text-3xl font-bold">{title}</h2>
-		<p className="text-muted-foreground text-sm @md:text-base max-w-md">{description}</p>
+		<p className="text-muted-foreground text-sm @md:text-base max-w-md">
+			{description}
+		</p>
 	</div>
 );
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 w-full @lg:w-auto">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="h-11 @lg:w-64"
-		/>
+		<Input type="email" placeholder={placeholder} className="h-11 @lg:w-64" />
 		<Button size="lg" className="gap-2 h-11">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}

@@ -1,9 +1,22 @@
-import { Calendar, Clock, CreditCard, Lock, MapPin, Shield, Users } from 'lucide-react';
+import {
+	Calendar,
+	Clock,
+	CreditCard,
+	Lock,
+	MapPin,
+	Shield,
+	Users,
+} from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -35,12 +48,21 @@ interface PriceLineProps {
 	isTotal?: boolean;
 }
 
-const EventHeader = ({ title, date, time, location, image, initials }: EventProps) => (
+const EventHeader = ({
+	title,
+	date,
+	time,
+	location,
+	image,
+	initials,
+}: EventProps) => (
 	<div className="space-y-4">
 		<div className="aspect-video rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-transparent overflow-hidden flex items-center justify-center">
 			<Avatar className="size-24">
 				<AvatarImage src={image} alt={title} />
-				<AvatarFallback className="text-3xl bg-primary/10">{initials}</AvatarFallback>
+				<AvatarFallback className="text-3xl bg-primary/10">
+					{initials}
+				</AvatarFallback>
 			</Avatar>
 		</div>
 		<div className="space-y-3">
@@ -103,7 +125,9 @@ const AttendeesPreview = ({ count, avatars }: AttendeesProps) => (
 );
 
 const PriceLine = ({ label, value, isTotal }: PriceLineProps) => (
-	<div className={`flex justify-between ${isTotal ? 'text-lg font-semibold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${isTotal ? 'text-lg font-semibold' : 'text-sm'}`}
+	>
 		<span className={isTotal ? '' : 'text-muted-foreground'}>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -134,10 +158,19 @@ const PaymentInput = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
@@ -167,8 +200,18 @@ export default function Main() {
 	};
 
 	const tickets: TicketProps[] = [
-		{ type: 'VIP Pass', description: 'All access + backstage', price: '$299', quantity: 2 },
-		{ type: 'Workshop Add-on', description: 'Hands-on sessions', price: '$99', quantity: 1 },
+		{
+			type: 'VIP Pass',
+			description: 'All access + backstage',
+			price: '$299',
+			quantity: 2,
+		},
+		{
+			type: 'Workshop Add-on',
+			description: 'Hands-on sessions',
+			price: '$99',
+			quantity: 1,
+		},
 	];
 
 	const attendees: AttendeesProps = {
@@ -208,11 +251,25 @@ export default function Main() {
 								<PriceSummary lines={priceLines} />
 								<Separator />
 								<div className="space-y-4">
-									<PaymentInput id="email" label="Email for tickets" placeholder="john@example.com" />
-									<PaymentInput id="card" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
+									<PaymentInput
+										id="email"
+										label="Email for tickets"
+										placeholder="john@example.com"
+									/>
+									<PaymentInput
+										id="card"
+										label="Card Number"
+										placeholder="1234 5678 9012 3456"
+										icon={CreditCard}
+									/>
 									<div className="grid grid-cols-2 gap-4">
 										<PaymentInput id="exp" label="Expiry" placeholder="MM/YY" />
-										<PaymentInput id="cvc" label="CVC" placeholder="123" type="password" />
+										<PaymentInput
+											id="cvc"
+											label="CVC"
+											placeholder="123"
+											type="password"
+										/>
 									</div>
 								</div>
 							</CardContent>

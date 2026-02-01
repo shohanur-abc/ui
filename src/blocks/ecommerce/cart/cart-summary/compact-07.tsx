@@ -13,7 +13,11 @@ const CartPreview = ({ items, extraCount }: CartPreviewProps) => (
 		<div className="flex -space-x-2">
 			{items.slice(0, 3).map((item, i) => (
 				<Avatar key={i} className="size-10 border-2 border-background">
-					<AvatarImage src={item.image} alt={item.name} className="object-cover" />
+					<AvatarImage
+						src={item.image}
+						alt={item.name}
+						className="object-cover"
+					/>
 					<AvatarFallback>{item.name.slice(0, 2)}</AvatarFallback>
 				</Avatar>
 			))}
@@ -27,7 +31,10 @@ const CartPreview = ({ items, extraCount }: CartPreviewProps) => (
 const PriceInfo = ({
 	total,
 	itemCount,
-}: { total: string; itemCount: number }) => (
+}: {
+	total: string;
+	itemCount: number;
+}) => (
 	<div className="text-right">
 		<p className="text-xs text-muted-foreground">{itemCount} items</p>
 		<span className="text-lg font-bold">{total}</span>
@@ -36,9 +43,20 @@ const PriceInfo = ({
 
 export default function Main() {
 	const cartItems = [
-		{ image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100', name: 'Watch' },
-		{ image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=100', name: 'Smart' },
-		{ image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100', name: 'Bag' },
+		{
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100',
+			name: 'Watch',
+		},
+		{
+			image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=100',
+			name: 'Smart',
+		},
+		{
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100',
+			name: 'Bag',
+		},
 	];
 
 	return (

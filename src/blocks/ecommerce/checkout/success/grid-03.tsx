@@ -150,7 +150,13 @@ const AccessInfoCard = ({ expiresAt }: { expiresAt?: string }) => (
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 justify-center">
 		{items.map(({ label, href, variant, icon: Icon }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="gap-2" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="gap-2"
+				asChild
+			>
 				<Link href={href}>
 					{label}
 					{Icon && <Icon className="size-4" />}
@@ -162,15 +168,38 @@ const CTA = ({ items }: CTAProps) => (
 
 export default function Main() {
 	const downloads: DownloadProps[] = [
-		{ name: 'Design System Pro', size: '245 MB', format: 'ZIP', version: '2.1.0' },
-		{ name: 'Icon Pack Premium', size: '128 MB', format: 'ZIP', version: '1.5.0' },
-		{ name: 'UI Kit Complete', size: '512 MB', format: 'ZIP', version: '3.0.0' },
+		{
+			name: 'Design System Pro',
+			size: '245 MB',
+			format: 'ZIP',
+			version: '2.1.0',
+		},
+		{
+			name: 'Icon Pack Premium',
+			size: '128 MB',
+			format: 'ZIP',
+			version: '1.5.0',
+		},
+		{
+			name: 'UI Kit Complete',
+			size: '512 MB',
+			format: 'ZIP',
+			version: '3.0.0',
+		},
 		{ name: 'Font Bundle', size: '56 MB', format: 'ZIP', version: '1.2.0' },
 	];
 
 	const licenses: LicenseProps[] = [
-		{ product: 'Design System Pro', key: 'DSP-XXXX-YYYY-ZZZZ', type: 'Commercial' },
-		{ product: 'Icon Pack Premium', key: 'IPP-AAAA-BBBB-CCCC', type: 'Extended' },
+		{
+			product: 'Design System Pro',
+			key: 'DSP-XXXX-YYYY-ZZZZ',
+			type: 'Commercial',
+		},
+		{
+			product: 'Icon Pack Premium',
+			key: 'IPP-AAAA-BBBB-CCCC',
+			type: 'Extended',
+		},
 	];
 
 	const quickStartSteps = [

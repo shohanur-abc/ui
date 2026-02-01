@@ -24,7 +24,14 @@ type SparkKPIProps = {
 	color: string;
 };
 
-const SparkKPI = ({ title, value, change, changeType, sparkData, color }: SparkKPIProps) => (
+const SparkKPI = ({
+	title,
+	value,
+	change,
+	changeType,
+	sparkData,
+	color,
+}: SparkKPIProps) => (
 	<Card className="border-border/30 bg-card/60 backdrop-blur-sm">
 		<CardContent className="p-5">
 			<div className="flex items-start justify-between">

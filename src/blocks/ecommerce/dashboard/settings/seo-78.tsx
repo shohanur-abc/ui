@@ -79,11 +79,31 @@ const SeoCheckRow = ({ name, status, message }: SeoCheck) => {
 
 export default function Main() {
 	const seoChecks: SeoCheck[] = [
-		{ name: 'Title Tag', status: 'pass', message: 'Title is 58 characters (recommended: 50-60)' },
-		{ name: 'Meta Description', status: 'pass', message: 'Description is 148 characters (recommended: 150-160)' },
-		{ name: 'Open Graph Tags', status: 'pass', message: 'All OG tags are present' },
-		{ name: 'Canonical URL', status: 'warning', message: 'Consider adding canonical URLs to avoid duplicate content' },
-		{ name: 'Image Alt Text', status: 'fail', message: '12 images are missing alt text' },
+		{
+			name: 'Title Tag',
+			status: 'pass',
+			message: 'Title is 58 characters (recommended: 50-60)',
+		},
+		{
+			name: 'Meta Description',
+			status: 'pass',
+			message: 'Description is 148 characters (recommended: 150-160)',
+		},
+		{
+			name: 'Open Graph Tags',
+			status: 'pass',
+			message: 'All OG tags are present',
+		},
+		{
+			name: 'Canonical URL',
+			status: 'warning',
+			message: 'Consider adding canonical URLs to avoid duplicate content',
+		},
+		{
+			name: 'Image Alt Text',
+			status: 'fail',
+			message: '12 images are missing alt text',
+		},
 	];
 
 	return (
@@ -177,7 +197,9 @@ export default function Main() {
 													</SelectTrigger>
 													<SelectContent>
 														<SelectItem value="summary">Summary</SelectItem>
-														<SelectItem value="summary_large">Summary Large Image</SelectItem>
+														<SelectItem value="summary_large">
+															Summary Large Image
+														</SelectItem>
 													</SelectContent>
 												</Select>
 											</div>

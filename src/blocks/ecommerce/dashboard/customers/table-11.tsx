@@ -55,11 +55,36 @@ interface CustomerRewards {
 }
 
 const TierConfig = {
-	starter: { label: 'Starter', color: 'bg-slate-500', textColor: 'text-slate-500', icon: Star },
-	silver: { label: 'Silver', color: 'bg-slate-400', textColor: 'text-slate-400', icon: Star },
-	gold: { label: 'Gold', color: 'bg-amber-500', textColor: 'text-amber-500', icon: Trophy },
-	platinum: { label: 'Platinum', color: 'bg-violet-500', textColor: 'text-violet-500', icon: Trophy },
-	diamond: { label: 'Diamond', color: 'bg-cyan-400', textColor: 'text-cyan-400', icon: Zap },
+	starter: {
+		label: 'Starter',
+		color: 'bg-slate-500',
+		textColor: 'text-slate-500',
+		icon: Star,
+	},
+	silver: {
+		label: 'Silver',
+		color: 'bg-slate-400',
+		textColor: 'text-slate-400',
+		icon: Star,
+	},
+	gold: {
+		label: 'Gold',
+		color: 'bg-amber-500',
+		textColor: 'text-amber-500',
+		icon: Trophy,
+	},
+	platinum: {
+		label: 'Platinum',
+		color: 'bg-violet-500',
+		textColor: 'text-violet-500',
+		icon: Trophy,
+	},
+	diamond: {
+		label: 'Diamond',
+		color: 'bg-cyan-400',
+		textColor: 'text-cyan-400',
+		icon: Zap,
+	},
 };
 
 const PageHeader = ({
@@ -114,7 +139,10 @@ const TierBadge = ({ tier }: { tier: CustomerRewards['tier'] }) => {
 	const config = TierConfig[tier];
 	const Icon = config.icon;
 	return (
-		<Badge variant="outline" className={`${config.textColor} border-current/20 gap-1`}>
+		<Badge
+			variant="outline"
+			className={`${config.textColor} border-current/20 gap-1`}
+		>
 			<Icon className="size-3" />
 			{config.label}
 		</Badge>
@@ -146,7 +174,9 @@ const PointsDisplay = ({
 }) => (
 	<div className="space-y-0.5">
 		<p className="font-semibold">{points.toLocaleString()}</p>
-		<p className="text-emerald-500 text-xs">+{change.toLocaleString()} this month</p>
+		<p className="text-emerald-500 text-xs">
+			+{change.toLocaleString()} this month
+		</p>
 	</div>
 );
 
@@ -159,7 +189,10 @@ const CustomerRow = ({ customer }: { customer: CustomerRewards }) => (
 			<div className="flex items-center gap-3">
 				<div className="relative">
 					<Avatar className="size-9">
-						<AvatarImage src={customer.customer.avatar} alt={customer.customer.name} />
+						<AvatarImage
+							src={customer.customer.avatar}
+							alt={customer.customer.name}
+						/>
 						<AvatarFallback className="bg-primary/10 text-primary text-xs">
 							{customer.customer.initials}
 						</AvatarFallback>
@@ -170,12 +203,17 @@ const CustomerRow = ({ customer }: { customer: CustomerRewards }) => (
 				</div>
 				<div>
 					<p className="font-medium">{customer.customer.name}</p>
-					<p className="text-muted-foreground text-xs">{customer.customer.email}</p>
+					<p className="text-muted-foreground text-xs">
+						{customer.customer.email}
+					</p>
 				</div>
 			</div>
 		</TableCell>
 		<TableCell>
-			<PointsDisplay points={customer.points} change={customer.pointsThisMonth} />
+			<PointsDisplay
+				points={customer.points}
+				change={customer.pointsThisMonth}
+			/>
 		</TableCell>
 		<TableCell className="hidden @md:table-cell">
 			<TierBadge tier={customer.tier} />
@@ -226,7 +264,9 @@ const CustomerRow = ({ customer }: { customer: CustomerRewards }) => (
 
 const Pagination = () => (
 	<div className="flex items-center justify-between border-t px-6 py-4">
-		<p className="text-muted-foreground text-sm">Showing 1-10 of 156 customers</p>
+		<p className="text-muted-foreground text-sm">
+			Showing 1-10 of 156 customers
+		</p>
 		<div className="flex items-center gap-1">
 			<Button variant="outline" size="icon-sm">
 				<ChevronLeft className="size-4" />
@@ -251,7 +291,11 @@ export default function Main() {
 	const customers: CustomerRewards[] = [
 		{
 			id: '1',
-			customer: { name: 'Alexandra Kim', email: 'alex.k@email.com', initials: 'AK' },
+			customer: {
+				name: 'Alexandra Kim',
+				email: 'alex.k@email.com',
+				initials: 'AK',
+			},
 			points: 25400,
 			pointsThisMonth: 1240,
 			tier: 'diamond',
@@ -263,7 +307,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'Brandon Lee', email: 'brandon.l@email.com', initials: 'BL' },
+			customer: {
+				name: 'Brandon Lee',
+				email: 'brandon.l@email.com',
+				initials: 'BL',
+			},
 			points: 18500,
 			pointsThisMonth: 890,
 			tier: 'platinum',
@@ -275,7 +323,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Christina Park', email: 'christina.p@email.com', initials: 'CP' },
+			customer: {
+				name: 'Christina Park',
+				email: 'christina.p@email.com',
+				initials: 'CP',
+			},
 			points: 9800,
 			pointsThisMonth: 450,
 			tier: 'gold',
@@ -287,7 +339,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'Derek Wang', email: 'derek.w@email.com', initials: 'DW' },
+			customer: {
+				name: 'Derek Wang',
+				email: 'derek.w@email.com',
+				initials: 'DW',
+			},
 			points: 4200,
 			pointsThisMonth: 320,
 			tier: 'silver',
@@ -299,7 +355,11 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Elena Martinez', email: 'elena.m@email.com', initials: 'EM' },
+			customer: {
+				name: 'Elena Martinez',
+				email: 'elena.m@email.com',
+				initials: 'EM',
+			},
 			points: 890,
 			pointsThisMonth: 180,
 			tier: 'starter',
@@ -330,10 +390,16 @@ export default function Main() {
 								<TableHead>Customer</TableHead>
 								<TableHead>Points</TableHead>
 								<TableHead className="hidden @md:table-cell">Tier</TableHead>
-								<TableHead className="hidden @lg:table-cell">Progress</TableHead>
+								<TableHead className="hidden @lg:table-cell">
+									Progress
+								</TableHead>
 								<TableHead className="hidden @xl:table-cell">Rewards</TableHead>
-								<TableHead className="hidden @xl:table-cell">Referrals</TableHead>
-								<TableHead className="hidden @2xl:table-cell">Last Activity</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Referrals
+								</TableHead>
+								<TableHead className="hidden @2xl:table-cell">
+									Last Activity
+								</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>

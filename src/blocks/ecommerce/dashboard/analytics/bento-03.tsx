@@ -21,7 +21,12 @@ type MetricCardProps = {
 	subtitle: string;
 };
 
-const MetricCard = ({ icon: Icon, label, value, subtitle }: MetricCardProps) => (
+const MetricCard = ({
+	icon: Icon,
+	label,
+	value,
+	subtitle,
+}: MetricCardProps) => (
 	<Card className="group border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<CardContent className="p-5">
 			<div className="flex items-start justify-between">
@@ -87,13 +92,19 @@ const ActiveUsersCard = ({ users }: { users: ActiveUserProps[] }) => (
 				<div key={i} className="flex items-center gap-3">
 					<Avatar className="size-8 ring-2 ring-background">
 						<AvatarImage src={user.avatar} />
-						<AvatarFallback className="bg-primary/10 text-xs">{user.initials}</AvatarFallback>
+						<AvatarFallback className="bg-primary/10 text-xs">
+							{user.initials}
+						</AvatarFallback>
 					</Avatar>
 					<div className="flex-1 min-w-0">
 						<p className="text-sm font-medium truncate">{user.name}</p>
-						<p className="text-xs text-muted-foreground truncate">{user.action}</p>
+						<p className="text-xs text-muted-foreground truncate">
+							{user.action}
+						</p>
 					</div>
-					<span className="text-xs text-muted-foreground shrink-0">{user.time}</span>
+					<span className="text-xs text-muted-foreground shrink-0">
+						{user.time}
+					</span>
 				</div>
 			))}
 		</CardContent>
@@ -114,12 +125,18 @@ const GoalCard = ({ title, current, target, unit }: GoalCardProps) => {
 			<CardContent className="p-5">
 				<div className="flex items-center justify-between mb-3">
 					<p className="text-sm font-medium">{title}</p>
-					<span className="text-xs text-muted-foreground">{progress.toFixed(0)}%</span>
+					<span className="text-xs text-muted-foreground">
+						{progress.toFixed(0)}%
+					</span>
 				</div>
 				<Progress value={progress} className="h-2 mb-3" />
 				<div className="flex items-center justify-between text-sm">
-					<span className="font-semibold">{current.toLocaleString()} {unit}</span>
-					<span className="text-muted-foreground">/ {target.toLocaleString()}</span>
+					<span className="font-semibold">
+						{current.toLocaleString()} {unit}
+					</span>
+					<span className="text-muted-foreground">
+						/ {target.toLocaleString()}
+					</span>
 				</div>
 			</CardContent>
 		</Card>
@@ -127,17 +144,54 @@ const GoalCard = ({ title, current, target, unit }: GoalCardProps) => {
 };
 
 const metrics: MetricCardProps[] = [
-	{ icon: CreditCard, label: 'Total Sales', value: '$23,456', subtitle: '+12% from yesterday' },
-	{ icon: TrendingUp, label: 'Conversion', value: '3.24%', subtitle: '+0.5% improvement' },
+	{
+		icon: CreditCard,
+		label: 'Total Sales',
+		value: '$23,456',
+		subtitle: '+12% from yesterday',
+	},
+	{
+		icon: TrendingUp,
+		label: 'Conversion',
+		value: '3.24%',
+		subtitle: '+0.5% improvement',
+	},
 ];
 
-const realtimeData = [65, 72, 68, 85, 78, 92, 88, 95, 82, 89, 94, 91, 87, 93, 96, 89, 92, 88, 95, 91];
+const realtimeData = [
+	65, 72, 68, 85, 78, 92, 88, 95, 82, 89, 94, 91, 87, 93, 96, 89, 92, 88, 95,
+	91,
+];
 
 const activeUsers: ActiveUserProps[] = [
-	{ avatar: 'https://i.pravatar.cc/100?img=1', initials: 'JD', name: 'John Doe', action: 'Added to cart', time: 'Now' },
-	{ avatar: 'https://i.pravatar.cc/100?img=2', initials: 'SM', name: 'Sarah Miller', action: 'Completed purchase', time: '2m' },
-	{ avatar: 'https://i.pravatar.cc/100?img=3', initials: 'MW', name: 'Mike Wilson', action: 'Browsing products', time: '5m' },
-	{ avatar: 'https://i.pravatar.cc/100?img=4', initials: 'EJ', name: 'Emily Johnson', action: 'Left review', time: '8m' },
+	{
+		avatar: 'https://i.pravatar.cc/100?img=1',
+		initials: 'JD',
+		name: 'John Doe',
+		action: 'Added to cart',
+		time: 'Now',
+	},
+	{
+		avatar: 'https://i.pravatar.cc/100?img=2',
+		initials: 'SM',
+		name: 'Sarah Miller',
+		action: 'Completed purchase',
+		time: '2m',
+	},
+	{
+		avatar: 'https://i.pravatar.cc/100?img=3',
+		initials: 'MW',
+		name: 'Mike Wilson',
+		action: 'Browsing products',
+		time: '5m',
+	},
+	{
+		avatar: 'https://i.pravatar.cc/100?img=4',
+		initials: 'EJ',
+		name: 'Emily Johnson',
+		action: 'Left review',
+		time: '8m',
+	},
 ];
 
 export default function Main() {
@@ -145,7 +199,11 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<div className="grid grid-cols-1 @lg:grid-cols-4 gap-4 @lg:gap-6">
-					<RealtimeCard title="Real-time Visitors" value="1,247" data={realtimeData} />
+					<RealtimeCard
+						title="Real-time Visitors"
+						value="1,247"
+						data={realtimeData}
+					/>
 					{metrics.map((metric, i) => (
 						<MetricCard key={i} {...metric} />
 					))}
@@ -153,12 +211,42 @@ export default function Main() {
 				<div className="grid grid-cols-1 @md:grid-cols-2 @lg:grid-cols-4 gap-4 @lg:gap-6 mt-4 @lg:mt-6">
 					<ActiveUsersCard users={activeUsers} />
 					<div className="@lg:col-span-3 grid grid-cols-1 @md:grid-cols-3 gap-4 @lg:gap-6">
-						<GoalCard title="Daily Sales Goal" current={8450} target={10000} unit="$" />
-						<GoalCard title="Orders Target" current={245} target={300} unit="orders" />
-						<GoalCard title="New Signups" current={89} target={100} unit="users" />
-						<GoalCard title="Page Views" current={45200} target={50000} unit="views" />
-						<GoalCard title="Cart Adds" current={1234} target={1500} unit="items" />
-						<GoalCard title="Checkouts" current={456} target={500} unit="completed" />
+						<GoalCard
+							title="Daily Sales Goal"
+							current={8450}
+							target={10000}
+							unit="$"
+						/>
+						<GoalCard
+							title="Orders Target"
+							current={245}
+							target={300}
+							unit="orders"
+						/>
+						<GoalCard
+							title="New Signups"
+							current={89}
+							target={100}
+							unit="users"
+						/>
+						<GoalCard
+							title="Page Views"
+							current={45200}
+							target={50000}
+							unit="views"
+						/>
+						<GoalCard
+							title="Cart Adds"
+							current={1234}
+							target={1500}
+							unit="items"
+						/>
+						<GoalCard
+							title="Checkouts"
+							current={456}
+							target={500}
+							unit="completed"
+						/>
 					</div>
 				</div>
 			</div>

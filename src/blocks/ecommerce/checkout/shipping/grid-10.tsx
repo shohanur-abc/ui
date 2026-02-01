@@ -1,7 +1,23 @@
-import { Package, Truck, Clock, Check, MapPin, Calendar, ArrowRight, Shield, Info } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	Clock,
+	Check,
+	MapPin,
+	Calendar,
+	ArrowRight,
+	Shield,
+	Info,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
@@ -34,26 +50,40 @@ const ShipmentCard = ({
 		<CardContent>
 			<div className="flex gap-2 mb-4 overflow-x-auto pb-2">
 				{items.map((item, i) => (
-					<div key={i} className="flex items-center gap-2 shrink-0 p-2 rounded-lg bg-muted/50">
+					<div
+						key={i}
+						className="flex items-center gap-2 shrink-0 p-2 rounded-lg bg-muted/50"
+					>
 						<Avatar className="size-10 rounded-lg">
 							<AvatarImage src={item.image} />
-							<AvatarFallback className="rounded-lg">{item.name[0]}</AvatarFallback>
+							<AvatarFallback className="rounded-lg">
+								{item.name[0]}
+							</AvatarFallback>
 						</Avatar>
 						<div>
-							<p className="text-sm font-medium truncate max-w-[120px]">{item.name}</p>
+							<p className="text-sm font-medium truncate max-w-[120px]">
+								{item.name}
+							</p>
 							<p className="text-xs text-muted-foreground">Qty: {item.qty}</p>
 						</div>
 					</div>
 				))}
 			</div>
-			<RadioGroup defaultValue={selectedOption} className="grid grid-cols-2 @sm:grid-cols-4 gap-2">
+			<RadioGroup
+				defaultValue={selectedOption}
+				className="grid grid-cols-2 @sm:grid-cols-4 gap-2"
+			>
 				{options.map((opt) => (
 					<Label
 						key={opt.value}
 						htmlFor={`s${shipment}-${opt.value}`}
 						className="flex flex-col items-center p-2 rounded-lg border cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-primary-foreground transition-all text-center"
 					>
-						<RadioGroupItem value={opt.value} id={`s${shipment}-${opt.value}`} className="sr-only" />
+						<RadioGroupItem
+							value={opt.value}
+							id={`s${shipment}-${opt.value}`}
+							className="sr-only"
+						/>
 						<span className="font-medium text-sm">{opt.name}</span>
 						<span className="text-xs opacity-70">{opt.time}</span>
 						<span className="font-bold mt-1">{opt.price}</span>
@@ -75,7 +105,11 @@ const SummaryRow = ({
 }) => (
 	<div className="flex items-center justify-between">
 		<span className="text-muted-foreground">{label}</span>
-		<span className={highlight ? 'font-bold text-primary text-lg' : 'font-medium'}>{value}</span>
+		<span
+			className={highlight ? 'font-bold text-primary text-lg' : 'font-medium'}
+		>
+			{value}
+		</span>
 	</div>
 );
 
@@ -89,9 +123,19 @@ export default function Main() {
 				{ name: 'Phone Case', image: '/products/case.jpg', qty: 2 },
 			],
 			options: [
-				{ value: 'standard', name: 'Standard', time: '5-7 days', price: '$4.99' },
+				{
+					value: 'standard',
+					name: 'Standard',
+					time: '5-7 days',
+					price: '$4.99',
+				},
 				{ value: 'express', name: 'Express', time: '2-3 days', price: '$9.99' },
-				{ value: 'overnight', name: 'Overnight', time: '1 day', price: '$19.99' },
+				{
+					value: 'overnight',
+					name: 'Overnight',
+					time: '1 day',
+					price: '$19.99',
+				},
 				{ value: 'pickup', name: 'Pickup', time: '2 hrs', price: 'Free' },
 			],
 			selectedOption: 'express',
@@ -99,13 +143,21 @@ export default function Main() {
 		{
 			shipment: 2,
 			warehouse: 'West Coast',
-			items: [
-				{ name: 'Smart Watch', image: '/products/watch.jpg', qty: 1 },
-			],
+			items: [{ name: 'Smart Watch', image: '/products/watch.jpg', qty: 1 }],
 			options: [
-				{ value: 'standard', name: 'Standard', time: '5-7 days', price: '$3.99' },
+				{
+					value: 'standard',
+					name: 'Standard',
+					time: '5-7 days',
+					price: '$3.99',
+				},
 				{ value: 'express', name: 'Express', time: '2-3 days', price: '$7.99' },
-				{ value: 'overnight', name: 'Overnight', time: '1 day', price: '$14.99' },
+				{
+					value: 'overnight',
+					name: 'Overnight',
+					time: '1 day',
+					price: '$14.99',
+				},
 				{ value: 'pickup', name: 'Pickup', time: 'N/A', price: 'N/A' },
 			],
 			selectedOption: 'standard',
@@ -116,8 +168,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Multi-Shipment Order</h1>
-					<p className="text-muted-foreground">Your items will ship from multiple locations</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Multi-Shipment Order
+					</h1>
+					<p className="text-muted-foreground">
+						Your items will ship from multiple locations
+					</p>
 				</div>
 
 				<div className="grid @lg:grid-cols-3 gap-6">
@@ -131,7 +187,10 @@ export default function Main() {
 								<Info className="size-5 text-muted-foreground shrink-0 mt-0.5" />
 								<div>
 									<p className="text-sm font-medium">Multiple Shipments</p>
-									<p className="text-sm text-muted-foreground">Items ship from different warehouses for faster delivery. Each shipment has its own tracking.</p>
+									<p className="text-sm text-muted-foreground">
+										Items ship from different warehouses for faster delivery.
+										Each shipment has its own tracking.
+									</p>
 								</div>
 							</CardContent>
 						</Card>

@@ -4,7 +4,16 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Separator } from '@/components/ui/separator';
 import { Label } from '@/components/ui/label';
-import { Minus, Plus, Trash2, Truck, Zap, Clock, ArrowRight, Check } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Trash2,
+	Truck,
+	Zap,
+	Clock,
+	ArrowRight,
+	Check,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -48,7 +57,9 @@ const QuantityButtons = ({ quantity }: { quantity: number }) => (
 		<Button size="icon-sm" variant="ghost" className="size-8 rounded-r-none">
 			<Minus className="size-3" />
 		</Button>
-		<span className="w-8 text-center text-sm font-medium border-x">{quantity}</span>
+		<span className="w-8 text-center text-sm font-medium border-x">
+			{quantity}
+		</span>
 		<Button size="icon-sm" variant="ghost" className="size-8 rounded-l-none">
 			<Plus className="size-3" />
 		</Button>
@@ -60,7 +71,11 @@ const PriceLabel = ({ price }: { price: number }) => (
 );
 
 const RemoveAction = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<Trash2 className="size-4" />
 	</Button>
 );
@@ -87,11 +102,15 @@ const ShippingChoice = ({
 		<Label
 			htmlFor={option.id}
 			className={`flex items-center gap-4 rounded-xl border-2 p-4 cursor-pointer transition-all ${
-				selected ? 'border-primary bg-primary/5' : 'hover:border-muted-foreground/30'
+				selected
+					? 'border-primary bg-primary/5'
+					: 'hover:border-muted-foreground/30'
 			}`}
 		>
 			<RadioGroupItem value={option.id} id={option.id} className="sr-only" />
-			<div className={`rounded-full p-2 ${selected ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
+			<div
+				className={`rounded-full p-2 ${selected ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}
+			>
 				<Icon className="size-5" />
 			</div>
 			<div className="flex-1">
@@ -154,7 +173,11 @@ const TotalLine = ({
 }) => (
 	<div className={`flex justify-between ${isBold ? 'text-lg font-bold' : ''}`}>
 		<span className={isBold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={isBold ? 'text-primary' : isGreen ? 'text-green-500 font-medium' : ''}>
+		<span
+			className={
+				isBold ? 'text-primary' : isGreen ? 'text-green-500 font-medium' : ''
+			}
+		>
 			{value}
 		</span>
 	</div>
@@ -165,7 +188,12 @@ const OrderSummary = ({
 	checkoutLabel,
 	checkoutHref,
 }: {
-	lines: { label: string; value: string; isBold?: boolean; isGreen?: boolean }[];
+	lines: {
+		label: string;
+		value: string;
+		isBold?: boolean;
+		isGreen?: boolean;
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
 }) => (
@@ -196,7 +224,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Premium Over-Ear Headphones',
 			variant: 'Midnight Black / Wireless',
 			price: 299.99,
@@ -204,7 +233,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=200&h=200&fit=crop',
 			name: 'Classic Low-Top Sneakers',
 			variant: 'White / Size 10',
 			price: 129.99,
@@ -212,7 +242,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 			name: 'Canvas Messenger Bag',
 			variant: 'Olive / Medium',
 			price: 79.99,
@@ -253,9 +284,18 @@ export default function Main() {
 
 	const summaryLines = [
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
-		{ label: 'Shipping', value: selectedShipping === 0 ? 'Free' : `$${selectedShipping.toFixed(2)}`, isGreen: selectedShipping === 0 },
+		{
+			label: 'Shipping',
+			value:
+				selectedShipping === 0 ? 'Free' : `$${selectedShipping.toFixed(2)}`,
+			isGreen: selectedShipping === 0,
+		},
 		{ label: 'Tax', value: `$${tax.toFixed(2)}` },
-		{ label: 'Total', value: `$${(subtotal + selectedShipping + tax).toFixed(2)}`, isBold: true },
+		{
+			label: 'Total',
+			value: `$${(subtotal + selectedShipping + tax).toFixed(2)}`,
+			isBold: true,
+		},
 	];
 
 	return (

@@ -37,7 +37,9 @@ const SectionDivider = ({ label }: { label: string }) => (
 			<span className="w-full border-t" />
 		</div>
 		<div className="relative flex justify-center text-xs uppercase">
-			<span className="bg-background px-3 text-muted-foreground font-medium">{label}</span>
+			<span className="bg-background px-3 text-muted-foreground font-medium">
+				{label}
+			</span>
 		</div>
 	</div>
 );
@@ -148,7 +150,9 @@ export default function Main() {
 						<Globe2 className="size-6 text-primary" />
 						<h1 className="text-2xl font-bold">International Shipping</h1>
 					</div>
-					<p className="text-muted-foreground">We ship worldwide to 190+ countries</p>
+					<p className="text-muted-foreground">
+						We ship worldwide to 190+ countries
+					</p>
 					<div className="flex items-center justify-center gap-2 mt-4">
 						<SecureBadge icon={Lock} text="Secure Form" />
 					</div>
@@ -184,8 +188,14 @@ export default function Main() {
 
 					<SectionDivider label="Shipping Address" />
 
-					<InputField label="Address Line 1" placeholder="Street address, company name" />
-					<InputField label="Address Line 2" placeholder="Apartment, suite, unit (optional)" />
+					<InputField
+						label="Address Line 1"
+						placeholder="Street address, company name"
+					/>
+					<InputField
+						label="Address Line 2"
+						placeholder="Apartment, suite, unit (optional)"
+					/>
 
 					<div className="grid @sm:grid-cols-3 gap-4">
 						<InputField label="City" placeholder="City" />

@@ -52,7 +52,9 @@ const HealthSidebar = ({
 			</Avatar>
 			<h2 className="font-bold mt-3">{name}</h2>
 			<p className="text-sm text-muted-foreground">{age} years old</p>
-			<Badge variant="outline" className="mt-2">Blood: {bloodType}</Badge>
+			<Badge variant="outline" className="mt-2">
+				Blood: {bloodType}
+			</Badge>
 		</div>
 		<div className="p-4 rounded-xl bg-gradient-to-br from-green-500/10 to-emerald-500/10">
 			<div className="flex items-center justify-between mb-2">
@@ -60,7 +62,9 @@ const HealthSidebar = ({
 				<span className="text-xl font-bold text-green-600">{healthScore}</span>
 			</div>
 			<Progress value={healthScore} className="h-2" />
-			<p className="text-xs text-muted-foreground mt-2 text-center">Excellent condition</p>
+			<p className="text-xs text-muted-foreground mt-2 text-center">
+				Excellent condition
+			</p>
 		</div>
 	</div>
 );
@@ -68,16 +72,29 @@ const HealthSidebar = ({
 const VitalStats = ({
 	vitals,
 }: {
-	vitals: { icon: React.ElementType; label: string; value: string; status: 'normal' | 'warning' | 'alert' }[];
+	vitals: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		status: 'normal' | 'warning' | 'alert';
+	}[];
 }) => (
 	<div className="space-y-2">
 		{vitals.map((vital, i) => (
-			<div key={i} className="flex items-center justify-between p-2 rounded-lg bg-muted/30">
+			<div
+				key={i}
+				className="flex items-center justify-between p-2 rounded-lg bg-muted/30"
+			>
 				<div className="flex items-center gap-2">
-					<vital.icon className={`size-4 ${
-						vital.status === 'normal' ? 'text-green-500' :
-						vital.status === 'warning' ? 'text-amber-500' : 'text-red-500'
-					}`} />
+					<vital.icon
+						className={`size-4 ${
+							vital.status === 'normal'
+								? 'text-green-500'
+								: vital.status === 'warning'
+									? 'text-amber-500'
+									: 'text-red-500'
+						}`}
+					/>
 					<span className="text-sm">{vital.label}</span>
 				</div>
 				<span className="font-medium text-sm">{vital.value}</span>
@@ -90,7 +107,12 @@ const HealthNav = ({
 	items,
 	activeHref,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; badge?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+	}[];
 	activeHref: string;
 }) => (
 	<nav className="space-y-1">
@@ -119,7 +141,14 @@ const HealthNav = ({
 const DailyProgress = ({
 	metrics,
 }: {
-	metrics: { icon: React.ElementType; label: string; current: number; target: number; unit: string; color: string }[];
+	metrics: {
+		icon: React.ElementType;
+		label: string;
+		current: number;
+		target: number;
+		unit: string;
+		color: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -137,10 +166,14 @@ const DailyProgress = ({
 							<span>{metric.label}</span>
 						</div>
 						<span className="text-muted-foreground">
-							{metric.current.toLocaleString()} / {metric.target.toLocaleString()} {metric.unit}
+							{metric.current.toLocaleString()} /{' '}
+							{metric.target.toLocaleString()} {metric.unit}
 						</span>
 					</div>
-					<Progress value={(metric.current / metric.target) * 100} className="h-2" />
+					<Progress
+						value={(metric.current / metric.target) * 100}
+						className="h-2"
+					/>
 				</div>
 			))}
 		</CardContent>
@@ -159,17 +192,24 @@ const Medications = ({
 					<Pill className="size-5 text-blue-500" />
 					Medications
 				</h3>
-				<Button variant="ghost" size="sm">Manage</Button>
+				<Button variant="ghost" size="sm">
+					Manage
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{medications.map((med, i) => (
-				<div key={i} className={`flex items-center justify-between p-3 rounded-lg ${
-					med.taken ? 'bg-green-500/10' : 'bg-muted/30'
-				}`}>
+				<div
+					key={i}
+					className={`flex items-center justify-between p-3 rounded-lg ${
+						med.taken ? 'bg-green-500/10' : 'bg-muted/30'
+					}`}
+				>
 					<div>
 						<p className="font-medium">{med.name}</p>
-						<p className="text-sm text-muted-foreground">{med.dosage} • {med.time}</p>
+						<p className="text-sm text-muted-foreground">
+							{med.dosage} • {med.time}
+						</p>
 					</div>
 					<Button
 						size="sm"
@@ -187,7 +227,13 @@ const Medications = ({
 const Appointments = ({
 	appointments,
 }: {
-	appointments: { doctor: string; specialty: string; date: string; time: string; location: string }[];
+	appointments: {
+		doctor: string;
+		specialty: string;
+		date: string;
+		time: string;
+		location: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -238,33 +284,103 @@ export default function Main() {
 			healthScore: 87,
 		},
 		vitals: [
-			{ icon: Heart, label: 'Heart Rate', value: '72 bpm', status: 'normal' as const },
-			{ icon: Activity, label: 'Blood Pressure', value: '120/80', status: 'normal' as const },
-			{ icon: Scale, label: 'Weight', value: '145 lbs', status: 'normal' as const },
-			{ icon: Moon, label: 'Sleep', value: '7.5 hrs', status: 'normal' as const },
+			{
+				icon: Heart,
+				label: 'Heart Rate',
+				value: '72 bpm',
+				status: 'normal' as const,
+			},
+			{
+				icon: Activity,
+				label: 'Blood Pressure',
+				value: '120/80',
+				status: 'normal' as const,
+			},
+			{
+				icon: Scale,
+				label: 'Weight',
+				value: '145 lbs',
+				status: 'normal' as const,
+			},
+			{
+				icon: Moon,
+				label: 'Sleep',
+				value: '7.5 hrs',
+				status: 'normal' as const,
+			},
 		],
 		nav: [
 			{ icon: Activity, label: 'Dashboard', href: '/health' },
 			{ icon: Pill, label: 'Medications', href: '/medications', badge: '3' },
-			{ icon: Calendar, label: 'Appointments', href: '/appointments', badge: '2' },
+			{
+				icon: Calendar,
+				label: 'Appointments',
+				href: '/appointments',
+				badge: '2',
+			},
 			{ icon: Stethoscope, label: 'Records', href: '/records' },
 			{ icon: Watch, label: 'Devices', href: '/devices' },
 			{ icon: Settings, label: 'Settings', href: '/settings' },
 		],
 		dailyProgress: [
-			{ icon: Flame, label: 'Calories', current: 1450, target: 2000, unit: 'kcal', color: 'text-orange-500' },
-			{ icon: Target, label: 'Steps', current: 6824, target: 10000, unit: 'steps', color: 'text-blue-500' },
-			{ icon: Zap, label: 'Active Minutes', current: 32, target: 60, unit: 'min', color: 'text-green-500' },
-			{ icon: Heart, label: 'Water', current: 5, target: 8, unit: 'glasses', color: 'text-cyan-500' },
+			{
+				icon: Flame,
+				label: 'Calories',
+				current: 1450,
+				target: 2000,
+				unit: 'kcal',
+				color: 'text-orange-500',
+			},
+			{
+				icon: Target,
+				label: 'Steps',
+				current: 6824,
+				target: 10000,
+				unit: 'steps',
+				color: 'text-blue-500',
+			},
+			{
+				icon: Zap,
+				label: 'Active Minutes',
+				current: 32,
+				target: 60,
+				unit: 'min',
+				color: 'text-green-500',
+			},
+			{
+				icon: Heart,
+				label: 'Water',
+				current: 5,
+				target: 8,
+				unit: 'glasses',
+				color: 'text-cyan-500',
+			},
 		],
 		medications: [
 			{ name: 'Vitamin D3', dosage: '1000 IU', time: '8:00 AM', taken: true },
 			{ name: 'Omega-3', dosage: '1000 mg', time: '12:00 PM', taken: true },
-			{ name: 'Multivitamin', dosage: '1 tablet', time: '6:00 PM', taken: false },
+			{
+				name: 'Multivitamin',
+				dosage: '1 tablet',
+				time: '6:00 PM',
+				taken: false,
+			},
 		],
 		appointments: [
-			{ doctor: 'Dr. Sarah Chen', specialty: 'General Practitioner', date: 'Feb 5', time: '10:00 AM', location: 'Clinic A' },
-			{ doctor: 'Dr. Michael Park', specialty: 'Dermatologist', date: 'Feb 12', time: '2:30 PM', location: 'Medical Center' },
+			{
+				doctor: 'Dr. Sarah Chen',
+				specialty: 'General Practitioner',
+				date: 'Feb 5',
+				time: '10:00 AM',
+				location: 'Clinic A',
+			},
+			{
+				doctor: 'Dr. Michael Park',
+				specialty: 'Dermatologist',
+				date: 'Feb 12',
+				time: '2:30 PM',
+				location: 'Medical Center',
+			},
 		],
 	};
 
@@ -281,7 +397,10 @@ export default function Main() {
 								<Separator />
 								<HealthNav items={profileData.nav} activeHref="/health" />
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>

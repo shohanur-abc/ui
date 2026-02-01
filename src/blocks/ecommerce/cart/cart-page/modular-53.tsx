@@ -1,8 +1,25 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, Boxes, Truck, CreditCard, Shield, Gift, Percent } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	Boxes,
+	Truck,
+	CreditCard,
+	Shield,
+	Gift,
+	Percent,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -22,7 +39,13 @@ interface Module {
 	content: React.ReactNode;
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="flex items-center gap-3">
 		<Boxes className="size-6 text-primary" />
 		<div>
@@ -58,10 +81,16 @@ const CartItemRow = ({ item }: { item: CartItem }) => (
 			<p className="text-xs text-muted-foreground">{item.variant}</p>
 			<div className="flex items-center justify-between mt-2">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-semibold text-sm">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-semibold text-sm">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
-		<Button size="icon-sm" variant="ghost" className="size-6 text-muted-foreground hover:text-destructive">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-6 text-muted-foreground hover:text-destructive"
+		>
 			<X className="size-3" />
 		</Button>
 	</div>
@@ -88,7 +117,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between text-sm ${bold ? 'font-bold text-base' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between text-sm ${bold ? 'font-bold text-base' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -98,7 +129,12 @@ const ShippingModule = () => (
 	<div className="space-y-2">
 		<div className="flex items-center justify-between p-2 rounded-lg border cursor-pointer hover:border-primary">
 			<div className="flex items-center gap-2">
-				<input type="radio" name="shipping" defaultChecked className="accent-primary" />
+				<input
+					type="radio"
+					name="shipping"
+					defaultChecked
+					className="accent-primary"
+				/>
 				<span className="text-sm">Standard (5-7 days)</span>
 			</div>
 			<span className="text-sm font-medium">Free</span>
@@ -159,7 +195,9 @@ const ProtectionModule = () => (
 			<input type="checkbox" className="accent-primary mt-1" />
 			<div>
 				<span className="text-sm font-medium">Extended Warranty</span>
-				<p className="text-xs text-muted-foreground">2 years protection for $29.99</p>
+				<p className="text-xs text-muted-foreground">
+					2 years protection for $29.99
+				</p>
 			</div>
 		</label>
 	</div>
@@ -169,7 +207,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
 			name: 'Running Shoes Pro',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -177,7 +216,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
 			name: 'Studio Headphones',
 			variant: 'Black',
 			price: 299.99,
@@ -191,10 +231,25 @@ export default function Main() {
 	const total = subtotal - discount + tax;
 
 	const modules: Module[] = [
-		{ id: 'shipping', title: 'Shipping Options', icon: Truck, content: <ShippingModule /> },
-		{ id: 'promo', title: 'Promo Code', icon: Percent, content: <PromoModule /> },
+		{
+			id: 'shipping',
+			title: 'Shipping Options',
+			icon: Truck,
+			content: <ShippingModule />,
+		},
+		{
+			id: 'promo',
+			title: 'Promo Code',
+			icon: Percent,
+			content: <PromoModule />,
+		},
 		{ id: 'gift', title: 'Gift Options', icon: Gift, content: <GiftModule /> },
-		{ id: 'protection', title: 'Protection', icon: Shield, content: <ProtectionModule /> },
+		{
+			id: 'protection',
+			title: 'Protection',
+			icon: Shield,
+			content: <ProtectionModule />,
+		},
 	];
 
 	const summaryLines = [
@@ -208,7 +263,10 @@ export default function Main() {
 	return (
 		<section className="@container">
 			<div className="mx-auto max-w-5xl px-4 py-8 @md:py-12">
-				<PageHeader title="Modular Cart" subtitle="Customize your checkout experience" />
+				<PageHeader
+					title="Modular Cart"
+					subtitle="Customize your checkout experience"
+				/>
 
 				<div className="mt-8 grid gap-6 @lg:grid-cols-3">
 					{/* Cart Items Module */}

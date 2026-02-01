@@ -1,10 +1,30 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Minus, Plus, X, ArrowRight, Filter, Search, SlidersHorizontal } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	Filter,
+	Search,
+	SlidersHorizontal,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -26,7 +46,9 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 			<Filter className="size-6 text-primary" />
 			<h1 className="text-2xl font-bold @md:text-3xl">{title}</h1>
 		</div>
-		<Badge variant="secondary" className="px-3 py-1">{count} items</Badge>
+		<Badge variant="secondary" className="px-3 py-1">
+			{count} items
+		</Badge>
 	</div>
 );
 
@@ -133,25 +155,43 @@ const FilteredItem = ({ item }: { item: CartItem }) => (
 					<h3 className="font-semibold line-clamp-1">{item.name}</h3>
 					<p className="text-sm text-muted-foreground">{item.variant}</p>
 					<div className="flex gap-1 mt-1">
-						<Badge variant="outline" className="text-xs">{item.category}</Badge>
-						<Badge variant="outline" className="text-xs">{item.brand}</Badge>
+						<Badge variant="outline" className="text-xs">
+							{item.category}
+						</Badge>
+						<Badge variant="outline" className="text-xs">
+							{item.brand}
+						</Badge>
 					</div>
 				</div>
-				<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive shrink-0">
+				<Button
+					size="icon-sm"
+					variant="ghost"
+					className="text-muted-foreground hover:text-destructive shrink-0"
+				>
 					<X className="size-4" />
 				</Button>
 			</div>
 			<div className="flex items-center justify-between mt-3">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-bold text-primary">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-bold text-primary">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
 );
 
-const ResultsInfo = ({ showing, total }: { showing: number; total: number }) => (
+const ResultsInfo = ({
+	showing,
+	total,
+}: {
+	showing: number;
+	total: number;
+}) => (
 	<div className="flex items-center justify-between text-sm text-muted-foreground">
-		<span>Showing {showing} of {total} items</span>
+		<span>
+			Showing {showing} of {total} items
+		</span>
 	</div>
 );
 
@@ -164,7 +204,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -174,7 +216,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
 			name: 'Studio Headphones Pro',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -185,7 +228,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&h=150&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White • ANC',
 			price: 179.99,
@@ -196,7 +240,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -207,7 +252,8 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver • Leather',
 			price: 249.99,
@@ -223,7 +269,10 @@ export default function Main() {
 	const activeFilters = ['In Stock'];
 	const filteredItems = items.filter((i) => i.inStock);
 
-	const subtotal = filteredItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
+	const subtotal = filteredItems.reduce(
+		(sum, i) => sum + i.price * i.quantity,
+		0,
+	);
 	const tax = subtotal * 0.08;
 	const total = subtotal + tax;
 
@@ -249,7 +298,10 @@ export default function Main() {
 					<div className="@lg:col-span-2">
 						<Card>
 							<CardHeader className="pb-2">
-								<ResultsInfo showing={filteredItems.length} total={items.length} />
+								<ResultsInfo
+									showing={filteredItems.length}
+									total={items.length}
+								/>
 							</CardHeader>
 							<CardContent className="divide-y">
 								{filteredItems.map((item) => (

@@ -1,13 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import {
-	TrendingUp,
-	TrendingDown,
-	Calendar,
-} from 'lucide-react';
+import { TrendingUp, TrendingDown, Calendar } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -50,7 +52,11 @@ const LineChart = ({ data, height, showArea }: LineChartProps) => {
 
 	return (
 		<div className="relative" style={{ height }}>
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="size-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="size-full"
+			>
 				{/* Grid lines */}
 				{[0, 25, 50, 75, 100].map((y) => (
 					<line
@@ -66,11 +72,7 @@ const LineChart = ({ data, height, showArea }: LineChartProps) => {
 				))}
 				{/* Area fill */}
 				{showArea && (
-					<path
-						d={areaD}
-						fill="url(#gradient)"
-						className="opacity-30"
-					/>
+					<path d={areaD} fill="url(#gradient)" className="opacity-30" />
 				)}
 				{/* Line */}
 				<path
@@ -95,7 +97,11 @@ const LineChart = ({ data, height, showArea }: LineChartProps) => {
 				<defs>
 					<linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
 						<stop offset="0%" stopColor="hsl(var(--primary))" />
-						<stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+						<stop
+							offset="100%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0"
+						/>
 					</linearGradient>
 				</defs>
 			</svg>
@@ -163,10 +169,15 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex flex-col gap-4 @sm:flex-row @sm:items-center @sm:justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Stock Trend</CardTitle>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Stock Trend
+								</CardTitle>
 								<CardDescription>Inventory levels over time</CardDescription>
 							</div>
-							<Select value={timeRange} onValueChange={(v) => setTimeRange(v as TimeRange)}>
+							<Select
+								value={timeRange}
+								onValueChange={(v) => setTimeRange(v as TimeRange)}
+							>
 								<SelectTrigger className="w-32">
 									<Calendar className="mr-2 size-4" />
 									<SelectValue />
@@ -187,7 +198,12 @@ export default function Main() {
 						</div>
 						<div className="flex justify-between text-xs text-muted-foreground">
 							{stockData.map((d) => (
-								<span key={d.date}>{new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+								<span key={d.date}>
+									{new Date(d.date).toLocaleDateString('en-US', {
+										month: 'short',
+										day: 'numeric',
+									})}
+								</span>
 							))}
 						</div>
 					</CardContent>

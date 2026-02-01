@@ -1,6 +1,11 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import {
 	Table,
@@ -24,13 +29,20 @@ interface CartItem {
 	stock: number;
 }
 
-const Breadcrumb = ({ items }: { items: { label: string; href?: string }[] }) => (
+const Breadcrumb = ({
+	items,
+}: {
+	items: { label: string; href?: string }[];
+}) => (
 	<nav className="flex items-center gap-2 text-sm text-muted-foreground">
 		{items.map((item, i) => (
 			<span key={i} className="flex items-center gap-2">
 				{i > 0 && <span>/</span>}
 				{item.href ? (
-					<Link href={item.href} className="hover:text-foreground transition-colors">
+					<Link
+						href={item.href}
+						className="hover:text-foreground transition-colors"
+					>
 						{item.label}
 					</Link>
 				) : (
@@ -65,7 +77,13 @@ const PriceCell = ({ price }: { price: number }) => (
 	<span className="font-medium">${price.toFixed(2)}</span>
 );
 
-const QuantityCell = ({ quantity, stock }: { quantity: number; stock: number }) => (
+const QuantityCell = ({
+	quantity,
+	stock,
+}: {
+	quantity: number;
+	stock: number;
+}) => (
 	<div className="flex flex-col items-center gap-1">
 		<div className="flex items-center gap-1">
 			<Button size="icon-sm" variant="outline" className="size-7">
@@ -82,19 +100,30 @@ const QuantityCell = ({ quantity, stock }: { quantity: number; stock: number }) 
 			</Button>
 		</div>
 		{stock < 5 && (
-			<Badge variant="outline" className="text-xs text-orange-500 border-orange-500/50">
+			<Badge
+				variant="outline"
+				className="text-xs text-orange-500 border-orange-500/50"
+			>
 				Only {stock} left
 			</Badge>
 		)}
 	</div>
 );
 
-const TotalCell = ({ price, quantity }: { price: number; quantity: number }) => (
-	<span className="font-bold">${(price * quantity).toFixed(2)}</span>
-);
+const TotalCell = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => <span className="font-bold">${(price * quantity).toFixed(2)}</span>;
 
 const RemoveCell = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<Trash2 className="size-4" />
 	</Button>
 );
@@ -120,7 +149,11 @@ const CartTable = ({
 			{items.map((item) => (
 				<TableRow key={item.id}>
 					<TableCell>
-						<ProductCell image={item.image} name={item.name} variant={item.variant} />
+						<ProductCell
+							image={item.image}
+							name={item.name}
+							variant={item.variant}
+						/>
 					</TableCell>
 					<TableCell>
 						<PriceCell price={item.price} />
@@ -160,10 +193,16 @@ const SummaryLine = ({
 }) => (
 	<div
 		className={`flex justify-between ${
-			variant === 'large' ? 'text-xl font-bold' : variant === 'discount' ? 'text-green-500' : ''
+			variant === 'large'
+				? 'text-xl font-bold'
+				: variant === 'discount'
+					? 'text-green-500'
+					: ''
 		}`}
 	>
-		<span className={variant === 'large' ? '' : 'text-muted-foreground'}>{label}</span>
+		<span className={variant === 'large' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span className={variant === 'large' ? 'text-primary' : ''}>{value}</span>
 	</div>
 );
@@ -177,7 +216,11 @@ const OrderSummary = ({
 	securityNote,
 }: {
 	title: string;
-	lines: { label: string; value: string; variant?: 'default' | 'large' | 'discount' }[];
+	lines: {
+		label: string;
+		value: string;
+		variant?: 'default' | 'large' | 'discount';
+	}[];
 	promoPlaceholder: string;
 	checkoutLabel: string;
 	checkoutHref: string;
@@ -206,7 +249,9 @@ const OrderSummary = ({
 					{checkoutLabel}
 				</Link>
 			</Button>
-			<p className="text-xs text-center text-muted-foreground">{securityNote}</p>
+			<p className="text-xs text-center text-muted-foreground">
+				{securityNote}
+			</p>
 		</CardFooter>
 	</Card>
 );
@@ -215,7 +260,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&h=200&fit=crop',
 			name: 'Stainless Steel Water Bottle',
 			variant: '750ml / Midnight Blue',
 			price: 34.99,
@@ -224,7 +270,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 			name: 'Canvas Backpack',
 			variant: 'Large / Olive Green',
 			price: 89.99,
@@ -233,7 +280,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1544816155-12df9643f363?w=200&h=200&fit=crop',
 			name: 'Leather Notebook Cover',
 			variant: 'A5 / Brown',
 			price: 45.99,

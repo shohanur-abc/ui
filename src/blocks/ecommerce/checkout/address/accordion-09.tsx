@@ -126,7 +126,11 @@ const NewRecipientSection = ({
 		</div>
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 		<Separator />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -143,32 +147,37 @@ const ItemAssignmentSection = () => (
 			Assign items from your cart to each recipient
 		</p>
 		<div className="space-y-3">
-			{['Wireless Headphones', 'Smart Watch', 'Phone Case', 'Laptop Stand', 'USB Cable', 'Power Bank'].map(
-				(item) => (
-					<div
-						key={item}
-						className="flex items-center gap-4 p-3 rounded-lg border border-border"
-					>
-						<Checkbox id={item} />
-						<div className="size-10 rounded bg-muted flex items-center justify-center">
-							<Package className="size-5 text-muted-foreground" />
-						</div>
-						<Label htmlFor={item} className="flex-1 cursor-pointer font-normal">
-							{item}
-						</Label>
-						<Select>
-							<SelectTrigger className="w-36">
-								<SelectValue placeholder="Recipient" />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectItem value="john">John Doe</SelectItem>
-								<SelectItem value="jane">Jane Smith</SelectItem>
-								<SelectItem value="bob">Bob Wilson</SelectItem>
-							</SelectContent>
-						</Select>
+			{[
+				'Wireless Headphones',
+				'Smart Watch',
+				'Phone Case',
+				'Laptop Stand',
+				'USB Cable',
+				'Power Bank',
+			].map((item) => (
+				<div
+					key={item}
+					className="flex items-center gap-4 p-3 rounded-lg border border-border"
+				>
+					<Checkbox id={item} />
+					<div className="size-10 rounded bg-muted flex items-center justify-center">
+						<Package className="size-5 text-muted-foreground" />
 					</div>
-				)
-			)}
+					<Label htmlFor={item} className="flex-1 cursor-pointer font-normal">
+						{item}
+					</Label>
+					<Select>
+						<SelectTrigger className="w-36">
+							<SelectValue placeholder="Recipient" />
+						</SelectTrigger>
+						<SelectContent>
+							<SelectItem value="john">John Doe</SelectItem>
+							<SelectItem value="jane">Jane Smith</SelectItem>
+							<SelectItem value="bob">Bob Wilson</SelectItem>
+						</SelectContent>
+					</Select>
+				</div>
+			))}
 		</div>
 	</div>
 );
@@ -194,7 +203,9 @@ export default function Main() {
 								<Truck className="size-6 text-primary" />
 							</div>
 							<div>
-								<CardTitle className="text-2xl">Multi-Address Shipping</CardTitle>
+								<CardTitle className="text-2xl">
+									Multi-Address Shipping
+								</CardTitle>
 								<p className="text-sm text-muted-foreground">
 									Ship items to multiple addresses in one order
 								</p>
@@ -223,10 +234,7 @@ export default function Main() {
 									</div>
 								</AccordionTrigger>
 								<AccordionContent>
-									<NewRecipientSection
-										countries={countries}
-										states={states}
-									/>
+									<NewRecipientSection countries={countries} states={states} />
 								</AccordionContent>
 							</AccordionItem>
 

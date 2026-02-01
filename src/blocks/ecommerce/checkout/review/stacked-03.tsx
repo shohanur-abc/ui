@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -25,7 +31,13 @@ interface Product {
 	image: string;
 }
 
-const StackedProductCard = ({ product, index }: { product: Product; index: number }) => (
+const StackedProductCard = ({
+	product,
+	index,
+}: {
+	product: Product;
+	index: number;
+}) => (
 	<div
 		className="relative rounded-2xl border bg-card p-4 transition-all hover:-translate-y-1 hover:shadow-lg"
 		style={{
@@ -35,7 +47,12 @@ const StackedProductCard = ({ product, index }: { product: Product; index: numbe
 	>
 		<div className="flex items-center gap-4">
 			<div className="relative size-20 shrink-0 overflow-hidden rounded-xl">
-				<Image src={product.image} alt={product.name} fill className="object-cover" />
+				<Image
+					src={product.image}
+					alt={product.name}
+					fill
+					className="object-cover"
+				/>
 			</div>
 			<div className="flex-1 min-w-0">
 				<p className="font-medium">{product.name}</p>
@@ -49,10 +66,26 @@ const StackedProductCard = ({ product, index }: { product: Product; index: numbe
 	</div>
 );
 
-const VerifyBadge = ({ label, verified }: { label: string; verified: boolean }) => (
-	<div className={`flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm ${verified ? 'border-green-500/30 bg-green-500/10' : 'border-border'}`}>
+const VerifyBadge = ({
+	label,
+	verified,
+}: {
+	label: string;
+	verified: boolean;
+}) => (
+	<div
+		className={`flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm ${verified ? 'border-green-500/30 bg-green-500/10' : 'border-border'}`}
+	>
 		{verified && <Check className="size-3.5 text-green-500" />}
-		<span className={verified ? 'text-green-600 dark:text-green-400' : 'text-muted-foreground'}>{label}</span>
+		<span
+			className={
+				verified
+					? 'text-green-600 dark:text-green-400'
+					: 'text-muted-foreground'
+			}
+		>
+			{label}
+		</span>
 	</div>
 );
 
@@ -71,7 +104,10 @@ const InfoBlock = ({
 			<span className="text-sm font-medium">{title}</span>
 		</div>
 		{lines.map((line, i) => (
-			<p key={i} className={`text-sm ${i === 0 ? 'font-medium' : 'text-muted-foreground'}`}>
+			<p
+				key={i}
+				className={`text-sm ${i === 0 ? 'font-medium' : 'text-muted-foreground'}`}
+			>
 				{line}
 			</p>
 		))}
@@ -89,9 +125,13 @@ const SummaryRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -103,7 +143,8 @@ export default function Main() {
 			variant: 'Pro / Black',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -111,7 +152,8 @@ export default function Main() {
 			variant: 'Extended Battery',
 			price: 39.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1608156639585-b3a776f1060b?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608156639585-b3a776f1060b?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -119,7 +161,8 @@ export default function Main() {
 			variant: 'Memory Foam / 6-Pack',
 			price: 19.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -143,7 +186,11 @@ export default function Main() {
 					<div className="space-y-8">
 						<div className="pb-12">
 							{products.map((product, index) => (
-								<StackedProductCard key={product.id} product={product} index={index} />
+								<StackedProductCard
+									key={product.id}
+									product={product}
+									index={index}
+								/>
 							))}
 						</div>
 
@@ -180,8 +227,12 @@ export default function Main() {
 						<div className="flex items-center gap-3 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4">
 							<Gift className="size-5 text-amber-600 dark:text-amber-400" />
 							<div>
-								<p className="font-medium text-amber-600 dark:text-amber-400">Gift wrap added</p>
-								<p className="text-sm text-muted-foreground">Premium packaging with personalized message</p>
+								<p className="font-medium text-amber-600 dark:text-amber-400">
+									Gift wrap added
+								</p>
+								<p className="text-sm text-muted-foreground">
+									Premium packaging with personalized message
+								</p>
 							</div>
 						</div>
 					</div>

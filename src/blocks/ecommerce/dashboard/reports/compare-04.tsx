@@ -22,7 +22,15 @@ type RegionCompareProps = {
 	marketShare: number;
 };
 
-const RegionCompare = ({ region, flag, revenue, orders, avgOrder, growth, marketShare }: RegionCompareProps) => (
+const RegionCompare = ({
+	region,
+	flag,
+	revenue,
+	orders,
+	avgOrder,
+	growth,
+	marketShare,
+}: RegionCompareProps) => (
 	<Card className="border-border/30 bg-card/60">
 		<CardContent className="p-5">
 			<div className="flex items-center justify-between">
@@ -30,7 +38,9 @@ const RegionCompare = ({ region, flag, revenue, orders, avgOrder, growth, market
 					<span className="text-3xl">{flag}</span>
 					<div>
 						<p className="font-bold">{region}</p>
-						<p className="text-xs text-muted-foreground">{marketShare}% market share</p>
+						<p className="text-xs text-muted-foreground">
+							{marketShare}% market share
+						</p>
 					</div>
 				</div>
 				<Badge
@@ -46,7 +56,8 @@ const RegionCompare = ({ region, flag, revenue, orders, avgOrder, growth, market
 					) : (
 						<ArrowDownRight className="mr-1 size-3" />
 					)}
-					{growth >= 0 ? '+' : ''}{growth}%
+					{growth >= 0 ? '+' : ''}
+					{growth}%
 				</Badge>
 			</div>
 			<div className="mt-4 grid grid-cols-3 gap-4">
@@ -70,12 +81,60 @@ const RegionCompare = ({ region, flag, revenue, orders, avgOrder, growth, market
 
 export default function Main() {
 	const regions: RegionCompareProps[] = [
-		{ region: 'United States', flag: '🇺🇸', revenue: '$485K', orders: '3,250', avgOrder: '$149', growth: 18.5, marketShare: 42 },
-		{ region: 'United Kingdom', flag: '🇬🇧', revenue: '$185K', orders: '1,420', avgOrder: '$130', growth: 12.3, marketShare: 16 },
-		{ region: 'Germany', flag: '🇩🇪', revenue: '$142K', orders: '980', avgOrder: '$145', growth: 8.7, marketShare: 12 },
-		{ region: 'Canada', flag: '🇨🇦', revenue: '$125K', orders: '890', avgOrder: '$140', growth: 22.1, marketShare: 11 },
-		{ region: 'Australia', flag: '🇦🇺', revenue: '$98K', orders: '720', avgOrder: '$136', growth: -2.4, marketShare: 8 },
-		{ region: 'France', flag: '🇫🇷', revenue: '$85K', orders: '640', avgOrder: '$133', growth: 5.2, marketShare: 7 },
+		{
+			region: 'United States',
+			flag: '🇺🇸',
+			revenue: '$485K',
+			orders: '3,250',
+			avgOrder: '$149',
+			growth: 18.5,
+			marketShare: 42,
+		},
+		{
+			region: 'United Kingdom',
+			flag: '🇬🇧',
+			revenue: '$185K',
+			orders: '1,420',
+			avgOrder: '$130',
+			growth: 12.3,
+			marketShare: 16,
+		},
+		{
+			region: 'Germany',
+			flag: '🇩🇪',
+			revenue: '$142K',
+			orders: '980',
+			avgOrder: '$145',
+			growth: 8.7,
+			marketShare: 12,
+		},
+		{
+			region: 'Canada',
+			flag: '🇨🇦',
+			revenue: '$125K',
+			orders: '890',
+			avgOrder: '$140',
+			growth: 22.1,
+			marketShare: 11,
+		},
+		{
+			region: 'Australia',
+			flag: '🇦🇺',
+			revenue: '$98K',
+			orders: '720',
+			avgOrder: '$136',
+			growth: -2.4,
+			marketShare: 8,
+		},
+		{
+			region: 'France',
+			flag: '🇫🇷',
+			revenue: '$85K',
+			orders: '640',
+			avgOrder: '$133',
+			growth: 5.2,
+			marketShare: 7,
+		},
 	];
 
 	return (

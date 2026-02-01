@@ -198,7 +198,10 @@ const LockerTab = () => (
 		</RadioGroup>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="locker-notify" defaultChecked />
-			<Label htmlFor="locker-notify" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="locker-notify"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Send me pickup code via SMS
 			</Label>
 		</div>

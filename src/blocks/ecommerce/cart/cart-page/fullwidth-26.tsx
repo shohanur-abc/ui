@@ -1,9 +1,23 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Input } from '@/components/ui/input';
-import { Minus, Plus, Trash2, ArrowRight, Truck, ShieldCheck, Package } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Trash2,
+	ArrowRight,
+	Truck,
+	ShieldCheck,
+	Package,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,14 +30,24 @@ interface CartItem {
 	quantity: number;
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div>
 		<h1 className="text-3xl font-bold @lg:text-4xl">{title}</h1>
 		<p className="mt-2 text-lg text-muted-foreground">{subtitle}</p>
 	</div>
 );
 
-const TrustBadges = ({ badges }: { badges: { icon: React.ComponentType<{ className?: string }>; text: string }[] }) => (
+const TrustBadges = ({
+	badges,
+}: {
+	badges: { icon: React.ComponentType<{ className?: string }>; text: string }[];
+}) => (
 	<div className="flex flex-wrap gap-6 py-6 border-y">
 		{badges.map((badge, i) => (
 			<div key={i} className="flex items-center gap-2">
@@ -72,12 +96,24 @@ const ItemPrice = ({ price }: { price: number }) => (
 	<p className="font-medium text-lg">${price.toFixed(2)}</p>
 );
 
-const ItemTotal = ({ price, quantity }: { price: number; quantity: number }) => (
-	<p className="font-bold text-xl text-primary">${(price * quantity).toFixed(2)}</p>
+const ItemTotal = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => (
+	<p className="font-bold text-xl text-primary">
+		${(price * quantity).toFixed(2)}
+	</p>
 );
 
 const RemoveBtn = ({ label }: { label: string }) => (
-	<Button variant="ghost" size="sm" className="text-muted-foreground hover:text-destructive gap-1">
+	<Button
+		variant="ghost"
+		size="sm"
+		className="text-muted-foreground hover:text-destructive gap-1"
+	>
 		<Trash2 className="size-4" />
 		<span className="hidden @lg:inline">{label}</span>
 	</Button>
@@ -126,8 +162,12 @@ const SummaryLine = ({
 	value: string;
 	variant?: 'default' | 'total';
 }) => (
-	<div className={`flex justify-between ${variant === 'total' ? 'text-2xl font-bold' : 'text-lg'}`}>
-		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>{label}</span>
+	<div
+		className={`flex justify-between ${variant === 'total' ? 'text-2xl font-bold' : 'text-lg'}`}
+	>
+		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span className={variant === 'total' ? 'text-primary' : ''}>{value}</span>
 	</div>
 );
@@ -170,7 +210,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1491553895911-0055uj8e14ee?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1491553895911-0055uj8e14ee?w=200&h=200&fit=crop',
 			name: 'Premium Leather Bag',
 			variant: 'Cognac Brown',
 			price: 249.99,
@@ -178,7 +219,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Athletic Running Shoes',
 			variant: 'Red/Black • US 10',
 			price: 159.99,
@@ -186,7 +228,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 			name: 'Designer Watch',
 			variant: 'Rose Gold',
 			price: 399.99,
@@ -210,7 +253,11 @@ export default function Main() {
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax', value: `$${tax.toFixed(2)}` },
-		{ label: 'Total', value: `$${total.toFixed(2)}`, variant: 'total' as const },
+		{
+			label: 'Total',
+			value: `$${total.toFixed(2)}`,
+			variant: 'total' as const,
+		},
 	];
 
 	return (
@@ -232,7 +279,10 @@ export default function Main() {
 							<CartItemRow key={item.id} item={item} />
 						))}
 						<div className="mt-8">
-							<PromoSection placeholder="Enter promo code" buttonLabel="Apply" />
+							<PromoSection
+								placeholder="Enter promo code"
+								buttonLabel="Apply"
+							/>
 						</div>
 					</div>
 

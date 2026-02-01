@@ -61,7 +61,10 @@ const TransactionIcon = ({ type }: { type: TransactionActivity['type'] }) => {
 const AmountDisplay = ({
 	amount,
 	type,
-}: { amount: string; type: TransactionActivity['type'] }) => {
+}: {
+	amount: string;
+	type: TransactionActivity['type'];
+}) => {
 	const colorClass =
 		type === 'incoming'
 			? 'text-emerald-400'
@@ -82,7 +85,11 @@ const TransactionCard = ({ item }: { item: TransactionActivity }) => (
 	<div className="group relative flex min-w-[280px] flex-col gap-3 rounded-xl border border-border/50 bg-card/80 p-4 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 @sm:min-w-[320px]">
 		<div className="flex items-start justify-between">
 			<TransactionIcon type={item.type} />
-			<Button variant="ghost" size="icon-sm" className="opacity-0 transition-opacity group-hover:opacity-100">
+			<Button
+				variant="ghost"
+				size="icon-sm"
+				className="opacity-0 transition-opacity group-hover:opacity-100"
+			>
 				<MoreHorizontal className="size-4" />
 			</Button>
 		</div>

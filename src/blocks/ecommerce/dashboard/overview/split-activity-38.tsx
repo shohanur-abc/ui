@@ -95,7 +95,10 @@ const QuickStatRow = ({ label, value, change }: QuickStat) => (
 		<span className="text-sm text-muted-foreground">{label}</span>
 		<div className="flex items-center gap-2">
 			<span className="font-medium">{value}</span>
-			<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+			<Badge
+				variant="secondary"
+				className="bg-emerald-500/10 text-emerald-500 text-xs"
+			>
 				{change}
 			</Badge>
 		</div>
@@ -108,18 +111,68 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const summaries: SummaryItem[] = [
-		{ title: 'New Orders', value: '42', icon: ShoppingCart, color: 'bg-primary/10 text-primary' },
-		{ title: 'New Reviews', value: '18', icon: Star, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'New Customers', value: '24', icon: User, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'Low Stock', value: '7', icon: Package, color: 'bg-red-500/10 text-red-500' },
+		{
+			title: 'New Orders',
+			value: '42',
+			icon: ShoppingCart,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'New Reviews',
+			value: '18',
+			icon: Star,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'New Customers',
+			value: '24',
+			icon: User,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'Low Stock',
+			value: '7',
+			icon: Package,
+			color: 'bg-red-500/10 text-red-500',
+		},
 	];
 
 	const activities: ActivityItem[] = [
-		{ id: '1', type: 'order', title: 'New order received', description: 'Order #4521 - $234.50 from John Doe', time: '2 min ago' },
-		{ id: '2', type: 'review', title: '5-star review', description: 'Wireless Headphones Pro - "Amazing quality!"', time: '15 min ago' },
-		{ id: '3', type: 'customer', title: 'New customer signup', description: 'Sarah Wilson joined from referral', time: '45 min ago' },
-		{ id: '4', type: 'stock', title: 'Low stock alert', description: 'Smart Watch Ultra - Only 12 units left', time: '1 hour ago' },
-		{ id: '5', type: 'message', title: 'New support ticket', description: 'Question about shipping - #TKT-892', time: '2 hours ago' },
+		{
+			id: '1',
+			type: 'order',
+			title: 'New order received',
+			description: 'Order #4521 - $234.50 from John Doe',
+			time: '2 min ago',
+		},
+		{
+			id: '2',
+			type: 'review',
+			title: '5-star review',
+			description: 'Wireless Headphones Pro - "Amazing quality!"',
+			time: '15 min ago',
+		},
+		{
+			id: '3',
+			type: 'customer',
+			title: 'New customer signup',
+			description: 'Sarah Wilson joined from referral',
+			time: '45 min ago',
+		},
+		{
+			id: '4',
+			type: 'stock',
+			title: 'Low stock alert',
+			description: 'Smart Watch Ultra - Only 12 units left',
+			time: '1 hour ago',
+		},
+		{
+			id: '5',
+			type: 'message',
+			title: 'New support ticket',
+			description: 'Question about shipping - #TKT-892',
+			time: '2 hours ago',
+		},
 	];
 
 	const quickStats: QuickStat[] = [
@@ -165,9 +218,17 @@ export default function Main() {
 								<CardTitle className="text-sm">Activity Trend</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={chartConfig} className="h-[120px] w-full">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[120px] w-full"
+								>
 									<LineChart data={activityData}>
-										<XAxis dataKey="hour" tickLine={false} axisLine={false} fontSize={10} />
+										<XAxis
+											dataKey="hour"
+											tickLine={false}
+											axisLine={false}
+											fontSize={10}
+										/>
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 										<Line
 											type="monotone"

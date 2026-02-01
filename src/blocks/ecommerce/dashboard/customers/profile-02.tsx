@@ -72,7 +72,10 @@ const TierBadge = ({ tier }: { tier: CustomerProfile['tier'] }) => {
 		bronze: { label: 'Bronze', className: 'bg-orange-700/20 text-orange-400' },
 		silver: { label: 'Silver', className: 'bg-slate-400/20 text-slate-300' },
 		gold: { label: 'Gold', className: 'bg-amber-500/20 text-amber-400' },
-		platinum: { label: 'Platinum', className: 'bg-violet-500/20 text-violet-300' },
+		platinum: {
+			label: 'Platinum',
+			className: 'bg-violet-500/20 text-violet-300',
+		},
 	};
 	const { label, className } = config[tier];
 	return (
@@ -83,13 +86,27 @@ const TierBadge = ({ tier }: { tier: CustomerProfile['tier'] }) => {
 	);
 };
 
-const OrderStatusBadge = ({ status }: { status: 'processing' | 'shipped' | 'delivered' }) => {
+const OrderStatusBadge = ({
+	status,
+}: {
+	status: 'processing' | 'shipped' | 'delivered';
+}) => {
 	const config = {
-		processing: { label: 'Processing', className: 'bg-blue-500/10 text-blue-500' },
+		processing: {
+			label: 'Processing',
+			className: 'bg-blue-500/10 text-blue-500',
+		},
 		shipped: { label: 'Shipped', className: 'bg-amber-500/10 text-amber-500' },
-		delivered: { label: 'Delivered', className: 'bg-emerald-500/10 text-emerald-500' },
+		delivered: {
+			label: 'Delivered',
+			className: 'bg-emerald-500/10 text-emerald-500',
+		},
 	};
-	return <Badge variant="outline" className={config[status].className}>{config[status].label}</Badge>;
+	return (
+		<Badge variant="outline" className={config[status].className}>
+			{config[status].label}
+		</Badge>
+	);
 };
 
 const PaymentIcon = ({ type }: { type: string }) => {
@@ -137,12 +154,24 @@ const ProfileHeader = ({ customer }: { customer: CustomerProfile }) => (
 	</div>
 );
 
-const AddressCard = ({ address }: { address: CustomerProfile['addresses'][0] }) => (
-	<div className={`rounded-lg border p-4 ${address.isDefault ? 'border-primary bg-primary/5' : ''}`}>
+const AddressCard = ({
+	address,
+}: {
+	address: CustomerProfile['addresses'][0];
+}) => (
+	<div
+		className={`rounded-lg border p-4 ${address.isDefault ? 'border-primary bg-primary/5' : ''}`}
+	>
 		<div className="flex items-start justify-between mb-2">
 			<div className="flex items-center gap-2">
-				<Badge variant="secondary" className="capitalize">{address.type}</Badge>
-				{address.isDefault && <Badge variant="outline" className="text-primary">Default</Badge>}
+				<Badge variant="secondary" className="capitalize">
+					{address.type}
+				</Badge>
+				{address.isDefault && (
+					<Badge variant="outline" className="text-primary">
+						Default
+					</Badge>
+				)}
 			</div>
 			<Button variant="ghost" size="icon-sm">
 				<Edit2 className="size-3.5" />
@@ -153,19 +182,33 @@ const AddressCard = ({ address }: { address: CustomerProfile['addresses'][0] }) 
 	</div>
 );
 
-const PaymentMethodCard = ({ method }: { method: CustomerProfile['paymentMethods'][0] }) => (
-	<div className={`flex items-center justify-between rounded-lg border p-4 ${method.isDefault ? 'border-primary bg-primary/5' : ''}`}>
+const PaymentMethodCard = ({
+	method,
+}: {
+	method: CustomerProfile['paymentMethods'][0];
+}) => (
+	<div
+		className={`flex items-center justify-between rounded-lg border p-4 ${method.isDefault ? 'border-primary bg-primary/5' : ''}`}
+	>
 		<div className="flex items-center gap-3">
 			<PaymentIcon type={method.type} />
 			<div>
 				<p className="font-medium capitalize">
 					{method.type} {method.last4 && `•••• ${method.last4}`}
 				</p>
-				{method.expiry && <p className="text-sm text-muted-foreground">Expires {method.expiry}</p>}
+				{method.expiry && (
+					<p className="text-sm text-muted-foreground">
+						Expires {method.expiry}
+					</p>
+				)}
 			</div>
 		</div>
 		<div className="flex items-center gap-2">
-			{method.isDefault && <Badge variant="outline" className="text-primary">Default</Badge>}
+			{method.isDefault && (
+				<Badge variant="outline" className="text-primary">
+					Default
+				</Badge>
+			)}
 			<Button variant="ghost" size="icon-sm">
 				<Edit2 className="size-3.5" />
 			</Button>
@@ -184,12 +227,36 @@ export default function Main() {
 		tier: 'platinum',
 		memberSince: 'Jan 2020',
 		addresses: [
-			{ id: '1', type: 'home', label: 'Home Address', address: '123 Oak Street, San Francisco, CA 94102', isDefault: true },
-			{ id: '2', type: 'work', label: 'Office', address: '456 Tech Park, Suite 100, San Jose, CA 95134', isDefault: false },
+			{
+				id: '1',
+				type: 'home',
+				label: 'Home Address',
+				address: '123 Oak Street, San Francisco, CA 94102',
+				isDefault: true,
+			},
+			{
+				id: '2',
+				type: 'work',
+				label: 'Office',
+				address: '456 Tech Park, Suite 100, San Jose, CA 95134',
+				isDefault: false,
+			},
 		],
 		paymentMethods: [
-			{ id: '1', type: 'visa', last4: '4242', expiry: '12/25', isDefault: true },
-			{ id: '2', type: 'mastercard', last4: '8888', expiry: '06/24', isDefault: false },
+			{
+				id: '1',
+				type: 'visa',
+				last4: '4242',
+				expiry: '12/25',
+				isDefault: true,
+			},
+			{
+				id: '2',
+				type: 'mastercard',
+				last4: '8888',
+				expiry: '06/24',
+				isDefault: false,
+			},
 			{ id: '3', type: 'paypal', isDefault: false },
 		],
 		preferences: {
@@ -200,9 +267,27 @@ export default function Main() {
 			smsNotifications: false,
 		},
 		recentOrders: [
-			{ id: 'ORD-9821', date: 'Jan 15, 2024', status: 'delivered', total: '$234.50', items: 3 },
-			{ id: 'ORD-9756', date: 'Jan 8, 2024', status: 'delivered', total: '$89.99', items: 1 },
-			{ id: 'ORD-9612', date: 'Dec 28, 2023', status: 'delivered', total: '$567.00', items: 5 },
+			{
+				id: 'ORD-9821',
+				date: 'Jan 15, 2024',
+				status: 'delivered',
+				total: '$234.50',
+				items: 3,
+			},
+			{
+				id: 'ORD-9756',
+				date: 'Jan 8, 2024',
+				status: 'delivered',
+				total: '$89.99',
+				items: 1,
+			},
+			{
+				id: 'ORD-9612',
+				date: 'Dec 28, 2023',
+				status: 'delivered',
+				total: '$567.00',
+				items: 5,
+			},
 		],
 	};
 
@@ -210,7 +295,7 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-4xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
 				<ProfileHeader customer={customer} />
-				
+
 				<Tabs defaultValue="addresses" className="w-full">
 					<TabsList className="grid w-full grid-cols-4 @md:w-auto @md:inline-flex">
 						<TabsTrigger value="addresses" className="gap-1.5">
@@ -230,11 +315,13 @@ export default function Main() {
 							<span className="hidden @md:inline">Preferences</span>
 						</TabsTrigger>
 					</TabsList>
-					
+
 					<TabsContent value="addresses" className="mt-6">
 						<div className="flex items-center justify-between mb-4">
 							<h2 className="font-semibold">Saved Addresses</h2>
-							<Button variant="outline" size="sm">Add Address</Button>
+							<Button variant="outline" size="sm">
+								Add Address
+							</Button>
 						</div>
 						<div className="grid @md:grid-cols-2 gap-4">
 							{customer.addresses.map((address) => (
@@ -242,11 +329,13 @@ export default function Main() {
 							))}
 						</div>
 					</TabsContent>
-					
+
 					<TabsContent value="payments" className="mt-6">
 						<div className="flex items-center justify-between mb-4">
 							<h2 className="font-semibold">Payment Methods</h2>
-							<Button variant="outline" size="sm">Add Payment</Button>
+							<Button variant="outline" size="sm">
+								Add Payment
+							</Button>
 						</div>
 						<div className="space-y-3">
 							{customer.paymentMethods.map((method) => (
@@ -254,26 +343,35 @@ export default function Main() {
 							))}
 						</div>
 					</TabsContent>
-					
+
 					<TabsContent value="orders" className="mt-6">
 						<div className="flex items-center justify-between mb-4">
 							<h2 className="font-semibold">Recent Orders</h2>
-							<Button variant="outline" size="sm">View All</Button>
+							<Button variant="outline" size="sm">
+								View All
+							</Button>
 						</div>
 						<div className="space-y-3">
 							{customer.recentOrders.map((order) => (
-								<div key={order.id} className="flex items-center justify-between rounded-lg border p-4">
+								<div
+									key={order.id}
+									className="flex items-center justify-between rounded-lg border p-4"
+								>
 									<div className="flex items-center gap-4">
 										<div>
 											<p className="font-medium">{order.id}</p>
-											<p className="text-sm text-muted-foreground">{order.date}</p>
+											<p className="text-sm text-muted-foreground">
+												{order.date}
+											</p>
 										</div>
 									</div>
 									<div className="flex items-center gap-4">
 										<OrderStatusBadge status={order.status} />
 										<div className="text-right">
 											<p className="font-medium">{order.total}</p>
-											<p className="text-sm text-muted-foreground">{order.items} items</p>
+											<p className="text-sm text-muted-foreground">
+												{order.items} items
+											</p>
 										</div>
 										<ChevronRight className="size-4 text-muted-foreground" />
 									</div>
@@ -281,7 +379,7 @@ export default function Main() {
 							))}
 						</div>
 					</TabsContent>
-					
+
 					<TabsContent value="preferences" className="mt-6">
 						<h2 className="font-semibold mb-4">Account Preferences</h2>
 						<div className="space-y-4">

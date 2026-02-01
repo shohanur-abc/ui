@@ -23,7 +23,9 @@ const AvatarStack = ({ avatars, label }: AvatarStackProps) => (
 			{avatars.map((avatar, i) => (
 				<Avatar key={i} className="size-7 border-2 border-card">
 					<AvatarImage src={avatar.src} />
-					<AvatarFallback className="text-[10px]">{avatar.fallback}</AvatarFallback>
+					<AvatarFallback className="text-[10px]">
+						{avatar.fallback}
+					</AvatarFallback>
 				</Avatar>
 			))}
 		</div>

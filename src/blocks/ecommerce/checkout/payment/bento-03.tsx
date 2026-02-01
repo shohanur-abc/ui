@@ -1,6 +1,15 @@
 'use client';
 
-import { Award, Check, CreditCard, Gift, Lock, Star, Trophy, Zap } from 'lucide-react';
+import {
+	Award,
+	Check,
+	CreditCard,
+	Gift,
+	Lock,
+	Star,
+	Trophy,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -9,7 +18,13 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Slider } from '@/components/ui/slider';
 
-const RewardsBalanceCell = ({ points, tier }: { points: number; tier: { name: string; color: string } }) => (
+const RewardsBalanceCell = ({
+	points,
+	tier,
+}: {
+	points: number;
+	tier: { name: string; color: string };
+}) => (
 	<Card className="border-border/50 bg-gradient-to-br from-amber-500/10 to-orange-500/10 backdrop-blur-sm">
 		<CardContent className="p-4">
 			<div className="flex items-center gap-2 mb-2">
@@ -22,14 +37,27 @@ const RewardsBalanceCell = ({ points, tier }: { points: number; tier: { name: st
 	</Card>
 );
 
-const PointsSliderCell = ({ max, value, onValueChange }: { max: number; value: number; onValueChange: (value: number) => void }) => (
+const PointsSliderCell = ({
+	max,
+	value,
+	onValueChange,
+}: {
+	max: number;
+	value: number;
+	onValueChange: (value: number) => void;
+}) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardContent className="p-4 space-y-3">
 			<div className="flex items-center justify-between">
 				<span className="text-sm font-medium">Use Points</span>
 				<Badge variant="secondary">${(value / 100).toFixed(2)} value</Badge>
 			</div>
-			<Slider defaultValue={[value]} max={max} step={100} onValueChange={(v) => onValueChange(v[0])} />
+			<Slider
+				defaultValue={[value]}
+				max={max}
+				step={100}
+				onValueChange={(v) => onValueChange(v[0])}
+			/>
 			<div className="flex justify-between text-xs text-muted-foreground">
 				<span>0 pts</span>
 				<span>{max.toLocaleString()} pts</span>
@@ -49,7 +77,9 @@ const GiftCardCell = () => (
 		<CardContent>
 			<div className="flex gap-2">
 				<Input placeholder="Card code" className="h-9 text-sm" />
-				<Button variant="outline" size="sm">Add</Button>
+				<Button variant="outline" size="sm">
+					Add
+				</Button>
 			</div>
 		</CardContent>
 	</Card>
@@ -84,14 +114,22 @@ const EarnPointsCell = ({ earnablePoints }: { earnablePoints: number }) => (
 				<Star className="size-5 text-emerald-500" />
 			</div>
 			<div>
-				<span className="font-medium">Earn {earnablePoints.toLocaleString()} points</span>
+				<span className="font-medium">
+					Earn {earnablePoints.toLocaleString()} points
+				</span>
 				<p className="text-xs text-muted-foreground">With this purchase</p>
 			</div>
 		</CardContent>
 	</Card>
 );
 
-const CheckoutCell = ({ total, pointsDiscount }: { total: string; pointsDiscount: string }) => (
+const CheckoutCell = ({
+	total,
+	pointsDiscount,
+}: {
+	total: string;
+	pointsDiscount: string;
+}) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm col-span-2">
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between mb-4">
@@ -128,7 +166,11 @@ export default function Main() {
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<div className="grid grid-cols-2 gap-4">
 					<RewardsBalanceCell points={pointsBalance} tier={tier} />
-					<PointsSliderCell max={pointsBalance} value={5000} onValueChange={() => {}} />
+					<PointsSliderCell
+						max={pointsBalance}
+						value={5000}
+						onValueChange={() => {}}
+					/>
 					<GiftCardCell />
 					<CardFormCell />
 					<EarnPointsCell earnablePoints={299} />

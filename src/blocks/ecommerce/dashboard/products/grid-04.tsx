@@ -14,12 +14,7 @@ import {
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 interface ProductAnalytics {
@@ -46,7 +41,13 @@ interface MetricCardProps {
 	format?: 'number' | 'currency' | 'percent';
 }
 
-const MetricCard = ({ icon: Icon, label, value, trend, format = 'number' }: MetricCardProps) => {
+const MetricCard = ({
+	icon: Icon,
+	label,
+	value,
+	trend,
+	format = 'number',
+}: MetricCardProps) => {
 	const formatValue = () => {
 		if (format === 'currency' && typeof value === 'number') {
 			return `$${value.toLocaleString()}`;
@@ -73,8 +74,14 @@ const MetricCard = ({ icon: Icon, label, value, trend, format = 'number' }: Metr
 				<div className="flex items-center gap-2">
 					<span className="text-lg font-bold">{formatValue()}</span>
 					{trend !== undefined && (
-						<span className={`flex items-center text-xs ${getTrendColor(trend)}`}>
-							{trend > 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+						<span
+							className={`flex items-center text-xs ${getTrendColor(trend)}`}
+						>
+							{trend > 0 ? (
+								<TrendingUp className="size-3" />
+							) : (
+								<TrendingDown className="size-3" />
+							)}
 							{Math.abs(trend)}%
 						</span>
 					)}
@@ -145,7 +152,11 @@ interface ProductAnalyticsCardProps {
 	};
 }
 
-const ProductAnalyticsCard = ({ product, onViewDetails, labels }: ProductAnalyticsCardProps) => (
+const ProductAnalyticsCard = ({
+	product,
+	onViewDetails,
+	labels,
+}: ProductAnalyticsCardProps) => (
 	<Card className="overflow-hidden transition-shadow hover:shadow-lg">
 		<div className="relative aspect-video overflow-hidden bg-muted">
 			{product.image ? (
@@ -214,7 +225,8 @@ export default function Main() {
 			id: '1',
 			name: 'Pro Wireless Earbuds',
 			sku: 'AUD-PRO-001',
-			image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&h=400&fit=crop',
 			price: 179.99,
 			views: 12450,
 			viewsTrend: 18,
@@ -229,7 +241,8 @@ export default function Main() {
 			id: '2',
 			name: 'Smart Fitness Watch',
 			sku: 'FIT-WCH-002',
-			image: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=600&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=600&h=400&fit=crop',
 			price: 299.99,
 			views: 8920,
 			viewsTrend: -5,
@@ -244,7 +257,8 @@ export default function Main() {
 			id: '3',
 			name: 'Portable Power Bank',
 			sku: 'PWR-PRT-003',
-			image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&h=400&fit=crop',
 			price: 49.99,
 			views: 23450,
 			viewsTrend: 35,
@@ -259,7 +273,8 @@ export default function Main() {
 			id: '4',
 			name: 'USB-C Hub Pro',
 			sku: 'ACC-HUB-004',
-			image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=600&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=600&h=400&fit=crop',
 			price: 89.99,
 			views: 5670,
 			viewsTrend: -12,

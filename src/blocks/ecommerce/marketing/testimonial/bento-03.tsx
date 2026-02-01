@@ -115,7 +115,8 @@ export default function Main() {
 		author: 'Quincy Adams',
 		role: 'Chief Executive Officer',
 		company: 'Growth Dynamics',
-		avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 		initials: 'QA',
 		rating: 5,
 		award: 'Customer of the Year',
@@ -127,7 +128,8 @@ export default function Main() {
 			author: 'Rachel Kim',
 			role: 'Designer',
 			company: 'DesignCo',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'RK',
 			rating: 5,
 		},
@@ -136,7 +138,8 @@ export default function Main() {
 			author: 'Sam Wilson',
 			role: 'IT Manager',
 			company: 'TechCorp',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'SW',
 			rating: 5,
 		},
@@ -145,7 +148,8 @@ export default function Main() {
 			author: 'Tina Brown',
 			role: 'VP Ops',
 			company: 'ScalePro',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'TB',
 			rating: 5,
 		},
@@ -154,14 +158,18 @@ export default function Main() {
 			author: 'Uma Patel',
 			role: 'CFO',
 			company: 'FinFirst',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'UP',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Award Winners"

@@ -1,4 +1,12 @@
-import { Package, Truck, Clock, Check, ArrowRight, Circle, Zap } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	Clock,
+	Check,
+	ArrowRight,
+	Circle,
+	Zap,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -28,12 +36,16 @@ const CompactTimeline = ({
 					>
 						{i < currentStep ? <Check className="size-4" /> : i + 1}
 					</div>
-					<span className={`text-xs mt-1 ${i > currentStep ? 'text-muted-foreground' : 'font-medium'}`}>
+					<span
+						className={`text-xs mt-1 ${i > currentStep ? 'text-muted-foreground' : 'font-medium'}`}
+					>
 						{step}
 					</span>
 				</div>
 				{i < steps.length - 1 && (
-					<div className={`h-0.5 flex-1 mx-2 ${i < currentStep ? 'bg-primary' : 'bg-muted'}`} />
+					<div
+						className={`h-0.5 flex-1 mx-2 ${i < currentStep ? 'bg-primary' : 'bg-muted'}`}
+					/>
 				)}
 			</div>
 		))}
@@ -67,11 +79,17 @@ const ShippingTierCard = ({
 				${popular ? 'ring-2 ring-primary/30' : ''}
 			`}
 		>
-			{popular && <Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">Best Value</Badge>}
+			{popular && (
+				<Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+					Best Value
+				</Badge>
+			)}
 			<CardContent className="p-5">
 				<div className="flex items-start gap-4">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
-					<div className={`flex size-12 shrink-0 items-center justify-center rounded-xl ${color} text-white`}>
+					<div
+						className={`flex size-12 shrink-0 items-center justify-center rounded-xl ${color} text-white`}
+					>
 						<Icon className="size-6" />
 					</div>
 					<div className="flex-1">
@@ -115,9 +133,34 @@ export default function Main() {
 	const currentStep = 2;
 
 	const tiers = [
-		{ value: 'economy', icon: Package, name: 'Economy', time: '7-10 days', price: '$3.99', eta: 'Jan 24', color: 'bg-slate-500' },
-		{ value: 'standard', icon: Truck, name: 'Standard', time: '5-7 days', price: '$7.99', eta: 'Jan 20', color: 'bg-blue-500', popular: true },
-		{ value: 'express', icon: Zap, name: 'Express', time: '2-3 days', price: '$14.99', eta: 'Jan 16', color: 'bg-amber-500' },
+		{
+			value: 'economy',
+			icon: Package,
+			name: 'Economy',
+			time: '7-10 days',
+			price: '$3.99',
+			eta: 'Jan 24',
+			color: 'bg-slate-500',
+		},
+		{
+			value: 'standard',
+			icon: Truck,
+			name: 'Standard',
+			time: '5-7 days',
+			price: '$7.99',
+			eta: 'Jan 20',
+			color: 'bg-blue-500',
+			popular: true,
+		},
+		{
+			value: 'express',
+			icon: Zap,
+			name: 'Express',
+			time: '2-3 days',
+			price: '$14.99',
+			eta: 'Jan 16',
+			color: 'bg-amber-500',
+		},
 	];
 
 	return (
@@ -144,7 +187,9 @@ export default function Main() {
 				<OrderProgress progress={60} label="Checkout Progress" />
 
 				<div className="flex gap-3 pt-6">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">
 						Continue to Payment
 						<ArrowRight className="size-5 ml-2" />

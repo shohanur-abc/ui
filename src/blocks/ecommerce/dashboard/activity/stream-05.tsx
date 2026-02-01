@@ -43,8 +43,14 @@ const ChangeIcon = ({ type }: { type: InventoryChange['changeType'] }) => {
 		{ icon: LucideIcon; className: string }
 	> = {
 		sold: { icon: TrendingDown, className: 'bg-rose-500/20 text-rose-400' },
-		restocked: { icon: TrendingUp, className: 'bg-emerald-500/20 text-emerald-400' },
-		adjusted: { icon: ArrowUpDown, className: 'bg-amber-500/20 text-amber-400' },
+		restocked: {
+			icon: TrendingUp,
+			className: 'bg-emerald-500/20 text-emerald-400',
+		},
+		adjusted: {
+			icon: ArrowUpDown,
+			className: 'bg-amber-500/20 text-amber-400',
+		},
 		returned: { icon: Package, className: 'bg-blue-500/20 text-blue-400' },
 	};
 
@@ -150,7 +156,10 @@ const InventoryCard = ({ change }: { change: InventoryChange }) => {
 							</div>
 						</div>
 						<div className="flex flex-col items-end gap-1">
-							<QuantityChange type={change.changeType} quantity={change.quantity} />
+							<QuantityChange
+								type={change.changeType}
+								quantity={change.quantity}
+							/>
 							<Badge variant="outline" className="text-xs capitalize">
 								{change.changeType}
 							</Badge>
@@ -165,7 +174,9 @@ const InventoryCard = ({ change }: { change: InventoryChange }) => {
 							<TrendingUp className="size-3" />
 							<span>Velocity: {change.velocity}</span>
 						</div>
-						<span className="text-xs text-muted-foreground">{change.timestamp}</span>
+						<span className="text-xs text-muted-foreground">
+							{change.timestamp}
+						</span>
 					</div>
 				</div>
 			</div>
@@ -173,7 +184,11 @@ const InventoryCard = ({ change }: { change: InventoryChange }) => {
 	);
 };
 
-const InventoryStats = ({ stats }: { stats: InventoryStreamProps['stats'] }) => (
+const InventoryStats = ({
+	stats,
+}: {
+	stats: InventoryStreamProps['stats'];
+}) => (
 	<div className="grid grid-cols-3 gap-3">
 		<div className="flex flex-col p-3 rounded-lg bg-muted/30 border border-border/50">
 			<Package className="size-4 text-primary mb-1" />
@@ -189,17 +204,15 @@ const InventoryStats = ({ stats }: { stats: InventoryStreamProps['stats'] }) => 
 		</div>
 		<div className="flex flex-col p-3 rounded-lg bg-rose-500/10 border border-rose-500/20">
 			<Package className="size-4 text-rose-400 mb-1" />
-			<span className="text-xl font-bold text-rose-400">{stats.outOfStock}</span>
+			<span className="text-xl font-bold text-rose-400">
+				{stats.outOfStock}
+			</span>
 			<span className="text-xs text-muted-foreground">Out of Stock</span>
 		</div>
 	</div>
 );
 
-const InventoryStream = ({
-	title,
-	changes,
-	stats,
-}: InventoryStreamProps) => (
+const InventoryStream = ({ title, changes, stats }: InventoryStreamProps) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardHeader className="flex-row items-center justify-between border-b border-border/50">
 			<CardTitle className="text-lg font-semibold flex items-center gap-2">

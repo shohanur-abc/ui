@@ -48,7 +48,8 @@ export default function Main() {
 			quote: 'Incredibly intuitive. Our team adopted it immediately.',
 			author: 'Frank Kim',
 			role: 'Product Manager',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'FK',
 			rating: 5,
 		},
@@ -56,7 +57,8 @@ export default function Main() {
 			quote: 'Sleek design. Powerful features hidden under simplicity.',
 			author: 'Grace Chen',
 			role: 'UX Designer',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'GC',
 			rating: 5,
 		},
@@ -64,7 +66,8 @@ export default function Main() {
 			quote: 'Documentation is excellent. Easy to get started.',
 			author: 'Henry Park',
 			role: 'Developer',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'HP',
 			rating: 5,
 		},
@@ -72,7 +75,8 @@ export default function Main() {
 			quote: 'Customer support is responsive and helpful.',
 			author: 'Iris Lee',
 			role: 'Support Lead',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'IL',
 			rating: 5,
 		},
@@ -80,7 +84,8 @@ export default function Main() {
 			quote: 'Pricing is fair. Great value for what you get.',
 			author: 'Jack Foster',
 			role: 'Finance Director',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'JF',
 			rating: 5,
 		},
@@ -88,7 +93,8 @@ export default function Main() {
 			quote: 'Performance is outstanding. Fast load times.',
 			author: 'Kelly Davis',
 			role: 'Tech Lead',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'KD',
 			rating: 5,
 		},

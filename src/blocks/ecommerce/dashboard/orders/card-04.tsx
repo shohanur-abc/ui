@@ -1,7 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, TrendingDown, ShoppingCart, DollarSign, Package, Users, ArrowUpRight } from 'lucide-react';
+import {
+	TrendingUp,
+	TrendingDown,
+	ShoppingCart,
+	DollarSign,
+	Package,
+	Users,
+	ArrowUpRight,
+} from 'lucide-react';
 
 interface StatCard {
 	icon: React.ComponentType<{ className?: string }>;
@@ -22,12 +30,22 @@ interface StatsSummaryProps {
 	viewAllLabel: string;
 }
 
-const TrendBadge = ({ change, trend }: { change: string; trend: 'up' | 'down' }) => (
+const TrendBadge = ({
+	change,
+	trend,
+}: {
+	change: string;
+	trend: 'up' | 'down';
+}) => (
 	<Badge
 		variant="outline"
 		className={`gap-1 ${trend === 'up' ? 'text-accent border-accent/30 bg-accent/10' : 'text-destructive border-destructive/30 bg-destructive/10'}`}
 	>
-		{trend === 'up' ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+		{trend === 'up' ? (
+			<TrendingUp className="size-3" />
+		) : (
+			<TrendingDown className="size-3" />
+		)}
 		{change}
 	</Badge>
 );
@@ -43,8 +61,12 @@ const StatCardItem = ({ stat }: StatCardProps) => (
 			</div>
 			<div>
 				<p className="text-3xl font-bold mb-1">{stat.value}</p>
-				<p className="text-sm font-medium text-muted-foreground">{stat.label}</p>
-				<p className="text-xs text-muted-foreground/70 mt-1">{stat.description}</p>
+				<p className="text-sm font-medium text-muted-foreground">
+					{stat.label}
+				</p>
+				<p className="text-xs text-muted-foreground/70 mt-1">
+					{stat.description}
+				</p>
 			</div>
 		</CardContent>
 	</Card>
@@ -54,7 +76,11 @@ const StatsSummary = ({ stats, title, viewAllLabel }: StatsSummaryProps) => (
 	<div>
 		<div className="flex items-center justify-between mb-6">
 			<h2 className="text-xl font-semibold">{title}</h2>
-			<Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:text-foreground">
+			<Button
+				variant="ghost"
+				size="sm"
+				className="gap-1.5 text-muted-foreground hover:text-foreground"
+			>
 				{viewAllLabel}
 				<ArrowUpRight className="size-4" />
 			</Button>
@@ -106,7 +132,11 @@ export default function Main() {
 	return (
 		<section className="@container" data-theme="orders">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-10 @xl:py-12">
-				<StatsSummary stats={stats} title="Order Statistics" viewAllLabel="View Report" />
+				<StatsSummary
+					stats={stats}
+					title="Order Statistics"
+					viewAllLabel="View Report"
+				/>
 			</div>
 		</section>
 	);

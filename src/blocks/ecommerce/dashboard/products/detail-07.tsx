@@ -48,9 +48,18 @@ const MetricCard = ({
 				<span className="text-sm">{label}</span>
 			</div>
 			<p className="mt-2 text-2xl font-bold">{value}</p>
-			<div className={`mt-1 flex items-center gap-1 text-sm ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}>
-				{isPositive ? <TrendingUp className="size-3.5" /> : <TrendingDown className="size-3.5" />}
-				<span>{isPositive ? '+' : ''}{change}%</span>
+			<div
+				className={`mt-1 flex items-center gap-1 text-sm ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}
+			>
+				{isPositive ? (
+					<TrendingUp className="size-3.5" />
+				) : (
+					<TrendingDown className="size-3.5" />
+				)}
+				<span>
+					{isPositive ? '+' : ''}
+					{change}%
+				</span>
 				<span className="text-muted-foreground">{changeLabel}</span>
 			</div>
 		</div>
@@ -109,7 +118,12 @@ const ConversionFunnel = ({ stages }: ConversionFunnelProps) => (
 );
 
 interface TrafficSourceProps {
-	sources: { name: string; visits: number; conversions: number; revenue: number }[];
+	sources: {
+		name: string;
+		visits: number;
+		conversions: number;
+		revenue: number;
+	}[];
 }
 
 const TrafficSource = ({ sources }: TrafficSourceProps) => (
@@ -151,11 +165,15 @@ const TopCustomers = ({ customers }: TopCustomersProps) => (
 					</div>
 					<div className="min-w-0 flex-1">
 						<p className="truncate font-medium">{customer.name}</p>
-						<p className="truncate text-sm text-muted-foreground">{customer.email}</p>
+						<p className="truncate text-sm text-muted-foreground">
+							{customer.email}
+						</p>
 					</div>
 					<div className="text-right">
 						<p className="font-medium">${customer.spent.toLocaleString()}</p>
-						<p className="text-sm text-muted-foreground">{customer.orders} orders</p>
+						<p className="text-sm text-muted-foreground">
+							{customer.orders} orders
+						</p>
 					</div>
 				</div>
 			))}
@@ -167,10 +185,34 @@ export default function Main() {
 	const [dateRange, setDateRange] = React.useState('30d');
 
 	const metrics = [
-		{ icon: Eye, label: 'Page Views', value: '12,543', change: 15.2, changeLabel: 'vs last period' },
-		{ icon: ShoppingCart, label: 'Add to Cart', value: '1,234', change: 8.5, changeLabel: 'vs last period' },
-		{ icon: DollarSign, label: 'Revenue', value: '$45,678', change: 23.1, changeLabel: 'vs last period' },
-		{ icon: Users, label: 'Unique Visitors', value: '8,912', change: -2.3, changeLabel: 'vs last period' },
+		{
+			icon: Eye,
+			label: 'Page Views',
+			value: '12,543',
+			change: 15.2,
+			changeLabel: 'vs last period',
+		},
+		{
+			icon: ShoppingCart,
+			label: 'Add to Cart',
+			value: '1,234',
+			change: 8.5,
+			changeLabel: 'vs last period',
+		},
+		{
+			icon: DollarSign,
+			label: 'Revenue',
+			value: '$45,678',
+			change: 23.1,
+			changeLabel: 'vs last period',
+		},
+		{
+			icon: Users,
+			label: 'Unique Visitors',
+			value: '8,912',
+			change: -2.3,
+			changeLabel: 'vs last period',
+		},
 	];
 
 	const funnelStages = [

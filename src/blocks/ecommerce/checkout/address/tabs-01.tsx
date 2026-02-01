@@ -70,7 +70,11 @@ const AddressForm = ({
 			<Field label="Email" placeholder="john@example.com" type="email" />
 		)}
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -81,7 +85,10 @@ const AddressForm = ({
 		{type === 'shipping' && (
 			<div className="flex items-center gap-2 pt-2">
 				<Checkbox id="save-shipping" />
-				<Label htmlFor="save-shipping" className="text-sm font-normal cursor-pointer">
+				<Label
+					htmlFor="save-shipping"
+					className="text-sm font-normal cursor-pointer"
+				>
 					Save for future orders
 				</Label>
 			</div>

@@ -68,12 +68,7 @@ const DataTypeCheckbox = ({
 	</div>
 );
 
-const ExportHistoryRow = ({
-	date,
-	format,
-	size,
-	status,
-}: ExportHistory) => (
+const ExportHistoryRow = ({ date, format, size, status }: ExportHistory) => (
 	<div className="flex items-center justify-between py-3">
 		<div className="flex items-center gap-3">
 			<div
@@ -159,9 +154,27 @@ export default function Main() {
 	];
 
 	const exportHistory: ExportHistory[] = [
-		{ id: '1', date: 'Jan 20, 2026', format: 'JSON', size: '18.2 MB', status: 'completed' },
-		{ id: '2', date: 'Jan 21, 2026', format: 'CSV', size: '—', status: 'processing' },
-		{ id: '3', date: 'Dec 15, 2025', format: 'JSON', size: '12.1 MB', status: 'completed' },
+		{
+			id: '1',
+			date: 'Jan 20, 2026',
+			format: 'JSON',
+			size: '18.2 MB',
+			status: 'completed',
+		},
+		{
+			id: '2',
+			date: 'Jan 21, 2026',
+			format: 'CSV',
+			size: '—',
+			status: 'processing',
+		},
+		{
+			id: '3',
+			date: 'Dec 15, 2025',
+			format: 'JSON',
+			size: '12.1 MB',
+			status: 'completed',
+		},
 	];
 
 	return (
@@ -202,11 +215,29 @@ export default function Main() {
 								<CardDescription>Choose your preferred format</CardDescription>
 							</CardHeader>
 							<CardContent className="pt-6">
-								<RadioGroup defaultValue="json" className="grid gap-3 @sm:grid-cols-3">
+								<RadioGroup
+									defaultValue="json"
+									className="grid gap-3 @sm:grid-cols-3"
+								>
 									{[
-										{ value: 'json', label: 'JSON', description: 'Machine-readable', icon: FileJson },
-										{ value: 'csv', label: 'CSV', description: 'Spreadsheet compatible', icon: FileText },
-										{ value: 'pdf', label: 'PDF', description: 'Human-readable', icon: FileText },
+										{
+											value: 'json',
+											label: 'JSON',
+											description: 'Machine-readable',
+											icon: FileJson,
+										},
+										{
+											value: 'csv',
+											label: 'CSV',
+											description: 'Spreadsheet compatible',
+											icon: FileText,
+										},
+										{
+											value: 'pdf',
+											label: 'PDF',
+											description: 'Human-readable',
+											icon: FileText,
+										},
 									].map((format) => (
 										<Label
 											key={format.value}
@@ -271,7 +302,8 @@ export default function Main() {
 									<div>
 										<h4 className="font-medium">Email Notification</h4>
 										<p className="mt-1 text-sm text-muted-foreground">
-											You'll receive an email when your export is ready to download.
+											You'll receive an email when your export is ready to
+											download.
 										</p>
 									</div>
 								</div>

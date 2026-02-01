@@ -1,6 +1,16 @@
 'use client';
 
-import { Calendar, Check, Clock, CreditCard, Lock, RefreshCcw, Shield, Star, Zap } from 'lucide-react';
+import {
+	Calendar,
+	Check,
+	Clock,
+	CreditCard,
+	Lock,
+	RefreshCcw,
+	Shield,
+	Star,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -18,7 +28,13 @@ interface InstallmentPlan {
 	recommended?: boolean;
 }
 
-const InstallmentPlansCell = ({ plans, selected }: { plans: InstallmentPlan[]; selected: string }) => (
+const InstallmentPlansCell = ({
+	plans,
+	selected,
+}: {
+	plans: InstallmentPlan[];
+	selected: string;
+}) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm row-span-2">
 		<CardHeader className="pb-2">
 			<div className="flex items-center gap-2">
@@ -35,11 +51,15 @@ const InstallmentPlansCell = ({ plans, selected }: { plans: InstallmentPlan[]; s
 						className={`relative flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5 ${plan.recommended ? 'ring-1 ring-primary/30' : ''}`}
 					>
 						{plan.recommended && (
-							<Badge className="absolute -top-2 right-2 text-[10px]">Best</Badge>
+							<Badge className="absolute -top-2 right-2 text-[10px]">
+								Best
+							</Badge>
 						)}
 						<RadioGroupItem value={plan.id} id={plan.id} />
 						<div className="flex-1">
-							<span className="font-medium">{plan.months}x {plan.monthly}</span>
+							<span className="font-medium">
+								{plan.months}x {plan.monthly}
+							</span>
 							<p className="text-xs text-muted-foreground">{plan.fee}</p>
 						</div>
 					</Label>
@@ -64,7 +84,11 @@ const AprBadgeCell = () => (
 	</Card>
 );
 
-const SchedulePreviewCell = ({ payments }: { payments: { date: string; amount: string; status: 'first' | 'upcoming' }[] }) => (
+const SchedulePreviewCell = ({
+	payments,
+}: {
+	payments: { date: string; amount: string; status: 'first' | 'upcoming' }[];
+}) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardHeader className="pb-2">
 			<div className="flex items-center gap-2">
@@ -76,9 +100,13 @@ const SchedulePreviewCell = ({ payments }: { payments: { date: string; amount: s
 			{payments.map((payment, index) => (
 				<div key={index} className="flex items-center justify-between text-sm">
 					<div className="flex items-center gap-2">
-						<div className={`size-5 rounded-full flex items-center justify-center text-[10px] ${
-							payment.status === 'first' ? 'bg-primary text-primary-foreground' : 'bg-muted'
-						}`}>
+						<div
+							className={`size-5 rounded-full flex items-center justify-center text-[10px] ${
+								payment.status === 'first'
+									? 'bg-primary text-primary-foreground'
+									: 'bg-muted'
+							}`}
+						>
 							{index + 1}
 						</div>
 						<span className="text-muted-foreground">{payment.date}</span>
@@ -111,7 +139,13 @@ const CardFormCell = () => (
 	</Card>
 );
 
-const CheckoutCell = ({ firstPayment, total }: { firstPayment: string; total: string }) => (
+const CheckoutCell = ({
+	firstPayment,
+	total,
+}: {
+	firstPayment: string;
+	total: string;
+}) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm col-span-2">
 		<CardContent className="p-4 flex items-center justify-between gap-4">
 			<div className="flex items-center gap-6">

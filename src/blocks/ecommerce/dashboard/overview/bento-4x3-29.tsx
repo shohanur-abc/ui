@@ -98,7 +98,10 @@ const TopCategoryRow = ({ name, revenue, growth, color }: TopCategory) => (
 		<div className={`size-3 rounded-full ${color}`} />
 		<span className="flex-1 text-sm font-medium">{name}</span>
 		<span className="text-sm">{revenue}</span>
-		<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+		<Badge
+			variant="secondary"
+			className="bg-emerald-500/10 text-emerald-500 text-xs"
+		>
 			{growth}
 		</Badge>
 	</div>
@@ -110,7 +113,9 @@ const PendingTaskCard = ({ label, count, icon: Icon, urgent }: PendingTask) => (
 			urgent ? 'border-amber-500/30 bg-amber-500/5' : 'bg-card'
 		}`}
 	>
-		<Icon className={`size-5 ${urgent ? 'text-amber-500' : 'text-muted-foreground'}`} />
+		<Icon
+			className={`size-5 ${urgent ? 'text-amber-500' : 'text-muted-foreground'}`}
+		/>
 		<span className="flex-1 text-sm">{label}</span>
 		<Badge variant={urgent ? 'destructive' : 'secondary'}>{count}</Badge>
 	</div>
@@ -141,9 +146,24 @@ export default function Main() {
 	];
 
 	const topCategories: TopCategory[] = [
-		{ name: 'Electronics', revenue: '$89.4k', growth: '+24%', color: 'bg-chart-1' },
-		{ name: 'Clothing', revenue: '$67.2k', growth: '+18%', color: 'bg-chart-2' },
-		{ name: 'Home & Garden', revenue: '$45.8k', growth: '+12%', color: 'bg-chart-3' },
+		{
+			name: 'Electronics',
+			revenue: '$89.4k',
+			growth: '+24%',
+			color: 'bg-chart-1',
+		},
+		{
+			name: 'Clothing',
+			revenue: '$67.2k',
+			growth: '+18%',
+			color: 'bg-chart-2',
+		},
+		{
+			name: 'Home & Garden',
+			revenue: '$45.8k',
+			growth: '+12%',
+			color: 'bg-chart-3',
+		},
 		{ name: 'Sports', revenue: '$32.1k', growth: '+8%', color: 'bg-chart-4' },
 	];
 
@@ -189,13 +209,31 @@ export default function Main() {
 							<ChartContainer config={chartConfig} className="h-[200px] w-full">
 								<AreaChart data={chartData}>
 									<defs>
-										<linearGradient id="bento29fill" x1="0" y1="0" x2="0" y2="1">
-											<stop offset="5%" stopColor="var(--color-value)" stopOpacity={0.3} />
-											<stop offset="95%" stopColor="var(--color-value)" stopOpacity={0} />
+										<linearGradient
+											id="bento29fill"
+											x1="0"
+											y1="0"
+											x2="0"
+											y2="1"
+										>
+											<stop
+												offset="5%"
+												stopColor="var(--color-value)"
+												stopOpacity={0.3}
+											/>
+											<stop
+												offset="95%"
+												stopColor="var(--color-value)"
+												stopOpacity={0}
+											/>
 										</linearGradient>
 									</defs>
 									<XAxis dataKey="day" tickLine={false} axisLine={false} />
-									<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v / 1000}k`} />
+									<YAxis
+										tickLine={false}
+										axisLine={false}
+										tickFormatter={(v) => `$${v / 1000}k`}
+									/>
 									<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 									<Area
 										type="monotone"

@@ -122,9 +122,7 @@ const SavingsBanner = ({
 			<Sparkles className="size-4 text-primary" />
 			<span className="text-sm font-medium text-primary">{label}</span>
 		</div>
-		<span className="text-lg font-bold text-primary">
-			${amount.toFixed(2)}
-		</span>
+		<span className="text-lg font-bold text-primary">${amount.toFixed(2)}</span>
 	</div>
 );
 
@@ -158,12 +156,13 @@ const OrderTotal = ({
 export default function Main() {
 	const cartData: CartDrawerProps = {
 		title: 'Your Cart',
-		savingsLabel: 'You\'re saving',
+		savingsLabel: "You're saving",
 		checkoutLabel: 'Checkout & Save',
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Air Max 90 Limited',
 				price: 119.99,
 				originalPrice: 179.99,
@@ -172,7 +171,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'React Element',
 				price: 99.99,
 				originalPrice: 149.99,
@@ -181,7 +181,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
 				name: 'Classic Leather',
 				price: 89.99,
 				quantity: 2,
@@ -198,7 +199,10 @@ export default function Main() {
 		0,
 	);
 	const savings = originalTotal - subtotal;
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 	const hasSavings = savings > 0;
 
 	return (

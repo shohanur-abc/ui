@@ -100,9 +100,15 @@ const ChannelPerformanceRow = ({
 		<TableRow>
 			<TableCell>
 				<div className="flex items-center gap-2">
-					{channel === 'email' && <Mail className="size-4 text-muted-foreground" />}
-					{channel === 'push' && <Bell className="size-4 text-muted-foreground" />}
-					{channel === 'sms' && <Smartphone className="size-4 text-muted-foreground" />}
+					{channel === 'email' && (
+						<Mail className="size-4 text-muted-foreground" />
+					)}
+					{channel === 'push' && (
+						<Bell className="size-4 text-muted-foreground" />
+					)}
+					{channel === 'sms' && (
+						<Smartphone className="size-4 text-muted-foreground" />
+					)}
 					<span className="font-medium">{name}</span>
 				</div>
 			</TableCell>
@@ -129,7 +135,13 @@ const ChannelPerformanceRow = ({
 	);
 };
 
-const RecentRow = ({ title, channel, sentAt, openRate, status }: RecentNotification) => (
+const RecentRow = ({
+	title,
+	channel,
+	sentAt,
+	openRate,
+	status,
+}: RecentNotification) => (
 	<div className="flex items-center justify-between py-3">
 		<div className="flex items-center gap-3">
 			<div
@@ -164,23 +176,95 @@ const RecentRow = ({ title, channel, sentAt, openRate, status }: RecentNotificat
 
 export default function Main() {
 	const stats: MetricCard[] = [
-		{ title: 'Total Sent', value: '24,847', change: 12, changeLabel: 'vs last month' },
-		{ title: 'Delivery Rate', value: '98.5%', change: 0.3, changeLabel: 'vs last month' },
-		{ title: 'Open Rate', value: '42.3%', change: -2.1, changeLabel: 'vs last month' },
-		{ title: 'Click Rate', value: '8.7%', change: 1.5, changeLabel: 'vs last month' },
+		{
+			title: 'Total Sent',
+			value: '24,847',
+			change: 12,
+			changeLabel: 'vs last month',
+		},
+		{
+			title: 'Delivery Rate',
+			value: '98.5%',
+			change: 0.3,
+			changeLabel: 'vs last month',
+		},
+		{
+			title: 'Open Rate',
+			value: '42.3%',
+			change: -2.1,
+			changeLabel: 'vs last month',
+		},
+		{
+			title: 'Click Rate',
+			value: '8.7%',
+			change: 1.5,
+			changeLabel: 'vs last month',
+		},
 	];
 
 	const channelMetrics: NotificationMetric[] = [
-		{ id: '1', name: 'Email', sent: 15420, delivered: 15100, opened: 6342, clicked: 891, channel: 'email' },
-		{ id: '2', name: 'Push', sent: 8240, delivered: 8200, opened: 4920, clicked: 738, channel: 'push' },
-		{ id: '3', name: 'SMS', sent: 1187, delivered: 1180, opened: 1062, clicked: 212, channel: 'sms' },
+		{
+			id: '1',
+			name: 'Email',
+			sent: 15420,
+			delivered: 15100,
+			opened: 6342,
+			clicked: 891,
+			channel: 'email',
+		},
+		{
+			id: '2',
+			name: 'Push',
+			sent: 8240,
+			delivered: 8200,
+			opened: 4920,
+			clicked: 738,
+			channel: 'push',
+		},
+		{
+			id: '3',
+			name: 'SMS',
+			sent: 1187,
+			delivered: 1180,
+			opened: 1062,
+			clicked: 212,
+			channel: 'sms',
+		},
 	];
 
 	const recentNotifications: RecentNotification[] = [
-		{ id: '1', title: 'Flash Sale Alert', channel: 'Email', sentAt: '2 hours ago', openRate: 54, status: 'delivered' },
-		{ id: '2', title: 'Order Shipped', channel: 'Push', sentAt: '4 hours ago', openRate: 78, status: 'delivered' },
-		{ id: '3', title: 'Weekly Digest', channel: 'Email', sentAt: '1 day ago', openRate: 32, status: 'delivered' },
-		{ id: '4', title: 'Price Drop Alert', channel: 'Email', sentAt: '2 days ago', openRate: 45, status: 'delivered' },
+		{
+			id: '1',
+			title: 'Flash Sale Alert',
+			channel: 'Email',
+			sentAt: '2 hours ago',
+			openRate: 54,
+			status: 'delivered',
+		},
+		{
+			id: '2',
+			title: 'Order Shipped',
+			channel: 'Push',
+			sentAt: '4 hours ago',
+			openRate: 78,
+			status: 'delivered',
+		},
+		{
+			id: '3',
+			title: 'Weekly Digest',
+			channel: 'Email',
+			sentAt: '1 day ago',
+			openRate: 32,
+			status: 'delivered',
+		},
+		{
+			id: '4',
+			title: 'Price Drop Alert',
+			channel: 'Email',
+			sentAt: '2 days ago',
+			openRate: 45,
+			status: 'delivered',
+		},
 	];
 
 	return (
@@ -231,8 +315,12 @@ export default function Main() {
 						<CardHeader className="border-b">
 							<div className="flex items-center justify-between">
 								<div>
-									<CardTitle className="text-base">Recent Notifications</CardTitle>
-									<CardDescription>Performance of recently sent notifications</CardDescription>
+									<CardTitle className="text-base">
+										Recent Notifications
+									</CardTitle>
+									<CardDescription>
+										Performance of recently sent notifications
+									</CardDescription>
 								</div>
 								<Button variant="outline" size="sm">
 									View All

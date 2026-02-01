@@ -218,9 +218,7 @@ export default function Main() {
 						<Checkbox
 							id="billing-same"
 							checked={sameAsBilling}
-							onCheckedChange={(checked) =>
-								setSameAsBilling(checked === true)
-							}
+							onCheckedChange={(checked) => setSameAsBilling(checked === true)}
 						/>
 						<Label
 							htmlFor="billing-same"

@@ -63,7 +63,12 @@ interface CustomerSession {
 const DeviceBreakdown = ({
 	stats,
 }: {
-	stats: { device: string; icon: React.ElementType; count: number; percentage: number }[];
+	stats: {
+		device: string;
+		icon: React.ElementType;
+		count: number;
+		percentage: number;
+	}[];
 }) => (
 	<div className="grid gap-4 @sm:grid-cols-3">
 		{stats.map((stat, i) => (
@@ -75,8 +80,12 @@ const DeviceBreakdown = ({
 					<div>
 						<p className="text-muted-foreground text-sm">{stat.device}</p>
 						<div className="flex items-baseline gap-2">
-							<p className="text-2xl font-bold">{stat.count.toLocaleString()}</p>
-							<span className="text-muted-foreground text-sm">{stat.percentage}%</span>
+							<p className="text-2xl font-bold">
+								{stat.count.toLocaleString()}
+							</p>
+							<span className="text-muted-foreground text-sm">
+								{stat.percentage}%
+							</span>
 						</div>
 					</div>
 				</CardContent>
@@ -85,11 +94,7 @@ const DeviceBreakdown = ({
 	</div>
 );
 
-const FilterBar = ({
-	searchPlaceholder,
-}: {
-	searchPlaceholder: string;
-}) => (
+const FilterBar = ({ searchPlaceholder }: { searchPlaceholder: string }) => (
 	<div className="flex flex-col gap-3 border-b px-6 py-4 @lg:flex-row @lg:items-center @lg:justify-between">
 		<div className="relative">
 			<Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
@@ -166,14 +171,19 @@ const SessionRow = ({ session }: { session: CustomerSession }) => (
 		<TableCell>
 			<div className="flex items-center gap-3">
 				<Avatar className="size-9">
-					<AvatarImage src={session.customer.avatar} alt={session.customer.name} />
+					<AvatarImage
+						src={session.customer.avatar}
+						alt={session.customer.name}
+					/>
 					<AvatarFallback className="bg-primary/10 text-primary text-xs">
 						{session.customer.initials}
 					</AvatarFallback>
 				</Avatar>
 				<div>
 					<p className="font-medium">{session.customer.name}</p>
-					<p className="text-muted-foreground text-xs">{session.customer.email}</p>
+					<p className="text-muted-foreground text-xs">
+						{session.customer.email}
+					</p>
 				</div>
 			</div>
 		</TableCell>
@@ -190,7 +200,9 @@ const SessionRow = ({ session }: { session: CustomerSession }) => (
 			<LocationDisplay location={session.location} />
 		</TableCell>
 		<TableCell className="hidden @xl:table-cell">
-			<code className="bg-muted rounded px-1.5 py-0.5 text-xs">{session.ipAddress}</code>
+			<code className="bg-muted rounded px-1.5 py-0.5 text-xs">
+				{session.ipAddress}
+			</code>
 		</TableCell>
 		<TableCell className="hidden @xl:table-cell text-center font-medium">
 			{session.sessions}
@@ -231,7 +243,11 @@ export default function Main() {
 	const sessions: CustomerSession[] = [
 		{
 			id: '1',
-			customer: { name: 'Anna Schmidt', email: 'anna.s@email.com', initials: 'AS' },
+			customer: {
+				name: 'Anna Schmidt',
+				email: 'anna.s@email.com',
+				initials: 'AS',
+			},
 			device: 'desktop',
 			browser: 'Chrome 121',
 			location: { city: 'Berlin', country: 'Germany', flag: '🇩🇪' },
@@ -243,7 +259,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'Carlos Rodriguez', email: 'carlos.r@email.com', initials: 'CR' },
+			customer: {
+				name: 'Carlos Rodriguez',
+				email: 'carlos.r@email.com',
+				initials: 'CR',
+			},
 			device: 'mobile',
 			browser: 'Safari iOS',
 			location: { city: 'Madrid', country: 'Spain', flag: '🇪🇸' },
@@ -255,7 +275,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Diana Foster', email: 'diana.f@email.com', initials: 'DF' },
+			customer: {
+				name: 'Diana Foster',
+				email: 'diana.f@email.com',
+				initials: 'DF',
+			},
 			device: 'tablet',
 			browser: 'Safari iPad',
 			location: { city: 'London', country: 'United Kingdom', flag: '🇬🇧' },
@@ -267,7 +291,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'Erik Larsson', email: 'erik.l@email.com', initials: 'EL' },
+			customer: {
+				name: 'Erik Larsson',
+				email: 'erik.l@email.com',
+				initials: 'EL',
+			},
 			device: 'desktop',
 			browser: 'Firefox 122',
 			location: { city: 'Stockholm', country: 'Sweden', flag: '🇸🇪' },
@@ -279,7 +307,11 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Fiona Chen', email: 'fiona.c@email.com', initials: 'FC' },
+			customer: {
+				name: 'Fiona Chen',
+				email: 'fiona.c@email.com',
+				initials: 'FC',
+			},
 			device: 'mobile',
 			browser: 'Chrome Android',
 			location: { city: 'Singapore', country: 'Singapore', flag: '🇸🇬' },
@@ -295,7 +327,9 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
 				<div>
-					<h1 className="text-2xl font-bold tracking-tight">Session Analytics</h1>
+					<h1 className="text-2xl font-bold tracking-tight">
+						Session Analytics
+					</h1>
 					<p className="text-muted-foreground text-sm">
 						Track customer sessions, devices, and geographic data
 					</p>
@@ -313,10 +347,18 @@ export default function Main() {
 								</TableHead>
 								<TableHead>Customer</TableHead>
 								<TableHead className="hidden @md:table-cell">Device</TableHead>
-								<TableHead className="hidden @lg:table-cell">Location</TableHead>
-								<TableHead className="hidden @xl:table-cell">IP Address</TableHead>
-								<TableHead className="hidden @xl:table-cell text-center">Sessions</TableHead>
-								<TableHead className="hidden @lg:table-cell">Last Active</TableHead>
+								<TableHead className="hidden @lg:table-cell">
+									Location
+								</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									IP Address
+								</TableHead>
+								<TableHead className="hidden @xl:table-cell text-center">
+									Sessions
+								</TableHead>
+								<TableHead className="hidden @lg:table-cell">
+									Last Active
+								</TableHead>
 								<TableHead className="hidden @2xl:table-cell">Source</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>

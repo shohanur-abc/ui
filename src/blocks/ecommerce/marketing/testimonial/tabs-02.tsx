@@ -4,7 +4,14 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { CircleDollarSign, Cog, HeadphonesIcon, LayoutGrid, Quote, Star } from 'lucide-react';
+import {
+	CircleDollarSign,
+	Cog,
+	HeadphonesIcon,
+	LayoutGrid,
+	Quote,
+	Star,
+} from 'lucide-react';
 
 interface TestimonialItem {
 	quote: string;
@@ -67,7 +74,9 @@ const TestimonialGrid = ({ item }: { item: TestimonialItem }) => (
 		<CardContent className="p-6">
 			<Quote className="size-7 text-primary/20 mb-3" />
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed mb-5 line-clamp-4">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed mb-5 line-clamp-4">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -101,20 +110,24 @@ export default function Main() {
 			description: 'How marketing teams drive results with our platform',
 			testimonials: [
 				{
-					quote: 'Our campaigns now reach 3x more customers with half the effort.',
+					quote:
+						'Our campaigns now reach 3x more customers with half the effort.',
 					author: 'Jack Smith',
 					role: 'Marketing Director',
 					company: 'GrowthCo',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'JS',
 					rating: 5,
 				},
 				{
-					quote: 'The analytics tools have transformed our data-driven marketing.',
+					quote:
+						'The analytics tools have transformed our data-driven marketing.',
 					author: 'Kate Miller',
 					role: 'CMO',
 					company: 'BrandUp',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'KM',
 					rating: 5,
 				},
@@ -131,7 +144,8 @@ export default function Main() {
 					author: 'Leo Johnson',
 					role: 'Ops Manager',
 					company: 'Efficient Inc',
-					avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 					initials: 'LJ',
 					rating: 5,
 				},
@@ -140,7 +154,8 @@ export default function Main() {
 					author: 'Maya Patel',
 					role: 'VP Operations',
 					company: 'StreamLine',
-					avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 					initials: 'MP',
 					rating: 5,
 				},
@@ -157,7 +172,8 @@ export default function Main() {
 					author: 'Nathan Lee',
 					role: 'Support Lead',
 					company: 'HelpDesk Pro',
-					avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 					initials: 'NL',
 					rating: 5,
 				},
@@ -166,7 +182,8 @@ export default function Main() {
 					author: 'Olivia Brown',
 					role: 'CX Director',
 					company: 'SupportFirst',
-					avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 					initials: 'OB',
 					rating: 5,
 				},
@@ -175,9 +192,16 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
-				<SectionHeader badge="Use Cases" title="Success Across" highlight="Every Team" />
+				<SectionHeader
+					badge="Use Cases"
+					title="Success Across"
+					highlight="Every Team"
+				/>
 
 				<Tabs defaultValue="marketing" className="w-full">
 					<TabsList className="flex justify-center gap-1 @md:gap-2 mb-8 bg-muted/50 h-auto p-1 rounded-xl max-w-fit mx-auto">

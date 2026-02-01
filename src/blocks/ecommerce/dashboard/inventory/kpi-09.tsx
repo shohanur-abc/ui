@@ -23,12 +23,39 @@ type StatusKPIProps = {
 	statusText: string;
 };
 
-const StatusKPI = ({ title, value, subtitle, icon, status, statusText }: StatusKPIProps) => {
+const StatusKPI = ({
+	title,
+	value,
+	subtitle,
+	icon,
+	status,
+	statusText,
+}: StatusKPIProps) => {
 	const statusConfig = {
-		healthy: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', text: 'text-emerald-500', icon: CheckCircle2 },
-		warning: { bg: 'bg-amber-500/10', border: 'border-amber-500/30', text: 'text-amber-500', icon: Clock },
-		critical: { bg: 'bg-destructive/10', border: 'border-destructive/30', text: 'text-destructive', icon: AlertCircle },
-		info: { bg: 'bg-primary/10', border: 'border-primary/30', text: 'text-primary', icon: CheckCircle2 },
+		healthy: {
+			bg: 'bg-emerald-500/10',
+			border: 'border-emerald-500/30',
+			text: 'text-emerald-500',
+			icon: CheckCircle2,
+		},
+		warning: {
+			bg: 'bg-amber-500/10',
+			border: 'border-amber-500/30',
+			text: 'text-amber-500',
+			icon: Clock,
+		},
+		critical: {
+			bg: 'bg-destructive/10',
+			border: 'border-destructive/30',
+			text: 'text-destructive',
+			icon: AlertCircle,
+		},
+		info: {
+			bg: 'bg-primary/10',
+			border: 'border-primary/30',
+			text: 'text-primary',
+			icon: CheckCircle2,
+		},
 	};
 
 	const config = statusConfig[status];
@@ -38,10 +65,15 @@ const StatusKPI = ({ title, value, subtitle, icon, status, statusText }: StatusK
 		<Card className={`${config.bg} ${config.border}`}>
 			<CardContent className="p-6">
 				<div className="flex items-start justify-between">
-					<div className={`flex size-10 items-center justify-center rounded-lg bg-background ${config.text}`}>
+					<div
+						className={`flex size-10 items-center justify-center rounded-lg bg-background ${config.text}`}
+					>
 						{icon}
 					</div>
-					<Badge variant="outline" className={`gap-1 ${config.text} border-current`}>
+					<Badge
+						variant="outline"
+						className={`gap-1 ${config.text} border-current`}
+					>
 						<StatusIcon className="size-3" />
 						{statusText}
 					</Badge>
@@ -96,8 +128,12 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<div className="mb-6">
-					<h2 className="text-xl font-semibold @lg:text-2xl">Status Overview</h2>
-					<p className="text-sm text-muted-foreground">Real-time inventory status indicators</p>
+					<h2 className="text-xl font-semibold @lg:text-2xl">
+						Status Overview
+					</h2>
+					<p className="text-sm text-muted-foreground">
+						Real-time inventory status indicators
+					</p>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 					{kpis.map((kpi) => (

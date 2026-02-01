@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Separator } from '@/components/ui/separator';
 import { Minus, Plus, Trash2, Package, CreditCard } from 'lucide-react';
@@ -30,12 +36,19 @@ const BulkActions = ({
 	<div className="flex items-center justify-between rounded-lg bg-muted/50 p-4">
 		<div className="flex items-center gap-3">
 			<Checkbox id="select-all" />
-			<label htmlFor="select-all" className="text-sm font-medium cursor-pointer">
+			<label
+				htmlFor="select-all"
+				className="text-sm font-medium cursor-pointer"
+			>
 				{selectAllLabel}
 			</label>
 		</div>
 		{selectedCount > 0 && (
-			<Button variant="ghost" size="sm" className="gap-2 text-destructive hover:text-destructive">
+			<Button
+				variant="ghost"
+				size="sm"
+				className="gap-2 text-destructive hover:text-destructive"
+			>
 				<Trash2 className="size-4" />
 				{deleteLabel} ({selectedCount})
 			</Button>
@@ -68,7 +81,9 @@ const ItemInfo = ({
 		<h3 className="font-medium leading-tight">{name}</h3>
 		<p className="mt-1 text-xs text-muted-foreground">SKU: {sku}</p>
 		<div className="mt-2 flex items-center gap-2">
-			<span className="text-lg font-bold text-primary">${price.toFixed(2)}</span>
+			<span className="text-lg font-bold text-primary">
+				${price.toFixed(2)}
+			</span>
 			{originalPrice && (
 				<span className="text-sm text-muted-foreground line-through">
 					${originalPrice.toFixed(2)}
@@ -95,7 +110,13 @@ const QuantityAdjuster = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const ItemSubtotal = ({ price, quantity }: { price: number; quantity: number }) => (
+const ItemSubtotal = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => (
 	<div className="text-right">
 		<p className="text-sm text-muted-foreground">Subtotal</p>
 		<p className="text-lg font-bold">${(price * quantity).toFixed(2)}</p>
@@ -121,14 +142,30 @@ const CartRow = ({ item }: { item: CartItem }) => (
 	</div>
 );
 
-const SummaryItem = ({ label, value, emphasis }: { label: string; value: string; emphasis?: boolean }) => (
-	<div className={`flex justify-between ${emphasis ? 'text-xl font-bold' : ''}`}>
+const SummaryItem = ({
+	label,
+	value,
+	emphasis,
+}: {
+	label: string;
+	value: string;
+	emphasis?: boolean;
+}) => (
+	<div
+		className={`flex justify-between ${emphasis ? 'text-xl font-bold' : ''}`}
+	>
 		<span className={emphasis ? '' : 'text-muted-foreground'}>{label}</span>
 		<span className={emphasis ? 'text-primary' : ''}>{value}</span>
 	</div>
 );
 
-const ShippingNote = ({ icon: Icon, text }: { icon: React.ComponentType<{ className?: string }>; text: string }) => (
+const ShippingNote = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	text: string;
+}) => (
 	<div className="flex items-center gap-2 rounded-lg bg-primary/5 p-3 text-sm">
 		<Icon className="size-4 text-primary" />
 		<span>{text}</span>
@@ -139,7 +176,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Premium Wireless Headphones Pro Max',
 			sku: 'WH-1000XM5',
 			price: 279.99,
@@ -149,7 +187,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop',
 			name: 'Smart Fitness Watch Series 8',
 			sku: 'SFW-S8-BLK',
 			price: 399.99,
@@ -158,7 +197,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 			name: 'Portable Bluetooth Speaker',
 			sku: 'PBS-MINI-GRY',
 			price: 89.99,
@@ -169,7 +209,10 @@ export default function Main() {
 	];
 
 	const selectedItems = items.filter((item) => item.selected);
-	const selectedTotal = selectedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const selectedTotal = selectedItems.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">
@@ -196,9 +239,15 @@ export default function Main() {
 					</CardContent>
 					<CardFooter className="flex-col gap-6 border-t bg-muted/30 p-6">
 						<div className="w-full space-y-3">
-							<SummaryItem label="Subtotal" value={`$${selectedTotal.toFixed(2)}`} />
+							<SummaryItem
+								label="Subtotal"
+								value={`$${selectedTotal.toFixed(2)}`}
+							/>
 							<SummaryItem label="Estimated Shipping" value="$12.99" />
-							<SummaryItem label="Estimated Tax" value={`$${(selectedTotal * 0.08).toFixed(2)}`} />
+							<SummaryItem
+								label="Estimated Tax"
+								value={`$${(selectedTotal * 0.08).toFixed(2)}`}
+							/>
 							<Separator />
 							<SummaryItem
 								label="Order Total"

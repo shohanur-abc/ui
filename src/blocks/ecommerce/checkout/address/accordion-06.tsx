@@ -89,7 +89,9 @@ const SectionIcon = ({
 				warning ? 'bg-yellow-500/10' : 'bg-primary/10'
 			}`}
 		>
-			<Icon className={`size-5 ${warning ? 'text-yellow-500' : 'text-primary'}`} />
+			<Icon
+				className={`size-5 ${warning ? 'text-yellow-500' : 'text-primary'}`}
+			/>
 		</div>
 		<span className="font-semibold">{title}</span>
 	</div>
@@ -106,7 +108,10 @@ const InternationalAddressForm = ({
 			placeholder="Select country"
 			options={countries}
 		/>
-		<Field label="Full Name" placeholder="As it appears on official documents" />
+		<Field
+			label="Full Name"
+			placeholder="As it appears on official documents"
+		/>
 		<Field label="Address Line 1" placeholder="Street address" />
 		<Field label="Address Line 2" placeholder="Additional details (Optional)" />
 		<div className="grid @sm:grid-cols-2 gap-4">
@@ -150,7 +155,8 @@ const CurrencySection = () => {
 				))}
 			</RadioGroup>
 			<div className="p-4 rounded-lg bg-muted/30 border border-border text-sm text-muted-foreground">
-				Prices will be converted at checkout. Your bank may apply additional fees.
+				Prices will be converted at checkout. Your bank may apply additional
+				fees.
 			</div>
 		</div>
 	);
@@ -165,7 +171,7 @@ const CustomsSection = () => (
 					International orders may be subject to customs duties
 				</p>
 				<p className="text-muted-foreground mt-1">
-					Import fees, taxes, and duties are not included in the item price. 
+					Import fees, taxes, and duties are not included in the item price.
 					These charges are the buyer&apos;s responsibility.
 				</p>
 			</div>

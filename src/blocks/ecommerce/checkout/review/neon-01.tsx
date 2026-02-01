@@ -40,7 +40,9 @@ const NeonItem = ({ item }: { item: CartItem }) => (
 					</Badge>
 				</div>
 			</div>
-			<span className="text-lg font-bold text-primary">${item.price.toFixed(2)}</span>
+			<span className="text-lg font-bold text-primary">
+				${item.price.toFixed(2)}
+			</span>
 		</div>
 	</div>
 );
@@ -56,9 +58,13 @@ const NeonInfo = ({
 	value: string;
 	highlight?: boolean;
 }) => (
-	<div className={`flex items-center gap-3 rounded-xl border p-4 ${highlight ? 'border-primary/50 bg-primary/5' : 'border-primary/20 bg-card'}`}>
+	<div
+		className={`flex items-center gap-3 rounded-xl border p-4 ${highlight ? 'border-primary/50 bg-primary/5' : 'border-primary/20 bg-card'}`}
+	>
 		<div className="flex size-10 items-center justify-center rounded-lg bg-primary/10">
-			<Icon className={`size-5 ${highlight ? 'text-primary drop-shadow-[0_0_10px_rgba(var(--primary),0.5)]' : 'text-primary'}`} />
+			<Icon
+				className={`size-5 ${highlight ? 'text-primary drop-shadow-[0_0_10px_rgba(var(--primary),0.5)]' : 'text-primary'}`}
+			/>
 		</div>
 		<div>
 			<p className="text-xs text-muted-foreground">{label}</p>
@@ -85,9 +91,17 @@ const TotalRow = ({
 	bold?: boolean;
 	glow?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={glow ? 'text-primary drop-shadow-[0_0_10px_rgba(var(--primary),0.5)]' : ''}>
+		<span
+			className={
+				glow
+					? 'text-primary drop-shadow-[0_0_10px_rgba(var(--primary),0.5)]'
+					: ''
+			}
+		>
 			{value}
 		</span>
 	</div>
@@ -101,7 +115,8 @@ export default function Main() {
 			option: '10m / Addressable',
 			price: 49.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -109,12 +124,16 @@ export default function Main() {
 			option: 'WiFi + Bluetooth',
 			price: 29.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=200&h=200&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden bg-background" data-theme="neon">
+		<section
+			className="@container relative overflow-hidden bg-background"
+			data-theme="neon"
+		>
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
 			<div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-primary/20 blur-[100px]" />
 			<div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-primary/20 blur-[100px]" />
@@ -142,9 +161,22 @@ export default function Main() {
 						))}
 
 						<div className="grid gap-4 @sm:grid-cols-2">
-							<NeonInfo icon={MapPin} label="Shipping" value="Chris B., Miami, FL" />
-							<NeonInfo icon={Truck} label="Delivery" value="Dec 21-22, 2025" highlight />
-							<NeonInfo icon={CreditCard} label="Payment" value="Amex •••• 5678" />
+							<NeonInfo
+								icon={MapPin}
+								label="Shipping"
+								value="Chris B., Miami, FL"
+							/>
+							<NeonInfo
+								icon={Truck}
+								label="Delivery"
+								value="Dec 21-22, 2025"
+								highlight
+							/>
+							<NeonInfo
+								icon={CreditCard}
+								label="Payment"
+								value="Amex •••• 5678"
+							/>
 							<NeonInfo icon={Gift} label="Gift" value="Wrap included" />
 						</div>
 
@@ -167,7 +199,10 @@ export default function Main() {
 							<TotalRow label="Total" value="$142.00" bold />
 						</CardContent>
 						<CardFooter className="flex-col gap-4">
-							<Button size="lg" className="w-full gap-2 shadow-lg shadow-primary/30">
+							<Button
+								size="lg"
+								className="w-full gap-2 shadow-lg shadow-primary/30"
+							>
 								<Lock className="size-4" />
 								Pay $142.00
 								<ArrowRight className="size-4" />

@@ -33,7 +33,11 @@ const CartPreview = ({ items }: { items: CartItemPreviewProps[] }) => (
 	<div className="mb-4 flex justify-center -space-x-3">
 		{items.map((item, i) => (
 			<Avatar key={i} className="size-14 border-2 border-white/30 shadow-lg">
-				<AvatarImage src={item.image} alt={item.name} className="object-cover" />
+				<AvatarImage
+					src={item.image}
+					alt={item.name}
+					className="object-cover"
+				/>
 				<AvatarFallback>{item.name.slice(0, 2)}</AvatarFallback>
 			</Avatar>
 		))}
@@ -57,7 +61,10 @@ const TotalRow = ({ label, value }: { label: string; value: string }) => (
 const TrustBadges = ({ badges }: { badges: TrustBadgeProps[] }) => (
 	<div className="mt-4 flex justify-center gap-4">
 		{badges.map(({ icon: Icon, text }, i) => (
-			<span key={i} className="flex items-center gap-1 text-xs text-muted-foreground">
+			<span
+				key={i}
+				className="flex items-center gap-1 text-xs text-muted-foreground"
+			>
 				<Icon className="size-3 text-green-400" />
 				{text}
 			</span>
@@ -67,9 +74,20 @@ const TrustBadges = ({ badges }: { badges: TrustBadgeProps[] }) => (
 
 export default function Main() {
 	const cartItems: CartItemPreviewProps[] = [
-		{ image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100', name: 'Watch' },
-		{ image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=100', name: 'Smart' },
-		{ image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100', name: 'Bag' },
+		{
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100',
+			name: 'Watch',
+		},
+		{
+			image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=100',
+			name: 'Smart',
+		},
+		{
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100',
+			name: 'Bag',
+		},
 	];
 
 	const summaryItems: SummaryRowProps[] = [

@@ -91,7 +91,10 @@ const CartContent = ({
 	items: CartItem[];
 	checkoutLabel: string;
 }) => {
-	const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const total = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 
 	return (
 		<div className="flex flex-1 flex-col">
@@ -120,9 +123,7 @@ const SavedContent = ({ items }: { items: CartItem[] }) => (
 		{items.length === 0 ? (
 			<div className="flex flex-col items-center justify-center py-12 text-center">
 				<Heart className="size-12 text-muted-foreground/50" />
-				<p className="mt-4 text-sm text-muted-foreground">
-					No saved items yet
-				</p>
+				<p className="mt-4 text-sm text-muted-foreground">No saved items yet</p>
 			</div>
 		) : (
 			<div className="divide-y divide-border">
@@ -139,9 +140,7 @@ const RecentContent = ({ items }: { items: CartItem[] }) => (
 		{items.length === 0 ? (
 			<div className="flex flex-col items-center justify-center py-12 text-center">
 				<Clock className="size-12 text-muted-foreground/50" />
-				<p className="mt-4 text-sm text-muted-foreground">
-					No recent items
-				</p>
+				<p className="mt-4 text-sm text-muted-foreground">No recent items</p>
 			</div>
 		) : (
 			<div className="divide-y divide-border">
@@ -163,7 +162,8 @@ export default function Main() {
 		cartItems: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1491553895911-0055uj8g27j?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1491553895911-0055uj8g27j?w=200&h=200&fit=crop',
 				name: 'Classic Watch',
 				variant: 'Silver / Leather',
 				price: 249.99,
@@ -171,7 +171,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 				name: 'Leather Wallet',
 				variant: 'Brown',
 				price: 89.99,
@@ -181,34 +182,40 @@ export default function Main() {
 		savedItems: [
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=200&h=200&fit=crop',
 				name: 'Canvas Bag',
 				variant: 'Beige',
-				price: 65.00,
+				price: 65.0,
 				quantity: 1,
 			},
 		],
 		recentItems: [
 			{
 				id: '4',
-				image: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=200&h=200&fit=crop',
 				name: 'Sunglasses',
 				variant: 'Black',
-				price: 159.00,
+				price: 159.0,
 				quantity: 1,
 			},
 			{
 				id: '5',
-				image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop',
 				name: 'Belt',
 				variant: 'Black / M',
-				price: 55.00,
+				price: 55.0,
 				quantity: 1,
 			},
 		],
 	};
 
-	const cartCount = cartData.cartItems.reduce((sum, item) => sum + item.quantity, 0);
+	const cartCount = cartData.cartItems.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">
@@ -221,7 +228,10 @@ export default function Main() {
 						<SheetHeader className="p-6 pb-0">
 							<SheetTitle>{cartData.title}</SheetTitle>
 						</SheetHeader>
-						<Tabs defaultValue="cart" className="flex flex-1 flex-col px-6 pb-6">
+						<Tabs
+							defaultValue="cart"
+							className="flex flex-1 flex-col px-6 pb-6"
+						>
 							<TabsList className="grid w-full grid-cols-3">
 								<TabsTrigger value="cart" className="gap-1">
 									{cartData.cartTabLabel}
@@ -229,8 +239,12 @@ export default function Main() {
 										{cartCount}
 									</Badge>
 								</TabsTrigger>
-								<TabsTrigger value="saved">{cartData.savedTabLabel}</TabsTrigger>
-								<TabsTrigger value="recent">{cartData.recentTabLabel}</TabsTrigger>
+								<TabsTrigger value="saved">
+									{cartData.savedTabLabel}
+								</TabsTrigger>
+								<TabsTrigger value="recent">
+									{cartData.recentTabLabel}
+								</TabsTrigger>
 							</TabsList>
 							<TabsContent value="cart" className="flex-1 mt-4">
 								<CartContent

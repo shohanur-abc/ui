@@ -160,12 +160,21 @@ const StockPreviewRow = ({ product }: StockPreviewRowProps) => {
 			</div>
 			<div className="flex items-center gap-4">
 				<div className="text-right">
-					<p className="text-sm text-muted-foreground">{product.currentStock}</p>
+					<p className="text-sm text-muted-foreground">
+						{product.currentStock}
+					</p>
 				</div>
-				<div className={`flex items-center gap-1 ${isIncrease ? 'text-emerald-500' : isDecrease ? 'text-red-500' : 'text-muted-foreground'}`}>
-					{isIncrease ? <TrendingUp className="size-4" /> : isDecrease ? <TrendingDown className="size-4" /> : null}
+				<div
+					className={`flex items-center gap-1 ${isIncrease ? 'text-emerald-500' : isDecrease ? 'text-red-500' : 'text-muted-foreground'}`}
+				>
+					{isIncrease ? (
+						<TrendingUp className="size-4" />
+					) : isDecrease ? (
+						<TrendingDown className="size-4" />
+					) : null}
 					<span className="font-medium">
-						{isIncrease ? '+' : ''}{product.change}
+						{isIncrease ? '+' : ''}
+						{product.change}
 					</span>
 				</div>
 				<div className="text-right">
@@ -177,7 +186,10 @@ const StockPreviewRow = ({ product }: StockPreviewRowProps) => {
 						Out of Stock
 					</Badge>
 				) : willBeLowStock ? (
-					<Badge variant="secondary" className="gap-1 bg-amber-500/10 text-amber-500">
+					<Badge
+						variant="secondary"
+						className="gap-1 bg-amber-500/10 text-amber-500"
+					>
 						<AlertTriangle className="size-3" />
 						Low Stock
 					</Badge>
@@ -192,7 +204,12 @@ interface StockSummaryProps {
 	totalChange: number;
 	lowStockCount: number;
 	outOfStockCount: number;
-	labels: { products: string; totalChange: string; lowStock: string; outOfStock: string };
+	labels: {
+		products: string;
+		totalChange: string;
+		lowStock: string;
+		outOfStock: string;
+	};
 }
 
 const StockSummary = ({
@@ -208,8 +225,11 @@ const StockSummary = ({
 			<p className="text-sm text-muted-foreground">{labels.products}</p>
 		</div>
 		<div className="text-center">
-			<p className={`text-2xl font-bold ${totalChange >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
-				{totalChange >= 0 ? '+' : ''}{totalChange}
+			<p
+				className={`text-2xl font-bold ${totalChange >= 0 ? 'text-emerald-500' : 'text-red-500'}`}
+			>
+				{totalChange >= 0 ? '+' : ''}
+				{totalChange}
 			</p>
 			<p className="text-sm text-muted-foreground">{labels.totalChange}</p>
 		</div>
@@ -225,7 +245,9 @@ const StockSummary = ({
 );
 
 export default function Main() {
-	const [operation, setOperation] = React.useState<'add' | 'subtract' | 'set'>('add');
+	const [operation, setOperation] = React.useState<'add' | 'subtract' | 'set'>(
+		'add',
+	);
 	const [value, setValue] = React.useState(50);
 	const [selectedWarehouse, setSelectedWarehouse] = React.useState('main');
 
@@ -236,13 +258,47 @@ export default function Main() {
 	];
 
 	const products: ProductStock[] = [
-		{ id: '1', name: 'Wireless Headphones Pro', sku: 'WHP-001', currentStock: 45, newStock: 95, change: 50, lowStockThreshold: 20 },
-		{ id: '2', name: 'Mechanical Keyboard RGB', sku: 'MKB-002', currentStock: 23, newStock: 73, change: 50, lowStockThreshold: 20 },
-		{ id: '3', name: 'Gaming Mouse Elite', sku: 'GME-003', currentStock: 5, newStock: 55, change: 50, lowStockThreshold: 20 },
-		{ id: '4', name: 'USB-C Hub 7-in-1', sku: 'UCH-004', currentStock: 156, newStock: 206, change: 50, lowStockThreshold: 20 },
+		{
+			id: '1',
+			name: 'Wireless Headphones Pro',
+			sku: 'WHP-001',
+			currentStock: 45,
+			newStock: 95,
+			change: 50,
+			lowStockThreshold: 20,
+		},
+		{
+			id: '2',
+			name: 'Mechanical Keyboard RGB',
+			sku: 'MKB-002',
+			currentStock: 23,
+			newStock: 73,
+			change: 50,
+			lowStockThreshold: 20,
+		},
+		{
+			id: '3',
+			name: 'Gaming Mouse Elite',
+			sku: 'GME-003',
+			currentStock: 5,
+			newStock: 55,
+			change: 50,
+			lowStockThreshold: 20,
+		},
+		{
+			id: '4',
+			name: 'USB-C Hub 7-in-1',
+			sku: 'UCH-004',
+			currentStock: 156,
+			newStock: 206,
+			change: 50,
+			lowStockThreshold: 20,
+		},
 	];
 
-	const lowStockCount = products.filter((p) => p.newStock <= p.lowStockThreshold && p.newStock > 0).length;
+	const lowStockCount = products.filter(
+		(p) => p.newStock <= p.lowStockThreshold && p.newStock > 0,
+	).length;
 	const outOfStockCount = products.filter((p) => p.newStock <= 0).length;
 	const totalChange = products.reduce((sum, p) => sum + p.change, 0);
 
@@ -272,7 +328,11 @@ export default function Main() {
 						onOperationChange={setOperation}
 						value={value}
 						onValueChange={setValue}
-						labels={{ add: 'Add Stock', subtract: 'Remove Stock', set: 'Set Stock' }}
+						labels={{
+							add: 'Add Stock',
+							subtract: 'Remove Stock',
+							set: 'Set Stock',
+						}}
 					/>
 				</div>
 

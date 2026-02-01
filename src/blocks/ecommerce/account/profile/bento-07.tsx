@@ -61,7 +61,9 @@ const SellerProfileCard = ({
 					<div className="flex items-center gap-2 mt-1">
 						<Star className="size-4 text-amber-500 fill-amber-500" />
 						<span className="font-medium">{rating}</span>
-						<span className="text-sm text-muted-foreground">({reviews.toLocaleString()} reviews)</span>
+						<span className="text-sm text-muted-foreground">
+							({reviews.toLocaleString()} reviews)
+						</span>
 					</div>
 				</div>
 				<Button asChild>
@@ -91,8 +93,14 @@ const RevenueCard = ({
 			</div>
 			<div className="flex-1 flex flex-col justify-center">
 				<p className="text-3xl font-bold">{amount}</p>
-				<div className={`flex items-center gap-1 mt-2 ${positive ? 'text-green-500' : 'text-red-500'}`}>
-					{positive ? <ArrowUp className="size-4" /> : <ArrowDown className="size-4" />}
+				<div
+					className={`flex items-center gap-1 mt-2 ${positive ? 'text-green-500' : 'text-red-500'}`}
+				>
+					{positive ? (
+						<ArrowUp className="size-4" />
+					) : (
+						<ArrowDown className="size-4" />
+					)}
 					<span className="text-sm font-medium">{change}</span>
 				</div>
 				<p className="text-xs text-muted-foreground mt-1">{period}</p>
@@ -182,14 +190,22 @@ const ProductsCard = ({
 const MetricsCard = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; value: string; change: string; positive: boolean }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		change: string;
+		positive: boolean;
+	}[];
 }) => (
 	<Card className="col-span-full @lg:col-span-2">
 		<CardContent className="p-4">
 			<div className="flex items-center gap-2 mb-4">
 				<BarChart3 className="size-5 text-muted-foreground" />
 				<h3 className="font-medium">Performance</h3>
-				<Badge variant="outline" className="ml-auto">This Month</Badge>
+				<Badge variant="outline" className="ml-auto">
+					This Month
+				</Badge>
 			</div>
 			<div className="grid grid-cols-2 @sm:grid-cols-4 gap-4">
 				{items.map((metric, i) => (
@@ -197,8 +213,14 @@ const MetricsCard = ({
 						<metric.icon className="size-5 mx-auto mb-2 text-muted-foreground" />
 						<p className="text-xl font-bold">{metric.value}</p>
 						<p className="text-xs text-muted-foreground">{metric.label}</p>
-						<div className={`flex items-center justify-center gap-1 text-xs mt-1 ${metric.positive ? 'text-green-500' : 'text-red-500'}`}>
-							{metric.positive ? <TrendingUp className="size-3" /> : <TrendingUp className="size-3 rotate-180" />}
+						<div
+							className={`flex items-center justify-center gap-1 text-xs mt-1 ${metric.positive ? 'text-green-500' : 'text-red-500'}`}
+						>
+							{metric.positive ? (
+								<TrendingUp className="size-3" />
+							) : (
+								<TrendingUp className="size-3 rotate-180" />
+							)}
 							{metric.change}
 						</div>
 					</div>
@@ -208,13 +230,7 @@ const MetricsCard = ({
 	</Card>
 );
 
-const MessagesCard = ({
-	unread,
-	total,
-}: {
-	unread: number;
-	total: number;
-}) => (
+const MessagesCard = ({ unread, total }: { unread: number; total: number }) => (
 	<Link href="/seller/messages">
 		<Card className="h-full hover:bg-muted/50 transition-colors">
 			<CardContent className="p-4 h-full flex items-center gap-4">
@@ -228,7 +244,9 @@ const MessagesCard = ({
 				</div>
 				<div className="flex-1">
 					<p className="font-medium">Messages</p>
-					<p className="text-xs text-muted-foreground">{unread} new from customers</p>
+					<p className="text-xs text-muted-foreground">
+						{unread} new from customers
+					</p>
 				</div>
 				<ChevronRight className="size-5 text-muted-foreground" />
 			</CardContent>
@@ -264,10 +282,34 @@ export default function Main() {
 			outOfStock: 3,
 		},
 		metrics: [
-			{ icon: Eye, label: 'Views', value: '24.5K', change: '+18%', positive: true },
-			{ icon: ShoppingCart, label: 'Conversion', value: '3.8%', change: '+0.5%', positive: true },
-			{ icon: Users, label: 'Customers', value: '892', change: '+24', positive: true },
-			{ icon: Star, label: 'Avg Rating', value: '4.9', change: '+0.1', positive: true },
+			{
+				icon: Eye,
+				label: 'Views',
+				value: '24.5K',
+				change: '+18%',
+				positive: true,
+			},
+			{
+				icon: ShoppingCart,
+				label: 'Conversion',
+				value: '3.8%',
+				change: '+0.5%',
+				positive: true,
+			},
+			{
+				icon: Users,
+				label: 'Customers',
+				value: '892',
+				change: '+24',
+				positive: true,
+			},
+			{
+				icon: Star,
+				label: 'Avg Rating',
+				value: '4.9',
+				change: '+0.1',
+				positive: true,
+			},
 		],
 		messages: {
 			unread: 7,

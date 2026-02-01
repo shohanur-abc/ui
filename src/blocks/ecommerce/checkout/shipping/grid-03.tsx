@@ -31,10 +31,16 @@ const DateCard = ({
 				${fastest ? 'ring-2 ring-primary/30' : ''}
 			`}
 		>
-			{fastest && <Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">Fastest</Badge>}
+			{fastest && (
+				<Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+					Fastest
+				</Badge>
+			)}
 			<CardContent className="p-4 text-center">
 				<RadioGroupItem value={value} id={value} className="sr-only" />
-				<span className="text-xs uppercase tracking-wider opacity-70">{day}</span>
+				<span className="text-xs uppercase tracking-wider opacity-70">
+					{day}
+				</span>
 				<div className="text-3xl font-bold my-1">{date}</div>
 				<span className="text-sm opacity-70">{month}</span>
 				<div className="mt-3 pt-3 border-t border-current/20">
@@ -61,7 +67,12 @@ const TimeSlotGrid = ({
 					${slot.available ? 'hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-primary-foreground' : 'opacity-50 cursor-not-allowed'}
 				`}
 			>
-				<RadioGroupItem value={slot.value} id={slot.value} className="sr-only" disabled={!slot.available} />
+				<RadioGroupItem
+					value={slot.value}
+					id={slot.value}
+					className="sr-only"
+					disabled={!slot.available}
+				/>
 				<Clock className="size-4" />
 				<span className="font-medium">{slot.time}</span>
 			</Label>
@@ -71,13 +82,63 @@ const TimeSlotGrid = ({
 
 export default function Main() {
 	const dates = [
-		{ value: 'd1', day: 'Mon', date: '15', month: 'Jan', price: '$12.99', slots: 3, fastest: true },
-		{ value: 'd2', day: 'Tue', date: '16', month: 'Jan', price: '$9.99', slots: 5 },
-		{ value: 'd3', day: 'Wed', date: '17', month: 'Jan', price: '$7.99', slots: 8 },
-		{ value: 'd4', day: 'Thu', date: '18', month: 'Jan', price: '$7.99', slots: 6 },
-		{ value: 'd5', day: 'Fri', date: '19', month: 'Jan', price: '$5.99', slots: 4 },
-		{ value: 'd6', day: 'Sat', date: '20', month: 'Jan', price: 'Free', slots: 2 },
-		{ value: 'd7', day: 'Sun', date: '21', month: 'Jan', price: 'Free', slots: 3 },
+		{
+			value: 'd1',
+			day: 'Mon',
+			date: '15',
+			month: 'Jan',
+			price: '$12.99',
+			slots: 3,
+			fastest: true,
+		},
+		{
+			value: 'd2',
+			day: 'Tue',
+			date: '16',
+			month: 'Jan',
+			price: '$9.99',
+			slots: 5,
+		},
+		{
+			value: 'd3',
+			day: 'Wed',
+			date: '17',
+			month: 'Jan',
+			price: '$7.99',
+			slots: 8,
+		},
+		{
+			value: 'd4',
+			day: 'Thu',
+			date: '18',
+			month: 'Jan',
+			price: '$7.99',
+			slots: 6,
+		},
+		{
+			value: 'd5',
+			day: 'Fri',
+			date: '19',
+			month: 'Jan',
+			price: '$5.99',
+			slots: 4,
+		},
+		{
+			value: 'd6',
+			day: 'Sat',
+			date: '20',
+			month: 'Jan',
+			price: 'Free',
+			slots: 2,
+		},
+		{
+			value: 'd7',
+			day: 'Sun',
+			date: '21',
+			month: 'Jan',
+			price: 'Free',
+			slots: 3,
+		},
 	];
 
 	const timeSlots = [
@@ -95,8 +156,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Schedule Delivery</h1>
-					<p className="text-muted-foreground">Pick a date and time that works for you</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Schedule Delivery
+					</h1>
+					<p className="text-muted-foreground">
+						Pick a date and time that works for you
+					</p>
 				</div>
 
 				<Card className="mb-6">
@@ -107,7 +172,10 @@ export default function Main() {
 						</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<RadioGroup defaultValue="d2" className="grid grid-cols-4 @sm:grid-cols-7 gap-3">
+						<RadioGroup
+							defaultValue="d2"
+							className="grid grid-cols-4 @sm:grid-cols-7 gap-3"
+						>
 							{dates.map((date) => (
 								<DateCard key={date.value} {...date} />
 							))}

@@ -32,8 +32,8 @@ export default function Main() {
 					company="DataDriven Marketing"
 					avatar="https://i.pravatar.cc/100?img=5"
 					metric={{
-						value: "247%",
-						label: "Revenue Increase",
+						value: '247%',
+						label: 'Revenue Increase',
 					}}
 				/>
 			</div>

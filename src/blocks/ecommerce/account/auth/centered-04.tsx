@@ -27,7 +27,9 @@ const Logo = ({ icon: Icon }: { icon: React.ElementType }) => (
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -81,7 +83,9 @@ const PasswordStrength = ({
 				/>
 			))}
 		</div>
-		<p className="text-xs text-muted-foreground">{labels[strength] || labels[0]}</p>
+		<p className="text-xs text-muted-foreground">
+			{labels[strength] || labels[0]}
+		</p>
 	</div>
 );
 
@@ -126,17 +130,32 @@ export default function Main() {
 			<div className="relative min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo icon={KeyRound} />
-					<Title text="Reset your password" subtitle="Create a new secure password for your account" />
+					<Title
+						text="Reset your password"
+						subtitle="Create a new secure password for your account"
+					/>
 
 					<form className="space-y-5">
-						<PasswordField label="New Password" placeholder="Enter new password" showToggle />
-						<PasswordField label="Confirm Password" placeholder="Confirm new password" showToggle />
+						<PasswordField
+							label="New Password"
+							placeholder="Enter new password"
+							showToggle
+						/>
+						<PasswordField
+							label="Confirm Password"
+							placeholder="Confirm new password"
+							showToggle
+						/>
 						<PasswordStrength strength={3} labels={strengthLabels} />
 						<SubmitButton label="Reset Password" icon={ArrowRight} />
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="Changed your mind?" linkText="Back to login" href="/login" />
+						<FooterLink
+							text="Changed your mind?"
+							linkText="Back to login"
+							href="/login"
+						/>
 					</div>
 				</div>
 			</div>

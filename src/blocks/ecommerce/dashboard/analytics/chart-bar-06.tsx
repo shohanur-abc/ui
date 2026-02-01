@@ -14,7 +14,9 @@ const DivergingBarChart = ({ data }: { data: DivergingBarData[] }) => {
 				const negativeWidth = (item.negative / maxValue) * 45;
 				return (
 					<div key={i} className="flex items-center gap-2">
-						<span className="w-20 text-xs text-muted-foreground text-right truncate">{item.label}</span>
+						<span className="w-20 text-xs text-muted-foreground text-right truncate">
+							{item.label}
+						</span>
 						<div className="flex-1 flex items-center">
 							<div className="flex-1 flex justify-end">
 								<div
@@ -56,8 +58,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Product Sentiment Analysis</CardTitle>
-						<p className="text-xs text-muted-foreground">Positive vs negative feedback distribution</p>
+						<CardTitle className="text-sm font-medium">
+							Product Sentiment Analysis
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Positive vs negative feedback distribution
+						</p>
 					</CardHeader>
 					<CardContent>
 						<div className="flex items-center justify-center gap-6 mb-4">

@@ -39,7 +39,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
 		<Card className="overflow-hidden transition-all hover:shadow-lg">
 			<div className="relative aspect-square bg-muted">
 				{product.image ? (
-					<img src={product.image} alt={product.name} className="size-full object-cover" />
+					<img
+						src={product.image}
+						alt={product.name}
+						className="size-full object-cover"
+					/>
 				) : (
 					<div className="flex size-full items-center justify-center">
 						<Package className="size-12 text-muted-foreground" />
@@ -60,17 +64,28 @@ const ProductCard = ({ product }: ProductCardProps) => {
 					<div className="space-y-1">
 						<div className="flex items-center justify-between text-sm">
 							<span className="text-muted-foreground">Stock</span>
-							<span className="font-medium">{product.stock} / {product.maxStock}</span>
+							<span className="font-medium">
+								{product.stock} / {product.maxStock}
+							</span>
 						</div>
 						<Progress value={stockPercentage} className="h-2" />
 					</div>
 					<div className="flex items-center justify-between">
 						<div>
 							<p className="text-sm text-muted-foreground">Revenue</p>
-							<p className="font-semibold">${product.revenue.toLocaleString()}</p>
+							<p className="font-semibold">
+								${product.revenue.toLocaleString()}
+							</p>
 						</div>
-						<Badge variant={product.change >= 0 ? 'default' : 'destructive'} className="gap-0.5">
-							{product.change >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+						<Badge
+							variant={product.change >= 0 ? 'default' : 'destructive'}
+							className="gap-0.5"
+						>
+							{product.change >= 0 ? (
+								<TrendingUp className="size-3" />
+							) : (
+								<TrendingDown className="size-3" />
+							)}
 							{Math.abs(product.change)}%
 						</Badge>
 					</div>
@@ -105,14 +120,94 @@ const GridHeader = ({ title, count, onSearch }: GridHeaderProps) => (
 
 export default function Main() {
 	const products: Product[] = [
-		{ id: '1', name: 'Wireless Earbuds Pro', sku: 'WEP-001', image: '', stock: 245, maxStock: 500, sold: 1250, revenue: 99875, change: 15 },
-		{ id: '2', name: 'Smart Watch Ultra', sku: 'SWU-002', image: '', stock: 89, maxStock: 300, sold: 456, revenue: 91143, change: -8 },
-		{ id: '3', name: 'USB-C Fast Charger', sku: 'UFC-003', image: '', stock: 654, maxStock: 800, sold: 2340, revenue: 35100, change: 22 },
-		{ id: '4', name: 'Mechanical Keyboard', sku: 'MK-004', image: '', stock: 12, maxStock: 200, sold: 189, revenue: 28350, change: -3 },
-		{ id: '5', name: 'Bluetooth Speaker', sku: 'BS-005', image: '', stock: 456, maxStock: 600, sold: 780, revenue: 39000, change: 5 },
-		{ id: '6', name: 'Gaming Mouse', sku: 'GM-006', image: '', stock: 234, maxStock: 400, sold: 567, revenue: 34020, change: 18 },
-		{ id: '7', name: 'Webcam HD', sku: 'WC-007', image: '', stock: 56, maxStock: 150, sold: 234, revenue: 21060, change: -12 },
-		{ id: '8', name: 'USB Hub 4-Port', sku: 'UH-008', image: '', stock: 789, maxStock: 1000, sold: 1456, revenue: 50960, change: 8 },
+		{
+			id: '1',
+			name: 'Wireless Earbuds Pro',
+			sku: 'WEP-001',
+			image: '',
+			stock: 245,
+			maxStock: 500,
+			sold: 1250,
+			revenue: 99875,
+			change: 15,
+		},
+		{
+			id: '2',
+			name: 'Smart Watch Ultra',
+			sku: 'SWU-002',
+			image: '',
+			stock: 89,
+			maxStock: 300,
+			sold: 456,
+			revenue: 91143,
+			change: -8,
+		},
+		{
+			id: '3',
+			name: 'USB-C Fast Charger',
+			sku: 'UFC-003',
+			image: '',
+			stock: 654,
+			maxStock: 800,
+			sold: 2340,
+			revenue: 35100,
+			change: 22,
+		},
+		{
+			id: '4',
+			name: 'Mechanical Keyboard',
+			sku: 'MK-004',
+			image: '',
+			stock: 12,
+			maxStock: 200,
+			sold: 189,
+			revenue: 28350,
+			change: -3,
+		},
+		{
+			id: '5',
+			name: 'Bluetooth Speaker',
+			sku: 'BS-005',
+			image: '',
+			stock: 456,
+			maxStock: 600,
+			sold: 780,
+			revenue: 39000,
+			change: 5,
+		},
+		{
+			id: '6',
+			name: 'Gaming Mouse',
+			sku: 'GM-006',
+			image: '',
+			stock: 234,
+			maxStock: 400,
+			sold: 567,
+			revenue: 34020,
+			change: 18,
+		},
+		{
+			id: '7',
+			name: 'Webcam HD',
+			sku: 'WC-007',
+			image: '',
+			stock: 56,
+			maxStock: 150,
+			sold: 234,
+			revenue: 21060,
+			change: -12,
+		},
+		{
+			id: '8',
+			name: 'USB Hub 4-Port',
+			sku: 'UH-008',
+			image: '',
+			stock: 789,
+			maxStock: 1000,
+			sold: 1456,
+			revenue: 50960,
+			change: 8,
+		},
 	];
 
 	return (

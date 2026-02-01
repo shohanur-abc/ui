@@ -34,11 +34,34 @@ const Banner = ({
 	onDismiss,
 	icon: CustomIcon,
 }: BannerProps) => {
-	const config: Record<BannerType, { bg: string; border: string; text: string; icon: React.ElementType }> = {
-		warning: { bg: 'bg-amber-500/10', border: 'border-amber-500/30', text: 'text-amber-500', icon: AlertTriangle },
-		error: { bg: 'bg-destructive/10', border: 'border-destructive/30', text: 'text-destructive', icon: AlertTriangle },
-		info: { bg: 'bg-blue-500/10', border: 'border-blue-500/30', text: 'text-blue-500', icon: Package },
-		success: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', text: 'text-emerald-500', icon: RefreshCw },
+	const config: Record<
+		BannerType,
+		{ bg: string; border: string; text: string; icon: React.ElementType }
+	> = {
+		warning: {
+			bg: 'bg-amber-500/10',
+			border: 'border-amber-500/30',
+			text: 'text-amber-500',
+			icon: AlertTriangle,
+		},
+		error: {
+			bg: 'bg-destructive/10',
+			border: 'border-destructive/30',
+			text: 'text-destructive',
+			icon: AlertTriangle,
+		},
+		info: {
+			bg: 'bg-blue-500/10',
+			border: 'border-blue-500/30',
+			text: 'text-blue-500',
+			icon: Package,
+		},
+		success: {
+			bg: 'bg-emerald-500/10',
+			border: 'border-emerald-500/30',
+			text: 'text-emerald-500',
+			icon: RefreshCw,
+		},
 	};
 
 	const { bg, border, text, icon: DefaultIcon } = config[type];
@@ -80,7 +103,13 @@ type CompactBannerProps = {
 	onAction?: () => void;
 };
 
-const CompactBanner = ({ type, message, count, actionLabel, onAction }: CompactBannerProps) => {
+const CompactBanner = ({
+	type,
+	message,
+	count,
+	actionLabel,
+	onAction,
+}: CompactBannerProps) => {
 	const colors: Record<BannerType, string> = {
 		warning: 'bg-amber-500 text-amber-50',
 		error: 'bg-destructive text-destructive-foreground',
@@ -89,7 +118,9 @@ const CompactBanner = ({ type, message, count, actionLabel, onAction }: CompactB
 	};
 
 	return (
-		<div className={`flex items-center justify-between rounded-lg px-4 py-2 ${colors[type]}`}>
+		<div
+			className={`flex items-center justify-between rounded-lg px-4 py-2 ${colors[type]}`}
+		>
 			<div className="flex items-center gap-2">
 				<AlertTriangle className="size-4" />
 				<span className="text-sm font-medium">{message}</span>
@@ -150,7 +181,9 @@ export default function Main() {
 							message="15 products are running low and may need restocking soon to avoid stockouts."
 							actionLabel="View Products"
 							onAction={() => {}}
-							onDismiss={() => setShowBanners((s) => ({ ...s, lowStock: false }))}
+							onDismiss={() =>
+								setShowBanners((s) => ({ ...s, lowStock: false }))
+							}
 						/>
 					)}
 
@@ -161,7 +194,9 @@ export default function Main() {
 							message="Wireless Earbuds Pro, USB-C Cable, and Smart Watch are currently out of stock."
 							actionLabel="Reorder Now"
 							onAction={() => {}}
-							onDismiss={() => setShowBanners((s) => ({ ...s, outOfStock: false }))}
+							onDismiss={() =>
+								setShowBanners((s) => ({ ...s, outOfStock: false }))
+							}
 							icon={ShoppingCart}
 						/>
 					)}
@@ -173,7 +208,9 @@ export default function Main() {
 							message="Purchase Order #12345 is expected to arrive tomorrow with 500 units."
 							actionLabel="Track Shipment"
 							onAction={() => {}}
-							onDismiss={() => setShowBanners((s) => ({ ...s, incoming: false }))}
+							onDismiss={() =>
+								setShowBanners((s) => ({ ...s, incoming: false }))
+							}
 						/>
 					)}
 
@@ -182,7 +219,9 @@ export default function Main() {
 							type="success"
 							title="Stock Replenished"
 							message="Bluetooth Speaker inventory has been restocked with 250 new units."
-							onDismiss={() => setShowBanners((s) => ({ ...s, restock: false }))}
+							onDismiss={() =>
+								setShowBanners((s) => ({ ...s, restock: false }))
+							}
 						/>
 					)}
 				</div>

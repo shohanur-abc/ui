@@ -75,7 +75,11 @@ const TypeConfig: Record<IntegrationStatus['type'], { className: string }> = {
 	erp: { className: 'bg-cyan-500/20 text-cyan-400' },
 };
 
-const IntegrationCard = ({ integration }: { integration: IntegrationStatus }) => {
+const IntegrationCard = ({
+	integration,
+}: {
+	integration: IntegrationStatus;
+}) => {
 	const statusConfig = StatusConfig[integration.status];
 	const typeConfig = TypeConfig[integration.type];
 	const StatusIcon = statusConfig.icon;
@@ -92,7 +96,9 @@ const IntegrationCard = ({ integration }: { integration: IntegrationStatus }) =>
 		>
 			<div className="flex items-start justify-between mb-3">
 				<div className="flex items-center gap-3">
-					<div className={`flex size-10 items-center justify-center rounded-lg ${typeConfig.className}`}>
+					<div
+						className={`flex size-10 items-center justify-center rounded-lg ${typeConfig.className}`}
+					>
 						<Zap className="size-5" />
 					</div>
 					<div>
@@ -150,20 +156,24 @@ const IntegrationCard = ({ integration }: { integration: IntegrationStatus }) =>
 				</div>
 			</div>
 
-			{(integration.pendingSyncs || integration.errorCount || integration.latency) && (
+			{(integration.pendingSyncs ||
+				integration.errorCount ||
+				integration.latency) && (
 				<div className="flex items-center gap-3 mt-3 text-xs">
-					{integration.pendingSyncs !== undefined && integration.pendingSyncs > 0 && (
-						<span className="flex items-center gap-1 text-amber-400">
-							<Clock className="size-3" />
-							{integration.pendingSyncs} pending
-						</span>
-					)}
-					{integration.errorCount !== undefined && integration.errorCount > 0 && (
-						<span className="flex items-center gap-1 text-rose-400">
-							<XCircle className="size-3" />
-							{integration.errorCount} errors
-						</span>
-					)}
+					{integration.pendingSyncs !== undefined &&
+						integration.pendingSyncs > 0 && (
+							<span className="flex items-center gap-1 text-amber-400">
+								<Clock className="size-3" />
+								{integration.pendingSyncs} pending
+							</span>
+						)}
+					{integration.errorCount !== undefined &&
+						integration.errorCount > 0 && (
+							<span className="flex items-center gap-1 text-rose-400">
+								<XCircle className="size-3" />
+								{integration.errorCount} errors
+							</span>
+						)}
 					{integration.latency !== undefined && (
 						<span className="flex items-center gap-1 text-muted-foreground ml-auto">
 							<Activity className="size-3" />
@@ -187,7 +197,11 @@ const IntegrationCard = ({ integration }: { integration: IntegrationStatus }) =>
 	);
 };
 
-const IntegrationStats = ({ stats }: { stats: IntegrationTrackerProps['stats'] }) => (
+const IntegrationStats = ({
+	stats,
+}: {
+	stats: IntegrationTrackerProps['stats'];
+}) => (
 	<div className="grid grid-cols-4 gap-2">
 		<div className="p-3 rounded-lg bg-muted/30 border border-border/50 text-center">
 			<Server className="size-4 text-muted-foreground mx-auto mb-1" />
@@ -220,7 +234,11 @@ const IntegrationStats = ({ stats }: { stats: IntegrationTrackerProps['stats'] }
 	</div>
 );
 
-const IntegrationTracker = ({ title, integrations, stats }: IntegrationTrackerProps) => (
+const IntegrationTracker = ({
+	title,
+	integrations,
+	stats,
+}: IntegrationTrackerProps) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardHeader className="flex-row items-center justify-between border-b border-border/50">
 			<CardTitle className="text-lg font-semibold flex items-center gap-2">

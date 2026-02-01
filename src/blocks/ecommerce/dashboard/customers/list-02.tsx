@@ -36,17 +36,40 @@ interface LoyaltyMember {
 }
 
 const TierConfig = {
-	bronze: { label: 'Bronze', icon: Star, color: 'text-amber-700', bg: 'bg-amber-700/10' },
-	silver: { label: 'Silver', icon: Trophy, color: 'text-slate-400', bg: 'bg-slate-400/10' },
-	gold: { label: 'Gold', icon: Crown, color: 'text-amber-500', bg: 'bg-amber-500/10' },
-	platinum: { label: 'Platinum', icon: Crown, color: 'text-violet-400', bg: 'bg-violet-400/10' },
+	bronze: {
+		label: 'Bronze',
+		icon: Star,
+		color: 'text-amber-700',
+		bg: 'bg-amber-700/10',
+	},
+	silver: {
+		label: 'Silver',
+		icon: Trophy,
+		color: 'text-slate-400',
+		bg: 'bg-slate-400/10',
+	},
+	gold: {
+		label: 'Gold',
+		icon: Crown,
+		color: 'text-amber-500',
+		bg: 'bg-amber-500/10',
+	},
+	platinum: {
+		label: 'Platinum',
+		icon: Crown,
+		color: 'text-violet-400',
+		bg: 'bg-violet-400/10',
+	},
 };
 
 const TierBadge = ({ tier }: { tier: LoyaltyMember['tier'] }) => {
 	const config = TierConfig[tier];
 	const Icon = config.icon;
 	return (
-		<Badge variant="outline" className={`${config.color} border-current/30 gap-1`}>
+		<Badge
+			variant="outline"
+			className={`${config.color} border-current/30 gap-1`}
+		>
 			<Icon className="size-3 fill-current" />
 			{config.label}
 		</Badge>
@@ -67,11 +90,15 @@ const ProgressToNextTier = ({
 	<div className="flex-1 space-y-1">
 		<div className="flex items-center justify-between text-xs">
 			<span className="text-muted-foreground">Next tier progress</span>
-			<span className="font-medium">{current.toLocaleString()} / {(current + needed).toLocaleString()}</span>
+			<span className="font-medium">
+				{current.toLocaleString()} / {(current + needed).toLocaleString()}
+			</span>
 		</div>
 		<Progress value={progress} className="h-1.5" />
 		{nextTier && (
-			<p className="text-muted-foreground text-xs">{needed.toLocaleString()} pts to {nextTier}</p>
+			<p className="text-muted-foreground text-xs">
+				{needed.toLocaleString()} pts to {nextTier}
+			</p>
 		)}
 	</div>
 );
@@ -103,8 +130,15 @@ const LoyaltyListItem = ({ member }: { member: LoyaltyMember }) => {
 	};
 	return (
 		<div className="group relative flex items-center gap-4 rounded-lg border bg-card p-4 transition-colors hover:bg-muted/50">
-			<div className={`absolute inset-y-0 left-0 w-1 rounded-l-lg ${tierConfig.bg.replace('/10', '')}`} />
-			<Avatar className="size-12 border-2" style={{ borderColor: `hsl(var(--${member.tier === 'platinum' ? 'violet' : member.tier === 'gold' ? 'amber' : 'slate'}-500) / 0.3)` }}>
+			<div
+				className={`absolute inset-y-0 left-0 w-1 rounded-l-lg ${tierConfig.bg.replace('/10', '')}`}
+			/>
+			<Avatar
+				className="size-12 border-2"
+				style={{
+					borderColor: `hsl(var(--${member.tier === 'platinum' ? 'violet' : member.tier === 'gold' ? 'amber' : 'slate'}-500) / 0.3)`,
+				}}
+			>
 				<AvatarImage src={member.avatar} alt={member.name} />
 				<AvatarFallback className="bg-primary/10 text-primary">
 					{member.initials}
@@ -115,7 +149,9 @@ const LoyaltyListItem = ({ member }: { member: LoyaltyMember }) => {
 					<p className="font-semibold truncate">{member.name}</p>
 					<TierBadge tier={member.tier} />
 				</div>
-				<p className="text-muted-foreground mt-0.5 text-sm truncate">{member.email}</p>
+				<p className="text-muted-foreground mt-0.5 text-sm truncate">
+					{member.email}
+				</p>
 			</div>
 			<div className="hidden @lg:block min-w-[200px]">
 				<ProgressToNextTier

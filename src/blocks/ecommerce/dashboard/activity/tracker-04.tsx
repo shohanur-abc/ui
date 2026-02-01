@@ -122,7 +122,10 @@ const CustomerCard = ({ customer }: { customer: CustomerJourney }) => {
 		>
 			<div className="flex items-center gap-4">
 				<Avatar className="size-12">
-					<AvatarImage src={customer.customer.avatar} alt={customer.customer.name} />
+					<AvatarImage
+						src={customer.customer.avatar}
+						alt={customer.customer.name}
+					/>
 					<AvatarFallback className="bg-secondary">
 						{customer.customer.initials}
 					</AvatarFallback>

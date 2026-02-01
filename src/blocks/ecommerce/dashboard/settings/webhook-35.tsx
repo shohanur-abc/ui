@@ -58,7 +58,9 @@ const IntegrationCard = ({
 	>
 		<div
 			className={`flex size-12 items-center justify-center rounded-lg ${
-				connected ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'
+				connected
+					? 'bg-primary/10 text-primary'
+					: 'bg-muted text-muted-foreground'
 			}`}
 		>
 			<Icon className="size-6" />
@@ -98,7 +100,9 @@ const WebhookRow = ({ name, url, active, events }: WebhookEndpoint) => (
 				<h4 className="font-medium">{name}</h4>
 				<Badge
 					variant={active ? 'default' : 'secondary'}
-					className={active ? 'bg-emerald-500/10 text-emerald-500 border-0' : ''}
+					className={
+						active ? 'bg-emerald-500/10 text-emerald-500 border-0' : ''
+					}
 				>
 					{active ? 'Active' : 'Inactive'}
 				</Badge>

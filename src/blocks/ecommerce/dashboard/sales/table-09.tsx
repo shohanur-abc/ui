@@ -88,7 +88,10 @@ const PromotionTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{promotions.map((promo) => (
-							<TableRow key={promo.id} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={promo.id}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell className="font-medium">{promo.name}</TableCell>
 								<TableCell>
 									<code className="px-2 py-1 rounded bg-muted text-sm">
@@ -105,7 +108,9 @@ const PromotionTableCard = ({
 									<div className="space-y-1">
 										<div className="flex justify-between text-xs">
 											<span>{promo.usageCount}</span>
-											<span className="text-muted-foreground">/{promo.usageLimit}</span>
+											<span className="text-muted-foreground">
+												/{promo.usageLimit}
+											</span>
 										</div>
 										<Progress
 											value={(promo.usageCount / promo.usageLimit) * 100}
@@ -138,11 +143,66 @@ const PromotionTableCard = ({
 
 export default function Main() {
 	const promotions: PromotionData[] = [
-		{ id: 'PRM-001', name: 'Winter Sale', code: 'WINTER25', type: 'percentage', discount: '25%', usageCount: 1250, usageLimit: 2000, revenue: 45000, status: 'active', endDate: 'Jan 31' },
-		{ id: 'PRM-002', name: 'New Customer', code: 'WELCOME10', type: 'fixed', discount: '$10', usageCount: 890, usageLimit: 5000, revenue: 28500, status: 'active', endDate: 'Ongoing' },
-		{ id: 'PRM-003', name: 'Buy One Get One', code: 'BOGO2024', type: 'bogo', discount: '50%', usageCount: 420, usageLimit: 500, revenue: 18200, status: 'active', endDate: 'Jan 20' },
-		{ id: 'PRM-004', name: 'Free Shipping', code: 'SHIPFREE', type: 'free-shipping', discount: 'Free', usageCount: 2100, usageLimit: 3000, revenue: 62000, status: 'active', endDate: 'Feb 15' },
-		{ id: 'PRM-005', name: 'Flash Sale', code: 'FLASH30', type: 'percentage', discount: '30%', usageCount: 0, usageLimit: 1000, revenue: 0, status: 'scheduled', endDate: 'Feb 1' },
+		{
+			id: 'PRM-001',
+			name: 'Winter Sale',
+			code: 'WINTER25',
+			type: 'percentage',
+			discount: '25%',
+			usageCount: 1250,
+			usageLimit: 2000,
+			revenue: 45000,
+			status: 'active',
+			endDate: 'Jan 31',
+		},
+		{
+			id: 'PRM-002',
+			name: 'New Customer',
+			code: 'WELCOME10',
+			type: 'fixed',
+			discount: '$10',
+			usageCount: 890,
+			usageLimit: 5000,
+			revenue: 28500,
+			status: 'active',
+			endDate: 'Ongoing',
+		},
+		{
+			id: 'PRM-003',
+			name: 'Buy One Get One',
+			code: 'BOGO2024',
+			type: 'bogo',
+			discount: '50%',
+			usageCount: 420,
+			usageLimit: 500,
+			revenue: 18200,
+			status: 'active',
+			endDate: 'Jan 20',
+		},
+		{
+			id: 'PRM-004',
+			name: 'Free Shipping',
+			code: 'SHIPFREE',
+			type: 'free-shipping',
+			discount: 'Free',
+			usageCount: 2100,
+			usageLimit: 3000,
+			revenue: 62000,
+			status: 'active',
+			endDate: 'Feb 15',
+		},
+		{
+			id: 'PRM-005',
+			name: 'Flash Sale',
+			code: 'FLASH30',
+			type: 'percentage',
+			discount: '30%',
+			usageCount: 0,
+			usageLimit: 1000,
+			revenue: 0,
+			status: 'scheduled',
+			endDate: 'Feb 1',
+		},
 	];
 
 	return (

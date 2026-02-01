@@ -23,15 +23,22 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">User Onboarding Funnel</CardTitle>
-						<p className="text-xs text-muted-foreground">New user activation journey</p>
+						<CardTitle className="text-sm font-medium">
+							User Onboarding Funnel
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							New user activation journey
+						</p>
 					</CardHeader>
 					<CardContent className="pt-4">
 						<div className="flex flex-col items-center">
 							{steps.map((step, i) => {
-								const widthPercent = 100 - (i * 15);
-								const convRate = i > 0 ? ((step.value / steps[i - 1].value) * 100).toFixed(1) : '100';
-								
+								const widthPercent = 100 - i * 15;
+								const convRate =
+									i > 0
+										? ((step.value / steps[i - 1].value) * 100).toFixed(1)
+										: '100';
+
 								return (
 									<div key={i} className="w-full flex flex-col items-center">
 										<div
@@ -43,15 +50,20 @@ export default function Main() {
 												<span className="font-medium">{step.label}</span>
 											</div>
 											<div className="pr-4 text-right">
-												<span className="font-semibold">{step.value.toLocaleString()}</span>
-												<span className="text-xs text-muted-foreground ml-2">({convRate}%)</span>
+												<span className="font-semibold">
+													{step.value.toLocaleString()}
+												</span>
+												<span className="text-xs text-muted-foreground ml-2">
+													({convRate}%)
+												</span>
 											</div>
 										</div>
 										{i < steps.length - 1 && (
 											<div className="py-2 flex items-center gap-2 text-muted-foreground">
 												<ArrowDown className="size-4" />
 												<span className="text-xs">
-													{((steps[i + 1].value / step.value) * 100).toFixed(1)}% continue
+													{((steps[i + 1].value / step.value) * 100).toFixed(1)}
+													% continue
 												</span>
 											</div>
 										)}
@@ -63,19 +75,34 @@ export default function Main() {
 							<div className="text-center">
 								<p className="text-xs text-muted-foreground">Total Drop-off</p>
 								<p className="text-lg font-semibold text-rose-500">
-									{(((steps[0].value - steps[steps.length - 1].value) / steps[0].value) * 100).toFixed(1)}%
+									{(
+										((steps[0].value - steps[steps.length - 1].value) /
+											steps[0].value) *
+										100
+									).toFixed(1)}
+									%
 								</p>
 							</div>
 							<div className="text-center">
 								<p className="text-xs text-muted-foreground">Avg Step Conv.</p>
 								<p className="text-lg font-semibold text-amber-500">
-									{(Math.pow(steps[steps.length - 1].value / steps[0].value, 1 / (steps.length - 1)) * 100).toFixed(1)}%
+									{(
+										Math.pow(
+											steps[steps.length - 1].value / steps[0].value,
+											1 / (steps.length - 1),
+										) * 100
+									).toFixed(1)}
+									%
 								</p>
 							</div>
 							<div className="text-center">
 								<p className="text-xs text-muted-foreground">Overall Conv.</p>
 								<p className="text-lg font-semibold text-emerald-500">
-									{((steps[steps.length - 1].value / steps[0].value) * 100).toFixed(2)}%
+									{(
+										(steps[steps.length - 1].value / steps[0].value) *
+										100
+									).toFixed(2)}
+									%
 								</p>
 							</div>
 						</div>

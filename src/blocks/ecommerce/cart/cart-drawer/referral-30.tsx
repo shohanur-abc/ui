@@ -13,7 +13,17 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Check, Copy, Gift, Minus, Plus, Share2, ShoppingBag, Users, X } from 'lucide-react';
+import {
+	Check,
+	Copy,
+	Gift,
+	Minus,
+	Plus,
+	Share2,
+	ShoppingBag,
+	Users,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -68,20 +78,28 @@ const ReferralCard = ({
 		<div className="flex items-center justify-between">
 			<div className="flex items-center gap-2">
 				<Users className="size-5 text-blue-600" />
-				<span className="font-medium text-blue-800 dark:text-blue-200">{title}</span>
+				<span className="font-medium text-blue-800 dark:text-blue-200">
+					{title}
+				</span>
 			</div>
-			<Badge variant="outline" className="border-blue-300 text-blue-700 dark:border-blue-700 dark:text-blue-300">
-				<Gift className="mr-1 size-3" />
-				${referral.earnedCredits} earned
+			<Badge
+				variant="outline"
+				className="border-blue-300 text-blue-700 dark:border-blue-700 dark:text-blue-300"
+			>
+				<Gift className="mr-1 size-3" />${referral.earnedCredits} earned
 			</Badge>
 		</div>
 		<div className="mt-3 grid grid-cols-2 gap-2 text-center">
 			<div className="rounded-lg bg-white/50 p-2 dark:bg-black/20">
-				<p className="text-lg font-bold text-blue-600">{referral.referrerDiscount}%</p>
+				<p className="text-lg font-bold text-blue-600">
+					{referral.referrerDiscount}%
+				</p>
 				<p className="text-xs text-muted-foreground">You get</p>
 			</div>
 			<div className="rounded-lg bg-white/50 p-2 dark:bg-black/20">
-				<p className="text-lg font-bold text-blue-600">{referral.friendDiscount}%</p>
+				<p className="text-lg font-bold text-blue-600">
+					{referral.friendDiscount}%
+				</p>
 				<p className="text-xs text-muted-foreground">Friends get</p>
 			</div>
 		</div>
@@ -195,14 +213,16 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Smart Watch',
 				price: 249.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds',
 				price: 149.99,
 				quantity: 1,
@@ -221,7 +241,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

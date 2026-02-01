@@ -1,4 +1,14 @@
-import { Package, Truck, MapPin, Clock, Check, ChevronRight, Shield, Gift, Leaf } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	MapPin,
+	Clock,
+	Check,
+	ChevronRight,
+	Shield,
+	Gift,
+	Leaf,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,13 +25,16 @@ const ProgressBar = ({
 	steps: { label: string; icon: React.ComponentType<{ className?: string }> }[];
 	currentStep: number;
 }) => {
-	const progress = ((currentStep) / (steps.length - 1)) * 100;
+	const progress = (currentStep / (steps.length - 1)) * 100;
 
 	return (
 		<div className="mb-10">
 			<div className="relative">
 				<div className="h-2 bg-muted rounded-full overflow-hidden">
-					<div className="h-full bg-primary transition-all duration-500" style={{ width: `${progress}%` }} />
+					<div
+						className="h-full bg-primary transition-all duration-500"
+						style={{ width: `${progress}%` }}
+					/>
 				</div>
 				<div className="absolute inset-0 flex justify-between">
 					{steps.map((step, i) => {
@@ -29,7 +42,10 @@ const ProgressBar = ({
 						const isCompleted = i < currentStep;
 						const isCurrent = i === currentStep;
 						return (
-							<div key={step.label} className="flex flex-col items-center -mt-2">
+							<div
+								key={step.label}
+								className="flex flex-col items-center -mt-2"
+							>
 								<div
 									className={`
 										flex size-6 items-center justify-center rounded-full border-2 bg-background transition-all
@@ -40,7 +56,9 @@ const ProgressBar = ({
 								>
 									{isCompleted ? <Check className="size-3" /> : null}
 								</div>
-								<span className={`text-xs mt-2 ${isCurrent ? 'font-medium' : 'text-muted-foreground'}`}>
+								<span
+									className={`text-xs mt-2 ${isCurrent ? 'font-medium' : 'text-muted-foreground'}`}
+								>
 									{step.label}
 								</span>
 							</div>
@@ -75,7 +93,9 @@ const ShippingTier = ({
 				${recommended ? 'ring-2 ring-primary/30' : ''}
 			`}
 		>
-			{recommended && <Badge className="absolute -top-2.5 left-4">Recommended</Badge>}
+			{recommended && (
+				<Badge className="absolute -top-2.5 left-4">Recommended</Badge>
+			)}
 			<CardContent className="p-4">
 				<div className="flex items-start gap-3">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
@@ -90,7 +110,13 @@ const ShippingTier = ({
 						</div>
 						<div className="flex flex-wrap gap-1">
 							{features.map((f, i) => (
-								<Badge key={i} variant="secondary" className="text-xs font-normal">{f}</Badge>
+								<Badge
+									key={i}
+									variant="secondary"
+									className="text-xs font-normal"
+								>
+									{f}
+								</Badge>
 							))}
 						</div>
 					</div>
@@ -111,7 +137,10 @@ const AddonCheckbox = ({
 	name: string;
 	price: string;
 }) => (
-	<Label htmlFor={id} className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+	<Label
+		htmlFor={id}
+		className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+	>
 		<Checkbox id={id} />
 		<Icon className="size-4 text-muted-foreground" />
 		<span className="flex-1 text-sm font-medium">{name}</span>
@@ -128,13 +157,37 @@ export default function Main() {
 	];
 
 	const tiers = [
-		{ value: 'standard', name: 'Standard', time: '5-7 business days', price: '$5.99', features: ['Tracking', 'Email updates'] },
-		{ value: 'express', name: 'Express', time: '2-3 business days', price: '$12.99', features: ['Priority', 'SMS updates', 'Insurance'], recommended: true },
-		{ value: 'overnight', name: 'Overnight', time: 'Next business day', price: '$24.99', features: ['Guaranteed', 'Full insurance', 'Signature'] },
+		{
+			value: 'standard',
+			name: 'Standard',
+			time: '5-7 business days',
+			price: '$5.99',
+			features: ['Tracking', 'Email updates'],
+		},
+		{
+			value: 'express',
+			name: 'Express',
+			time: '2-3 business days',
+			price: '$12.99',
+			features: ['Priority', 'SMS updates', 'Insurance'],
+			recommended: true,
+		},
+		{
+			value: 'overnight',
+			name: 'Overnight',
+			time: 'Next business day',
+			price: '$24.99',
+			features: ['Guaranteed', 'Full insurance', 'Signature'],
+		},
 	];
 
 	const addons = [
-		{ id: 'insurance', icon: Shield, name: 'Shipping Insurance', price: '+$3.99' },
+		{
+			id: 'insurance',
+			icon: Shield,
+			name: 'Shipping Insurance',
+			price: '+$3.99',
+		},
 		{ id: 'gift', icon: Gift, name: 'Gift Wrapping', price: '+$5.99' },
 		{ id: 'carbon', icon: Leaf, name: 'Carbon Neutral', price: '+$0.99' },
 	];
@@ -168,7 +221,9 @@ export default function Main() {
 				</div>
 
 				<div className="flex gap-3">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">
 						Continue to Payment
 						<ChevronRight className="size-5 ml-2" />

@@ -56,13 +56,20 @@ const ReaderProfileCard = ({
 			</div>
 			<div className="flex-1">
 				<h1 className="text-xl font-bold">{name}</h1>
-				<p className="text-sm text-muted-foreground">Member since {memberSince}</p>
+				<p className="text-sm text-muted-foreground">
+					Member since {memberSince}
+				</p>
 				<div className="mt-4">
 					<div className="flex items-center justify-between text-sm mb-2">
 						<span>2024 Reading Challenge</span>
-						<span className="font-medium">{readingGoal.current}/{readingGoal.target} books</span>
+						<span className="font-medium">
+							{readingGoal.current}/{readingGoal.target} books
+						</span>
 					</div>
-					<Progress value={(readingGoal.current / readingGoal.target) * 100} className="h-3" />
+					<Progress
+						value={(readingGoal.current / readingGoal.target) * 100}
+						className="h-3"
+					/>
 				</div>
 				<div className="flex items-center gap-4 mt-4 text-sm">
 					<div>
@@ -102,7 +109,14 @@ const StatCard = ({
 const CurrentlyReadingCard = ({
 	book,
 }: {
-	book: { title: string; author: string; cover: string; progress: number; currentPage: number; totalPages: number };
+	book: {
+		title: string;
+		author: string;
+		cover: string;
+		progress: number;
+		currentPage: number;
+		totalPages: number;
+	};
 }) => (
 	<Card className="col-span-2">
 		<CardHeader className="pb-2">
@@ -114,7 +128,12 @@ const CurrentlyReadingCard = ({
 		<CardContent>
 			<div className="flex gap-4">
 				<div className="relative w-20 h-28 rounded-lg overflow-hidden shrink-0">
-					<Image src={book.cover} alt={book.title} fill className="object-cover" />
+					<Image
+						src={book.cover}
+						alt={book.title}
+						fill
+						className="object-cover"
+					/>
 				</div>
 				<div className="flex-1">
 					<p className="font-medium line-clamp-2">{book.title}</p>
@@ -122,7 +141,9 @@ const CurrentlyReadingCard = ({
 					<div className="mt-3">
 						<div className="flex items-center justify-between text-xs mb-1">
 							<span>Page {book.currentPage}</span>
-							<span className="text-muted-foreground">{book.totalPages} pages</span>
+							<span className="text-muted-foreground">
+								{book.totalPages} pages
+							</span>
 						</div>
 						<Progress value={book.progress} className="h-2" />
 					</div>
@@ -139,13 +160,20 @@ const CurrentlyReadingCard = ({
 const RecentActivityCard = ({
 	activities,
 }: {
-	activities: { type: string; book: string; date: string; icon: React.ElementType }[];
+	activities: {
+		type: string;
+		book: string;
+		date: string;
+		icon: React.ElementType;
+	}[];
 }) => (
 	<Card className="col-span-2">
 		<CardHeader className="pb-2">
 			<div className="flex items-center justify-between">
 				<h3 className="font-semibold">Recent Activity</h3>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-3">
@@ -156,7 +184,8 @@ const RecentActivityCard = ({
 					</div>
 					<div className="flex-1 min-w-0">
 						<p className="text-sm truncate">
-							{activity.type} <span className="font-medium">{activity.book}</span>
+							{activity.type}{' '}
+							<span className="font-medium">{activity.book}</span>
 						</p>
 						<p className="text-xs text-muted-foreground">{activity.date}</p>
 					</div>
@@ -222,7 +251,10 @@ const GenreCard = ({
 				<span className="text-xs text-muted-foreground">{count} books</span>
 			</div>
 			<div className="h-2 rounded-full bg-muted overflow-hidden">
-				<div className={`h-full rounded-full ${color}`} style={{ width: `${percentage}%` }} />
+				<div
+					className={`h-full rounded-full ${color}`}
+					style={{ width: `${percentage}%` }}
+				/>
 			</div>
 		</CardContent>
 	</Card>
@@ -250,7 +282,9 @@ const ReviewCard = ({
 				))}
 			</div>
 			<p className="font-medium text-sm">{book}</p>
-			<p className="text-xs text-muted-foreground line-clamp-2 mt-1">{review}</p>
+			<p className="text-xs text-muted-foreground line-clamp-2 mt-1">
+				{review}
+			</p>
 			<p className="text-xs text-muted-foreground mt-2">{date}</p>
 		</CardContent>
 	</Card>
@@ -346,9 +380,24 @@ export default function Main() {
 			totalPages: 330,
 		},
 		activities: [
-			{ type: 'Finished', book: 'Atomic Habits', date: '2 days ago', icon: CheckCircle2 },
-			{ type: 'Started', book: 'The Midnight Library', date: '3 days ago', icon: BookOpen },
-			{ type: 'Reviewed', book: 'Project Hail Mary', date: '1 week ago', icon: Star },
+			{
+				type: 'Finished',
+				book: 'Atomic Habits',
+				date: '2 days ago',
+				icon: CheckCircle2,
+			},
+			{
+				type: 'Started',
+				book: 'The Midnight Library',
+				date: '3 days ago',
+				icon: BookOpen,
+			},
+			{
+				type: 'Reviewed',
+				book: 'Project Hail Mary',
+				date: '1 week ago',
+				icon: Star,
+			},
 		],
 		shelves: [
 			{ name: 'Currently Reading', count: 3, icon: BookOpen },
@@ -363,8 +412,20 @@ export default function Main() {
 			{ name: 'Fantasy', count: 24, percentage: 40, color: 'bg-amber-500' },
 		],
 		reviews: [
-			{ book: 'Project Hail Mary', rating: 5, review: 'An incredible journey through space. Andy Weir delivers another masterpiece...', date: 'Jan 28, 2024' },
-			{ book: 'Atomic Habits', rating: 4, review: 'Practical advice for building good habits. Changed my daily routines...', date: 'Jan 25, 2024' },
+			{
+				book: 'Project Hail Mary',
+				rating: 5,
+				review:
+					'An incredible journey through space. Andy Weir delivers another masterpiece...',
+				date: 'Jan 28, 2024',
+			},
+			{
+				book: 'Atomic Habits',
+				rating: 4,
+				review:
+					'Practical advice for building good habits. Changed my daily routines...',
+				date: 'Jan 25, 2024',
+			},
 		],
 		readingStats: [
 			{ label: 'Pages/Day', value: '42', icon: Book },
@@ -374,7 +435,8 @@ export default function Main() {
 		audiobook: {
 			title: 'Dune',
 			author: 'Frank Herbert',
-			cover: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=200',
+			cover:
+				'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=200',
 			progress: 34,
 			duration: '12:45:32',
 		},

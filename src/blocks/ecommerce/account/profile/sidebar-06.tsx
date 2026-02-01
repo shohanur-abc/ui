@@ -47,7 +47,9 @@ const FitnessSidebar = ({
 				</AvatarFallback>
 			</Avatar>
 			<h2 className="font-bold mt-3">{name}</h2>
-			<p className="text-sm text-muted-foreground">Member since {memberSince}</p>
+			<p className="text-sm text-muted-foreground">
+				Member since {memberSince}
+			</p>
 		</div>
 		<div className="flex justify-center gap-6">
 			<div className="text-center">
@@ -72,7 +74,12 @@ const FitnessNav = ({
 	items,
 	activeHref,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; badge?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+	}[];
 	activeHref: string;
 }) => (
 	<nav className="space-y-1">
@@ -101,7 +108,13 @@ const FitnessNav = ({
 const TodayStats = ({
 	stats,
 }: {
-	stats: { icon: React.ElementType; value: string; label: string; progress: number; color: string }[];
+	stats: {
+		icon: React.ElementType;
+		value: string;
+		label: string;
+		progress: number;
+		color: string;
+	}[];
 }) => (
 	<div className="grid grid-cols-2 gap-4">
 		{stats.map((stat, i) => (
@@ -129,7 +142,9 @@ const WorkoutPlan = ({
 					<Calendar className="size-5 text-green-500" />
 					This Week
 				</h3>
-				<Button variant="ghost" size="sm">Edit Plan</Button>
+				<Button variant="ghost" size="sm">
+					Edit Plan
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-2">
@@ -141,9 +156,11 @@ const WorkoutPlan = ({
 					}`}
 				>
 					<div className="flex items-center gap-3">
-						<div className={`size-8 rounded-full flex items-center justify-center ${
-							day.completed ? 'bg-green-500 text-white' : 'bg-muted'
-						}`}>
+						<div
+							className={`size-8 rounded-full flex items-center justify-center ${
+								day.completed ? 'bg-green-500 text-white' : 'bg-muted'
+							}`}
+						>
 							{day.completed ? '✓' : day.day.charAt(0)}
 						</div>
 						<div>
@@ -152,7 +169,9 @@ const WorkoutPlan = ({
 						</div>
 					</div>
 					{!day.completed && (
-						<Button size="sm" className="bg-green-500 hover:bg-green-600">Start</Button>
+						<Button size="sm" className="bg-green-500 hover:bg-green-600">
+							Start
+						</Button>
 					)}
 				</div>
 			))}
@@ -163,7 +182,12 @@ const WorkoutPlan = ({
 const Achievements = ({
 	achievements,
 }: {
-	achievements: { icon: React.ElementType; title: string; description: string; earned: boolean }[];
+	achievements: {
+		icon: React.ElementType;
+		title: string;
+		description: string;
+		earned: boolean;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -175,20 +199,30 @@ const Achievements = ({
 		<CardContent className="space-y-3">
 			{achievements.map((achievement, i) => (
 				<div key={i} className="flex items-center gap-3">
-					<div className={`p-2 rounded-lg ${
-						achievement.earned ? 'bg-amber-500/20' : 'bg-muted'
-					}`}>
-						<achievement.icon className={`size-5 ${
-							achievement.earned ? 'text-amber-500' : 'text-muted-foreground'
-						}`} />
+					<div
+						className={`p-2 rounded-lg ${
+							achievement.earned ? 'bg-amber-500/20' : 'bg-muted'
+						}`}
+					>
+						<achievement.icon
+							className={`size-5 ${
+								achievement.earned ? 'text-amber-500' : 'text-muted-foreground'
+							}`}
+						/>
 					</div>
 					<div className="flex-1">
-						<p className={`text-sm font-medium ${!achievement.earned && 'text-muted-foreground'}`}>
+						<p
+							className={`text-sm font-medium ${!achievement.earned && 'text-muted-foreground'}`}
+						>
 							{achievement.title}
 						</p>
-						<p className="text-xs text-muted-foreground">{achievement.description}</p>
+						<p className="text-xs text-muted-foreground">
+							{achievement.description}
+						</p>
 					</div>
-					{achievement.earned && <Badge className="bg-amber-500/20 text-amber-600">Earned</Badge>}
+					{achievement.earned && (
+						<Badge className="bg-amber-500/20 text-amber-600">Earned</Badge>
+					)}
 				</div>
 			))}
 		</CardContent>
@@ -214,10 +248,34 @@ export default function Main() {
 			{ icon: Settings, label: 'Settings', href: '/settings' },
 		],
 		stats: [
-			{ icon: Flame, value: '486', label: 'Calories', progress: 65, color: 'text-orange-500' },
-			{ icon: Timer, value: '45m', label: 'Active Time', progress: 75, color: 'text-blue-500' },
-			{ icon: Heart, value: '72', label: 'Avg BPM', progress: 50, color: 'text-red-500' },
-			{ icon: Target, value: '8,247', label: 'Steps', progress: 82, color: 'text-green-500' },
+			{
+				icon: Flame,
+				value: '486',
+				label: 'Calories',
+				progress: 65,
+				color: 'text-orange-500',
+			},
+			{
+				icon: Timer,
+				value: '45m',
+				label: 'Active Time',
+				progress: 75,
+				color: 'text-blue-500',
+			},
+			{
+				icon: Heart,
+				value: '72',
+				label: 'Avg BPM',
+				progress: 50,
+				color: 'text-red-500',
+			},
+			{
+				icon: Target,
+				value: '8,247',
+				label: 'Steps',
+				progress: 82,
+				color: 'text-green-500',
+			},
 		],
 		weekPlan: [
 			{ day: 'Monday', workout: 'Upper Body', completed: true },
@@ -227,10 +285,30 @@ export default function Main() {
 			{ day: 'Friday', workout: 'Full Body', completed: false },
 		],
 		achievements: [
-			{ icon: Flame, title: '7 Day Streak', description: 'Work out 7 days in a row', earned: true },
-			{ icon: Zap, title: 'Early Bird', description: 'Complete a workout before 7am', earned: true },
-			{ icon: Award, title: '100 Workouts', description: 'Complete 100 total workouts', earned: true },
-			{ icon: Trophy, title: 'Marathon', description: 'Run a total of 26.2 miles', earned: false },
+			{
+				icon: Flame,
+				title: '7 Day Streak',
+				description: 'Work out 7 days in a row',
+				earned: true,
+			},
+			{
+				icon: Zap,
+				title: 'Early Bird',
+				description: 'Complete a workout before 7am',
+				earned: true,
+			},
+			{
+				icon: Award,
+				title: '100 Workouts',
+				description: 'Complete 100 total workouts',
+				earned: true,
+			},
+			{
+				icon: Trophy,
+				title: 'Marathon',
+				description: 'Run a total of 26.2 miles',
+				earned: false,
+			},
 		],
 	};
 
@@ -245,7 +323,10 @@ export default function Main() {
 								<Separator />
 								<FitnessNav items={profileData.nav} activeHref="/fitness" />
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>

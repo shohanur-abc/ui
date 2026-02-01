@@ -8,7 +8,14 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from '@/components/ui/collapsible';
-import { ChevronsUpDown, MessageSquare, Quote, Star, Plus, Minus } from 'lucide-react';
+import {
+	ChevronsUpDown,
+	MessageSquare,
+	Quote,
+	Star,
+	Plus,
+	Minus,
+} from 'lucide-react';
 import { useState } from 'react';
 
 interface TestimonialItem {
@@ -69,10 +76,16 @@ const QACard = ({ item }: { item: TestimonialItem }) => {
 										: 'bg-muted text-muted-foreground'
 								}`}
 							>
-								{isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
+								{isOpen ? (
+									<Minus className="size-4" />
+								) : (
+									<Plus className="size-4" />
+								)}
 							</div>
 							<div className="flex-1">
-								<h3 className="font-semibold text-foreground">{item.question}</h3>
+								<h3 className="font-semibold text-foreground">
+									{item.question}
+								</h3>
 							</div>
 						</div>
 					</CardContent>
@@ -120,7 +133,8 @@ export default function Main() {
 			author: 'Uma Chen',
 			role: 'IT Director',
 			company: 'OnboardFirst',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'UC',
 			rating: 5,
 		},
@@ -131,7 +145,8 @@ export default function Main() {
 			author: 'Victor Lee',
 			role: 'CFO',
 			company: 'ROI Masters',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'VL',
 			rating: 5,
 		},
@@ -142,7 +157,8 @@ export default function Main() {
 			author: 'Wendy Park',
 			role: 'Operations',
 			company: 'SupportFirst',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'WP',
 			rating: 5,
 		},
@@ -153,7 +169,8 @@ export default function Main() {
 			author: 'Xavier Kim',
 			role: 'CTO',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'XK',
 			rating: 5,
 		},
@@ -164,14 +181,18 @@ export default function Main() {
 			author: 'Yara Martinez',
 			role: 'Tech Lead',
 			company: 'IntegrateCo',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'YM',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Q&A Format"

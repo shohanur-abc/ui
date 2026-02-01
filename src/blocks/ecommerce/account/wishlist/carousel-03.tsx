@@ -24,8 +24,16 @@ const FeaturedItem = ({ item }: { item: WishlistItem }) => (
 	<Card className="overflow-hidden">
 		<div className="flex flex-col @md:flex-row">
 			<div className="relative @md:w-1/2 aspect-square @md:aspect-auto">
-				<img src={item.image} alt={item.name} className="size-full object-cover" />
-				<Button variant="ghost" size="icon" className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm size-10">
+				<img
+					src={item.image}
+					alt={item.name}
+					className="size-full object-cover"
+				/>
+				<Button
+					variant="ghost"
+					size="icon"
+					className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm size-10"
+				>
 					<Heart className="size-5 fill-primary text-primary" />
 				</Button>
 				{item.isHot && (
@@ -36,22 +44,33 @@ const FeaturedItem = ({ item }: { item: WishlistItem }) => (
 				)}
 			</div>
 			<div className="p-6 @md:w-1/2 @md:p-8 flex flex-col justify-center">
-				<Badge variant="outline" className="w-fit mb-3">{item.brand}</Badge>
+				<Badge variant="outline" className="w-fit mb-3">
+					{item.brand}
+				</Badge>
 				<Link href={item.href}>
-					<h2 className="text-2xl @md:text-3xl font-bold hover:text-primary transition-colors">{item.name}</h2>
+					<h2 className="text-2xl @md:text-3xl font-bold hover:text-primary transition-colors">
+						{item.name}
+					</h2>
 				</Link>
 				<div className="flex items-center gap-2 mt-3">
 					<div className="flex">
 						{[1, 2, 3, 4, 5].map((star) => (
-							<Star key={star} className={`size-4 ${star <= item.rating ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`} />
+							<Star
+								key={star}
+								className={`size-4 ${star <= item.rating ? 'fill-amber-400 text-amber-400' : 'text-muted-foreground'}`}
+							/>
 						))}
 					</div>
-					<span className="text-sm text-muted-foreground">({item.rating}.0)</span>
+					<span className="text-sm text-muted-foreground">
+						({item.rating}.0)
+					</span>
 				</div>
 				<div className="flex items-center gap-3 mt-4">
 					<span className="text-3xl font-bold">${item.price.toFixed(2)}</span>
 					{item.originalPrice && (
-						<span className="text-xl text-muted-foreground line-through">${item.originalPrice.toFixed(2)}</span>
+						<span className="text-xl text-muted-foreground line-through">
+							${item.originalPrice.toFixed(2)}
+						</span>
 					)}
 				</div>
 				<div className="flex items-center gap-3 mt-6">
@@ -59,7 +78,11 @@ const FeaturedItem = ({ item }: { item: WishlistItem }) => (
 						<ShoppingCart className="size-5" />
 						Add to Cart
 					</Button>
-					<Button variant="outline" size="lg" className="text-destructive hover:text-destructive">
+					<Button
+						variant="outline"
+						size="lg"
+						className="text-destructive hover:text-destructive"
+					>
 						<X className="size-5" />
 						Remove
 					</Button>
@@ -69,7 +92,15 @@ const FeaturedItem = ({ item }: { item: WishlistItem }) => (
 	</Card>
 );
 
-const ThumbnailItem = ({ item, isActive, onClick }: { item: WishlistItem; isActive: boolean; onClick: () => void }) => (
+const ThumbnailItem = ({
+	item,
+	isActive,
+	onClick,
+}: {
+	item: WishlistItem;
+	isActive: boolean;
+	onClick: () => void;
+}) => (
 	<button
 		onClick={onClick}
 		className={`flex-shrink-0 w-20 h-20 @md:w-24 @md:h-24 rounded-lg overflow-hidden border-2 transition-all ${isActive ? 'border-primary ring-2 ring-primary/20' : 'border-transparent hover:border-primary/50'}`}
@@ -78,7 +109,13 @@ const ThumbnailItem = ({ item, isActive, onClick }: { item: WishlistItem; isActi
 	</button>
 );
 
-const CarouselDots = ({ items, activeIndex }: { items: WishlistItem[]; activeIndex: number }) => (
+const CarouselDots = ({
+	items,
+	activeIndex,
+}: {
+	items: WishlistItem[];
+	activeIndex: number;
+}) => (
 	<div className="flex justify-center gap-2 mt-6">
 		{items.map((_, i) => (
 			<Circle
@@ -91,10 +128,52 @@ const CarouselDots = ({ items, activeIndex }: { items: WishlistItem[]; activeInd
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Cashmere Wool Overcoat', price: 495.00, originalPrice: 695.00, image: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&h=600&fit=crop', brand: 'Luxe Collection', isHot: true, rating: 5, href: '/product/1' },
-		{ id: '2', name: 'Italian Leather Boots', price: 375.00, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop', brand: 'Artisan Footwear', isHot: false, rating: 4, href: '/product/2' },
-		{ id: '3', name: 'Silk Evening Dress', price: 289.00, originalPrice: 389.00, image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=600&fit=crop', brand: 'Elegance', isHot: true, rating: 5, href: '/product/3' },
-		{ id: '4', name: 'Designer Handbag', price: 599.00, image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=600&fit=crop', brand: 'Maison Mode', isHot: false, rating: 5, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Cashmere Wool Overcoat',
+			price: 495.0,
+			originalPrice: 695.0,
+			image:
+				'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&h=600&fit=crop',
+			brand: 'Luxe Collection',
+			isHot: true,
+			rating: 5,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Italian Leather Boots',
+			price: 375.0,
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop',
+			brand: 'Artisan Footwear',
+			isHot: false,
+			rating: 4,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Silk Evening Dress',
+			price: 289.0,
+			originalPrice: 389.0,
+			image:
+				'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=600&fit=crop',
+			brand: 'Elegance',
+			isHot: true,
+			rating: 5,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Designer Handbag',
+			price: 599.0,
+			image:
+				'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=600&fit=crop',
+			brand: 'Maison Mode',
+			isHot: false,
+			rating: 5,
+			href: '/product/4',
+		},
 	];
 
 	const activeIndex = 0;
@@ -102,12 +181,19 @@ export default function Main() {
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<h1 className="text-2xl @md:text-3xl font-bold mb-6">Featured Wishlist</h1>
+				<h1 className="text-2xl @md:text-3xl font-bold mb-6">
+					Featured Wishlist
+				</h1>
 				<FeaturedItem item={wishlistItems[activeIndex]} />
 				<div className="mt-6">
 					<div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide justify-center">
 						{wishlistItems.map((item, i) => (
-							<ThumbnailItem key={item.id} item={item} isActive={i === activeIndex} onClick={() => {}} />
+							<ThumbnailItem
+								key={item.id}
+								item={item}
+								isActive={i === activeIndex}
+								onClick={() => {}}
+							/>
 						))}
 					</div>
 				</div>

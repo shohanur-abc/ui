@@ -164,7 +164,13 @@ const LifetimeImpactCard = ({
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 justify-center">
 		{items.map(({ label, href, variant, icon: Icon }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="gap-2" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="gap-2"
+				asChild
+			>
 				<Link href={href}>
 					{label}
 					{Icon && <Icon className="size-4" />}
@@ -177,9 +183,24 @@ const CTA = ({ items }: CTAProps) => (
 export default function Main() {
 	const impactMetrics: ImpactMetricProps[] = [
 		{ icon: Wind, value: '2.5 kg', label: 'CO₂ Saved', color: 'bg-sky-500' },
-		{ icon: Droplets, value: '150 L', label: 'Water Saved', color: 'bg-blue-500' },
-		{ icon: Recycle, value: '500 g', label: 'Plastic Avoided', color: 'bg-emerald-500' },
-		{ icon: TreePine, value: '1', label: 'Tree Planted', color: 'bg-green-600' },
+		{
+			icon: Droplets,
+			value: '150 L',
+			label: 'Water Saved',
+			color: 'bg-blue-500',
+		},
+		{
+			icon: Recycle,
+			value: '500 g',
+			label: 'Plastic Avoided',
+			color: 'bg-emerald-500',
+		},
+		{
+			icon: TreePine,
+			value: '1',
+			label: 'Tree Planted',
+			color: 'bg-green-600',
+		},
 	];
 
 	const packagingFeatures = [
@@ -220,7 +241,11 @@ export default function Main() {
 
 				<CTA
 					items={[
-						{ label: 'View Impact Dashboard', href: '/impact', icon: ArrowRight },
+						{
+							label: 'View Impact Dashboard',
+							href: '/impact',
+							icon: ArrowRight,
+						},
 						{ label: 'Shop Eco Collection', href: '/eco', variant: 'outline' },
 					]}
 				/>

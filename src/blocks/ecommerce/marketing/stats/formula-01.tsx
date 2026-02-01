@@ -11,7 +11,13 @@ interface FormulaStatProps {
 	components: { label: string; value: string }[];
 }
 
-const FormulaStat = ({ icon: Icon, label, formula, result, components }: FormulaStatProps) => (
+const FormulaStat = ({
+	icon: Icon,
+	label,
+	formula,
+	result,
+	components,
+}: FormulaStatProps) => (
 	<Card className="group overflow-hidden transition-all duration-300 hover:shadow-md">
 		<div className="p-5">
 			<div className="flex items-center gap-3">
@@ -22,7 +28,9 @@ const FormulaStat = ({ icon: Icon, label, formula, result, components }: Formula
 			</div>
 			<div className="mt-4 space-y-2">
 				<p className="text-3xl font-bold tracking-tight">{result}</p>
-				<Badge variant="outline" className="font-mono text-xs">{formula}</Badge>
+				<Badge variant="outline" className="font-mono text-xs">
+					{formula}
+				</Badge>
 			</div>
 		</div>
 		<Separator />

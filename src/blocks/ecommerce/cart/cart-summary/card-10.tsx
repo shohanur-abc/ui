@@ -1,9 +1,5 @@
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardFooter,
-} from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { CheckCircle2, type LucideIcon } from 'lucide-react';
@@ -26,7 +22,9 @@ const CartItemCard = ({ image, name, price, quantity }: CartItemCardProps) => (
 		<CardContent className="flex items-center gap-3 py-3">
 			<Avatar className="size-12 rounded-lg">
 				<AvatarImage src={image} alt={name} className="object-cover" />
-				<AvatarFallback className="rounded-lg">{name.slice(0, 2)}</AvatarFallback>
+				<AvatarFallback className="rounded-lg">
+					{name.slice(0, 2)}
+				</AvatarFallback>
 			</Avatar>
 			<div className="flex-1">
 				<p className="text-sm font-medium">{name}</p>
@@ -47,7 +45,8 @@ const SummaryRow = ({ label, value }: SummaryRowProps) => (
 export default function Main() {
 	const cartItems: CartItemCardProps[] = [
 		{
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
 			name: 'Premium Watch',
 			price: '$299.00',
 			quantity: 1,

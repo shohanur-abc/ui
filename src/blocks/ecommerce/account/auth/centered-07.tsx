@@ -4,7 +4,13 @@ import { Mail, Lock, User, Phone, ArrowRight, Gem } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 
 const GlowDecorative = () => (
 	<div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -13,7 +19,13 @@ const GlowDecorative = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-2">
 		<div className="flex size-9 items-center justify-center rounded-lg bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -93,7 +105,9 @@ export default function Main() {
 						<div className="flex justify-center">
 							<Logo name="LuxeShop" icon={Gem} />
 						</div>
-						<CardTitle className="text-2xl @sm:text-3xl mt-4">Create your account</CardTitle>
+						<CardTitle className="text-2xl @sm:text-3xl mt-4">
+							Create your account
+						</CardTitle>
 						<CardDescription className="text-base">
 							Start your premium shopping experience today
 						</CardDescription>
@@ -101,15 +115,44 @@ export default function Main() {
 					<CardContent className="pt-6">
 						<form className="space-y-5">
 							<FormRow>
-								<FormField label="First Name" type="text" placeholder="John" icon={User} />
-								<FormField label="Last Name" type="text" placeholder="Doe" icon={User} />
+								<FormField
+									label="First Name"
+									type="text"
+									placeholder="John"
+									icon={User}
+								/>
+								<FormField
+									label="Last Name"
+									type="text"
+									placeholder="Doe"
+									icon={User}
+								/>
 							</FormRow>
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Phone" type="tel" placeholder="+1 (555) 000-0000" icon={Phone} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Phone"
+								type="tel"
+								placeholder="+1 (555) 000-0000"
+								icon={Phone}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<SubmitButton label="Create Account" icon={ArrowRight} />
 						</form>
-						<FooterLink text="Already have an account?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already have an account?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</CardContent>
 				</Card>
 			</div>

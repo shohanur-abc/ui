@@ -12,7 +12,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import { Lock, ShieldCheck, RefreshCw, Headphones, ArrowRight } from 'lucide-react';
+import {
+	Lock,
+	ShieldCheck,
+	RefreshCw,
+	Headphones,
+	ArrowRight,
+} from 'lucide-react';
 
 interface FieldProps {
 	label: string;
@@ -172,14 +178,8 @@ export default function Main() {
 									placeholder="Select country"
 									options={countries}
 								/>
-								<Field
-									label="Street Address"
-									placeholder="123 Main Street"
-								/>
-								<Field
-									label="Apt / Suite"
-									placeholder="Optional"
-								/>
+								<Field label="Street Address" placeholder="123 Main Street" />
+								<Field label="Apt / Suite" placeholder="Optional" />
 								<div className="grid grid-cols-3 gap-4">
 									<Field label="City" placeholder="City" />
 									<SelectField

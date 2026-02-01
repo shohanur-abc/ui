@@ -59,9 +59,7 @@ const StepHeader = ({
 	<div className="flex items-center gap-4 flex-1">
 		<div
 			className={`size-12 rounded-full flex items-center justify-center font-bold ${
-				completed
-					? 'bg-green-500 text-white'
-					: 'bg-primary/10 text-primary'
+				completed ? 'bg-green-500 text-white' : 'bg-primary/10 text-primary'
 			}`}
 		>
 			{completed ? <CheckCircle className="size-6" /> : number}
@@ -120,7 +118,11 @@ const AddressForm = ({
 	states: { value: string; label: string }[];
 }) => (
 	<div className="space-y-4 pt-4 pl-16">
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -135,14 +137,17 @@ const BillingOptions = () => (
 	<div className="space-y-4 pt-4 pl-16">
 		<div className="flex items-center gap-2">
 			<Checkbox id="same-shipping" defaultChecked />
-			<Label htmlFor="same-shipping" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="same-shipping"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Same as shipping address
 			</Label>
 		</div>
 		<div className="p-4 rounded-lg bg-muted/30 border border-border">
 			<p className="text-sm text-muted-foreground">
-				Your billing address will be the same as your shipping address. 
-				Uncheck the box above to enter a different billing address.
+				Your billing address will be the same as your shipping address. Uncheck
+				the box above to enter a different billing address.
 			</p>
 		</div>
 	</div>

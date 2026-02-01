@@ -30,7 +30,13 @@ interface StatusIndicatorProps {
 	available: boolean;
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="mb-8">
 		<h1 className="text-2xl @md:text-3xl font-bold">{title}</h1>
 		<p className="text-muted-foreground mt-1">{subtitle}</p>
@@ -116,9 +122,7 @@ const AddressOption = ({
 const DeliverySummary = () => (
 	<Card className="bg-muted/30">
 		<CardHeader className="pb-3">
-			<CardTitle className="text-sm font-medium">
-				Estimated Delivery
-			</CardTitle>
+			<CardTitle className="text-sm font-medium">Estimated Delivery</CardTitle>
 		</CardHeader>
 		<CardContent className="space-y-2">
 			<div className="flex justify-between text-sm">

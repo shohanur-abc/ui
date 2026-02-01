@@ -1,8 +1,24 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, Trash2, CreditCard, Wallet, Receipt, ArrowRight, Shield, Clock } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Trash2,
+	CreditCard,
+	Wallet,
+	Receipt,
+	ArrowRight,
+	Shield,
+	Clock,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,7 +39,13 @@ interface PaymentMethod {
 	selected?: boolean;
 }
 
-const PageHeading = ({ title, description }: { title: string; description: string }) => (
+const PageHeading = ({
+	title,
+	description,
+}: {
+	title: string;
+	description: string;
+}) => (
 	<div className="text-center @xl:text-left">
 		<h1 className="text-3xl font-bold @md:text-4xl">{title}</h1>
 		<p className="mt-2 text-muted-foreground">{description}</p>
@@ -36,10 +58,18 @@ const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 	</div>
 );
 
-const ItemMeta = ({ name, description }: { name: string; description: string }) => (
+const ItemMeta = ({
+	name,
+	description,
+}: {
+	name: string;
+	description: string;
+}) => (
 	<div className="min-w-0 flex-1">
 		<h3 className="font-semibold text-lg leading-tight">{name}</h3>
-		<p className="mt-1 text-sm text-muted-foreground line-clamp-2">{description}</p>
+		<p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+			{description}
+		</p>
 	</div>
 );
 
@@ -55,7 +85,13 @@ const QuantityControl = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const ItemTotal = ({ price, quantity }: { price: number; quantity: number }) => (
+const ItemTotal = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => (
 	<div className="text-right">
 		<p className="text-xl font-bold">${(price * quantity).toFixed(2)}</p>
 		<p className="text-sm text-muted-foreground">${price.toFixed(2)} each</p>
@@ -63,7 +99,11 @@ const ItemTotal = ({ price, quantity }: { price: number; quantity: number }) => 
 );
 
 const DeleteItem = () => (
-	<Button size="sm" variant="ghost" className="text-destructive hover:text-destructive hover:bg-destructive/10">
+	<Button
+		size="sm"
+		variant="ghost"
+		className="text-destructive hover:text-destructive hover:bg-destructive/10"
+	>
 		<Trash2 className="size-4" />
 	</Button>
 );
@@ -88,26 +128,46 @@ const CartItemCard = ({ item }: { item: CartItem }) => (
 	</Card>
 );
 
-const PaymentOption = ({ method, selected }: { method: PaymentMethod; selected?: boolean }) => {
+const PaymentOption = ({
+	method,
+	selected,
+}: {
+	method: PaymentMethod;
+	selected?: boolean;
+}) => {
 	const Icon = method.icon;
 	return (
 		<button
 			type="button"
 			className={`flex items-center gap-4 rounded-xl border-2 p-4 text-left transition-all w-full ${
-				selected ? 'border-primary bg-primary/5 shadow-sm' : 'hover:border-primary/30'
+				selected
+					? 'border-primary bg-primary/5 shadow-sm'
+					: 'hover:border-primary/30'
 			}`}
 		>
-			<div className={`rounded-lg p-2 ${selected ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
+			<div
+				className={`rounded-lg p-2 ${selected ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}
+			>
 				<Icon className="size-5" />
 			</div>
 			<div className="flex-1">
 				<p className="font-medium">{method.name}</p>
 				<p className="text-sm text-muted-foreground">{method.description}</p>
 			</div>
-			<div className={`size-5 rounded-full border-2 ${selected ? 'border-primary bg-primary' : 'border-muted-foreground/30'}`}>
+			<div
+				className={`size-5 rounded-full border-2 ${selected ? 'border-primary bg-primary' : 'border-muted-foreground/30'}`}
+			>
 				{selected && (
-					<svg className="size-full text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
-						<path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+					<svg
+						className="size-full text-primary-foreground"
+						viewBox="0 0 20 20"
+						fill="currentColor"
+					>
+						<path
+							fillRule="evenodd"
+							d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+							clipRule="evenodd"
+						/>
 					</svg>
 				)}
 			</div>
@@ -115,14 +175,30 @@ const PaymentOption = ({ method, selected }: { method: PaymentMethod; selected?:
 	);
 };
 
-const PricingLine = ({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) => (
-	<div className={`flex justify-between ${highlight ? 'text-xl font-bold' : ''}`}>
+const PricingLine = ({
+	label,
+	value,
+	highlight,
+}: {
+	label: string;
+	value: string;
+	highlight?: boolean;
+}) => (
+	<div
+		className={`flex justify-between ${highlight ? 'text-xl font-bold' : ''}`}
+	>
 		<span className={highlight ? '' : 'text-muted-foreground'}>{label}</span>
 		<span className={highlight ? 'text-primary' : ''}>{value}</span>
 	</div>
 );
 
-const TrustBadge = ({ icon: Icon, text }: { icon: React.ComponentType<{ className?: string }>; text: string }) => (
+const TrustBadge = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	text: string;
+}) => (
 	<div className="flex items-center gap-2 text-sm text-muted-foreground">
 		<Icon className="size-4" />
 		<span>{text}</span>
@@ -150,7 +226,11 @@ const CheckoutCard = ({
 		<CardContent className="space-y-6">
 			<div className="space-y-3">
 				{paymentMethods.map((method) => (
-					<PaymentOption key={method.id} method={method} selected={method.selected} />
+					<PaymentOption
+						key={method.id}
+						method={method}
+						selected={method.selected}
+					/>
 				))}
 			</div>
 
@@ -184,15 +264,18 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
 			name: 'Sony WH-1000XM5',
-			description: 'Premium wireless noise-canceling headphones with exceptional sound quality',
+			description:
+				'Premium wireless noise-canceling headphones with exceptional sound quality',
 			price: 349.99,
 			quantity: 1,
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1605464315542-bda3e2f4e605?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1605464315542-bda3e2f4e605?w=300&h=300&fit=crop',
 			name: 'MacBook Pro 14"',
 			description: 'Apple M3 Pro chip, 18GB RAM, 512GB SSD, Space Gray',
 			price: 1999.99,
@@ -200,7 +283,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=300&fit=crop',
 			name: 'Apple iPad Pro 12.9"',
 			description: 'M2 chip, 256GB, Wi-Fi + Cellular, Silver',
 			price: 1199.99,

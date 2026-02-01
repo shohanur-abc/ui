@@ -1,13 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	Calendar,
-	TrendingUp,
-} from 'lucide-react';
+import { Package, Calendar, TrendingUp } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
 	Select,
@@ -50,15 +52,22 @@ const Heatmap = ({ data, maxValue }: HeatmapProps) => {
 			<div className="min-w-[600px]">
 				<div className="flex gap-1">
 					<div className="w-12" />
-					{hours.filter((h) => h % 3 === 0).map((hour) => (
-						<div key={hour} className="flex-1 text-center text-xs text-muted-foreground">
-							{hour.toString().padStart(2, '0')}:00
-						</div>
-					))}
+					{hours
+						.filter((h) => h % 3 === 0)
+						.map((hour) => (
+							<div
+								key={hour}
+								className="flex-1 text-center text-xs text-muted-foreground"
+							>
+								{hour.toString().padStart(2, '0')}:00
+							</div>
+						))}
 				</div>
 				{days.map((day) => (
 					<div key={day} className="flex gap-1 mt-1">
-						<div className="w-12 text-xs font-medium flex items-center">{day}</div>
+						<div className="w-12 text-xs font-medium flex items-center">
+							{day}
+						</div>
 						{hours.map((hour) => {
 							const value = getValue(day, hour);
 							return (
@@ -160,7 +169,9 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Activity Heatmap</CardTitle>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Activity Heatmap
+								</CardTitle>
 								<CardDescription>Order volume by day and hour</CardDescription>
 							</div>
 							<Select value={metric} onValueChange={setMetric}>
@@ -176,7 +187,11 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent className="space-y-6">
-						<Insights peakDay="Thursday" peakHour="14:00 - 15:00" totalOrders={totalOrders} />
+						<Insights
+							peakDay="Thursday"
+							peakHour="14:00 - 15:00"
+							totalOrders={totalOrders}
+						/>
 						<Heatmap data={data} maxValue={maxValue} />
 					</CardContent>
 				</Card>

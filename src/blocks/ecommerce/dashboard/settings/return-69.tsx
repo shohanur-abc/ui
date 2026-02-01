@@ -61,7 +61,11 @@ const ReturnReasonCard = ({
 						: 'bg-muted text-muted-foreground'
 				}`}
 			>
-				{autoApprove ? <Check className="size-4" /> : <Clock className="size-4" />}
+				{autoApprove ? (
+					<Check className="size-4" />
+				) : (
+					<Clock className="size-4" />
+				)}
 			</div>
 			<div>
 				<p className="font-medium">{reason}</p>
@@ -85,11 +89,7 @@ const ReturnReasonCard = ({
 	</div>
 );
 
-const StatCard = ({
-	label,
-	value,
-	icon: Icon,
-}: ReturnStat) => (
+const StatCard = ({ label, value, icon: Icon }: ReturnStat) => (
 	<div className="flex items-center gap-3 rounded-lg border p-4">
 		<div className="flex size-10 items-center justify-center rounded-lg bg-primary/10">
 			<Icon className="size-5 text-primary" />
@@ -103,12 +103,42 @@ const StatCard = ({
 
 export default function Main() {
 	const returnReasons: ReturnReason[] = [
-		{ id: '1', reason: 'Wrong item received', requiresPhoto: true, autoApprove: true },
-		{ id: '2', reason: 'Item damaged in shipping', requiresPhoto: true, autoApprove: true },
-		{ id: '3', reason: 'Product defective', requiresPhoto: true, autoApprove: false },
-		{ id: '4', reason: 'Item not as described', requiresPhoto: true, autoApprove: false },
-		{ id: '5', reason: 'Changed mind', requiresPhoto: false, autoApprove: false },
-		{ id: '6', reason: "Doesn't fit", requiresPhoto: false, autoApprove: false },
+		{
+			id: '1',
+			reason: 'Wrong item received',
+			requiresPhoto: true,
+			autoApprove: true,
+		},
+		{
+			id: '2',
+			reason: 'Item damaged in shipping',
+			requiresPhoto: true,
+			autoApprove: true,
+		},
+		{
+			id: '3',
+			reason: 'Product defective',
+			requiresPhoto: true,
+			autoApprove: false,
+		},
+		{
+			id: '4',
+			reason: 'Item not as described',
+			requiresPhoto: true,
+			autoApprove: false,
+		},
+		{
+			id: '5',
+			reason: 'Changed mind',
+			requiresPhoto: false,
+			autoApprove: false,
+		},
+		{
+			id: '6',
+			reason: "Doesn't fit",
+			requiresPhoto: false,
+			autoApprove: false,
+		},
 	];
 
 	const stats: ReturnStat[] = [
@@ -136,9 +166,7 @@ export default function Main() {
 									</div>
 									<div>
 										<CardTitle>Return Policy</CardTitle>
-										<CardDescription>
-											Configure return handling
-										</CardDescription>
+										<CardDescription>Configure return handling</CardDescription>
 									</div>
 								</div>
 							</CardHeader>

@@ -1,8 +1,24 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardFooter,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Truck, MapPin, Package, Clock, Calendar, ExternalLink, Copy, Phone, CheckCircle2 } from 'lucide-react';
+import {
+	Truck,
+	MapPin,
+	Package,
+	Clock,
+	Calendar,
+	ExternalLink,
+	Copy,
+	Phone,
+	CheckCircle2,
+} from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 
 interface ShipmentDetailProps {
@@ -13,7 +29,14 @@ interface ShipmentDetailProps {
 		status: 'in-transit' | 'out-for-delivery' | 'delivered' | 'exception';
 		progress: number;
 		origin: { city: string; state: string; country: string };
-		destination: { name: string; address: string; city: string; state: string; zip: string; phone: string };
+		destination: {
+			name: string;
+			address: string;
+			city: string;
+			state: string;
+			zip: string;
+			phone: string;
+		};
 		weight: string;
 		dimensions: string;
 		dates: { shipped: string; estimated: string; delivered?: string };
@@ -30,13 +53,33 @@ interface ShipmentDetailProps {
 }
 
 const StatusConfig = {
-	'in-transit': { label: 'In Transit', className: 'bg-blue-500/10 text-blue-500 border-blue-500/30' },
-	'out-for-delivery': { label: 'Out for Delivery', className: 'bg-primary/10 text-primary border-primary/30' },
-	'delivered': { label: 'Delivered', className: 'bg-accent/10 text-accent border-accent/30' },
-	'exception': { label: 'Exception', className: 'bg-destructive/10 text-destructive border-destructive/30' },
+	'in-transit': {
+		label: 'In Transit',
+		className: 'bg-blue-500/10 text-blue-500 border-blue-500/30',
+	},
+	'out-for-delivery': {
+		label: 'Out for Delivery',
+		className: 'bg-primary/10 text-primary border-primary/30',
+	},
+	delivered: {
+		label: 'Delivered',
+		className: 'bg-accent/10 text-accent border-accent/30',
+	},
+	exception: {
+		label: 'Exception',
+		className: 'bg-destructive/10 text-destructive border-destructive/30',
+	},
 };
 
-const InfoBlock = ({ icon: Icon, label, children }: { icon: React.ComponentType<{ className?: string }>; label: string; children: React.ReactNode }) => (
+const InfoBlock = ({
+	icon: Icon,
+	label,
+	children,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	label: string;
+	children: React.ReactNode;
+}) => (
 	<div className="p-4 rounded-xl bg-muted/20 border border-border/50">
 		<div className="flex items-center gap-2 text-muted-foreground mb-3">
 			<Icon className="size-4" />
@@ -59,17 +102,23 @@ const ShipmentDetail = ({ shipment, labels }: ShipmentDetailProps) => {
 							</div>
 							<div>
 								<CardTitle className="text-lg">{shipment.carrier}</CardTitle>
-								<p className="text-sm text-muted-foreground">{shipment.service}</p>
+								<p className="text-sm text-muted-foreground">
+									{shipment.service}
+								</p>
 							</div>
 						</div>
 						<div className="flex items-center gap-2">
-							<code className="text-sm font-mono bg-muted px-2 py-1 rounded">{shipment.trackingNumber}</code>
+							<code className="text-sm font-mono bg-muted px-2 py-1 rounded">
+								{shipment.trackingNumber}
+							</code>
 							<Button variant="ghost" size="icon-sm">
 								<Copy className="size-3" />
 							</Button>
 						</div>
 					</div>
-					<Badge variant="outline" className={className}>{label}</Badge>
+					<Badge variant="outline" className={className}>
+						{label}
+					</Badge>
 				</div>
 
 				<div className="mt-4 space-y-2">
@@ -84,14 +133,23 @@ const ShipmentDetail = ({ shipment, labels }: ShipmentDetailProps) => {
 			<CardContent className="space-y-4">
 				<div className="grid grid-cols-1 @md:grid-cols-2 gap-4">
 					<InfoBlock icon={MapPin} label={labels.origin}>
-						<p className="font-medium">{shipment.origin.city}, {shipment.origin.state}</p>
-						<p className="text-sm text-muted-foreground">{shipment.origin.country}</p>
+						<p className="font-medium">
+							{shipment.origin.city}, {shipment.origin.state}
+						</p>
+						<p className="text-sm text-muted-foreground">
+							{shipment.origin.country}
+						</p>
 					</InfoBlock>
 
 					<InfoBlock icon={MapPin} label={labels.destination}>
 						<p className="font-medium">{shipment.destination.name}</p>
-						<p className="text-sm text-muted-foreground">{shipment.destination.address}</p>
-						<p className="text-sm text-muted-foreground">{shipment.destination.city}, {shipment.destination.state} {shipment.destination.zip}</p>
+						<p className="text-sm text-muted-foreground">
+							{shipment.destination.address}
+						</p>
+						<p className="text-sm text-muted-foreground">
+							{shipment.destination.city}, {shipment.destination.state}{' '}
+							{shipment.destination.zip}
+						</p>
 					</InfoBlock>
 				</div>
 
@@ -125,13 +183,17 @@ const ShipmentDetail = ({ shipment, labels }: ShipmentDetailProps) => {
 					<div className="p-3 rounded-lg bg-primary/10 border border-primary/20 text-center">
 						<Clock className="size-4 text-primary mx-auto mb-1" />
 						<p className="text-xs text-muted-foreground">Est. Delivery</p>
-						<p className="font-medium text-primary">{shipment.dates.estimated}</p>
+						<p className="font-medium text-primary">
+							{shipment.dates.estimated}
+						</p>
 					</div>
 					{shipment.dates.delivered && (
 						<div className="p-3 rounded-lg bg-accent/10 border border-accent/20 text-center">
 							<CheckCircle2 className="size-4 text-accent mx-auto mb-1" />
 							<p className="text-xs text-muted-foreground">Delivered</p>
-							<p className="font-medium text-accent">{shipment.dates.delivered}</p>
+							<p className="font-medium text-accent">
+								{shipment.dates.delivered}
+							</p>
 						</div>
 					)}
 				</div>
@@ -168,7 +230,14 @@ export default function Main() {
 		status: 'in-transit' as const,
 		progress: 65,
 		origin: { city: 'Los Angeles', state: 'CA', country: 'United States' },
-		destination: { name: 'John Smith', address: '123 Main Street, Apt 4B', city: 'New York', state: 'NY', zip: '10001', phone: '+1 (555) 123-4567' },
+		destination: {
+			name: 'John Smith',
+			address: '123 Main Street, Apt 4B',
+			city: 'New York',
+			state: 'NY',
+			zip: '10001',
+			phone: '+1 (555) 123-4567',
+		},
 		weight: '2.4 lbs',
 		dimensions: '12 × 8 × 6 in',
 		dates: { shipped: 'Jan 27, 2024', estimated: 'Jan 31, 2024' },

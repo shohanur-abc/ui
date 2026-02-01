@@ -1,4 +1,11 @@
-import { ArrowUpRight, Package, ShoppingCart, Star, Truck, Users } from 'lucide-react';
+import {
+	ArrowUpRight,
+	Package,
+	ShoppingCart,
+	Star,
+	Truck,
+	Users,
+} from 'lucide-react';
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
@@ -57,7 +64,9 @@ const GoalProgress = ({ label, current, target }: GoalItem) => (
 	<div>
 		<div className="flex justify-between text-sm">
 			<span>{label}</span>
-			<span className="font-medium">{current}/{target}</span>
+			<span className="font-medium">
+				{current}/{target}
+			</span>
 		</div>
 		<Progress value={(current / target) * 100} className="mt-1.5 h-1.5" />
 	</div>
@@ -72,9 +81,27 @@ export default function Main() {
 	];
 
 	const recentItems: RecentItem[] = [
-		{ id: '1', title: 'John Doe', subtitle: '3 items', value: '$234.50', initials: 'JD' },
-		{ id: '2', title: 'Jane Smith', subtitle: '2 items', value: '$189.00', initials: 'JS' },
-		{ id: '3', title: 'Bob Wilson', subtitle: '5 items', value: '$456.20', initials: 'BW' },
+		{
+			id: '1',
+			title: 'John Doe',
+			subtitle: '3 items',
+			value: '$234.50',
+			initials: 'JD',
+		},
+		{
+			id: '2',
+			title: 'Jane Smith',
+			subtitle: '2 items',
+			value: '$189.00',
+			initials: 'JS',
+		},
+		{
+			id: '3',
+			title: 'Bob Wilson',
+			subtitle: '5 items',
+			value: '$456.20',
+			initials: 'BW',
+		},
 	];
 
 	const goals: GoalItem[] = [

@@ -1,6 +1,12 @@
 'use client';
 
-import { Package, ShoppingBag, Truck, CheckCircle, type LucideIcon } from 'lucide-react';
+import {
+	Package,
+	ShoppingBag,
+	Truck,
+	CheckCircle,
+	type LucideIcon,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 type StatusCardProps = {
@@ -21,8 +27,10 @@ const StatusCard = ({
 	const colorClasses = {
 		primary: 'from-primary/20 to-primary/5 text-primary ring-primary/30',
 		accent: 'from-accent/20 to-accent/5 text-accent ring-accent/30',
-		warning: 'from-amber-500/20 to-amber-500/5 text-amber-500 ring-amber-500/30',
-		success: 'from-emerald-500/20 to-emerald-500/5 text-emerald-500 ring-emerald-500/30',
+		warning:
+			'from-amber-500/20 to-amber-500/5 text-amber-500 ring-amber-500/30',
+		success:
+			'from-emerald-500/20 to-emerald-500/5 text-emerald-500 ring-emerald-500/30',
 	};
 
 	const iconBg = colorClasses[color];
@@ -30,9 +38,7 @@ const StatusCard = ({
 	return (
 		<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
 			<CardHeader className="pb-2 flex flex-row items-center gap-3">
-				<div
-					className={`p-3 rounded-xl bg-gradient-to-br ring-1 ${iconBg}`}
-				>
+				<div className={`p-3 rounded-xl bg-gradient-to-br ring-1 ${iconBg}`}>
 					<Icon className="size-5" />
 				</div>
 				<CardTitle className="text-sm font-medium text-muted-foreground">

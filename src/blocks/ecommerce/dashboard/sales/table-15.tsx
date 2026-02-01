@@ -1,6 +1,13 @@
 'use client';
 
-import { ShoppingBag, Package, DollarSign, Truck, Calendar, Eye } from 'lucide-react';
+import {
+	ShoppingBag,
+	Package,
+	DollarSign,
+	Truck,
+	Calendar,
+	Eye,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -88,7 +95,10 @@ const OrderDetailTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{orders.map((order) => (
-							<TableRow key={order.orderId} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={order.orderId}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell>
 									<div className="space-y-1">
 										<p className="font-mono font-semibold">{order.orderId}</p>
@@ -102,10 +112,17 @@ const OrderDetailTableCard = ({
 								<TableCell>
 									<div className="space-y-1">
 										{order.items.slice(0, 2).map((item, idx) => (
-											<div key={idx} className="flex items-center gap-2 text-sm">
+											<div
+												key={idx}
+												className="flex items-center gap-2 text-sm"
+											>
 												<Package className="size-3 text-muted-foreground" />
-												<span className="truncate max-w-[150px]">{item.name}</span>
-												<span className="text-muted-foreground">×{item.quantity}</span>
+												<span className="truncate max-w-[150px]">
+													{item.name}
+												</span>
+												<span className="text-muted-foreground">
+													×{item.quantity}
+												</span>
 											</div>
 										))}
 										{order.items.length > 2 && (
@@ -120,8 +137,7 @@ const OrderDetailTableCard = ({
 								</TableCell>
 								<TableCell className="text-right text-muted-foreground">
 									<div className="flex items-center justify-end gap-1">
-										<Truck className="size-3" />
-										${order.shipping}
+										<Truck className="size-3" />${order.shipping}
 									</div>
 								</TableCell>
 								<TableCell className="text-right font-semibold">
@@ -195,9 +211,7 @@ export default function Main() {
 			orderId: 'ORD-2024-003',
 			customer: 'Carol White',
 			email: 'carol@example.com',
-			items: [
-				{ name: 'Laptop Stand Adjustable', quantity: 1, price: 89 },
-			],
+			items: [{ name: 'Laptop Stand Adjustable', quantity: 1, price: 89 }],
 			subtotal: 89,
 			shipping: 8,
 			tax: 8,

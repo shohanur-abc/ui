@@ -96,7 +96,8 @@ export default function Main() {
 			author: 'David Park',
 			role: 'CEO',
 			company: 'ChangeFirst',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'DP',
 			rating: 5,
 			position: 'left',
@@ -107,7 +108,8 @@ export default function Main() {
 			author: 'Emma Lee',
 			role: 'Design Director',
 			company: 'DesignPro',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'EL',
 			rating: 5,
 			position: 'right',
@@ -118,7 +120,8 @@ export default function Main() {
 			author: 'Frank Kim',
 			role: 'Operations',
 			company: 'SupportMaster',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'FK',
 			rating: 5,
 			position: 'left',
@@ -126,7 +129,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Conversation Style"

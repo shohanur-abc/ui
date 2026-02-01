@@ -1,5 +1,11 @@
 import Link from 'next/link';
-import { ArrowRight, Smartphone, Lock, MessageCircle, Shield } from 'lucide-react';
+import {
+	ArrowRight,
+	Smartphone,
+	Lock,
+	MessageCircle,
+	Shield,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -21,7 +27,9 @@ const PhoneIllustration = () => (
 					</div>
 					<div className="text-center">
 						<p className="text-sm text-muted-foreground">Verification code</p>
-						<p className="text-2xl font-mono font-bold tracking-widest mt-1">• • • • • •</p>
+						<p className="text-2xl font-mono font-bold tracking-widest mt-1">
+							• • • • • •
+						</p>
 					</div>
 				</div>
 				<div className="w-20 h-1.5 rounded-full bg-muted mt-4" />
@@ -33,7 +41,13 @@ const PhoneIllustration = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -44,7 +58,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -90,7 +106,10 @@ const ResendText = ({
 		{countdown && countdown > 0 ? (
 			<span className="text-muted-foreground">Resend in {countdown}s</span>
 		) : (
-			<button type="button" className="text-primary font-medium hover:underline">
+			<button
+				type="button"
+				className="text-primary font-medium hover:underline"
+			>
 				{linkText}
 			</button>
 		)}
@@ -136,17 +155,28 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="SecureShop" icon={Lock} />
-						<Title text="Verify your phone" subtitle="We sent a 6-digit code to your phone" />
+						<Title
+							text="Verify your phone"
+							subtitle="We sent a 6-digit code to your phone"
+						/>
 						<PhoneSent phone="+1 (555) •••-••89" />
 
 						<form className="space-y-6">
 							<OTPInput length={6} />
-							<ResendText text="Didn't get the code?" linkText="Resend" countdown={0} />
+							<ResendText
+								text="Didn't get the code?"
+								linkText="Resend"
+								countdown={0}
+							/>
 							<SubmitButton label="Verify & Continue" icon={ArrowRight} />
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="Wrong number?" linkText="Change phone" href="/phone" />
+							<FooterLink
+								text="Wrong number?"
+								linkText="Change phone"
+								href="/phone"
+							/>
 						</div>
 					</div>
 				</div>

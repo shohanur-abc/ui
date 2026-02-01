@@ -1,11 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	MapPin,
-	Box,
-} from 'lucide-react';
+import { Package, MapPin, Box } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -28,13 +24,21 @@ type LocationCardProps = {
 
 const LocationCard = ({ location, statusLabels }: LocationCardProps) => {
 	const usagePercentage = (location.totalItems / location.capacity) * 100;
-	const variants: Record<'optimal' | 'high' | 'low', 'default' | 'secondary' | 'destructive'> = {
+	const variants: Record<
+		'optimal' | 'high' | 'low',
+		'default' | 'secondary' | 'destructive'
+	> = {
 		optimal: 'default',
 		high: 'secondary',
 		low: 'destructive',
 	};
 
-	const progressColor = usagePercentage > 90 ? '[&>div]:bg-destructive' : usagePercentage > 70 ? '[&>div]:bg-yellow-500' : '';
+	const progressColor =
+		usagePercentage > 90
+			? '[&>div]:bg-destructive'
+			: usagePercentage > 70
+				? '[&>div]:bg-yellow-500'
+				: '';
 
 	return (
 		<Card className="group transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
@@ -49,7 +53,9 @@ const LocationCard = ({ location, statusLabels }: LocationCardProps) => {
 							<p className="text-xs text-muted-foreground">{location.code}</p>
 						</div>
 					</div>
-					<Badge variant={variants[location.status]}>{statusLabels[location.status]}</Badge>
+					<Badge variant={variants[location.status]}>
+						{statusLabels[location.status]}
+					</Badge>
 				</div>
 			</CardHeader>
 			<CardContent className="space-y-4">
@@ -57,22 +63,30 @@ const LocationCard = ({ location, statusLabels }: LocationCardProps) => {
 					<div className="flex items-center justify-between text-sm">
 						<span className="text-muted-foreground">Capacity Usage</span>
 						<span className="font-medium tabular-nums">
-							{location.totalItems.toLocaleString()} / {location.capacity.toLocaleString()}
+							{location.totalItems.toLocaleString()} /{' '}
+							{location.capacity.toLocaleString()}
 						</span>
 					</div>
-					<Progress value={usagePercentage} className={`h-2 ${progressColor}`} />
+					<Progress
+						value={usagePercentage}
+						className={`h-2 ${progressColor}`}
+					/>
 					<p className="text-right text-xs text-muted-foreground">
 						{usagePercentage.toFixed(1)}% utilized
 					</p>
 				</div>
 				<div className="space-y-2">
-					<p className="text-xs font-medium text-muted-foreground">Categories</p>
+					<p className="text-xs font-medium text-muted-foreground">
+						Categories
+					</p>
 					<div className="flex flex-wrap gap-1.5">
 						{location.categories.map((cat) => (
 							<Badge key={cat.name} variant="outline" className="gap-1 text-xs">
 								<Box className="size-3" />
 								{cat.name}
-								<span className="ml-0.5 text-muted-foreground">{cat.count}</span>
+								<span className="ml-0.5 text-muted-foreground">
+									{cat.count}
+								</span>
 							</Badge>
 						))}
 					</div>
@@ -99,9 +113,12 @@ const Summary = ({ title, locations }: SummaryProps) => {
 				</div>
 				<div>
 					<p className="text-sm text-muted-foreground">{title}</p>
-					<p className="text-3xl font-bold tabular-nums">{totalItems.toLocaleString()}</p>
+					<p className="text-3xl font-bold tabular-nums">
+						{totalItems.toLocaleString()}
+					</p>
 					<p className="text-xs text-muted-foreground">
-						across {locations.length} locations ({((totalItems / totalCapacity) * 100).toFixed(1)}% capacity)
+						across {locations.length} locations (
+						{((totalItems / totalCapacity) * 100).toFixed(1)}% capacity)
 					</p>
 				</div>
 			</CardContent>
@@ -179,9 +196,7 @@ export default function Main() {
 			code: 'ST-CHI-003',
 			totalItems: 120,
 			capacity: 400,
-			categories: [
-				{ name: 'Accessories', count: 120 },
-			],
+			categories: [{ name: 'Accessories', count: 120 }],
 			status: 'low',
 		},
 	];

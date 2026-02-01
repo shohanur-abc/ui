@@ -1,11 +1,31 @@
 'use client';
 
-import { Bitcoin, Building2, Check, CreditCard, Lock, Shield, Smartphone, Wallet, Zap } from 'lucide-react';
+import {
+	Bitcoin,
+	Building2,
+	Check,
+	CreditCard,
+	Lock,
+	Shield,
+	Smartphone,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -19,9 +39,23 @@ interface PaymentMethod {
 	color: string;
 }
 
-const MethodHeader = ({ icon: Icon, name, description, badge, color }: { icon: React.ComponentType<{ className?: string }>; name: string; description: string; badge?: string; color: string }) => (
+const MethodHeader = ({
+	icon: Icon,
+	name,
+	description,
+	badge,
+	color,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	name: string;
+	description: string;
+	badge?: string;
+	color: string;
+}) => (
 	<div className="flex items-center gap-3 w-full">
-		<div className={`size-10 rounded-lg flex items-center justify-center shrink-0 ${color}`}>
+		<div
+			className={`size-10 rounded-lg flex items-center justify-center shrink-0 ${color}`}
+		>
 			<Icon className="size-5" />
 		</div>
 		<div className="flex-1 text-left">
@@ -70,7 +104,9 @@ const WalletContent = () => (
 		<Button variant="outline" className="w-full h-12 justify-start gap-3">
 			<Smartphone className="size-5" />
 			Apple Pay
-			<Badge variant="secondary" className="ml-auto">Connected</Badge>
+			<Badge variant="secondary" className="ml-auto">
+				Connected
+			</Badge>
 		</Button>
 		<Button variant="outline" className="w-full h-12 justify-start gap-3">
 			<Smartphone className="size-5" />
@@ -80,7 +116,9 @@ const WalletContent = () => (
 		<Button variant="outline" className="w-full h-12 justify-start gap-3">
 			<Wallet className="size-5" />
 			PayPal
-			<Badge variant="secondary" className="ml-auto">Connected</Badge>
+			<Badge variant="secondary" className="ml-auto">
+				Connected
+			</Badge>
 		</Button>
 	</div>
 );
@@ -111,11 +149,17 @@ const BankContent = () => (
 const CryptoContent = () => (
 	<div className="space-y-4 pt-4">
 		<div className="grid grid-cols-2 gap-2">
-			<Button variant="outline" className="h-14 flex-col gap-1 bg-orange-500/5 border-orange-500/20 hover:bg-orange-500/10">
+			<Button
+				variant="outline"
+				className="h-14 flex-col gap-1 bg-orange-500/5 border-orange-500/20 hover:bg-orange-500/10"
+			>
 				<Bitcoin className="size-5 text-orange-500" />
 				<span className="text-xs">Bitcoin</span>
 			</Button>
-			<Button variant="outline" className="h-14 flex-col gap-1 bg-blue-500/5 border-blue-500/20 hover:bg-blue-500/10">
+			<Button
+				variant="outline"
+				className="h-14 flex-col gap-1 bg-blue-500/5 border-blue-500/20 hover:bg-blue-500/10"
+			>
 				<Wallet className="size-5 text-blue-500" />
 				<span className="text-xs">Ethereum</span>
 			</Button>
@@ -129,12 +173,19 @@ const CryptoContent = () => (
 			</Button>
 		</div>
 		<div className="p-3 rounded-lg bg-primary/5 border border-primary/20 text-sm">
-			<span className="text-primary font-medium">5% discount</span> when paying with crypto
+			<span className="text-primary font-medium">5% discount</span> when paying
+			with crypto
 		</div>
 	</div>
 );
 
-const TotalDisplay = ({ amount, savings }: { amount: string; savings?: string }) => (
+const TotalDisplay = ({
+	amount,
+	savings,
+}: {
+	amount: string;
+	savings?: string;
+}) => (
 	<div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
 		<div className="flex items-center justify-between">
 			<div>
@@ -169,10 +220,37 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const methods: PaymentMethod[] = [
-		{ id: 'card', name: 'Credit/Debit Card', description: 'Visa, Mastercard, Amex', icon: CreditCard, badge: 'Popular', color: 'bg-blue-500/10 text-blue-500' },
-		{ id: 'wallet', name: 'Digital Wallet', description: 'Apple Pay, Google Pay, PayPal', icon: Wallet, badge: 'Fast', color: 'bg-purple-500/10 text-purple-500' },
-		{ id: 'bank', name: 'Bank Transfer', description: 'Direct from your bank', icon: Building2, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ id: 'crypto', name: 'Cryptocurrency', description: 'Bitcoin, Ethereum, USDC', icon: Bitcoin, badge: '-5%', color: 'bg-orange-500/10 text-orange-500' },
+		{
+			id: 'card',
+			name: 'Credit/Debit Card',
+			description: 'Visa, Mastercard, Amex',
+			icon: CreditCard,
+			badge: 'Popular',
+			color: 'bg-blue-500/10 text-blue-500',
+		},
+		{
+			id: 'wallet',
+			name: 'Digital Wallet',
+			description: 'Apple Pay, Google Pay, PayPal',
+			icon: Wallet,
+			badge: 'Fast',
+			color: 'bg-purple-500/10 text-purple-500',
+		},
+		{
+			id: 'bank',
+			name: 'Bank Transfer',
+			description: 'Direct from your bank',
+			icon: Building2,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			id: 'crypto',
+			name: 'Cryptocurrency',
+			description: 'Bitcoin, Ethereum, USDC',
+			icon: Bitcoin,
+			badge: '-5%',
+			color: 'bg-orange-500/10 text-orange-500',
+		},
 	];
 
 	return (
@@ -189,10 +267,21 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Accordion type="single" collapsible defaultValue="card" className="w-full">
+						<Accordion
+							type="single"
+							collapsible
+							defaultValue="card"
+							className="w-full"
+						>
 							<AccordionItem value="card">
 								<AccordionTrigger className="hover:no-underline">
-									<MethodHeader icon={CreditCard} name="Credit/Debit Card" description="Visa, Mastercard, Amex" badge="Popular" color="bg-blue-500/10 text-blue-500" />
+									<MethodHeader
+										icon={CreditCard}
+										name="Credit/Debit Card"
+										description="Visa, Mastercard, Amex"
+										badge="Popular"
+										color="bg-blue-500/10 text-blue-500"
+									/>
 								</AccordionTrigger>
 								<AccordionContent>
 									<CardForm />
@@ -200,7 +289,13 @@ export default function Main() {
 							</AccordionItem>
 							<AccordionItem value="wallet">
 								<AccordionTrigger className="hover:no-underline">
-									<MethodHeader icon={Wallet} name="Digital Wallet" description="Apple Pay, Google Pay, PayPal" badge="Fast" color="bg-purple-500/10 text-purple-500" />
+									<MethodHeader
+										icon={Wallet}
+										name="Digital Wallet"
+										description="Apple Pay, Google Pay, PayPal"
+										badge="Fast"
+										color="bg-purple-500/10 text-purple-500"
+									/>
 								</AccordionTrigger>
 								<AccordionContent>
 									<WalletContent />
@@ -208,7 +303,12 @@ export default function Main() {
 							</AccordionItem>
 							<AccordionItem value="bank">
 								<AccordionTrigger className="hover:no-underline">
-									<MethodHeader icon={Building2} name="Bank Transfer" description="Direct from your bank" color="bg-emerald-500/10 text-emerald-500" />
+									<MethodHeader
+										icon={Building2}
+										name="Bank Transfer"
+										description="Direct from your bank"
+										color="bg-emerald-500/10 text-emerald-500"
+									/>
 								</AccordionTrigger>
 								<AccordionContent>
 									<BankContent />
@@ -216,7 +316,13 @@ export default function Main() {
 							</AccordionItem>
 							<AccordionItem value="crypto">
 								<AccordionTrigger className="hover:no-underline">
-									<MethodHeader icon={Bitcoin} name="Cryptocurrency" description="Bitcoin, Ethereum, USDC" badge="-5%" color="bg-orange-500/10 text-orange-500" />
+									<MethodHeader
+										icon={Bitcoin}
+										name="Cryptocurrency"
+										description="Bitcoin, Ethereum, USDC"
+										badge="-5%"
+										color="bg-orange-500/10 text-orange-500"
+									/>
 								</AccordionTrigger>
 								<AccordionContent>
 									<CryptoContent />

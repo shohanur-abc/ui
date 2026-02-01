@@ -118,7 +118,10 @@ export default function Main() {
 							<CardTitle className="text-base">Sales by Country</CardTitle>
 						</CardHeader>
 						<CardContent className="flex items-center gap-4">
-							<ChartContainer config={chartConfig} className="h-[160px] w-[160px]">
+							<ChartContainer
+								config={chartConfig}
+								className="h-[160px] w-[160px]"
+							>
 								<PieChart>
 									<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 									<Pie

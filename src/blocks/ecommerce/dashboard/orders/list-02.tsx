@@ -47,10 +47,14 @@ const StatusDot = ({ status }: { status: OrderItem['status'] }) => {
 const OrderRow = ({ order, labels }: OrderRowProps) => (
 	<div className="flex items-center gap-3 py-3 px-4 hover:bg-muted/30 transition-colors border-b border-border/50 last:border-b-0">
 		<Checkbox id={order.id} className="data-[state=checked]:bg-primary" />
-		
+
 		<div className="size-10 rounded-lg bg-muted/50 border border-border/50 flex items-center justify-center">
 			{order.image ? (
-				<img src={order.image} alt="" className="size-full object-cover rounded-lg" />
+				<img
+					src={order.image}
+					alt=""
+					className="size-full object-cover rounded-lg"
+				/>
 			) : (
 				<Package className="size-5 text-muted-foreground" />
 			)}
@@ -63,7 +67,9 @@ const OrderRow = ({ order, labels }: OrderRowProps) => (
 
 		<div className="flex items-center gap-2">
 			<StatusDot status={order.status} />
-			<span className="text-xs capitalize text-muted-foreground">{order.status}</span>
+			<span className="text-xs capitalize text-muted-foreground">
+				{order.status}
+			</span>
 		</div>
 
 		<Badge variant="secondary" className="font-mono text-xs">
@@ -97,15 +103,62 @@ const OrderRow = ({ order, labels }: OrderRowProps) => (
 );
 
 export default function Main() {
-	const labels = { qty: 'Qty', view: 'View Details', print: 'Print Label', delete: 'Delete' };
+	const labels = {
+		qty: 'Qty',
+		view: 'View Details',
+		print: 'Print Label',
+		delete: 'Delete',
+	};
 
 	const orders: OrderItem[] = [
-		{ id: 'ITM-001', product: 'Wireless Bluetooth Headphones', sku: 'SKU-WBH-001', quantity: 2, price: '$159.98', status: 'pending' },
-		{ id: 'ITM-002', product: 'USB-C Charging Cable 3-Pack', sku: 'SKU-UCC-003', quantity: 1, price: '$24.99', status: 'ready' },
-		{ id: 'ITM-003', product: 'Laptop Stand Adjustable', sku: 'SKU-LSA-007', quantity: 1, price: '$89.00', status: 'packed' },
-		{ id: 'ITM-004', product: 'Mechanical Keyboard RGB', sku: 'SKU-MKR-012', quantity: 1, price: '$149.00', status: 'pending' },
-		{ id: 'ITM-005', product: 'Wireless Mouse Ergonomic', sku: 'SKU-WME-005', quantity: 3, price: '$119.97', status: 'ready' },
-		{ id: 'ITM-006', product: 'Monitor Light Bar', sku: 'SKU-MLB-002', quantity: 1, price: '$69.99', status: 'packed' },
+		{
+			id: 'ITM-001',
+			product: 'Wireless Bluetooth Headphones',
+			sku: 'SKU-WBH-001',
+			quantity: 2,
+			price: '$159.98',
+			status: 'pending',
+		},
+		{
+			id: 'ITM-002',
+			product: 'USB-C Charging Cable 3-Pack',
+			sku: 'SKU-UCC-003',
+			quantity: 1,
+			price: '$24.99',
+			status: 'ready',
+		},
+		{
+			id: 'ITM-003',
+			product: 'Laptop Stand Adjustable',
+			sku: 'SKU-LSA-007',
+			quantity: 1,
+			price: '$89.00',
+			status: 'packed',
+		},
+		{
+			id: 'ITM-004',
+			product: 'Mechanical Keyboard RGB',
+			sku: 'SKU-MKR-012',
+			quantity: 1,
+			price: '$149.00',
+			status: 'pending',
+		},
+		{
+			id: 'ITM-005',
+			product: 'Wireless Mouse Ergonomic',
+			sku: 'SKU-WME-005',
+			quantity: 3,
+			price: '$119.97',
+			status: 'ready',
+		},
+		{
+			id: 'ITM-006',
+			product: 'Monitor Light Bar',
+			sku: 'SKU-MLB-002',
+			quantity: 1,
+			price: '$69.99',
+			status: 'packed',
+		},
 	];
 
 	return (

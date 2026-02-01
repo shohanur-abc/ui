@@ -40,7 +40,9 @@ const LogoWall = ({ logos }: { logos: CompanyLogo[] }) => (
 					key={index}
 					className="aspect-square rounded-xl bg-card border border-border/50 flex items-center justify-center hover:border-primary/30 transition-colors"
 				>
-					<span className="font-bold text-xl text-muted-foreground">{logo.initials}</span>
+					<span className="font-bold text-xl text-muted-foreground">
+						{logo.initials}
+					</span>
 				</div>
 			))}
 		</div>
@@ -51,7 +53,11 @@ const LogoWall = ({ logos }: { logos: CompanyLogo[] }) => (
 	</div>
 );
 
-const TestimonialsStack = ({ testimonials }: { testimonials: TestimonialItem[] }) => (
+const TestimonialsStack = ({
+	testimonials,
+}: {
+	testimonials: TestimonialItem[];
+}) => (
 	<div className="space-y-4">
 		<div className="mb-8">
 			<Badge variant="outline" className="mb-4 gap-2 border-primary/30">
@@ -112,7 +118,8 @@ export default function Main() {
 			author: 'Isabel Chen',
 			role: 'CTO',
 			company: 'TechCorp',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'IC',
 			rating: 5,
 		},
@@ -122,24 +129,28 @@ export default function Main() {
 			author: 'James Brown',
 			role: 'CFO',
 			company: 'DataFlow',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'JB',
 			rating: 5,
 		},
 		{
-			quote:
-				'Our team productivity increased by 35%. The platform just works.',
+			quote: 'Our team productivity increased by 35%. The platform just works.',
 			author: 'Kira Patel',
 			role: 'Operations',
 			company: 'CloudSync',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'KP',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<div className="grid grid-cols-1 @lg:grid-cols-5 gap-8 @lg:gap-12">
 					<div className="@lg:col-span-2">

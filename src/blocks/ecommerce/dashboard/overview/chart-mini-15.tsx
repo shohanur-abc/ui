@@ -74,9 +74,18 @@ const MiniChartCard = ({
 				className="h-[80px] w-full"
 			>
 				{chartType === 'area' ? (
-					<AreaChart data={data} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
+					<AreaChart
+						data={data}
+						margin={{ left: 0, right: 0, top: 0, bottom: 0 }}
+					>
 						<defs>
-							<linearGradient id={`fill-${dataKey}`} x1="0" y1="0" x2="0" y2="1">
+							<linearGradient
+								id={`fill-${dataKey}`}
+								x1="0"
+								y1="0"
+								x2="0"
+								y2="1"
+							>
 								<stop offset="5%" stopColor={color} stopOpacity={0.3} />
 								<stop offset="95%" stopColor={color} stopOpacity={0} />
 							</linearGradient>
@@ -91,7 +100,10 @@ const MiniChartCard = ({
 						/>
 					</AreaChart>
 				) : (
-					<BarChart data={data} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
+					<BarChart
+						data={data}
+						margin={{ left: 0, right: 0, top: 0, bottom: 0 }}
+					>
 						<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 						<Bar dataKey={dataKey} fill={color} radius={[2, 2, 0, 0]} />
 					</BarChart>

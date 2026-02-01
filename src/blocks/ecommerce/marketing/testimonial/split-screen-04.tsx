@@ -138,7 +138,8 @@ export default function Main() {
 			author: 'Grace Lee',
 			role: 'CX Director',
 			company: 'ServiceFirst',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'GL',
 			rating: 5,
 			verified: true,
@@ -149,7 +150,8 @@ export default function Main() {
 			author: 'Henry Park',
 			role: 'VP Engineering',
 			company: 'TechEval',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'HP',
 			rating: 5,
 			verified: true,
@@ -157,9 +159,16 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
-				<SectionHeader badge="Split View" title="Customer" highlight="Experiences" />
+				<SectionHeader
+					badge="Split View"
+					title="Customer"
+					highlight="Experiences"
+				/>
 
 				<div className="space-y-12 @lg:space-y-16">
 					<LeftTestimonial item={testimonials[0]} />

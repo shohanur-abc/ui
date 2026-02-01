@@ -51,9 +51,7 @@ const StarRating = ({ rating }: { rating: number }) => (
 			<Star
 				key={i}
 				className={`size-4 ${
-					i < rating
-						? 'fill-amber-400 text-amber-400'
-						: 'fill-muted text-muted'
+					i < rating ? 'fill-amber-400 text-amber-400' : 'fill-muted text-muted'
 				}`}
 			/>
 		))}
@@ -119,7 +117,10 @@ const ReviewCard = ({ review }: { review: Review }) => (
 							{review.customer.name}
 						</span>
 						{review.customer.isVerified && (
-							<Badge variant="outline" className="text-xs gap-1 bg-blue-500/10 text-blue-400 border-blue-500/30">
+							<Badge
+								variant="outline"
+								className="text-xs gap-1 bg-blue-500/10 text-blue-400 border-blue-500/30"
+							>
 								<CheckCircle2 className="size-3" />
 								Verified
 							</Badge>
@@ -157,7 +158,9 @@ const ReviewCard = ({ review }: { review: Review }) => (
 						<span>{review.replies} replies</span>
 					</div>
 				</div>
-				<span className="text-xs text-muted-foreground">{review.timestamp}</span>
+				<span className="text-xs text-muted-foreground">
+					{review.timestamp}
+				</span>
 			</div>
 		</div>
 	</div>
@@ -225,7 +228,7 @@ export default function Main() {
 			product: { name: 'Premium Headphones' },
 			customer: { name: 'Sarah Chen', initials: 'SC', isVerified: true },
 			rating: 5,
-			title: 'Best headphones I\'ve ever owned!',
+			title: "Best headphones I've ever owned!",
 			content:
 				'The sound quality is incredible, and the noise cancellation is perfect for working from home. Battery life exceeds expectations.',
 			sentiment: 'positive',
@@ -268,8 +271,7 @@ export default function Main() {
 			customer: { name: 'Emily Davis', initials: 'ED' },
 			rating: 1,
 			title: 'THIS IS A SCAM!!!',
-			content:
-				'NEVER RECEIVED MY ORDER THEY ARE THIEVES STAY AWAY!!!',
+			content: 'NEVER RECEIVED MY ORDER THEY ARE THIEVES STAY AWAY!!!',
 			sentiment: 'negative',
 			helpful: 0,
 			replies: 1,

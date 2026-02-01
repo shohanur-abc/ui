@@ -27,7 +27,13 @@ type ComparisonRowProps = {
 	unit: string;
 };
 
-const ComparisonRow = ({ metric, current, previous, change, unit }: ComparisonRowProps) => {
+const ComparisonRow = ({
+	metric,
+	current,
+	previous,
+	change,
+	unit,
+}: ComparisonRowProps) => {
 	const isPositive = change > 0;
 	const isNeutral = change === 0;
 
@@ -59,7 +65,8 @@ const ComparisonRow = ({ metric, current, previous, change, unit }: ComparisonRo
 					) : (
 						<ArrowDownRight className="mr-1 size-3" />
 					)}
-					{isPositive ? '+' : ''}{change}%
+					{isPositive ? '+' : ''}
+					{change}%
 				</Badge>
 			</TableCell>
 		</TableRow>
@@ -68,16 +75,76 @@ const ComparisonRow = ({ metric, current, previous, change, unit }: ComparisonRo
 
 export default function Main() {
 	const comparisons: ComparisonRowProps[] = [
-		{ metric: 'Total Revenue', current: '$1.24M', previous: '$1.05M', change: 18.1, unit: '' },
-		{ metric: 'Total Orders', current: '12,458', previous: '10,892', change: 14.4, unit: '' },
-		{ metric: 'Average Order Value', current: '$149.50', previous: '$145.20', change: 3.0, unit: '' },
-		{ metric: 'New Customers', current: '2,845', previous: '2,580', change: 10.3, unit: '' },
-		{ metric: 'Repeat Customers', current: '4,280', previous: '4,120', change: 3.9, unit: '' },
-		{ metric: 'Conversion Rate', current: '4.2', previous: '3.8', change: 10.5, unit: '%' },
-		{ metric: 'Cart Abandonment', current: '24.5', previous: '28.2', change: -13.1, unit: '%' },
-		{ metric: 'Return Rate', current: '5.2', previous: '4.8', change: 8.3, unit: '%' },
-		{ metric: 'Customer Satisfaction', current: '4.7', previous: '4.5', change: 4.4, unit: '/5' },
-		{ metric: 'Net Promoter Score', current: '62', previous: '58', change: 6.9, unit: '' },
+		{
+			metric: 'Total Revenue',
+			current: '$1.24M',
+			previous: '$1.05M',
+			change: 18.1,
+			unit: '',
+		},
+		{
+			metric: 'Total Orders',
+			current: '12,458',
+			previous: '10,892',
+			change: 14.4,
+			unit: '',
+		},
+		{
+			metric: 'Average Order Value',
+			current: '$149.50',
+			previous: '$145.20',
+			change: 3.0,
+			unit: '',
+		},
+		{
+			metric: 'New Customers',
+			current: '2,845',
+			previous: '2,580',
+			change: 10.3,
+			unit: '',
+		},
+		{
+			metric: 'Repeat Customers',
+			current: '4,280',
+			previous: '4,120',
+			change: 3.9,
+			unit: '',
+		},
+		{
+			metric: 'Conversion Rate',
+			current: '4.2',
+			previous: '3.8',
+			change: 10.5,
+			unit: '%',
+		},
+		{
+			metric: 'Cart Abandonment',
+			current: '24.5',
+			previous: '28.2',
+			change: -13.1,
+			unit: '%',
+		},
+		{
+			metric: 'Return Rate',
+			current: '5.2',
+			previous: '4.8',
+			change: 8.3,
+			unit: '%',
+		},
+		{
+			metric: 'Customer Satisfaction',
+			current: '4.7',
+			previous: '4.5',
+			change: 4.4,
+			unit: '/5',
+		},
+		{
+			metric: 'Net Promoter Score',
+			current: '62',
+			previous: '58',
+			change: 6.9,
+			unit: '',
+		},
 	];
 
 	return (

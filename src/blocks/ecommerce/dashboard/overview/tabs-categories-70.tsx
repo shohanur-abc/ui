@@ -10,7 +10,13 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	ChartConfig,
 	ChartContainer,
@@ -29,14 +35,24 @@ type CategoryMetric = {
 	color: string;
 };
 
-const CategoryCard = ({ name, revenue, products, growth, share, color }: CategoryMetric) => (
+const CategoryCard = ({
+	name,
+	revenue,
+	products,
+	growth,
+	share,
+	color,
+}: CategoryMetric) => (
 	<div className="rounded-xl border bg-card p-4">
 		<div className="flex items-center justify-between">
 			<div className="flex items-center gap-2">
 				<div className={`size-3 rounded-full ${color}`} />
 				<span className="font-medium">{name}</span>
 			</div>
-			<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+			<Badge
+				variant="secondary"
+				className="bg-emerald-500/10 text-emerald-500 text-xs"
+			>
 				<ArrowUpRight className="mr-0.5 size-3" />
 				{growth}
 			</Badge>
@@ -71,15 +87,57 @@ const pieConfig: ChartConfig = {
 
 export default function Main() {
 	const electronics: CategoryMetric[] = [
-		{ name: 'Headphones', revenue: '$56,157', products: 24, growth: '+28%', share: 32, color: 'bg-primary' },
-		{ name: 'Smartwatches', revenue: '$97,197', products: 18, growth: '+24%', share: 45, color: 'bg-emerald-500' },
-		{ name: 'Keyboards', revenue: '$24,958', products: 12, growth: '+12%', share: 18, color: 'bg-amber-500' },
+		{
+			name: 'Headphones',
+			revenue: '$56,157',
+			products: 24,
+			growth: '+28%',
+			share: 32,
+			color: 'bg-primary',
+		},
+		{
+			name: 'Smartwatches',
+			revenue: '$97,197',
+			products: 18,
+			growth: '+24%',
+			share: 45,
+			color: 'bg-emerald-500',
+		},
+		{
+			name: 'Keyboards',
+			revenue: '$24,958',
+			products: 12,
+			growth: '+12%',
+			share: 18,
+			color: 'bg-amber-500',
+		},
 	];
 
 	const accessories: CategoryMetric[] = [
-		{ name: 'Stands', revenue: '$22,957', products: 15, growth: '+18%', share: 28, color: 'bg-primary' },
-		{ name: 'Hubs', revenue: '$25,595', products: 22, growth: '+22%', share: 35, color: 'bg-emerald-500' },
-		{ name: 'Cables', revenue: '$18,234', products: 45, growth: '+15%', share: 25, color: 'bg-amber-500' },
+		{
+			name: 'Stands',
+			revenue: '$22,957',
+			products: 15,
+			growth: '+18%',
+			share: 28,
+			color: 'bg-primary',
+		},
+		{
+			name: 'Hubs',
+			revenue: '$25,595',
+			products: 22,
+			growth: '+22%',
+			share: 35,
+			color: 'bg-emerald-500',
+		},
+		{
+			name: 'Cables',
+			revenue: '$18,234',
+			products: 45,
+			growth: '+15%',
+			share: 25,
+			color: 'bg-amber-500',
+		},
 	];
 
 	const barData = [
@@ -102,7 +160,9 @@ export default function Main() {
 				<Card>
 					<CardHeader>
 						<CardTitle>Category Performance</CardTitle>
-						<CardDescription>Revenue and metrics by product category</CardDescription>
+						<CardDescription>
+							Revenue and metrics by product category
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Tabs defaultValue="electronics" className="w-full">
@@ -128,22 +188,53 @@ export default function Main() {
 							<TabsContent value="overview">
 								<div className="grid gap-6 @xl:grid-cols-2">
 									<div>
-										<p className="mb-4 text-sm font-medium">Revenue by Category</p>
-										<ChartContainer config={barConfig} className="h-[220px] w-full">
+										<p className="mb-4 text-sm font-medium">
+											Revenue by Category
+										</p>
+										<ChartContainer
+											config={barConfig}
+											className="h-[220px] w-full"
+										>
 											<BarChart data={barData} layout="vertical">
-												<XAxis type="number" tickLine={false} axisLine={false} tickFormatter={(v) => `$${v/1000}K`} />
-												<YAxis dataKey="category" type="category" tickLine={false} axisLine={false} width={80} />
+												<XAxis
+													type="number"
+													tickLine={false}
+													axisLine={false}
+													tickFormatter={(v) => `$${v / 1000}K`}
+												/>
+												<YAxis
+													dataKey="category"
+													type="category"
+													tickLine={false}
+													axisLine={false}
+													width={80}
+												/>
 												<ChartTooltip content={<ChartTooltipContent />} />
-												<Bar dataKey="value" fill="var(--color-value)" radius={[0, 4, 4, 0]} />
+												<Bar
+													dataKey="value"
+													fill="var(--color-value)"
+													radius={[0, 4, 4, 0]}
+												/>
 											</BarChart>
 										</ChartContainer>
 									</div>
 									<div>
-										<p className="mb-4 text-sm font-medium">Market Share Distribution</p>
+										<p className="mb-4 text-sm font-medium">
+											Market Share Distribution
+										</p>
 										<div className="flex items-center gap-6">
-											<ChartContainer config={pieConfig} className="size-[180px]">
+											<ChartContainer
+												config={pieConfig}
+												className="size-[180px]"
+											>
 												<PieChart>
-													<Pie data={pieData} dataKey="value" nameKey="name" innerRadius={50} outerRadius={80}>
+													<Pie
+														data={pieData}
+														dataKey="value"
+														nameKey="name"
+														innerRadius={50}
+														outerRadius={80}
+													>
 														{pieData.map((entry, index) => (
 															<Cell key={`cell-${index}`} fill={entry.fill} />
 														))}
@@ -153,9 +244,14 @@ export default function Main() {
 											<div className="space-y-3">
 												{pieData.map((item, i) => (
 													<div key={i} className="flex items-center gap-2">
-														<div className="size-3 rounded-full" style={{ backgroundColor: item.fill }} />
+														<div
+															className="size-3 rounded-full"
+															style={{ backgroundColor: item.fill }}
+														/>
 														<span className="text-sm">{item.name}</span>
-														<span className="text-sm font-medium">{item.value}%</span>
+														<span className="text-sm font-medium">
+															{item.value}%
+														</span>
 													</div>
 												))}
 											</div>

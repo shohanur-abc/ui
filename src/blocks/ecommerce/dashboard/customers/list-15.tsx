@@ -27,7 +27,14 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 interface ActivityEvent {
-	type: 'login' | 'logout' | 'purchase' | 'cart' | 'browse' | 'profile' | 'email';
+	type:
+		| 'login'
+		| 'logout'
+		| 'purchase'
+		| 'cart'
+		| 'browse'
+		| 'profile'
+		| 'email';
 	description: string;
 	timestamp: string;
 	metadata?: {
@@ -68,7 +75,10 @@ const EventBadge = ({ type }: { type: ActivityEvent['type'] }) => {
 	const config: Record<string, { label: string; className: string }> = {
 		login: { label: 'Login', className: 'bg-blue-500/10 text-blue-500' },
 		logout: { label: 'Logout', className: 'bg-slate-500/10 text-slate-400' },
-		purchase: { label: 'Purchase', className: 'bg-emerald-500/10 text-emerald-500' },
+		purchase: {
+			label: 'Purchase',
+			className: 'bg-emerald-500/10 text-emerald-500',
+		},
 		cart: { label: 'Cart', className: 'bg-amber-500/10 text-amber-500' },
 		browse: { label: 'Browse', className: 'bg-violet-500/10 text-violet-500' },
 		profile: { label: 'Profile', className: 'bg-cyan-500/10 text-cyan-500' },
@@ -84,10 +94,16 @@ const EventBadge = ({ type }: { type: ActivityEvent['type'] }) => {
 };
 
 const OnlineIndicator = ({ isOnline }: { isOnline: boolean }) => (
-	<span className={`size-2.5 rounded-full ${isOnline ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'}`} />
+	<span
+		className={`size-2.5 rounded-full ${isOnline ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'}`}
+	/>
 );
 
-const DeviceBadge = ({ device }: { device: ActivityCustomer['deviceType'] }) => {
+const DeviceBadge = ({
+	device,
+}: {
+	device: ActivityCustomer['deviceType'];
+}) => {
 	const labels: Record<string, string> = {
 		desktop: '🖥️ Desktop',
 		mobile: '📱 Mobile',
@@ -139,17 +155,23 @@ const ActivityListItem = ({ customer }: { customer: ActivityCustomer }) => (
 						<span className="text-emerald-500 text-xs font-medium">Online</span>
 					)}
 				</div>
-				<p className="text-muted-foreground text-sm truncate">{customer.email}</p>
+				<p className="text-muted-foreground text-sm truncate">
+					{customer.email}
+				</p>
 			</div>
 		</div>
 		<div className="flex-1 min-w-0">
 			<div className="flex items-center gap-2 mb-1">
 				<EventBadge type={customer.lastActivity.type} />
-				<span className="text-xs text-muted-foreground">{customer.lastActivity.timestamp}</span>
+				<span className="text-xs text-muted-foreground">
+					{customer.lastActivity.timestamp}
+				</span>
 			</div>
 			<p className="text-sm truncate">{customer.lastActivity.description}</p>
 			{customer.lastActivity.metadata?.value && (
-				<p className="text-primary text-sm font-medium">{customer.lastActivity.metadata.value}</p>
+				<p className="text-primary text-sm font-medium">
+					{customer.lastActivity.metadata.value}
+				</p>
 			)}
 		</div>
 		<div className="hidden @xl:flex flex-col gap-1 min-w-[140px]">
@@ -197,11 +219,28 @@ export default function Main() {
 			email: 'wesley.a@email.com',
 			initials: 'WA',
 			isOnline: true,
-			lastActivity: { type: 'purchase', description: 'Completed order #ORD-8923', timestamp: '2 min ago', metadata: { value: '$234.50', items: 3 } },
+			lastActivity: {
+				type: 'purchase',
+				description: 'Completed order #ORD-8923',
+				timestamp: '2 min ago',
+				metadata: { value: '$234.50', items: 3 },
+			},
 			recentEvents: [
-				{ type: 'purchase', description: 'Completed order', timestamp: '2 min ago' },
-				{ type: 'cart', description: 'Added items to cart', timestamp: '5 min ago' },
-				{ type: 'browse', description: 'Viewed products', timestamp: '8 min ago' },
+				{
+					type: 'purchase',
+					description: 'Completed order',
+					timestamp: '2 min ago',
+				},
+				{
+					type: 'cart',
+					description: 'Added items to cart',
+					timestamp: '5 min ago',
+				},
+				{
+					type: 'browse',
+					description: 'Viewed products',
+					timestamp: '8 min ago',
+				},
 				{ type: 'login', description: 'Logged in', timestamp: '10 min ago' },
 			],
 			sessionCount: 45,
@@ -213,9 +252,17 @@ export default function Main() {
 			email: 'xena.f@email.com',
 			initials: 'XF',
 			isOnline: true,
-			lastActivity: { type: 'browse', description: 'Viewing Electronics > Gaming', timestamp: '1 min ago' },
+			lastActivity: {
+				type: 'browse',
+				description: 'Viewing Electronics > Gaming',
+				timestamp: '1 min ago',
+			},
 			recentEvents: [
-				{ type: 'browse', description: 'Viewing products', timestamp: '1 min ago' },
+				{
+					type: 'browse',
+					description: 'Viewing products',
+					timestamp: '1 min ago',
+				},
 				{ type: 'cart', description: 'Added to cart', timestamp: '3 min ago' },
 				{ type: 'login', description: 'Logged in', timestamp: '5 min ago' },
 			],
@@ -228,11 +275,23 @@ export default function Main() {
 			email: 'yuri.t@email.com',
 			initials: 'YT',
 			isOnline: false,
-			lastActivity: { type: 'logout', description: 'Session ended', timestamp: '1 hour ago' },
+			lastActivity: {
+				type: 'logout',
+				description: 'Session ended',
+				timestamp: '1 hour ago',
+			},
 			recentEvents: [
 				{ type: 'logout', description: 'Logged out', timestamp: '1 hour ago' },
-				{ type: 'profile', description: 'Updated profile', timestamp: '1 hour ago' },
-				{ type: 'browse', description: 'Viewed products', timestamp: '2 hours ago' },
+				{
+					type: 'profile',
+					description: 'Updated profile',
+					timestamp: '1 hour ago',
+				},
+				{
+					type: 'browse',
+					description: 'Viewed products',
+					timestamp: '2 hours ago',
+				},
 				{ type: 'login', description: 'Logged in', timestamp: '2 hours ago' },
 			],
 			sessionCount: 67,
@@ -244,11 +303,24 @@ export default function Main() {
 			email: 'zara.m@email.com',
 			initials: 'ZM',
 			isOnline: true,
-			lastActivity: { type: 'cart', description: 'Added "Wireless Headphones" to cart', timestamp: 'Just now', metadata: { items: 1 } },
+			lastActivity: {
+				type: 'cart',
+				description: 'Added "Wireless Headphones" to cart',
+				timestamp: 'Just now',
+				metadata: { items: 1 },
+			},
 			recentEvents: [
 				{ type: 'cart', description: 'Added to cart', timestamp: 'Just now' },
-				{ type: 'browse', description: 'Viewed product page', timestamp: '1 min ago' },
-				{ type: 'browse', description: 'Searching products', timestamp: '2 min ago' },
+				{
+					type: 'browse',
+					description: 'Viewed product page',
+					timestamp: '1 min ago',
+				},
+				{
+					type: 'browse',
+					description: 'Searching products',
+					timestamp: '2 min ago',
+				},
 				{ type: 'login', description: 'Logged in', timestamp: '3 min ago' },
 			],
 			sessionCount: 12,
@@ -260,10 +332,18 @@ export default function Main() {
 			email: 'aaron.b@email.com',
 			initials: 'AB',
 			isOnline: false,
-			lastActivity: { type: 'email', description: 'Clicked promotional email link', timestamp: '3 hours ago' },
+			lastActivity: {
+				type: 'email',
+				description: 'Clicked promotional email link',
+				timestamp: '3 hours ago',
+			},
 			recentEvents: [
 				{ type: 'email', description: 'Email click', timestamp: '3 hours ago' },
-				{ type: 'browse', description: 'Viewed landing page', timestamp: '3 hours ago' },
+				{
+					type: 'browse',
+					description: 'Viewed landing page',
+					timestamp: '3 hours ago',
+				},
 			],
 			sessionCount: 8,
 			deviceType: 'mobile',
@@ -274,10 +354,22 @@ export default function Main() {
 			email: 'bella.c@email.com',
 			initials: 'BC',
 			isOnline: true,
-			lastActivity: { type: 'profile', description: 'Updated shipping address', timestamp: '5 min ago' },
+			lastActivity: {
+				type: 'profile',
+				description: 'Updated shipping address',
+				timestamp: '5 min ago',
+			},
 			recentEvents: [
-				{ type: 'profile', description: 'Updated address', timestamp: '5 min ago' },
-				{ type: 'browse', description: 'Viewed order history', timestamp: '7 min ago' },
+				{
+					type: 'profile',
+					description: 'Updated address',
+					timestamp: '5 min ago',
+				},
+				{
+					type: 'browse',
+					description: 'Viewed order history',
+					timestamp: '7 min ago',
+				},
 				{ type: 'login', description: 'Logged in', timestamp: '8 min ago' },
 			],
 			sessionCount: 34,
@@ -289,10 +381,23 @@ export default function Main() {
 			email: 'carlos.r@email.com',
 			initials: 'CR',
 			isOnline: false,
-			lastActivity: { type: 'purchase', description: 'Completed order #ORD-8920', timestamp: '45 min ago', metadata: { value: '$89.99', items: 1 } },
+			lastActivity: {
+				type: 'purchase',
+				description: 'Completed order #ORD-8920',
+				timestamp: '45 min ago',
+				metadata: { value: '$89.99', items: 1 },
+			},
 			recentEvents: [
-				{ type: 'purchase', description: 'Completed order', timestamp: '45 min ago' },
-				{ type: 'cart', description: 'Checkout started', timestamp: '48 min ago' },
+				{
+					type: 'purchase',
+					description: 'Completed order',
+					timestamp: '45 min ago',
+				},
+				{
+					type: 'cart',
+					description: 'Checkout started',
+					timestamp: '48 min ago',
+				},
 				{ type: 'cart', description: 'Added to cart', timestamp: '50 min ago' },
 				{ type: 'login', description: 'Logged in', timestamp: '52 min ago' },
 			],
@@ -305,7 +410,11 @@ export default function Main() {
 			email: 'diana.l@email.com',
 			initials: 'DL',
 			isOnline: true,
-			lastActivity: { type: 'login', description: 'New session started from new device', timestamp: '30 sec ago' },
+			lastActivity: {
+				type: 'login',
+				description: 'New session started from new device',
+				timestamp: '30 sec ago',
+			},
 			recentEvents: [
 				{ type: 'login', description: 'Logged in', timestamp: '30 sec ago' },
 			],

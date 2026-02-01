@@ -1,6 +1,15 @@
 'use client';
 
-import { Building2, CheckCircle2, CreditCard, Globe, Lock, Shield, Smartphone, Wallet } from 'lucide-react';
+import {
+	Building2,
+	CheckCircle2,
+	CreditCard,
+	Globe,
+	Lock,
+	Shield,
+	Smartphone,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -26,7 +35,13 @@ interface WalletOptionProps {
 	connected?: boolean;
 }
 
-const SectionHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const SectionHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center mb-6">
 		<Badge variant="outline" className="gap-1.5 mb-4">
 			<Shield className="size-3" />
@@ -37,7 +52,15 @@ const SectionHeader = ({ title, subtitle }: { title: string; subtitle: string })
 	</div>
 );
 
-const IconTab = ({ value, icon: Icon, label }: { value: string; icon: React.ComponentType<{ className?: string }>; label: string }) => (
+const IconTab = ({
+	value,
+	icon: Icon,
+	label,
+}: {
+	value: string;
+	icon: React.ComponentType<{ className?: string }>;
+	label: string;
+}) => (
 	<TabsTrigger value={value} className="flex-col gap-1 h-auto py-3">
 		<Icon className="size-5" />
 		<span className="text-xs">{label}</span>
@@ -55,8 +78,14 @@ const SavedCard = ({ id, brand, last4, expiry, isDefault }: SavedCardProps) => (
 		</div>
 		<div className="flex-1">
 			<div className="flex items-center gap-2">
-				<span className="font-medium text-sm">{brand} •••• {last4}</span>
-				{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+				<span className="font-medium text-sm">
+					{brand} •••• {last4}
+				</span>
+				{isDefault && (
+					<Badge variant="secondary" className="text-xs">
+						Default
+					</Badge>
+				)}
 			</div>
 			<p className="text-xs text-muted-foreground">Expires {expiry}</p>
 		</div>
@@ -65,7 +94,10 @@ const SavedCard = ({ id, brand, last4, expiry, isDefault }: SavedCardProps) => (
 
 const SavedCardsContent = ({ cards }: { cards: SavedCardProps[] }) => (
 	<div className="space-y-4">
-		<RadioGroup defaultValue={cards.find(c => c.isDefault)?.id} className="space-y-3">
+		<RadioGroup
+			defaultValue={cards.find((c) => c.isDefault)?.id}
+			className="space-y-3"
+		>
 			{cards.map((card) => (
 				<SavedCard key={card.id} {...card} />
 			))}
@@ -77,7 +109,12 @@ const SavedCardsContent = ({ cards }: { cards: SavedCardProps[] }) => (
 	</div>
 );
 
-const WalletOption = ({ id, name, icon: Icon, connected }: WalletOptionProps) => (
+const WalletOption = ({
+	id,
+	name,
+	icon: Icon,
+	connected,
+}: WalletOptionProps) => (
 	<Button variant="outline" className="w-full h-14 justify-between">
 		<div className="flex items-center gap-3">
 			<Icon className="size-5" />
@@ -152,7 +189,11 @@ const CvvInput = () => (
 		<Label className="text-sm font-medium">Enter CVV to confirm</Label>
 		<div className="flex gap-3">
 			<Input type="password" placeholder="•••" className="w-24" />
-			<Button variant="ghost" size="sm" className="text-xs text-muted-foreground">
+			<Button
+				variant="ghost"
+				size="sm"
+				className="text-xs text-muted-foreground"
+			>
 				What's this?
 			</Button>
 		</div>
@@ -175,7 +216,13 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const savedCards: SavedCardProps[] = [
-		{ id: 'visa', brand: 'Visa', last4: '4242', expiry: '12/26', isDefault: true },
+		{
+			id: 'visa',
+			brand: 'Visa',
+			last4: '4242',
+			expiry: '12/26',
+			isDefault: true,
+		},
 		{ id: 'mc', brand: 'Mastercard', last4: '8888', expiry: '08/25' },
 	];
 

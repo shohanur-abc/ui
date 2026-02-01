@@ -150,7 +150,10 @@ const ProviderCard = ({
 				<Avatar className="size-16">
 					<AvatarImage src={avatar} />
 					<AvatarFallback className="text-lg font-bold">
-						{name.split(' ').map(n => n[0]).join('')}
+						{name
+							.split(' ')
+							.map((n) => n[0])
+							.join('')}
 					</AvatarFallback>
 				</Avatar>
 				<div>
@@ -190,7 +193,11 @@ const LocationCard = ({
 				) : (
 					<MapPin className="size-4" />
 				)}
-				{type === 'in-person' ? 'Location' : type === 'video' ? 'Video Call' : 'Phone Call'}
+				{type === 'in-person'
+					? 'Location'
+					: type === 'video'
+						? 'Video Call'
+						: 'Phone Call'}
 			</CardTitle>
 		</CardHeader>
 		<CardContent>
@@ -206,7 +213,8 @@ const LocationCard = ({
 			) : type === 'video' ? (
 				<div className="space-y-3">
 					<p className="text-sm text-muted-foreground">
-						A video call link will be sent to your email 15 minutes before your appointment.
+						A video call link will be sent to your email 15 minutes before your
+						appointment.
 					</p>
 					<Badge variant="secondary">Zoom Meeting</Badge>
 				</div>
@@ -364,16 +372,19 @@ export default function Main() {
 							address="123 Health Street, Suite 400, New York, NY 10001"
 						/>
 						<RemindersCard reminders={reminders} />
-						<CancellationCard
-							policy="Free cancellation up to 24 hours before. Cancellations within 24 hours may incur a 50% charge."
-						/>
+						<CancellationCard policy="Free cancellation up to 24 hours before. Cancellations within 24 hours may incur a 50% charge." />
 					</div>
 				</div>
 
 				<CTA
 					items={[
 						{ label: 'Add to Calendar', href: '/calendar', icon: Calendar },
-						{ label: 'Manage Booking', href: '/bookings', variant: 'outline', icon: ArrowRight },
+						{
+							label: 'Manage Booking',
+							href: '/bookings',
+							variant: 'outline',
+							icon: ArrowRight,
+						},
 					]}
 				/>
 			</div>

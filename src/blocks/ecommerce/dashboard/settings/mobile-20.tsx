@@ -45,7 +45,14 @@ type Session = {
 	icon: LucideIcon;
 };
 
-const MenuRow = ({ icon: Icon, label, description, value, type, badge }: MenuItem) => (
+const MenuRow = ({
+	icon: Icon,
+	label,
+	description,
+	value,
+	type,
+	badge,
+}: MenuItem) => (
 	<div className="flex items-center justify-between py-3 px-1 rounded-lg transition-colors hover:bg-muted/50">
 		<div className="flex items-center gap-3">
 			<Icon className="size-5 text-muted-foreground" />
@@ -73,7 +80,13 @@ const MenuRow = ({ icon: Icon, label, description, value, type, badge }: MenuIte
 	</div>
 );
 
-const SessionRow = ({ device, location, lastActive, current, icon: Icon }: Session) => (
+const SessionRow = ({
+	device,
+	location,
+	lastActive,
+	current,
+	icon: Icon,
+}: Session) => (
 	<div className="flex items-center justify-between py-3">
 		<div className="flex items-center gap-3">
 			<div className="flex size-10 items-center justify-center rounded-lg bg-muted">
@@ -110,7 +123,12 @@ export default function Main() {
 	};
 
 	const accountSettings: MenuItem[] = [
-		{ icon: User, label: 'Edit Profile', description: 'Update your info', type: 'link' },
+		{
+			icon: User,
+			label: 'Edit Profile',
+			description: 'Update your info',
+			type: 'link',
+		},
 		{ icon: Mail, label: 'Email', description: profile.email, type: 'link' },
 		{ icon: Globe, label: 'Language', value: 'English', type: 'select' },
 		{ icon: Moon, label: 'Dark Mode', value: true, type: 'toggle' },
@@ -120,13 +138,37 @@ export default function Main() {
 		{ icon: Bell, label: 'Push Notifications', value: true, type: 'toggle' },
 		{ icon: Mail, label: 'Email Updates', value: true, type: 'toggle' },
 		{ icon: Bell, label: 'Order Alerts', value: true, type: 'toggle' },
-		{ icon: Bell, label: 'Marketing', value: false, type: 'toggle', badge: 'Off' },
+		{
+			icon: Bell,
+			label: 'Marketing',
+			value: false,
+			type: 'toggle',
+			badge: 'Off',
+		},
 	];
 
 	const sessions: Session[] = [
-		{ device: 'MacBook Pro', location: 'San Francisco, US', lastActive: 'Active now', current: true, icon: Laptop },
-		{ device: 'iPhone 15 Pro', location: 'San Francisco, US', lastActive: '2 hours ago', current: false, icon: Smartphone },
-		{ device: 'Windows PC', location: 'New York, US', lastActive: '3 days ago', current: false, icon: Laptop },
+		{
+			device: 'MacBook Pro',
+			location: 'San Francisco, US',
+			lastActive: 'Active now',
+			current: true,
+			icon: Laptop,
+		},
+		{
+			device: 'iPhone 15 Pro',
+			location: 'San Francisco, US',
+			lastActive: '2 hours ago',
+			current: false,
+			icon: Smartphone,
+		},
+		{
+			device: 'Windows PC',
+			location: 'New York, US',
+			lastActive: '3 days ago',
+			current: false,
+			icon: Laptop,
+		},
 	];
 
 	return (
@@ -146,9 +188,15 @@ export default function Main() {
 
 						<Tabs defaultValue="account" className="mt-8">
 							<TabsList className="w-full">
-								<TabsTrigger value="account" className="flex-1">Account</TabsTrigger>
-								<TabsTrigger value="notifications" className="flex-1">Notifications</TabsTrigger>
-								<TabsTrigger value="security" className="flex-1">Security</TabsTrigger>
+								<TabsTrigger value="account" className="flex-1">
+									Account
+								</TabsTrigger>
+								<TabsTrigger value="notifications" className="flex-1">
+									Notifications
+								</TabsTrigger>
+								<TabsTrigger value="security" className="flex-1">
+									Security
+								</TabsTrigger>
 							</TabsList>
 
 							<TabsContent value="account" className="mt-6 space-y-1">
@@ -170,7 +218,9 @@ export default function Main() {
 											<Shield className="size-5 text-primary" />
 											<div>
 												<p className="font-medium">Two-Factor Auth</p>
-												<p className="text-sm text-muted-foreground">Extra security</p>
+												<p className="text-sm text-muted-foreground">
+													Extra security
+												</p>
 											</div>
 										</div>
 										<Badge className="bg-emerald-500/10 text-emerald-500 border-0">

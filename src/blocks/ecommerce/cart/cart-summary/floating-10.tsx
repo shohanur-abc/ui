@@ -36,10 +36,22 @@ const GradientBackground = () => (
 
 const SummaryRow = ({ label, value, discount }: SummaryRowProps) => (
 	<div className="flex items-center justify-between text-sm">
-		<span className={discount ? 'text-amber-600 dark:text-amber-400' : 'text-muted-foreground'}>
+		<span
+			className={
+				discount
+					? 'text-amber-600 dark:text-amber-400'
+					: 'text-muted-foreground'
+			}
+		>
 			{label}
 		</span>
-		<span className={discount ? 'font-medium text-amber-600 dark:text-amber-400' : 'font-medium'}>
+		<span
+			className={
+				discount
+					? 'font-medium text-amber-600 dark:text-amber-400'
+					: 'font-medium'
+			}
+		>
 			{value}
 		</span>
 	</div>
@@ -49,7 +61,11 @@ const TotalRow = ({
 	label,
 	value,
 	points,
-}: { label: string; value: string; points: number }) => (
+}: {
+	label: string;
+	value: string;
+	points: number;
+}) => (
 	<div className="space-y-1">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>
@@ -66,7 +82,11 @@ const MembershipBanner = ({
 	tier,
 	nextTier,
 	pointsToNext,
-}: { tier: MembershipTierProps; nextTier: string; pointsToNext: number }) => (
+}: {
+	tier: MembershipTierProps;
+	nextTier: string;
+	pointsToNext: number;
+}) => (
 	<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-amber-500/20 via-yellow-500/20 to-orange-500/20 p-4">
 		<div className="flex items-center gap-3">
 			<div className="flex size-12 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500 shadow-lg">

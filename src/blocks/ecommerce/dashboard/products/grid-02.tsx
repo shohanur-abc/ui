@@ -22,10 +22,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import {
-	Card,
-	CardContent,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 interface Product {
@@ -90,7 +87,11 @@ interface BadgesProps {
 
 const ProductBadges = ({ isNew, isFeatured, labels }: BadgesProps) => (
 	<div className="absolute left-2 top-2 flex flex-col gap-1">
-		{isNew && <Badge className="bg-emerald-500 hover:bg-emerald-600">{labels.new}</Badge>}
+		{isNew && (
+			<Badge className="bg-emerald-500 hover:bg-emerald-600">
+				{labels.new}
+			</Badge>
+		)}
 		{isFeatured && <Badge variant="secondary">{labels.featured}</Badge>}
 	</div>
 );
@@ -139,7 +140,10 @@ const StockProgress = ({ current, max, label }: StockProgressProps) => {
 					{current}/{max}
 				</span>
 			</div>
-			<Progress value={percentage} className={`h-1.5 ${isLow ? '[&>div]:bg-amber-500' : ''}`} />
+			<Progress
+				value={percentage}
+				className={`h-1.5 ${isLow ? '[&>div]:bg-amber-500' : ''}`}
+			/>
 		</div>
 	);
 };
@@ -152,13 +156,20 @@ interface SalesIndicatorProps {
 const SalesIndicator = ({ sold, label }: SalesIndicatorProps) => (
 	<div className="flex items-center gap-1.5 text-xs text-muted-foreground">
 		<TrendingUp className="size-3.5 text-emerald-500" />
-		<span>{sold} {label}</span>
+		<span>
+			{sold} {label}
+		</span>
 	</div>
 );
 
 interface ProductCardProps {
 	product: Product;
-	actions: { label: string; icon: React.ElementType; onClick: (id: string) => void; variant?: 'destructive' }[];
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		onClick: (id: string) => void;
+		variant?: 'destructive';
+	}[];
 }
 
 const ProductCard = ({ product, actions }: ProductCardProps) => (
@@ -196,7 +207,9 @@ const ProductCard = ({ product, actions }: ProductCardProps) => (
 								{action.variant === 'destructive' && <DropdownMenuSeparator />}
 								<DropdownMenuItem
 									onClick={() => action.onClick(product.id)}
-									className={action.variant === 'destructive' ? 'text-destructive' : ''}
+									className={
+										action.variant === 'destructive' ? 'text-destructive' : ''
+									}
 								>
 									<action.icon className="mr-2 size-4" />
 									{action.label}
@@ -210,7 +223,11 @@ const ProductCard = ({ product, actions }: ProductCardProps) => (
 				<span className="text-xl font-bold">${product.price.toFixed(2)}</span>
 				<SalesIndicator sold={product.sold} label="sold" />
 			</div>
-			<StockProgress current={product.stock} max={product.maxStock} label="Stock" />
+			<StockProgress
+				current={product.stock}
+				max={product.maxStock}
+				label="Stock"
+			/>
 		</CardContent>
 	</Card>
 );
@@ -313,10 +330,27 @@ export default function Main() {
 	];
 
 	const actions = [
-		{ label: 'View Details', icon: Eye, onClick: (id: string) => console.log('View', id) },
-		{ label: 'Edit Product', icon: Pencil, onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Duplicate', icon: Copy, onClick: (id: string) => console.log('Duplicate', id) },
-		{ label: 'Delete', icon: Trash2, onClick: (id: string) => console.log('Delete', id), variant: 'destructive' as const },
+		{
+			label: 'View Details',
+			icon: Eye,
+			onClick: (id: string) => console.log('View', id),
+		},
+		{
+			label: 'Edit Product',
+			icon: Pencil,
+			onClick: (id: string) => console.log('Edit', id),
+		},
+		{
+			label: 'Duplicate',
+			icon: Copy,
+			onClick: (id: string) => console.log('Duplicate', id),
+		},
+		{
+			label: 'Delete',
+			icon: Trash2,
+			onClick: (id: string) => console.log('Delete', id),
+			variant: 'destructive' as const,
+		},
 	];
 
 	return (

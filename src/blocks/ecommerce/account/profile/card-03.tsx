@@ -1,11 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ChevronRight,
@@ -56,9 +52,7 @@ const ProfileBanner = ({
 		<div className="pt-12 px-6 pb-4">
 			<div className="flex items-center gap-2">
 				<h2 className="text-lg font-semibold">{name}</h2>
-				{verified && (
-					<Shield className="size-4 text-primary fill-primary/20" />
-				)}
+				{verified && <Shield className="size-4 text-primary fill-primary/20" />}
 			</div>
 			<p className="text-sm text-muted-foreground">{email}</p>
 		</div>
@@ -70,7 +64,13 @@ const MenuSection = ({
 	items,
 }: {
 	title: string;
-	items: { icon: React.ElementType; label: string; href: string; badge?: string; destructive?: boolean }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+		destructive?: boolean;
+	}[];
 }) => (
 	<div className="space-y-1">
 		<p className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-3 py-2">
@@ -106,7 +106,8 @@ export default function Main() {
 	const profileData = {
 		banner: {
 			coverUrl: '',
-			avatarSrc: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+			avatarSrc:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
 			avatarFallback: 'MK',
 			name: 'Michael Kim',
 			email: 'm.kim@example.com',
@@ -116,7 +117,12 @@ export default function Main() {
 			{
 				title: 'Shopping',
 				items: [
-					{ icon: Package, label: 'My Orders', href: '/orders', badge: '3 Active' },
+					{
+						icon: Package,
+						label: 'My Orders',
+						href: '/orders',
+						badge: '3 Active',
+					},
 					{ icon: Heart, label: 'Wishlist', href: '/wishlist', badge: '12' },
 					{ icon: MapPin, label: 'Addresses', href: '/addresses' },
 					{ icon: CreditCard, label: 'Payment Methods', href: '/payment' },
@@ -133,7 +139,12 @@ export default function Main() {
 			{
 				title: '',
 				items: [
-					{ icon: LogOut, label: 'Log Out', href: '/logout', destructive: true },
+					{
+						icon: LogOut,
+						label: 'Log Out',
+						href: '/logout',
+						destructive: true,
+					},
 				],
 			},
 		],
@@ -149,7 +160,11 @@ export default function Main() {
 					<Separator />
 					<CardContent className="p-2 space-y-2">
 						{profileData.menuSections.map((section, i) => (
-							<MenuSection key={i} title={section.title} items={section.items} />
+							<MenuSection
+								key={i}
+								title={section.title}
+								items={section.items}
+							/>
 						))}
 					</CardContent>
 				</Card>

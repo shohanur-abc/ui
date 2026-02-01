@@ -1,10 +1,27 @@
 'use client';
 
-import { Check, CreditCard, Download, Gift, Key, Lock, Mail, Shield, Star, X, Zap } from 'lucide-react';
+import {
+	Check,
+	CreditCard,
+	Download,
+	Gift,
+	Key,
+	Lock,
+	Mail,
+	Shield,
+	Star,
+	X,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -17,7 +34,13 @@ interface Product {
 	features: string[];
 }
 
-const DrawerHeader = ({ title, onClose }: { title: string; onClose: () => void }) => (
+const DrawerHeader = ({
+	title,
+	onClose,
+}: {
+	title: string;
+	onClose: () => void;
+}) => (
 	<div className="flex items-center justify-between">
 		<div className="flex items-center gap-2">
 			<Download className="size-5 text-primary" />
@@ -33,7 +56,9 @@ const ProductPreview = ({ product }: { product: Product }) => (
 	<div className="p-4 rounded-xl bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20">
 		<div className="flex items-start justify-between mb-3">
 			<div>
-				<Badge variant="secondary" className="mb-2">{product.type}</Badge>
+				<Badge variant="secondary" className="mb-2">
+					{product.type}
+				</Badge>
 				<h3 className="font-semibold">{product.name}</h3>
 			</div>
 			<span className="text-2xl font-bold">{product.price}</span>
@@ -61,11 +86,15 @@ const AccountForm = () => (
 				<Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
 				<Input type="email" placeholder="you@example.com" className="pl-10" />
 			</div>
-			<p className="text-xs text-muted-foreground">License key will be sent to this email</p>
+			<p className="text-xs text-muted-foreground">
+				License key will be sent to this email
+			</p>
 		</div>
 		<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 			<Checkbox id="account" defaultChecked />
-			<Label htmlFor="account" className="text-sm cursor-pointer">Create an account to manage licenses</Label>
+			<Label htmlFor="account" className="text-sm cursor-pointer">
+				Create an account to manage licenses
+			</Label>
 		</div>
 	</div>
 );
@@ -112,8 +141,15 @@ const GiftCodeSection = () => (
 const LicenseTerms = () => (
 	<div className="flex items-start gap-3">
 		<Checkbox id="terms" className="mt-0.5" />
-		<Label htmlFor="terms" className="text-xs cursor-pointer text-muted-foreground">
-			I agree to the <a href="#" className="text-primary underline">License Agreement</a> and understand this is a digital product with no physical delivery
+		<Label
+			htmlFor="terms"
+			className="text-xs cursor-pointer text-muted-foreground"
+		>
+			I agree to the{' '}
+			<a href="#" className="text-primary underline">
+				License Agreement
+			</a>{' '}
+			and understand this is a digital product with no physical delivery
 		</Label>
 	</div>
 );

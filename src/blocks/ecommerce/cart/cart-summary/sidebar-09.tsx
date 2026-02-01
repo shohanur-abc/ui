@@ -1,7 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Wallet, Calendar, CheckCircle2, ArrowRight, type LucideIcon } from 'lucide-react';
+import {
+	Wallet,
+	Calendar,
+	CheckCircle2,
+	ArrowRight,
+	type LucideIcon,
+} from 'lucide-react';
 import Link from 'next/link';
 
 type SummaryRowProps = {
@@ -19,7 +25,11 @@ const InstallmentBanner = ({
 	icon: Icon,
 	provider,
 	badge,
-}: { icon: LucideIcon; provider: string; badge: string }) => (
+}: {
+	icon: LucideIcon;
+	provider: string;
+	badge: string;
+}) => (
 	<div className="mb-4 flex items-center gap-2 rounded-lg bg-primary/10 p-3">
 		<Icon className="size-5 text-primary" />
 		<span className="font-medium">{provider}</span>
@@ -75,11 +85,7 @@ export default function Main() {
 		<section className="@container">
 			<aside className="mx-auto h-auto min-h-[600px] max-w-xs rounded-2xl border bg-background px-5 py-6 shadow-lg @md:max-w-sm">
 				<h3 className="mb-4 text-lg font-semibold">Payment Options</h3>
-				<InstallmentBanner
-					icon={Wallet}
-					provider="Pay in 4"
-					badge="0% APR"
-				/>
+				<InstallmentBanner icon={Wallet} provider="Pay in 4" badge="0% APR" />
 				<InstallmentSchedule
 					installments={4}
 					perPayment="$242.73"

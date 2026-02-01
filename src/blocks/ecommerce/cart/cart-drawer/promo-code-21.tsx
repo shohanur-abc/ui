@@ -101,10 +101,16 @@ const AppliedPromoTag = ({ promo }: { promo: AppliedPromo }) => (
 			<Check className="size-4 text-primary" />
 			<span className="text-sm font-medium text-primary">{promo.code}</span>
 			<Badge variant="secondary" className="text-xs">
-				{promo.type === 'percent' ? `${promo.discount}% off` : `$${promo.discount} off`}
+				{promo.type === 'percent'
+					? `${promo.discount}% off`
+					: `$${promo.discount} off`}
 			</Badge>
 		</div>
-		<Button size="icon-sm" variant="ghost" className="size-5 text-primary hover:text-primary">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-5 text-primary hover:text-primary"
+		>
 			<X className="size-3" />
 		</Button>
 	</div>
@@ -159,14 +165,16 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Classic Watch',
 				price: 199.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds',
 				price: 129.99,
 				quantity: 2,
@@ -183,7 +191,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

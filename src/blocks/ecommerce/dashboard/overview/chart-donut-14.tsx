@@ -69,7 +69,9 @@ export default function Main() {
 				<Card>
 					<CardHeader>
 						<CardTitle className="text-lg">Revenue by Channel</CardTitle>
-						<CardDescription>Sales distribution across channels</CardDescription>
+						<CardDescription>
+							Sales distribution across channels
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<div className="flex flex-col gap-8 @lg:flex-row @lg:items-center">

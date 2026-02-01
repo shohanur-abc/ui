@@ -39,7 +39,13 @@ const SectionHeader = ({
 	</div>
 );
 
-const StarRating = ({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'md' }) => (
+const StarRating = ({
+	rating,
+	size = 'sm',
+}: {
+	rating: number;
+	size?: 'sm' | 'md';
+}) => (
 	<div className="flex gap-0.5">
 		{Array.from({ length: 5 }).map((_, i) => (
 			<Star
@@ -80,12 +86,17 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => {
 	return (
 		<Card
 			className={`h-full border-border/50 bg-card hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300 group ${
-				item.size === 'lg' ? 'bg-gradient-to-br from-primary/5 to-transparent' : ''
+				item.size === 'lg'
+					? 'bg-gradient-to-br from-primary/5 to-transparent'
+					: ''
 			}`}
 		>
 			<CardContent className={`${sizeClasses[item.size]} flex flex-col h-full`}>
 				<Quote className={`${quoteSize[item.size]} text-primary/20 mb-3`} />
-				<StarRating rating={item.rating} size={item.size === 'lg' ? 'md' : 'sm'} />
+				<StarRating
+					rating={item.rating}
+					size={item.size === 'lg' ? 'md' : 'sm'}
+				/>
 				<p
 					className={`text-foreground leading-relaxed flex-1 mt-3 mb-5 ${textSize[item.size]}`}
 				>
@@ -126,7 +137,8 @@ export default function Main() {
 			author: 'Catherine Bell',
 			role: 'COO',
 			company: 'Enterprise Inc',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'CB',
 			rating: 5,
 			size: 'lg',
@@ -136,17 +148,20 @@ export default function Main() {
 			author: 'David Lee',
 			role: 'Tech Lead',
 			company: 'DevCo',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'DL',
 			rating: 5,
 			size: 'sm',
 		},
 		{
-			quote: 'Outstanding customer support. They resolved our issue in minutes.',
+			quote:
+				'Outstanding customer support. They resolved our issue in minutes.',
 			author: 'Emma Wilson',
 			role: 'IT Manager',
 			company: 'SupportFirst',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'EW',
 			rating: 5,
 			size: 'md',
@@ -156,7 +171,8 @@ export default function Main() {
 			author: 'Frank Chen',
 			role: 'CFO',
 			company: 'FinanceHub',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'FC',
 			rating: 5,
 			size: 'sm',
@@ -167,7 +183,8 @@ export default function Main() {
 			author: 'Grace Park',
 			role: 'VP Engineering',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'GP',
 			rating: 5,
 			size: 'md',
@@ -175,7 +192,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Varied Layout"

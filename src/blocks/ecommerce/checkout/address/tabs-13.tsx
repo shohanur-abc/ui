@@ -76,7 +76,11 @@ const AddressFields = ({
 			<Field label="Last Name" placeholder="Doe" />
 		</div>
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="City" />
@@ -178,7 +182,10 @@ const EcoFriendlyTab = ({
 		<AddressFields countries={countries} states={states} />
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="plant-tree" defaultChecked />
-			<Label htmlFor="plant-tree" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="plant-tree"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Plant a tree with your order (+$1)
 			</Label>
 		</div>
@@ -231,7 +238,10 @@ const ScheduledTab = ({
 		<AddressFields countries={countries} states={states} />
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="sms-notify" defaultChecked />
-			<Label htmlFor="sms-notify" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="sms-notify"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Send SMS notification before delivery
 			</Label>
 		</div>

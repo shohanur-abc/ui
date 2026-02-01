@@ -172,7 +172,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes',
 				price: 129.99,
 				quantity: 1,
@@ -181,7 +182,8 @@ export default function Main() {
 		popular: [
 			{
 				id: 'p1',
-				image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=200&h=200&fit=crop',
 				name: 'Athletic Socks Pro',
 				price: 24.99,
 				rating: 5,
@@ -189,7 +191,8 @@ export default function Main() {
 			},
 			{
 				id: 'p2',
-				image: 'https://images.unsplash.com/photo-1576633587382-13ddf37b1fc1?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1576633587382-13ddf37b1fc1?w=200&h=200&fit=crop',
 				name: 'Premium Insoles',
 				price: 34.99,
 				rating: 4,
@@ -202,7 +205,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, Trash2, Grid3X3, LayoutList, SlidersHorizontal } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	Trash2,
+	Grid3X3,
+	LayoutList,
+	SlidersHorizontal,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -32,10 +39,18 @@ const Toolbar = () => (
 				Filters
 			</Button>
 			<ToggleGroup type="single" defaultValue="grid">
-				<ToggleGroupItem value="grid" aria-label="Grid view" className="size-9 p-0">
+				<ToggleGroupItem
+					value="grid"
+					aria-label="Grid view"
+					className="size-9 p-0"
+				>
 					<Grid3X3 className="size-4" />
 				</ToggleGroupItem>
-				<ToggleGroupItem value="list" aria-label="List view" className="size-9 p-0">
+				<ToggleGroupItem
+					value="list"
+					aria-label="List view"
+					className="size-9 p-0"
+				>
 					<LayoutList className="size-4" />
 				</ToggleGroupItem>
 			</ToggleGroup>
@@ -53,7 +68,10 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			/>
 			<div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 			<div className="absolute top-2 left-2 right-2 flex items-start justify-between">
-				<Badge variant="secondary" className="bg-background/80 backdrop-blur-sm">
+				<Badge
+					variant="secondary"
+					className="bg-background/80 backdrop-blur-sm"
+				>
 					{item.category}
 				</Badge>
 				<Button
@@ -72,7 +90,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			</div>
 		</div>
 		<CardContent className="p-4">
-			<p className="text-xs text-primary font-medium uppercase tracking-wider">{item.brand}</p>
+			<p className="text-xs text-primary font-medium uppercase tracking-wider">
+				{item.brand}
+			</p>
 			<Link href={item.href}>
 				<h3 className="mt-1 font-semibold line-clamp-2 leading-tight group-hover:text-primary transition-colors">
 					{item.name}
@@ -105,8 +125,12 @@ const WishlistGrid = ({ items }: WishlistGridProps) => (
 
 const QuickStats = ({ items }: { items: WishlistItem[] }) => {
 	const totalValue = items.reduce((sum, item) => sum + item.price, 0);
-	const savings = items.reduce((sum, item) => sum + (item.originalPrice ? item.originalPrice - item.price : 0), 0);
-	
+	const savings = items.reduce(
+		(sum, item) =>
+			sum + (item.originalPrice ? item.originalPrice - item.price : 0),
+		0,
+	);
+
 	return (
 		<div className="flex items-center gap-6 text-sm mb-4">
 			<div className="flex items-center gap-2">
@@ -114,7 +138,10 @@ const QuickStats = ({ items }: { items: WishlistItem[] }) => {
 				<span className="text-muted-foreground">{items.length} items</span>
 			</div>
 			<div className="text-muted-foreground">
-				Total: <span className="font-semibold text-foreground">${totalValue.toFixed(2)}</span>
+				Total:{' '}
+				<span className="font-semibold text-foreground">
+					${totalValue.toFixed(2)}
+				</span>
 			</div>
 			{savings > 0 && (
 				<div className="text-green-600">
@@ -127,12 +154,69 @@ const QuickStats = ({ items }: { items: WishlistItem[] }) => {
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Premium Running Shoes', brand: 'Nike', price: 159.99, originalPrice: 189.99, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop', category: 'Footwear', href: '/product/1' },
-		{ id: '2', name: 'Classic Aviator Sunglasses', brand: 'Ray-Ban', price: 165.00, image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop', category: 'Accessories', href: '/product/2' },
-		{ id: '3', name: 'Leather Crossbody Bag', brand: 'Coach', price: 295.00, originalPrice: 395.00, image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop', category: 'Bags', href: '/product/3' },
-		{ id: '4', name: 'Cotton Crew Neck Sweater', brand: 'J.Crew', price: 89.50, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop', category: 'Tops', href: '/product/4' },
-		{ id: '5', name: 'Slim Fit Chinos', brand: 'Bonobos', price: 98.00, image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=400&fit=crop', category: 'Pants', href: '/product/5' },
-		{ id: '6', name: 'Automatic Watch', brand: 'Seiko', price: 425.00, originalPrice: 495.00, image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop', category: 'Watches', href: '/product/6' },
+		{
+			id: '1',
+			name: 'Premium Running Shoes',
+			brand: 'Nike',
+			price: 159.99,
+			originalPrice: 189.99,
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop',
+			category: 'Footwear',
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Classic Aviator Sunglasses',
+			brand: 'Ray-Ban',
+			price: 165.0,
+			image:
+				'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop',
+			category: 'Accessories',
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Leather Crossbody Bag',
+			brand: 'Coach',
+			price: 295.0,
+			originalPrice: 395.0,
+			image:
+				'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop',
+			category: 'Bags',
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Cotton Crew Neck Sweater',
+			brand: 'J.Crew',
+			price: 89.5,
+			image:
+				'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop',
+			category: 'Tops',
+			href: '/product/4',
+		},
+		{
+			id: '5',
+			name: 'Slim Fit Chinos',
+			brand: 'Bonobos',
+			price: 98.0,
+			image:
+				'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=400&fit=crop',
+			category: 'Pants',
+			href: '/product/5',
+		},
+		{
+			id: '6',
+			name: 'Automatic Watch',
+			brand: 'Seiko',
+			price: 425.0,
+			originalPrice: 495.0,
+			image:
+				'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop',
+			category: 'Watches',
+			href: '/product/6',
+		},
 	];
 
 	return (

@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Lock, ArrowRight, Package, Truck, CheckCircle2, ClipboardList } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Package,
+	Truck,
+	CheckCircle2,
+	ClipboardList,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,7 +18,11 @@ import { Checkbox } from '@/components/ui/checkbox';
 const TrackingPanel = ({
 	steps,
 }: {
-	steps: Array<{ icon: React.ElementType; label: string; status: 'complete' | 'current' | 'upcoming' }>;
+	steps: Array<{
+		icon: React.ElementType;
+		label: string;
+		status: 'complete' | 'current' | 'upcoming';
+	}>;
 }) => (
 	<div className="relative hidden @lg:flex flex-col justify-center p-8 @xl:p-12 bg-muted/30">
 		<div className="max-w-md">
@@ -54,7 +66,13 @@ const TrackingPanel = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -65,7 +83,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -163,11 +183,24 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="TrackIt" icon={Package} />
-						<Title text="Welcome back" subtitle="Sign in to track your packages" />
+						<Title
+							text="Welcome back"
+							subtitle="Sign in to track your packages"
+						/>
 
 						<form className="space-y-5">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<RememberForgot
 								rememberLabel="Keep me signed in"
 								forgotLabel="Forgot password?"
@@ -177,7 +210,11 @@ export default function Main() {
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="New customer?" linkText="Create account" href="/signup" />
+							<FooterLink
+								text="New customer?"
+								linkText="Create account"
+								href="/signup"
+							/>
 						</div>
 					</div>
 				</div>

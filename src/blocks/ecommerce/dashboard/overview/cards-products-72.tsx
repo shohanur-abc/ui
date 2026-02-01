@@ -1,13 +1,13 @@
-import {
-	ArrowUpRight,
-	MoreHorizontal,
-	Star,
-	Package,
-} from 'lucide-react';
+import { ArrowUpRight, MoreHorizontal, Star, Package } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 type ProductCard = {
@@ -26,7 +26,9 @@ type ProductCard = {
 const getStatusBadge = (status: ProductCard['status']) => {
 	switch (status) {
 		case 'trending':
-			return <Badge className="bg-primary text-primary-foreground">Trending</Badge>;
+			return (
+				<Badge className="bg-primary text-primary-foreground">Trending</Badge>
+			);
 		case 'new':
 			return <Badge className="bg-emerald-500 text-white">New</Badge>;
 		case 'sale':
@@ -62,7 +64,9 @@ const ProductCardComponent = (product: ProductCard) => {
 				<div className="mt-3 flex items-center gap-1 text-amber-500">
 					<Star className="size-3.5 fill-current" />
 					<span className="text-sm font-medium">{product.rating}</span>
-					<span className="text-xs text-muted-foreground">({product.sold} sold)</span>
+					<span className="text-xs text-muted-foreground">
+						({product.sold} sold)
+					</span>
 				</div>
 				<div className="mt-3 grid grid-cols-2 gap-2 text-sm">
 					<div>
@@ -88,12 +92,78 @@ const ProductCardComponent = (product: ProductCard) => {
 
 export default function Main() {
 	const products: ProductCard[] = [
-		{ id: 'PRD-001', name: 'Wireless Headphones Pro', category: 'Electronics', price: '$129.99', revenue: '$56,157', sold: 432, stock: 45, rating: 4.8, image: '', status: 'trending' },
-		{ id: 'PRD-002', name: 'Smart Watch Ultra', category: 'Electronics', price: '$299.99', revenue: '$97,197', sold: 324, stock: 12, rating: 4.7, image: '', status: 'new' },
-		{ id: 'PRD-003', name: 'Ergonomic Laptop Stand', category: 'Accessories', price: '$79.99', revenue: '$22,957', sold: 287, stock: 78, rating: 4.9, image: '', status: 'regular' },
-		{ id: 'PRD-004', name: 'Mechanical Keyboard', category: 'Electronics', price: '$159.99', revenue: '$24,958', sold: 156, stock: 34, rating: 4.6, image: '', status: 'sale' },
-		{ id: 'PRD-005', name: 'USB-C Hub 7-in-1', category: 'Accessories', price: '$49.99', revenue: '$25,595', sold: 512, stock: 234, rating: 4.5, image: '', status: 'trending' },
-		{ id: 'PRD-006', name: 'Noise Cancelling Earbuds', category: 'Electronics', price: '$199.99', revenue: '$42,798', sold: 214, stock: 56, rating: 4.7, image: '', status: 'new' },
+		{
+			id: 'PRD-001',
+			name: 'Wireless Headphones Pro',
+			category: 'Electronics',
+			price: '$129.99',
+			revenue: '$56,157',
+			sold: 432,
+			stock: 45,
+			rating: 4.8,
+			image: '',
+			status: 'trending',
+		},
+		{
+			id: 'PRD-002',
+			name: 'Smart Watch Ultra',
+			category: 'Electronics',
+			price: '$299.99',
+			revenue: '$97,197',
+			sold: 324,
+			stock: 12,
+			rating: 4.7,
+			image: '',
+			status: 'new',
+		},
+		{
+			id: 'PRD-003',
+			name: 'Ergonomic Laptop Stand',
+			category: 'Accessories',
+			price: '$79.99',
+			revenue: '$22,957',
+			sold: 287,
+			stock: 78,
+			rating: 4.9,
+			image: '',
+			status: 'regular',
+		},
+		{
+			id: 'PRD-004',
+			name: 'Mechanical Keyboard',
+			category: 'Electronics',
+			price: '$159.99',
+			revenue: '$24,958',
+			sold: 156,
+			stock: 34,
+			rating: 4.6,
+			image: '',
+			status: 'sale',
+		},
+		{
+			id: 'PRD-005',
+			name: 'USB-C Hub 7-in-1',
+			category: 'Accessories',
+			price: '$49.99',
+			revenue: '$25,595',
+			sold: 512,
+			stock: 234,
+			rating: 4.5,
+			image: '',
+			status: 'trending',
+		},
+		{
+			id: 'PRD-006',
+			name: 'Noise Cancelling Earbuds',
+			category: 'Electronics',
+			price: '$199.99',
+			revenue: '$42,798',
+			sold: 214,
+			stock: 56,
+			rating: 4.7,
+			image: '',
+			status: 'new',
+		},
 	];
 
 	return (

@@ -1,11 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Minus, Plus, X, ArrowRight } from 'lucide-react';
@@ -85,7 +80,8 @@ const TotalRow = ({ label, value }: { label: string; value: string }) => (
 export default function Main() {
 	const cartItems: CartItemProps[] = [
 		{
-			image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200',
+			image:
+				'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200',
 			name: 'Premium Cotton T-Shirt',
 			color: 'Navy Blue',
 			size: 'Large',
@@ -93,7 +89,8 @@ export default function Main() {
 			quantity: 2,
 		},
 		{
-			image: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=200',
+			image:
+				'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=200',
 			name: 'Slim Fit Chinos',
 			color: 'Khaki',
 			size: '32',

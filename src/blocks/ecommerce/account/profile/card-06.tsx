@@ -1,11 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import {
 	Bell,
@@ -52,16 +48,19 @@ const SettingsGroup = ({
 	items,
 }: {
 	title: string;
-	items: { icon: React.ElementType; label: string; description?: string; enabled?: boolean; badge?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		description?: string;
+		enabled?: boolean;
+		badge?: string;
+	}[];
 }) => (
 	<div className="space-y-4">
 		<h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
 		<div className="space-y-3">
 			{items.map((item, i) => (
-				<div
-					key={i}
-					className="flex items-center justify-between py-2"
-				>
+				<div key={i} className="flex items-center justify-between py-2">
 					<div className="flex items-center gap-3">
 						<div className="p-2 rounded-md bg-muted">
 							<item.icon className="size-4 text-muted-foreground" />
@@ -76,7 +75,9 @@ const SettingsGroup = ({
 								)}
 							</div>
 							{item.description && (
-								<p className="text-xs text-muted-foreground">{item.description}</p>
+								<p className="text-xs text-muted-foreground">
+									{item.description}
+								</p>
 							)}
 						</div>
 					</div>
@@ -123,9 +124,24 @@ export default function Main() {
 		notifications: {
 			title: 'Notifications',
 			items: [
-				{ icon: Mail, label: 'Email Notifications', description: 'Order updates & promotions', enabled: true },
-				{ icon: Smartphone, label: 'Push Notifications', description: 'Mobile app alerts', enabled: true },
-				{ icon: Bell, label: 'SMS Alerts', description: 'Text message updates', enabled: false },
+				{
+					icon: Mail,
+					label: 'Email Notifications',
+					description: 'Order updates & promotions',
+					enabled: true,
+				},
+				{
+					icon: Smartphone,
+					label: 'Push Notifications',
+					description: 'Mobile app alerts',
+					enabled: true,
+				},
+				{
+					icon: Bell,
+					label: 'SMS Alerts',
+					description: 'Text message updates',
+					enabled: false,
+				},
 			],
 		},
 		preferences: {
@@ -137,9 +153,21 @@ export default function Main() {
 			],
 		},
 		security: [
-			{ label: 'Two-Factor Auth', status: 'Enabled', statusColor: 'bg-green-500/20 text-green-600 border-green-500/30' },
-			{ label: 'Password', status: 'Strong', statusColor: 'bg-green-500/20 text-green-600 border-green-500/30' },
-			{ label: 'Last Login', status: 'Today', statusColor: 'bg-muted text-muted-foreground' },
+			{
+				label: 'Two-Factor Auth',
+				status: 'Enabled',
+				statusColor: 'bg-green-500/20 text-green-600 border-green-500/30',
+			},
+			{
+				label: 'Password',
+				status: 'Strong',
+				statusColor: 'bg-green-500/20 text-green-600 border-green-500/30',
+			},
+			{
+				label: 'Last Login',
+				status: 'Today',
+				statusColor: 'bg-muted text-muted-foreground',
+			},
 		],
 	};
 

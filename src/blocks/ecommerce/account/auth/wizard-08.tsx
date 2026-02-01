@@ -1,10 +1,27 @@
 import Link from 'next/link';
-import { Mail, Lock, User, ArrowRight, ArrowLeft, CreditCard, MapPin, Shield, Package, Check } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	ArrowRight,
+	ArrowLeft,
+	CreditCard,
+	MapPin,
+	Shield,
+	Package,
+	Check,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import {
 	Select,
@@ -14,7 +31,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -71,7 +94,12 @@ const FormField = ({
 		{Icon ? (
 			<div className="relative">
 				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-				<Input id={id} type={type} placeholder={placeholder} className="pl-10" />
+				<Input
+					id={id}
+					type={type}
+					placeholder={placeholder}
+					className="pl-10"
+				/>
 			</div>
 		) : (
 			<Input id={id} type={type} placeholder={placeholder} />
@@ -96,7 +124,10 @@ const SelectField = ({
 			</SelectTrigger>
 			<SelectContent>
 				{options.map((option) => (
-					<SelectItem key={option} value={option.toLowerCase().replace(/\s/g, '-')}>
+					<SelectItem
+						key={option}
+						value={option.toLowerCase().replace(/\s/g, '-')}
+					>
 						{option}
 					</SelectItem>
 				))}
@@ -132,16 +163,51 @@ const ShippingAddressStep = () => {
 	return (
 		<form className="space-y-4">
 			<div className="grid grid-cols-2 gap-3">
-				<FormField id="ship-first" label="First Name" type="text" placeholder="John" />
-				<FormField id="ship-last" label="Last Name" type="text" placeholder="Doe" />
+				<FormField
+					id="ship-first"
+					label="First Name"
+					type="text"
+					placeholder="John"
+				/>
+				<FormField
+					id="ship-last"
+					label="Last Name"
+					type="text"
+					placeholder="Doe"
+				/>
 			</div>
-			<FormField id="ship-address" label="Address" type="text" placeholder="123 Main St" icon={MapPin} />
-			<FormField id="ship-apt" label="Apt/Suite (optional)" type="text" placeholder="Apt 4B" />
+			<FormField
+				id="ship-address"
+				label="Address"
+				type="text"
+				placeholder="123 Main St"
+				icon={MapPin}
+			/>
+			<FormField
+				id="ship-apt"
+				label="Apt/Suite (optional)"
+				type="text"
+				placeholder="Apt 4B"
+			/>
 			<div className="grid grid-cols-2 gap-3">
-				<FormField id="ship-city" label="City" type="text" placeholder="New York" />
-				<FormField id="ship-zip" label="ZIP Code" type="text" placeholder="10001" />
+				<FormField
+					id="ship-city"
+					label="City"
+					type="text"
+					placeholder="New York"
+				/>
+				<FormField
+					id="ship-zip"
+					label="ZIP Code"
+					type="text"
+					placeholder="10001"
+				/>
 			</div>
-			<SelectField label="Country" placeholder="Select country" options={countries} />
+			<SelectField
+				label="Country"
+				placeholder="Select country"
+				options={countries}
+			/>
 			<NavigationButtons showBack={true} nextLabel="Continue to Payment" />
 		</form>
 	);

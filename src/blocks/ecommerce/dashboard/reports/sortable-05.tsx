@@ -60,11 +60,7 @@ const ColumnHeader = ({
 }: ColumnHeaderProps) => {
 	const isActive = sortConfig.key === sortKey;
 	const alignClass =
-		align === 'right'
-			? 'text-right'
-			: align === 'center'
-				? 'text-center'
-				: '';
+		align === 'right' ? 'text-right' : align === 'center' ? 'text-center' : '';
 
 	return (
 		<TableHead
@@ -128,7 +124,9 @@ const WarehouseRow = ({
 								)}
 							</Button>
 						</TooltipTrigger>
-						<TooltipContent>{pinned ? 'Unpin row' : 'Pin to top'}</TooltipContent>
+						<TooltipContent>
+							{pinned ? 'Unpin row' : 'Pin to top'}
+						</TooltipContent>
 					</Tooltip>
 				</TooltipProvider>
 			</TableCell>
@@ -198,12 +196,67 @@ export default function Main() {
 	});
 
 	const [warehouses, setWarehouses] = useState<WarehouseItem[]>([
-		{ id: 'WH-001', warehouse: 'Main Distribution Center', location: 'Los Angeles, CA', capacity: 50000, utilized: 42500, inbound: 1250, outbound: 980, efficiency: 94, pinned: true },
-		{ id: 'WH-002', warehouse: 'East Coast Hub', location: 'Newark, NJ', capacity: 35000, utilized: 31500, inbound: 890, outbound: 1120, efficiency: 88 },
-		{ id: 'WH-003', warehouse: 'Midwest Fulfillment', location: 'Chicago, IL', capacity: 28000, utilized: 21000, inbound: 650, outbound: 720, efficiency: 92 },
-		{ id: 'WH-004', warehouse: 'Southern Depot', location: 'Houston, TX', capacity: 22000, utilized: 19800, inbound: 420, outbound: 380, efficiency: 78 },
-		{ id: 'WH-005', warehouse: 'Pacific Northwest', location: 'Seattle, WA', capacity: 18000, utilized: 12600, inbound: 340, outbound: 290, efficiency: 85 },
-		{ id: 'WH-006', warehouse: 'Mountain Region', location: 'Denver, CO', capacity: 15000, utilized: 8250, inbound: 180, outbound: 210, efficiency: 72 },
+		{
+			id: 'WH-001',
+			warehouse: 'Main Distribution Center',
+			location: 'Los Angeles, CA',
+			capacity: 50000,
+			utilized: 42500,
+			inbound: 1250,
+			outbound: 980,
+			efficiency: 94,
+			pinned: true,
+		},
+		{
+			id: 'WH-002',
+			warehouse: 'East Coast Hub',
+			location: 'Newark, NJ',
+			capacity: 35000,
+			utilized: 31500,
+			inbound: 890,
+			outbound: 1120,
+			efficiency: 88,
+		},
+		{
+			id: 'WH-003',
+			warehouse: 'Midwest Fulfillment',
+			location: 'Chicago, IL',
+			capacity: 28000,
+			utilized: 21000,
+			inbound: 650,
+			outbound: 720,
+			efficiency: 92,
+		},
+		{
+			id: 'WH-004',
+			warehouse: 'Southern Depot',
+			location: 'Houston, TX',
+			capacity: 22000,
+			utilized: 19800,
+			inbound: 420,
+			outbound: 380,
+			efficiency: 78,
+		},
+		{
+			id: 'WH-005',
+			warehouse: 'Pacific Northwest',
+			location: 'Seattle, WA',
+			capacity: 18000,
+			utilized: 12600,
+			inbound: 340,
+			outbound: 290,
+			efficiency: 85,
+		},
+		{
+			id: 'WH-006',
+			warehouse: 'Mountain Region',
+			location: 'Denver, CO',
+			capacity: 15000,
+			utilized: 8250,
+			inbound: 180,
+			outbound: 210,
+			efficiency: 72,
+		},
 	]);
 
 	const handleSort = (key: keyof WarehouseItem) => {
@@ -215,7 +268,7 @@ export default function Main() {
 
 	const handleTogglePin = (id: string) => {
 		setWarehouses((prev) =>
-			prev.map((w) => (w.id === id ? { ...w, pinned: !w.pinned } : w))
+			prev.map((w) => (w.id === id ? { ...w, pinned: !w.pinned } : w)),
 		);
 	};
 

@@ -30,7 +30,11 @@ const ForecastAreaChart = ({ data }: { data: DataPoint[] }) => {
 
 	return (
 		<div className="relative h-64 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				<defs>
 					<linearGradient id="actualGrad" x1="0%" y1="0%" x2="0%" y2="100%">
 						<stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
@@ -41,8 +45,17 @@ const ForecastAreaChart = ({ data }: { data: DataPoint[] }) => {
 						<stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
 					</linearGradient>
 				</defs>
-				<path d={`${forecastPath} L 100 100 L 0 100 Z`} fill="url(#forecastGrad)" />
-				<path d={forecastPath} fill="none" stroke="#22c55e" strokeWidth="0.4" strokeDasharray="2,1" />
+				<path
+					d={`${forecastPath} L 100 100 L 0 100 Z`}
+					fill="url(#forecastGrad)"
+				/>
+				<path
+					d={forecastPath}
+					fill="none"
+					stroke="#22c55e"
+					strokeWidth="0.4"
+					strokeDasharray="2,1"
+				/>
 				<path d={`${actualPath} L 100 100 L 0 100 Z`} fill="url(#actualGrad)" />
 				<path d={actualPath} fill="none" stroke="#3b82f6" strokeWidth="0.5" />
 				{actualPoints.map((p, i) => (
@@ -50,9 +63,11 @@ const ForecastAreaChart = ({ data }: { data: DataPoint[] }) => {
 				))}
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
-				{data.filter((_, i) => i % 2 === 0).map((d, i) => (
-					<span key={i}>{d.label}</span>
-				))}
+				{data
+					.filter((_, i) => i % 2 === 0)
+					.map((d, i) => (
+						<span key={i}>{d.label}</span>
+					))}
 			</div>
 		</div>
 	);
@@ -80,8 +95,12 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="flex flex-row items-start justify-between pb-2">
 						<div>
-							<CardTitle className="text-sm font-medium">Revenue Forecast</CardTitle>
-							<p className="text-xs text-muted-foreground">Actual vs Projected</p>
+							<CardTitle className="text-sm font-medium">
+								Revenue Forecast
+							</CardTitle>
+							<p className="text-xs text-muted-foreground">
+								Actual vs Projected
+							</p>
 						</div>
 						<div className="flex items-center gap-4">
 							<div className="flex items-center gap-2">
@@ -89,7 +108,10 @@ export default function Main() {
 								<span className="text-xs text-muted-foreground">Actual</span>
 							</div>
 							<div className="flex items-center gap-2">
-								<div className="w-4 h-0.5 bg-emerald-500 border-dashed" style={{ borderBottom: '2px dashed #22c55e', height: 0 }} />
+								<div
+									className="w-4 h-0.5 bg-emerald-500 border-dashed"
+									style={{ borderBottom: '2px dashed #22c55e', height: 0 }}
+								/>
 								<span className="text-xs text-muted-foreground">Forecast</span>
 							</div>
 						</div>
@@ -101,7 +123,9 @@ export default function Main() {
 								<p className="text-xl font-bold">$300K</p>
 							</div>
 							<div className="p-3 rounded-lg bg-muted/30">
-								<p className="text-xs text-muted-foreground">Full Year Forecast</p>
+								<p className="text-xs text-muted-foreground">
+									Full Year Forecast
+								</p>
 								<p className="text-xl font-bold">$718K</p>
 							</div>
 							<div className="p-3 rounded-lg bg-muted/30">

@@ -23,15 +23,36 @@ type StatusCard = {
 const getStatusStyle = (status: StatusCard['status']) => {
 	switch (status) {
 		case 'healthy':
-			return { color: 'bg-emerald-500', text: 'text-emerald-500', bg: 'bg-emerald-500/10', label: 'Healthy' };
+			return {
+				color: 'bg-emerald-500',
+				text: 'text-emerald-500',
+				bg: 'bg-emerald-500/10',
+				label: 'Healthy',
+			};
 		case 'warning':
-			return { color: 'bg-amber-500', text: 'text-amber-500', bg: 'bg-amber-500/10', label: 'Warning' };
+			return {
+				color: 'bg-amber-500',
+				text: 'text-amber-500',
+				bg: 'bg-amber-500/10',
+				label: 'Warning',
+			};
 		case 'critical':
-			return { color: 'bg-red-500', text: 'text-red-500', bg: 'bg-red-500/10', label: 'Critical' };
+			return {
+				color: 'bg-red-500',
+				text: 'text-red-500',
+				bg: 'bg-red-500/10',
+				label: 'Critical',
+			};
 	}
 };
 
-const StatusCardComponent = ({ title, value, status, description, icon: Icon }: StatusCard) => {
+const StatusCardComponent = ({
+	title,
+	value,
+	status,
+	description,
+	icon: Icon,
+}: StatusCard) => {
 	const style = getStatusStyle(status);
 
 	return (
@@ -43,7 +64,9 @@ const StatusCardComponent = ({ title, value, status, description, icon: Icon }: 
 					</div>
 					<div className="flex items-center gap-1.5">
 						<div className={`size-2 rounded-full ${style.color}`} />
-						<span className={`text-xs font-medium ${style.text}`}>{style.label}</span>
+						<span className={`text-xs font-medium ${style.text}`}>
+							{style.label}
+						</span>
 					</div>
 				</div>
 				<div className="mt-3">
@@ -58,12 +81,54 @@ const StatusCardComponent = ({ title, value, status, description, icon: Icon }: 
 
 export default function Main() {
 	const statusCards: StatusCard[] = [
-		{ id: '1', title: 'Revenue', value: '$48.2K', status: 'healthy', description: 'On track to meet monthly target', icon: DollarSign },
-		{ id: '2', title: 'Orders', value: '1,284', status: 'healthy', description: '12% above daily average', icon: ShoppingCart },
-		{ id: '3', title: 'Inventory', value: '12 items', status: 'warning', description: 'Low stock items need attention', icon: Package },
-		{ id: '4', title: 'Customers', value: '3,845', status: 'healthy', description: 'Growing 4.1% monthly', icon: Users },
-		{ id: '5', title: 'Returns', value: '4.2%', status: 'critical', description: 'Above 3% threshold', icon: Package },
-		{ id: '6', title: 'Growth', value: '+15.3%', status: 'healthy', description: 'YoY revenue growth', icon: TrendingUp },
+		{
+			id: '1',
+			title: 'Revenue',
+			value: '$48.2K',
+			status: 'healthy',
+			description: 'On track to meet monthly target',
+			icon: DollarSign,
+		},
+		{
+			id: '2',
+			title: 'Orders',
+			value: '1,284',
+			status: 'healthy',
+			description: '12% above daily average',
+			icon: ShoppingCart,
+		},
+		{
+			id: '3',
+			title: 'Inventory',
+			value: '12 items',
+			status: 'warning',
+			description: 'Low stock items need attention',
+			icon: Package,
+		},
+		{
+			id: '4',
+			title: 'Customers',
+			value: '3,845',
+			status: 'healthy',
+			description: 'Growing 4.1% monthly',
+			icon: Users,
+		},
+		{
+			id: '5',
+			title: 'Returns',
+			value: '4.2%',
+			status: 'critical',
+			description: 'Above 3% threshold',
+			icon: Package,
+		},
+		{
+			id: '6',
+			title: 'Growth',
+			value: '+15.3%',
+			status: 'healthy',
+			description: 'YoY revenue growth',
+			icon: TrendingUp,
+		},
 	];
 
 	return (

@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, Calendar, RotateCcw, ArrowRight } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	Calendar,
+	RotateCcw,
+	ArrowRight,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -20,7 +27,15 @@ interface WishlistGridProps {
 	items: WishlistItem[];
 }
 
-const ActivityIndicator = ({ addedDate, lastViewed, viewCount }: { addedDate: string; lastViewed: string; viewCount: number }) => (
+const ActivityIndicator = ({
+	addedDate,
+	lastViewed,
+	viewCount,
+}: {
+	addedDate: string;
+	lastViewed: string;
+	viewCount: number;
+}) => (
 	<div className="mt-3 grid grid-cols-2 gap-2 text-xs">
 		<div className="flex items-center gap-1.5 text-muted-foreground">
 			<Calendar className="size-3" />
@@ -76,7 +91,11 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 					</span>
 				)}
 			</div>
-			<ActivityIndicator addedDate={item.addedDate} lastViewed={item.lastViewed} viewCount={item.viewCount} />
+			<ActivityIndicator
+				addedDate={item.addedDate}
+				lastViewed={item.lastViewed}
+				viewCount={item.viewCount}
+			/>
 		</CardContent>
 	</Card>
 );
@@ -89,18 +108,30 @@ const WishlistGrid = ({ items }: WishlistGridProps) => (
 	</div>
 );
 
-const SummaryBanner = ({ totalItems, totalValue, savings }: { totalItems: number; totalValue: number; savings: number }) => (
+const SummaryBanner = ({
+	totalItems,
+	totalValue,
+	savings,
+}: {
+	totalItems: number;
+	totalValue: number;
+	savings: number;
+}) => (
 	<div className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 mb-6 @md:mb-8">
 		<div className="text-center">
 			<p className="text-2xl @md:text-3xl font-bold">{totalItems}</p>
 			<p className="text-xs text-muted-foreground">Items Saved</p>
 		</div>
 		<div className="text-center border-x border-border/50">
-			<p className="text-2xl @md:text-3xl font-bold">${totalValue.toFixed(0)}</p>
+			<p className="text-2xl @md:text-3xl font-bold">
+				${totalValue.toFixed(0)}
+			</p>
 			<p className="text-xs text-muted-foreground">Total Value</p>
 		</div>
 		<div className="text-center">
-			<p className="text-2xl @md:text-3xl font-bold text-green-600">${savings.toFixed(0)}</p>
+			<p className="text-2xl @md:text-3xl font-bold text-green-600">
+				${savings.toFixed(0)}
+			</p>
 			<p className="text-xs text-muted-foreground">Potential Savings</p>
 		</div>
 	</div>
@@ -108,20 +139,70 @@ const SummaryBanner = ({ totalItems, totalValue, savings }: { totalItems: number
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Minimalist Desk Lamp', price: 89.99, originalPrice: 129.99, image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop', addedDate: '2 days ago', lastViewed: 'Today', viewCount: 5, href: '/product/1' },
-		{ id: '2', name: 'Ergonomic Mouse', price: 79.00, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop', addedDate: '1 week ago', lastViewed: 'Yesterday', viewCount: 3, href: '/product/2' },
-		{ id: '3', name: 'Mechanical Keyboard', price: 159.99, originalPrice: 199.99, image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=400&fit=crop', addedDate: '3 days ago', lastViewed: 'Today', viewCount: 8, href: '/product/3' },
-		{ id: '4', name: 'Monitor Stand', price: 49.99, image: 'https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=400&h=400&fit=crop', addedDate: '2 weeks ago', lastViewed: '3 days ago', viewCount: 2, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Minimalist Desk Lamp',
+			price: 89.99,
+			originalPrice: 129.99,
+			image:
+				'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop',
+			addedDate: '2 days ago',
+			lastViewed: 'Today',
+			viewCount: 5,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Ergonomic Mouse',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop',
+			addedDate: '1 week ago',
+			lastViewed: 'Yesterday',
+			viewCount: 3,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Mechanical Keyboard',
+			price: 159.99,
+			originalPrice: 199.99,
+			image:
+				'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=400&fit=crop',
+			addedDate: '3 days ago',
+			lastViewed: 'Today',
+			viewCount: 8,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Monitor Stand',
+			price: 49.99,
+			image:
+				'https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=400&h=400&fit=crop',
+			addedDate: '2 weeks ago',
+			lastViewed: '3 days ago',
+			viewCount: 2,
+			href: '/product/4',
+		},
 	];
 
 	const totalValue = wishlistItems.reduce((sum, item) => sum + item.price, 0);
-	const savings = wishlistItems.reduce((sum, item) => sum + (item.originalPrice ? item.originalPrice - item.price : 0), 0);
+	const savings = wishlistItems.reduce(
+		(sum, item) =>
+			sum + (item.originalPrice ? item.originalPrice - item.price : 0),
+		0,
+	);
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<h1 className="text-2xl @md:text-3xl font-bold mb-6">My Wishlist</h1>
-				<SummaryBanner totalItems={wishlistItems.length} totalValue={totalValue} savings={savings} />
+				<SummaryBanner
+					totalItems={wishlistItems.length}
+					totalValue={totalValue}
+					savings={savings}
+				/>
 				<WishlistGrid items={wishlistItems} />
 			</div>
 		</section>

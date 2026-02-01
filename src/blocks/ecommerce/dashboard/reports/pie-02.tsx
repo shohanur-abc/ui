@@ -33,7 +33,13 @@ type PaymentMethodProps = {
 	transactions: string;
 };
 
-const PaymentMethod = ({ icon: Icon, method, amount, percentage, transactions }: PaymentMethodProps) => (
+const PaymentMethod = ({
+	icon: Icon,
+	method,
+	amount,
+	percentage,
+	transactions,
+}: PaymentMethodProps) => (
 	<div className="flex items-start gap-3 rounded-lg border border-border/50 p-3">
 		<div className="rounded-lg bg-muted/50 p-2">
 			<Icon className="size-4 text-muted-foreground" />
@@ -44,7 +50,9 @@ const PaymentMethod = ({ icon: Icon, method, amount, percentage, transactions }:
 				<span className="text-sm font-bold">{amount}</span>
 			</div>
 			<Progress value={percentage} className="h-1.5" />
-			<p className="text-xs text-muted-foreground">{transactions} transactions</p>
+			<p className="text-xs text-muted-foreground">
+				{transactions} transactions
+			</p>
 		</div>
 	</div>
 );
@@ -77,16 +85,50 @@ export default function Main() {
 		{ method: 'creditCard', amount: 485000, fill: 'var(--color-creditCard)' },
 		{ method: 'paypal', amount: 245000, fill: 'var(--color-paypal)' },
 		{ method: 'applePay', amount: 185000, fill: 'var(--color-applePay)' },
-		{ method: 'bankTransfer', amount: 125000, fill: 'var(--color-bankTransfer)' },
+		{
+			method: 'bankTransfer',
+			amount: 125000,
+			fill: 'var(--color-bankTransfer)',
+		},
 		{ method: 'giftCard', amount: 60000, fill: 'var(--color-giftCard)' },
 	];
 
 	const paymentMethods: PaymentMethodProps[] = [
-		{ icon: CreditCard, method: 'Credit Card', amount: '$485K', percentage: 44, transactions: '12,450' },
-		{ icon: Wallet, method: 'PayPal', amount: '$245K', percentage: 22, transactions: '6,280' },
-		{ icon: Smartphone, method: 'Apple Pay', amount: '$185K', percentage: 17, transactions: '4,720' },
-		{ icon: Building2, method: 'Bank Transfer', amount: '$125K', percentage: 11, transactions: '1,850' },
-		{ icon: Gift, method: 'Gift Card', amount: '$60K', percentage: 6, transactions: '2,100' },
+		{
+			icon: CreditCard,
+			method: 'Credit Card',
+			amount: '$485K',
+			percentage: 44,
+			transactions: '12,450',
+		},
+		{
+			icon: Wallet,
+			method: 'PayPal',
+			amount: '$245K',
+			percentage: 22,
+			transactions: '6,280',
+		},
+		{
+			icon: Smartphone,
+			method: 'Apple Pay',
+			amount: '$185K',
+			percentage: 17,
+			transactions: '4,720',
+		},
+		{
+			icon: Building2,
+			method: 'Bank Transfer',
+			amount: '$125K',
+			percentage: 11,
+			transactions: '1,850',
+		},
+		{
+			icon: Gift,
+			method: 'Gift Card',
+			amount: '$60K',
+			percentage: 6,
+			transactions: '2,100',
+		},
 	];
 
 	return (
@@ -103,7 +145,10 @@ export default function Main() {
 					</CardHeader>
 					<CardContent>
 						<div className="grid gap-8 @md:grid-cols-2">
-							<ChartContainer config={chartConfig} className="mx-auto aspect-square h-[280px]">
+							<ChartContainer
+								config={chartConfig}
+								className="mx-auto aspect-square h-[280px]"
+							>
 								<PieChart>
 									<ChartTooltip content={<ChartTooltipContent />} />
 									<Pie

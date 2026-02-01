@@ -1,10 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	Award,
@@ -62,7 +59,9 @@ const GamificationHeader = ({
 				<div className="space-y-1">
 					<div className="flex justify-between text-xs">
 						<span>Level {level}</span>
-						<span>{xp}/{maxXp} XP</span>
+						<span>
+							{xp}/{maxXp} XP
+						</span>
 					</div>
 					<Progress value={(xp / maxXp) * 100} className="h-2" />
 				</div>
@@ -85,10 +84,15 @@ const DailyStreak = ({
 			</div>
 			<div>
 				<p className="font-semibold">{streak} Day Streak!</p>
-				<p className="text-xs text-muted-foreground">Keep shopping to earn more</p>
+				<p className="text-xs text-muted-foreground">
+					Keep shopping to earn more
+				</p>
 			</div>
 		</div>
-		<Badge variant="secondary" className="bg-orange-500/20 text-orange-600 border-orange-500/30">
+		<Badge
+			variant="secondary"
+			className="bg-orange-500/20 text-orange-600 border-orange-500/30"
+		>
 			{reward}
 		</Badge>
 	</div>
@@ -97,7 +101,12 @@ const DailyStreak = ({
 const Achievements = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; progress: number; color: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		progress: number;
+		color: string;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
@@ -121,7 +130,9 @@ const Achievements = ({
 					<div className={`p-2 rounded-lg ${achievement.color}`}>
 						<achievement.icon className="size-5" />
 					</div>
-					<span className="text-xs text-center font-medium">{achievement.label}</span>
+					<span className="text-xs text-center font-medium">
+						{achievement.label}
+					</span>
 					{achievement.progress < 100 && (
 						<Progress value={achievement.progress} className="h-1 w-full" />
 					)}
@@ -180,19 +191,64 @@ export default function Main() {
 			reward: '+50 XP',
 		},
 		achievements: [
-			{ icon: Trophy, label: 'First Buy', progress: 100, color: 'bg-amber-500/20 text-amber-500' },
-			{ icon: Star, label: 'Reviewer', progress: 100, color: 'bg-blue-500/20 text-blue-500' },
-			{ icon: Gift, label: 'Gifter', progress: 75, color: 'bg-pink-500/20 text-pink-500' },
-			{ icon: Zap, label: 'Flash Buyer', progress: 100, color: 'bg-purple-500/20 text-purple-500' },
-			{ icon: Target, label: 'Collector', progress: 60, color: 'bg-green-500/20 text-green-500' },
-			{ icon: Diamond, label: 'Premium', progress: 40, color: 'bg-cyan-500/20 text-cyan-500' },
+			{
+				icon: Trophy,
+				label: 'First Buy',
+				progress: 100,
+				color: 'bg-amber-500/20 text-amber-500',
+			},
+			{
+				icon: Star,
+				label: 'Reviewer',
+				progress: 100,
+				color: 'bg-blue-500/20 text-blue-500',
+			},
+			{
+				icon: Gift,
+				label: 'Gifter',
+				progress: 75,
+				color: 'bg-pink-500/20 text-pink-500',
+			},
+			{
+				icon: Zap,
+				label: 'Flash Buyer',
+				progress: 100,
+				color: 'bg-purple-500/20 text-purple-500',
+			},
+			{
+				icon: Target,
+				label: 'Collector',
+				progress: 60,
+				color: 'bg-green-500/20 text-green-500',
+			},
+			{
+				icon: Diamond,
+				label: 'Premium',
+				progress: 40,
+				color: 'bg-cyan-500/20 text-cyan-500',
+			},
 		],
 		leaderboard: {
 			rank: 42,
 			topUsers: [
-				{ name: 'Alex Thompson', points: '45.2k', avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100' },
-				{ name: 'Maria Garcia', points: '42.8k', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100' },
-				{ name: 'James Wilson', points: '39.5k', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100' },
+				{
+					name: 'Alex Thompson',
+					points: '45.2k',
+					avatar:
+						'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100',
+				},
+				{
+					name: 'Maria Garcia',
+					points: '42.8k',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
+				},
+				{
+					name: 'James Wilson',
+					points: '39.5k',
+					avatar:
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
+				},
 			],
 		},
 	};

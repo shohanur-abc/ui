@@ -88,7 +88,9 @@ const HeroTestimonial = ({ item }: { item: TestimonialItem }) => (
 					<div className="grid grid-cols-3 gap-6 pt-6 border-t border-border/50">
 						{item.stats.map((stat, i) => (
 							<div key={i} className="text-center">
-								<p className="text-2xl @lg:text-3xl font-bold text-primary">{stat.value}</p>
+								<p className="text-2xl @lg:text-3xl font-bold text-primary">
+									{stat.value}
+								</p>
 								<p className="text-sm text-muted-foreground">{stat.label}</p>
 							</div>
 						))}
@@ -99,7 +101,13 @@ const HeroTestimonial = ({ item }: { item: TestimonialItem }) => (
 	</Card>
 );
 
-const ActionButtons = ({ primaryText, secondaryText }: { primaryText: string; secondaryText: string }) => (
+const ActionButtons = ({
+	primaryText,
+	secondaryText,
+}: {
+	primaryText: string;
+	secondaryText: string;
+}) => (
 	<div className="flex flex-col @sm:flex-row gap-4 mt-10">
 		<Button size="lg" className="gap-2 bg-primary hover:bg-primary/90">
 			{primaryText}
@@ -119,8 +127,10 @@ export default function Main() {
 		author: 'Alexandra Chen',
 		role: 'Chief Executive Officer',
 		company: 'TechVision Global',
-		companyLogo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=50&fit=crop',
-		avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop',
+		companyLogo:
+			'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=50&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop',
 		initials: 'AC',
 		rating: 5,
 		stats: [
@@ -131,7 +141,10 @@ export default function Main() {
 	};
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5" />
 			<div className="mx-auto max-w-6xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32 relative z-10">
 				<SectionHeader
@@ -143,7 +156,10 @@ export default function Main() {
 
 				<HeroTestimonial item={testimonial} />
 
-				<ActionButtons primaryText="Start Your Journey" secondaryText="Watch Full Story" />
+				<ActionButtons
+					primaryText="Start Your Journey"
+					secondaryText="Watch Full Story"
+				/>
 			</div>
 		</section>
 	);

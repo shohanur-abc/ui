@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -76,7 +82,9 @@ const ProductReviewCard = ({ item }: { item: OrderItem }) => (
 							className={`size-3 ${i < item.rating ? 'fill-amber-400 text-amber-400' : 'text-muted'}`}
 						/>
 					))}
-					<span className="ml-1 text-xs text-muted-foreground">({item.rating}.0)</span>
+					<span className="ml-1 text-xs text-muted-foreground">
+						({item.rating}.0)
+					</span>
 				</div>
 				<div className="mt-2 flex items-center justify-between">
 					<Badge variant="secondary">×{item.qty}</Badge>
@@ -127,9 +135,13 @@ const TotalLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -141,7 +153,8 @@ export default function Main() {
 			variant: 'Titanium / 45mm',
 			price: 399.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=200&h=200&fit=crop',
 			rating: 5,
 			favorite: true,
 		},
@@ -151,7 +164,8 @@ export default function Main() {
 			variant: 'Black / M/L',
 			price: 49.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=200&h=200&fit=crop',
 			rating: 4,
 		},
 	];
@@ -181,14 +195,26 @@ export default function Main() {
 						<div className="grid gap-4 @sm:grid-cols-2">
 							<ReviewCard title="Shipping" onEdit={() => {}}>
 								<div className="space-y-3">
-									<InfoLine icon={MapPin} label="Address" value="Daniel K., San Diego, CA" />
-									<InfoLine icon={Truck} label="Method" value="Express · Dec 19-20" />
+									<InfoLine
+										icon={MapPin}
+										label="Address"
+										value="Daniel K., San Diego, CA"
+									/>
+									<InfoLine
+										icon={Truck}
+										label="Method"
+										value="Express · Dec 19-20"
+									/>
 								</div>
 							</ReviewCard>
 
 							<ReviewCard title="Payment" onEdit={() => {}}>
 								<div className="space-y-3">
-									<InfoLine icon={CreditCard} label="Card" value="Visa •••• 7890" />
+									<InfoLine
+										icon={CreditCard}
+										label="Card"
+										value="Visa •••• 7890"
+									/>
 									<InfoLine icon={Gift} label="Gift" value="Wrap included" />
 								</div>
 							</ReviewCard>

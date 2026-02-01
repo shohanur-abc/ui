@@ -128,10 +128,7 @@ export default function Main() {
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="grid @lg:grid-cols-3 gap-8">
 					<div className="@lg:col-span-2">
-						<Header
-							title="Shipping Address"
-							action={{ label: 'Add New' }}
-						/>
+						<Header title="Shipping Address" action={{ label: 'Add New' }} />
 						<Card>
 							<CardContent className="pt-6">
 								<RadioGroup defaultValue="1" className="divide-y divide-border">

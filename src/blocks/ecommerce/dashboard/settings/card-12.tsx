@@ -42,7 +42,9 @@ const SettingsCard = ({
 			)}
 		</div>
 		<div className="mt-4 flex-1">
-			<h3 className="font-semibold transition-colors group-hover:text-primary">{title}</h3>
+			<h3 className="font-semibold transition-colors group-hover:text-primary">
+				{title}
+			</h3>
 			<p className="mt-1 text-sm text-muted-foreground">{description}</p>
 		</div>
 		<div className="mt-4 flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">

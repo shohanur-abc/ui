@@ -16,11 +16,7 @@ interface AddressGridItemProps {
 	isDefault?: boolean;
 }
 
-const SearchBar = ({
-	placeholder,
-}: {
-	placeholder: string;
-}) => (
+const SearchBar = ({ placeholder }: { placeholder: string }) => (
 	<div className="relative flex-1">
 		<Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
 		<Input placeholder={placeholder} className="pl-10" />
@@ -29,16 +25,10 @@ const SearchBar = ({
 
 const ViewToggle = () => (
 	<div className="flex border border-border rounded-lg overflow-hidden">
-		<button
-			type="button"
-			className="p-2 bg-primary/10 text-primary"
-		>
+		<button type="button" className="p-2 bg-primary/10 text-primary">
 			<Grid3X3 className="size-4" />
 		</button>
-		<button
-			type="button"
-			className="p-2 hover:bg-muted/50"
-		>
+		<button type="button" className="p-2 hover:bg-muted/50">
 			<List className="size-4" />
 		</button>
 	</div>

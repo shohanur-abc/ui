@@ -73,9 +73,14 @@ const GamifiedHeader = ({
 						<Zap className="size-4 text-amber-500" />
 						Level {level}
 					</span>
-					<span className="text-muted-foreground">{xp}/{maxXp} XP</span>
+					<span className="text-muted-foreground">
+						{xp}/{maxXp} XP
+					</span>
 				</div>
-				<Progress value={(xp / maxXp) * 100} className="h-3 [&>div]:bg-gradient-to-r [&>div]:from-amber-500 [&>div]:to-orange-500" />
+				<Progress
+					value={(xp / maxXp) * 100}
+					className="h-3 [&>div]:bg-gradient-to-r [&>div]:from-amber-500 [&>div]:to-orange-500"
+				/>
 			</div>
 		</div>
 	</div>
@@ -94,7 +99,9 @@ const AchievementShowcase = ({
 				<Trophy className="size-5 text-amber-500" />
 				Achievements
 			</h3>
-			<Badge variant="outline">{achievements.length}/{total}</Badge>
+			<Badge variant="outline">
+				{achievements.length}/{total}
+			</Badge>
 		</div>
 		<div className="flex justify-center gap-3">
 			{achievements.map((achievement, i) => (
@@ -118,7 +125,12 @@ const AchievementShowcase = ({
 const StatsGrid = ({
 	items,
 }: {
-	items: { icon: React.ElementType; value: string; label: string; xp: string }[];
+	items: {
+		icon: React.ElementType;
+		value: string;
+		label: string;
+		xp: string;
+	}[];
 }) => (
 	<div className="grid grid-cols-2 gap-3">
 		{items.map((stat, i) => (
@@ -129,7 +141,9 @@ const StatsGrid = ({
 				<stat.icon className="size-6 mx-auto mb-2 text-muted-foreground" />
 				<p className="text-xl font-bold">{stat.value}</p>
 				<p className="text-sm text-muted-foreground">{stat.label}</p>
-				<Badge variant="secondary" className="mt-2 text-xs">+{stat.xp} XP</Badge>
+				<Badge variant="secondary" className="mt-2 text-xs">
+					+{stat.xp} XP
+				</Badge>
 			</div>
 		))}
 	</div>
@@ -158,9 +172,14 @@ const DailyChallenge = ({
 		<div className="space-y-1">
 			<div className="flex justify-between text-xs">
 				<span>Progress</span>
-				<span>{progress}/{target}</span>
+				<span>
+					{progress}/{target}
+				</span>
 			</div>
-			<Progress value={(progress / target) * 100} className="h-2 [&>div]:bg-purple-500" />
+			<Progress
+				value={(progress / target) * 100}
+				className="h-2 [&>div]:bg-purple-500"
+			/>
 		</div>
 	</div>
 );
@@ -178,11 +197,31 @@ export default function Main() {
 			streak: 14,
 		},
 		achievements: [
-			{ icon: Star, name: 'First Review', color: 'bg-amber-500/20 text-amber-500' },
-			{ icon: ShoppingBag, name: '10 Orders', color: 'bg-blue-500/20 text-blue-500' },
-			{ icon: Heart, name: 'Wishlist Pro', color: 'bg-pink-500/20 text-pink-500' },
-			{ icon: Award, name: 'Top Reviewer', color: 'bg-purple-500/20 text-purple-500' },
-			{ icon: Flame, name: 'Week Streak', color: 'bg-orange-500/20 text-orange-500' },
+			{
+				icon: Star,
+				name: 'First Review',
+				color: 'bg-amber-500/20 text-amber-500',
+			},
+			{
+				icon: ShoppingBag,
+				name: '10 Orders',
+				color: 'bg-blue-500/20 text-blue-500',
+			},
+			{
+				icon: Heart,
+				name: 'Wishlist Pro',
+				color: 'bg-pink-500/20 text-pink-500',
+			},
+			{
+				icon: Award,
+				name: 'Top Reviewer',
+				color: 'bg-purple-500/20 text-purple-500',
+			},
+			{
+				icon: Flame,
+				name: 'Week Streak',
+				color: 'bg-orange-500/20 text-orange-500',
+			},
 		],
 		totalAchievements: 24,
 		stats: [

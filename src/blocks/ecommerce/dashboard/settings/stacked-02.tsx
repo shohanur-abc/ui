@@ -28,7 +28,14 @@ type CompanyField = {
 	defaultValue?: string;
 };
 
-const FormField = ({ id, label, placeholder, type, options, defaultValue }: CompanyField) => (
+const FormField = ({
+	id,
+	label,
+	placeholder,
+	type,
+	options,
+	defaultValue,
+}: CompanyField) => (
 	<div className="space-y-2">
 		<Label htmlFor={id} className="text-sm font-medium">
 			{label}
@@ -67,7 +74,11 @@ const FormField = ({ id, label, placeholder, type, options, defaultValue }: Comp
 	</div>
 );
 
-const SectionIcon = ({ icon: Icon }: { icon: React.ComponentType<{ className?: string }> }) => (
+const SectionIcon = ({
+	icon: Icon,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+}) => (
 	<div className="flex size-10 items-center justify-center rounded-lg bg-primary/10">
 		<Icon className="size-5 text-primary" />
 	</div>
@@ -75,27 +86,77 @@ const SectionIcon = ({ icon: Icon }: { icon: React.ComponentType<{ className?: s
 
 export default function Main() {
 	const companyFields: CompanyField[] = [
-		{ id: 'companyName', label: 'Company Name', placeholder: 'Enter company name', type: 'input', defaultValue: 'Acme Inc.' },
-		{ id: 'industry', label: 'Industry', placeholder: 'Select industry', type: 'select', options: [
-			{ value: 'tech', label: 'Technology' },
-			{ value: 'retail', label: 'Retail' },
-			{ value: 'healthcare', label: 'Healthcare' },
-			{ value: 'finance', label: 'Finance' },
-		], defaultValue: 'tech' },
-		{ id: 'website', label: 'Website', placeholder: 'https://example.com', type: 'input', defaultValue: 'https://acme.com' },
-		{ id: 'description', label: 'Company Description', placeholder: 'Describe your company...', type: 'textarea', defaultValue: 'Leading provider of innovative solutions.' },
+		{
+			id: 'companyName',
+			label: 'Company Name',
+			placeholder: 'Enter company name',
+			type: 'input',
+			defaultValue: 'Acme Inc.',
+		},
+		{
+			id: 'industry',
+			label: 'Industry',
+			placeholder: 'Select industry',
+			type: 'select',
+			options: [
+				{ value: 'tech', label: 'Technology' },
+				{ value: 'retail', label: 'Retail' },
+				{ value: 'healthcare', label: 'Healthcare' },
+				{ value: 'finance', label: 'Finance' },
+			],
+			defaultValue: 'tech',
+		},
+		{
+			id: 'website',
+			label: 'Website',
+			placeholder: 'https://example.com',
+			type: 'input',
+			defaultValue: 'https://acme.com',
+		},
+		{
+			id: 'description',
+			label: 'Company Description',
+			placeholder: 'Describe your company...',
+			type: 'textarea',
+			defaultValue: 'Leading provider of innovative solutions.',
+		},
 	];
 
 	const locationFields: CompanyField[] = [
-		{ id: 'country', label: 'Country', placeholder: 'Select country', type: 'select', options: [
-			{ value: 'us', label: 'United States' },
-			{ value: 'uk', label: 'United Kingdom' },
-			{ value: 'ca', label: 'Canada' },
-			{ value: 'de', label: 'Germany' },
-		], defaultValue: 'us' },
-		{ id: 'city', label: 'City', placeholder: 'Enter city', type: 'input', defaultValue: 'San Francisco' },
-		{ id: 'address', label: 'Street Address', placeholder: 'Enter address', type: 'input', defaultValue: '123 Market Street' },
-		{ id: 'postalCode', label: 'Postal Code', placeholder: 'Enter postal code', type: 'input', defaultValue: '94105' },
+		{
+			id: 'country',
+			label: 'Country',
+			placeholder: 'Select country',
+			type: 'select',
+			options: [
+				{ value: 'us', label: 'United States' },
+				{ value: 'uk', label: 'United Kingdom' },
+				{ value: 'ca', label: 'Canada' },
+				{ value: 'de', label: 'Germany' },
+			],
+			defaultValue: 'us',
+		},
+		{
+			id: 'city',
+			label: 'City',
+			placeholder: 'Enter city',
+			type: 'input',
+			defaultValue: 'San Francisco',
+		},
+		{
+			id: 'address',
+			label: 'Street Address',
+			placeholder: 'Enter address',
+			type: 'input',
+			defaultValue: '123 Market Street',
+		},
+		{
+			id: 'postalCode',
+			label: 'Postal Code',
+			placeholder: 'Enter postal code',
+			type: 'input',
+			defaultValue: '94105',
+		},
 	];
 
 	return (
@@ -108,14 +169,21 @@ export default function Main() {
 								<SectionIcon icon={Building2} />
 								<div>
 									<CardTitle>Company Information</CardTitle>
-									<CardDescription>Update your business details and branding</CardDescription>
+									<CardDescription>
+										Update your business details and branding
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>
 						<CardContent className="pt-6">
 							<div className="grid gap-4 @md:grid-cols-2">
 								{companyFields.map((field) => (
-									<div key={field.id} className={field.type === 'textarea' ? '@md:col-span-2' : ''}>
+									<div
+										key={field.id}
+										className={
+											field.type === 'textarea' ? '@md:col-span-2' : ''
+										}
+									>
 										<FormField {...field} />
 									</div>
 								))}
@@ -129,7 +197,9 @@ export default function Main() {
 								<SectionIcon icon={MapPin} />
 								<div>
 									<CardTitle>Business Location</CardTitle>
-									<CardDescription>Set your primary business address</CardDescription>
+									<CardDescription>
+										Set your primary business address
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>

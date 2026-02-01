@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -68,13 +74,7 @@ const ProductLine = ({ item }: { item: OrderItem }) => (
 	</div>
 );
 
-const AddressContent = ({
-	name,
-	lines,
-}: {
-	name: string;
-	lines: string[];
-}) => (
+const AddressContent = ({ name, lines }: { name: string; lines: string[] }) => (
 	<div>
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
@@ -117,7 +117,9 @@ const PaymentContent = ({
 			<CreditCard className="size-5 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -134,9 +136,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -148,7 +154,8 @@ export default function Main() {
 			variant: '4-Person / Waterproof',
 			price: 249.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -156,7 +163,8 @@ export default function Main() {
 			variant: '0°F / Mummy',
 			price: 129.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1501703979959-797917eb21c8?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1501703979959-797917eb21c8?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -164,7 +172,8 @@ export default function Main() {
 			variant: 'Portable / Propane',
 			price: 89.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1476900543704-4312b78632f8?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1476900543704-4312b78632f8?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -211,7 +220,11 @@ export default function Main() {
 						</div>
 
 						<StackedCard title="Delivery" icon={Truck} editable>
-							<DeliveryContent method="Outdoor Priority" date="Dec 20-22, 2025" price="$19.99" />
+							<DeliveryContent
+								method="Outdoor Priority"
+								date="Dec 20-22, 2025"
+								price="$19.99"
+							/>
 						</StackedCard>
 
 						<StackedCard title="Payment" icon={CreditCard} editable>

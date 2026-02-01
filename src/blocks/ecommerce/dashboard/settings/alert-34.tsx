@@ -59,13 +59,18 @@ const ContactCard = ({
 		<Avatar>
 			<AvatarImage src={avatar} />
 			<AvatarFallback>
-				{name.split(' ').map((n) => n[0]).join('')}
+				{name
+					.split(' ')
+					.map((n) => n[0])
+					.join('')}
 			</AvatarFallback>
 		</Avatar>
 		<div className="flex-1 min-w-0">
 			<div className="flex items-center gap-2">
 				<h4 className="font-medium truncate">{name}</h4>
-				<Badge variant="secondary" className="text-xs">{role}</Badge>
+				<Badge variant="secondary" className="text-xs">
+					{role}
+				</Badge>
 			</div>
 			<p className="text-sm text-muted-foreground truncate">{email}</p>
 			{phone && <p className="text-xs text-muted-foreground">{phone}</p>}
@@ -246,7 +251,11 @@ export default function Main() {
 											If an alert isn't acknowledged within 30 minutes, it will
 											automatically escalate to the next contact.
 										</p>
-										<Button variant="link" size="sm" className="mt-2 h-auto p-0">
+										<Button
+											variant="link"
+											size="sm"
+											className="mt-2 h-auto p-0"
+										>
 											Configure escalation rules
 										</Button>
 									</div>

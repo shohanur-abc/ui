@@ -1,10 +1,27 @@
 'use client';
 
-import { ArrowLeft, Check, CreditCard, Lock, QrCode, Shield, Smartphone, Star, Wallet, X, Zap } from 'lucide-react';
+import {
+	ArrowLeft,
+	Check,
+	CreditCard,
+	Lock,
+	QrCode,
+	Shield,
+	Smartphone,
+	Star,
+	Wallet,
+	X,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -18,7 +35,13 @@ interface SavedCard {
 	isDefault?: boolean;
 }
 
-const DrawerHeader = ({ title, onClose }: { title: string; onClose: () => void }) => (
+const DrawerHeader = ({
+	title,
+	onClose,
+}: {
+	title: string;
+	onClose: () => void;
+}) => (
 	<div className="flex items-center justify-between">
 		<h2 className="text-xl font-semibold">{title}</h2>
 		<Button variant="ghost" size="icon" onClick={onClose}>
@@ -27,21 +50,40 @@ const DrawerHeader = ({ title, onClose }: { title: string; onClose: () => void }
 	</div>
 );
 
-const AmountDisplay = ({ amount, currency }: { amount: string; currency: string }) => (
+const AmountDisplay = ({
+	amount,
+	currency,
+}: {
+	amount: string;
+	currency: string;
+}) => (
 	<div className="text-center py-4">
-		<span className="text-3xl font-bold">{currency}{amount}</span>
+		<span className="text-3xl font-bold">
+			{currency}
+			{amount}
+		</span>
 		<p className="text-sm text-muted-foreground">Total amount due</p>
 	</div>
 );
 
-const SavedCardsList = ({ cards, selected, onSelect }: { cards: SavedCard[]; selected: string; onSelect: (id: string) => void }) => (
+const SavedCardsList = ({
+	cards,
+	selected,
+	onSelect,
+}: {
+	cards: SavedCard[];
+	selected: string;
+	onSelect: (id: string) => void;
+}) => (
 	<div className="space-y-2">
 		{cards.map((card) => (
 			<div
 				key={card.id}
 				onClick={() => onSelect(card.id)}
 				className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${
-					selected === card.id ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/30'
+					selected === card.id
+						? 'border-primary bg-primary/5'
+						: 'border-border hover:border-primary/30'
 				}`}
 			>
 				<div className="size-10 rounded-lg bg-muted flex items-center justify-center">
@@ -49,8 +91,14 @@ const SavedCardsList = ({ cards, selected, onSelect }: { cards: SavedCard[]; sel
 				</div>
 				<div className="flex-1">
 					<div className="flex items-center gap-2">
-						<span className="font-medium">{card.brand} •••• {card.last4}</span>
-						{card.isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+						<span className="font-medium">
+							{card.brand} •••• {card.last4}
+						</span>
+						{card.isDefault && (
+							<Badge variant="secondary" className="text-xs">
+								Default
+							</Badge>
+						)}
 					</div>
 					<p className="text-xs text-muted-foreground">Expires {card.expiry}</p>
 				</div>
@@ -91,7 +139,9 @@ const QrCodePayment = () => (
 		<div className="mx-auto size-40 rounded-xl bg-white p-3 flex items-center justify-center">
 			<QrCode className="size-full text-gray-800" />
 		</div>
-		<p className="text-sm text-muted-foreground">Scan with your banking app to pay instantly</p>
+		<p className="text-sm text-muted-foreground">
+			Scan with your banking app to pay instantly
+		</p>
 		<Badge variant="outline" className="gap-1">
 			<Zap className="size-3" />
 			Instant confirmation
@@ -101,16 +151,24 @@ const QrCodePayment = () => (
 
 const MobilePayOptions = () => (
 	<div className="space-y-3">
-		<Button variant="outline" className="w-full h-14 gap-3 text-left justify-start">
+		<Button
+			variant="outline"
+			className="w-full h-14 gap-3 text-left justify-start"
+		>
 			<div className="size-10 rounded-lg bg-muted flex items-center justify-center">
 				<Smartphone className="size-5" />
 			</div>
 			<div>
 				<span className="font-medium">Apple Pay</span>
-				<p className="text-xs text-muted-foreground">Pay with Touch ID or Face ID</p>
+				<p className="text-xs text-muted-foreground">
+					Pay with Touch ID or Face ID
+				</p>
 			</div>
 		</Button>
-		<Button variant="outline" className="w-full h-14 gap-3 text-left justify-start">
+		<Button
+			variant="outline"
+			className="w-full h-14 gap-3 text-left justify-start"
+		>
 			<div className="size-10 rounded-lg bg-muted flex items-center justify-center">
 				<Wallet className="size-5" />
 			</div>
@@ -137,7 +195,13 @@ const SecurityInfo = () => (
 
 export default function Main() {
 	const savedCards: SavedCard[] = [
-		{ id: 'card1', brand: 'Visa', last4: '4242', expiry: '12/25', isDefault: true },
+		{
+			id: 'card1',
+			brand: 'Visa',
+			last4: '4242',
+			expiry: '12/25',
+			isDefault: true,
+		},
 		{ id: 'card2', brand: 'Mastercard', last4: '8888', expiry: '06/24' },
 	];
 
@@ -152,13 +216,23 @@ export default function Main() {
 					<CardContent>
 						<Tabs defaultValue="cards" className="w-full">
 							<TabsList className="grid w-full grid-cols-3">
-								<TabsTrigger value="cards" className="text-xs">Cards</TabsTrigger>
-								<TabsTrigger value="mobile" className="text-xs">Mobile Pay</TabsTrigger>
-								<TabsTrigger value="qr" className="text-xs">QR Code</TabsTrigger>
+								<TabsTrigger value="cards" className="text-xs">
+									Cards
+								</TabsTrigger>
+								<TabsTrigger value="mobile" className="text-xs">
+									Mobile Pay
+								</TabsTrigger>
+								<TabsTrigger value="qr" className="text-xs">
+									QR Code
+								</TabsTrigger>
 							</TabsList>
 							<div className="mt-6">
 								<TabsContent value="cards" className="space-y-4 m-0">
-									<SavedCardsList cards={savedCards} selected="card1" onSelect={() => {}} />
+									<SavedCardsList
+										cards={savedCards}
+										selected="card1"
+										onSelect={() => {}}
+									/>
 									<Separator />
 									<Button variant="ghost" className="w-full gap-2 text-primary">
 										<CreditCard className="size-4" />

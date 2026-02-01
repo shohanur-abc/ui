@@ -1,4 +1,13 @@
-import { Globe2, Truck, Plane, Ship, Clock, DollarSign, AlertCircle, ChevronDown } from 'lucide-react';
+import {
+	Globe2,
+	Truck,
+	Plane,
+	Ship,
+	Clock,
+	DollarSign,
+	AlertCircle,
+	ChevronDown,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -42,14 +51,21 @@ const ShippingZoneCard = ({
 					<div className="flex-1">
 						<div className="flex items-center justify-between mb-2">
 							<span className="font-semibold">{zone}</span>
-							<Badge variant="outline">{minDays}-{maxDays} days</Badge>
+							<Badge variant="outline">
+								{minDays}-{maxDays} days
+							</Badge>
 						</div>
 						<p className="text-sm text-muted-foreground mb-2">
 							{countries.join(', ')}
 						</p>
 						<div className="flex items-center gap-1 text-sm">
 							<DollarSign className="size-3.5" />
-							<span>From <span className="font-semibold text-primary">{startingPrice}</span></span>
+							<span>
+								From{' '}
+								<span className="font-semibold text-primary">
+									{startingPrice}
+								</span>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -110,9 +126,7 @@ const ExpandableSection = ({
 			<span className="font-semibold">{title}</span>
 			<ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
 		</CollapsibleTrigger>
-		<CollapsibleContent>
-			{children}
-		</CollapsibleContent>
+		<CollapsibleContent>{children}</CollapsibleContent>
 	</Collapsible>
 );
 
@@ -146,9 +160,30 @@ export default function Main() {
 	];
 
 	const methods = [
-		{ value: 'air-express', icon: Plane, name: 'Air Express', time: '5-7 days', price: '$34.99', description: 'Fastest international' },
-		{ value: 'air-standard', icon: Plane, name: 'Air Standard', time: '10-14 days', price: '$19.99', description: 'Reliable air freight' },
-		{ value: 'sea-freight', icon: Ship, name: 'Sea Freight', time: '25-35 days', price: '$9.99', description: 'Economy option' },
+		{
+			value: 'air-express',
+			icon: Plane,
+			name: 'Air Express',
+			time: '5-7 days',
+			price: '$34.99',
+			description: 'Fastest international',
+		},
+		{
+			value: 'air-standard',
+			icon: Plane,
+			name: 'Air Standard',
+			time: '10-14 days',
+			price: '$19.99',
+			description: 'Reliable air freight',
+		},
+		{
+			value: 'sea-freight',
+			icon: Ship,
+			name: 'Sea Freight',
+			time: '25-35 days',
+			price: '$9.99',
+			description: 'Economy option',
+		},
 	];
 
 	return (
@@ -158,7 +193,9 @@ export default function Main() {
 					<Globe2 className="size-8 text-primary" />
 					<div>
 						<h1 className="text-2xl font-bold">International Shipping</h1>
-						<p className="text-muted-foreground">Select your destination zone and shipping method</p>
+						<p className="text-muted-foreground">
+							Select your destination zone and shipping method
+						</p>
 					</div>
 				</div>
 
@@ -177,7 +214,10 @@ export default function Main() {
 				<Card className="mb-6">
 					<CardContent className="p-6">
 						<ExpandableSection title="Choose Shipping Method" defaultOpen>
-							<RadioGroup defaultValue="air-standard" className="space-y-3 pt-2">
+							<RadioGroup
+								defaultValue="air-standard"
+								className="space-y-3 pt-2"
+							>
 								{methods.map((method) => (
 									<MethodOption key={method.value} {...method} />
 								))}
@@ -189,12 +229,16 @@ export default function Main() {
 				<Alert className="mb-8">
 					<AlertCircle className="size-4" />
 					<AlertDescription>
-						International orders may be subject to import duties and taxes. These fees are collected upon delivery and are the buyer's responsibility.
+						International orders may be subject to import duties and taxes.
+						These fees are collected upon delivery and are the buyer's
+						responsibility.
 					</AlertDescription>
 				</Alert>
 
 				<div className="flex gap-3">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

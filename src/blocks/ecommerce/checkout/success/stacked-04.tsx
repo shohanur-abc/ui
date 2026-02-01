@@ -112,11 +112,7 @@ const DownloadItem = ({ name, type, size, format }: DownloadItemProps) => (
 	</div>
 );
 
-const DownloadsSection = ({
-	items,
-}: {
-	items: DownloadItemProps[];
-}) => (
+const DownloadsSection = ({ items }: { items: DownloadItemProps[] }) => (
 	<div className="space-y-4">
 		<div className="flex items-center justify-between">
 			<h2 className="font-semibold text-lg">Your Downloads</h2>
@@ -133,7 +129,11 @@ const DownloadsSection = ({
 	</div>
 );
 
-const LicenseItem = ({ product, key: licenseKey, validUntil }: LicenseProps) => (
+const LicenseItem = ({
+	product,
+	key: licenseKey,
+	validUntil,
+}: LicenseProps) => (
 	<div className="p-4 rounded-xl bg-muted/30">
 		<div className="flex items-start justify-between gap-4">
 			<div className="flex items-start gap-3">
@@ -157,11 +157,7 @@ const LicenseItem = ({ product, key: licenseKey, validUntil }: LicenseProps) => 
 	</div>
 );
 
-const LicenseSection = ({
-	licenses,
-}: {
-	licenses: LicenseProps[];
-}) => (
+const LicenseSection = ({ licenses }: { licenses: LicenseProps[] }) => (
 	<div className="space-y-4">
 		<h2 className="font-semibold text-lg flex items-center gap-2">
 			<Key className="size-5" />
@@ -175,11 +171,7 @@ const LicenseSection = ({
 	</div>
 );
 
-const GettingStarted = ({
-	steps,
-}: {
-	steps: string[];
-}) => (
+const GettingStarted = ({ steps }: { steps: string[] }) => (
 	<div className="p-6 rounded-2xl bg-primary/5 border border-primary/10">
 		<h3 className="font-semibold mb-4">Getting Started</h3>
 		<ol className="space-y-3">
@@ -216,14 +208,27 @@ const CTA = ({ items }: CTAProps) => (
 
 export default function Main() {
 	const downloads: DownloadItemProps[] = [
-		{ name: 'Pro Template Collection', type: 'Templates', size: '245 MB', format: 'ZIP' },
+		{
+			name: 'Pro Template Collection',
+			type: 'Templates',
+			size: '245 MB',
+			format: 'ZIP',
+		},
 		{ name: 'Icon Pack Premium', type: 'Icons', size: '128 MB', format: 'ZIP' },
 		{ name: 'Font Family Bundle', type: 'Fonts', size: '56 MB', format: 'ZIP' },
 	];
 
 	const licenses: LicenseProps[] = [
-		{ product: 'Template Collection Pro', key: 'TEMP-XXXX-YYYY-ZZZZ', validUntil: 'Lifetime' },
-		{ product: 'Icon Pack Premium', key: 'ICON-AAAA-BBBB-CCCC', validUntil: 'Lifetime' },
+		{
+			product: 'Template Collection Pro',
+			key: 'TEMP-XXXX-YYYY-ZZZZ',
+			validUntil: 'Lifetime',
+		},
+		{
+			product: 'Icon Pack Premium',
+			key: 'ICON-AAAA-BBBB-CCCC',
+			validUntil: 'Lifetime',
+		},
 	];
 
 	const gettingStartedSteps = [
@@ -261,7 +266,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'View Library', href: '/library', icon: ArrowRight },
-						{ label: 'Documentation', href: '/docs', variant: 'outline', icon: ExternalLink },
+						{
+							label: 'Documentation',
+							href: '/docs',
+							variant: 'outline',
+							icon: ExternalLink,
+						},
 					]}
 				/>
 			</div>

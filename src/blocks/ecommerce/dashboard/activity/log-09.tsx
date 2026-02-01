@@ -59,7 +59,10 @@ const SeverityIcon = ({ severity }: { severity: SecurityLog['severity'] }) => {
 };
 
 const TypeIcon = ({ type }: { type: SecurityLog['type'] }) => {
-	const config: Record<SecurityLog['type'], { icon: LucideIcon; label: string }> = {
+	const config: Record<
+		SecurityLog['type'],
+		{ icon: LucideIcon; label: string }
+	> = {
 		auth: { icon: Key, label: 'Authentication' },
 		access: { icon: Lock, label: 'Access Control' },
 		intrusion: { icon: AlertCircle, label: 'Intrusion Detection' },
@@ -122,12 +125,8 @@ const SecurityEntry = ({ log }: { log: SecurityLog }) => (
 						<Globe className="size-3" />
 						{log.source.ip}
 					</span>
-					{log.source.location && (
-						<span>{log.source.location}</span>
-					)}
-					{log.source.device && (
-						<span>{log.source.device}</span>
-					)}
+					{log.source.location && <span>{log.source.location}</span>}
+					{log.source.device && <span>{log.source.device}</span>}
 					{log.targetUser && (
 						<>
 							<span>•</span>
@@ -158,15 +157,29 @@ const ThreatIndicator = ({
 	incidents: number;
 }) => {
 	const config = {
-		low: { color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
-		medium: { color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
-		high: { color: 'text-orange-400', bg: 'bg-orange-500/10 border-orange-500/20' },
-		critical: { color: 'text-rose-400', bg: 'bg-rose-500/10 border-rose-500/20' },
+		low: {
+			color: 'text-emerald-400',
+			bg: 'bg-emerald-500/10 border-emerald-500/20',
+		},
+		medium: {
+			color: 'text-amber-400',
+			bg: 'bg-amber-500/10 border-amber-500/20',
+		},
+		high: {
+			color: 'text-orange-400',
+			bg: 'bg-orange-500/10 border-orange-500/20',
+		},
+		critical: {
+			color: 'text-rose-400',
+			bg: 'bg-rose-500/10 border-rose-500/20',
+		},
 	};
 
 	return (
 		<div className="grid grid-cols-2 gap-4">
-			<div className={`flex items-center gap-3 p-4 rounded-lg border ${config[level].bg}`}>
+			<div
+				className={`flex items-center gap-3 p-4 rounded-lg border ${config[level].bg}`}
+			>
 				<Shield className={`size-6 ${config[level].color}`} />
 				<div>
 					<p className="text-sm text-muted-foreground">Threat Level</p>
@@ -229,7 +242,8 @@ export default function Main() {
 			severity: 'critical',
 			type: 'intrusion',
 			event: 'Brute Force Attack Detected',
-			description: 'Multiple failed login attempts (50+) detected from single IP address targeting admin accounts',
+			description:
+				'Multiple failed login attempts (50+) detected from single IP address targeting admin accounts',
 			source: {
 				ip: '185.220.101.45',
 				location: 'Moscow, Russia',
@@ -243,7 +257,8 @@ export default function Main() {
 			severity: 'high',
 			type: 'auth',
 			event: 'Suspicious Login Activity',
-			description: 'Login from new device and unusual location for user account',
+			description:
+				'Login from new device and unusual location for user account',
 			source: {
 				ip: '103.45.67.89',
 				location: 'Beijing, China',
@@ -258,7 +273,8 @@ export default function Main() {
 			severity: 'medium',
 			type: 'policy',
 			event: 'Password Policy Violation',
-			description: 'User attempted to set password that does not meet minimum requirements',
+			description:
+				'User attempted to set password that does not meet minimum requirements',
 			source: {
 				ip: '192.168.1.45',
 				location: 'San Francisco, US',

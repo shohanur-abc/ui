@@ -47,7 +47,9 @@ const PageHeader = ({
 		</div>
 		<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10">
 			<Star className="size-5 text-amber-500" />
-			<span className="font-semibold text-amber-600">+{pointsEarned} Points Earned</span>
+			<span className="font-semibold text-amber-600">
+				+{pointsEarned} Points Earned
+			</span>
 		</div>
 	</div>
 );
@@ -174,7 +176,13 @@ const ActivityCard = ({
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 justify-center">
 		{items.map(({ label, href, variant, icon: Icon }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="gap-2" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="gap-2"
+				asChild
+			>
 				<Link href={href}>
 					{label}
 					{Icon && <Icon className="size-4" />}
@@ -216,7 +224,12 @@ export default function Main() {
 		},
 	];
 
-	const tierBenefits = ['2x Points', 'Free Shipping', 'Early Access', 'Member Discounts'];
+	const tierBenefits = [
+		'2x Points',
+		'Free Shipping',
+		'Early Access',
+		'Member Discounts',
+	];
 
 	const activities = [
 		{ label: 'Order Complete', points: 250, date: 'Today' },

@@ -79,7 +79,9 @@ const GoalBar = ({ label, current, target }: GoalItem) => (
 	<div className="flex-1">
 		<div className="flex items-center justify-between text-xs">
 			<span>{label}</span>
-			<span className="font-medium">{Math.round((current / target) * 100)}%</span>
+			<span className="font-medium">
+				{Math.round((current / target) * 100)}%
+			</span>
 		</div>
 		<Progress value={(current / target) * 100} className="mt-1 h-1.5" />
 	</div>
@@ -87,8 +89,20 @@ const GoalBar = ({ label, current, target }: GoalItem) => (
 
 export default function Main() {
 	const metrics: SummaryMetric[] = [
-		{ id: '1', label: 'Revenue', value: '$48.2K', icon: DollarSign, status: 'success' },
-		{ id: '2', label: 'Orders', value: '1,284', icon: ShoppingCart, status: 'success' },
+		{
+			id: '1',
+			label: 'Revenue',
+			value: '$48.2K',
+			icon: DollarSign,
+			status: 'success',
+		},
+		{
+			id: '2',
+			label: 'Orders',
+			value: '1,284',
+			icon: ShoppingCart,
+			status: 'success',
+		},
 		{ id: '3', label: 'Customers', value: '3,845', icon: Users },
 		{ id: '4', label: 'Products', value: '542', icon: Package },
 		{ id: '5', label: 'Avg Order', value: '$87.50', icon: TrendingUp },

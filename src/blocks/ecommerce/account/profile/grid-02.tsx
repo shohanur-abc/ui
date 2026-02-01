@@ -91,8 +91,11 @@ const AnalyticCard = ({
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between mb-2">
 				<Icon className="size-5 text-muted-foreground" />
-				<span className={`text-xs ${positive ? 'text-green-500' : 'text-red-500'}`}>
-					{positive ? '+' : ''}{change}
+				<span
+					className={`text-xs ${positive ? 'text-green-500' : 'text-red-500'}`}
+				>
+					{positive ? '+' : ''}
+					{change}
 				</span>
 			</div>
 			<p className="text-2xl font-bold">{value}</p>
@@ -193,7 +196,10 @@ const ScheduleCard = ({
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{posts.map((post, i) => (
-				<div key={i} className="flex items-center justify-between p-2 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-2 rounded-lg bg-muted/30"
+				>
 					<div className="flex items-center gap-2">
 						<Clock className="size-4 text-muted-foreground" />
 						<div>
@@ -251,7 +257,10 @@ const NotificationsCard = ({
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{notifications.map((notif, i) => (
-				<div key={i} className="flex items-start gap-2 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+				<div
+					key={i}
+					className="flex items-start gap-2 p-2 rounded-lg hover:bg-muted/50 transition-colors"
+				>
 					{notif.type === 'like' ? (
 						<Heart className="size-4 text-red-500 mt-0.5" />
 					) : notif.type === 'comment' ? (
@@ -280,18 +289,62 @@ export default function Main() {
 			verified: true,
 		},
 		analytics: [
-			{ icon: Eye, label: 'Views', value: '124.5K', change: '+12%', positive: true },
-			{ icon: Heart, label: 'Likes', value: '8.2K', change: '+8%', positive: true },
-			{ icon: Users, label: 'Followers', value: '15.3K', change: '+245', positive: true },
-			{ icon: TrendingUp, label: 'Engagement', value: '6.8%', change: '-0.2%', positive: false },
+			{
+				icon: Eye,
+				label: 'Views',
+				value: '124.5K',
+				change: '+12%',
+				positive: true,
+			},
+			{
+				icon: Heart,
+				label: 'Likes',
+				value: '8.2K',
+				change: '+8%',
+				positive: true,
+			},
+			{
+				icon: Users,
+				label: 'Followers',
+				value: '15.3K',
+				change: '+245',
+				positive: true,
+			},
+			{
+				icon: TrendingUp,
+				label: 'Engagement',
+				value: '6.8%',
+				change: '-0.2%',
+				positive: false,
+			},
 		],
 		monetization: { earnings: '$4,250', pending: '$580', thisMonth: '$1,120' },
 		content: [
-			{ title: 'The Future of AI Design', type: 'Article', views: '12.4K', likes: '892', date: '2d ago', thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400' },
-			{ title: 'Creative Process Breakdown', type: 'Video', views: '8.7K', likes: '645', date: '5d ago', thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400' },
+			{
+				title: 'The Future of AI Design',
+				type: 'Article',
+				views: '12.4K',
+				likes: '892',
+				date: '2d ago',
+				thumbnail:
+					'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400',
+			},
+			{
+				title: 'Creative Process Breakdown',
+				type: 'Video',
+				views: '8.7K',
+				likes: '645',
+				date: '5d ago',
+				thumbnail:
+					'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400',
+			},
 		],
 		schedule: [
-			{ title: 'Product Design Tips', time: 'Tomorrow, 9:00 AM', type: 'Article' },
+			{
+				title: 'Product Design Tips',
+				time: 'Tomorrow, 9:00 AM',
+				type: 'Article',
+			},
 			{ title: 'Live Q&A Session', time: 'Jan 30, 7:00 PM', type: 'Live' },
 		],
 		audience: [
@@ -301,7 +354,11 @@ export default function Main() {
 		],
 		notifications: [
 			{ message: 'Sarah liked your post', time: '5m ago', type: 'like' },
-			{ message: 'New comment on "AI Design"', time: '1h ago', type: 'comment' },
+			{
+				message: 'New comment on "AI Design"',
+				time: '1h ago',
+				type: 'comment',
+			},
 			{ message: '12 new followers today', time: '3h ago', type: 'follower' },
 		],
 	};

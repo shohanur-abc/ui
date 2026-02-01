@@ -1,12 +1,25 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Loader2, AlertCircle, Wallet } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Loader2,
+	AlertCircle,
+	Wallet,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -17,7 +30,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-6">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -77,7 +92,12 @@ const SubmitButton = ({
 	loadingLabel?: string;
 	icon?: React.ElementType;
 }) => (
-	<Button type="submit" size="lg" className="w-full gap-2 group" disabled={loading}>
+	<Button
+		type="submit"
+		size="lg"
+		className="w-full gap-2 group"
+		disabled={loading}
+	>
 		{loading ? (
 			<>
 				<Loader2 className="size-4 animate-spin" />
@@ -120,7 +140,10 @@ export default function Main() {
 			<div className="min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo name="PayMart" icon={Wallet} />
-					<Title text="Sign in to checkout" subtitle="Enter your credentials to complete purchase" />
+					<Title
+						text="Sign in to checkout"
+						subtitle="Enter your credentials to complete purchase"
+					/>
 
 					{showError && (
 						<ErrorAlert message="Invalid email or password. Please try again." />
@@ -132,7 +155,9 @@ export default function Main() {
 							type="email"
 							placeholder="you@example.com"
 							icon={Mail}
-							error={showError ? 'Please enter a valid email address' : undefined}
+							error={
+								showError ? 'Please enter a valid email address' : undefined
+							}
 						/>
 						<FormField
 							label="Password"
@@ -151,7 +176,11 @@ export default function Main() {
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="New customer?" linkText="Continue as guest" href="/guest-checkout" />
+						<FooterLink
+							text="New customer?"
+							linkText="Continue as guest"
+							href="/guest-checkout"
+						/>
 					</div>
 				</div>
 			</div>

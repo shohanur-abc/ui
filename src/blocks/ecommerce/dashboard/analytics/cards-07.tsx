@@ -21,7 +21,14 @@ type VerticalCardProps = {
 	footer: string;
 };
 
-const VerticalCard = ({ icon: Icon, label, value, badge, description, footer }: VerticalCardProps) => (
+const VerticalCard = ({
+	icon: Icon,
+	label,
+	value,
+	badge,
+	description,
+	footer,
+}: VerticalCardProps) => (
 	<Card className="group relative overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 		<CardContent className="flex flex-col items-center text-center p-6 @sm:p-8">
@@ -31,9 +38,15 @@ const VerticalCard = ({ icon: Icon, label, value, badge, description, footer }: 
 			<Badge variant="secondary" className="mb-3">
 				{badge}
 			</Badge>
-			<p className="text-xs @sm:text-sm font-medium text-muted-foreground mb-2">{label}</p>
-			<p className="text-3xl @sm:text-4xl font-bold tracking-tight mb-2">{value}</p>
-			<p className="text-xs @sm:text-sm text-muted-foreground mb-4">{description}</p>
+			<p className="text-xs @sm:text-sm font-medium text-muted-foreground mb-2">
+				{label}
+			</p>
+			<p className="text-3xl @sm:text-4xl font-bold tracking-tight mb-2">
+				{value}
+			</p>
+			<p className="text-xs @sm:text-sm text-muted-foreground mb-4">
+				{description}
+			</p>
 			<div className="mt-auto pt-4 border-t border-border/50 w-full">
 				<p className="text-xs text-muted-foreground">{footer}</p>
 			</div>
@@ -42,10 +55,38 @@ const VerticalCard = ({ icon: Icon, label, value, badge, description, footer }: 
 );
 
 const verticalCards: VerticalCardProps[] = [
-	{ icon: ShoppingCart, label: 'Active Carts', value: '847', badge: 'Real-time', description: 'Users with items in cart', footer: 'Est. value: $42,350' },
-	{ icon: Clock, label: 'Avg Session', value: '4:32', badge: 'Duration', description: 'Time spent on site', footer: '+45s from last week' },
-	{ icon: MapPin, label: 'Top Region', value: 'US', badge: 'Geography', description: '42% of total traffic', footer: 'California leads' },
-	{ icon: Calendar, label: 'Peak Day', value: 'Fri', badge: 'Weekly', description: 'Highest sales volume', footer: 'Best hour: 2-4 PM' },
+	{
+		icon: ShoppingCart,
+		label: 'Active Carts',
+		value: '847',
+		badge: 'Real-time',
+		description: 'Users with items in cart',
+		footer: 'Est. value: $42,350',
+	},
+	{
+		icon: Clock,
+		label: 'Avg Session',
+		value: '4:32',
+		badge: 'Duration',
+		description: 'Time spent on site',
+		footer: '+45s from last week',
+	},
+	{
+		icon: MapPin,
+		label: 'Top Region',
+		value: 'US',
+		badge: 'Geography',
+		description: '42% of total traffic',
+		footer: 'California leads',
+	},
+	{
+		icon: Calendar,
+		label: 'Peak Day',
+		value: 'Fri',
+		badge: 'Weekly',
+		description: 'Highest sales volume',
+		footer: 'Best hour: 2-4 PM',
+	},
 ];
 
 export default function Main() {

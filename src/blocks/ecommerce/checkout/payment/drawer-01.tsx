@@ -4,7 +4,12 @@ import { ArrowRight, Check, CreditCard, Lock, Shield, X } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -15,7 +20,15 @@ interface OrderItem {
 	price: string;
 }
 
-const DrawerHeader = ({ title, subtitle, onClose }: { title: string; subtitle: string; onClose: () => void }) => (
+const DrawerHeader = ({
+	title,
+	subtitle,
+	onClose,
+}: {
+	title: string;
+	subtitle: string;
+	onClose: () => void;
+}) => (
 	<div className="flex items-start justify-between">
 		<div>
 			<h2 className="text-xl font-semibold">{title}</h2>
@@ -27,11 +40,19 @@ const DrawerHeader = ({ title, subtitle, onClose }: { title: string; subtitle: s
 	</div>
 );
 
-const OrderPreview = ({ items, total }: { items: OrderItem[]; total: string }) => (
+const OrderPreview = ({
+	items,
+	total,
+}: {
+	items: OrderItem[];
+	total: string;
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-3">
 		{items.map((item, index) => (
 			<div key={index} className="flex items-center justify-between text-sm">
-				<span className="text-muted-foreground">{item.quantity}x {item.name}</span>
+				<span className="text-muted-foreground">
+					{item.quantity}x {item.name}
+				</span>
 				<span>{item.price}</span>
 			</div>
 		))}
@@ -86,11 +107,17 @@ const TrustIndicators = () => (
 	</div>
 );
 
-const SlideInDrawer = ({ isOpen, children }: { isOpen: boolean; children: React.ReactNode }) => (
-	<div className={`fixed inset-y-0 right-0 w-full @sm:max-w-md bg-background shadow-2xl transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-		<div className="h-full flex flex-col overflow-y-auto">
-			{children}
-		</div>
+const SlideInDrawer = ({
+	isOpen,
+	children,
+}: {
+	isOpen: boolean;
+	children: React.ReactNode;
+}) => (
+	<div
+		className={`fixed inset-y-0 right-0 w-full @sm:max-w-md bg-background shadow-2xl transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+	>
+		<div className="h-full flex flex-col overflow-y-auto">{children}</div>
 	</div>
 );
 
@@ -107,7 +134,11 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm @sm:max-w-md mx-auto">
 					<CardHeader>
-						<DrawerHeader title="Checkout" subtitle="Complete your purchase" onClose={() => {}} />
+						<DrawerHeader
+							title="Checkout"
+							subtitle="Complete your purchase"
+							onClose={() => {}}
+						/>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<OrderPreview items={items} total="$149.97" />

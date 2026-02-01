@@ -1,6 +1,14 @@
 'use client';
 
-import { Eye, MousePointer, ShoppingCart, CreditCard, TrendingUp, TrendingDown, ArrowRight } from 'lucide-react';
+import {
+	Eye,
+	MousePointer,
+	ShoppingCart,
+	CreditCard,
+	TrendingUp,
+	TrendingDown,
+	ArrowRight,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -31,7 +39,10 @@ const FunnelCard = ({ steps }: { steps: FunnelStep[] }) => (
 		<CardContent>
 			<div className="flex flex-col @md:flex-row items-stretch gap-2 @md:gap-0">
 				{steps.map((step, idx) => (
-					<div key={idx} className="flex-1 flex flex-col @md:flex-row items-center">
+					<div
+						key={idx}
+						className="flex-1 flex flex-col @md:flex-row items-center"
+					>
 						<div
 							className="w-full @md:flex-1 p-4 rounded-lg @md:rounded-none first:@md:rounded-l-lg last:@md:rounded-r-lg relative"
 							style={{
@@ -42,7 +53,9 @@ const FunnelCard = ({ steps }: { steps: FunnelStep[] }) => (
 								<div className="p-2 rounded-lg bg-white/20">{step.icon}</div>
 								<div>
 									<p className="font-medium">{step.label}</p>
-									<p className="text-2xl font-bold">{step.value.toLocaleString()}</p>
+									<p className="text-2xl font-bold">
+										{step.value.toLocaleString()}
+									</p>
 								</div>
 							</div>
 							<div className="mt-2 flex items-center justify-between text-white/80 text-sm">
@@ -68,8 +81,15 @@ const MetricCard = ({ metric }: { metric: ConversionMetric }) => (
 			<p className="text-sm text-muted-foreground">{metric.label}</p>
 			<div className="flex items-center justify-between mt-2">
 				<p className="text-2xl font-bold">{metric.value}</p>
-				<Badge variant={metric.change >= 0 ? 'default' : 'destructive'} className="gap-1">
-					{metric.change >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+				<Badge
+					variant={metric.change >= 0 ? 'default' : 'destructive'}
+					className="gap-1"
+				>
+					{metric.change >= 0 ? (
+						<TrendingUp className="size-3" />
+					) : (
+						<TrendingDown className="size-3" />
+					)}
 					{Math.abs(metric.change)}%
 				</Badge>
 			</div>
@@ -88,10 +108,34 @@ const BentoLayout14 = ({ funnelSteps, metrics }: BentoLayout14Props) => (
 
 export default function Main() {
 	const funnelSteps: FunnelStep[] = [
-		{ label: 'Visitors', value: 45000, percentage: 100, dropoff: 0, icon: <Eye className="size-4" /> },
-		{ label: 'Product Views', value: 28500, percentage: 63, dropoff: 37, icon: <MousePointer className="size-4" /> },
-		{ label: 'Add to Cart', value: 8550, percentage: 19, dropoff: 70, icon: <ShoppingCart className="size-4" /> },
-		{ label: 'Purchases', value: 1728, percentage: 3.8, dropoff: 80, icon: <CreditCard className="size-4" /> },
+		{
+			label: 'Visitors',
+			value: 45000,
+			percentage: 100,
+			dropoff: 0,
+			icon: <Eye className="size-4" />,
+		},
+		{
+			label: 'Product Views',
+			value: 28500,
+			percentage: 63,
+			dropoff: 37,
+			icon: <MousePointer className="size-4" />,
+		},
+		{
+			label: 'Add to Cart',
+			value: 8550,
+			percentage: 19,
+			dropoff: 70,
+			icon: <ShoppingCart className="size-4" />,
+		},
+		{
+			label: 'Purchases',
+			value: 1728,
+			percentage: 3.8,
+			dropoff: 80,
+			icon: <CreditCard className="size-4" />,
+		},
 	];
 
 	const metrics: ConversionMetric[] = [

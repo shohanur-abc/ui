@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -29,7 +35,12 @@ const VerticalTimeline = ({
 	steps,
 	current,
 }: {
-	steps: { title: string; subtitle: string; icon: React.ComponentType<{ className?: string }>; content: React.ReactNode }[];
+	steps: {
+		title: string;
+		subtitle: string;
+		icon: React.ComponentType<{ className?: string }>;
+		content: React.ReactNode;
+	}[];
 	current: number;
 }) => (
 	<div className="relative">
@@ -51,10 +62,16 @@ const VerticalTimeline = ({
 										: 'bg-muted text-muted-foreground'
 							}`}
 						>
-							{isComplete ? <Check className="size-5" /> : <Icon className="size-5" />}
+							{isComplete ? (
+								<Check className="size-5" />
+							) : (
+								<Icon className="size-5" />
+							)}
 						</div>
 						{!isLast && (
-							<div className={`w-0.5 flex-1 ${isComplete ? 'bg-green-500' : 'bg-border'}`} />
+							<div
+								className={`w-0.5 flex-1 ${isComplete ? 'bg-green-500' : 'bg-border'}`}
+							/>
 						)}
 					</div>
 					<div className="flex-1 pt-1">
@@ -146,7 +163,9 @@ const PaymentBox = ({
 			<CreditCard className="size-5 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{type} •••• {last4}</p>
+			<p className="font-medium">
+				{type} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -163,9 +182,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -177,7 +200,8 @@ export default function Main() {
 			variant: 'WiFi / White',
 			price: 199.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1567201080580-bfcc43b0e6e5?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1567201080580-bfcc43b0e6e5?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -185,7 +209,8 @@ export default function Main() {
 			variant: '3-Pack',
 			price: 59.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -226,7 +251,11 @@ export default function Main() {
 			subtitle: 'Express selected',
 			icon: Truck,
 			content: (
-				<DeliveryBox method="Express Delivery" eta="Dec 19-20, 2025" cost="$14.99" />
+				<DeliveryBox
+					method="Express Delivery"
+					eta="Dec 19-20, 2025"
+					cost="$14.99"
+				/>
 			),
 		},
 		{

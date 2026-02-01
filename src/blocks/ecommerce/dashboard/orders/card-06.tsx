@@ -36,11 +36,24 @@ const RatingStars = ({ rating }: RatingStarsProps) => (
 	</div>
 );
 
-const SentimentIndicator = ({ sentiment }: { sentiment: OrderReview['sentiment'] }) => {
-	const config: Record<OrderReview['sentiment'], { label: string; className: string }> = {
-		positive: { label: 'Positive', className: 'bg-accent/10 text-accent border-accent/30' },
+const SentimentIndicator = ({
+	sentiment,
+}: {
+	sentiment: OrderReview['sentiment'];
+}) => {
+	const config: Record<
+		OrderReview['sentiment'],
+		{ label: string; className: string }
+	> = {
+		positive: {
+			label: 'Positive',
+			className: 'bg-accent/10 text-accent border-accent/30',
+		},
 		neutral: { label: 'Neutral', className: 'bg-muted text-muted-foreground' },
-		negative: { label: 'Negative', className: 'bg-destructive/10 text-destructive border-destructive/30' },
+		negative: {
+			label: 'Negative',
+			className: 'bg-destructive/10 text-destructive border-destructive/30',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[sentiment].className}>
@@ -54,8 +67,13 @@ const ReviewCard = ({ review, labels }: ReviewCardProps) => (
 		<CardContent className="p-5">
 			<div className="flex items-start gap-4">
 				<Avatar className="size-10">
-					<AvatarImage src={review.customer.avatar} alt={review.customer.name} />
-					<AvatarFallback className="bg-primary/10 text-primary">{review.customer.initials}</AvatarFallback>
+					<AvatarImage
+						src={review.customer.avatar}
+						alt={review.customer.name}
+					/>
+					<AvatarFallback className="bg-primary/10 text-primary">
+						{review.customer.initials}
+					</AvatarFallback>
 				</Avatar>
 				<div className="flex-1 min-w-0">
 					<div className="flex items-center justify-between mb-1">
@@ -67,17 +85,27 @@ const ReviewCard = ({ review, labels }: ReviewCardProps) => (
 						<SentimentIndicator sentiment={review.sentiment} />
 					</div>
 					<p className="text-sm text-muted-foreground mb-1">
-						<span className="font-medium text-foreground">{review.product}</span>
+						<span className="font-medium text-foreground">
+							{review.product}
+						</span>
 						<span className="mx-1.5">•</span>
 						<span className="font-mono text-xs">{review.orderId}</span>
 					</p>
 					<p className="text-sm leading-relaxed">{review.review}</p>
 					<div className="flex items-center gap-3 mt-4">
-						<Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:text-foreground">
+						<Button
+							variant="ghost"
+							size="sm"
+							className="gap-1.5 text-muted-foreground hover:text-foreground"
+						>
 							<ThumbsUp className="size-4" />
 							{labels.helpful} ({review.helpfulCount})
 						</Button>
-						<Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:text-destructive">
+						<Button
+							variant="ghost"
+							size="sm"
+							className="gap-1.5 text-muted-foreground hover:text-destructive"
+						>
 							<Flag className="size-4" />
 							{labels.report}
 						</Button>
@@ -97,7 +125,8 @@ export default function Main() {
 			customer: { name: 'Sarah Johnson', avatar: '', initials: 'SJ' },
 			product: 'Wireless Headphones Pro',
 			rating: 5,
-			review: 'Absolutely amazing quality! The sound is crystal clear and the battery lasts forever. Best purchase I\'ve made this year.',
+			review:
+				"Absolutely amazing quality! The sound is crystal clear and the battery lasts forever. Best purchase I've made this year.",
 			helpfulCount: 24,
 			date: 'Jan 28, 2026',
 			sentiment: 'positive',
@@ -107,7 +136,8 @@ export default function Main() {
 			customer: { name: 'Mike Chen', avatar: '', initials: 'MC' },
 			product: 'USB-C Hub',
 			rating: 3,
-			review: 'Works as expected but nothing special. The build quality could be better for the price.',
+			review:
+				'Works as expected but nothing special. The build quality could be better for the price.',
 			helpfulCount: 8,
 			date: 'Jan 27, 2026',
 			sentiment: 'neutral',
@@ -117,7 +147,8 @@ export default function Main() {
 			customer: { name: 'Emily Davis', avatar: '', initials: 'ED' },
 			product: 'Laptop Stand',
 			rating: 2,
-			review: 'Disappointed with this product. Started wobbling after just a week of use. Would not recommend.',
+			review:
+				'Disappointed with this product. Started wobbling after just a week of use. Would not recommend.',
 			helpfulCount: 15,
 			date: 'Jan 26, 2026',
 			sentiment: 'negative',

@@ -1,14 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Search,
-	X,
-	Calendar,
-	DollarSign,
-	Package,
-	Filter,
-} from 'lucide-react';
+import { Search, X, Calendar, DollarSign, Package, Filter } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -85,7 +78,15 @@ type RangeSliderProps = {
 	formatValue: (value: number) => string;
 };
 
-const RangeSlider = ({ label, value, onChange, min, max, step, formatValue }: RangeSliderProps) => (
+const RangeSlider = ({
+	label,
+	value,
+	onChange,
+	min,
+	max,
+	step,
+	formatValue,
+}: RangeSliderProps) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
 			<Label className="text-sm font-normal">{label}</Label>
@@ -162,7 +163,9 @@ const AdvancedFilters = ({
 						<RangeSlider
 							label="Price"
 							value={localFilters.priceRange}
-							onChange={(value) => setLocalFilters({ ...localFilters, priceRange: value })}
+							onChange={(value) =>
+								setLocalFilters({ ...localFilters, priceRange: value })
+							}
 							min={0}
 							max={1000}
 							step={10}
@@ -174,7 +177,9 @@ const AdvancedFilters = ({
 						<RangeSlider
 							label="Units"
 							value={localFilters.stockRange}
-							onChange={(value) => setLocalFilters({ ...localFilters, stockRange: value })}
+							onChange={(value) =>
+								setLocalFilters({ ...localFilters, stockRange: value })
+							}
 							min={0}
 							max={500}
 							step={5}
@@ -186,7 +191,9 @@ const AdvancedFilters = ({
 						<CheckboxGroup
 							options={categoryOptions}
 							selected={localFilters.categories}
-							onChange={(values) => setLocalFilters({ ...localFilters, categories: values })}
+							onChange={(values) =>
+								setLocalFilters({ ...localFilters, categories: values })
+							}
 						/>
 					</FilterSection>
 					<Separator />
@@ -194,7 +201,9 @@ const AdvancedFilters = ({
 						<CheckboxGroup
 							options={statusOptions}
 							selected={localFilters.statuses}
-							onChange={(values) => setLocalFilters({ ...localFilters, statuses: values })}
+							onChange={(values) =>
+								setLocalFilters({ ...localFilters, statuses: values })
+							}
 						/>
 					</FilterSection>
 				</div>
@@ -202,7 +211,10 @@ const AdvancedFilters = ({
 					<Button variant="outline" onClick={handleReset} className="flex-1">
 						{resetLabel}
 					</Button>
-					<Button onClick={() => onFiltersChange(localFilters)} className="flex-1">
+					<Button
+						onClick={() => onFiltersChange(localFilters)}
+						className="flex-1"
+					>
 						{applyLabel}
 					</Button>
 				</SheetFooter>
@@ -233,7 +245,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Advanced Search</CardTitle>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Advanced Search
+						</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-4">
 						<div className="flex flex-col gap-3 @lg:flex-row">
@@ -256,11 +270,13 @@ export default function Main() {
 						</div>
 						{hasActiveFilters && (
 							<div className="flex flex-wrap items-center gap-2">
-								<span className="text-sm text-muted-foreground">Active filters:</span>
+								<span className="text-sm text-muted-foreground">
+									Active filters:
+								</span>
 								{filters.priceRange[0] > 0 || filters.priceRange[1] < 1000 ? (
 									<Badge variant="secondary">
-										<DollarSign className="mr-1 size-3" />
-										${filters.priceRange[0]} - ${filters.priceRange[1]}
+										<DollarSign className="mr-1 size-3" />$
+										{filters.priceRange[0]} - ${filters.priceRange[1]}
 									</Badge>
 								) : null}
 								{filters.stockRange[0] > 0 || filters.stockRange[1] < 500 ? (

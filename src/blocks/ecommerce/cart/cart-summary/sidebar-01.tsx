@@ -13,7 +13,11 @@ const SidebarHeader = ({
 	icon: Icon,
 	title,
 	itemCount,
-}: { icon: LucideIcon; title: string; itemCount: number }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	itemCount: number;
+}) => (
 	<div className="mb-6 flex items-center justify-between">
 		<div className="flex items-center gap-2">
 			<Icon className="size-5 text-primary" />
@@ -30,10 +34,7 @@ const SummaryRow = ({ label, value }: SummaryRowProps) => (
 	</div>
 );
 
-const TotalSection = ({
-	label,
-	value,
-}: { label: string; value: string }) => (
+const TotalSection = ({ label, value }: { label: string; value: string }) => (
 	<div className="rounded-lg bg-primary/5 p-4">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>

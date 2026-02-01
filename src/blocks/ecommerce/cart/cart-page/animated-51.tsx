@@ -1,8 +1,21 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, ShoppingCart, Sparkles } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	ShoppingCart,
+	Sparkles,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -40,11 +53,19 @@ const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 
 const QuantityControl = ({ quantity }: { quantity: number }) => (
 	<div className="flex items-center rounded-lg border transition-all duration-200 hover:border-primary/50 hover:shadow-sm">
-		<Button size="icon-sm" variant="ghost" className="size-8 transition-colors duration-200">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 transition-colors duration-200"
+		>
 			<Minus className="size-3" />
 		</Button>
 		<span className="w-6 text-center text-sm font-medium">{quantity}</span>
-		<Button size="icon-sm" variant="ghost" className="size-8 transition-colors duration-200">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 transition-colors duration-200"
+		>
 			<Plus className="size-3" />
 		</Button>
 	</div>
@@ -127,7 +148,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Running Shoes Pro',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -135,7 +157,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Studio Headphones',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -143,7 +166,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver • Leather',
 			price: 249.99,

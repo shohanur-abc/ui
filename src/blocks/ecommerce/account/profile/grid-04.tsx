@@ -57,8 +57,14 @@ const FinanceHeader = ({
 					<p className="text-sm text-muted-foreground">Net Worth</p>
 					<div className="flex items-center gap-2 @md:justify-end">
 						<p className="text-2xl font-bold">{netWorth}</p>
-						<span className={`text-sm flex items-center gap-1 ${positive ? 'text-green-500' : 'text-red-500'}`}>
-							{positive ? <TrendingUp className="size-4" /> : <TrendingDown className="size-4" />}
+						<span
+							className={`text-sm flex items-center gap-1 ${positive ? 'text-green-500' : 'text-red-500'}`}
+						>
+							{positive ? (
+								<TrendingUp className="size-4" />
+							) : (
+								<TrendingDown className="size-4" />
+							)}
 							{change}
 						</span>
 					</div>
@@ -133,7 +139,12 @@ const SpendingCard = ({
 	categories,
 	total,
 }: {
-	categories: { name: string; amount: string; percentage: number; color: string }[];
+	categories: {
+		name: string;
+		amount: string;
+		percentage: number;
+		color: string;
+	}[];
 	total: string;
 }) => (
 	<Card className="col-span-2 row-span-2">
@@ -176,7 +187,9 @@ const TransactionCard = ({
 	<Card>
 		<CardContent className="p-4">
 			<div className="flex items-center gap-3">
-				<div className={`p-2 rounded-lg ${positive ? 'bg-green-500/10' : 'bg-muted'}`}>
+				<div
+					className={`p-2 rounded-lg ${positive ? 'bg-green-500/10' : 'bg-muted'}`}
+				>
 					{positive ? (
 						<ArrowDownRight className="size-4 text-green-500" />
 					) : (
@@ -185,10 +198,13 @@ const TransactionCard = ({
 				</div>
 				<div className="flex-1 min-w-0">
 					<p className="font-medium truncate">{name}</p>
-					<p className="text-xs text-muted-foreground">{category} • {date}</p>
+					<p className="text-xs text-muted-foreground">
+						{category} • {date}
+					</p>
 				</div>
 				<p className={`font-semibold ${positive ? 'text-green-500' : ''}`}>
-					{positive ? '+' : '-'}{amount}
+					{positive ? '+' : '-'}
+					{amount}
 				</p>
 			</div>
 		</CardContent>
@@ -217,9 +233,13 @@ const GoalCard = ({
 			<div className="flex items-end justify-between">
 				<div>
 					<p className="text-xl font-bold">${current.toLocaleString()}</p>
-					<p className="text-xs text-muted-foreground">of ${target.toLocaleString()}</p>
+					<p className="text-xs text-muted-foreground">
+						of ${target.toLocaleString()}
+					</p>
 				</div>
-				<Badge variant="secondary">{Math.round((current / target) * 100)}%</Badge>
+				<Badge variant="secondary">
+					{Math.round((current / target) * 100)}%
+				</Badge>
 			</div>
 			<Progress value={(current / target) * 100} className="h-1.5 mt-2" />
 			<p className="text-xs text-muted-foreground mt-2">Due: {dueDate}</p>
@@ -243,18 +263,35 @@ const CreditScoreCard = ({
 					<p className="text-sm text-muted-foreground">Credit Score</p>
 					<div className="flex items-center gap-2">
 						<p className="text-3xl font-bold">{score}</p>
-						<span className={`text-sm ${change > 0 ? 'text-green-500' : 'text-red-500'}`}>
-							{change > 0 ? '+' : ''}{change}
+						<span
+							className={`text-sm ${change > 0 ? 'text-green-500' : 'text-red-500'}`}
+						>
+							{change > 0 ? '+' : ''}
+							{change}
 						</span>
 					</div>
-					<Badge className="bg-green-500/20 text-green-600 mt-1">{rating}</Badge>
+					<Badge className="bg-green-500/20 text-green-600 mt-1">
+						{rating}
+					</Badge>
 				</div>
 				<div className="relative size-20">
 					<svg className="size-20 -rotate-90">
-						<circle cx="40" cy="40" r="34" fill="none" stroke="currentColor" strokeWidth="6" className="text-muted" />
 						<circle
-							cx="40" cy="40" r="34"
-							fill="none" stroke="currentColor" strokeWidth="6"
+							cx="40"
+							cy="40"
+							r="34"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="6"
+							className="text-muted"
+						/>
+						<circle
+							cx="40"
+							cy="40"
+							r="34"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="6"
 							strokeDasharray={`${(score / 850) * 214} 214`}
 							strokeLinecap="round"
 							className="text-green-500"
@@ -269,23 +306,35 @@ const CreditScoreCard = ({
 const UpcomingBillsCard = ({
 	bills,
 }: {
-	bills: { name: string; amount: string; dueDate: string; icon: React.ElementType }[];
+	bills: {
+		name: string;
+		amount: string;
+		dueDate: string;
+		icon: React.ElementType;
+	}[];
 }) => (
 	<Card className="col-span-2">
 		<CardHeader className="pb-2">
 			<div className="flex items-center justify-between">
 				<h3 className="font-semibold">Upcoming Bills</h3>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{bills.map((bill, i) => (
-				<div key={i} className="flex items-center justify-between p-2 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-2 rounded-lg bg-muted/30"
+				>
 					<div className="flex items-center gap-3">
 						<bill.icon className="size-5 text-muted-foreground" />
 						<div>
 							<p className="font-medium text-sm">{bill.name}</p>
-							<p className="text-xs text-muted-foreground">Due {bill.dueDate}</p>
+							<p className="text-xs text-muted-foreground">
+								Due {bill.dueDate}
+							</p>
 						</div>
 					</div>
 					<p className="font-semibold">{bill.amount}</p>
@@ -306,10 +355,38 @@ export default function Main() {
 			positive: true,
 		},
 		accounts: [
-			{ name: 'Primary Checking', type: 'Bank Account', balance: '$12,450', number: '4521', icon: Building2, color: 'bg-blue-500' },
-			{ name: 'High-Yield Savings', type: 'Savings', balance: '$28,920', number: '8832', icon: PiggyBank, color: 'bg-emerald-500' },
-			{ name: 'Investment Portfolio', type: 'Brokerage', balance: '$86,210', number: '1298', icon: TrendingUp, color: 'bg-violet-500' },
-			{ name: 'Travel Rewards', type: 'Credit Card', balance: '-$2,340', number: '9012', icon: CreditCard, color: 'bg-amber-500' },
+			{
+				name: 'Primary Checking',
+				type: 'Bank Account',
+				balance: '$12,450',
+				number: '4521',
+				icon: Building2,
+				color: 'bg-blue-500',
+			},
+			{
+				name: 'High-Yield Savings',
+				type: 'Savings',
+				balance: '$28,920',
+				number: '8832',
+				icon: PiggyBank,
+				color: 'bg-emerald-500',
+			},
+			{
+				name: 'Investment Portfolio',
+				type: 'Brokerage',
+				balance: '$86,210',
+				number: '1298',
+				icon: TrendingUp,
+				color: 'bg-violet-500',
+			},
+			{
+				name: 'Travel Rewards',
+				type: 'Credit Card',
+				balance: '-$2,340',
+				number: '9012',
+				icon: CreditCard,
+				color: 'bg-amber-500',
+			},
 		],
 		quickActions: [
 			{ icon: Send, label: 'Transfer', href: '/transfer' },
@@ -320,21 +397,70 @@ export default function Main() {
 		spending: {
 			total: '$3,840',
 			categories: [
-				{ name: 'Housing', amount: '$1,500', percentage: 39, color: 'bg-blue-500' },
-				{ name: 'Food & Dining', amount: '$680', percentage: 18, color: 'bg-amber-500' },
-				{ name: 'Transportation', amount: '$420', percentage: 11, color: 'bg-green-500' },
-				{ name: 'Shopping', amount: '$540', percentage: 14, color: 'bg-purple-500' },
-				{ name: 'Entertainment', amount: '$320', percentage: 8, color: 'bg-pink-500' },
+				{
+					name: 'Housing',
+					amount: '$1,500',
+					percentage: 39,
+					color: 'bg-blue-500',
+				},
+				{
+					name: 'Food & Dining',
+					amount: '$680',
+					percentage: 18,
+					color: 'bg-amber-500',
+				},
+				{
+					name: 'Transportation',
+					amount: '$420',
+					percentage: 11,
+					color: 'bg-green-500',
+				},
+				{
+					name: 'Shopping',
+					amount: '$540',
+					percentage: 14,
+					color: 'bg-purple-500',
+				},
+				{
+					name: 'Entertainment',
+					amount: '$320',
+					percentage: 8,
+					color: 'bg-pink-500',
+				},
 				{ name: 'Other', amount: '$380', percentage: 10, color: 'bg-gray-500' },
 			],
 		},
 		transactions: [
-			{ name: 'Salary Deposit', category: 'Income', amount: '$5,200', date: 'Today', positive: true },
-			{ name: 'Amazon', category: 'Shopping', amount: '$156.99', date: 'Yesterday', positive: false },
+			{
+				name: 'Salary Deposit',
+				category: 'Income',
+				amount: '$5,200',
+				date: 'Today',
+				positive: true,
+			},
+			{
+				name: 'Amazon',
+				category: 'Shopping',
+				amount: '$156.99',
+				date: 'Yesterday',
+				positive: false,
+			},
 		],
 		goals: [
-			{ name: 'Emergency Fund', current: 8500, target: 15000, icon: '🛡️', dueDate: 'Dec 2024' },
-			{ name: 'Vacation', current: 2200, target: 5000, icon: '✈️', dueDate: 'Jun 2024' },
+			{
+				name: 'Emergency Fund',
+				current: 8500,
+				target: 15000,
+				icon: '🛡️',
+				dueDate: 'Dec 2024',
+			},
+			{
+				name: 'Vacation',
+				current: 2200,
+				target: 5000,
+				icon: '✈️',
+				dueDate: 'Jun 2024',
+			},
 		],
 		creditScore: { score: 752, change: 12, rating: 'Excellent' },
 		bills: [

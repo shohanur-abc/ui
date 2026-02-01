@@ -21,7 +21,14 @@ type RegionKPIProps = {
 	marketShare: number;
 };
 
-const RegionKPI = ({ region, flag, revenue, orders, growth, marketShare }: RegionKPIProps) => (
+const RegionKPI = ({
+	region,
+	flag,
+	revenue,
+	orders,
+	growth,
+	marketShare,
+}: RegionKPIProps) => (
 	<Card className="border-border/30 bg-card/60 transition-all hover:border-primary/30 hover:shadow-md">
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between">
@@ -45,13 +52,16 @@ const RegionKPI = ({ region, flag, revenue, orders, growth, marketShare }: Regio
 					) : (
 						<TrendingDown className="mr-1 size-3" />
 					)}
-					{growth >= 0 ? '+' : ''}{growth}%
+					{growth >= 0 ? '+' : ''}
+					{growth}%
 				</Badge>
 			</div>
 			<div className="mt-4">
 				<div className="flex items-baseline justify-between">
 					<span className="text-2xl font-bold">{revenue}</span>
-					<span className="text-xs text-muted-foreground">{marketShare}% market</span>
+					<span className="text-xs text-muted-foreground">
+						{marketShare}% market
+					</span>
 				</div>
 				<Progress value={marketShare} className="mt-2 h-1.5" />
 			</div>
@@ -73,12 +83,54 @@ const Summary = ({ label, value }: SummaryProps) => (
 
 export default function Main() {
 	const regions: RegionKPIProps[] = [
-		{ region: 'United States', flag: '🇺🇸', revenue: '$485K', orders: '3,250', growth: 18.5, marketShare: 42 },
-		{ region: 'United Kingdom', flag: '🇬🇧', revenue: '$185K', orders: '1,420', growth: 12.3, marketShare: 16 },
-		{ region: 'Germany', flag: '🇩🇪', revenue: '$142K', orders: '980', growth: 8.7, marketShare: 12 },
-		{ region: 'Canada', flag: '🇨🇦', revenue: '$125K', orders: '890', growth: 22.1, marketShare: 11 },
-		{ region: 'Australia', flag: '🇦🇺', revenue: '$98K', orders: '720', growth: -2.4, marketShare: 8 },
-		{ region: 'France', flag: '🇫🇷', revenue: '$85K', orders: '640', growth: 5.2, marketShare: 7 },
+		{
+			region: 'United States',
+			flag: '🇺🇸',
+			revenue: '$485K',
+			orders: '3,250',
+			growth: 18.5,
+			marketShare: 42,
+		},
+		{
+			region: 'United Kingdom',
+			flag: '🇬🇧',
+			revenue: '$185K',
+			orders: '1,420',
+			growth: 12.3,
+			marketShare: 16,
+		},
+		{
+			region: 'Germany',
+			flag: '🇩🇪',
+			revenue: '$142K',
+			orders: '980',
+			growth: 8.7,
+			marketShare: 12,
+		},
+		{
+			region: 'Canada',
+			flag: '🇨🇦',
+			revenue: '$125K',
+			orders: '890',
+			growth: 22.1,
+			marketShare: 11,
+		},
+		{
+			region: 'Australia',
+			flag: '🇦🇺',
+			revenue: '$98K',
+			orders: '720',
+			growth: -2.4,
+			marketShare: 8,
+		},
+		{
+			region: 'France',
+			flag: '🇫🇷',
+			revenue: '$85K',
+			orders: '640',
+			growth: 5.2,
+			marketShare: 7,
+		},
 	];
 
 	const summaries: SummaryProps[] = [

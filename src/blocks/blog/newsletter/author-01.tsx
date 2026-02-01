@@ -40,18 +40,18 @@ const Author = ({ avatar, name, role }: AuthorProps) => (
 
 const Content = ({ title, description }: ContentProps) => (
 	<div className="flex flex-col gap-3">
-		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">{title}</h2>
-		<p className="text-muted-foreground text-base @md:text-lg leading-relaxed">{description}</p>
+		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">
+			{title}
+		</h2>
+		<p className="text-muted-foreground text-base @md:text-lg leading-relaxed">
+			{description}
+		</p>
 	</div>
 );
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 w-full max-w-md">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="flex-1 h-11"
-		/>
+		<Input type="email" placeholder={placeholder} className="flex-1 h-11" />
 		<Button size="lg" className="gap-2 h-11">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}

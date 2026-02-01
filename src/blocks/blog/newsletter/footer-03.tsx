@@ -29,15 +29,15 @@ const Brand = ({ name, tagline }: BrandProps) => (
 	</div>
 );
 
-const NewsletterForm = ({ title, placeholder, buttonIcon: Icon }: NewsletterFormProps) => (
+const NewsletterForm = ({
+	title,
+	placeholder,
+	buttonIcon: Icon,
+}: NewsletterFormProps) => (
 	<div className="flex flex-col gap-3">
 		<h4 className="font-medium text-sm">{title}</h4>
 		<form className="flex gap-2">
-			<Input
-				type="email"
-				placeholder={placeholder}
-				className="w-48 h-9"
-			/>
+			<Input type="email" placeholder={placeholder} className="w-48 h-9" />
 			<Button size="sm" className="h-9 px-3">
 				<Icon className="size-4" />
 			</Button>
@@ -65,7 +65,11 @@ const Copyright = ({ text, links }: CopyrightProps) => (
 		<p className="text-sm text-muted-foreground">{text}</p>
 		<div className="flex gap-4">
 			{links.map((link, i) => (
-				<a key={i} href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+				<a
+					key={i}
+					href={link.href}
+					className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+				>
 					{link.label}
 				</a>
 			))}
@@ -79,7 +83,10 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16">
 				<div className="flex flex-col gap-8">
 					<div className="flex flex-col @lg:flex-row @lg:items-start @lg:justify-between gap-8">
-						<Brand name="Company" tagline="Building the future of web development." />
+						<Brand
+							name="Company"
+							tagline="Building the future of web development."
+						/>
 						<div className="flex flex-col @sm:flex-row gap-8">
 							<NewsletterForm
 								title="Subscribe to updates"

@@ -1,13 +1,34 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowLeft, Store, Check, Upload, Palette, Type, Image } from 'lucide-react';
+import {
+	ArrowRight,
+	ArrowLeft,
+	Store,
+	Check,
+	Upload,
+	Palette,
+	Type,
+	Image,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -39,7 +60,9 @@ const StepCircle = ({
 		>
 			{isCompleted ? <Check className="size-5" /> : step}
 		</div>
-		<span className={`text-xs mt-2 ${isActive || isCompleted ? 'text-primary' : 'text-muted-foreground'}`}>
+		<span
+			className={`text-xs mt-2 ${isActive || isCompleted ? 'text-primary' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</span>
 	</div>
@@ -108,9 +131,16 @@ const TextareaField = ({
 }) => (
 	<div className="space-y-2">
 		<Label htmlFor={id}>{label}</Label>
-		<Textarea id={id} placeholder={placeholder} rows={3} maxLength={maxLength} />
+		<Textarea
+			id={id}
+			placeholder={placeholder}
+			rows={3}
+			maxLength={maxLength}
+		/>
 		{maxLength && (
-			<p className="text-xs text-muted-foreground text-right">Max {maxLength} characters</p>
+			<p className="text-xs text-muted-foreground text-right">
+				Max {maxLength} characters
+			</p>
 		)}
 	</div>
 );
@@ -159,7 +189,13 @@ const NavigationButtons = ({
 
 const StoreSetupStep = () => (
 	<form className="space-y-4">
-		<FormField id="store-name" label="Store Display Name" type="text" placeholder="My Awesome Store" icon={Type} />
+		<FormField
+			id="store-name"
+			label="Store Display Name"
+			type="text"
+			placeholder="My Awesome Store"
+			icon={Type}
+		/>
 		<TextareaField
 			id="store-description"
 			label="Store Description"
@@ -167,8 +203,18 @@ const StoreSetupStep = () => (
 			maxLength={500}
 		/>
 		<div className="grid grid-cols-2 gap-3">
-			<FileUpload id="store-logo" label="Store Logo" description="Upload logo" icon={Image} />
-			<FileUpload id="store-banner" label="Store Banner" description="Upload banner" icon={Image} />
+			<FileUpload
+				id="store-logo"
+				label="Store Logo"
+				description="Upload logo"
+				icon={Image}
+			/>
+			<FileUpload
+				id="store-banner"
+				label="Store Banner"
+				description="Upload banner"
+				icon={Image}
+			/>
 		</div>
 		<NavigationButtons showBack={true} nextLabel="Review & Submit" />
 	</form>

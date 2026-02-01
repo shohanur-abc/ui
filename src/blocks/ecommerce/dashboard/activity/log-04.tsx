@@ -21,7 +21,15 @@ import {
 
 interface AuditLog {
 	id: string;
-	action: 'create' | 'update' | 'delete' | 'view' | 'export' | 'permission' | 'lock' | 'unlock';
+	action:
+		| 'create'
+		| 'update'
+		| 'delete'
+		| 'view'
+		| 'export'
+		| 'permission'
+		| 'lock'
+		| 'unlock';
 	user: {
 		name: string;
 		email: string;
@@ -206,7 +214,12 @@ export default function Main() {
 		{
 			id: '1',
 			action: 'update',
-			user: { name: 'Sarah Chen', email: 'sarah@company.com', initials: 'SC', role: 'Admin' },
+			user: {
+				name: 'Sarah Chen',
+				email: 'sarah@company.com',
+				initials: 'SC',
+				role: 'Admin',
+			},
 			resource: 'PROD-12345',
 			resourceType: 'Product',
 			details: 'Updated product pricing and inventory count',
@@ -218,7 +231,12 @@ export default function Main() {
 		{
 			id: '2',
 			action: 'permission',
-			user: { name: 'Mike Johnson', email: 'mike@company.com', initials: 'MJ', role: 'Manager' },
+			user: {
+				name: 'Mike Johnson',
+				email: 'mike@company.com',
+				initials: 'MJ',
+				role: 'Manager',
+			},
 			resource: 'emily@company.com',
 			resourceType: 'User',
 			details: 'Changed user role from Viewer to Editor',
@@ -230,7 +248,12 @@ export default function Main() {
 		{
 			id: '3',
 			action: 'delete',
-			user: { name: 'Emily Davis', email: 'emily@company.com', initials: 'ED', role: 'Editor' },
+			user: {
+				name: 'Emily Davis',
+				email: 'emily@company.com',
+				initials: 'ED',
+				role: 'Editor',
+			},
 			resource: 'CAT-456',
 			resourceType: 'Category',
 			details: 'Removed deprecated category "Summer 2023"',
@@ -240,7 +263,12 @@ export default function Main() {
 		{
 			id: '4',
 			action: 'create',
-			user: { name: 'Alex Kim', email: 'alex@company.com', initials: 'AK', role: 'Admin' },
+			user: {
+				name: 'Alex Kim',
+				email: 'alex@company.com',
+				initials: 'AK',
+				role: 'Admin',
+			},
 			resource: 'PROMO-789',
 			resourceType: 'Promotion',
 			details: 'Created new spring sale promotion with 25% discount',
@@ -250,7 +278,12 @@ export default function Main() {
 		{
 			id: '5',
 			action: 'export',
-			user: { name: 'Jordan Lee', email: 'jordan@company.com', initials: 'JL', role: 'Manager' },
+			user: {
+				name: 'Jordan Lee',
+				email: 'jordan@company.com',
+				initials: 'JL',
+				role: 'Manager',
+			},
 			resource: 'orders_q1_2024.csv',
 			resourceType: 'Report',
 			details: 'Exported Q1 2024 orders report (12,450 records)',
@@ -260,7 +293,12 @@ export default function Main() {
 		{
 			id: '6',
 			action: 'lock',
-			user: { name: 'Lisa Anderson', email: 'lisa@company.com', initials: 'LA', role: 'Admin' },
+			user: {
+				name: 'Lisa Anderson',
+				email: 'lisa@company.com',
+				initials: 'LA',
+				role: 'Admin',
+			},
 			resource: 'user_5678',
 			resourceType: 'User Account',
 			details: 'Locked account due to suspicious activity',
@@ -270,7 +308,12 @@ export default function Main() {
 		{
 			id: '7',
 			action: 'view',
-			user: { name: 'David Kim', email: 'david@company.com', initials: 'DK', role: 'Viewer' },
+			user: {
+				name: 'David Kim',
+				email: 'david@company.com',
+				initials: 'DK',
+				role: 'Viewer',
+			},
 			resource: 'financial_summary',
 			resourceType: 'Dashboard',
 			details: 'Accessed sensitive financial dashboard',

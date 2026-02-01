@@ -9,7 +9,13 @@ import {
 	type LucideIcon,
 } from 'lucide-react';
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 type TargetItem = {
@@ -27,7 +33,14 @@ type TeamTarget = {
 	color: string;
 };
 
-const TargetRow = ({ title, current, target, progress, trend, icon: Icon }: TargetItem) => (
+const TargetRow = ({
+	title,
+	current,
+	target,
+	progress,
+	trend,
+	icon: Icon,
+}: TargetItem) => (
 	<div className="flex items-center gap-4">
 		<div className="rounded-lg bg-primary/10 p-2">
 			<Icon className="size-4 text-primary" />
@@ -63,10 +76,38 @@ const TeamProgressBar = ({ team, progress, color }: TeamTarget) => (
 
 export default function Main() {
 	const targets: TargetItem[] = [
-		{ title: 'Revenue', current: '$248,632', target: '$300,000', progress: 83, trend: '+28%', icon: DollarSign },
-		{ title: 'Orders', current: '6,842', target: '8,000', progress: 85, trend: '+22%', icon: ShoppingCart },
-		{ title: 'Customers', current: '3,847', target: '4,000', progress: 96, trend: '+18%', icon: Users },
-		{ title: 'Avg Order Value', current: '$36.33', target: '$40.00', progress: 91, trend: '+5%', icon: TrendingUp },
+		{
+			title: 'Revenue',
+			current: '$248,632',
+			target: '$300,000',
+			progress: 83,
+			trend: '+28%',
+			icon: DollarSign,
+		},
+		{
+			title: 'Orders',
+			current: '6,842',
+			target: '8,000',
+			progress: 85,
+			trend: '+22%',
+			icon: ShoppingCart,
+		},
+		{
+			title: 'Customers',
+			current: '3,847',
+			target: '4,000',
+			progress: 96,
+			trend: '+18%',
+			icon: Users,
+		},
+		{
+			title: 'Avg Order Value',
+			current: '$36.33',
+			target: '$40.00',
+			progress: 91,
+			trend: '+5%',
+			icon: TrendingUp,
+		},
 	];
 
 	const teamTargets: TeamTarget[] = [

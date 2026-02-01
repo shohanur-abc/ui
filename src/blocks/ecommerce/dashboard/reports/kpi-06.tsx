@@ -21,13 +21,37 @@ type GaugeKPIProps = {
 	description: string;
 };
 
-const GaugeKPI = ({ icon: Icon, title, value, max, unit, status, description }: GaugeKPIProps) => {
+const GaugeKPI = ({
+	icon: Icon,
+	title,
+	value,
+	max,
+	unit,
+	status,
+	description,
+}: GaugeKPIProps) => {
 	const percentage = (value / max) * 100;
 	const statusConfig = {
-		excellent: { color: 'oklch(0.7 0.18 160)', bg: 'bg-emerald-500/10', text: 'text-emerald-500' },
-		good: { color: 'oklch(0.7 0.2 280)', bg: 'bg-primary/10', text: 'text-primary' },
-		warning: { color: 'oklch(0.75 0.15 55)', bg: 'bg-amber-500/10', text: 'text-amber-500' },
-		critical: { color: 'oklch(0.62 0.24 25)', bg: 'bg-rose-500/10', text: 'text-rose-500' },
+		excellent: {
+			color: 'oklch(0.7 0.18 160)',
+			bg: 'bg-emerald-500/10',
+			text: 'text-emerald-500',
+		},
+		good: {
+			color: 'oklch(0.7 0.2 280)',
+			bg: 'bg-primary/10',
+			text: 'text-primary',
+		},
+		warning: {
+			color: 'oklch(0.75 0.15 55)',
+			bg: 'bg-amber-500/10',
+			text: 'text-amber-500',
+		},
+		critical: {
+			color: 'oklch(0.62 0.24 25)',
+			bg: 'bg-rose-500/10',
+			text: 'text-rose-500',
+		},
 	};
 
 	const { color, bg, text } = statusConfig[status];
@@ -71,11 +95,15 @@ const GaugeKPI = ({ icon: Icon, title, value, max, unit, status, description }: 
 						<span className="text-xs text-muted-foreground">{unit}</span>
 					</div>
 				</div>
-				<div className={`mt-3 flex items-center gap-2 rounded-full px-3 py-1 ${bg}`}>
+				<div
+					className={`mt-3 flex items-center gap-2 rounded-full px-3 py-1 ${bg}`}
+				>
 					<Icon className={`size-3.5 ${text}`} />
 					<span className={`text-sm font-medium ${text}`}>{title}</span>
 				</div>
-				<p className="mt-2 text-center text-xs text-muted-foreground">{description}</p>
+				<p className="mt-2 text-center text-xs text-muted-foreground">
+					{description}
+				</p>
 			</CardContent>
 		</Card>
 	);

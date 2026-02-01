@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Clock, MessageSquare, ThumbsUp, Bookmark, Share2, MoreVertical } from 'lucide-react';
+import {
+	Clock,
+	MessageSquare,
+	ThumbsUp,
+	Bookmark,
+	Share2,
+	MoreVertical,
+} from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -34,11 +41,7 @@ interface ArticleProps {
 }
 
 const CategoryChip = ({ text, href }: { text: string; href: string }) => (
-	<Badge
-		variant="default"
-		className="rounded-md text-xs font-semibold"
-		asChild
-	>
+	<Badge variant="default" className="rounded-md text-xs font-semibold" asChild>
 		<Link href={href}>{text}</Link>
 	</Badge>
 );
@@ -75,7 +78,11 @@ const AuthorHeader = ({
 			<div>
 				<div className="flex items-center gap-2">
 					<span className="font-semibold">{author.name}</span>
-					<Button variant="outline" size="sm" className="h-7 text-xs rounded-full">
+					<Button
+						variant="outline"
+						size="sm"
+						className="h-7 text-xs rounded-full"
+					>
 						Follow
 					</Button>
 				</div>
@@ -108,11 +115,19 @@ const HeroImage = ({ src, alt }: { src: string; alt: string }) => (
 const EngagementBar = ({ engagement }: { engagement: EngagementProps }) => (
 	<div className="flex items-center justify-between py-3 border-y border-border">
 		<div className="flex items-center gap-4">
-			<Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
+			<Button
+				variant="ghost"
+				size="sm"
+				className="gap-2 text-muted-foreground hover:text-foreground"
+			>
 				<ThumbsUp className="size-4" />
 				<span className="text-sm">{engagement.likes}</span>
 			</Button>
-			<Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
+			<Button
+				variant="ghost"
+				size="sm"
+				className="gap-2 text-muted-foreground hover:text-foreground"
+			>
 				<MessageSquare className="size-4" />
 				<span className="text-sm">{engagement.comments}</span>
 			</Button>
@@ -157,7 +172,9 @@ const AuthorCard = ({ author }: { author: AuthorProps }) => (
 			</Avatar>
 			<div className="flex-1 min-w-0">
 				<p className="font-semibold text-lg">{author.name}</p>
-				<p className="text-sm text-muted-foreground mb-2">{author.followers} followers</p>
+				<p className="text-sm text-muted-foreground mb-2">
+					{author.followers} followers
+				</p>
 				<p className="text-sm text-foreground/80 line-clamp-2">{author.bio}</p>
 				<Button variant="default" size="sm" className="mt-3">
 					Follow
@@ -171,11 +188,13 @@ export default function Main() {
 	const articleData: ArticleProps = {
 		category: 'Health',
 		categoryHref: '/blog/category/health',
-		title: 'The Science of Sleep: Why Rest Is Your Greatest Performance Enhancer',
-		lead: 'Modern research reveals that quality sleep isn\'t just about recovery—it\'s the foundation of cognitive performance, emotional resilience, and physical health.',
+		title:
+			'The Science of Sleep: Why Rest Is Your Greatest Performance Enhancer',
+		lead: "Modern research reveals that quality sleep isn't just about recovery—it's the foundation of cognitive performance, emotional resilience, and physical health.",
 		author: {
 			name: 'Dr. Michael Torres',
-			avatar: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&h=100&fit=crop',
 			initials: 'MT',
 			bio: 'Sleep researcher and neuroscientist. Author of "The Rested Mind." Helping people understand the power of quality sleep.',
 			followers: '127k',
@@ -201,7 +220,10 @@ export default function Main() {
 		<section className="@container relative" data-theme="article">
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-6 @md:gap-8">
-					<CategoryChip text={articleData.category} href={articleData.categoryHref} />
+					<CategoryChip
+						text={articleData.category}
+						href={articleData.categoryHref}
+					/>
 					<Title text={articleData.title} />
 					<LeadText text={articleData.lead} />
 					<AuthorHeader

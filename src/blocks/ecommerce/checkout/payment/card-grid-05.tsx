@@ -1,10 +1,27 @@
 'use client';
 
-import { BadgeCheck, Bitcoin, Building2, CreditCard, Gift, Globe, Lock, Shield, Smartphone, Star, Wallet } from 'lucide-react';
+import {
+	BadgeCheck,
+	Bitcoin,
+	Building2,
+	CreditCard,
+	Gift,
+	Globe,
+	Lock,
+	Shield,
+	Smartphone,
+	Star,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -23,32 +40,41 @@ interface PaymentMethod {
 	badge?: string;
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center mb-8">
 		<h1 className="text-2xl @md:text-3xl font-bold">{title}</h1>
 		<p className="text-muted-foreground mt-2">{subtitle}</p>
 	</div>
 );
 
-const PaymentMethodButton = ({ 
-	id, 
-	name, 
-	icon: Icon, 
-	badge, 
-	selected, 
-	onSelect 
+const PaymentMethodButton = ({
+	id,
+	name,
+	icon: Icon,
+	badge,
+	selected,
+	onSelect,
 }: PaymentMethod & { selected: boolean; onSelect: (id: string) => void }) => (
 	<button
 		type="button"
 		onClick={() => onSelect(id)}
 		className={`relative flex flex-col items-center p-3 rounded-xl border-2 transition-all ${
-			selected 
-				? 'border-primary bg-primary/5' 
+			selected
+				? 'border-primary bg-primary/5'
 				: 'border-border/50 hover:border-primary/30'
 		}`}
 	>
 		{badge && (
-			<Badge className="absolute -top-2 -right-1 text-xs gap-0.5" variant="secondary">
+			<Badge
+				className="absolute -top-2 -right-1 text-xs gap-0.5"
+				variant="secondary"
+			>
 				<Star className="size-2.5" />
 				{badge}
 			</Badge>
@@ -63,20 +89,20 @@ const PaymentMethodButton = ({
 	</button>
 );
 
-const CategorySection = ({ 
-	id, 
-	title, 
-	methods, 
-	selected, 
-	onSelect 
+const CategorySection = ({
+	id,
+	title,
+	methods,
+	selected,
+	onSelect,
 }: PaymentCategory & { selected: string; onSelect: (id: string) => void }) => (
 	<div className="space-y-3">
 		<h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
 		<div className="grid grid-cols-4 gap-2">
 			{methods.map((method) => (
-				<PaymentMethodButton 
-					key={method.id} 
-					{...method} 
+				<PaymentMethodButton
+					key={method.id}
+					{...method}
 					selected={selected === method.id}
 					onSelect={onSelect}
 				/>
@@ -85,20 +111,20 @@ const CategorySection = ({
 	</div>
 );
 
-const PaymentCategories = ({ 
-	categories, 
-	selected, 
-	onSelect 
-}: { 
-	categories: PaymentCategory[]; 
-	selected: string; 
-	onSelect: (id: string) => void 
+const PaymentCategories = ({
+	categories,
+	selected,
+	onSelect,
+}: {
+	categories: PaymentCategory[];
+	selected: string;
+	onSelect: (id: string) => void;
 }) => (
 	<div className="space-y-4">
 		{categories.map((category) => (
-			<CategorySection 
-				key={category.id} 
-				{...category} 
+			<CategorySection
+				key={category.id}
+				{...category}
 				selected={selected}
 				onSelect={onSelect}
 			/>
@@ -143,7 +169,17 @@ const GiftCardSection = () => (
 	</div>
 );
 
-const TotalSection = ({ subtotal, discount, tax, total }: { subtotal: string; discount?: string; tax: string; total: string }) => (
+const TotalSection = ({
+	subtotal,
+	discount,
+	tax,
+	total,
+}: {
+	subtotal: string;
+	discount?: string;
+	tax: string;
+	total: string;
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		<div className="flex justify-between text-sm">
 			<span className="text-muted-foreground">Subtotal</span>
@@ -231,20 +267,16 @@ export default function Main() {
 				<PageHeader title="Payment" subtitle="Choose your payment method" />
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardContent className="pt-6">
-						<PaymentCategories 
-							categories={categories} 
-							selected="visa" 
-							onSelect={() => {}} 
+						<PaymentCategories
+							categories={categories}
+							selected="visa"
+							onSelect={() => {}}
 						/>
 						<CardInputSection />
 						<GiftCardSection />
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
-						<TotalSection 
-							subtotal="$299.00"
-							tax="$23.92"
-							total="$322.92"
-						/>
+						<TotalSection subtotal="$299.00" tax="$23.92" total="$322.92" />
 						<PayButton label="Complete Payment" />
 						<TrustBadges />
 					</CardFooter>

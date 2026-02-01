@@ -186,10 +186,7 @@ const OrderSummary = ({
 					label="Shipping"
 					value={shipping === 0 ? 'Free' : `${currency}${shipping.toFixed(2)}`}
 				/>
-				<OrderSummaryRow
-					label="Tax"
-					value={`${currency}${tax.toFixed(2)}`}
-				/>
+				<OrderSummaryRow label="Tax" value={`${currency}${tax.toFixed(2)}`} />
 				<Separator />
 				<OrderSummaryRow
 					label="Total"

@@ -1,10 +1,24 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Key, Smartphone, Shield, Package } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Key,
+	Smartphone,
+	Shield,
+	Package,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
 	InputOTP,
@@ -12,7 +26,13 @@ import {
 	InputOTPSlot,
 } from '@/components/ui/input-otp';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -60,7 +80,13 @@ const SubmitButton = ({
 
 const PasswordReset = () => (
 	<form className="space-y-4">
-		<FormField id="reset-email" label="Email address" type="email" placeholder="you@example.com" icon={Mail} />
+		<FormField
+			id="reset-email"
+			label="Email address"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
 		<p className="text-sm text-muted-foreground">
 			We&apos;ll send a password reset link to your email
 		</p>
@@ -124,10 +150,16 @@ export default function Main() {
 								<TabsTrigger value="email" className="text-xs @sm:text-sm">
 									Email
 								</TabsTrigger>
-								<TabsTrigger value="authenticator" className="text-xs @sm:text-sm">
+								<TabsTrigger
+									value="authenticator"
+									className="text-xs @sm:text-sm"
+								>
 									App
 								</TabsTrigger>
-								<TabsTrigger value="security-key" className="text-xs @sm:text-sm">
+								<TabsTrigger
+									value="security-key"
+									className="text-xs @sm:text-sm"
+								>
 									Key
 								</TabsTrigger>
 							</TabsList>

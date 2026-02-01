@@ -30,7 +30,9 @@ const CompactItem = ({ item }: { item: CartItem }) => (
 			<p className="truncate text-sm font-medium">{item.name}</p>
 			<span className="text-xs text-muted-foreground">{item.variant}</span>
 		</div>
-		<Badge variant="secondary" className="text-xs">×{item.qty}</Badge>
+		<Badge variant="secondary" className="text-xs">
+			×{item.qty}
+		</Badge>
 		<span className="text-sm font-bold">${item.price.toFixed(2)}</span>
 	</div>
 );
@@ -62,9 +64,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -76,7 +82,8 @@ export default function Main() {
 			variant: 'Premium / Purple',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -84,7 +91,8 @@ export default function Main() {
 			variant: 'Set of 5',
 			price: 24.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -92,7 +100,8 @@ export default function Main() {
 			variant: 'High Density',
 			price: 29.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=200&h=200&fit=crop',
 		},
 	];
 

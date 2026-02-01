@@ -134,10 +134,34 @@ export default function Main() {
 	];
 
 	const deliveryOptions: DeliveryOption[] = [
-		{ id: '1', name: 'Same-Day Delivery', description: 'Order by 12 PM for delivery today', leadTime: '0 days', enabled: true },
-		{ id: '2', name: 'Next-Day Delivery', description: 'Order by 6 PM for delivery tomorrow', leadTime: '1 day', enabled: true },
-		{ id: '3', name: 'Scheduled Delivery', description: 'Choose your preferred date and time', leadTime: '2-5 days', enabled: true },
-		{ id: '4', name: 'Weekend Delivery', description: 'Saturday and Sunday delivery', leadTime: 'Varies', enabled: false },
+		{
+			id: '1',
+			name: 'Same-Day Delivery',
+			description: 'Order by 12 PM for delivery today',
+			leadTime: '0 days',
+			enabled: true,
+		},
+		{
+			id: '2',
+			name: 'Next-Day Delivery',
+			description: 'Order by 6 PM for delivery tomorrow',
+			leadTime: '1 day',
+			enabled: true,
+		},
+		{
+			id: '3',
+			name: 'Scheduled Delivery',
+			description: 'Choose your preferred date and time',
+			leadTime: '2-5 days',
+			enabled: true,
+		},
+		{
+			id: '4',
+			name: 'Weekend Delivery',
+			description: 'Saturday and Sunday delivery',
+			leadTime: 'Varies',
+			enabled: false,
+		},
 	];
 
 	return (
@@ -233,7 +257,8 @@ export default function Main() {
 								<CardContent className="pt-6 text-center">
 									<Truck className="mx-auto size-8 text-primary" />
 									<h4 className="mt-2 font-semibold">
-										{deliveryOptions.filter((o) => o.enabled).length} Active Options
+										{deliveryOptions.filter((o) => o.enabled).length} Active
+										Options
 									</h4>
 									<p className="mt-1 text-sm text-muted-foreground">
 										Offering flexible delivery to customers

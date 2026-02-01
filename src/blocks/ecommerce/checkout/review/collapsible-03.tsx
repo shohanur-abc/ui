@@ -2,8 +2,18 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
+import {
+	Collapsible,
+	CollapsibleContent,
+	CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -63,7 +73,9 @@ const CollapsibleRow = ({
 				</button>
 			</CollapsibleTrigger>
 			<CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
-				<div className="ml-13 mt-2 rounded-xl border bg-muted/30 p-4">{children}</div>
+				<div className="ml-13 mt-2 rounded-xl border bg-muted/30 p-4">
+					{children}
+				</div>
 			</CollapsibleContent>
 		</Collapsible>
 	);
@@ -80,7 +92,9 @@ const ProductRow = ({ item }: { item: OrderItem }) => (
 		</div>
 		<div className="text-right">
 			<p className="text-sm font-bold">${item.price.toFixed(2)}</p>
-			<Badge variant="secondary" className="text-xs">×{item.qty}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				×{item.qty}
+			</Badge>
 		</div>
 	</div>
 );
@@ -131,7 +145,9 @@ const PaymentDisplay = ({
 	<div className="flex items-center gap-3">
 		<CreditCard className="size-5 text-muted-foreground" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -148,9 +164,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -162,7 +182,8 @@ export default function Main() {
 			variant: 'Pro / 4K Camera',
 			price: 899.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -170,7 +191,8 @@ export default function Main() {
 			variant: 'High Capacity / 2-Pack',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -178,7 +200,8 @@ export default function Main() {
 			variant: 'Hard Shell / Foam',
 			price: 79.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -242,7 +265,11 @@ export default function Main() {
 							summary="Express · Dec 18-19"
 							verified
 						>
-							<DeliveryDisplay method="Express Shipping" date="Dec 18-19, 2025" price="$24.99" />
+							<DeliveryDisplay
+								method="Express Shipping"
+								date="Dec 18-19, 2025"
+								price="$24.99"
+							/>
 						</CollapsibleRow>
 
 						<CollapsibleRow

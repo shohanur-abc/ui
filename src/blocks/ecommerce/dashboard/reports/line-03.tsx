@@ -1,6 +1,14 @@
 'use client';
 
-import { Line, LineChart, CartesianGrid, XAxis, YAxis, Area, ComposedChart } from 'recharts';
+import {
+	Line,
+	LineChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	Area,
+	ComposedChart,
+} from 'recharts';
 import { Users, UserPlus, UserMinus } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -33,7 +41,13 @@ type StatCardProps = {
 	iconColor: string;
 };
 
-const StatCard = ({ icon: Icon, label, value, subtext, iconColor }: StatCardProps) => (
+const StatCard = ({
+	icon: Icon,
+	label,
+	value,
+	subtext,
+	iconColor,
+}: StatCardProps) => (
 	<div className="flex items-center gap-3 rounded-lg bg-muted/50 px-4 py-3">
 		<div className={`rounded-md p-2 ${iconColor}`}>
 			<Icon className="size-4" />
@@ -63,9 +77,27 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const stats: StatCardProps[] = [
-		{ icon: Users, label: 'Total Customers', value: '24,580', subtext: '+12% growth', iconColor: 'bg-primary/10 text-primary' },
-		{ icon: UserPlus, label: 'Acquired (YTD)', value: '4,820', subtext: 'Avg 402/month', iconColor: 'bg-emerald-500/10 text-emerald-500' },
-		{ icon: UserMinus, label: 'Churned (YTD)', value: '1,245', subtext: '5.1% rate', iconColor: 'bg-rose-500/10 text-rose-500' },
+		{
+			icon: Users,
+			label: 'Total Customers',
+			value: '24,580',
+			subtext: '+12% growth',
+			iconColor: 'bg-primary/10 text-primary',
+		},
+		{
+			icon: UserPlus,
+			label: 'Acquired (YTD)',
+			value: '4,820',
+			subtext: 'Avg 402/month',
+			iconColor: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			icon: UserMinus,
+			label: 'Churned (YTD)',
+			value: '1,245',
+			subtext: '5.1% rate',
+			iconColor: 'bg-rose-500/10 text-rose-500',
+		},
 	];
 
 	const chartData: CustomerData[] = [
@@ -105,8 +137,16 @@ export default function Main() {
 							<ComposedChart data={chartData} margin={{ left: 12, right: 12 }}>
 								<defs>
 									<linearGradient id="netGradient" x1="0" y1="0" x2="0" y2="1">
-										<stop offset="5%" stopColor="var(--color-net)" stopOpacity={0.2} />
-										<stop offset="95%" stopColor="var(--color-net)" stopOpacity={0} />
+										<stop
+											offset="5%"
+											stopColor="var(--color-net)"
+											stopOpacity={0.2}
+										/>
+										<stop
+											offset="95%"
+											stopColor="var(--color-net)"
+											stopOpacity={0}
+										/>
 									</linearGradient>
 								</defs>
 								<CartesianGrid strokeDasharray="3 3" vertical={false} />

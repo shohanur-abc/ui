@@ -89,7 +89,11 @@ const ActivityIcon = ({ type }: { type: string }) => {
 	return <Icon className="size-4" />;
 };
 
-const ActivityItem = ({ activity }: { activity: ActivityProfile['realtimeActivity'][0] }) => (
+const ActivityItem = ({
+	activity,
+}: {
+	activity: ActivityProfile['realtimeActivity'][0];
+}) => (
 	<div className="flex items-start gap-3 text-sm">
 		<div className="size-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground mt-0.5">
 			<ActivityIcon type={activity.type} />
@@ -98,11 +102,17 @@ const ActivityItem = ({ activity }: { activity: ActivityProfile['realtimeActivit
 			<p className="font-medium">{activity.action}</p>
 			<p className="text-muted-foreground text-xs truncate">{activity.page}</p>
 		</div>
-		<span className="text-xs text-muted-foreground whitespace-nowrap">{activity.timestamp}</span>
+		<span className="text-xs text-muted-foreground whitespace-nowrap">
+			{activity.timestamp}
+		</span>
 	</div>
 );
 
-const InterestBar = ({ interest }: { interest: ActivityProfile['interests'][0] }) => (
+const InterestBar = ({
+	interest,
+}: {
+	interest: ActivityProfile['interests'][0];
+}) => (
 	<div>
 		<div className="flex items-center justify-between mb-1 text-sm">
 			<span>{interest.category}</span>
@@ -165,7 +175,9 @@ const ProfileHeader = ({ profile }: { profile: ActivityProfile }) => (
 					{profile.initials}
 				</AvatarFallback>
 			</Avatar>
-			<div className={`absolute -bottom-1 -right-1 size-4 rounded-full border-2 border-background ${profile.status === 'online' ? 'bg-emerald-500' : profile.status === 'away' ? 'bg-amber-500' : 'bg-slate-400'}`} />
+			<div
+				className={`absolute -bottom-1 -right-1 size-4 rounded-full border-2 border-background ${profile.status === 'online' ? 'bg-emerald-500' : profile.status === 'away' ? 'bg-amber-500' : 'bg-slate-400'}`}
+			/>
 		</div>
 		<div className="flex-1">
 			<div className="flex items-center gap-3 mb-1">
@@ -221,12 +233,48 @@ export default function Main() {
 			},
 		},
 		realtimeActivity: [
-			{ id: '1', action: 'Viewing product', page: 'Wireless Headphones Pro', timestamp: 'Just now', type: 'view' },
-			{ id: '2', action: 'Added to wishlist', page: 'Smart Watch Series 5', timestamp: '2 min ago', type: 'wishlist' },
-			{ id: '3', action: 'Searched for', page: '"bluetooth speakers"', timestamp: '5 min ago', type: 'search' },
-			{ id: '4', action: 'Added to cart', page: 'USB-C Hub Adapter', timestamp: '8 min ago', type: 'cart' },
-			{ id: '5', action: 'Clicked on', page: 'Electronics category', timestamp: '10 min ago', type: 'click' },
-			{ id: '6', action: 'Started session', page: 'Homepage', timestamp: '18 min ago', type: 'view' },
+			{
+				id: '1',
+				action: 'Viewing product',
+				page: 'Wireless Headphones Pro',
+				timestamp: 'Just now',
+				type: 'view',
+			},
+			{
+				id: '2',
+				action: 'Added to wishlist',
+				page: 'Smart Watch Series 5',
+				timestamp: '2 min ago',
+				type: 'wishlist',
+			},
+			{
+				id: '3',
+				action: 'Searched for',
+				page: '"bluetooth speakers"',
+				timestamp: '5 min ago',
+				type: 'search',
+			},
+			{
+				id: '4',
+				action: 'Added to cart',
+				page: 'USB-C Hub Adapter',
+				timestamp: '8 min ago',
+				type: 'cart',
+			},
+			{
+				id: '5',
+				action: 'Clicked on',
+				page: 'Electronics category',
+				timestamp: '10 min ago',
+				type: 'click',
+			},
+			{
+				id: '6',
+				action: 'Started session',
+				page: 'Homepage',
+				timestamp: '18 min ago',
+				type: 'view',
+			},
 		],
 		interests: [
 			{ category: 'Electronics', score: 85 },
@@ -245,26 +293,36 @@ export default function Main() {
 				<div className="grid grid-cols-2 @lg:grid-cols-4 gap-4">
 					<Card>
 						<CardContent className="p-4">
-							<p className="text-muted-foreground text-sm mb-1">Total Sessions</p>
-							<p className="text-2xl font-bold">{profile.session.stats.totalSessions}</p>
+							<p className="text-muted-foreground text-sm mb-1">
+								Total Sessions
+							</p>
+							<p className="text-2xl font-bold">
+								{profile.session.stats.totalSessions}
+							</p>
 						</CardContent>
 					</Card>
 					<Card>
 						<CardContent className="p-4">
 							<p className="text-muted-foreground text-sm mb-1">Avg Duration</p>
-							<p className="text-2xl font-bold">{profile.session.stats.avgDuration}</p>
+							<p className="text-2xl font-bold">
+								{profile.session.stats.avgDuration}
+							</p>
 						</CardContent>
 					</Card>
 					<Card>
 						<CardContent className="p-4">
 							<p className="text-muted-foreground text-sm mb-1">Page Views</p>
-							<p className="text-2xl font-bold">{profile.session.stats.pageViews.toLocaleString()}</p>
+							<p className="text-2xl font-bold">
+								{profile.session.stats.pageViews.toLocaleString()}
+							</p>
 						</CardContent>
 					</Card>
 					<Card>
 						<CardContent className="p-4">
 							<p className="text-muted-foreground text-sm mb-1">Bounce Rate</p>
-							<p className="text-2xl font-bold">{profile.session.stats.bounceRate}%</p>
+							<p className="text-2xl font-bold">
+								{profile.session.stats.bounceRate}%
+							</p>
 						</CardContent>
 					</Card>
 				</div>
@@ -275,7 +333,10 @@ export default function Main() {
 							<CardTitle className="text-base flex items-center gap-2">
 								<Activity className="size-4" />
 								Real-time Activity
-								<Badge variant="outline" className="ml-auto bg-emerald-500/10 text-emerald-500">
+								<Badge
+									variant="outline"
+									className="ml-auto bg-emerald-500/10 text-emerald-500"
+								>
 									Live
 								</Badge>
 							</CardTitle>

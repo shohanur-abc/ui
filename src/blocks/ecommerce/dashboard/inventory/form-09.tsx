@@ -11,7 +11,14 @@ import {
 	Trash2,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -48,7 +55,12 @@ type OrderItemRowProps = {
 	onRemove: (id: string) => void;
 };
 
-const OrderItemRow = ({ item, onQuantityChange, onUnitCostChange, onRemove }: OrderItemRowProps) => {
+const OrderItemRow = ({
+	item,
+	onQuantityChange,
+	onUnitCostChange,
+	onRemove,
+}: OrderItemRowProps) => {
 	const total = item.quantity * item.unitCost;
 
 	return (
@@ -63,7 +75,9 @@ const OrderItemRow = ({ item, onQuantityChange, onUnitCostChange, onRemove }: Or
 				<Input
 					type="number"
 					value={item.unitCost}
-					onChange={(e) => onUnitCostChange(item.id, parseFloat(e.target.value) || 0)}
+					onChange={(e) =>
+						onUnitCostChange(item.id, parseFloat(e.target.value) || 0)
+					}
 					className="w-24"
 					step="0.01"
 					min={0}
@@ -73,14 +87,22 @@ const OrderItemRow = ({ item, onQuantityChange, onUnitCostChange, onRemove }: Or
 				<Input
 					type="number"
 					value={item.quantity}
-					onChange={(e) => onQuantityChange(item.id, parseInt(e.target.value) || 0)}
+					onChange={(e) =>
+						onQuantityChange(item.id, parseInt(e.target.value) || 0)
+					}
 					className="w-20"
 					min={1}
 				/>
 			</TableCell>
-			<TableCell className="text-right font-medium">${total.toFixed(2)}</TableCell>
+			<TableCell className="text-right font-medium">
+				${total.toFixed(2)}
+			</TableCell>
 			<TableCell>
-				<Button variant="ghost" size="icon-sm" onClick={() => onRemove(item.id)}>
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					onClick={() => onRemove(item.id)}
+				>
 					<Trash2 className="size-4 text-destructive" />
 				</Button>
 			</TableCell>
@@ -122,9 +144,27 @@ const TotalsSummary = ({ subtotal, shipping, tax }: TotalsSummaryProps) => {
 export default function Main() {
 	const [supplier, setSupplier] = React.useState('');
 	const [items, setItems] = React.useState<OrderItem[]>([
-		{ id: '1', name: 'Wireless Earbuds Pro', sku: 'WEP-001', unitCost: 45.00, quantity: 100 },
-		{ id: '2', name: 'USB-C Fast Charger', sku: 'UFC-001', unitCost: 12.50, quantity: 200 },
-		{ id: '3', name: 'Phone Case Premium', sku: 'PCP-001', unitCost: 8.00, quantity: 150 },
+		{
+			id: '1',
+			name: 'Wireless Earbuds Pro',
+			sku: 'WEP-001',
+			unitCost: 45.0,
+			quantity: 100,
+		},
+		{
+			id: '2',
+			name: 'USB-C Fast Charger',
+			sku: 'UFC-001',
+			unitCost: 12.5,
+			quantity: 200,
+		},
+		{
+			id: '3',
+			name: 'Phone Case Premium',
+			sku: 'PCP-001',
+			unitCost: 8.0,
+			quantity: 150,
+		},
 	]);
 
 	const suppliers = [
@@ -134,11 +174,15 @@ export default function Main() {
 	];
 
 	const handleQuantityChange = (id: string, quantity: number) => {
-		setItems((prev) => prev.map((item) => (item.id === id ? { ...item, quantity } : item)));
+		setItems((prev) =>
+			prev.map((item) => (item.id === id ? { ...item, quantity } : item)),
+		);
 	};
 
 	const handleUnitCostChange = (id: string, unitCost: number) => {
-		setItems((prev) => prev.map((item) => (item.id === id ? { ...item, unitCost } : item)));
+		setItems((prev) =>
+			prev.map((item) => (item.id === id ? { ...item, unitCost } : item)),
+		);
 	};
 
 	const handleRemove = (id: string) => {
@@ -154,8 +198,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">New Purchase Order</CardTitle>
-						<CardDescription>Create a purchase order for supplier</CardDescription>
+						<CardTitle className="text-xl @lg:text-2xl">
+							New Purchase Order
+						</CardTitle>
+						<CardDescription>
+							Create a purchase order for supplier
+						</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<div className="grid gap-4 @lg:grid-cols-3">
@@ -168,7 +216,9 @@ export default function Main() {
 									</SelectTrigger>
 									<SelectContent>
 										{suppliers.map((s) => (
-											<SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>
+											<SelectItem key={s.id} value={s.id}>
+												{s.name}
+											</SelectItem>
 										))}
 									</SelectContent>
 								</Select>
@@ -218,9 +268,16 @@ export default function Main() {
 						<div className="grid gap-4 @lg:grid-cols-2">
 							<div className="space-y-2">
 								<Label>Notes to Supplier</Label>
-								<Textarea placeholder="Add any special instructions..." rows={4} />
+								<Textarea
+									placeholder="Add any special instructions..."
+									rows={4}
+								/>
 							</div>
-							<TotalsSummary subtotal={subtotal} shipping={shipping} tax={tax} />
+							<TotalsSummary
+								subtotal={subtotal}
+								shipping={shipping}
+								tax={tax}
+							/>
 						</div>
 					</CardContent>
 					<CardFooter className="flex justify-end gap-3 border-t pt-6">

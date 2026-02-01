@@ -37,7 +37,9 @@ const StepIndicator = ({ steps }: StepIndicatorProps) => (
 				>
 					{step.completed ? <Check className="size-4" /> : index + 1}
 				</div>
-				<span className="hidden @sm:block text-sm font-medium">{step.label}</span>
+				<span className="hidden @sm:block text-sm font-medium">
+					{step.label}
+				</span>
 				{index < steps.length - 1 && (
 					<div className="w-8 @sm:w-12 h-px bg-border" />
 				)}
@@ -46,7 +48,13 @@ const StepIndicator = ({ steps }: StepIndicatorProps) => (
 	</div>
 );
 
-const FormSection = ({ title, children }: { title: string; children: React.ReactNode }) => (
+const FormSection = ({
+	title,
+	children,
+}: {
+	title: string;
+	children: React.ReactNode;
+}) => (
 	<div className="space-y-4">
 		<h3 className="font-semibold flex items-center gap-2">
 			<CreditCard className="size-4" />
@@ -70,7 +78,9 @@ const CardInputField = ({
 	className?: string;
 }) => (
 	<div className={`space-y-2 ${className || ''}`}>
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<Input id={id} type={type} placeholder={placeholder} />
 	</div>
 );
@@ -86,7 +96,10 @@ const CardInputRow = ({ fields }: CardInputRowProps) => (
 const SaveCardOption = ({ label }: { label: string }) => (
 	<div className="flex items-center gap-3 pt-2">
 		<Checkbox id="save-card" />
-		<Label htmlFor="save-card" className="text-sm text-muted-foreground cursor-pointer">
+		<Label
+			htmlFor="save-card"
+			className="text-sm text-muted-foreground cursor-pointer"
+		>
 			{label}
 		</Label>
 	</div>
@@ -137,7 +150,11 @@ export default function Main() {
 	];
 
 	const cardFields = [
-		{ id: 'card-number', label: 'Card Number', placeholder: '4242 4242 4242 4242' },
+		{
+			id: 'card-number',
+			label: 'Card Number',
+			placeholder: '4242 4242 4242 4242',
+		},
 		{ id: 'card-name', label: 'Cardholder Name', placeholder: 'John Doe' },
 		{ id: 'expiry', label: 'Expiry Date', placeholder: 'MM/YY' },
 		{ id: 'cvv', label: 'Security Code', placeholder: 'CVV', type: 'password' },

@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -78,9 +84,13 @@ const TotalLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -92,7 +102,8 @@ export default function Main() {
 			variant: 'Large / White',
 			price: 39.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&h=400&fit=crop',
 		},
 		{
 			id: '2',
@@ -100,7 +111,8 @@ export default function Main() {
 			variant: 'Mixed / 4-Pack',
 			price: 34.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=400&h=400&fit=crop',
 		},
 		{
 			id: '3',
@@ -108,7 +120,8 @@ export default function Main() {
 			variant: 'Copper / 1.5L',
 			price: 29.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=400&fit=crop',
 		},
 		{
 			id: '4',
@@ -116,7 +129,8 @@ export default function Main() {
 			variant: 'Organic / 500ml',
 			price: 14.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&h=400&fit=crop',
 		},
 	];
 

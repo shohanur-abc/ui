@@ -21,7 +21,14 @@ type CompactCardProps = {
 	badgeVariant: 'default' | 'secondary' | 'outline';
 };
 
-const CompactCard = ({ icon: Icon, label, value, subValue, badge, badgeVariant }: CompactCardProps) => (
+const CompactCard = ({
+	icon: Icon,
+	label,
+	value,
+	subValue,
+	badge,
+	badgeVariant,
+}: CompactCardProps) => (
 	<Card className="group border-border/50 bg-gradient-to-br from-card via-card to-card/80 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5">
 		<CardContent className="p-4 @sm:p-5">
 			<div className="flex items-center gap-3 @sm:gap-4">
@@ -30,12 +37,19 @@ const CompactCard = ({ icon: Icon, label, value, subValue, badge, badgeVariant }
 				</div>
 				<div className="flex-1 min-w-0">
 					<div className="flex items-center gap-2 mb-1">
-						<p className="text-xs @sm:text-sm font-medium text-muted-foreground truncate">{label}</p>
-						<Badge variant={badgeVariant} className="shrink-0 text-[10px] px-1.5 py-0">
+						<p className="text-xs @sm:text-sm font-medium text-muted-foreground truncate">
+							{label}
+						</p>
+						<Badge
+							variant={badgeVariant}
+							className="shrink-0 text-[10px] px-1.5 py-0"
+						>
 							{badge}
 						</Badge>
 					</div>
-					<p className="text-xl @sm:text-2xl font-bold tracking-tight">{value}</p>
+					<p className="text-xl @sm:text-2xl font-bold tracking-tight">
+						{value}
+					</p>
 					<p className="text-xs text-muted-foreground mt-0.5">{subValue}</p>
 				</div>
 				<ArrowUpRight className="size-4 @sm:size-5 text-muted-foreground/50 transition-all duration-300 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -45,10 +59,38 @@ const CompactCard = ({ icon: Icon, label, value, subValue, badge, badgeVariant }
 );
 
 const compactCards: CompactCardProps[] = [
-	{ icon: Users, label: 'Visitors', value: '24,532', subValue: '+2,145 today', badge: 'Live', badgeVariant: 'default' },
-	{ icon: MousePointerClick, label: 'Click Rate', value: '4.8%', subValue: '+0.3% from avg', badge: 'High', badgeVariant: 'secondary' },
-	{ icon: BarChart3, label: 'Sessions', value: '18,392', subValue: 'Avg: 4m 32s', badge: 'Growing', badgeVariant: 'outline' },
-	{ icon: TrendingUp, label: 'Bounce Rate', value: '32.1%', subValue: '-2.4% improved', badge: 'Good', badgeVariant: 'secondary' },
+	{
+		icon: Users,
+		label: 'Visitors',
+		value: '24,532',
+		subValue: '+2,145 today',
+		badge: 'Live',
+		badgeVariant: 'default',
+	},
+	{
+		icon: MousePointerClick,
+		label: 'Click Rate',
+		value: '4.8%',
+		subValue: '+0.3% from avg',
+		badge: 'High',
+		badgeVariant: 'secondary',
+	},
+	{
+		icon: BarChart3,
+		label: 'Sessions',
+		value: '18,392',
+		subValue: 'Avg: 4m 32s',
+		badge: 'Growing',
+		badgeVariant: 'outline',
+	},
+	{
+		icon: TrendingUp,
+		label: 'Bounce Rate',
+		value: '32.1%',
+		subValue: '-2.4% improved',
+		badge: 'Good',
+		badgeVariant: 'secondary',
+	},
 ];
 
 export default function Main() {

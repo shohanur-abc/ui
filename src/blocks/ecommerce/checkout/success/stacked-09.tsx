@@ -73,13 +73,7 @@ const QRSection = ({ code, items, validUntil }: PickupDetailsProps) => (
 	</div>
 );
 
-const StoreSection = ({
-	name,
-	address,
-	city,
-	phone,
-	hours,
-}: StoreProps) => (
+const StoreSection = ({ name, address, city, phone, hours }: StoreProps) => (
 	<div className="space-y-4">
 		<h2 className="font-semibold text-lg flex items-center gap-2">
 			<MapPin className="size-5" />
@@ -216,7 +210,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'Get Directions', href: '/directions', icon: Navigation },
-						{ label: 'View Order', href: '/orders', variant: 'outline', icon: ArrowRight },
+						{
+							label: 'View Order',
+							href: '/orders',
+							variant: 'outline',
+							icon: ArrowRight,
+						},
 					]}
 				/>
 			</div>

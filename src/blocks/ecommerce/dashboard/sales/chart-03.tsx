@@ -41,7 +41,10 @@ const LineChartCard = ({
 		</CardHeader>
 		<CardContent>
 			<ChartContainer config={config} className="h-[300px] w-full">
-				<LineChart data={data} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+				<LineChart
+					data={data}
+					margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+				>
 					<CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
 					<XAxis
 						dataKey="month"

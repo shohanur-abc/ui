@@ -102,7 +102,8 @@ export default function Main() {
 			author: 'Lisa Park',
 			role: 'Operations Manager',
 			company: 'Efficiency Pro',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'LP',
 			rating: 5,
 		},
@@ -112,7 +113,8 @@ export default function Main() {
 			author: 'Michael Chen',
 			role: 'Tech Lead',
 			company: 'IntegrateCo',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'MC',
 			rating: 5,
 		},
@@ -122,7 +124,8 @@ export default function Main() {
 			author: 'Nancy Williams',
 			role: 'Procurement Lead',
 			company: 'EvaluatePro',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'NW',
 			rating: 5,
 		},
@@ -132,7 +135,8 @@ export default function Main() {
 			author: 'Oliver Brown',
 			role: 'Data Analyst',
 			company: 'InsightFirst',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'OB',
 			rating: 5,
 		},
@@ -142,14 +146,18 @@ export default function Main() {
 			author: 'Patricia Davis',
 			role: 'Security Director',
 			company: 'SecureFirst',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'PD',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Slider View"

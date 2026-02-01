@@ -1,9 +1,29 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardFooter,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Progress } from '@/components/ui/progress';
-import { Gift, Tag, Percent, DollarSign, Calendar, Clock, AlertTriangle, CheckCircle, Copy, Share2, BarChart3, Edit, Trash2 } from 'lucide-react';
+import {
+	Gift,
+	Tag,
+	Percent,
+	DollarSign,
+	Calendar,
+	Clock,
+	AlertTriangle,
+	CheckCircle,
+	Copy,
+	Share2,
+	BarChart3,
+	Edit,
+	Trash2,
+} from 'lucide-react';
 
 interface PromotionDetailProps {
 	promotion: {
@@ -15,7 +35,12 @@ interface PromotionDetailProps {
 		status: 'active' | 'scheduled' | 'expired' | 'paused';
 		usage: { current: number; limit: number; percentage: number };
 		dates: { start: string; end: string };
-		conditions: { minOrder?: string; products?: string; customers?: string; maxUses?: string };
+		conditions: {
+			minOrder?: string;
+			products?: string;
+			customers?: string;
+			maxUses?: string;
+		};
 		orders: { count: number; revenue: string; avgDiscount: string };
 		performance: { redemptions: number; conversionRate: string };
 	};
@@ -35,12 +60,32 @@ interface PromotionDetailProps {
 	};
 }
 
-const StatusBadge = ({ status }: { status: PromotionDetailProps['promotion']['status'] }) => {
+const StatusBadge = ({
+	status,
+}: {
+	status: PromotionDetailProps['promotion']['status'];
+}) => {
 	const config = {
-		active: { icon: CheckCircle, className: 'bg-accent/10 text-accent border-accent/30', label: 'Active' },
-		scheduled: { icon: Clock, className: 'bg-blue-500/10 text-blue-500 border-blue-500/30', label: 'Scheduled' },
-		expired: { icon: AlertTriangle, className: 'bg-muted text-muted-foreground border-border', label: 'Expired' },
-		paused: { icon: Clock, className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30', label: 'Paused' },
+		active: {
+			icon: CheckCircle,
+			className: 'bg-accent/10 text-accent border-accent/30',
+			label: 'Active',
+		},
+		scheduled: {
+			icon: Clock,
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/30',
+			label: 'Scheduled',
+		},
+		expired: {
+			icon: AlertTriangle,
+			className: 'bg-muted text-muted-foreground border-border',
+			label: 'Expired',
+		},
+		paused: {
+			icon: Clock,
+			className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30',
+			label: 'Paused',
+		},
 	};
 	const { icon: Icon, className, label } = config[status];
 	return (
@@ -51,7 +96,11 @@ const StatusBadge = ({ status }: { status: PromotionDetailProps['promotion']['st
 	);
 };
 
-const TypeIcon = ({ type }: { type: PromotionDetailProps['promotion']['type'] }) => {
+const TypeIcon = ({
+	type,
+}: {
+	type: PromotionDetailProps['promotion']['type'];
+}) => {
 	const icons = {
 		percentage: Percent,
 		fixed: DollarSign,
@@ -66,7 +115,17 @@ const TypeIcon = ({ type }: { type: PromotionDetailProps['promotion']['type'] })
 	);
 };
 
-const StatCard = ({ icon: Icon, label, value, trend }: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; trend?: string }) => (
+const StatCard = ({
+	icon: Icon,
+	label,
+	value,
+	trend,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	label: string;
+	value: string;
+	trend?: string;
+}) => (
 	<div className="p-4 rounded-xl bg-muted/20 border border-border/50">
 		<div className="flex items-center gap-2 text-muted-foreground mb-2">
 			<Icon className="size-4" />
@@ -85,7 +144,9 @@ const PromotionDetail = ({ promotion, labels }: PromotionDetailProps) => (
 					<TypeIcon type={promotion.type} />
 					<div>
 						<CardTitle className="text-xl">{promotion.name}</CardTitle>
-						<p className="text-sm text-muted-foreground font-mono">{promotion.id}</p>
+						<p className="text-sm text-muted-foreground font-mono">
+							{promotion.id}
+						</p>
 					</div>
 				</div>
 				<StatusBadge status={promotion.status} />
@@ -98,7 +159,9 @@ const PromotionDetail = ({ promotion, labels }: PromotionDetailProps) => (
 					<div>
 						<p className="text-sm text-muted-foreground mb-1">{labels.code}</p>
 						<div className="flex items-center gap-3">
-							<code className="text-2xl font-bold font-mono tracking-wide">{promotion.code}</code>
+							<code className="text-2xl font-bold font-mono tracking-wide">
+								{promotion.code}
+							</code>
 							<Button variant="ghost" size="icon-sm">
 								<Copy className="size-4" />
 							</Button>
@@ -113,11 +176,17 @@ const PromotionDetail = ({ promotion, labels }: PromotionDetailProps) => (
 
 			<div>
 				<div className="flex items-center justify-between mb-2">
-					<p className="text-sm font-semibold text-muted-foreground">{labels.usage}</p>
-					<span className="text-sm font-medium">{promotion.usage.current} / {promotion.usage.limit}</span>
+					<p className="text-sm font-semibold text-muted-foreground">
+						{labels.usage}
+					</p>
+					<span className="text-sm font-medium">
+						{promotion.usage.current} / {promotion.usage.limit}
+					</span>
 				</div>
 				<Progress value={promotion.usage.percentage} className="h-3" />
-				<p className="text-xs text-muted-foreground mt-1">{promotion.usage.percentage}% of limit used</p>
+				<p className="text-xs text-muted-foreground mt-1">
+					{promotion.usage.percentage}% of limit used
+				</p>
 			</div>
 
 			<div className="grid grid-cols-2 gap-4">
@@ -138,30 +207,42 @@ const PromotionDetail = ({ promotion, labels }: PromotionDetailProps) => (
 			</div>
 
 			<div className="p-4 rounded-xl bg-muted/20 border border-border/50">
-				<p className="text-sm font-semibold text-muted-foreground mb-3">{labels.conditions}</p>
+				<p className="text-sm font-semibold text-muted-foreground mb-3">
+					{labels.conditions}
+				</p>
 				<div className="space-y-2">
 					{promotion.conditions.minOrder && (
 						<div className="flex items-center justify-between text-sm">
 							<span className="text-muted-foreground">Minimum Order</span>
-							<span className="font-medium">{promotion.conditions.minOrder}</span>
+							<span className="font-medium">
+								{promotion.conditions.minOrder}
+							</span>
 						</div>
 					)}
 					{promotion.conditions.products && (
 						<div className="flex items-center justify-between text-sm">
 							<span className="text-muted-foreground">Applies To</span>
-							<span className="font-medium">{promotion.conditions.products}</span>
+							<span className="font-medium">
+								{promotion.conditions.products}
+							</span>
 						</div>
 					)}
 					{promotion.conditions.customers && (
 						<div className="flex items-center justify-between text-sm">
 							<span className="text-muted-foreground">Customer Limit</span>
-							<span className="font-medium">{promotion.conditions.customers}</span>
+							<span className="font-medium">
+								{promotion.conditions.customers}
+							</span>
 						</div>
 					)}
 					{promotion.conditions.maxUses && (
 						<div className="flex items-center justify-between text-sm">
-							<span className="text-muted-foreground">Max Uses per Customer</span>
-							<span className="font-medium">{promotion.conditions.maxUses}</span>
+							<span className="text-muted-foreground">
+								Max Uses per Customer
+							</span>
+							<span className="font-medium">
+								{promotion.conditions.maxUses}
+							</span>
 						</div>
 					)}
 				</div>
@@ -170,11 +251,26 @@ const PromotionDetail = ({ promotion, labels }: PromotionDetailProps) => (
 			<Separator />
 
 			<div>
-				<p className="text-sm font-semibold text-muted-foreground mb-3">{labels.performance}</p>
+				<p className="text-sm font-semibold text-muted-foreground mb-3">
+					{labels.performance}
+				</p>
 				<div className="grid grid-cols-3 gap-4">
-					<StatCard icon={Tag} label={labels.orders} value={promotion.orders.count.toString()} trend={`${promotion.performance.conversionRate} conversion`} />
-					<StatCard icon={DollarSign} label={labels.revenue} value={promotion.orders.revenue} />
-					<StatCard icon={BarChart3} label={labels.avgDiscount} value={promotion.orders.avgDiscount} />
+					<StatCard
+						icon={Tag}
+						label={labels.orders}
+						value={promotion.orders.count.toString()}
+						trend={`${promotion.performance.conversionRate} conversion`}
+					/>
+					<StatCard
+						icon={DollarSign}
+						label={labels.revenue}
+						value={promotion.orders.revenue}
+					/>
+					<StatCard
+						icon={BarChart3}
+						label={labels.avgDiscount}
+						value={promotion.orders.avgDiscount}
+					/>
 				</div>
 			</div>
 		</CardContent>
@@ -224,7 +320,12 @@ export default function Main() {
 		status: 'active' as const,
 		usage: { current: 847, limit: 1000, percentage: 85 },
 		dates: { start: 'Jan 15, 2024', end: 'Feb 28, 2024' },
-		conditions: { minOrder: '$50.00', products: 'All Products', customers: 'New & Existing', maxUses: '1 per customer' },
+		conditions: {
+			minOrder: '$50.00',
+			products: 'All Products',
+			customers: 'New & Existing',
+			maxUses: '1 per customer',
+		},
 		orders: { count: 847, revenue: '$125,430', avgDiscount: '$37.00' },
 		performance: { redemptions: 847, conversionRate: '24.5%' },
 	};

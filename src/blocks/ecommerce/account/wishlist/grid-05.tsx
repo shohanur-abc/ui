@@ -74,11 +74,21 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 				<div className="flex items-center justify-between">
 					<span className="text-lg font-bold">${item.price.toFixed(2)}</span>
 					<div className="flex items-center gap-1 rounded-full border bg-muted/50">
-						<Button size="icon-sm" variant="ghost" className="rounded-full size-7">
+						<Button
+							size="icon-sm"
+							variant="ghost"
+							className="rounded-full size-7"
+						>
 							<Minus className="size-3" />
 						</Button>
-						<span className="w-6 text-center text-sm font-medium">{item.quantity}</span>
-						<Button size="icon-sm" variant="ghost" className="rounded-full size-7">
+						<span className="w-6 text-center text-sm font-medium">
+							{item.quantity}
+						</span>
+						<Button
+							size="icon-sm"
+							variant="ghost"
+							className="rounded-full size-7"
+						>
 							<Plus className="size-3" />
 						</Button>
 					</div>
@@ -97,7 +107,10 @@ const WishlistGrid = ({ items }: WishlistGridProps) => (
 );
 
 const Summary = ({ items }: { items: WishlistItem[] }) => {
-	const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 	return (
 		<Card className="mt-8 p-6">
 			<div className="flex flex-wrap items-center justify-between gap-4">
@@ -119,16 +132,60 @@ const Summary = ({ items }: { items: WishlistItem[] }) => {
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Premium Cotton T-Shirt', price: 45.00, quantity: 2, color: 'Navy Blue', size: 'M', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop', href: '/product/1' },
-		{ id: '2', name: 'Slim Fit Chinos', price: 79.00, quantity: 1, color: 'Khaki', size: '32', image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=300&fit=crop', href: '/product/2' },
-		{ id: '3', name: 'Leather Belt', price: 55.00, quantity: 1, color: 'Brown', size: 'L', image: 'https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=400&h=300&fit=crop', href: '/product/3' },
-		{ id: '4', name: 'Canvas Sneakers', price: 95.00, quantity: 1, color: 'White', size: '10', image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=300&fit=crop', href: '/product/4' },
+		{
+			id: '1',
+			name: 'Premium Cotton T-Shirt',
+			price: 45.0,
+			quantity: 2,
+			color: 'Navy Blue',
+			size: 'M',
+			image:
+				'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop',
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Slim Fit Chinos',
+			price: 79.0,
+			quantity: 1,
+			color: 'Khaki',
+			size: '32',
+			image:
+				'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=300&fit=crop',
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Leather Belt',
+			price: 55.0,
+			quantity: 1,
+			color: 'Brown',
+			size: 'L',
+			image:
+				'https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=400&h=300&fit=crop',
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Canvas Sneakers',
+			price: 95.0,
+			quantity: 1,
+			color: 'White',
+			size: '10',
+			image:
+				'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=300&fit=crop',
+			href: '/product/4',
+		},
 	];
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<SectionHeader title="My Wishlist" actionLabel="Continue Shopping" actionHref="/shop" />
+				<SectionHeader
+					title="My Wishlist"
+					actionLabel="Continue Shopping"
+					actionHref="/shop"
+				/>
 				<WishlistGrid items={wishlistItems} />
 				<Summary items={wishlistItems} />
 			</div>

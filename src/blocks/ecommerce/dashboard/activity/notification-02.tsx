@@ -115,7 +115,11 @@ const OrderCard = ({ notification }: { notification: OrderNotification }) => {
 	);
 };
 
-const StatusTabs = ({ counts }: { counts: OrderNotificationsProps['counts'] }) => (
+const StatusTabs = ({
+	counts,
+}: {
+	counts: OrderNotificationsProps['counts'];
+}) => (
 	<div className="flex gap-2 overflow-x-auto pb-2">
 		{Object.entries(StatusConfig).map(([status, config]) => {
 			const count = counts[status as keyof typeof counts];

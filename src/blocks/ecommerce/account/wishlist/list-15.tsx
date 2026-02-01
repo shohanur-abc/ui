@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, Gift, Calendar, Sparkles, PartyPopper } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	Gift,
+	Calendar,
+	Sparkles,
+	PartyPopper,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -58,7 +66,11 @@ const ListItem = ({ item }: { item: WishlistItem }) => (
 	<Card className="p-4">
 		<div className="flex gap-4">
 			<div className="relative size-24 flex-shrink-0 rounded-lg overflow-hidden bg-muted">
-				<img src={item.image} alt={item.name} className="size-full object-cover" />
+				<img
+					src={item.image}
+					alt={item.name}
+					className="size-full object-cover"
+				/>
 				{item.recipient && (
 					<div className="absolute top-1 left-1 size-6 rounded-full bg-primary flex items-center justify-center">
 						<Gift className="size-3 text-primary-foreground" />
@@ -70,7 +82,9 @@ const ListItem = ({ item }: { item: WishlistItem }) => (
 					<div className="flex-1">
 						<div className="flex items-center gap-2 flex-wrap">
 							<Link href={item.href}>
-								<h3 className="font-semibold hover:text-primary transition-colors">{item.name}</h3>
+								<h3 className="font-semibold hover:text-primary transition-colors">
+									{item.name}
+								</h3>
 							</Link>
 							{item.recipient && <RecipientBadge name={item.recipient} />}
 						</div>
@@ -112,7 +126,9 @@ const UpcomingOccasions = ({ occasions }: { occasions: Occasion[] }) => (
 						</div>
 						<div>
 							<p className="text-sm font-medium">{occasion.name}</p>
-							<p className="text-xs text-muted-foreground">{occasion.daysUntil} days away</p>
+							<p className="text-xs text-muted-foreground">
+								{occasion.daysUntil} days away
+							</p>
 						</div>
 					</div>
 				</Card>
@@ -129,10 +145,59 @@ export default function Main() {
 	];
 
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Cashmere Wrap Scarf', price: 129.00, image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=200&h=200&fit=crop', recipient: 'Mom', occasion: { name: "Mom's Birthday", date: 'Nov 15', daysUntil: 12, icon: 'party' }, href: '/product/1' },
-		{ id: '2', name: 'Leather Journal Set', price: 65.00, image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=200&h=200&fit=crop', recipient: 'Dad', occasion: { name: 'Christmas', date: 'Dec 25', daysUntil: 52, icon: 'gift' }, href: '/product/2' },
-		{ id: '3', name: 'Wireless Earbuds', price: 199.00, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=200&h=200&fit=crop', href: '/product/3' },
-		{ id: '4', name: 'Silk Tie Collection', price: 89.00, image: 'https://images.unsplash.com/photo-1589756823695-278bc923f962?w=200&h=200&fit=crop', recipient: 'Partner', occasion: { name: 'Anniversary', date: 'Jan 10', daysUntil: 68, icon: 'calendar' }, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Cashmere Wrap Scarf',
+			price: 129.0,
+			image:
+				'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=200&h=200&fit=crop',
+			recipient: 'Mom',
+			occasion: {
+				name: "Mom's Birthday",
+				date: 'Nov 15',
+				daysUntil: 12,
+				icon: 'party',
+			},
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Leather Journal Set',
+			price: 65.0,
+			image:
+				'https://images.unsplash.com/photo-1544816155-12df9643f363?w=200&h=200&fit=crop',
+			recipient: 'Dad',
+			occasion: {
+				name: 'Christmas',
+				date: 'Dec 25',
+				daysUntil: 52,
+				icon: 'gift',
+			},
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Wireless Earbuds',
+			price: 199.0,
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=200&h=200&fit=crop',
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Silk Tie Collection',
+			price: 89.0,
+			image:
+				'https://images.unsplash.com/photo-1589756823695-278bc923f962?w=200&h=200&fit=crop',
+			recipient: 'Partner',
+			occasion: {
+				name: 'Anniversary',
+				date: 'Jan 10',
+				daysUntil: 68,
+				icon: 'calendar',
+			},
+			href: '/product/4',
+		},
 	];
 
 	return (

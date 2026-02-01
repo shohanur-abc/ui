@@ -115,7 +115,13 @@ const LongformContent = ({ paragraphs }: { paragraphs: string[] }) => (
 	</div>
 );
 
-const ChapterMarker = ({ number, title }: { number: number; title: string }) => (
+const ChapterMarker = ({
+	number,
+	title,
+}: {
+	number: number;
+	title: string;
+}) => (
 	<div className="flex items-center gap-4 py-8">
 		<div className="flex items-center justify-center size-12 rounded-full border-2 border-primary text-primary font-bold text-lg">
 			{number}
@@ -131,7 +137,8 @@ export default function Main() {
 		title: 'The Paradox of Choice in the Digital Age',
 		author: {
 			name: 'Oliver Grant',
-			avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop',
 			initials: 'OG',
 		},
 		publishDate: 'January 18, 2026',
@@ -152,7 +159,10 @@ export default function Main() {
 		<section className="@container relative" data-theme="article">
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-6 @md:gap-8">
-					<Category text={articleData.category} href={articleData.categoryHref} />
+					<Category
+						text={articleData.category}
+						href={articleData.categoryHref}
+					/>
 					<Title text={articleData.title} />
 					<AuthorLine
 						author={articleData.author}

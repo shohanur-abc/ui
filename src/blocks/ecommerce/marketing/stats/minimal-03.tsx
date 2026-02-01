@@ -10,8 +10,12 @@ interface StatItemProps {
 const StatItem = ({ value, label, prefix }: StatItemProps) => (
 	<div className="space-y-2">
 		<div className="flex items-baseline gap-1">
-			{prefix && <span className="text-xl font-semibold text-primary">{prefix}</span>}
-			<span className="text-4xl font-bold tracking-tight @sm:text-5xl">{value}</span>
+			{prefix && (
+				<span className="text-xl font-semibold text-primary">{prefix}</span>
+			)}
+			<span className="text-4xl font-bold tracking-tight @sm:text-5xl">
+				{value}
+			</span>
 		</div>
 		<Separator className="w-12" />
 		<p className="text-sm text-muted-foreground">{label}</p>

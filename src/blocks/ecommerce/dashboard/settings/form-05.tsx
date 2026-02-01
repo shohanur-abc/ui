@@ -37,7 +37,9 @@ const CardIcon = ({ type }: { type: PaymentMethod['type'] }) => {
 	};
 
 	return (
-		<div className={`flex size-12 items-center justify-center rounded-lg ${colors[type]}`}>
+		<div
+			className={`flex size-12 items-center justify-center rounded-lg ${colors[type]}`}
+		>
 			<CreditCard className="size-6" />
 		</div>
 	);
@@ -69,7 +71,13 @@ const PaymentCard = ({ id, type, last4, expiry, isDefault }: PaymentMethod) => (
 	</div>
 );
 
-const BillingInput = ({ id, label, placeholder, type = 'text', colSpan = 1 }: BillingField) => (
+const BillingInput = ({
+	id,
+	label,
+	placeholder,
+	type = 'text',
+	colSpan = 1,
+}: BillingField) => (
 	<div className={`space-y-2 ${colSpan === 2 ? '@sm:col-span-2' : ''}`}>
 		<Label htmlFor={id} className="text-sm font-medium">
 			{label}
@@ -85,14 +93,42 @@ const BillingInput = ({ id, label, placeholder, type = 'text', colSpan = 1 }: Bi
 
 export default function Main() {
 	const paymentMethods: PaymentMethod[] = [
-		{ id: 'card1', type: 'visa', last4: '4242', expiry: '12/26', isDefault: true },
-		{ id: 'card2', type: 'mastercard', last4: '8888', expiry: '03/25', isDefault: false },
-		{ id: 'card3', type: 'amex', last4: '1234', expiry: '09/27', isDefault: false },
+		{
+			id: 'card1',
+			type: 'visa',
+			last4: '4242',
+			expiry: '12/26',
+			isDefault: true,
+		},
+		{
+			id: 'card2',
+			type: 'mastercard',
+			last4: '8888',
+			expiry: '03/25',
+			isDefault: false,
+		},
+		{
+			id: 'card3',
+			type: 'amex',
+			last4: '1234',
+			expiry: '09/27',
+			isDefault: false,
+		},
 	];
 
 	const billingFields: BillingField[] = [
-		{ id: 'cardholderName', label: 'Cardholder Name', placeholder: 'Name on card', colSpan: 2 },
-		{ id: 'cardNumber', label: 'Card Number', placeholder: '1234 5678 9012 3456', colSpan: 2 },
+		{
+			id: 'cardholderName',
+			label: 'Cardholder Name',
+			placeholder: 'Name on card',
+			colSpan: 2,
+		},
+		{
+			id: 'cardNumber',
+			label: 'Card Number',
+			placeholder: '1234 5678 9012 3456',
+			colSpan: 2,
+		},
 		{ id: 'expiry', label: 'Expiry Date', placeholder: 'MM/YY' },
 		{ id: 'cvv', label: 'CVV', placeholder: '123', type: 'password' },
 	];
@@ -110,7 +146,9 @@ export default function Main() {
 									</div>
 									<div>
 										<CardTitle>Payment Methods</CardTitle>
-										<CardDescription>Manage your saved payment methods</CardDescription>
+										<CardDescription>
+											Manage your saved payment methods
+										</CardDescription>
 									</div>
 								</div>
 								<Button size="sm" variant="outline" className="gap-2">
@@ -131,7 +169,9 @@ export default function Main() {
 					<Card>
 						<CardHeader className="border-b">
 							<CardTitle>Add New Card</CardTitle>
-							<CardDescription>Enter your card details to add a new payment method</CardDescription>
+							<CardDescription>
+								Enter your card details to add a new payment method
+							</CardDescription>
 						</CardHeader>
 						<CardContent className="pt-6">
 							<div className="grid gap-4 @sm:grid-cols-2">

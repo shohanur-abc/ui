@@ -21,7 +21,12 @@ type ComparisonCardProps = {
 	previous: { label: string; value: string; amount: number };
 };
 
-const ComparisonCard = ({ icon: Icon, title, current, previous }: ComparisonCardProps) => {
+const ComparisonCard = ({
+	icon: Icon,
+	title,
+	current,
+	previous,
+}: ComparisonCardProps) => {
 	const total = current.amount + previous.amount;
 	const currentPercent = (current.amount / total) * 100;
 	const isPositive = current.amount > previous.amount;
@@ -40,9 +45,18 @@ const ComparisonCard = ({ icon: Icon, title, current, previous }: ComparisonCard
 						<p className="text-xs text-muted-foreground">{current.label}</p>
 						<p className="text-xl @sm:text-2xl font-bold">{current.value}</p>
 					</div>
-					<div className={`flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium ${isPositive ? 'bg-emerald-500/10 text-emerald-500' : 'bg-rose-500/10 text-rose-500'}`}>
-						{isPositive ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
-						{Math.abs(((current.amount - previous.amount) / previous.amount) * 100).toFixed(1)}%
+					<div
+						className={`flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium ${isPositive ? 'bg-emerald-500/10 text-emerald-500' : 'bg-rose-500/10 text-rose-500'}`}
+					>
+						{isPositive ? (
+							<TrendingUp className="size-3" />
+						) : (
+							<TrendingDown className="size-3" />
+						)}
+						{Math.abs(
+							((current.amount - previous.amount) / previous.amount) * 100,
+						).toFixed(1)}
+						%
 					</div>
 				</div>
 				<div className="space-y-2">
@@ -57,8 +71,12 @@ const ComparisonCard = ({ icon: Icon, title, current, previous }: ComparisonCard
 						/>
 					</div>
 					<div className="flex items-center justify-between text-xs text-muted-foreground">
-						<span>{current.label}: {current.value}</span>
-						<span>{previous.label}: {previous.value}</span>
+						<span>
+							{current.label}: {current.value}
+						</span>
+						<span>
+							{previous.label}: {previous.value}
+						</span>
 					</div>
 				</div>
 			</CardContent>
@@ -67,10 +85,30 @@ const ComparisonCard = ({ icon: Icon, title, current, previous }: ComparisonCard
 };
 
 const comparisons: ComparisonCardProps[] = [
-	{ icon: CreditCard, title: 'Revenue Comparison', current: { label: 'This Month', value: '$45,230', amount: 45230 }, previous: { label: 'Last Month', value: '$38,420', amount: 38420 } },
-	{ icon: Package2, title: 'Orders Comparison', current: { label: 'This Week', value: '1,234', amount: 1234 }, previous: { label: 'Last Week', value: '1,456', amount: 1456 } },
-	{ icon: Target, title: 'Conversion Rate', current: { label: 'Current', value: '3.8%', amount: 38 }, previous: { label: 'Target', value: '4.0%', amount: 40 } },
-	{ icon: Activity, title: 'Site Traffic', current: { label: 'Today', value: '12,543', amount: 12543 }, previous: { label: 'Yesterday', value: '11,230', amount: 11230 } },
+	{
+		icon: CreditCard,
+		title: 'Revenue Comparison',
+		current: { label: 'This Month', value: '$45,230', amount: 45230 },
+		previous: { label: 'Last Month', value: '$38,420', amount: 38420 },
+	},
+	{
+		icon: Package2,
+		title: 'Orders Comparison',
+		current: { label: 'This Week', value: '1,234', amount: 1234 },
+		previous: { label: 'Last Week', value: '1,456', amount: 1456 },
+	},
+	{
+		icon: Target,
+		title: 'Conversion Rate',
+		current: { label: 'Current', value: '3.8%', amount: 38 },
+		previous: { label: 'Target', value: '4.0%', amount: 40 },
+	},
+	{
+		icon: Activity,
+		title: 'Site Traffic',
+		current: { label: 'Today', value: '12,543', amount: 12543 },
+		previous: { label: 'Yesterday', value: '11,230', amount: 11230 },
+	},
 ];
 
 export default function Main() {

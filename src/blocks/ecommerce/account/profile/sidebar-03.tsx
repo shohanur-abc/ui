@@ -115,7 +115,12 @@ const PersonalInfoSection = ({
 const SecuritySection = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; description: string; status: 'enabled' | 'disabled' | 'action' }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		description: string;
+		status: 'enabled' | 'disabled' | 'action';
+	}[];
 }) => (
 	<Card>
 		<CardHeader>
@@ -126,16 +131,23 @@ const SecuritySection = ({
 		</CardHeader>
 		<CardContent className="space-y-4">
 			{items.map((item, i) => (
-				<div key={i} className="flex items-center justify-between p-4 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-4 rounded-lg bg-muted/30"
+				>
 					<div className="flex items-center gap-3">
 						<item.icon className="size-5 text-muted-foreground" />
 						<div>
 							<p className="font-medium">{item.label}</p>
-							<p className="text-sm text-muted-foreground">{item.description}</p>
+							<p className="text-sm text-muted-foreground">
+								{item.description}
+							</p>
 						</div>
 					</div>
 					{item.status === 'action' ? (
-						<Button variant="outline" size="sm">Change</Button>
+						<Button variant="outline" size="sm">
+							Change
+						</Button>
 					) : (
 						<Switch defaultChecked={item.status === 'enabled'} />
 					)}
@@ -195,9 +207,24 @@ export default function Main() {
 			phone: '+1 (555) 123-4567',
 		},
 		security: [
-			{ icon: Key, label: 'Password', description: 'Last changed 3 months ago', status: 'action' as const },
-			{ icon: Smartphone, label: 'Two-Factor Auth', description: 'Add extra security', status: 'enabled' as const },
-			{ icon: Lock, label: 'Login Alerts', description: 'Get notified of new logins', status: 'enabled' as const },
+			{
+				icon: Key,
+				label: 'Password',
+				description: 'Last changed 3 months ago',
+				status: 'action' as const,
+			},
+			{
+				icon: Smartphone,
+				label: 'Two-Factor Auth',
+				description: 'Add extra security',
+				status: 'enabled' as const,
+			},
+			{
+				icon: Lock,
+				label: 'Login Alerts',
+				description: 'Get notified of new logins',
+				status: 'enabled' as const,
+			},
 		],
 		notifications: [
 			{ icon: Mail, label: 'Email notifications', enabled: true },
@@ -215,9 +242,15 @@ export default function Main() {
 							<CardContent className="p-6 space-y-6">
 								<SettingsSidebar {...profileData.sidebar} />
 								<Separator />
-								<SettingsNav sections={profileData.sections} activeSection="personal" />
+								<SettingsNav
+									sections={profileData.sections}
+									activeSection="personal"
+								/>
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>

@@ -116,7 +116,9 @@ const HistoryTimelineItem = ({
 									className="mt-3 w-full justify-between"
 								>
 									<span>{entry.changes.length} changes</span>
-									<ChevronDown className={`size-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+									<ChevronDown
+										className={`size-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+									/>
 								</Button>
 							</CollapsibleTrigger>
 						)}
@@ -129,11 +131,21 @@ const HistoryTimelineItem = ({
 
 						{!isFirst && (
 							<div className="mt-3 flex gap-2">
-								<Button variant="outline" size="sm" className="gap-1" onClick={onPreview}>
+								<Button
+									variant="outline"
+									size="sm"
+									className="gap-1"
+									onClick={onPreview}
+								>
 									<Eye className="size-3.5" />
 									Preview
 								</Button>
-								<Button variant="outline" size="sm" className="gap-1" onClick={onRestore}>
+								<Button
+									variant="outline"
+									size="sm"
+									className="gap-1"
+									onClick={onRestore}
+								>
 									<RotateCcw className="size-3.5" />
 									Restore
 								</Button>
@@ -156,7 +168,9 @@ const FieldChangeRow = ({ change }: FieldChangeRowProps) => (
 		<div className="grid gap-2 @sm:grid-cols-2">
 			<div className="flex items-start gap-2">
 				<Minus className="mt-0.5 size-3.5 shrink-0 text-red-500" />
-				<p className="line-through opacity-60">{change.oldValue || '(empty)'}</p>
+				<p className="line-through opacity-60">
+					{change.oldValue || '(empty)'}
+				</p>
 			</div>
 			<div className="flex items-start gap-2">
 				<Plus className="mt-0.5 size-3.5 shrink-0 text-emerald-500" />
@@ -241,8 +255,17 @@ export default function Main() {
 			author: { name: 'Sarah Chen', avatar: '', initials: 'SC' },
 			action: 'updated',
 			changes: [
-				{ field: 'Title', oldValue: 'Wireless Headphones', newValue: 'Premium Wireless Headphones' },
-				{ field: 'Description', oldValue: 'Great headphones for everyday use.', newValue: 'Experience crystal-clear audio with our top-of-the-line wireless headphones. Featuring active noise cancellation and 30-hour battery life.' },
+				{
+					field: 'Title',
+					oldValue: 'Wireless Headphones',
+					newValue: 'Premium Wireless Headphones',
+				},
+				{
+					field: 'Description',
+					oldValue: 'Great headphones for everyday use.',
+					newValue:
+						'Experience crystal-clear audio with our top-of-the-line wireless headphones. Featuring active noise cancellation and 30-hour battery life.',
+				},
 			],
 		},
 		{

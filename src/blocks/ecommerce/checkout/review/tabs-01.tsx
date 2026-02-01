@@ -2,7 +2,13 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
@@ -44,7 +50,12 @@ const TabHeader = ({
 const ProductCard = ({ product }: { product: Product }) => (
 	<div className="group relative flex gap-4 rounded-xl border bg-card p-4 transition-all hover:shadow-md">
 		<div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-muted">
-			<Image src={product.image} alt={product.name} fill className="object-cover transition-transform group-hover:scale-105" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover transition-transform group-hover:scale-105"
+			/>
 		</div>
 		<div className="flex flex-1 flex-col justify-between">
 			<div>
@@ -133,7 +144,9 @@ const PaymentMethod = ({
 			<CreditCard className="size-6 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{type} ending in {last4}</p>
+			<p className="font-medium">
+				{type} ending in {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {expiry}</p>
 		</div>
 	</div>
@@ -156,7 +169,9 @@ const PromoItem = ({
 				<p className="text-xs text-muted-foreground">{description}</p>
 			</div>
 		</div>
-		<span className="font-medium text-green-600 dark:text-green-400">{discount}</span>
+		<span className="font-medium text-green-600 dark:text-green-400">
+			{discount}
+		</span>
 	</div>
 );
 
@@ -171,9 +186,13 @@ const SummaryLine = ({
 	large?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${large ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${large ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={large ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -185,7 +204,8 @@ export default function Main() {
 			variant: 'Cherry MX Blue / RGB',
 			price: 159.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -193,7 +213,8 @@ export default function Main() {
 			variant: 'Wireless / Black',
 			price: 79.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1527814050087-3793815479db?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527814050087-3793815479db?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -201,7 +222,8 @@ export default function Main() {
 			variant: 'Extended / Dark',
 			price: 29.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1616763355548-1b606f439f86?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1616763355548-1b606f439f86?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -224,16 +246,28 @@ export default function Main() {
 				<div className="grid gap-8 @xl:grid-cols-[1fr_360px]">
 					<Tabs defaultValue="items" className="w-full">
 						<TabsList className="w-full justify-start gap-1 bg-transparent p-0">
-							<TabsTrigger value="items" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+							<TabsTrigger
+								value="items"
+								className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+							>
 								<TabHeader icon={Package} label="Items" />
 							</TabsTrigger>
-							<TabsTrigger value="shipping" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+							<TabsTrigger
+								value="shipping"
+								className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+							>
 								<TabHeader icon={MapPin} label="Shipping" />
 							</TabsTrigger>
-							<TabsTrigger value="payment" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+							<TabsTrigger
+								value="payment"
+								className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+							>
 								<TabHeader icon={CreditCard} label="Payment" />
 							</TabsTrigger>
-							<TabsTrigger value="promos" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+							<TabsTrigger
+								value="promos"
+								className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+							>
 								<TabHeader icon={Gift} label="Promos" />
 							</TabsTrigger>
 						</TabsList>
@@ -244,7 +278,10 @@ export default function Main() {
 							))}
 						</TabsContent>
 
-						<TabsContent value="shipping" className="mt-6 grid gap-4 @md:grid-cols-2">
+						<TabsContent
+							value="shipping"
+							className="mt-6 grid gap-4 @md:grid-cols-2"
+						>
 							<InfoCard icon={MapPin} title="Shipping Address">
 								<AddressInfo
 									name="David Park"

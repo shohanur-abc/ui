@@ -28,11 +28,23 @@ const TopGradient = () => (
 
 const SummaryRow = ({ label, value, discount }: SummaryRowProps) => (
 	<div className="flex items-center justify-between text-sm">
-		<span className={discount ? 'flex items-center gap-1 text-green-600 dark:text-green-400' : 'text-muted-foreground'}>
+		<span
+			className={
+				discount
+					? 'flex items-center gap-1 text-green-600 dark:text-green-400'
+					: 'text-muted-foreground'
+			}
+		>
 			{discount && <Check className="size-3" />}
 			{label}
 		</span>
-		<span className={discount ? 'font-medium text-green-600 dark:text-green-400' : 'font-medium'}>
+		<span
+			className={
+				discount
+					? 'font-medium text-green-600 dark:text-green-400'
+					: 'font-medium'
+			}
+		>
 			{value}
 		</span>
 	</div>
@@ -42,11 +54,17 @@ const TotalRow = ({
 	label,
 	value,
 	original,
-}: { label: string; value: string; original: string }) => (
+}: {
+	label: string;
+	value: string;
+	original: string;
+}) => (
 	<div className="flex items-center justify-between">
 		<span className="text-lg font-semibold">{label}</span>
 		<div className="text-right">
-			<span className="mr-2 text-sm text-muted-foreground line-through">{original}</span>
+			<span className="mr-2 text-sm text-muted-foreground line-through">
+				{original}
+			</span>
 			<span className="text-2xl font-bold">{value}</span>
 		</div>
 	</div>
@@ -65,7 +83,10 @@ const AppliedCoupon = ({ code, discount }: AppliedCouponProps) => (
 const CouponInput = ({
 	placeholder,
 	buttonLabel,
-}: { placeholder: string; buttonLabel: string }) => (
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="flex gap-2">
 		<Input placeholder={placeholder} className="flex-1" />
 		<Button variant="outline">{buttonLabel}</Button>

@@ -14,7 +14,11 @@ interface SentimentStatProps {
 	negative: number;
 }
 
-const ReviewBreakdown = ({ rating, totalReviews, breakdown }: ReviewStatProps) => (
+const ReviewBreakdown = ({
+	rating,
+	totalReviews,
+	breakdown,
+}: ReviewStatProps) => (
 	<Card className="p-6 @md:p-8">
 		<div className="flex items-start gap-6">
 			<div className="text-center">
@@ -27,12 +31,16 @@ const ReviewBreakdown = ({ rating, totalReviews, breakdown }: ReviewStatProps) =
 						/>
 					))}
 				</div>
-				<p className="mt-2 text-sm text-muted-foreground">{totalReviews} reviews</p>
+				<p className="mt-2 text-sm text-muted-foreground">
+					{totalReviews} reviews
+				</p>
 			</div>
 			<div className="flex-1 space-y-2">
 				{breakdown.map((item) => (
 					<div key={item.stars} className="flex items-center gap-2">
-						<span className="w-3 text-xs text-muted-foreground">{item.stars}</span>
+						<span className="w-3 text-xs text-muted-foreground">
+							{item.stars}
+						</span>
 						<Star className="size-3 text-primary" />
 						<div className="h-2 flex-1 overflow-hidden rounded-full bg-secondary">
 							<div
@@ -40,7 +48,9 @@ const ReviewBreakdown = ({ rating, totalReviews, breakdown }: ReviewStatProps) =
 								style={{ width: `${item.percentage}%` }}
 							/>
 						</div>
-						<span className="w-12 text-right text-xs text-muted-foreground">{item.count}</span>
+						<span className="w-12 text-right text-xs text-muted-foreground">
+							{item.count}
+						</span>
 					</div>
 				))}
 			</div>

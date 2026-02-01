@@ -11,7 +11,13 @@ interface StatItemProps {
 	trend: 'up' | 'down';
 }
 
-const StatItem = ({ icon: Icon, label, value, change, trend }: StatItemProps) => (
+const StatItem = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	trend,
+}: StatItemProps) => (
 	<div className="group flex items-center gap-4 rounded-lg p-4 transition-colors hover:bg-secondary/50">
 		<div className="rounded-lg bg-primary/10 p-2.5">
 			<Icon className="size-5 text-primary" />
@@ -20,8 +26,15 @@ const StatItem = ({ icon: Icon, label, value, change, trend }: StatItemProps) =>
 			<p className="text-sm text-muted-foreground">{label}</p>
 			<p className="text-xl font-bold">{value}</p>
 		</div>
-		<Badge variant={trend === 'up' ? 'default' : 'destructive'} className="gap-1">
-			{trend === 'up' ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+		<Badge
+			variant={trend === 'up' ? 'default' : 'destructive'}
+			className="gap-1"
+		>
+			{trend === 'up' ? (
+				<TrendingUp className="size-3" />
+			) : (
+				<TrendingDown className="size-3" />
+			)}
 			{change}
 		</Badge>
 	</div>
@@ -29,10 +42,34 @@ const StatItem = ({ icon: Icon, label, value, change, trend }: StatItemProps) =>
 
 export default function Main() {
 	const stats: StatItemProps[] = [
-		{ icon: DollarSign, label: 'Revenue', value: '$124,847', change: '+18.2%', trend: 'up' },
-		{ icon: ShoppingCart, label: 'Orders', value: '8,492', change: '+12.4%', trend: 'up' },
-		{ icon: Users, label: 'Customers', value: '24,847', change: '+8.7%', trend: 'up' },
-		{ icon: Eye, label: 'Page Views', value: '847K', change: '-2.1%', trend: 'down' },
+		{
+			icon: DollarSign,
+			label: 'Revenue',
+			value: '$124,847',
+			change: '+18.2%',
+			trend: 'up',
+		},
+		{
+			icon: ShoppingCart,
+			label: 'Orders',
+			value: '8,492',
+			change: '+12.4%',
+			trend: 'up',
+		},
+		{
+			icon: Users,
+			label: 'Customers',
+			value: '24,847',
+			change: '+8.7%',
+			trend: 'up',
+		},
+		{
+			icon: Eye,
+			label: 'Page Views',
+			value: '847K',
+			change: '-2.1%',
+			trend: 'down',
+		},
 	];
 
 	return (

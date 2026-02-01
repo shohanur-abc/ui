@@ -29,11 +29,7 @@ interface CTAProps {
 	}[];
 }
 
-const CelebrationHeader = ({
-	orderNumber,
-}: {
-	orderNumber: string;
-}) => (
+const CelebrationHeader = ({ orderNumber }: { orderNumber: string }) => (
 	<div className="text-center space-y-4">
 		<div className="relative inline-block">
 			<div className="size-24 rounded-full bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 flex items-center justify-center mx-auto shadow-lg shadow-amber-500/25">
@@ -168,7 +164,10 @@ const OrderTotal = ({
 					{total.toFixed(2)}
 				</p>
 			</div>
-			<Badge variant="secondary" className="text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30">
+			<Badge
+				variant="secondary"
+				className="text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30"
+			>
 				Saved {currency}
 				{savings.toFixed(2)}
 			</Badge>
@@ -236,12 +235,17 @@ export default function Main() {
 					validUntil="Feb 15, 2024"
 				/>
 
-				<OrderTotal total={249.99} currency="$" savings={62.50} />
+				<OrderTotal total={249.99} currency="$" savings={62.5} />
 
 				<CTA
 					items={[
 						{ label: 'View Rewards', href: '/rewards', icon: Gift },
-						{ label: 'Track Order', href: '/track', variant: 'outline', icon: ArrowRight },
+						{
+							label: 'Track Order',
+							href: '/track',
+							variant: 'outline',
+							icon: ArrowRight,
+						},
 					]}
 				/>
 			</div>

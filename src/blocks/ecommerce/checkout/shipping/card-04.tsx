@@ -1,4 +1,10 @@
-import { Calendar, Clock, Truck, ChevronLeft, ChevronRight } from 'lucide-react';
+import {
+	Calendar,
+	Clock,
+	Truck,
+	ChevronLeft,
+	ChevronRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -29,12 +35,19 @@ const DateCard = ({
 			has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-primary-foreground
 		`}
 	>
-		<RadioGroupItem value={value} id={value} className="sr-only" disabled={!available} />
+		<RadioGroupItem
+			value={value}
+			id={value}
+			className="sr-only"
+			disabled={!available}
+		/>
 		<span className="text-xs uppercase tracking-wider text-muted-foreground has-[:checked]:text-primary-foreground/80">
 			{day}
 		</span>
 		<span className="text-2xl font-bold">{date}</span>
-		<span className="text-xs text-muted-foreground has-[:checked]:text-primary-foreground/80">{month}</span>
+		<span className="text-xs text-muted-foreground has-[:checked]:text-primary-foreground/80">
+			{month}
+		</span>
 		{available && (
 			<span className="text-[10px] mt-1 text-muted-foreground has-[:checked]:text-primary-foreground/80">
 				{slots} slots
@@ -62,7 +75,12 @@ const TimeSlotCard = ({
 			has-[:checked]:border-primary has-[:checked]:bg-primary/10
 		`}
 	>
-		<RadioGroupItem value={value} id={value} className="sr-only" disabled={!available} />
+		<RadioGroupItem
+			value={value}
+			id={value}
+			className="sr-only"
+			disabled={!available}
+		/>
 		<Clock className="size-4 text-muted-foreground has-[:checked]:text-primary" />
 		<span className="font-medium">{time}</span>
 		<span className="text-sm text-muted-foreground">{period}</span>
@@ -89,20 +107,84 @@ const SectionHeader = ({
 
 export default function Main() {
 	const dates = [
-		{ value: 'mon', day: 'Mon', date: '15', month: 'Jan', available: true, slots: 8 },
-		{ value: 'tue', day: 'Tue', date: '16', month: 'Jan', available: true, slots: 12 },
-		{ value: 'wed', day: 'Wed', date: '17', month: 'Jan', available: true, slots: 5 },
-		{ value: 'thu', day: 'Thu', date: '18', month: 'Jan', available: false, slots: 0 },
-		{ value: 'fri', day: 'Fri', date: '19', month: 'Jan', available: true, slots: 15 },
-		{ value: 'sat', day: 'Sat', date: '20', month: 'Jan', available: true, slots: 10 },
-		{ value: 'sun', day: 'Sun', date: '21', month: 'Jan', available: true, slots: 6 },
+		{
+			value: 'mon',
+			day: 'Mon',
+			date: '15',
+			month: 'Jan',
+			available: true,
+			slots: 8,
+		},
+		{
+			value: 'tue',
+			day: 'Tue',
+			date: '16',
+			month: 'Jan',
+			available: true,
+			slots: 12,
+		},
+		{
+			value: 'wed',
+			day: 'Wed',
+			date: '17',
+			month: 'Jan',
+			available: true,
+			slots: 5,
+		},
+		{
+			value: 'thu',
+			day: 'Thu',
+			date: '18',
+			month: 'Jan',
+			available: false,
+			slots: 0,
+		},
+		{
+			value: 'fri',
+			day: 'Fri',
+			date: '19',
+			month: 'Jan',
+			available: true,
+			slots: 15,
+		},
+		{
+			value: 'sat',
+			day: 'Sat',
+			date: '20',
+			month: 'Jan',
+			available: true,
+			slots: 10,
+		},
+		{
+			value: 'sun',
+			day: 'Sun',
+			date: '21',
+			month: 'Jan',
+			available: true,
+			slots: 6,
+		},
 	];
 
 	const timeSlots = [
 		{ value: 'morning-1', time: '8:00 - 10:00', period: 'AM', available: true },
-		{ value: 'morning-2', time: '10:00 - 12:00', period: 'AM', available: true },
-		{ value: 'afternoon-1', time: '12:00 - 2:00', period: 'PM', available: false },
-		{ value: 'afternoon-2', time: '2:00 - 4:00', period: 'PM', available: true },
+		{
+			value: 'morning-2',
+			time: '10:00 - 12:00',
+			period: 'AM',
+			available: true,
+		},
+		{
+			value: 'afternoon-1',
+			time: '12:00 - 2:00',
+			period: 'PM',
+			available: false,
+		},
+		{
+			value: 'afternoon-2',
+			time: '2:00 - 4:00',
+			period: 'PM',
+			available: true,
+		},
 		{ value: 'evening-1', time: '4:00 - 6:00', period: 'PM', available: true },
 		{ value: 'evening-2', time: '6:00 - 8:00', period: 'PM', available: true },
 	];
@@ -115,8 +197,12 @@ export default function Main() {
 						<Truck className="size-4" />
 						<span className="text-sm font-medium">Scheduled Delivery</span>
 					</div>
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Choose Delivery Time</h1>
-					<p className="text-muted-foreground">Select your preferred delivery date and time slot</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Choose Delivery Time
+					</h1>
+					<p className="text-muted-foreground">
+						Select your preferred delivery date and time slot
+					</p>
 				</div>
 
 				<Card className="mb-6">
@@ -137,7 +223,10 @@ export default function Main() {
 						/>
 					</CardHeader>
 					<CardContent>
-						<RadioGroup defaultValue="tue" className="flex gap-2 overflow-x-auto pb-2">
+						<RadioGroup
+							defaultValue="tue"
+							className="flex gap-2 overflow-x-auto pb-2"
+						>
 							{dates.map((date) => (
 								<DateCard key={date.value} {...date} />
 							))}
@@ -153,7 +242,10 @@ export default function Main() {
 						</Badge>
 					</CardHeader>
 					<CardContent>
-						<RadioGroup defaultValue="morning-2" className="grid @sm:grid-cols-2 @md:grid-cols-3 gap-3">
+						<RadioGroup
+							defaultValue="morning-2"
+							className="grid @sm:grid-cols-2 @md:grid-cols-3 gap-3"
+						>
 							{timeSlots.map((slot) => (
 								<TimeSlotCard key={slot.value} {...slot} />
 							))}
@@ -162,7 +254,9 @@ export default function Main() {
 				</Card>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Confirm Schedule</Button>
 				</div>
 			</div>

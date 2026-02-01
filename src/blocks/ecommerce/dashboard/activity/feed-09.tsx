@@ -43,14 +43,19 @@ interface IntegrationFeedProps {
 
 const IntegrationIcon = ({
 	type,
-}: { type: IntegrationEvent['integration']['type'] }) => {
+}: {
+	type: IntegrationEvent['integration']['type'];
+}) => {
 	const config: Record<
 		IntegrationEvent['integration']['type'],
 		{ icon: LucideIcon; className: string }
 	> = {
 		api: { icon: Globe, className: 'bg-blue-500/20 text-blue-400' },
 		webhook: { icon: Webhook, className: 'bg-purple-500/20 text-purple-400' },
-		database: { icon: Database, className: 'bg-emerald-500/20 text-emerald-400' },
+		database: {
+			icon: Database,
+			className: 'bg-emerald-500/20 text-emerald-400',
+		},
 		service: { icon: Server, className: 'bg-amber-500/20 text-amber-400' },
 	};
 
@@ -65,7 +70,11 @@ const IntegrationIcon = ({
 	);
 };
 
-const StatusIndicator = ({ status }: { status: IntegrationEvent['status'] }) => {
+const StatusIndicator = ({
+	status,
+}: {
+	status: IntegrationEvent['status'];
+}) => {
 	const config = {
 		success: {
 			icon: CheckCircle2,
@@ -162,7 +171,9 @@ const StatsOverview = ({ stats }: { stats: IntegrationFeedProps['stats'] }) => (
 			<div className="flex items-center gap-1 mb-1">
 				<Zap className="size-4 text-blue-400" />
 			</div>
-			<span className="text-xl font-bold text-blue-400">{stats.totalCalls}</span>
+			<span className="text-xl font-bold text-blue-400">
+				{stats.totalCalls}
+			</span>
 			<span className="text-xs text-muted-foreground">API Calls</span>
 		</div>
 		<div className="flex flex-col items-center p-3 rounded-lg bg-muted/50 border border-border/50">
@@ -212,7 +223,8 @@ export default function Main() {
 			integration: { name: 'Stripe Payments', type: 'api' },
 			event: 'Payment webhook received',
 			status: 'success',
-			details: 'Successfully processed payment confirmation for order #ORD-2024-0892',
+			details:
+				'Successfully processed payment confirmation for order #ORD-2024-0892',
 			dataTransferred: '2.4 KB',
 			responseTime: '124ms',
 			timestamp: '1 min ago',
@@ -222,7 +234,8 @@ export default function Main() {
 			integration: { name: 'Inventory Sync', type: 'database' },
 			event: 'Stock level update failed',
 			status: 'failed',
-			details: 'Connection timeout - unable to sync inventory levels with warehouse system',
+			details:
+				'Connection timeout - unable to sync inventory levels with warehouse system',
 			responseTime: '30000ms',
 			timestamp: '5 min ago',
 		},

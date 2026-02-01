@@ -12,7 +12,13 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	ChartConfig,
 	ChartContainer,
@@ -29,7 +35,13 @@ type AnalyticsKpi = {
 	color: string;
 };
 
-const AnalyticsKpiCard = ({ title, value, change, icon: Icon, color }: AnalyticsKpi) => (
+const AnalyticsKpiCard = ({
+	title,
+	value,
+	change,
+	icon: Icon,
+	color,
+}: AnalyticsKpi) => (
 	<div className="flex items-center gap-3 rounded-xl border bg-card p-4">
 		<div className={`rounded-lg p-2 ${color}`}>
 			<Icon className="size-4" />
@@ -60,10 +72,34 @@ const conversionConfig: ChartConfig = {
 
 export default function Main() {
 	const kpis: AnalyticsKpi[] = [
-		{ title: 'Page Views', value: '284K', change: '+24%', icon: Eye, color: 'bg-primary/10 text-primary' },
-		{ title: 'Unique Visitors', value: '45K', change: '+18%', icon: Users, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'Bounce Rate', value: '32%', change: '-5%', icon: Globe, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Conversion', value: '3.2%', change: '+0.5%', icon: MousePointerClick, color: 'bg-blue-500/10 text-blue-500' },
+		{
+			title: 'Page Views',
+			value: '284K',
+			change: '+24%',
+			icon: Eye,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'Unique Visitors',
+			value: '45K',
+			change: '+18%',
+			icon: Users,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'Bounce Rate',
+			value: '32%',
+			change: '-5%',
+			icon: Globe,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Conversion',
+			value: '3.2%',
+			change: '+0.5%',
+			icon: MousePointerClick,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
 	];
 
 	const trafficData = [
@@ -105,7 +141,9 @@ export default function Main() {
 					<Card>
 						<CardHeader>
 							<CardTitle>Analytics Dashboard</CardTitle>
-							<CardDescription>Traffic, sources, and conversion metrics</CardDescription>
+							<CardDescription>
+								Traffic, sources, and conversion metrics
+							</CardDescription>
 						</CardHeader>
 						<CardContent>
 							<Tabs defaultValue="traffic" className="w-full">
@@ -115,33 +153,74 @@ export default function Main() {
 									<TabsTrigger value="conversion">Conversion</TabsTrigger>
 								</TabsList>
 								<TabsContent value="traffic">
-									<ChartContainer config={trafficConfig} className="h-[280px] w-full">
+									<ChartContainer
+										config={trafficConfig}
+										className="h-[280px] w-full"
+									>
 										<LineChart data={trafficData}>
 											<XAxis dataKey="day" tickLine={false} axisLine={false} />
 											<YAxis tickLine={false} axisLine={false} />
 											<ChartTooltip content={<ChartTooltipContent />} />
-											<Line type="monotone" dataKey="visitors" stroke="var(--color-visitors)" strokeWidth={2} dot={false} />
-											<Line type="monotone" dataKey="sessions" stroke="var(--color-sessions)" strokeWidth={2} dot={false} />
+											<Line
+												type="monotone"
+												dataKey="visitors"
+												stroke="var(--color-visitors)"
+												strokeWidth={2}
+												dot={false}
+											/>
+											<Line
+												type="monotone"
+												dataKey="sessions"
+												stroke="var(--color-sessions)"
+												strokeWidth={2}
+												dot={false}
+											/>
 										</LineChart>
 									</ChartContainer>
 								</TabsContent>
 								<TabsContent value="sources">
-									<ChartContainer config={sourceConfig} className="h-[280px] w-full">
+									<ChartContainer
+										config={sourceConfig}
+										className="h-[280px] w-full"
+									>
 										<BarChart data={sourceData} layout="vertical">
 											<XAxis type="number" tickLine={false} axisLine={false} />
-											<YAxis dataKey="source" type="category" tickLine={false} axisLine={false} width={70} />
+											<YAxis
+												dataKey="source"
+												type="category"
+												tickLine={false}
+												axisLine={false}
+												width={70}
+											/>
 											<ChartTooltip content={<ChartTooltipContent />} />
-											<Bar dataKey="value" fill="var(--color-value)" radius={[0, 4, 4, 0]} />
+											<Bar
+												dataKey="value"
+												fill="var(--color-value)"
+												radius={[0, 4, 4, 0]}
+											/>
 										</BarChart>
 									</ChartContainer>
 								</TabsContent>
 								<TabsContent value="conversion">
-									<ChartContainer config={conversionConfig} className="h-[280px] w-full">
+									<ChartContainer
+										config={conversionConfig}
+										className="h-[280px] w-full"
+									>
 										<LineChart data={conversionData}>
 											<XAxis dataKey="hour" tickLine={false} axisLine={false} />
-											<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} />
+											<YAxis
+												tickLine={false}
+												axisLine={false}
+												tickFormatter={(v) => `${v}%`}
+											/>
 											<ChartTooltip content={<ChartTooltipContent />} />
-											<Line type="monotone" dataKey="rate" stroke="var(--color-rate)" strokeWidth={2} dot />
+											<Line
+												type="monotone"
+												dataKey="rate"
+												stroke="var(--color-rate)"
+												strokeWidth={2}
+												dot
+											/>
 										</LineChart>
 									</ChartContainer>
 								</TabsContent>

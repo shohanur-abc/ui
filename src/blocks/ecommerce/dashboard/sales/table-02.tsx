@@ -73,7 +73,10 @@ const ProductTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{products.map((product) => (
-							<TableRow key={product.id} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={product.id}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell>
 									<div className="flex items-center gap-3">
 										<Avatar className="size-10 rounded-lg">
@@ -84,7 +87,9 @@ const ProductTableCard = ({
 										</Avatar>
 										<div>
 											<p className="font-medium">{product.name}</p>
-											<p className="text-xs text-muted-foreground">{product.id}</p>
+											<p className="text-xs text-muted-foreground">
+												{product.id}
+											</p>
 										</div>
 									</div>
 								</TableCell>
@@ -130,11 +135,61 @@ const ProductTableCard = ({
 
 export default function Main() {
 	const products: Product[] = [
-		{ id: 'PRD-001', name: 'Wireless Headphones', image: '/placeholder.svg', category: 'Electronics', price: 199, unitsSold: 1250, revenue: 248750, trend: 12.5, stock: 'in-stock' },
-		{ id: 'PRD-002', name: 'Smart Watch Pro', image: '/placeholder.svg', category: 'Electronics', price: 349, unitsSold: 890, revenue: 310610, trend: 8.3, stock: 'low-stock' },
-		{ id: 'PRD-003', name: 'Laptop Stand', image: '/placeholder.svg', category: 'Accessories', price: 79, unitsSold: 2100, revenue: 165900, trend: -2.1, stock: 'in-stock' },
-		{ id: 'PRD-004', name: 'USB-C Hub', image: '/placeholder.svg', category: 'Accessories', price: 59, unitsSold: 1680, revenue: 99120, trend: 15.7, stock: 'out-of-stock' },
-		{ id: 'PRD-005', name: 'Mechanical Keyboard', image: '/placeholder.svg', category: 'Electronics', price: 149, unitsSold: 720, revenue: 107280, trend: -5.2, stock: 'in-stock' },
+		{
+			id: 'PRD-001',
+			name: 'Wireless Headphones',
+			image: '/placeholder.svg',
+			category: 'Electronics',
+			price: 199,
+			unitsSold: 1250,
+			revenue: 248750,
+			trend: 12.5,
+			stock: 'in-stock',
+		},
+		{
+			id: 'PRD-002',
+			name: 'Smart Watch Pro',
+			image: '/placeholder.svg',
+			category: 'Electronics',
+			price: 349,
+			unitsSold: 890,
+			revenue: 310610,
+			trend: 8.3,
+			stock: 'low-stock',
+		},
+		{
+			id: 'PRD-003',
+			name: 'Laptop Stand',
+			image: '/placeholder.svg',
+			category: 'Accessories',
+			price: 79,
+			unitsSold: 2100,
+			revenue: 165900,
+			trend: -2.1,
+			stock: 'in-stock',
+		},
+		{
+			id: 'PRD-004',
+			name: 'USB-C Hub',
+			image: '/placeholder.svg',
+			category: 'Accessories',
+			price: 59,
+			unitsSold: 1680,
+			revenue: 99120,
+			trend: 15.7,
+			stock: 'out-of-stock',
+		},
+		{
+			id: 'PRD-005',
+			name: 'Mechanical Keyboard',
+			image: '/placeholder.svg',
+			category: 'Electronics',
+			price: 149,
+			unitsSold: 720,
+			revenue: 107280,
+			trend: -5.2,
+			stock: 'in-stock',
+		},
 	];
 
 	return (

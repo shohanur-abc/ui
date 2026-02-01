@@ -11,7 +11,15 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { ChevronLeft, ChevronRight, Minus, Plus, ShoppingBag, TrendingUp, X } from 'lucide-react';
+import {
+	ChevronLeft,
+	ChevronRight,
+	Minus,
+	Plus,
+	ShoppingBag,
+	TrendingUp,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -161,7 +169,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes',
 				price: 129.99,
 				quantity: 1,
@@ -170,35 +179,40 @@ export default function Main() {
 		trending: [
 			{
 				id: 't1',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Ultra Boost',
 				price: 179.99,
 				soldCount: 2500,
 			},
 			{
 				id: 't2',
-				image: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
 				name: 'Classic Leather',
 				price: 99.99,
 				soldCount: 1800,
 			},
 			{
 				id: 't3',
-				image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
 				name: 'Air Force One',
 				price: 119.99,
 				soldCount: 3200,
 			},
 			{
 				id: 't4',
-				image: 'https://images.unsplash.com/photo-1539185441755-769473a23570?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1539185441755-769473a23570?w=200&h=200&fit=crop',
 				name: 'Jordan Retro',
 				price: 189.99,
 				soldCount: 4100,
 			},
 			{
 				id: 't5',
-				image: 'https://images.unsplash.com/photo-1552346154-21d32810aba3?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1552346154-21d32810aba3?w=200&h=200&fit=crop',
 				name: 'NB 574',
 				price: 89.99,
 				soldCount: 1500,
@@ -210,7 +224,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

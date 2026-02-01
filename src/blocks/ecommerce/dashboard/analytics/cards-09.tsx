@@ -21,8 +21,17 @@ type GradientCardProps = {
 	gradient: string;
 };
 
-const GradientCard = ({ icon: Icon, label, value, target, progress, gradient }: GradientCardProps) => (
-	<Card className={`group relative overflow-hidden border-0 ${gradient} text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl`}>
+const GradientCard = ({
+	icon: Icon,
+	label,
+	value,
+	target,
+	progress,
+	gradient,
+}: GradientCardProps) => (
+	<Card
+		className={`group relative overflow-hidden border-0 ${gradient} text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl`}
+	>
 		<div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 		<CardContent className="relative p-5 @sm:p-6">
 			<div className="flex items-start justify-between mb-4">
@@ -32,9 +41,14 @@ const GradientCard = ({ icon: Icon, label, value, target, progress, gradient }: 
 				<ArrowUpRight className="size-5 text-white/60 transition-all duration-300 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
 			</div>
 			<p className="text-sm font-medium text-white/80 mb-1">{label}</p>
-			<p className="text-3xl @sm:text-4xl font-bold tracking-tight mb-4">{value}</p>
+			<p className="text-3xl @sm:text-4xl font-bold tracking-tight mb-4">
+				{value}
+			</p>
 			<div className="space-y-2">
-				<Progress value={progress} className="h-1.5 bg-white/20 [&>div]:bg-white" />
+				<Progress
+					value={progress}
+					className="h-1.5 bg-white/20 [&>div]:bg-white"
+				/>
 				<div className="flex items-center justify-between text-xs text-white/70">
 					<span>{progress}% complete</span>
 					<span>Target: {target}</span>
@@ -45,10 +59,38 @@ const GradientCard = ({ icon: Icon, label, value, target, progress, gradient }: 
 );
 
 const gradientCards: GradientCardProps[] = [
-	{ icon: Trophy, label: 'Monthly Goal', value: '$82,430', target: '$100K', progress: 82, gradient: 'bg-gradient-to-br from-violet-600 to-indigo-700' },
-	{ icon: Target, label: 'Quarterly Sales', value: '2,847', target: '3,500', progress: 81, gradient: 'bg-gradient-to-br from-cyan-600 to-blue-700' },
-	{ icon: Flame, label: 'Hot Leads', value: '156', target: '200', progress: 78, gradient: 'bg-gradient-to-br from-orange-500 to-rose-600' },
-	{ icon: Sparkles, label: 'Customer Score', value: '94.2', target: '100', progress: 94, gradient: 'bg-gradient-to-br from-emerald-500 to-teal-600' },
+	{
+		icon: Trophy,
+		label: 'Monthly Goal',
+		value: '$82,430',
+		target: '$100K',
+		progress: 82,
+		gradient: 'bg-gradient-to-br from-violet-600 to-indigo-700',
+	},
+	{
+		icon: Target,
+		label: 'Quarterly Sales',
+		value: '2,847',
+		target: '3,500',
+		progress: 81,
+		gradient: 'bg-gradient-to-br from-cyan-600 to-blue-700',
+	},
+	{
+		icon: Flame,
+		label: 'Hot Leads',
+		value: '156',
+		target: '200',
+		progress: 78,
+		gradient: 'bg-gradient-to-br from-orange-500 to-rose-600',
+	},
+	{
+		icon: Sparkles,
+		label: 'Customer Score',
+		value: '94.2',
+		target: '100',
+		progress: 94,
+		gradient: 'bg-gradient-to-br from-emerald-500 to-teal-600',
+	},
 ];
 
 export default function Main() {

@@ -1,7 +1,15 @@
 'use client';
 
 import { Sparkles } from 'lucide-react';
-import { Bar, BarChart, XAxis, YAxis, CartesianGrid, Cell, ReferenceLine } from 'recharts';
+import {
+	Bar,
+	BarChart,
+	XAxis,
+	YAxis,
+	CartesianGrid,
+	Cell,
+	ReferenceLine,
+} from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
 	ChartConfig,
@@ -56,7 +64,11 @@ const VarianceChartCard = ({
 						data={data}
 						margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
 					>
-						<CartesianGrid strokeDasharray="3 3" className="stroke-border/50" vertical={false} />
+						<CartesianGrid
+							strokeDasharray="3 3"
+							className="stroke-border/50"
+							vertical={false}
+						/>
 						<XAxis
 							dataKey="category"
 							tickLine={false}
@@ -66,7 +78,9 @@ const VarianceChartCard = ({
 						<YAxis
 							tickLine={false}
 							axisLine={false}
-							tickFormatter={(value) => `${value > 0 ? '+' : ''}$${value / 1000}k`}
+							tickFormatter={(value) =>
+								`${value > 0 ? '+' : ''}$${value / 1000}k`
+							}
 							className="text-xs"
 						/>
 						<ReferenceLine y={0} stroke="var(--border)" />
@@ -75,7 +89,11 @@ const VarianceChartCard = ({
 							{data.map((entry, index) => (
 								<Cell
 									key={`cell-${index}`}
-									fill={entry.variance >= 0 ? 'oklch(0.70 0.18 155)' : 'oklch(0.55 0.22 25)'}
+									fill={
+										entry.variance >= 0
+											? 'oklch(0.70 0.18 155)'
+											: 'oklch(0.55 0.22 25)'
+									}
 								/>
 							))}
 						</Bar>

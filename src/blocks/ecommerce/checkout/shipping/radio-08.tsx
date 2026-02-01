@@ -1,7 +1,13 @@
 import { Shield, Gift, Package, Leaf, Clock, Check, Plus } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -58,7 +64,9 @@ const AddonRadio = ({
 			${recommended ? 'ring-2 ring-primary/20' : ''}
 		`}
 	>
-		{recommended && <Badge className="absolute -top-2.5 right-4">Recommended</Badge>}
+		{recommended && (
+			<Badge className="absolute -top-2.5 right-4">Recommended</Badge>
+		)}
 		<RadioGroupItem value={value} id={value} className="mt-1" />
 		<div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
 			<Icon className="size-5" />
@@ -105,14 +113,38 @@ export default function Main() {
 	];
 
 	const insuranceOptions = [
-		{ value: 'no-insurance', icon: Package, name: 'No Insurance', description: 'Standard carrier liability only', price: '$0' },
-		{ value: 'basic-insurance', icon: Shield, name: 'Basic Protection', description: 'Coverage up to $100', price: '+$2.99', recommended: true },
-		{ value: 'premium-insurance', icon: Shield, name: 'Premium Protection', description: 'Full coverage up to $500', price: '+$6.99' },
+		{
+			value: 'no-insurance',
+			icon: Package,
+			name: 'No Insurance',
+			description: 'Standard carrier liability only',
+			price: '$0',
+		},
+		{
+			value: 'basic-insurance',
+			icon: Shield,
+			name: 'Basic Protection',
+			description: 'Coverage up to $100',
+			price: '+$2.99',
+			recommended: true,
+		},
+		{
+			value: 'premium-insurance',
+			icon: Shield,
+			name: 'Premium Protection',
+			description: 'Full coverage up to $500',
+			price: '+$6.99',
+		},
 	];
 
 	const extras = [
 		{ id: 'gift-wrap', icon: Gift, label: 'Gift Wrapping', price: '+$4.99' },
-		{ id: 'carbon-offset', icon: Leaf, label: 'Carbon Neutral Shipping', price: '+$0.99' },
+		{
+			id: 'carbon-offset',
+			icon: Leaf,
+			label: 'Carbon Neutral Shipping',
+			price: '+$0.99',
+		},
 	];
 
 	return (
@@ -136,7 +168,9 @@ export default function Main() {
 				<Card className="mb-6">
 					<CardHeader>
 						<CardTitle className="text-lg">Shipping Protection</CardTitle>
-						<CardDescription>Protect your order against loss or damage</CardDescription>
+						<CardDescription>
+							Protect your order against loss or damage
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<RadioGroup defaultValue="basic-insurance" className="space-y-3">
@@ -159,7 +193,9 @@ export default function Main() {
 				</Card>
 
 				<div className="flex gap-3">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

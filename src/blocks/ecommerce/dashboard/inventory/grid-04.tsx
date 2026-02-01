@@ -74,7 +74,10 @@ type StatusBadgeProps = {
 };
 
 const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
-	const variants: Record<'in-stock' | 'low-stock' | 'out-of-stock', 'default' | 'secondary' | 'destructive'> = {
+	const variants: Record<
+		'in-stock' | 'low-stock' | 'out-of-stock',
+		'default' | 'secondary' | 'destructive'
+	> = {
 		'in-stock': 'default',
 		'low-stock': 'secondary',
 		'out-of-stock': 'destructive',
@@ -94,7 +97,11 @@ const GridCard = ({ item, statusLabels }: GridCardProps) => {
 		<Card className="overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
 			<div className="aspect-square bg-muted">
 				{item.image ? (
-					<img src={item.image} alt={item.name} className="size-full object-cover" />
+					<img
+						src={item.image}
+						alt={item.name}
+						className="size-full object-cover"
+					/>
 				) : (
 					<div className="flex size-full items-center justify-center">
 						<Package className="size-12 text-muted-foreground" />
@@ -112,11 +119,15 @@ const GridCard = ({ item, statusLabels }: GridCardProps) => {
 				<div className="space-y-1.5">
 					<div className="flex justify-between text-sm">
 						<span className="text-muted-foreground">Stock</span>
-						<span className="tabular-nums">{item.quantity}/{item.maxStock}</span>
+						<span className="tabular-nums">
+							{item.quantity}/{item.maxStock}
+						</span>
 					</div>
 					<Progress value={stockPercentage} className="h-1.5" />
 				</div>
-				<div className="mt-3 text-lg font-semibold">${item.price.toFixed(2)}</div>
+				<div className="mt-3 text-lg font-semibold">
+					${item.price.toFixed(2)}
+				</div>
 			</CardContent>
 		</Card>
 	);
@@ -135,7 +146,11 @@ const ListCard = ({ item, statusLabels }: ListCardProps) => {
 			<CardContent className="flex items-center gap-4 p-4">
 				<div className="size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
 					{item.image ? (
-						<img src={item.image} alt={item.name} className="size-full object-cover" />
+						<img
+							src={item.image}
+							alt={item.name}
+							className="size-full object-cover"
+						/>
 					) : (
 						<div className="flex size-full items-center justify-center">
 							<Package className="size-6 text-muted-foreground" />
@@ -169,12 +184,66 @@ export default function Main() {
 	const [viewMode, setViewMode] = React.useState<ViewMode>('grid');
 
 	const inventory: InventoryItem[] = [
-		{ id: '1', name: 'Wireless Headphones', sku: 'WH-001', image: '', quantity: 85, maxStock: 100, price: 79.99, status: 'in-stock' },
-		{ id: '2', name: 'Bluetooth Speaker', sku: 'BS-002', image: '', quantity: 12, maxStock: 50, price: 49.99, status: 'low-stock' },
-		{ id: '3', name: 'USB-C Hub', sku: 'UCH-003', image: '', quantity: 0, maxStock: 75, price: 34.99, status: 'out-of-stock' },
-		{ id: '4', name: 'Mechanical Keyboard', sku: 'MK-004', image: '', quantity: 45, maxStock: 60, price: 129.99, status: 'in-stock' },
-		{ id: '5', name: 'Gaming Mouse', sku: 'GM-005', image: '', quantity: 8, maxStock: 40, price: 59.99, status: 'low-stock' },
-		{ id: '6', name: 'Monitor Stand', sku: 'MS-006', image: '', quantity: 92, maxStock: 100, price: 44.99, status: 'in-stock' },
+		{
+			id: '1',
+			name: 'Wireless Headphones',
+			sku: 'WH-001',
+			image: '',
+			quantity: 85,
+			maxStock: 100,
+			price: 79.99,
+			status: 'in-stock',
+		},
+		{
+			id: '2',
+			name: 'Bluetooth Speaker',
+			sku: 'BS-002',
+			image: '',
+			quantity: 12,
+			maxStock: 50,
+			price: 49.99,
+			status: 'low-stock',
+		},
+		{
+			id: '3',
+			name: 'USB-C Hub',
+			sku: 'UCH-003',
+			image: '',
+			quantity: 0,
+			maxStock: 75,
+			price: 34.99,
+			status: 'out-of-stock',
+		},
+		{
+			id: '4',
+			name: 'Mechanical Keyboard',
+			sku: 'MK-004',
+			image: '',
+			quantity: 45,
+			maxStock: 60,
+			price: 129.99,
+			status: 'in-stock',
+		},
+		{
+			id: '5',
+			name: 'Gaming Mouse',
+			sku: 'GM-005',
+			image: '',
+			quantity: 8,
+			maxStock: 40,
+			price: 59.99,
+			status: 'low-stock',
+		},
+		{
+			id: '6',
+			name: 'Monitor Stand',
+			sku: 'MS-006',
+			image: '',
+			quantity: 92,
+			maxStock: 100,
+			price: 44.99,
+			status: 'in-stock',
+		},
 	];
 
 	const statusLabels = {
@@ -196,13 +265,21 @@ export default function Main() {
 					{viewMode === 'grid' ? (
 						<div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-3 @2xl:grid-cols-4">
 							{inventory.map((item) => (
-								<GridCard key={item.id} item={item} statusLabels={statusLabels} />
+								<GridCard
+									key={item.id}
+									item={item}
+									statusLabels={statusLabels}
+								/>
 							))}
 						</div>
 					) : (
 						<div className="space-y-2">
 							{inventory.map((item) => (
-								<ListCard key={item.id} item={item} statusLabels={statusLabels} />
+								<ListCard
+									key={item.id}
+									item={item}
+									statusLabels={statusLabels}
+								/>
 							))}
 						</div>
 					)}

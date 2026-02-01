@@ -9,7 +9,13 @@ interface TrendStatProps {
 	change: number;
 }
 
-const AreaChart = ({ data, isPositive }: { data: number[]; isPositive: boolean }) => {
+const AreaChart = ({
+	data,
+	isPositive,
+}: {
+	data: number[];
+	isPositive: boolean;
+}) => {
 	const max = Math.max(...data);
 	const min = Math.min(...data);
 	const range = max - min || 1;
@@ -21,15 +27,31 @@ const AreaChart = ({ data, isPositive }: { data: number[]; isPositive: boolean }
 		y: height - ((value - min) / range) * height,
 	}));
 
-	const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+	const linePath = points
+		.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`)
+		.join(' ');
 	const areaPath = `${linePath} L ${width} ${height} L 0 ${height} Z`;
 
 	return (
 		<svg width={width} height={height} className="overflow-visible">
 			<defs>
-				<linearGradient id={`gradient-${isPositive}`} x1="0%" y1="0%" x2="0%" y2="100%">
-					<stop offset="0%" stopColor={isPositive ? 'var(--accent)' : 'var(--destructive)'} stopOpacity="0.3" />
-					<stop offset="100%" stopColor={isPositive ? 'var(--accent)' : 'var(--destructive)'} stopOpacity="0" />
+				<linearGradient
+					id={`gradient-${isPositive}`}
+					x1="0%"
+					y1="0%"
+					x2="0%"
+					y2="100%"
+				>
+					<stop
+						offset="0%"
+						stopColor={isPositive ? 'var(--accent)' : 'var(--destructive)'}
+						stopOpacity="0.3"
+					/>
+					<stop
+						offset="100%"
+						stopColor={isPositive ? 'var(--accent)' : 'var(--destructive)'}
+						stopOpacity="0"
+					/>
 				</linearGradient>
 			</defs>
 			<path d={areaPath} fill={`url(#gradient-${isPositive})`} />
@@ -54,8 +76,15 @@ const TrendStat = ({ label, value, data, change }: TrendStatProps) => {
 				<div className="space-y-2">
 					<p className="text-sm text-muted-foreground">{label}</p>
 					<p className="text-2xl font-bold tracking-tight">{value}</p>
-					<Badge variant={isPositive ? 'default' : 'destructive'} className="gap-1">
-						{isPositive ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+					<Badge
+						variant={isPositive ? 'default' : 'destructive'}
+						className="gap-1"
+					>
+						{isPositive ? (
+							<TrendingUp className="size-3" />
+						) : (
+							<TrendingDown className="size-3" />
+						)}
 						{Math.abs(change)}%
 					</Badge>
 				</div>
@@ -67,10 +96,30 @@ const TrendStat = ({ label, value, data, change }: TrendStatProps) => {
 
 export default function Main() {
 	const stats: TrendStatProps[] = [
-		{ label: 'Revenue', value: '$284K', data: [42, 48, 52, 58, 62, 68, 72], change: 18.4 },
-		{ label: 'Orders', value: '8,492', data: [32, 38, 42, 48, 52, 58, 62], change: 24.2 },
-		{ label: 'Customers', value: '4,284', data: [48, 52, 55, 52, 48, 45, 42], change: -8.4 },
-		{ label: 'AOV', value: '$142', data: [128, 132, 138, 142, 145, 142, 142], change: 4.2 },
+		{
+			label: 'Revenue',
+			value: '$284K',
+			data: [42, 48, 52, 58, 62, 68, 72],
+			change: 18.4,
+		},
+		{
+			label: 'Orders',
+			value: '8,492',
+			data: [32, 38, 42, 48, 52, 58, 62],
+			change: 24.2,
+		},
+		{
+			label: 'Customers',
+			value: '4,284',
+			data: [48, 52, 55, 52, 48, 45, 42],
+			change: -8.4,
+		},
+		{
+			label: 'AOV',
+			value: '$142',
+			data: [128, 132, 138, 142, 145, 142, 142],
+			change: 4.2,
+		},
 	];
 
 	return (

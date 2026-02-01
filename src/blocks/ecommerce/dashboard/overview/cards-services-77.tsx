@@ -27,11 +27,26 @@ type ServiceCard = {
 const getStatusConfig = (status: ServiceCard['status']) => {
 	switch (status) {
 		case 'operational':
-			return { icon: CheckCircle2, color: 'text-emerald-500', bgColor: 'bg-emerald-500/10', label: 'Operational' };
+			return {
+				icon: CheckCircle2,
+				color: 'text-emerald-500',
+				bgColor: 'bg-emerald-500/10',
+				label: 'Operational',
+			};
 		case 'degraded':
-			return { icon: AlertCircle, color: 'text-amber-500', bgColor: 'bg-amber-500/10', label: 'Degraded' };
+			return {
+				icon: AlertCircle,
+				color: 'text-amber-500',
+				bgColor: 'bg-amber-500/10',
+				label: 'Degraded',
+			};
 		case 'outage':
-			return { icon: AlertCircle, color: 'text-red-500', bgColor: 'bg-red-500/10', label: 'Outage' };
+			return {
+				icon: AlertCircle,
+				color: 'text-red-500',
+				bgColor: 'bg-red-500/10',
+				label: 'Outage',
+			};
 	}
 };
 
@@ -50,17 +65,24 @@ const ServiceCardComponent = (service: ServiceCard) => {
 						</div>
 						<div>
 							<p className="font-medium">{service.name}</p>
-							<p className="text-xs text-muted-foreground">{service.description}</p>
+							<p className="text-xs text-muted-foreground">
+								{service.description}
+							</p>
 						</div>
 					</div>
-					<Badge variant="secondary" className={`${statusConfig.bgColor} ${statusConfig.color}`}>
+					<Badge
+						variant="secondary"
+						className={`${statusConfig.bgColor} ${statusConfig.color}`}
+					>
 						<StatusIcon className="mr-1 size-3" />
 						{statusConfig.label}
 					</Badge>
 				</div>
 				<div className="mt-4 grid grid-cols-3 gap-2 rounded-lg bg-muted/50 p-3">
 					<div className="text-center">
-						<p className="text-lg font-bold text-emerald-500">{service.uptime}</p>
+						<p className="text-lg font-bold text-emerald-500">
+							{service.uptime}
+						</p>
 						<p className="text-xs text-muted-foreground">Uptime</p>
 					</div>
 					<div className="text-center">
@@ -88,12 +110,60 @@ const ServiceCardComponent = (service: ServiceCard) => {
 
 export default function Main() {
 	const services: ServiceCard[] = [
-		{ name: 'API Gateway', description: 'Core API services', status: 'operational', uptime: '99.9%', responseTime: '45ms', lastIncident: '30d ago', icon: Server },
-		{ name: 'Payment Service', description: 'Payment processing', status: 'operational', uptime: '99.8%', responseTime: '120ms', lastIncident: '15d ago', icon: Shield },
-		{ name: 'CDN', description: 'Content delivery', status: 'operational', uptime: '99.99%', responseTime: '12ms', lastIncident: '60d ago', icon: Globe },
-		{ name: 'Database', description: 'Primary database cluster', status: 'degraded', uptime: '99.5%', responseTime: '85ms', lastIncident: '2h ago', icon: Server },
-		{ name: 'Search Service', description: 'Product search', status: 'operational', uptime: '99.7%', responseTime: '65ms', lastIncident: '7d ago', icon: Zap },
-		{ name: 'Auth Service', description: 'Authentication', status: 'operational', uptime: '99.95%', responseTime: '35ms', lastIncident: '45d ago', icon: Shield },
+		{
+			name: 'API Gateway',
+			description: 'Core API services',
+			status: 'operational',
+			uptime: '99.9%',
+			responseTime: '45ms',
+			lastIncident: '30d ago',
+			icon: Server,
+		},
+		{
+			name: 'Payment Service',
+			description: 'Payment processing',
+			status: 'operational',
+			uptime: '99.8%',
+			responseTime: '120ms',
+			lastIncident: '15d ago',
+			icon: Shield,
+		},
+		{
+			name: 'CDN',
+			description: 'Content delivery',
+			status: 'operational',
+			uptime: '99.99%',
+			responseTime: '12ms',
+			lastIncident: '60d ago',
+			icon: Globe,
+		},
+		{
+			name: 'Database',
+			description: 'Primary database cluster',
+			status: 'degraded',
+			uptime: '99.5%',
+			responseTime: '85ms',
+			lastIncident: '2h ago',
+			icon: Server,
+		},
+		{
+			name: 'Search Service',
+			description: 'Product search',
+			status: 'operational',
+			uptime: '99.7%',
+			responseTime: '65ms',
+			lastIncident: '7d ago',
+			icon: Zap,
+		},
+		{
+			name: 'Auth Service',
+			description: 'Authentication',
+			status: 'operational',
+			uptime: '99.95%',
+			responseTime: '35ms',
+			lastIncident: '45d ago',
+			icon: Shield,
+		},
 	];
 
 	return (

@@ -4,7 +4,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { MapPin, Phone, Mail, Edit2, Trash2, Plus, Check, Star } from 'lucide-react';
+import {
+	MapPin,
+	Phone,
+	Mail,
+	Edit2,
+	Trash2,
+	Plus,
+	Check,
+	Star,
+} from 'lucide-react';
 
 interface AddressCardProps {
 	id: string;
@@ -17,13 +26,7 @@ interface AddressCardProps {
 	isSelected?: boolean;
 }
 
-const PageHeader = ({
-	title,
-	count,
-}: {
-	title: string;
-	count: number;
-}) => (
+const PageHeader = ({ title, count }: { title: string; count: number }) => (
 	<div className="flex items-center justify-between mb-6">
 		<div>
 			<h1 className="text-2xl font-bold">{title}</h1>
@@ -89,7 +92,11 @@ const AddressCard = ({
 			<Separator className="my-4" />
 
 			<div className="flex items-center justify-between">
-				<Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground">
+				<Button
+					variant="ghost"
+					size="sm"
+					className="gap-1.5 text-muted-foreground"
+				>
 					<Edit2 className="size-3.5" />
 					Edit
 				</Button>

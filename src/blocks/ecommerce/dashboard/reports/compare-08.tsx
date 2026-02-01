@@ -1,6 +1,13 @@
 'use client';
 
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import {
+	Area,
+	AreaChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	ResponsiveContainer,
+} from 'recharts';
 import { Clock } from 'lucide-react';
 
 import {
@@ -35,8 +42,15 @@ type QuarterSummaryProps = {
 	isActive?: boolean;
 };
 
-const QuarterSummary = ({ quarter, total, growth, isActive }: QuarterSummaryProps) => (
-	<div className={`rounded-lg border p-4 transition-colors ${isActive ? 'border-primary bg-primary/5' : 'border-border/30 bg-muted/20'}`}>
+const QuarterSummary = ({
+	quarter,
+	total,
+	growth,
+	isActive,
+}: QuarterSummaryProps) => (
+	<div
+		className={`rounded-lg border p-4 transition-colors ${isActive ? 'border-primary bg-primary/5' : 'border-border/30 bg-muted/20'}`}
+	>
 		<p className="text-sm font-medium text-muted-foreground">{quarter}</p>
 		<p className="mt-1 text-xl font-bold">{total}</p>
 		<p className="text-xs text-emerald-500">{growth}</p>
@@ -54,7 +68,12 @@ export default function Main() {
 	const summaries: QuarterSummaryProps[] = [
 		{ quarter: 'Q1 2024', total: '$3.2M', growth: '+12.4% YoY' },
 		{ quarter: 'Q2 2024', total: '$3.8M', growth: '+18.2% YoY' },
-		{ quarter: 'Q3 2024', total: '$4.1M', growth: '+15.8% YoY', isActive: true },
+		{
+			quarter: 'Q3 2024',
+			total: '$4.1M',
+			growth: '+15.8% YoY',
+			isActive: true,
+		},
 		{ quarter: 'Q4 2024 (Est)', total: '$4.6M', growth: '+14.2% YoY' },
 	];
 
@@ -101,8 +120,14 @@ export default function Main() {
 								<TabsTrigger value="orders">Orders</TabsTrigger>
 							</TabsList>
 							<TabsContent value="revenue" className="mt-4">
-								<ChartContainer config={chartConfig} className="h-[300px] w-full">
-									<AreaChart data={revenueData} margin={{ left: 12, right: 12 }}>
+								<ChartContainer
+									config={chartConfig}
+									className="h-[300px] w-full"
+								>
+									<AreaChart
+										data={revenueData}
+										margin={{ left: 12, right: 12 }}
+									>
 										<CartesianGrid strokeDasharray="3 3" vertical={false} />
 										<XAxis dataKey="month" tickLine={false} axisLine={false} />
 										<YAxis
@@ -112,25 +137,80 @@ export default function Main() {
 										/>
 										<ChartTooltip content={<ChartTooltipContent />} />
 										<ChartLegend content={<ChartLegendContent />} />
-										<Area type="monotone" dataKey="q1" stroke="var(--color-q1)" fill="var(--color-q1)" fillOpacity={0.2} />
-										<Area type="monotone" dataKey="q2" stroke="var(--color-q2)" fill="var(--color-q2)" fillOpacity={0.2} />
-										<Area type="monotone" dataKey="q3" stroke="var(--color-q3)" fill="var(--color-q3)" fillOpacity={0.2} />
-										<Area type="monotone" dataKey="q4" stroke="var(--color-q4)" fill="var(--color-q4)" fillOpacity={0.2} />
+										<Area
+											type="monotone"
+											dataKey="q1"
+											stroke="var(--color-q1)"
+											fill="var(--color-q1)"
+											fillOpacity={0.2}
+										/>
+										<Area
+											type="monotone"
+											dataKey="q2"
+											stroke="var(--color-q2)"
+											fill="var(--color-q2)"
+											fillOpacity={0.2}
+										/>
+										<Area
+											type="monotone"
+											dataKey="q3"
+											stroke="var(--color-q3)"
+											fill="var(--color-q3)"
+											fillOpacity={0.2}
+										/>
+										<Area
+											type="monotone"
+											dataKey="q4"
+											stroke="var(--color-q4)"
+											fill="var(--color-q4)"
+											fillOpacity={0.2}
+										/>
 									</AreaChart>
 								</ChartContainer>
 							</TabsContent>
 							<TabsContent value="orders" className="mt-4">
-								<ChartContainer config={chartConfig} className="h-[300px] w-full">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[300px] w-full"
+								>
 									<AreaChart data={ordersData} margin={{ left: 12, right: 12 }}>
 										<CartesianGrid strokeDasharray="3 3" vertical={false} />
 										<XAxis dataKey="month" tickLine={false} axisLine={false} />
-										<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `${v / 1000}K`} />
+										<YAxis
+											tickLine={false}
+											axisLine={false}
+											tickFormatter={(v) => `${v / 1000}K`}
+										/>
 										<ChartTooltip content={<ChartTooltipContent />} />
 										<ChartLegend content={<ChartLegendContent />} />
-										<Area type="monotone" dataKey="q1" stroke="var(--color-q1)" fill="var(--color-q1)" fillOpacity={0.2} />
-										<Area type="monotone" dataKey="q2" stroke="var(--color-q2)" fill="var(--color-q2)" fillOpacity={0.2} />
-										<Area type="monotone" dataKey="q3" stroke="var(--color-q3)" fill="var(--color-q3)" fillOpacity={0.2} />
-										<Area type="monotone" dataKey="q4" stroke="var(--color-q4)" fill="var(--color-q4)" fillOpacity={0.2} />
+										<Area
+											type="monotone"
+											dataKey="q1"
+											stroke="var(--color-q1)"
+											fill="var(--color-q1)"
+											fillOpacity={0.2}
+										/>
+										<Area
+											type="monotone"
+											dataKey="q2"
+											stroke="var(--color-q2)"
+											fill="var(--color-q2)"
+											fillOpacity={0.2}
+										/>
+										<Area
+											type="monotone"
+											dataKey="q3"
+											stroke="var(--color-q3)"
+											fill="var(--color-q3)"
+											fillOpacity={0.2}
+										/>
+										<Area
+											type="monotone"
+											dataKey="q4"
+											stroke="var(--color-q4)"
+											fill="var(--color-q4)"
+											fillOpacity={0.2}
+										/>
 									</AreaChart>
 								</ChartContainer>
 							</TabsContent>

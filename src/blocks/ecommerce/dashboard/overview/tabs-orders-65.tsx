@@ -10,7 +10,13 @@ import {
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
 	Table,
@@ -70,7 +76,9 @@ const OrderRow = (order: OrderItem) => (
 			</div>
 		</TableCell>
 		<TableCell className="font-medium">{order.amount}</TableCell>
-		<TableCell className="hidden @lg:table-cell text-muted-foreground">{order.date}</TableCell>
+		<TableCell className="hidden @lg:table-cell text-muted-foreground">
+			{order.date}
+		</TableCell>
 		<TableCell>
 			<Badge variant="secondary" className={getStatusStyle(order.status)}>
 				{order.status}
@@ -86,15 +94,59 @@ const OrderRow = (order: OrderItem) => (
 
 export default function Main() {
 	const allOrders: OrderItem[] = [
-		{ id: 'ORD-4521', customer: 'John Doe', email: 'john@example.com', amount: '$234.50', date: 'Dec 12, 2024', status: 'pending' },
-		{ id: 'ORD-4520', customer: 'Jane Smith', email: 'jane@example.com', amount: '$189.00', date: 'Dec 12, 2024', status: 'processing' },
-		{ id: 'ORD-4519', customer: 'Bob Wilson', email: 'bob@example.com', amount: '$456.20', date: 'Dec 11, 2024', status: 'shipped' },
-		{ id: 'ORD-4518', customer: 'Alice Brown', email: 'alice@example.com', amount: '$78.90', date: 'Dec 11, 2024', status: 'delivered' },
-		{ id: 'ORD-4517', customer: 'Mike Johnson', email: 'mike@example.com', amount: '$321.00', date: 'Dec 10, 2024', status: 'delivered' },
-		{ id: 'ORD-4516', customer: 'Sarah Davis', email: 'sarah@example.com', amount: '$145.50', date: 'Dec 10, 2024', status: 'cancelled' },
+		{
+			id: 'ORD-4521',
+			customer: 'John Doe',
+			email: 'john@example.com',
+			amount: '$234.50',
+			date: 'Dec 12, 2024',
+			status: 'pending',
+		},
+		{
+			id: 'ORD-4520',
+			customer: 'Jane Smith',
+			email: 'jane@example.com',
+			amount: '$189.00',
+			date: 'Dec 12, 2024',
+			status: 'processing',
+		},
+		{
+			id: 'ORD-4519',
+			customer: 'Bob Wilson',
+			email: 'bob@example.com',
+			amount: '$456.20',
+			date: 'Dec 11, 2024',
+			status: 'shipped',
+		},
+		{
+			id: 'ORD-4518',
+			customer: 'Alice Brown',
+			email: 'alice@example.com',
+			amount: '$78.90',
+			date: 'Dec 11, 2024',
+			status: 'delivered',
+		},
+		{
+			id: 'ORD-4517',
+			customer: 'Mike Johnson',
+			email: 'mike@example.com',
+			amount: '$321.00',
+			date: 'Dec 10, 2024',
+			status: 'delivered',
+		},
+		{
+			id: 'ORD-4516',
+			customer: 'Sarah Davis',
+			email: 'sarah@example.com',
+			amount: '$145.50',
+			date: 'Dec 10, 2024',
+			status: 'cancelled',
+		},
 	];
 
-	const pending = allOrders.filter((o) => o.status === 'pending' || o.status === 'processing');
+	const pending = allOrders.filter(
+		(o) => o.status === 'pending' || o.status === 'processing',
+	);
 	const shipped = allOrders.filter((o) => o.status === 'shipped');
 	const completed = allOrders.filter((o) => o.status === 'delivered');
 	const cancelled = allOrders.filter((o) => o.status === 'cancelled');
@@ -114,10 +166,18 @@ export default function Main() {
 						<Tabs defaultValue="all" className="w-full">
 							<TabsList className="mb-4">
 								<TabsTrigger value="all">All ({allOrders.length})</TabsTrigger>
-								<TabsTrigger value="pending">Pending ({pending.length})</TabsTrigger>
-								<TabsTrigger value="shipped">Shipped ({shipped.length})</TabsTrigger>
-								<TabsTrigger value="completed">Completed ({completed.length})</TabsTrigger>
-								<TabsTrigger value="cancelled">Cancelled ({cancelled.length})</TabsTrigger>
+								<TabsTrigger value="pending">
+									Pending ({pending.length})
+								</TabsTrigger>
+								<TabsTrigger value="shipped">
+									Shipped ({shipped.length})
+								</TabsTrigger>
+								<TabsTrigger value="completed">
+									Completed ({completed.length})
+								</TabsTrigger>
+								<TabsTrigger value="cancelled">
+									Cancelled ({cancelled.length})
+								</TabsTrigger>
 							</TabsList>
 							<TabsContent value="all">
 								<Table>
@@ -126,7 +186,9 @@ export default function Main() {
 											<TableHead>Order ID</TableHead>
 											<TableHead>Customer</TableHead>
 											<TableHead>Amount</TableHead>
-											<TableHead className="hidden @lg:table-cell">Date</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Date
+											</TableHead>
 											<TableHead>Status</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -145,7 +207,9 @@ export default function Main() {
 											<TableHead>Order ID</TableHead>
 											<TableHead>Customer</TableHead>
 											<TableHead>Amount</TableHead>
-											<TableHead className="hidden @lg:table-cell">Date</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Date
+											</TableHead>
 											<TableHead>Status</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -164,7 +228,9 @@ export default function Main() {
 											<TableHead>Order ID</TableHead>
 											<TableHead>Customer</TableHead>
 											<TableHead>Amount</TableHead>
-											<TableHead className="hidden @lg:table-cell">Date</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Date
+											</TableHead>
 											<TableHead>Status</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -183,7 +249,9 @@ export default function Main() {
 											<TableHead>Order ID</TableHead>
 											<TableHead>Customer</TableHead>
 											<TableHead>Amount</TableHead>
-											<TableHead className="hidden @lg:table-cell">Date</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Date
+											</TableHead>
 											<TableHead>Status</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -202,7 +270,9 @@ export default function Main() {
 											<TableHead>Order ID</TableHead>
 											<TableHead>Customer</TableHead>
 											<TableHead>Amount</TableHead>
-											<TableHead className="hidden @lg:table-cell">Date</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Date
+											</TableHead>
 											<TableHead>Status</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>

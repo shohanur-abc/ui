@@ -1,6 +1,13 @@
 'use client';
 
-import { ArrowDown, ArrowUp, ArrowUpDown, Clock, Globe, Zap } from 'lucide-react';
+import {
+	ArrowDown,
+	ArrowUp,
+	ArrowUpDown,
+	Clock,
+	Globe,
+	Zap,
+} from 'lucide-react';
 import { useState } from 'react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -33,7 +40,10 @@ type TrafficSourceItem = {
 	conversionRate: number;
 };
 
-const channelConfig: Record<TrafficSourceItem['channel'], { color: string; icon: LucideIcon }> = {
+const channelConfig: Record<
+	TrafficSourceItem['channel'],
+	{ color: string; icon: LucideIcon }
+> = {
 	organic: { color: 'bg-emerald-500/10 text-emerald-500', icon: Globe },
 	paid: { color: 'bg-blue-500/10 text-blue-500', icon: Zap },
 	social: { color: 'bg-purple-500/10 text-purple-500', icon: Globe },
@@ -118,9 +128,7 @@ const SourceRow = ({
 			<TableCell className="text-right font-medium">
 				{visitors.toLocaleString()}
 			</TableCell>
-			<TableCell className="text-right">
-				{pageViews.toLocaleString()}
-			</TableCell>
+			<TableCell className="text-right">{pageViews.toLocaleString()}</TableCell>
 			<TableCell className="text-right">
 				<span
 					className={
@@ -162,12 +170,72 @@ export default function Main() {
 	};
 
 	const sources: TrafficSourceItem[] = [
-		{ id: 1, source: 'Google Search', channel: 'organic', visitors: 45820, pageViews: 124500, bounceRate: 32, avgDuration: '4:23', conversions: 1834, conversionRate: 4.0 },
-		{ id: 2, source: 'Facebook Ads', channel: 'paid', visitors: 28450, pageViews: 68200, bounceRate: 48, avgDuration: '2:15', conversions: 854, conversionRate: 3.0 },
-		{ id: 3, source: 'Instagram', channel: 'social', visitors: 18920, pageViews: 42100, bounceRate: 55, avgDuration: '1:45', conversions: 378, conversionRate: 2.0 },
-		{ id: 4, source: 'Direct Traffic', channel: 'direct', visitors: 15680, pageViews: 38900, bounceRate: 28, avgDuration: '5:12', conversions: 784, conversionRate: 5.0 },
-		{ id: 5, source: 'Partner Sites', channel: 'referral', visitors: 8920, pageViews: 21400, bounceRate: 42, avgDuration: '3:08', conversions: 267, conversionRate: 3.0 },
-		{ id: 6, source: 'Email Campaign', channel: 'direct', visitors: 6450, pageViews: 18200, bounceRate: 25, avgDuration: '4:45', conversions: 452, conversionRate: 7.0 },
+		{
+			id: 1,
+			source: 'Google Search',
+			channel: 'organic',
+			visitors: 45820,
+			pageViews: 124500,
+			bounceRate: 32,
+			avgDuration: '4:23',
+			conversions: 1834,
+			conversionRate: 4.0,
+		},
+		{
+			id: 2,
+			source: 'Facebook Ads',
+			channel: 'paid',
+			visitors: 28450,
+			pageViews: 68200,
+			bounceRate: 48,
+			avgDuration: '2:15',
+			conversions: 854,
+			conversionRate: 3.0,
+		},
+		{
+			id: 3,
+			source: 'Instagram',
+			channel: 'social',
+			visitors: 18920,
+			pageViews: 42100,
+			bounceRate: 55,
+			avgDuration: '1:45',
+			conversions: 378,
+			conversionRate: 2.0,
+		},
+		{
+			id: 4,
+			source: 'Direct Traffic',
+			channel: 'direct',
+			visitors: 15680,
+			pageViews: 38900,
+			bounceRate: 28,
+			avgDuration: '5:12',
+			conversions: 784,
+			conversionRate: 5.0,
+		},
+		{
+			id: 5,
+			source: 'Partner Sites',
+			channel: 'referral',
+			visitors: 8920,
+			pageViews: 21400,
+			bounceRate: 42,
+			avgDuration: '3:08',
+			conversions: 267,
+			conversionRate: 3.0,
+		},
+		{
+			id: 6,
+			source: 'Email Campaign',
+			channel: 'direct',
+			visitors: 6450,
+			pageViews: 18200,
+			bounceRate: 25,
+			avgDuration: '4:45',
+			conversions: 452,
+			conversionRate: 7.0,
+		},
 	];
 
 	const sortedSources = [...sources].sort((a, b) => {

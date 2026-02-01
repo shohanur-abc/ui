@@ -62,7 +62,12 @@ const ReviewPanel = ({
 const ItemCard = ({ product }: { product: Product }) => (
 	<div className="flex gap-4 rounded-xl bg-muted/50 p-4">
 		<div className="relative size-24 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex flex-1 flex-col justify-between">
 			<div>
@@ -134,7 +139,9 @@ const PaymentRow = ({
 			<CreditCard className="size-6 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -153,7 +160,9 @@ const TotalLine = ({
 }) => (
 	<div className={`flex justify-between ${large ? 'text-xl font-bold' : ''}`}>
 		<span className={large ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -162,7 +171,9 @@ const ConfirmationBanner = () => (
 		<CheckCircle2 className="size-6 text-primary" />
 		<div>
 			<p className="font-medium">All details verified</p>
-			<p className="text-sm text-muted-foreground">Ready to complete your order</p>
+			<p className="text-sm text-muted-foreground">
+				Ready to complete your order
+			</p>
 		</div>
 	</div>
 );
@@ -175,7 +186,8 @@ export default function Main() {
 			desc: 'Non-slip / Purple',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -183,12 +195,16 @@ export default function Main() {
 			desc: '5 Levels / Latex-free',
 			price: 24.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=200&h=200&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden bg-gradient-to-b from-background via-background to-muted/20" data-theme="neon">
+		<section
+			className="@container relative overflow-hidden bg-gradient-to-b from-background via-background to-muted/20"
+			data-theme="neon"
+		>
 			<div className="mx-auto max-w-4xl px-4 py-12 @sm:px-6 @md:py-16 @xl:py-20 @2xl:px-8">
 				<div className="mb-10 flex flex-col items-center text-center">
 					<div className="mb-4 flex size-16 items-center justify-center rounded-2xl bg-primary/10">
@@ -222,12 +238,20 @@ export default function Main() {
 							<AddressDisplay
 								type="Shipping"
 								name="Amanda Lee"
-								address={['789 Wellness Street', 'Apt 12C', 'Portland, OR 97201']}
+								address={[
+									'789 Wellness Street',
+									'Apt 12C',
+									'Portland, OR 97201',
+								]}
 							/>
 							<AddressDisplay
 								type="Billing"
 								name="Amanda Lee"
-								address={['789 Wellness Street', 'Apt 12C', 'Portland, OR 97201']}
+								address={[
+									'789 Wellness Street',
+									'Apt 12C',
+									'Portland, OR 97201',
+								]}
 							/>
 						</div>
 					</ReviewPanel>
@@ -262,7 +286,8 @@ export default function Main() {
 						</Button>
 
 						<p className="mt-4 text-center text-xs text-muted-foreground">
-							By placing this order, you agree to our Terms of Service and Privacy Policy
+							By placing this order, you agree to our Terms of Service and
+							Privacy Policy
 						</p>
 					</div>
 				</div>

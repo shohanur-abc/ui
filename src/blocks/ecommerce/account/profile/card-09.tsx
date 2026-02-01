@@ -1,10 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowDownRight,
@@ -36,7 +33,9 @@ const WalletHeader = ({
 		<div className="flex items-center gap-3 mb-6">
 			<Avatar className="size-10 ring-2 ring-primary-foreground/20">
 				<AvatarImage src={src} alt={name} />
-				<AvatarFallback className="bg-primary-foreground/20">{fallback}</AvatarFallback>
+				<AvatarFallback className="bg-primary-foreground/20">
+					{fallback}
+				</AvatarFallback>
 			</Avatar>
 			<div>
 				<p className="text-sm opacity-80">Welcome back,</p>
@@ -56,7 +55,12 @@ const WalletHeader = ({
 const QuickActions = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; color: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		color: string;
+	}[];
 }) => (
 	<div className="grid grid-cols-4 gap-2">
 		{items.map((action, i) => (
@@ -80,7 +84,12 @@ const QuickActions = ({
 const PaymentMethods = ({
 	items,
 }: {
-	items: { type: string; last4: string; icon: React.ElementType; primary?: boolean }[];
+	items: {
+		type: string;
+		last4: string;
+		icon: React.ElementType;
+		primary?: boolean;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
@@ -104,7 +113,9 @@ const PaymentMethods = ({
 						<p className="text-xs text-muted-foreground">•••• {method.last4}</p>
 					</div>
 					{method.primary && (
-						<Badge variant="secondary" className="text-xs">Primary</Badge>
+						<Badge variant="secondary" className="text-xs">
+							Primary
+						</Badge>
 					)}
 				</div>
 			))}
@@ -115,7 +126,13 @@ const PaymentMethods = ({
 const RecentTransactions = ({
 	items,
 }: {
-	items: { title: string; amount: string; date: string; type: 'in' | 'out'; category: string }[];
+	items: {
+		title: string;
+		amount: string;
+		date: string;
+		type: 'in' | 'out';
+		category: string;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
@@ -128,11 +145,10 @@ const RecentTransactions = ({
 		</div>
 		<div className="space-y-2">
 			{items.map((tx, i) => (
-				<div
-					key={i}
-					className="flex items-center gap-3 py-2"
-				>
-					<div className={`p-2 rounded-full ${tx.type === 'in' ? 'bg-green-500/10' : 'bg-red-500/10'}`}>
+				<div key={i} className="flex items-center gap-3 py-2">
+					<div
+						className={`p-2 rounded-full ${tx.type === 'in' ? 'bg-green-500/10' : 'bg-red-500/10'}`}
+					>
 						{tx.type === 'in' ? (
 							<ArrowDownRight className="size-4 text-green-500" />
 						) : (
@@ -144,8 +160,11 @@ const RecentTransactions = ({
 						<p className="text-xs text-muted-foreground">{tx.category}</p>
 					</div>
 					<div className="text-right">
-						<p className={`text-sm font-medium ${tx.type === 'in' ? 'text-green-500' : ''}`}>
-							{tx.type === 'in' ? '+' : '-'}{tx.amount}
+						<p
+							className={`text-sm font-medium ${tx.type === 'in' ? 'text-green-500' : ''}`}
+						>
+							{tx.type === 'in' ? '+' : '-'}
+							{tx.amount}
 						</p>
 						<p className="text-xs text-muted-foreground">{tx.date}</p>
 					</div>
@@ -165,19 +184,57 @@ export default function Main() {
 			currency: 'USD',
 		},
 		quickActions: [
-			{ icon: Plus, label: 'Add', href: '/wallet/add', color: 'bg-blue-500/10 text-blue-500' },
-			{ icon: Send, label: 'Send', href: '/wallet/send', color: 'bg-green-500/10 text-green-500' },
-			{ icon: Gift, label: 'Redeem', href: '/wallet/redeem', color: 'bg-purple-500/10 text-purple-500' },
-			{ icon: History, label: 'History', href: '/wallet/history', color: 'bg-amber-500/10 text-amber-500' },
+			{
+				icon: Plus,
+				label: 'Add',
+				href: '/wallet/add',
+				color: 'bg-blue-500/10 text-blue-500',
+			},
+			{
+				icon: Send,
+				label: 'Send',
+				href: '/wallet/send',
+				color: 'bg-green-500/10 text-green-500',
+			},
+			{
+				icon: Gift,
+				label: 'Redeem',
+				href: '/wallet/redeem',
+				color: 'bg-purple-500/10 text-purple-500',
+			},
+			{
+				icon: History,
+				label: 'History',
+				href: '/wallet/history',
+				color: 'bg-amber-500/10 text-amber-500',
+			},
 		],
 		paymentMethods: [
 			{ type: 'Visa', last4: '4242', icon: CreditCard, primary: true },
 			{ type: 'Mastercard', last4: '8888', icon: CreditCard },
 		],
 		transactions: [
-			{ title: 'Order #12847', amount: '$89.99', date: 'Today', type: 'out' as const, category: 'Shopping' },
-			{ title: 'Cashback Reward', amount: '$12.50', date: 'Yesterday', type: 'in' as const, category: 'Rewards' },
-			{ title: 'Wallet Top-up', amount: '$200.00', date: 'Jan 28', type: 'in' as const, category: 'Deposit' },
+			{
+				title: 'Order #12847',
+				amount: '$89.99',
+				date: 'Today',
+				type: 'out' as const,
+				category: 'Shopping',
+			},
+			{
+				title: 'Cashback Reward',
+				amount: '$12.50',
+				date: 'Yesterday',
+				type: 'in' as const,
+				category: 'Rewards',
+			},
+			{
+				title: 'Wallet Top-up',
+				amount: '$200.00',
+				date: 'Jan 28',
+				type: 'in' as const,
+				category: 'Deposit',
+			},
 		],
 	};
 

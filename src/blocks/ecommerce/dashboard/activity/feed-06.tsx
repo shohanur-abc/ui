@@ -49,7 +49,10 @@ const CampaignIcon = ({ type }: { type: CampaignActivity['type'] }) => {
 		email: { icon: Mail, className: 'bg-blue-500/20 text-blue-400' },
 		social: { icon: Share2, className: 'bg-pink-500/20 text-pink-400' },
 		ppc: { icon: Target, className: 'bg-amber-500/20 text-amber-400' },
-		affiliate: { icon: Megaphone, className: 'bg-purple-500/20 text-purple-400' },
+		affiliate: {
+			icon: Megaphone,
+			className: 'bg-purple-500/20 text-purple-400',
+		},
 	};
 
 	const { icon: Icon, className } = config[type];
@@ -78,13 +81,7 @@ const StatusBadge = ({ status }: { status: CampaignActivity['status'] }) => {
 	);
 };
 
-const BudgetBar = ({
-	spent,
-	total,
-}: {
-	spent: string;
-	total: string;
-}) => {
+const BudgetBar = ({ spent, total }: { spent: string; total: string }) => {
 	const spentNum = parseFloat(spent.replace(/[^0-9.]/g, ''));
 	const totalNum = parseFloat(total.replace(/[^0-9.]/g, ''));
 	const percentage = Math.min((spentNum / totalNum) * 100, 100);
@@ -100,7 +97,11 @@ const BudgetBar = ({
 			<div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
 				<div
 					className={`h-full transition-all ${
-						percentage > 90 ? 'bg-rose-500' : percentage > 70 ? 'bg-amber-500' : 'bg-primary'
+						percentage > 90
+							? 'bg-rose-500'
+							: percentage > 70
+								? 'bg-amber-500'
+								: 'bg-primary'
 					}`}
 					style={{ width: `${percentage}%` }}
 				/>
@@ -172,7 +173,9 @@ const CampaignCard = ({ campaign }: { campaign: CampaignActivity }) => (
 								}`}
 							>
 								{campaign.trend === 'up' && <TrendingUp className="size-3" />}
-								{campaign.trend === 'down' && <TrendingDown className="size-3" />}
+								{campaign.trend === 'down' && (
+									<TrendingDown className="size-3" />
+								)}
 								<span>{campaign.trendValue}</span>
 							</div>
 							<StatusBadge status={campaign.status} />
@@ -210,8 +213,12 @@ const OverviewStats = ({
 			<span className="text-2xl font-bold text-foreground">{totalSpend}</span>
 		</div>
 		<div className="flex flex-col p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-			<span className="text-sm text-muted-foreground mb-1">Revenue Generated</span>
-			<span className="text-2xl font-bold text-emerald-400">{totalRevenue}</span>
+			<span className="text-sm text-muted-foreground mb-1">
+				Revenue Generated
+			</span>
+			<span className="text-2xl font-bold text-emerald-400">
+				{totalRevenue}
+			</span>
 		</div>
 	</div>
 );

@@ -3,7 +3,15 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import { Package, Truck, CheckCircle2, MapPin, Calendar, ArrowRight, Clock } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	CheckCircle2,
+	MapPin,
+	Calendar,
+	ArrowRight,
+	Clock,
+} from 'lucide-react';
 
 interface TrackingStep {
 	icon: React.ComponentType<{ className?: string }>;
@@ -40,17 +48,27 @@ interface TrackingStepItemProps {
 const TrackingStepItem = ({ step, isLast }: TrackingStepItemProps) => (
 	<div className="flex gap-3">
 		<div className="flex flex-col items-center">
-			<div className={`size-8 rounded-full flex items-center justify-center ${
-				step.completed ? 'bg-primary text-primary-foreground' : step.current ? 'bg-primary/20 text-primary border-2 border-primary' : 'bg-muted text-muted-foreground'
-			}`}>
+			<div
+				className={`size-8 rounded-full flex items-center justify-center ${
+					step.completed
+						? 'bg-primary text-primary-foreground'
+						: step.current
+							? 'bg-primary/20 text-primary border-2 border-primary'
+							: 'bg-muted text-muted-foreground'
+				}`}
+			>
 				<step.icon className="size-4" />
 			</div>
 			{!isLast && (
-				<div className={`w-0.5 h-8 ${step.completed ? 'bg-primary' : 'bg-border'}`} />
+				<div
+					className={`w-0.5 h-8 ${step.completed ? 'bg-primary' : 'bg-border'}`}
+				/>
 			)}
 		</div>
 		<div className="pb-4">
-			<p className={`font-medium ${step.current ? 'text-primary' : step.completed ? '' : 'text-muted-foreground'}`}>
+			<p
+				className={`font-medium ${step.current ? 'text-primary' : step.completed ? '' : 'text-muted-foreground'}`}
+			>
 				{step.label}
 			</p>
 			<p className="text-xs text-muted-foreground">{step.date}</p>
@@ -58,14 +76,24 @@ const TrackingStepItem = ({ step, isLast }: TrackingStepItemProps) => (
 	</div>
 );
 
-const InfoBadge = ({ icon: Icon, text }: { icon: React.ComponentType<{ className?: string }>; text: string }) => (
+const InfoBadge = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	text: string;
+}) => (
 	<div className="flex items-center gap-1.5 text-sm text-muted-foreground">
 		<Icon className="size-4" />
 		<span>{text}</span>
 	</div>
 );
 
-const OrderTrackingCard = ({ order, steps, labels }: OrderTrackingCardProps) => (
+const OrderTrackingCard = ({
+	order,
+	steps,
+	labels,
+}: OrderTrackingCardProps) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
 		<div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-4 border-b border-border/50">
 			<div className="flex items-center justify-between">
@@ -84,7 +112,7 @@ const OrderTrackingCard = ({ order, steps, labels }: OrderTrackingCardProps) => 
 				<InfoBadge icon={MapPin} text={order.currentLocation} />
 				<InfoBadge icon={Calendar} text={order.estimatedDelivery} />
 			</div>
-			
+
 			<div>
 				<div className="flex items-center justify-between text-sm mb-2">
 					<span className="text-muted-foreground">Delivery Progress</span>
@@ -97,7 +125,11 @@ const OrderTrackingCard = ({ order, steps, labels }: OrderTrackingCardProps) => 
 
 			<div className="space-y-0">
 				{steps.map((step, i) => (
-					<TrackingStepItem key={i} step={step} isLast={i === steps.length - 1} />
+					<TrackingStepItem
+						key={i}
+						step={step}
+						isLast={i === steps.length - 1}
+					/>
 				))}
 			</div>
 
@@ -128,11 +160,37 @@ export default function Main() {
 	};
 
 	const steps: TrackingStep[] = [
-		{ icon: Package, label: 'Order Placed', date: 'Jan 25, 2026 • 10:30 AM', completed: true },
-		{ icon: CheckCircle2, label: 'Order Confirmed', date: 'Jan 25, 2026 • 11:00 AM', completed: true },
-		{ icon: Truck, label: 'In Transit', date: 'Jan 27, 2026 • 2:30 PM', completed: true, current: true },
-		{ icon: MapPin, label: 'Out for Delivery', date: 'Pending', completed: false },
-		{ icon: CheckCircle2, label: 'Delivered', date: 'Est. Jan 30, 2026', completed: false },
+		{
+			icon: Package,
+			label: 'Order Placed',
+			date: 'Jan 25, 2026 • 10:30 AM',
+			completed: true,
+		},
+		{
+			icon: CheckCircle2,
+			label: 'Order Confirmed',
+			date: 'Jan 25, 2026 • 11:00 AM',
+			completed: true,
+		},
+		{
+			icon: Truck,
+			label: 'In Transit',
+			date: 'Jan 27, 2026 • 2:30 PM',
+			completed: true,
+			current: true,
+		},
+		{
+			icon: MapPin,
+			label: 'Out for Delivery',
+			date: 'Pending',
+			completed: false,
+		},
+		{
+			icon: CheckCircle2,
+			label: 'Delivered',
+			date: 'Est. Jan 30, 2026',
+			completed: false,
+		},
 	];
 
 	return (

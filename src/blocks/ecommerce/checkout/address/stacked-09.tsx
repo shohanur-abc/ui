@@ -52,7 +52,10 @@ const Header = ({ badge, title, subtitle }: HeaderProps) => (
 const TrustBadges = ({ items }: TrustBadgeProps) => (
 	<div className="flex items-center justify-center gap-6 mb-8">
 		{items.map((item, i) => (
-			<div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+			<div
+				key={i}
+				className="flex items-center gap-2 text-sm text-muted-foreground"
+			>
 				<item.icon className="size-4" />
 				<span>{item.text}</span>
 			</div>

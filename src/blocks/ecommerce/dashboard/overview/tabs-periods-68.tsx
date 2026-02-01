@@ -12,7 +12,13 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	ChartConfig,
 	ChartContainer,
@@ -36,7 +42,10 @@ const PeriodKpiCard = ({ title, value, change, icon: Icon }: PeriodKpi) => (
 		</div>
 		<div className="mt-2 flex items-end justify-between">
 			<p className="text-2xl font-bold">{value}</p>
-			<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+			<Badge
+				variant="secondary"
+				className="bg-emerald-500/10 text-emerald-500 text-xs"
+			>
 				<ArrowUpRight className="mr-0.5 size-3" />
 				{change}
 			</Badge>
@@ -106,7 +115,9 @@ export default function Main() {
 							<Calendar className="size-5 text-primary" />
 							Time Period Analysis
 						</CardTitle>
-						<CardDescription>View metrics across different time periods</CardDescription>
+						<CardDescription>
+							View metrics across different time periods
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Tabs defaultValue="daily" className="w-full">
@@ -122,12 +133,25 @@ export default function Main() {
 											<PeriodKpiCard key={i} {...kpi} />
 										))}
 									</div>
-									<ChartContainer config={chartConfig} className="h-[240px] w-full">
+									<ChartContainer
+										config={chartConfig}
+										className="h-[240px] w-full"
+									>
 										<LineChart data={dailyData}>
 											<XAxis dataKey="time" tickLine={false} axisLine={false} />
-											<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}`} />
+											<YAxis
+												tickLine={false}
+												axisLine={false}
+												tickFormatter={(v) => `$${v}`}
+											/>
 											<ChartTooltip content={<ChartTooltipContent />} />
-											<Line type="monotone" dataKey="revenue" stroke="var(--color-revenue)" strokeWidth={2} dot={false} />
+											<Line
+												type="monotone"
+												dataKey="revenue"
+												stroke="var(--color-revenue)"
+												strokeWidth={2}
+												dot={false}
+											/>
 										</LineChart>
 									</ChartContainer>
 								</div>
@@ -139,12 +163,25 @@ export default function Main() {
 											<PeriodKpiCard key={i} {...kpi} />
 										))}
 									</div>
-									<ChartContainer config={chartConfig} className="h-[240px] w-full">
+									<ChartContainer
+										config={chartConfig}
+										className="h-[240px] w-full"
+									>
 										<LineChart data={weeklyData}>
 											<XAxis dataKey="time" tickLine={false} axisLine={false} />
-											<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v / 1000}K`} />
+											<YAxis
+												tickLine={false}
+												axisLine={false}
+												tickFormatter={(v) => `$${v / 1000}K`}
+											/>
 											<ChartTooltip content={<ChartTooltipContent />} />
-											<Line type="monotone" dataKey="revenue" stroke="var(--color-revenue)" strokeWidth={2} dot={false} />
+											<Line
+												type="monotone"
+												dataKey="revenue"
+												stroke="var(--color-revenue)"
+												strokeWidth={2}
+												dot={false}
+											/>
 										</LineChart>
 									</ChartContainer>
 								</div>
@@ -156,12 +193,25 @@ export default function Main() {
 											<PeriodKpiCard key={i} {...kpi} />
 										))}
 									</div>
-									<ChartContainer config={chartConfig} className="h-[240px] w-full">
+									<ChartContainer
+										config={chartConfig}
+										className="h-[240px] w-full"
+									>
 										<LineChart data={monthlyData}>
 											<XAxis dataKey="time" tickLine={false} axisLine={false} />
-											<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v / 1000}K`} />
+											<YAxis
+												tickLine={false}
+												axisLine={false}
+												tickFormatter={(v) => `$${v / 1000}K`}
+											/>
 											<ChartTooltip content={<ChartTooltipContent />} />
-											<Line type="monotone" dataKey="revenue" stroke="var(--color-revenue)" strokeWidth={2} dot={false} />
+											<Line
+												type="monotone"
+												dataKey="revenue"
+												stroke="var(--color-revenue)"
+												strokeWidth={2}
+												dot={false}
+											/>
 										</LineChart>
 									</ChartContainer>
 								</div>

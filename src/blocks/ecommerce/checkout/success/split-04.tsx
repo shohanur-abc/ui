@@ -43,9 +43,7 @@ const MobilePreview = () => (
 						</div>
 						<div>
 							<p className="font-bold text-sm">Order Confirmed!</p>
-							<p className="text-xs text-muted-foreground mt-1">
-								#ORD-78432
-							</p>
+							<p className="text-xs text-muted-foreground mt-1">#ORD-78432</p>
 						</div>
 						<div className="w-full p-3 rounded-lg bg-muted/50 text-left">
 							<p className="text-xs text-muted-foreground">Delivery</p>
@@ -64,9 +62,7 @@ const MobilePreview = () => (
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div>
 		<h1 className="text-2xl @xl:text-3xl font-bold">{text}</h1>
-		{subtitle && (
-			<p className="text-muted-foreground mt-2">{subtitle}</p>
-		)}
+		{subtitle && <p className="text-muted-foreground mt-2">{subtitle}</p>}
 	</div>
 );
 
@@ -132,13 +128,7 @@ const NotificationSettings = ({
 	</div>
 );
 
-const DeliveryCard = ({
-	date,
-	address,
-}: {
-	date: string;
-	address: string;
-}) => (
+const DeliveryCard = ({ date, address }: { date: string; address: string }) => (
 	<Card className="border-primary/20 bg-primary/5">
 		<CardContent className="pt-6">
 			<div className="flex items-start gap-4">

@@ -63,7 +63,12 @@ const BulkActionsBar = ({
 			<span className="text-sm font-medium">
 				{selectedCount} {selectedText}
 			</span>
-			<Button variant="ghost" size="sm" onClick={onClearSelection} className="gap-1">
+			<Button
+				variant="ghost"
+				size="sm"
+				onClick={onClearSelection}
+				className="gap-1"
+			>
 				<X className="size-3" />
 				{clearText}
 			</Button>
@@ -91,7 +96,10 @@ type StatusBadgeProps = {
 };
 
 const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
-	const variants: Record<'active' | 'inactive' | 'archived', 'default' | 'secondary' | 'outline'> = {
+	const variants: Record<
+		'active' | 'inactive' | 'archived',
+		'default' | 'secondary' | 'outline'
+	> = {
 		active: 'default',
 		inactive: 'secondary',
 		archived: 'outline',
@@ -124,7 +132,11 @@ const InventoryRow = ({
 			<div className="flex items-center gap-3">
 				<div className="relative size-10 overflow-hidden rounded-lg border bg-muted">
 					{item.image ? (
-						<img src={item.image} alt={item.name} className="size-full object-cover" />
+						<img
+							src={item.image}
+							alt={item.name}
+							className="size-full object-cover"
+						/>
 					) : (
 						<div className="flex size-full items-center justify-center">
 							<Package className="size-5 text-muted-foreground" />
@@ -138,7 +150,9 @@ const InventoryRow = ({
 			</div>
 		</TableCell>
 		<TableCell className="font-medium tabular-nums">{item.quantity}</TableCell>
-		<TableCell className="font-medium tabular-nums">${item.price.toFixed(2)}</TableCell>
+		<TableCell className="font-medium tabular-nums">
+			${item.price.toFixed(2)}
+		</TableCell>
 		<TableCell>
 			<StatusBadge status={item.status} labels={statusLabels} />
 		</TableCell>
@@ -164,20 +178,85 @@ export default function Main() {
 	const [selectedIds, setSelectedIds] = React.useState<Set<string>>(new Set());
 
 	const inventory: InventoryItem[] = [
-		{ id: '1', name: 'Wireless Mouse', sku: 'WM-001', image: '', quantity: 150, price: 29.99, status: 'active' },
-		{ id: '2', name: 'USB-C Hub', sku: 'UCH-002', image: '', quantity: 75, price: 49.99, status: 'active' },
-		{ id: '3', name: 'Monitor Stand', sku: 'MS-003', image: '', quantity: 30, price: 79.99, status: 'inactive' },
-		{ id: '4', name: 'Webcam Pro', sku: 'WP-004', image: '', quantity: 0, price: 129.99, status: 'archived' },
-		{ id: '5', name: 'Desk Lamp LED', sku: 'DL-005', image: '', quantity: 200, price: 34.99, status: 'active' },
-		{ id: '6', name: 'Keyboard Wrist Rest', sku: 'KWR-006', image: '', quantity: 85, price: 19.99, status: 'active' },
+		{
+			id: '1',
+			name: 'Wireless Mouse',
+			sku: 'WM-001',
+			image: '',
+			quantity: 150,
+			price: 29.99,
+			status: 'active',
+		},
+		{
+			id: '2',
+			name: 'USB-C Hub',
+			sku: 'UCH-002',
+			image: '',
+			quantity: 75,
+			price: 49.99,
+			status: 'active',
+		},
+		{
+			id: '3',
+			name: 'Monitor Stand',
+			sku: 'MS-003',
+			image: '',
+			quantity: 30,
+			price: 79.99,
+			status: 'inactive',
+		},
+		{
+			id: '4',
+			name: 'Webcam Pro',
+			sku: 'WP-004',
+			image: '',
+			quantity: 0,
+			price: 129.99,
+			status: 'archived',
+		},
+		{
+			id: '5',
+			name: 'Desk Lamp LED',
+			sku: 'DL-005',
+			image: '',
+			quantity: 200,
+			price: 34.99,
+			status: 'active',
+		},
+		{
+			id: '6',
+			name: 'Keyboard Wrist Rest',
+			sku: 'KWR-006',
+			image: '',
+			quantity: 85,
+			price: 19.99,
+			status: 'active',
+		},
 	];
 
 	const bulkActions: BulkAction[] = [
 		{ label: 'Edit', icon: Edit, onClick: (ids) => console.log('Edit', ids) },
-		{ label: 'Duplicate', icon: Copy, onClick: (ids) => console.log('Duplicate', ids) },
-		{ label: 'Archive', icon: Archive, onClick: (ids) => console.log('Archive', ids) },
-		{ label: 'Sync', icon: RefreshCw, onClick: (ids) => console.log('Sync', ids) },
-		{ label: 'Delete', icon: Trash2, onClick: (ids) => console.log('Delete', ids), variant: 'destructive' },
+		{
+			label: 'Duplicate',
+			icon: Copy,
+			onClick: (ids) => console.log('Duplicate', ids),
+		},
+		{
+			label: 'Archive',
+			icon: Archive,
+			onClick: (ids) => console.log('Archive', ids),
+		},
+		{
+			label: 'Sync',
+			icon: RefreshCw,
+			onClick: (ids) => console.log('Sync', ids),
+		},
+		{
+			label: 'Delete',
+			icon: Trash2,
+			onClick: (ids) => console.log('Delete', ids),
+			variant: 'destructive',
+		},
 	];
 
 	const handleSelect = (id: string, checked: boolean) => {

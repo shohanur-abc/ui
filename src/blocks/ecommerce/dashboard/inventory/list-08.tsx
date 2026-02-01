@@ -10,7 +10,13 @@ import {
 	AlertTriangle,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -34,9 +40,21 @@ const BinRow = ({ bin }: BinRowProps) => {
 	const utilization = (bin.quantity / bin.maxCapacity) * 100;
 
 	const statusConfig = {
-		optimal: { label: 'Optimal', color: 'bg-emerald-500', variant: 'outline' as const },
-		overstocked: { label: 'Overstocked', color: 'bg-amber-500', variant: 'secondary' as const },
-		understocked: { label: 'Low', color: 'bg-orange-500', variant: 'secondary' as const },
+		optimal: {
+			label: 'Optimal',
+			color: 'bg-emerald-500',
+			variant: 'outline' as const,
+		},
+		overstocked: {
+			label: 'Overstocked',
+			color: 'bg-amber-500',
+			variant: 'secondary' as const,
+		},
+		understocked: {
+			label: 'Low',
+			color: 'bg-orange-500',
+			variant: 'secondary' as const,
+		},
 		empty: { label: 'Empty', color: 'bg-muted', variant: 'outline' as const },
 	};
 
@@ -61,9 +79,15 @@ const BinRow = ({ bin }: BinRowProps) => {
 			<div className="w-40">
 				<div className="flex justify-between text-xs">
 					<span className="text-muted-foreground">Capacity</span>
-					<span className="font-medium">{bin.quantity}/{bin.maxCapacity}</span>
+					<span className="font-medium">
+						{bin.quantity}/{bin.maxCapacity}
+					</span>
 				</div>
-				<Progress value={utilization} className="mt-1" indicatorClassName={color} />
+				<Progress
+					value={utilization}
+					className="mt-1"
+					indicatorClassName={color}
+				/>
 			</div>
 			<Badge variant={variant}>{label}</Badge>
 			<Button variant="ghost" size="sm">
@@ -102,12 +126,66 @@ const Summary = ({ totalBins, optimalCount, issueCount }: SummaryProps) => (
 
 export default function Main() {
 	const bins: Bin[] = [
-		{ id: '1', binCode: 'A-01-01', zone: 'Zone A', product: 'Wireless Earbuds Pro', sku: 'WEP-001', quantity: 85, maxCapacity: 100, status: 'optimal' },
-		{ id: '2', binCode: 'A-01-02', zone: 'Zone A', product: 'USB-C Fast Charger', sku: 'UFC-001', quantity: 145, maxCapacity: 120, status: 'overstocked' },
-		{ id: '3', binCode: 'A-02-01', zone: 'Zone A', product: 'Phone Case Premium', sku: 'PCP-001', quantity: 25, maxCapacity: 150, status: 'understocked' },
-		{ id: '4', binCode: 'B-01-01', zone: 'Zone B', product: 'Bluetooth Speaker', sku: 'BTS-001', quantity: 0, maxCapacity: 50, status: 'empty' },
-		{ id: '5', binCode: 'B-01-02', zone: 'Zone B', product: 'Screen Protector HD', sku: 'SPH-001', quantity: 180, maxCapacity: 200, status: 'optimal' },
-		{ id: '6', binCode: 'B-02-01', zone: 'Zone B', product: 'Power Bank 20000mAh', sku: 'PB-001', quantity: 42, maxCapacity: 60, status: 'optimal' },
+		{
+			id: '1',
+			binCode: 'A-01-01',
+			zone: 'Zone A',
+			product: 'Wireless Earbuds Pro',
+			sku: 'WEP-001',
+			quantity: 85,
+			maxCapacity: 100,
+			status: 'optimal',
+		},
+		{
+			id: '2',
+			binCode: 'A-01-02',
+			zone: 'Zone A',
+			product: 'USB-C Fast Charger',
+			sku: 'UFC-001',
+			quantity: 145,
+			maxCapacity: 120,
+			status: 'overstocked',
+		},
+		{
+			id: '3',
+			binCode: 'A-02-01',
+			zone: 'Zone A',
+			product: 'Phone Case Premium',
+			sku: 'PCP-001',
+			quantity: 25,
+			maxCapacity: 150,
+			status: 'understocked',
+		},
+		{
+			id: '4',
+			binCode: 'B-01-01',
+			zone: 'Zone B',
+			product: 'Bluetooth Speaker',
+			sku: 'BTS-001',
+			quantity: 0,
+			maxCapacity: 50,
+			status: 'empty',
+		},
+		{
+			id: '5',
+			binCode: 'B-01-02',
+			zone: 'Zone B',
+			product: 'Screen Protector HD',
+			sku: 'SPH-001',
+			quantity: 180,
+			maxCapacity: 200,
+			status: 'optimal',
+		},
+		{
+			id: '6',
+			binCode: 'B-02-01',
+			zone: 'Zone B',
+			product: 'Power Bank 20000mAh',
+			sku: 'PB-001',
+			quantity: 42,
+			maxCapacity: 60,
+			status: 'optimal',
+		},
 	];
 
 	const optimalCount = bins.filter((b) => b.status === 'optimal').length;
@@ -120,8 +198,12 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Bin Locations</CardTitle>
-								<CardDescription>Storage bin status and capacity</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Bin Locations
+								</CardTitle>
+								<CardDescription>
+									Storage bin status and capacity
+								</CardDescription>
 							</div>
 							<Button variant="outline">
 								<MapPin className="mr-2 size-4" />
@@ -130,7 +212,11 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent className="space-y-6">
-						<Summary totalBins={bins.length} optimalCount={optimalCount} issueCount={issueCount} />
+						<Summary
+							totalBins={bins.length}
+							optimalCount={optimalCount}
+							issueCount={issueCount}
+						/>
 						<div>
 							{bins.map((bin) => (
 								<BinRow key={bin.id} bin={bin} />

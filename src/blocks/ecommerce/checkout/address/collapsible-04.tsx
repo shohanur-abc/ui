@@ -135,7 +135,11 @@ const ShippingAddressForm = ({
 		</div>
 		<Field label="Email" placeholder="john@example.com" type="email" />
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -173,7 +177,10 @@ const ScheduleDeliveryForm = () => {
 			/>
 			<div className="flex items-center gap-2">
 				<Checkbox id="leave-door" />
-				<Label htmlFor="leave-door" className="text-sm font-normal cursor-pointer">
+				<Label
+					htmlFor="leave-door"
+					className="text-sm font-normal cursor-pointer"
+				>
 					Leave at door if no one is home
 				</Label>
 			</div>
@@ -191,13 +198,19 @@ const GiftOptionsForm = () => (
 		</div>
 		<div className="flex items-center gap-2">
 			<Checkbox id="gift-receipt" />
-			<Label htmlFor="gift-receipt" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="gift-receipt"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Include gift receipt (prices hidden)
 			</Label>
 		</div>
 		<div className="space-y-2">
 			<Label className="text-sm">Gift Message</Label>
-			<Textarea placeholder="Add a personal message..." className="min-h-[80px]" />
+			<Textarea
+				placeholder="Add a personal message..."
+				className="min-h-[80px]"
+			/>
 		</div>
 	</div>
 );
@@ -227,7 +240,7 @@ export default function Main() {
 		setOpenSections((prev) =>
 			prev.includes(section)
 				? prev.filter((s) => s !== section)
-				: [...prev, section]
+				: [...prev, section],
 		);
 	};
 

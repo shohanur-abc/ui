@@ -45,13 +45,25 @@ interface ReviewCardProps {
 	onEdit?: () => void;
 }
 
-const StatusIcon = ({ status }: { status: 'complete' | 'warning' | 'pending' }) => {
-	if (status === 'complete') return <CheckCircle2 className="size-4 text-green-500" />;
-	if (status === 'warning') return <AlertCircle className="size-4 text-amber-500" />;
+const StatusIcon = ({
+	status,
+}: {
+	status: 'complete' | 'warning' | 'pending';
+}) => {
+	if (status === 'complete')
+		return <CheckCircle2 className="size-4 text-green-500" />;
+	if (status === 'warning')
+		return <AlertCircle className="size-4 text-amber-500" />;
 	return <Clock className="size-4 text-muted-foreground" />;
 };
 
-const ReviewCard = ({ icon: Icon, title, status, children, onEdit }: ReviewCardProps) => (
+const ReviewCard = ({
+	icon: Icon,
+	title,
+	status,
+	children,
+	onEdit,
+}: ReviewCardProps) => (
 	<Card className="group transition-all hover:shadow-md hover:shadow-primary/5">
 		<CardHeader className="pb-3">
 			<div className="flex items-start justify-between">
@@ -86,10 +98,17 @@ const ReviewCard = ({ icon: Icon, title, status, children, onEdit }: ReviewCardP
 const ProductItem = ({ product }: { product: Product }) => (
 	<div className="flex gap-4">
 		<div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-muted">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 			{!product.inStock && (
 				<div className="absolute inset-0 flex items-center justify-center bg-background/80">
-					<span className="text-xs font-medium text-destructive">Out of Stock</span>
+					<span className="text-xs font-medium text-destructive">
+						Out of Stock
+					</span>
 				</div>
 			)}
 		</div>
@@ -97,7 +116,9 @@ const ProductItem = ({ product }: { product: Product }) => (
 			<p className="font-medium leading-tight">{product.name}</p>
 			<p className="text-sm text-muted-foreground">{product.description}</p>
 			<div className="mt-auto flex items-center justify-between">
-				<span className="text-sm text-muted-foreground">Qty: {product.quantity}</span>
+				<span className="text-sm text-muted-foreground">
+					Qty: {product.quantity}
+				</span>
 				<div className="flex items-center gap-2">
 					{product.originalPrice && (
 						<span className="text-sm text-muted-foreground line-through">
@@ -122,13 +143,23 @@ const SummaryRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
-const ProgressIndicator = ({ value, label }: { value: number; label: string }) => (
+const ProgressIndicator = ({
+	value,
+	label,
+}: {
+	value: number;
+	label: string;
+}) => (
 	<div className="space-y-2">
 		<div className="flex justify-between text-sm">
 			<span className="text-muted-foreground">{label}</span>
@@ -147,7 +178,8 @@ export default function Main() {
 			price: 449.0,
 			originalPrice: 549.0,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=200&h=200&fit=crop',
 			inStock: true,
 		},
 		{
@@ -156,7 +188,8 @@ export default function Main() {
 			description: 'Electric / Walnut Top',
 			price: 699.0,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=200&h=200&fit=crop',
 			inStock: true,
 		},
 	];
@@ -178,7 +211,12 @@ export default function Main() {
 				</div>
 
 				<div className="grid gap-6 @lg:grid-cols-2 @xl:grid-cols-3">
-					<ReviewCard icon={Package} title="Order Items" status="complete" onEdit={() => {}}>
+					<ReviewCard
+						icon={Package}
+						title="Order Items"
+						status="complete"
+						onEdit={() => {}}
+					>
 						<div className="space-y-4">
 							{products.map((product) => (
 								<ProductItem key={product.id} product={product} />
@@ -186,22 +224,36 @@ export default function Main() {
 						</div>
 					</ReviewCard>
 
-					<ReviewCard icon={MapPin} title="Shipping Address" status="complete" onEdit={() => {}}>
+					<ReviewCard
+						icon={MapPin}
+						title="Shipping Address"
+						status="complete"
+						onEdit={() => {}}
+					>
 						<div className="space-y-1">
 							<p className="font-medium">Michael Chen</p>
 							<p className="text-sm text-muted-foreground">789 Pine Street</p>
 							<p className="text-sm text-muted-foreground">Austin, TX 78701</p>
 							<p className="text-sm text-muted-foreground">United States</p>
-							<p className="mt-2 text-sm text-muted-foreground">+1 (512) 555-0123</p>
+							<p className="mt-2 text-sm text-muted-foreground">
+								+1 (512) 555-0123
+							</p>
 						</div>
 					</ReviewCard>
 
-					<ReviewCard icon={Truck} title="Delivery Method" status="complete" onEdit={() => {}}>
+					<ReviewCard
+						icon={Truck}
+						title="Delivery Method"
+						status="complete"
+						onEdit={() => {}}
+					>
 						<div className="rounded-lg bg-muted/50 p-3">
 							<div className="flex items-center justify-between">
 								<div>
 									<p className="font-medium">Standard Shipping</p>
-									<p className="text-sm text-muted-foreground">5-7 business days</p>
+									<p className="text-sm text-muted-foreground">
+										5-7 business days
+									</p>
 								</div>
 								<span className="font-medium">Free</span>
 							</div>
@@ -212,7 +264,12 @@ export default function Main() {
 						</div>
 					</ReviewCard>
 
-					<ReviewCard icon={CreditCard} title="Payment Method" status="complete" onEdit={() => {}}>
+					<ReviewCard
+						icon={CreditCard}
+						title="Payment Method"
+						status="complete"
+						onEdit={() => {}}
+					>
 						<div className="flex items-center gap-3">
 							<div className="flex size-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-800">
 								<CreditCard className="size-6 text-white" />
@@ -224,7 +281,11 @@ export default function Main() {
 						</div>
 					</ReviewCard>
 
-					<ReviewCard icon={Percent} title="Applied Discounts" status="complete">
+					<ReviewCard
+						icon={Percent}
+						title="Applied Discounts"
+						status="complete"
+					>
 						<div className="space-y-2">
 							<div className="flex items-center justify-between rounded-lg bg-green-500/10 px-3 py-2">
 								<span className="text-sm font-medium text-green-600 dark:text-green-400">
@@ -250,7 +311,9 @@ export default function Main() {
 							<ProgressIndicator value={100} label="Buyer Protection" />
 							<div className="flex items-start gap-2 text-sm text-muted-foreground">
 								<CheckCircle2 className="mt-0.5 size-4 shrink-0 text-green-500" />
-								<span>Full refund if item not received or not as described</span>
+								<span>
+									Full refund if item not received or not as described
+								</span>
 							</div>
 						</div>
 					</ReviewCard>

@@ -1,6 +1,11 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Check, CircleDot } from 'lucide-react';
 import Link from 'next/link';
 
@@ -27,11 +32,21 @@ const Header = ({ title, subtitle }: { title: string; subtitle: string }) => (
 	</div>
 );
 
-const PriceDisplay = ({ monthly, yearly, savings }: { monthly: string; yearly: string; savings?: string }) => (
+const PriceDisplay = ({
+	monthly,
+	yearly,
+	savings,
+}: {
+	monthly: string;
+	yearly: string;
+	savings?: string;
+}) => (
 	<div className="space-y-2">
 		<div className="flex items-center gap-3">
 			<span className="text-4xl @lg:text-5xl font-bold">{yearly}</span>
-			<span className="text-muted-foreground line-through text-lg">{monthly}</span>
+			<span className="text-muted-foreground line-through text-lg">
+				{monthly}
+			</span>
 		</div>
 		{savings && (
 			<Badge variant="secondary" className="text-xs">
@@ -67,7 +82,9 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => (
 				yearly={plan.yearlyPrice}
 				savings={plan.savings}
 			/>
-			<p className="text-sm text-muted-foreground mt-1">per user {plan.period}</p>
+			<p className="text-sm text-muted-foreground mt-1">
+				per user {plan.period}
+			</p>
 			<div className="h-px bg-border my-6" />
 			<ul className="space-y-3">
 				{plan.features.map((feature, i) => (
@@ -95,7 +112,8 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => (
 
 export default function Main() {
 	const title = 'Annual Pricing';
-	const subtitle = 'Save up to 25% with annual billing. All plans include a 14-day free trial.';
+	const subtitle =
+		'Save up to 25% with annual billing. All plans include a 14-day free trial.';
 	const plans: PricingPlan[] = [
 		{
 			name: 'Essential',

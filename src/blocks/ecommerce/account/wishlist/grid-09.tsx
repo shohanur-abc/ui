@@ -45,7 +45,9 @@ const ColorOptions = ({ colors }: { colors: string[] }) => (
 			/>
 		))}
 		{colors.length > 4 && (
-			<span className="text-xs text-muted-foreground ml-1">+{colors.length - 4}</span>
+			<span className="text-xs text-muted-foreground ml-1">
+				+{colors.length - 4}
+			</span>
 		)}
 	</div>
 );
@@ -142,10 +144,52 @@ const PageHeader = ({ count }: { count: number }) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Classic Oxford Shirt', price: 79.00, originalPrice: 99.00, image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&h=500&fit=crop', colors: ['#ffffff', '#87CEEB', '#FFC0CB', '#000000'], sizes: ['XS', 'S', 'M', 'L', 'XL'], notifyOnSale: true, href: '/product/1' },
-		{ id: '2', name: 'Slim Fit Chinos', price: 89.00, image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=500&fit=crop', colors: ['#C3B091', '#000080', '#808080'], sizes: ['28', '30', '32', '34', '36'], notifyOnSale: false, href: '/product/2' },
-		{ id: '3', name: 'Merino V-Neck Sweater', price: 129.00, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=500&fit=crop', colors: ['#800020', '#000000', '#808080', '#228B22', '#000080'], sizes: ['S', 'M', 'L', 'XL'], notifyOnSale: true, href: '/product/3' },
-		{ id: '4', name: 'Leather Chelsea Boots', price: 245.00, originalPrice: 295.00, image: 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=400&h=500&fit=crop', colors: ['#8B4513', '#000000'], sizes: ['7', '8', '9', '10', '11', '12'], notifyOnSale: true, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Classic Oxford Shirt',
+			price: 79.0,
+			originalPrice: 99.0,
+			image:
+				'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&h=500&fit=crop',
+			colors: ['#ffffff', '#87CEEB', '#FFC0CB', '#000000'],
+			sizes: ['XS', 'S', 'M', 'L', 'XL'],
+			notifyOnSale: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Slim Fit Chinos',
+			price: 89.0,
+			image:
+				'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=500&fit=crop',
+			colors: ['#C3B091', '#000080', '#808080'],
+			sizes: ['28', '30', '32', '34', '36'],
+			notifyOnSale: false,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Merino V-Neck Sweater',
+			price: 129.0,
+			image:
+				'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=500&fit=crop',
+			colors: ['#800020', '#000000', '#808080', '#228B22', '#000080'],
+			sizes: ['S', 'M', 'L', 'XL'],
+			notifyOnSale: true,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Leather Chelsea Boots',
+			price: 245.0,
+			originalPrice: 295.0,
+			image:
+				'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=400&h=500&fit=crop',
+			colors: ['#8B4513', '#000000'],
+			sizes: ['7', '8', '9', '10', '11', '12'],
+			notifyOnSale: true,
+			href: '/product/4',
+		},
 	];
 
 	return (

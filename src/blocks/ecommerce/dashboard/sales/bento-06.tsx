@@ -1,6 +1,13 @@
 'use client';
 
-import { TrendingUp, TrendingDown, Clock, Zap, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import {
+	TrendingUp,
+	TrendingDown,
+	Clock,
+	Zap,
+	AlertTriangle,
+	CheckCircle2,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Area, AreaChart, Bar, BarChart, ResponsiveContainer } from 'recharts';
@@ -39,8 +46,14 @@ const MetricCard = ({ metric }: { metric: RealtimeMetric }) => (
 			<div className="flex items-end justify-between">
 				<div>
 					<p className="text-2xl font-bold">{metric.value}</p>
-					<div className={`flex items-center gap-1 text-xs ${metric.change >= 0 ? 'text-primary' : 'text-destructive'}`}>
-						{metric.change >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+					<div
+						className={`flex items-center gap-1 text-xs ${metric.change >= 0 ? 'text-primary' : 'text-destructive'}`}
+					>
+						{metric.change >= 0 ? (
+							<TrendingUp className="size-3" />
+						) : (
+							<TrendingDown className="size-3" />
+						)}
 						{Math.abs(metric.change)}%
 					</div>
 				</div>
@@ -72,10 +85,19 @@ const AlertCard = ({ alerts }: { alerts: AlertItem[] }) => (
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{alerts.map((alert, idx) => (
-				<div key={idx} className="flex items-start gap-3 p-2 rounded-lg bg-muted/50">
-					{alert.type === 'warning' && <AlertTriangle className="size-4 text-amber-500 mt-0.5" />}
-					{alert.type === 'success' && <CheckCircle2 className="size-4 text-primary mt-0.5" />}
-					{alert.type === 'info' && <Zap className="size-4 text-blue-500 mt-0.5" />}
+				<div
+					key={idx}
+					className="flex items-start gap-3 p-2 rounded-lg bg-muted/50"
+				>
+					{alert.type === 'warning' && (
+						<AlertTriangle className="size-4 text-amber-500 mt-0.5" />
+					)}
+					{alert.type === 'success' && (
+						<CheckCircle2 className="size-4 text-primary mt-0.5" />
+					)}
+					{alert.type === 'info' && (
+						<Zap className="size-4 text-blue-500 mt-0.5" />
+					)}
 					<div className="flex-1">
 						<p className="text-sm font-medium">{alert.title}</p>
 						<p className="text-xs text-muted-foreground">{alert.description}</p>
@@ -87,7 +109,11 @@ const AlertCard = ({ alerts }: { alerts: AlertItem[] }) => (
 	</Card>
 );
 
-const LiveStatsCard = ({ stats }: { stats: { label: string; value: string }[] }) => (
+const LiveStatsCard = ({
+	stats,
+}: {
+	stats: { label: string; value: string }[];
+}) => (
 	<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
 		<CardHeader className="pb-2">
 			<div className="flex items-center gap-2">
@@ -118,16 +144,83 @@ const BentoLayout6 = ({ metrics, alerts, liveStats }: BentoLayout6Props) => (
 
 export default function Main() {
 	const metrics: RealtimeMetric[] = [
-		{ label: 'Active Visitors', value: '1,247', change: 5.2, chartData: [{ value: 30 }, { value: 45 }, { value: 35 }, { value: 55 }, { value: 48 }, { value: 62 }], status: 'high' },
-		{ label: 'Orders (1h)', value: '48', change: 12.5, chartData: [{ value: 20 }, { value: 35 }, { value: 25 }, { value: 45 }, { value: 38 }, { value: 48 }], status: 'normal' },
-		{ label: 'Revenue (1h)', value: '$5,240', change: 8.3, chartData: [{ value: 40 }, { value: 55 }, { value: 45 }, { value: 60 }, { value: 52 }, { value: 70 }], status: 'normal' },
-		{ label: 'Cart Additions', value: '156', change: -3.1, chartData: [{ value: 50 }, { value: 45 }, { value: 55 }, { value: 40 }, { value: 48 }, { value: 42 }], status: 'low' },
+		{
+			label: 'Active Visitors',
+			value: '1,247',
+			change: 5.2,
+			chartData: [
+				{ value: 30 },
+				{ value: 45 },
+				{ value: 35 },
+				{ value: 55 },
+				{ value: 48 },
+				{ value: 62 },
+			],
+			status: 'high',
+		},
+		{
+			label: 'Orders (1h)',
+			value: '48',
+			change: 12.5,
+			chartData: [
+				{ value: 20 },
+				{ value: 35 },
+				{ value: 25 },
+				{ value: 45 },
+				{ value: 38 },
+				{ value: 48 },
+			],
+			status: 'normal',
+		},
+		{
+			label: 'Revenue (1h)',
+			value: '$5,240',
+			change: 8.3,
+			chartData: [
+				{ value: 40 },
+				{ value: 55 },
+				{ value: 45 },
+				{ value: 60 },
+				{ value: 52 },
+				{ value: 70 },
+			],
+			status: 'normal',
+		},
+		{
+			label: 'Cart Additions',
+			value: '156',
+			change: -3.1,
+			chartData: [
+				{ value: 50 },
+				{ value: 45 },
+				{ value: 55 },
+				{ value: 40 },
+				{ value: 48 },
+				{ value: 42 },
+			],
+			status: 'low',
+		},
 	];
 
 	const alerts: AlertItem[] = [
-		{ title: 'Low Stock Alert', description: 'Wireless Headphones Pro running low (12 left)', type: 'warning', time: '2m ago' },
-		{ title: 'Large Order', description: 'Order #2851 placed for $2,450', type: 'success', time: '5m ago' },
-		{ title: 'Traffic Spike', description: '45% increase in visitors from email campaign', type: 'info', time: '12m ago' },
+		{
+			title: 'Low Stock Alert',
+			description: 'Wireless Headphones Pro running low (12 left)',
+			type: 'warning',
+			time: '2m ago',
+		},
+		{
+			title: 'Large Order',
+			description: 'Order #2851 placed for $2,450',
+			type: 'success',
+			time: '5m ago',
+		},
+		{
+			title: 'Traffic Spike',
+			description: '45% increase in visitors from email campaign',
+			type: 'info',
+			time: '12m ago',
+		},
 	];
 
 	const liveStats = [

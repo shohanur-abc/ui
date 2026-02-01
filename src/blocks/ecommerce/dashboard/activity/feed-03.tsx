@@ -18,7 +18,14 @@ import {
 interface OrderEvent {
 	id: string;
 	orderId: string;
-	type: 'placed' | 'paid' | 'processing' | 'shipped' | 'delivered' | 'returned' | 'cancelled';
+	type:
+		| 'placed'
+		| 'paid'
+		| 'processing'
+		| 'shipped'
+		| 'delivered'
+		| 'returned'
+		| 'cancelled';
 	customer: {
 		name: string;
 		avatar?: string;
@@ -108,7 +115,10 @@ const EventCard = ({ event }: { event: OrderEvent }) => {
 			<EventIcon type={event.type} />
 			<div className="flex-1 min-w-0">
 				<div className="flex items-center gap-2 mb-1">
-					<Badge variant="outline" className={`${config.bgColor} ${config.color} border-0`}>
+					<Badge
+						variant="outline"
+						className={`${config.bgColor} ${config.color} border-0`}
+					>
 						{config.label}
 					</Badge>
 					<span className="text-xs font-mono text-muted-foreground">
@@ -117,7 +127,10 @@ const EventCard = ({ event }: { event: OrderEvent }) => {
 				</div>
 				<div className="flex items-center gap-2">
 					<Avatar className="size-5">
-						<AvatarImage src={event.customer.avatar} alt={event.customer.name} />
+						<AvatarImage
+							src={event.customer.avatar}
+							alt={event.customer.name}
+						/>
 						<AvatarFallback className="text-[10px] bg-secondary">
 							{event.customer.initials}
 						</AvatarFallback>
@@ -145,11 +158,7 @@ const EventCard = ({ event }: { event: OrderEvent }) => {
 	);
 };
 
-const StatsBar = ({
-	stats,
-}: {
-	stats: OrderFeedProps['stats'];
-}) => (
+const StatsBar = ({ stats }: { stats: OrderFeedProps['stats'] }) => (
 	<div className="grid grid-cols-3 gap-4">
 		<div className="flex flex-col items-center gap-1 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
 			<ShoppingBag className="size-5 text-blue-400" />

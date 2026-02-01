@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -37,8 +43,12 @@ const MasonryItem = ({ product }: { product: Product }) => {
 	};
 
 	return (
-		<div className={`group overflow-hidden rounded-xl border bg-card ${getSpanClass()}`}>
-			<div className={`relative overflow-hidden ${product.span === 'tall' ? 'aspect-[2/3]' : 'aspect-square'}`}>
+		<div
+			className={`group overflow-hidden rounded-xl border bg-card ${getSpanClass()}`}
+		>
+			<div
+				className={`relative overflow-hidden ${product.span === 'tall' ? 'aspect-[2/3]' : 'aspect-square'}`}
+			>
 				<Image
 					src={product.image}
 					alt={product.name}
@@ -91,9 +101,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -105,7 +119,8 @@ export default function Main() {
 			variant: 'Abstract / Bronze',
 			price: 1299.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1582561833400-4b7e7b9ae9d3?w=400&h=600&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1582561833400-4b7e7b9ae9d3?w=400&h=600&fit=crop',
 			span: 'tall',
 		},
 		{
@@ -114,7 +129,8 @@ export default function Main() {
 			variant: 'Large / Framed',
 			price: 249.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop',
 		},
 		{
 			id: '3',
@@ -122,7 +138,8 @@ export default function Main() {
 			variant: 'Collector Edition',
 			price: 89.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop',
 		},
 		{
 			id: '4',
@@ -130,7 +147,8 @@ export default function Main() {
 			variant: 'Handmade / Blue',
 			price: 179.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&h=400&fit=crop',
 		},
 	];
 
@@ -145,9 +163,7 @@ export default function Main() {
 					<h1 className="text-2xl font-bold tracking-tight @md:text-3xl">
 						Review Order
 					</h1>
-					<p className="mt-1 text-muted-foreground">
-						Curated gallery pieces
-					</p>
+					<p className="mt-1 text-muted-foreground">Curated gallery pieces</p>
 				</div>
 
 				<div className="grid gap-6 @lg:grid-cols-[1fr_340px]">

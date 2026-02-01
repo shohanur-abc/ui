@@ -1,6 +1,13 @@
 'use client';
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ReferenceLine } from 'recharts';
+import {
+	Bar,
+	BarChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	ReferenceLine,
+} from 'recharts';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -56,9 +63,19 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const stats: StatItemProps[] = [
-		{ label: 'Avg Growth Rate', value: '18.4%', change: '+2.1% YoY', trend: 'up' },
+		{
+			label: 'Avg Growth Rate',
+			value: '18.4%',
+			change: '+2.1% YoY',
+			trend: 'up',
+		},
 		{ label: 'Best Quarter', value: 'Q4 2025', change: '+28.5%', trend: 'up' },
-		{ label: 'Lowest Quarter', value: 'Q2 2024', change: '-8.2%', trend: 'down' },
+		{
+			label: 'Lowest Quarter',
+			value: 'Q2 2024',
+			change: '-8.2%',
+			trend: 'down',
+		},
 	];
 
 	const chartData: GrowthData[] = [

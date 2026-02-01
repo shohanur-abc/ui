@@ -80,19 +80,77 @@ const pieConfig: ChartConfig = {
 
 export default function Main() {
 	const kpis: SalesKpi[] = [
-		{ title: 'Total Sales', value: '$248,632', change: '+28%', icon: DollarSign },
-		{ title: 'Total Orders', value: '6,842', change: '+22%', icon: ShoppingCart },
+		{
+			title: 'Total Sales',
+			value: '$248,632',
+			change: '+28%',
+			icon: DollarSign,
+		},
+		{
+			title: 'Total Orders',
+			value: '6,842',
+			change: '+22%',
+			icon: ShoppingCart,
+		},
 		{ title: 'Products Sold', value: '12,456', change: '+18%', icon: Package },
 		{ title: 'Avg Rating', value: '4.7', change: '+0.2', icon: Star },
 	];
 
 	const topProducts: ProductSaleRow[] = [
-		{ rank: 1, name: 'Wireless Headphones Pro', category: 'Electronics', sold: 432, revenue: '$56,157', growth: '+28%', rating: 4.8 },
-		{ rank: 2, name: 'Smart Watch Ultra', category: 'Electronics', sold: 324, revenue: '$97,197', growth: '+24%', rating: 4.7 },
-		{ rank: 3, name: 'Ergonomic Laptop Stand', category: 'Accessories', sold: 287, revenue: '$22,957', growth: '+18%', rating: 4.9 },
-		{ rank: 4, name: 'USB-C Hub 7-in-1', category: 'Accessories', sold: 256, revenue: '$12,795', growth: '+15%', rating: 4.5 },
-		{ rank: 5, name: 'Noise Cancelling Earbuds', category: 'Electronics', sold: 234, revenue: '$21,057', growth: '+12%', rating: 4.6 },
-		{ rank: 6, name: 'Mechanical Keyboard', category: 'Electronics', sold: 198, revenue: '$31,678', growth: '+8%', rating: 4.4 },
+		{
+			rank: 1,
+			name: 'Wireless Headphones Pro',
+			category: 'Electronics',
+			sold: 432,
+			revenue: '$56,157',
+			growth: '+28%',
+			rating: 4.8,
+		},
+		{
+			rank: 2,
+			name: 'Smart Watch Ultra',
+			category: 'Electronics',
+			sold: 324,
+			revenue: '$97,197',
+			growth: '+24%',
+			rating: 4.7,
+		},
+		{
+			rank: 3,
+			name: 'Ergonomic Laptop Stand',
+			category: 'Accessories',
+			sold: 287,
+			revenue: '$22,957',
+			growth: '+18%',
+			rating: 4.9,
+		},
+		{
+			rank: 4,
+			name: 'USB-C Hub 7-in-1',
+			category: 'Accessories',
+			sold: 256,
+			revenue: '$12,795',
+			growth: '+15%',
+			rating: 4.5,
+		},
+		{
+			rank: 5,
+			name: 'Noise Cancelling Earbuds',
+			category: 'Electronics',
+			sold: 234,
+			revenue: '$21,057',
+			growth: '+12%',
+			rating: 4.6,
+		},
+		{
+			rank: 6,
+			name: 'Mechanical Keyboard',
+			category: 'Electronics',
+			sold: 198,
+			revenue: '$31,678',
+			growth: '+8%',
+			rating: 4.4,
+		},
 	];
 
 	const categoryData: CategoryData[] = [
@@ -114,7 +172,9 @@ export default function Main() {
 					<div className="grid gap-6 @xl:grid-cols-3">
 						<Card className="@xl:col-span-2">
 							<CardHeader className="flex-row items-center justify-between pb-4">
-								<CardTitle className="text-base">Top Selling Products</CardTitle>
+								<CardTitle className="text-base">
+									Top Selling Products
+								</CardTitle>
 								<Button variant="ghost" size="sm" className="gap-1" asChild>
 									<Link href="/sales">
 										View All
@@ -128,11 +188,17 @@ export default function Main() {
 										<TableRow>
 											<TableHead className="w-10">#</TableHead>
 											<TableHead>Product</TableHead>
-											<TableHead className="hidden @lg:table-cell">Category</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Category
+											</TableHead>
 											<TableHead>Sold</TableHead>
 											<TableHead>Revenue</TableHead>
-											<TableHead className="hidden @lg:table-cell">Growth</TableHead>
-											<TableHead className="hidden @xl:table-cell">Rating</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Growth
+											</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Rating
+											</TableHead>
 										</TableRow>
 									</TableHeader>
 									<TableBody>
@@ -143,12 +209,21 @@ export default function Main() {
 														{product.rank}
 													</span>
 												</TableCell>
-												<TableCell className="font-medium">{product.name}</TableCell>
-												<TableCell className="hidden @lg:table-cell text-muted-foreground">{product.category}</TableCell>
+												<TableCell className="font-medium">
+													{product.name}
+												</TableCell>
+												<TableCell className="hidden @lg:table-cell text-muted-foreground">
+													{product.category}
+												</TableCell>
 												<TableCell>{product.sold}</TableCell>
-												<TableCell className="font-medium">{product.revenue}</TableCell>
+												<TableCell className="font-medium">
+													{product.revenue}
+												</TableCell>
 												<TableCell className="hidden @lg:table-cell">
-													<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500">
+													<Badge
+														variant="secondary"
+														className="bg-emerald-500/10 text-emerald-500"
+													>
 														{product.growth}
 													</Badge>
 												</TableCell>
@@ -169,7 +244,10 @@ export default function Main() {
 								<CardTitle className="text-sm">Sales by Category</CardTitle>
 							</CardHeader>
 							<CardContent className="flex flex-col items-center">
-								<ChartContainer config={pieConfig} className="h-[180px] w-[180px]">
+								<ChartContainer
+									config={pieConfig}
+									className="h-[180px] w-[180px]"
+								>
 									<PieChart>
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 										<Pie

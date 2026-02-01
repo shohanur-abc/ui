@@ -42,7 +42,11 @@ type ChartPlaceholderProps = {
 	subtitle: string;
 };
 
-const AreaChartPlaceholder = ({ title, value, subtitle }: ChartPlaceholderProps) => (
+const AreaChartPlaceholder = ({
+	title,
+	value,
+	subtitle,
+}: ChartPlaceholderProps) => (
 	<Card className="border-border/50 bg-card/80 row-span-2">
 		<CardHeader className="pb-2">
 			<CardTitle className="text-sm font-medium">{title}</CardTitle>
@@ -120,11 +124,13 @@ export default function Main() {
 					/>
 					<div className="@lg:col-span-2 grid grid-cols-1 @md:grid-cols-2 gap-4 @lg:gap-6">
 						<ProgressCard items={progressItems} />
-						<ProgressCard items={[
-							{ label: 'Customer Retention', value: 92, target: '95%' },
-							{ label: 'Response Time', value: 88, target: '<1hr' },
-							{ label: 'NPS Score', value: 72, target: '80+' },
-						]} />
+						<ProgressCard
+							items={[
+								{ label: 'Customer Retention', value: 92, target: '95%' },
+								{ label: 'Response Time', value: 88, target: '<1hr' },
+								{ label: 'NPS Score', value: 72, target: '80+' },
+							]}
+						/>
 					</div>
 				</div>
 			</div>

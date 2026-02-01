@@ -37,7 +37,8 @@ type SalesTeamTableCardProps = {
 };
 
 const getRankBadge = (rank: number) => {
-	if (rank === 1) return <Badge className="bg-amber-500 text-white">🥇 #1</Badge>;
+	if (rank === 1)
+		return <Badge className="bg-amber-500 text-white">🥇 #1</Badge>;
 	if (rank === 2) return <Badge variant="secondary">🥈 #2</Badge>;
 	if (rank === 3) return <Badge variant="outline">🥉 #3</Badge>;
 	return <Badge variant="outline">#{rank}</Badge>;
@@ -81,16 +82,25 @@ const SalesTeamTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{team.map((rep) => {
-							const targetPercentage = ((rep.revenue / rep.target) * 100).toFixed(0);
+							const targetPercentage = (
+								(rep.revenue / rep.target) *
+								100
+							).toFixed(0);
 							return (
-								<TableRow key={rep.id} className="hover:bg-muted/50 transition-colors">
+								<TableRow
+									key={rep.id}
+									className="hover:bg-muted/50 transition-colors"
+								>
 									<TableCell>{getRankBadge(rep.rank)}</TableCell>
 									<TableCell>
 										<div className="flex items-center gap-3">
 											<Avatar className="size-10">
 												<AvatarImage src={rep.avatar} alt={rep.name} />
 												<AvatarFallback>
-													{rep.name.split(' ').map((n) => n[0]).join('')}
+													{rep.name
+														.split(' ')
+														.map((n) => n[0])
+														.join('')}
 												</AvatarFallback>
 											</Avatar>
 											<div>
@@ -148,11 +158,71 @@ const SalesTeamTableCard = ({
 
 export default function Main() {
 	const team: SalesRep[] = [
-		{ id: 'REP-001', name: 'Sarah Johnson', avatar: '/placeholder.svg', email: 's.johnson@company.com', phone: '+1-555-0101', region: 'West Coast', revenue: 285000, target: 250000, deals: 42, winRate: 68, rank: 1 },
-		{ id: 'REP-002', name: 'Michael Chen', avatar: '/placeholder.svg', email: 'm.chen@company.com', phone: '+1-555-0102', region: 'East Coast', revenue: 248000, target: 250000, deals: 38, winRate: 55, rank: 2 },
-		{ id: 'REP-003', name: 'Emily Davis', avatar: '/placeholder.svg', email: 'e.davis@company.com', phone: '+1-555-0103', region: 'Midwest', revenue: 195000, target: 200000, deals: 31, winRate: 52, rank: 3 },
-		{ id: 'REP-004', name: 'James Wilson', avatar: '/placeholder.svg', email: 'j.wilson@company.com', phone: '+1-555-0104', region: 'South', revenue: 168000, target: 200000, deals: 28, winRate: 48, rank: 4 },
-		{ id: 'REP-005', name: 'Lisa Anderson', avatar: '/placeholder.svg', email: 'l.anderson@company.com', phone: '+1-555-0105', region: 'Northeast', revenue: 142000, target: 200000, deals: 22, winRate: 42, rank: 5 },
+		{
+			id: 'REP-001',
+			name: 'Sarah Johnson',
+			avatar: '/placeholder.svg',
+			email: 's.johnson@company.com',
+			phone: '+1-555-0101',
+			region: 'West Coast',
+			revenue: 285000,
+			target: 250000,
+			deals: 42,
+			winRate: 68,
+			rank: 1,
+		},
+		{
+			id: 'REP-002',
+			name: 'Michael Chen',
+			avatar: '/placeholder.svg',
+			email: 'm.chen@company.com',
+			phone: '+1-555-0102',
+			region: 'East Coast',
+			revenue: 248000,
+			target: 250000,
+			deals: 38,
+			winRate: 55,
+			rank: 2,
+		},
+		{
+			id: 'REP-003',
+			name: 'Emily Davis',
+			avatar: '/placeholder.svg',
+			email: 'e.davis@company.com',
+			phone: '+1-555-0103',
+			region: 'Midwest',
+			revenue: 195000,
+			target: 200000,
+			deals: 31,
+			winRate: 52,
+			rank: 3,
+		},
+		{
+			id: 'REP-004',
+			name: 'James Wilson',
+			avatar: '/placeholder.svg',
+			email: 'j.wilson@company.com',
+			phone: '+1-555-0104',
+			region: 'South',
+			revenue: 168000,
+			target: 200000,
+			deals: 28,
+			winRate: 48,
+			rank: 4,
+		},
+		{
+			id: 'REP-005',
+			name: 'Lisa Anderson',
+			avatar: '/placeholder.svg',
+			email: 'l.anderson@company.com',
+			phone: '+1-555-0105',
+			region: 'Northeast',
+			revenue: 142000,
+			target: 200000,
+			deals: 22,
+			winRate: 42,
+			rank: 5,
+		},
 	];
 
 	return (

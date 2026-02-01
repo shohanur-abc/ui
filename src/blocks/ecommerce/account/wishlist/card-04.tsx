@@ -92,14 +92,19 @@ const CardGrid = ({ items }: CardGridProps) => (
 
 const SummaryCard = ({ items }: { items: WishlistItem[] }) => {
 	const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-	const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const totalPrice = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 
 	return (
 		<Card className="p-6 mb-6 @md:mb-8">
 			<div className="flex flex-wrap items-center justify-between gap-4">
 				<div>
 					<p className="text-sm text-muted-foreground">Wishlist Summary</p>
-					<p className="text-2xl font-bold">{totalItems} items · ${totalPrice.toFixed(2)}</p>
+					<p className="text-2xl font-bold">
+						{totalItems} items · ${totalPrice.toFixed(2)}
+					</p>
 				</div>
 				<Button size="lg" className="gap-2">
 					<ShoppingCart className="size-4" />
@@ -112,10 +117,50 @@ const SummaryCard = ({ items }: { items: WishlistItem[] }) => {
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Classic White T-Shirt', price: 35.00, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop', quantity: 2, size: 'M', color: 'White', href: '/product/1' },
-		{ id: '2', name: 'Slim Fit Denim Jeans', price: 89.00, image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=300&fit=crop', quantity: 1, size: '32', color: 'Indigo', href: '/product/2' },
-		{ id: '3', name: 'Cotton Polo Shirt', price: 55.00, image: 'https://images.unsplash.com/photo-1625910513413-5fc69d8a0b88?w=400&h=300&fit=crop', quantity: 1, size: 'L', color: 'Navy', href: '/product/3' },
-		{ id: '4', name: 'Leather Oxford Shoes', price: 175.00, image: 'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop', quantity: 1, size: '10', color: 'Brown', href: '/product/4' },
+		{
+			id: '1',
+			name: 'Classic White T-Shirt',
+			price: 35.0,
+			image:
+				'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop',
+			quantity: 2,
+			size: 'M',
+			color: 'White',
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Slim Fit Denim Jeans',
+			price: 89.0,
+			image:
+				'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=300&fit=crop',
+			quantity: 1,
+			size: '32',
+			color: 'Indigo',
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Cotton Polo Shirt',
+			price: 55.0,
+			image:
+				'https://images.unsplash.com/photo-1625910513413-5fc69d8a0b88?w=400&h=300&fit=crop',
+			quantity: 1,
+			size: 'L',
+			color: 'Navy',
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Leather Oxford Shoes',
+			price: 175.0,
+			image:
+				'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop',
+			quantity: 1,
+			size: '10',
+			color: 'Brown',
+			href: '/product/4',
+		},
 	];
 
 	return (

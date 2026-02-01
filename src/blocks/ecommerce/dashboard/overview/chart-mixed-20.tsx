@@ -139,9 +139,7 @@ export default function Main() {
 										</defs>
 										<CartesianGrid strokeDasharray="3 3" vertical={false} />
 										<XAxis dataKey="month" tickLine={false} axisLine={false} />
-										<ChartTooltip
-											content={<ChartTooltipContent hideLabel />}
-										/>
+										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 										<Area
 											type="monotone"
 											dataKey="revenue"

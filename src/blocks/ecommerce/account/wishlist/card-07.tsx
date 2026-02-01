@@ -21,7 +21,13 @@ interface CardGridProps {
 	selectedCount: number;
 }
 
-const SelectionToolbar = ({ selectedCount, totalCount }: { selectedCount: number; totalCount: number }) => (
+const SelectionToolbar = ({
+	selectedCount,
+	totalCount,
+}: {
+	selectedCount: number;
+	totalCount: number;
+}) => (
 	<div className="flex flex-wrap items-center justify-between gap-4 mb-6 p-4 rounded-lg bg-muted/50 border">
 		<div className="flex items-center gap-3">
 			<Checkbox checked={selectedCount === totalCount} />
@@ -45,14 +51,18 @@ const SelectionToolbar = ({ selectedCount, totalCount }: { selectedCount: number
 );
 
 const StockStatus = ({ inStock }: { inStock: boolean }) => (
-	<div className={`flex items-center gap-1 text-xs ${inStock ? 'text-green-600' : 'text-destructive'}`}>
+	<div
+		className={`flex items-center gap-1 text-xs ${inStock ? 'text-green-600' : 'text-destructive'}`}
+	>
 		{inStock ? <Check className="size-3" /> : <XIcon className="size-3" />}
 		{inStock ? 'In Stock' : 'Out of Stock'}
 	</div>
 );
 
 const ProductCard = ({ item }: { item: WishlistItem }) => (
-	<Card className={`group overflow-hidden transition-all duration-300 ${item.isSelected ? 'ring-2 ring-primary' : ''}`}>
+	<Card
+		className={`group overflow-hidden transition-all duration-300 ${item.isSelected ? 'ring-2 ring-primary' : ''}`}
+	>
 		<div className="relative aspect-square overflow-hidden bg-muted">
 			<img
 				src={item.image}
@@ -90,7 +100,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			<div className="mt-2 flex items-baseline gap-2">
 				<span className="text-lg font-bold">${item.price.toFixed(2)}</span>
 				{item.originalPrice && (
-					<span className="text-sm text-muted-foreground line-through">${item.originalPrice.toFixed(2)}</span>
+					<span className="text-sm text-muted-foreground line-through">
+						${item.originalPrice.toFixed(2)}
+					</span>
 				)}
 			</div>
 			<Button className="w-full mt-4 gap-2" disabled={!item.inStock}>
@@ -114,10 +126,48 @@ const CardGrid = ({ items, selectedCount }: CardGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Organic Cotton Hoodie', price: 79.00, image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop', inStock: true, isSelected: true, href: '/product/1' },
-		{ id: '2', name: 'Vintage Graphic Tee', price: 35.00, originalPrice: 45.00, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop', inStock: true, isSelected: true, href: '/product/2' },
-		{ id: '3', name: 'High-Rise Joggers', price: 65.00, image: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=400&h=400&fit=crop', inStock: false, isSelected: false, href: '/product/3' },
-		{ id: '4', name: 'Canvas Low-Top Sneakers', price: 89.00, originalPrice: 109.00, image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&fit=crop', inStock: true, isSelected: false, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Organic Cotton Hoodie',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop',
+			inStock: true,
+			isSelected: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Vintage Graphic Tee',
+			price: 35.0,
+			originalPrice: 45.0,
+			image:
+				'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop',
+			inStock: true,
+			isSelected: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'High-Rise Joggers',
+			price: 65.0,
+			image:
+				'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=400&h=400&fit=crop',
+			inStock: false,
+			isSelected: false,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Canvas Low-Top Sneakers',
+			price: 89.0,
+			originalPrice: 109.0,
+			image:
+				'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&fit=crop',
+			inStock: true,
+			isSelected: false,
+			href: '/product/4',
+		},
 	];
 
 	const selectedCount = wishlistItems.filter((item) => item.isSelected).length;

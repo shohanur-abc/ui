@@ -1,7 +1,13 @@
 'use client';
 
 import { AreaChart } from 'lucide-react';
-import { Area, AreaChart as RechartsAreaChart, XAxis, YAxis, CartesianGrid } from 'recharts';
+import {
+	Area,
+	AreaChart as RechartsAreaChart,
+	XAxis,
+	YAxis,
+	CartesianGrid,
+} from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
@@ -36,7 +42,10 @@ const ChartContent = ({
 	config: ChartConfig;
 }) => (
 	<ChartContainer config={config} className="h-[250px] w-full">
-		<RechartsAreaChart data={data} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+		<RechartsAreaChart
+			data={data}
+			margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+		>
 			<defs>
 				<linearGradient id="valueGradient" x1="0" y1="0" x2="0" y2="1">
 					<stop offset="5%" stopColor="var(--color-value)" stopOpacity={0.4} />

@@ -26,8 +26,12 @@ const Header = ({ badge, title }: HeaderProps) => (
 const StatItem = ({ value, label, change }: StatItemProps) => (
 	<div className="flex flex-col items-center gap-1 @md:items-start">
 		<div className="flex items-baseline gap-2">
-			<span className="text-3xl font-bold tracking-tight @sm:text-4xl">{value}</span>
-			<Badge variant="outline" className="text-[10px] text-accent">{change}</Badge>
+			<span className="text-3xl font-bold tracking-tight @sm:text-4xl">
+				{value}
+			</span>
+			<Badge variant="outline" className="text-[10px] text-accent">
+				{change}
+			</Badge>
 		</div>
 		<span className="text-sm text-muted-foreground">{label}</span>
 	</div>
@@ -40,7 +44,7 @@ export default function Main() {
 	};
 
 	const stats: StatItemProps[] = [
-		{ value: '$847K', label: 'Today\'s Revenue', change: '+24%' },
+		{ value: '$847K', label: "Today's Revenue", change: '+24%' },
 		{ value: '4,284', label: 'Orders', change: '+18%' },
 		{ value: '12.4K', label: 'Visitors', change: '+32%' },
 		{ value: '3.8%', label: 'Conversion', change: '+0.6%' },
@@ -56,7 +60,10 @@ export default function Main() {
 							<div key={i} className="flex items-center gap-8 @lg:gap-12">
 								<StatItem {...stat} />
 								{i < stats.length - 1 && (
-									<Separator orientation="vertical" className="hidden h-12 @lg:block" />
+									<Separator
+										orientation="vertical"
+										className="hidden h-12 @lg:block"
+									/>
 								)}
 							</div>
 						))}

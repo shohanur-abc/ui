@@ -104,12 +104,20 @@ const ResidentialTab = ({
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="City" required />
-			<SelectField label="State" placeholder="State" options={states} required />
+			<SelectField
+				label="State"
+				placeholder="State"
+				options={states}
+				required
+			/>
 			<Field label="ZIP" placeholder="12345" required />
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="set-default" />
-			<Label htmlFor="set-default" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="set-default"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Set as default address
 			</Label>
 		</div>
@@ -152,7 +160,12 @@ const CommercialTab = ({
 		<Field label="Suite / Floor" placeholder="Suite 500" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="City" required />
-			<SelectField label="State" placeholder="State" options={states} required />
+			<SelectField
+				label="State"
+				placeholder="State"
+				options={states}
+				required
+			/>
 			<Field label="ZIP" placeholder="12345" required />
 		</div>
 		<div className="p-4 rounded-xl border border-border space-y-3">
@@ -195,7 +208,11 @@ const APOFPOTab = ({
 			<Field label="Grade / Rank" placeholder="SGT" />
 			<Field label="Full Name" placeholder="John Doe" required />
 		</div>
-		<Field label="Unit / CMR / PSC Box" placeholder="PSC 1234, Box 5678" required />
+		<Field
+			label="Unit / CMR / PSC Box"
+			placeholder="PSC 1234, Box 5678"
+			required
+		/>
 		<SelectField
 			label="APO/FPO/DPO"
 			placeholder="Select type"
@@ -222,13 +239,16 @@ const APOFPOTab = ({
 		<Separator />
 		<div className="p-4 rounded-xl bg-muted/30 border border-border">
 			<p className="text-sm text-muted-foreground">
-				⚠️ Some items may have shipping restrictions to APO/FPO addresses.
-				Allow 2-3 weeks for delivery.
+				⚠️ Some items may have shipping restrictions to APO/FPO addresses. Allow
+				2-3 weeks for delivery.
 			</p>
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="customs-form" />
-			<Label htmlFor="customs-form" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="customs-form"
+				className="text-sm font-normal cursor-pointer"
+			>
 				I understand customs forms may be required
 			</Label>
 		</div>

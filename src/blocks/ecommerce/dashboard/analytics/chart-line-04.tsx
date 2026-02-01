@@ -22,23 +22,48 @@ const TabbedLineChart = ({ data }: { data: LineData[] }) => {
 
 	return (
 		<div className="relative h-48 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				<defs>
 					<linearGradient id="lineGradTab" x1="0%" y1="0%" x2="0%" y2="100%">
-						<stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
-						<stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+						<stop
+							offset="0%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0.2"
+						/>
+						<stop
+							offset="100%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0"
+						/>
 					</linearGradient>
 				</defs>
 				<path d={`${pathD} L 100 100 L 0 100 Z`} fill="url(#lineGradTab)" />
-				<path d={pathD} fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+				<path
+					d={pathD}
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="0.5"
+				/>
 				{points.map((p, i) => (
-					<circle key={i} cx={p.x} cy={p.y} r="0.6" fill="hsl(var(--primary))" />
+					<circle
+						key={i}
+						cx={p.x}
+						cy={p.y}
+						r="0.6"
+						fill="hsl(var(--primary))"
+					/>
 				))}
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
-				{data.filter((_, i) => i % 2 === 0).map((d, i) => (
-					<span key={i}>{d.label}</span>
-				))}
+				{data
+					.filter((_, i) => i % 2 === 0)
+					.map((d, i) => (
+						<span key={i}>{d.label}</span>
+					))}
 			</div>
 		</div>
 	);
@@ -78,11 +103,19 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<Tabs defaultValue="daily" className="w-full">
 						<CardHeader className="flex flex-row items-center justify-between pb-2">
-							<CardTitle className="text-sm font-medium">Visitor Activity</CardTitle>
+							<CardTitle className="text-sm font-medium">
+								Visitor Activity
+							</CardTitle>
 							<TabsList className="h-8">
-								<TabsTrigger value="daily" className="text-xs px-3 h-6">Daily</TabsTrigger>
-								<TabsTrigger value="weekly" className="text-xs px-3 h-6">Weekly</TabsTrigger>
-								<TabsTrigger value="monthly" className="text-xs px-3 h-6">Monthly</TabsTrigger>
+								<TabsTrigger value="daily" className="text-xs px-3 h-6">
+									Daily
+								</TabsTrigger>
+								<TabsTrigger value="weekly" className="text-xs px-3 h-6">
+									Weekly
+								</TabsTrigger>
+								<TabsTrigger value="monthly" className="text-xs px-3 h-6">
+									Monthly
+								</TabsTrigger>
 							</TabsList>
 						</CardHeader>
 						<CardContent>

@@ -82,7 +82,12 @@ const CreatorProfile = ({
 const SocialLinks = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; color: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		color: string;
+	}[];
 }) => (
 	<div className="flex justify-center gap-2">
 		{items.map((social, i) => (
@@ -154,7 +159,12 @@ const RecentPosts = ({
 					className="flex gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
 				>
 					<div className="size-16 relative rounded-lg overflow-hidden shrink-0 bg-muted">
-						<Image src={post.image} alt={post.title} fill className="object-cover" />
+						<Image
+							src={post.image}
+							alt={post.title}
+							fill
+							className="object-cover"
+						/>
 					</div>
 					<div className="flex-1 min-w-0">
 						<p className="font-medium text-sm line-clamp-2">{post.title}</p>
@@ -182,20 +192,57 @@ export default function Main() {
 			following: '892',
 		},
 		socials: [
-			{ icon: Instagram, label: 'Instagram', href: '#', color: 'text-pink-500' },
+			{
+				icon: Instagram,
+				label: 'Instagram',
+				href: '#',
+				color: 'text-pink-500',
+			},
 			{ icon: Twitter, label: 'Twitter', href: '#', color: 'text-blue-400' },
 			{ icon: Linkedin, label: 'LinkedIn', href: '#', color: 'text-blue-600' },
 			{ icon: Link2, label: 'Website', href: '#', color: 'text-foreground' },
 		],
 		collections: [
-			{ image: 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400', name: 'Summer Vibes', items: 24 },
-			{ image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400', name: 'Minimalist', items: 18 },
-			{ image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400', name: 'Workwear', items: 32 },
-			{ image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400', name: 'Weekend', items: 15 },
+			{
+				image:
+					'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400',
+				name: 'Summer Vibes',
+				items: 24,
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400',
+				name: 'Minimalist',
+				items: 18,
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400',
+				name: 'Workwear',
+				items: 32,
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400',
+				name: 'Weekend',
+				items: 15,
+			},
 		],
 		posts: [
-			{ image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=200', title: 'My Top 10 Spring Essentials for 2026', likes: '2.4K', date: '2d ago' },
-			{ image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=200', title: 'How I Style One Dress 5 Ways', likes: '1.8K', date: '5d ago' },
+			{
+				image:
+					'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=200',
+				title: 'My Top 10 Spring Essentials for 2026',
+				likes: '2.4K',
+				date: '2d ago',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=200',
+				title: 'How I Style One Dress 5 Ways',
+				likes: '1.8K',
+				date: '5d ago',
+			},
 		],
 	};
 
@@ -210,7 +257,10 @@ export default function Main() {
 								<SocialLinks items={profileData.socials} />
 							</div>
 							<div className="space-y-6">
-								<CollectionGrid title="My Collections" items={profileData.collections} />
+								<CollectionGrid
+									title="My Collections"
+									items={profileData.collections}
+								/>
 								<Separator />
 								<RecentPosts items={profileData.posts} />
 							</div>

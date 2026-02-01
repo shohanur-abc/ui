@@ -11,15 +11,7 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
-import {
-	MapPin,
-	Phone,
-	Mail,
-	User,
-	Building,
-	Hash,
-	Globe,
-} from 'lucide-react';
+import { MapPin, Phone, Mail, User, Building, Hash, Globe } from 'lucide-react';
 
 interface FieldProps {
 	label: string;
@@ -148,16 +140,8 @@ export default function Main() {
 					<div className="@lg:col-span-3 space-y-8">
 						<FormSection title="Contact Information">
 							<div className="grid @sm:grid-cols-2 gap-4">
-								<IconField
-									label="First Name"
-									placeholder="John"
-									icon={User}
-								/>
-								<IconField
-									label="Last Name"
-									placeholder="Doe"
-									icon={User}
-								/>
+								<IconField label="First Name" placeholder="John" icon={User} />
+								<IconField label="Last Name" placeholder="Doe" icon={User} />
 							</div>
 							<IconField
 								label="Email Address"
@@ -204,11 +188,7 @@ export default function Main() {
 									options={states}
 									icon={MapPin}
 								/>
-								<IconField
-									label="ZIP Code"
-									placeholder="94102"
-									icon={Hash}
-								/>
+								<IconField label="ZIP Code" placeholder="94102" icon={Hash} />
 							</div>
 						</FormSection>
 					</div>

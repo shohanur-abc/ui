@@ -11,10 +11,21 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
-type ActivityType = 'received' | 'shipped' | 'adjusted' | 'transferred' | 'returned';
+type ActivityType =
+	| 'received'
+	| 'shipped'
+	| 'adjusted'
+	| 'transferred'
+	| 'returned';
 
 type ActivityItem = {
 	id: string;
@@ -36,12 +47,31 @@ type ActivityRowProps = {
 };
 
 const ActivityRow = ({ activity, typeLabels }: ActivityRowProps) => {
-	const config: Record<ActivityType, { icon: React.ElementType; color: string; bgColor: string }> = {
-		received: { icon: Plus, color: 'text-emerald-500', bgColor: 'bg-emerald-500/10' },
+	const config: Record<
+		ActivityType,
+		{ icon: React.ElementType; color: string; bgColor: string }
+	> = {
+		received: {
+			icon: Plus,
+			color: 'text-emerald-500',
+			bgColor: 'bg-emerald-500/10',
+		},
 		shipped: { icon: Minus, color: 'text-blue-500', bgColor: 'bg-blue-500/10' },
-		adjusted: { icon: History, color: 'text-yellow-500', bgColor: 'bg-yellow-500/10' },
-		transferred: { icon: ArrowRightLeft, color: 'text-purple-500', bgColor: 'bg-purple-500/10' },
-		returned: { icon: Package, color: 'text-orange-500', bgColor: 'bg-orange-500/10' },
+		adjusted: {
+			icon: History,
+			color: 'text-yellow-500',
+			bgColor: 'bg-yellow-500/10',
+		},
+		transferred: {
+			icon: ArrowRightLeft,
+			color: 'text-purple-500',
+			bgColor: 'bg-purple-500/10',
+		},
+		returned: {
+			icon: Package,
+			color: 'text-orange-500',
+			bgColor: 'bg-orange-500/10',
+		},
 	};
 
 	const { icon: Icon, color, bgColor } = config[activity.type];
@@ -49,14 +79,18 @@ const ActivityRow = ({ activity, typeLabels }: ActivityRowProps) => {
 	return (
 		<div className="relative flex gap-4 pb-6 last:pb-0">
 			<div className="absolute bottom-0 left-5 top-12 w-px bg-border last:hidden" />
-			<div className={`relative z-10 flex size-10 shrink-0 items-center justify-center rounded-full ${bgColor}`}>
+			<div
+				className={`relative z-10 flex size-10 shrink-0 items-center justify-center rounded-full ${bgColor}`}
+			>
 				<Icon className={`size-5 ${color}`} />
 			</div>
 			<div className="flex-1 space-y-1">
 				<div className="flex items-start justify-between gap-2">
 					<div>
 						<p className="font-medium">{activity.productName}</p>
-						<p className="text-sm text-muted-foreground">{activity.productSku}</p>
+						<p className="text-sm text-muted-foreground">
+							{activity.productSku}
+						</p>
 					</div>
 					<Badge variant="outline">{typeLabels[activity.type]}</Badge>
 				</div>
@@ -66,10 +100,15 @@ const ActivityRow = ({ activity, typeLabels }: ActivityRowProps) => {
 						<Avatar className="size-5">
 							<AvatarImage src={activity.user.avatar} />
 							<AvatarFallback className="text-[10px]">
-								{activity.user.name.split(' ').map(n => n[0]).join('')}
+								{activity.user.name
+									.split(' ')
+									.map((n) => n[0])
+									.join('')}
 							</AvatarFallback>
 						</Avatar>
-						<span className="text-xs text-muted-foreground">{activity.user.name}</span>
+						<span className="text-xs text-muted-foreground">
+							{activity.user.name}
+						</span>
 					</div>
 					<div className="flex items-center gap-1 text-xs text-muted-foreground">
 						<Clock className="size-3" />
@@ -78,8 +117,14 @@ const ActivityRow = ({ activity, typeLabels }: ActivityRowProps) => {
 				</div>
 			</div>
 			<div className="text-right">
-				<span className={`font-semibold tabular-nums ${activity.type === 'received' || activity.type === 'returned' ? 'text-emerald-500' : activity.type === 'shipped' ? 'text-red-500' : ''}`}>
-					{activity.type === 'received' || activity.type === 'returned' ? '+' : activity.type === 'shipped' ? '-' : ''}
+				<span
+					className={`font-semibold tabular-nums ${activity.type === 'received' || activity.type === 'returned' ? 'text-emerald-500' : activity.type === 'shipped' ? 'text-red-500' : ''}`}
+				>
+					{activity.type === 'received' || activity.type === 'returned'
+						? '+'
+						: activity.type === 'shipped'
+							? '-'
+							: ''}
 					{activity.quantity}
 				</span>
 				<p className="text-xs text-muted-foreground">units</p>
@@ -155,12 +200,20 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Recent Activity</CardTitle>
-						<CardDescription>Track all inventory movements and changes</CardDescription>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Recent Activity
+						</CardTitle>
+						<CardDescription>
+							Track all inventory movements and changes
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						{activities.map((activity) => (
-							<ActivityRow key={activity.id} activity={activity} typeLabels={typeLabels} />
+							<ActivityRow
+								key={activity.id}
+								activity={activity}
+								typeLabels={typeLabels}
+							/>
 						))}
 					</CardContent>
 				</Card>

@@ -14,7 +14,13 @@ type SmallChartProps = {
 	color: string;
 };
 
-const SmallAreaChart = ({ data, color }: { data: DataPoint[]; color: string }) => {
+const SmallAreaChart = ({
+	data,
+	color,
+}: {
+	data: DataPoint[];
+	color: string;
+}) => {
 	const max = Math.max(...data.map((d) => d.value));
 	const min = Math.min(...data.map((d) => d.value));
 	const range = max - min || 1;
@@ -32,9 +38,19 @@ const SmallAreaChart = ({ data, color }: { data: DataPoint[]; color: string }) =
 	const areaD = `${pathD} L 100 100 L 0 100 Z`;
 
 	return (
-		<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-20">
+		<svg
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+			className="w-full h-20"
+		>
 			<defs>
-				<linearGradient id={`smallGrad-${color}`} x1="0%" y1="0%" x2="0%" y2="100%">
+				<linearGradient
+					id={`smallGrad-${color}`}
+					x1="0%"
+					y1="0%"
+					x2="0%"
+					y2="100%"
+				>
 					<stop offset="0%" stopColor={color} stopOpacity="0.3" />
 					<stop offset="100%" stopColor={color} stopOpacity="0" />
 				</linearGradient>
@@ -45,11 +61,27 @@ const SmallAreaChart = ({ data, color }: { data: DataPoint[]; color: string }) =
 	);
 };
 
-const ChartCard = ({ title, value, change, trend, data, color }: SmallChartProps) => (
+const ChartCard = ({
+	title,
+	value,
+	change,
+	trend,
+	data,
+	color,
+}: SmallChartProps) => (
 	<Card className="group border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<CardHeader className="flex flex-row items-center justify-between pb-2">
-			<CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
-			<Badge variant={trend === 'up' ? 'default' : 'secondary'} className={trend === 'up' ? 'bg-emerald-500/10 text-emerald-500' : 'bg-rose-500/10 text-rose-500'}>
+			<CardTitle className="text-sm font-medium text-muted-foreground">
+				{title}
+			</CardTitle>
+			<Badge
+				variant={trend === 'up' ? 'default' : 'secondary'}
+				className={
+					trend === 'up'
+						? 'bg-emerald-500/10 text-emerald-500'
+						: 'bg-rose-500/10 text-rose-500'
+				}
+			>
 				{change}
 			</Badge>
 		</CardHeader>

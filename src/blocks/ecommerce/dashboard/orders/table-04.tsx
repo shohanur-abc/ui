@@ -10,7 +10,12 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
+import {
+	ChevronLeft,
+	ChevronRight,
+	ChevronsLeft,
+	ChevronsRight,
+} from 'lucide-react';
 
 interface Order {
 	id: string;
@@ -46,14 +51,20 @@ const ProgressCell = ({ progress, status }: ProgressCellProps) => {
 	};
 	return (
 		<div className="flex items-center gap-3 min-w-32">
-			<Progress value={progress} className="h-2 flex-1 bg-muted [&>div]:transition-all" />
+			<Progress
+				value={progress}
+				className="h-2 flex-1 bg-muted [&>div]:transition-all"
+			/>
 			<span className="text-xs text-muted-foreground w-10">{progress}%</span>
 		</div>
 	);
 };
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
-	const config: Record<Order['status'], { label: string; variant: 'default' | 'secondary' | 'outline' }> = {
+	const config: Record<
+		Order['status'],
+		{ label: string; variant: 'default' | 'secondary' | 'outline' }
+	> = {
 		fulfilled: { label: 'Fulfilled', variant: 'default' },
 		partial: { label: 'Partial', variant: 'secondary' },
 		pending: { label: 'Pending', variant: 'outline' },
@@ -61,8 +72,17 @@ const StatusBadge = ({ status }: { status: Order['status'] }) => {
 	return <Badge variant={config[status].variant}>{config[status].label}</Badge>;
 };
 
-const PaginationButton = ({ icon: Icon, label, disabled }: PaginationButtonProps) => (
-	<Button variant="outline" size="icon-sm" disabled={disabled} className="hover:bg-muted">
+const PaginationButton = ({
+	icon: Icon,
+	label,
+	disabled,
+}: PaginationButtonProps) => (
+	<Button
+		variant="outline"
+		size="icon-sm"
+		disabled={disabled}
+		className="hover:bg-muted"
+	>
 		<Icon className="size-4" />
 		<span className="sr-only">{label}</span>
 	</Button>
@@ -72,8 +92,16 @@ const Pagination = ({ currentPage, totalPages, showing }: PaginationProps) => (
 	<div className="flex items-center justify-between px-4 py-3">
 		<span className="text-sm text-muted-foreground">{showing}</span>
 		<div className="flex items-center gap-1">
-			<PaginationButton icon={ChevronsLeft} label="First page" disabled={currentPage === 1} />
-			<PaginationButton icon={ChevronLeft} label="Previous" disabled={currentPage === 1} />
+			<PaginationButton
+				icon={ChevronsLeft}
+				label="First page"
+				disabled={currentPage === 1}
+			/>
+			<PaginationButton
+				icon={ChevronLeft}
+				label="Previous"
+				disabled={currentPage === 1}
+			/>
 			<div className="flex items-center gap-1 px-2">
 				{Array.from({ length: totalPages }, (_, i) => (
 					<Button
@@ -86,8 +114,16 @@ const Pagination = ({ currentPage, totalPages, showing }: PaginationProps) => (
 					</Button>
 				))}
 			</div>
-			<PaginationButton icon={ChevronRight} label="Next" disabled={currentPage === totalPages} />
-			<PaginationButton icon={ChevronsRight} label="Last page" disabled={currentPage === totalPages} />
+			<PaginationButton
+				icon={ChevronRight}
+				label="Next"
+				disabled={currentPage === totalPages}
+			/>
+			<PaginationButton
+				icon={ChevronsRight}
+				label="Last page"
+				disabled={currentPage === totalPages}
+			/>
 		</div>
 	</div>
 );
@@ -109,15 +145,64 @@ const OrderRow = ({ order }: { order: Order }) => (
 
 export default function Main() {
 	const orders: Order[] = [
-		{ id: 'ORD-7841', customer: 'TechCorp Inc.', region: 'North America', amount: '$12,450.00', progress: 100, status: 'fulfilled' },
-		{ id: 'ORD-7842', customer: 'Global Retail Ltd.', region: 'Europe', amount: '$8,920.00', progress: 75, status: 'partial' },
-		{ id: 'ORD-7843', customer: 'Asia Markets Co.', region: 'Asia Pacific', amount: '$15,780.00', progress: 100, status: 'fulfilled' },
-		{ id: 'ORD-7844', customer: 'StartupXYZ', region: 'North America', amount: '$3,240.00', progress: 30, status: 'pending' },
-		{ id: 'ORD-7845', customer: 'MegaStore Chain', region: 'Europe', amount: '$24,100.00', progress: 60, status: 'partial' },
-		{ id: 'ORD-7846', customer: 'Pacific Traders', region: 'Asia Pacific', amount: '$7,650.00', progress: 100, status: 'fulfilled' },
+		{
+			id: 'ORD-7841',
+			customer: 'TechCorp Inc.',
+			region: 'North America',
+			amount: '$12,450.00',
+			progress: 100,
+			status: 'fulfilled',
+		},
+		{
+			id: 'ORD-7842',
+			customer: 'Global Retail Ltd.',
+			region: 'Europe',
+			amount: '$8,920.00',
+			progress: 75,
+			status: 'partial',
+		},
+		{
+			id: 'ORD-7843',
+			customer: 'Asia Markets Co.',
+			region: 'Asia Pacific',
+			amount: '$15,780.00',
+			progress: 100,
+			status: 'fulfilled',
+		},
+		{
+			id: 'ORD-7844',
+			customer: 'StartupXYZ',
+			region: 'North America',
+			amount: '$3,240.00',
+			progress: 30,
+			status: 'pending',
+		},
+		{
+			id: 'ORD-7845',
+			customer: 'MegaStore Chain',
+			region: 'Europe',
+			amount: '$24,100.00',
+			progress: 60,
+			status: 'partial',
+		},
+		{
+			id: 'ORD-7846',
+			customer: 'Pacific Traders',
+			region: 'Asia Pacific',
+			amount: '$7,650.00',
+			progress: 100,
+			status: 'fulfilled',
+		},
 	];
 
-	const headers = ['Order ID', 'Customer', 'Region', 'Amount', 'Fulfillment', 'Status'];
+	const headers = [
+		'Order ID',
+		'Customer',
+		'Region',
+		'Amount',
+		'Fulfillment',
+		'Status',
+	];
 
 	return (
 		<section className="@container" data-theme="orders">
@@ -127,7 +212,9 @@ export default function Main() {
 						<TableHeader>
 							<TableRow className="bg-muted/40 hover:bg-muted/40 border-border/50">
 								{headers.map((header) => (
-									<TableHead key={header} className="font-semibold">{header}</TableHead>
+									<TableHead key={header} className="font-semibold">
+										{header}
+									</TableHead>
 								))}
 							</TableRow>
 						</TableHeader>

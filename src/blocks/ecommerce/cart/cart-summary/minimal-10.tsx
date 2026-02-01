@@ -17,7 +17,10 @@ const DetailRow = ({ label, value }: DetailRowProps) => (
 const CollapsibleDetails = ({
 	summary,
 	details,
-}: { summary: string; details: DetailRowProps[] }) => (
+}: {
+	summary: string;
+	details: DetailRowProps[];
+}) => (
 	<details className="group">
 		<summary className="flex cursor-pointer list-none items-center justify-between text-sm text-muted-foreground">
 			{summary}

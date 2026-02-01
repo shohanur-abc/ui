@@ -12,7 +12,13 @@ import {
 	ChevronDown,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -29,7 +35,13 @@ import {
 	TableRow,
 } from '@/components/ui/table';
 
-type PurchaseOrderStatus = 'draft' | 'pending' | 'ordered' | 'in-transit' | 'received' | 'partial';
+type PurchaseOrderStatus =
+	| 'draft'
+	| 'pending'
+	| 'ordered'
+	| 'in-transit'
+	| 'received'
+	| 'partial';
 
 type OrderItem = {
 	sku: string;
@@ -55,7 +67,13 @@ type StatusBadgeProps = {
 };
 
 const StatusBadge = ({ status }: StatusBadgeProps) => {
-	const config: Record<PurchaseOrderStatus, { label: string; variant: 'default' | 'secondary' | 'outline' | 'destructive' }> = {
+	const config: Record<
+		PurchaseOrderStatus,
+		{
+			label: string;
+			variant: 'default' | 'secondary' | 'outline' | 'destructive';
+		}
+	> = {
 		draft: { label: 'Draft', variant: 'outline' },
 		pending: { label: 'Pending', variant: 'secondary' },
 		ordered: { label: 'Ordered', variant: 'default' },
@@ -75,7 +93,9 @@ type OrderRowProps = {
 const OrderRow = ({ order }: OrderRowProps) => {
 	const [isOpen, setIsOpen] = React.useState(false);
 	const itemCount = order.items.length;
-	const receivedItems = order.items.filter((i) => i.receivedQty >= i.orderedQty).length;
+	const receivedItems = order.items.filter(
+		(i) => i.receivedQty >= i.orderedQty,
+	).length;
 
 	return (
 		<Collapsible open={isOpen} onOpenChange={setIsOpen}>
@@ -94,19 +114,27 @@ const OrderRow = ({ order }: OrderRowProps) => {
 						</div>
 						<div className="hidden text-center @sm:block">
 							<p className="text-xs text-muted-foreground">Items</p>
-							<p className="font-medium">{receivedItems}/{itemCount}</p>
+							<p className="font-medium">
+								{receivedItems}/{itemCount}
+							</p>
 						</div>
 						<div className="hidden text-center @sm:block">
 							<p className="text-xs text-muted-foreground">Order Date</p>
-							<p className="font-medium">{new Date(order.orderDate).toLocaleDateString()}</p>
+							<p className="font-medium">
+								{new Date(order.orderDate).toLocaleDateString()}
+							</p>
 						</div>
 						<div className="text-center">
 							<p className="text-xs text-muted-foreground">Expected</p>
-							<p className="font-medium">{new Date(order.expectedDate).toLocaleDateString()}</p>
+							<p className="font-medium">
+								{new Date(order.expectedDate).toLocaleDateString()}
+							</p>
 						</div>
 						<div className="text-right">
 							<p className="text-xs text-muted-foreground">Total Value</p>
-							<p className="font-semibold">${order.totalValue.toLocaleString()}</p>
+							<p className="font-semibold">
+								${order.totalValue.toLocaleString()}
+							</p>
 						</div>
 						<ChevronDown
 							className={`size-5 text-muted-foreground transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -129,15 +157,27 @@ const OrderRow = ({ order }: OrderRowProps) => {
 							<TableBody>
 								{order.items.map((item) => (
 									<TableRow key={item.sku}>
-										<TableCell className="font-mono text-sm">{item.sku}</TableCell>
+										<TableCell className="font-mono text-sm">
+											{item.sku}
+										</TableCell>
 										<TableCell>{item.name}</TableCell>
-										<TableCell className="text-right">{item.orderedQty}</TableCell>
 										<TableCell className="text-right">
-											<span className={item.receivedQty < item.orderedQty ? 'text-amber-500' : 'text-emerald-500'}>
+											{item.orderedQty}
+										</TableCell>
+										<TableCell className="text-right">
+											<span
+												className={
+													item.receivedQty < item.orderedQty
+														? 'text-amber-500'
+														: 'text-emerald-500'
+												}
+											>
 												{item.receivedQty}
 											</span>
 										</TableCell>
-										<TableCell className="text-right">${item.unitCost.toFixed(2)}</TableCell>
+										<TableCell className="text-right">
+											${item.unitCost.toFixed(2)}
+										</TableCell>
 										<TableCell className="text-right font-medium">
 											${(item.orderedQty * item.unitCost).toFixed(2)}
 										</TableCell>
@@ -172,9 +212,27 @@ export default function Main() {
 			status: 'in-transit',
 			totalValue: 12500,
 			items: [
-				{ sku: 'WH-001', name: 'Wireless Headphones', orderedQty: 100, receivedQty: 0, unitCost: 45.00 },
-				{ sku: 'BS-001', name: 'Bluetooth Speaker', orderedQty: 50, receivedQty: 0, unitCost: 65.00 },
-				{ sku: 'PB-001', name: 'Power Bank', orderedQty: 150, receivedQty: 0, unitCost: 25.00 },
+				{
+					sku: 'WH-001',
+					name: 'Wireless Headphones',
+					orderedQty: 100,
+					receivedQty: 0,
+					unitCost: 45.0,
+				},
+				{
+					sku: 'BS-001',
+					name: 'Bluetooth Speaker',
+					orderedQty: 50,
+					receivedQty: 0,
+					unitCost: 65.0,
+				},
+				{
+					sku: 'PB-001',
+					name: 'Power Bank',
+					orderedQty: 150,
+					receivedQty: 0,
+					unitCost: 25.0,
+				},
 			],
 		},
 		{
@@ -186,8 +244,20 @@ export default function Main() {
 			status: 'partial',
 			totalValue: 8750,
 			items: [
-				{ sku: 'USB-001', name: 'USB-C Cable', orderedQty: 500, receivedQty: 350, unitCost: 8.50 },
-				{ sku: 'HDMI-001', name: 'HDMI Cable', orderedQty: 200, receivedQty: 200, unitCost: 12.00 },
+				{
+					sku: 'USB-001',
+					name: 'USB-C Cable',
+					orderedQty: 500,
+					receivedQty: 350,
+					unitCost: 8.5,
+				},
+				{
+					sku: 'HDMI-001',
+					name: 'HDMI Cable',
+					orderedQty: 200,
+					receivedQty: 200,
+					unitCost: 12.0,
+				},
 			],
 		},
 		{
@@ -199,8 +269,20 @@ export default function Main() {
 			status: 'received',
 			totalValue: 5200,
 			items: [
-				{ sku: 'PC-001', name: 'Phone Case', orderedQty: 400, receivedQty: 400, unitCost: 8.00 },
-				{ sku: 'SP-001', name: 'Screen Protector', orderedQty: 300, receivedQty: 300, unitCost: 4.00 },
+				{
+					sku: 'PC-001',
+					name: 'Phone Case',
+					orderedQty: 400,
+					receivedQty: 400,
+					unitCost: 8.0,
+				},
+				{
+					sku: 'SP-001',
+					name: 'Screen Protector',
+					orderedQty: 300,
+					receivedQty: 300,
+					unitCost: 4.0,
+				},
 			],
 		},
 	];
@@ -212,8 +294,12 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Purchase Orders</CardTitle>
-								<CardDescription>Track and manage incoming inventory</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Purchase Orders
+								</CardTitle>
+								<CardDescription>
+									Track and manage incoming inventory
+								</CardDescription>
 							</div>
 							<Button>
 								<FileText className="mr-2 size-4" />

@@ -41,7 +41,9 @@ const SpeedCard = ({
 			<CardContent className="p-6">
 				<div className="flex items-start gap-4">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
-					<div className={`flex size-14 shrink-0 items-center justify-center rounded-xl ${color.replace('bg-', 'bg-').replace('-500', '-500/20')} text-${color.replace('bg-', '')}`}>
+					<div
+						className={`flex size-14 shrink-0 items-center justify-center rounded-xl ${color.replace('bg-', 'bg-').replace('-500', '-500/20')} text-${color.replace('bg-', '')}`}
+					>
 						<Icon className="size-7" />
 					</div>
 					<div className="flex-1">
@@ -105,7 +107,9 @@ const OrderProgress = ({
 					<span>$35.00 / $50.00</span>
 				</div>
 				<Progress value={70} className="h-2" />
-				<p className="text-xs text-muted-foreground mt-1">Add $15.00 more for free shipping</p>
+				<p className="text-xs text-muted-foreground mt-1">
+					Add $15.00 more for free shipping
+				</p>
 			</div>
 		</CardContent>
 	</Card>
@@ -129,7 +133,12 @@ export default function Main() {
 			price: '$7.99',
 			icon: Truck,
 			color: 'bg-blue-500',
-			features: ['Full tracking', 'Secure packaging', 'Email updates', 'Insurance up to $50'],
+			features: [
+				'Full tracking',
+				'Secure packaging',
+				'Email updates',
+				'Insurance up to $50',
+			],
 		},
 		{
 			value: 'express',
@@ -139,7 +148,12 @@ export default function Main() {
 			icon: Zap,
 			color: 'bg-primary',
 			recommended: true,
-			features: ['Priority handling', 'Real-time tracking', 'Insurance included', 'SMS updates'],
+			features: [
+				'Priority handling',
+				'Real-time tracking',
+				'Insurance included',
+				'SMS updates',
+			],
 		},
 		{
 			value: 'overnight',
@@ -148,7 +162,12 @@ export default function Main() {
 			price: '$29.99',
 			icon: Star,
 			color: 'bg-amber-500',
-			features: ['Guaranteed delivery', 'Full insurance', 'Signature required', 'Priority support'],
+			features: [
+				'Guaranteed delivery',
+				'Full insurance',
+				'Signature required',
+				'Priority support',
+			],
 		},
 	];
 
@@ -156,8 +175,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Select Shipping Speed</h1>
-					<p className="text-muted-foreground">Choose how fast you want your order delivered</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Select Shipping Speed
+					</h1>
+					<p className="text-muted-foreground">
+						Choose how fast you want your order delivered
+					</p>
 				</div>
 
 				<RadioGroup defaultValue="express" className="space-y-4 mb-8">
@@ -173,7 +196,9 @@ export default function Main() {
 					total="$49.99"
 				/>
 
-				<Button className="w-full h-12 text-base mt-6">Continue to Payment</Button>
+				<Button className="w-full h-12 text-base mt-6">
+					Continue to Payment
+				</Button>
 			</div>
 		</section>
 	);

@@ -13,12 +13,25 @@ import {
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
 type ActivityItem = {
 	id: string;
-	type: 'order' | 'payment' | 'review' | 'message' | 'delivery' | 'refund' | 'signup';
+	type:
+		| 'order'
+		| 'payment'
+		| 'review'
+		| 'message'
+		| 'delivery'
+		| 'refund'
+		| 'signup';
 	title: string;
 	description: string;
 	time: string;
@@ -44,7 +57,13 @@ const getActivityIcon = (type: ActivityItem['type']) => {
 	}
 };
 
-const ActivityItemComponent = ({ type, title, description, time, user }: ActivityItem) => {
+const ActivityItemComponent = ({
+	type,
+	title,
+	description,
+	time,
+	user,
+}: ActivityItem) => {
 	const config = getActivityIcon(type);
 	const Icon = config.icon;
 
@@ -67,7 +86,9 @@ const ActivityItemComponent = ({ type, title, description, time, user }: Activit
 				{user && (
 					<div className="mt-2 flex items-center gap-2">
 						<Avatar className="size-6">
-							<AvatarFallback className="text-[10px]">{user.initials}</AvatarFallback>
+							<AvatarFallback className="text-[10px]">
+								{user.initials}
+							</AvatarFallback>
 						</Avatar>
 						<span className="text-sm">{user.name}</span>
 					</div>
@@ -79,14 +100,66 @@ const ActivityItemComponent = ({ type, title, description, time, user }: Activit
 
 export default function Main() {
 	const activities: ActivityItem[] = [
-		{ id: '1', type: 'order', title: 'New order placed', description: 'Order #ORD-4521 for $234.50', time: '2m ago', user: { name: 'John Doe', initials: 'JD' } },
-		{ id: '2', type: 'payment', title: 'Payment received', description: 'Payment of $189.00 processed', time: '15m ago' },
-		{ id: '3', type: 'review', title: 'New 5-star review', description: 'Wireless Headphones Pro received a review', time: '32m ago', user: { name: 'Jane Smith', initials: 'JS' } },
-		{ id: '4', type: 'delivery', title: 'Order delivered', description: 'Order #ORD-4519 was delivered', time: '1h ago' },
-		{ id: '5', type: 'signup', title: 'New customer signup', description: 'Lisa Davis joined the platform', time: '2h ago', user: { name: 'Lisa Davis', initials: 'LD' } },
-		{ id: '6', type: 'message', title: 'Support ticket opened', description: 'Customer inquiry about shipping', time: '3h ago' },
-		{ id: '7', type: 'refund', title: 'Refund processed', description: 'Refund of $45.00 for order #ORD-4510', time: '4h ago' },
-		{ id: '8', type: 'order', title: 'New order placed', description: 'Order #ORD-4520 for $456.20', time: '5h ago', user: { name: 'Bob Wilson', initials: 'BW' } },
+		{
+			id: '1',
+			type: 'order',
+			title: 'New order placed',
+			description: 'Order #ORD-4521 for $234.50',
+			time: '2m ago',
+			user: { name: 'John Doe', initials: 'JD' },
+		},
+		{
+			id: '2',
+			type: 'payment',
+			title: 'Payment received',
+			description: 'Payment of $189.00 processed',
+			time: '15m ago',
+		},
+		{
+			id: '3',
+			type: 'review',
+			title: 'New 5-star review',
+			description: 'Wireless Headphones Pro received a review',
+			time: '32m ago',
+			user: { name: 'Jane Smith', initials: 'JS' },
+		},
+		{
+			id: '4',
+			type: 'delivery',
+			title: 'Order delivered',
+			description: 'Order #ORD-4519 was delivered',
+			time: '1h ago',
+		},
+		{
+			id: '5',
+			type: 'signup',
+			title: 'New customer signup',
+			description: 'Lisa Davis joined the platform',
+			time: '2h ago',
+			user: { name: 'Lisa Davis', initials: 'LD' },
+		},
+		{
+			id: '6',
+			type: 'message',
+			title: 'Support ticket opened',
+			description: 'Customer inquiry about shipping',
+			time: '3h ago',
+		},
+		{
+			id: '7',
+			type: 'refund',
+			title: 'Refund processed',
+			description: 'Refund of $45.00 for order #ORD-4510',
+			time: '4h ago',
+		},
+		{
+			id: '8',
+			type: 'order',
+			title: 'New order placed',
+			description: 'Order #ORD-4520 for $456.20',
+			time: '5h ago',
+			user: { name: 'Bob Wilson', initials: 'BW' },
+		},
 	];
 
 	return (

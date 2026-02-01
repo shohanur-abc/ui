@@ -35,8 +35,16 @@ const SavedAddressCard = ({
 		className="group relative flex flex-col p-5 rounded-2xl border-2 cursor-pointer hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5 transition-all"
 	>
 		<div className="absolute top-4 right-4 flex items-center gap-2">
-			{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
-			<Button variant="ghost" size="icon" className="size-8 opacity-0 group-hover:opacity-100 transition-opacity">
+			{isDefault && (
+				<Badge variant="secondary" className="text-xs">
+					Default
+				</Badge>
+			)}
+			<Button
+				variant="ghost"
+				size="icon"
+				className="size-8 opacity-0 group-hover:opacity-100 transition-opacity"
+			>
 				<Edit3 className="size-4" />
 			</Button>
 		</div>
@@ -129,8 +137,16 @@ export default function Main() {
 	];
 
 	const recentOrders = [
-		{ orderNumber: '#12345', date: 'Jan 15', address: '789 Another St, Brooklyn, NY' },
-		{ orderNumber: '#12290', date: 'Dec 20', address: '321 Different Ave, Queens, NY' },
+		{
+			orderNumber: '#12345',
+			date: 'Jan 15',
+			address: '789 Another St, Brooklyn, NY',
+		},
+		{
+			orderNumber: '#12290',
+			date: 'Dec 20',
+			address: '321 Different Ave, Queens, NY',
+		},
 	];
 
 	return (
@@ -142,14 +158,19 @@ export default function Main() {
 					</div>
 					<div>
 						<h1 className="text-2xl font-bold">Shipping Address</h1>
-						<p className="text-muted-foreground">Select or add a delivery address</p>
+						<p className="text-muted-foreground">
+							Select or add a delivery address
+						</p>
 					</div>
 				</div>
 
 				<div className="grid @xl:grid-cols-[1fr,360px] gap-8">
 					<Dialog>
 						<div className="space-y-6">
-							<RadioGroup defaultValue="home" className="grid @sm:grid-cols-2 gap-4">
+							<RadioGroup
+								defaultValue="home"
+								className="grid @sm:grid-cols-2 gap-4"
+							>
 								{savedAddresses.map((addr) => (
 									<SavedAddressCard key={addr.value} {...addr} />
 								))}
@@ -157,7 +178,9 @@ export default function Main() {
 							</RadioGroup>
 
 							<div className="flex gap-3 pt-4">
-								<Button variant="outline" className="flex-1">Back</Button>
+								<Button variant="outline" className="flex-1">
+									Back
+								</Button>
 								<Button className="flex-1">Continue to Payment</Button>
 							</div>
 						</div>
@@ -171,16 +194,28 @@ export default function Main() {
 									<FormInput label="First Name" placeholder="John" />
 									<FormInput label="Last Name" placeholder="Doe" />
 								</div>
-								<FormInput label="Street Address" placeholder="123 Main Street" />
-								<FormInput label="Apt / Suite / Unit" placeholder="Apartment 4B" />
+								<FormInput
+									label="Street Address"
+									placeholder="123 Main Street"
+								/>
+								<FormInput
+									label="Apt / Suite / Unit"
+									placeholder="Apartment 4B"
+								/>
 								<div className="grid @sm:grid-cols-3 gap-4">
 									<FormInput label="City" placeholder="New York" />
 									<FormInput label="State" placeholder="NY" />
 									<FormInput label="ZIP Code" placeholder="10001" />
 								</div>
-								<FormInput label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
+								<FormInput
+									label="Phone"
+									placeholder="+1 (555) 000-0000"
+									type="tel"
+								/>
 								<div className="flex gap-3 pt-4">
-									<Button variant="outline" className="flex-1">Cancel</Button>
+									<Button variant="outline" className="flex-1">
+										Cancel
+									</Button>
 									<Button className="flex-1">Save Address</Button>
 								</div>
 							</div>

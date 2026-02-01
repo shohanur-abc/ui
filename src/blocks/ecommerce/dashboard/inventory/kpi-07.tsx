@@ -11,7 +11,13 @@ import {
 	ArrowDownRight,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 
@@ -25,7 +31,15 @@ type KPICardProps = {
 	variant?: 'default' | 'success' | 'warning' | 'danger';
 };
 
-const KPICard = ({ title, value, change, changeLabel, target, icon, variant = 'default' }: KPICardProps) => {
+const KPICard = ({
+	title,
+	value,
+	change,
+	changeLabel,
+	target,
+	icon,
+	variant = 'default',
+}: KPICardProps) => {
 	const isPositive = change >= 0;
 	const variantColors = {
 		default: 'bg-primary/10 text-primary',
@@ -38,11 +52,20 @@ const KPICard = ({ title, value, change, changeLabel, target, icon, variant = 'd
 		<Card>
 			<CardContent className="p-6">
 				<div className="flex items-start justify-between">
-					<div className={`flex size-12 items-center justify-center rounded-xl ${variantColors[variant]}`}>
+					<div
+						className={`flex size-12 items-center justify-center rounded-xl ${variantColors[variant]}`}
+					>
 						{icon}
 					</div>
-					<Badge variant={isPositive ? 'default' : 'destructive'} className="gap-1 text-xs">
-						{isPositive ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
+					<Badge
+						variant={isPositive ? 'default' : 'destructive'}
+						className="gap-1 text-xs"
+					>
+						{isPositive ? (
+							<ArrowUpRight className="size-3" />
+						) : (
+							<ArrowDownRight className="size-3" />
+						)}
 						{Math.abs(change)}%
 					</Badge>
 				</div>
@@ -57,7 +80,10 @@ const KPICard = ({ title, value, change, changeLabel, target, icon, variant = 'd
 							<span className="text-muted-foreground">Target</span>
 							<span>{Math.round((target.current / target.value) * 100)}%</span>
 						</div>
-						<Progress value={(target.current / target.value) * 100} className="h-2" />
+						<Progress
+							value={(target.current / target.value) * 100}
+							className="h-2"
+						/>
 					</div>
 				)}
 			</CardContent>
@@ -108,7 +134,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<div className="mb-6">
 					<h2 className="text-xl font-semibold @lg:text-2xl">Inventory KPIs</h2>
-					<p className="text-sm text-muted-foreground">Key performance indicators with targets</p>
+					<p className="text-sm text-muted-foreground">
+						Key performance indicators with targets
+					</p>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 					{kpis.map((kpi) => (

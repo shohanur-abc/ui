@@ -52,7 +52,9 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 		<CardContent className="p-6 flex flex-col h-full">
 			<Quote className="size-8 text-primary/20 mb-2 group-hover:text-primary/40 transition-colors" />
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed flex-1 mb-6">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed flex-1 mb-6">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -71,15 +73,13 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 	</Card>
 );
 
-const StatsBar = ({
-	items,
-}: {
-	items: { value: string; label: string }[];
-}) => (
+const StatsBar = ({ items }: { items: { value: string; label: string }[] }) => (
 	<div className="grid grid-cols-2 @md:grid-cols-4 gap-6 mt-12 @lg:mt-16 pt-12 border-t border-border/50">
 		{items.map((item, index) => (
 			<div key={index} className="text-center">
-				<p className="text-3xl @md:text-4xl font-bold text-primary">{item.value}</p>
+				<p className="text-3xl @md:text-4xl font-bold text-primary">
+					{item.value}
+				</p>
 				<p className="text-sm text-muted-foreground mt-1">{item.label}</p>
 			</div>
 		))}
@@ -94,7 +94,8 @@ export default function Main() {
 			author: 'Emma Thompson',
 			role: 'CEO',
 			company: 'GrowthLabs',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'ET',
 			rating: 5,
 		},
@@ -104,7 +105,8 @@ export default function Main() {
 			author: 'James Wilson',
 			role: 'CTO',
 			company: 'TechVentures',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'JW',
 			rating: 5,
 		},
@@ -114,7 +116,8 @@ export default function Main() {
 			author: 'Maria Garcia',
 			role: 'Operations Director',
 			company: 'Streamline Inc',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'MG',
 			rating: 5,
 		},
@@ -124,7 +127,8 @@ export default function Main() {
 			author: 'Alex Johnson',
 			role: 'Product Manager',
 			company: 'InnoSoft',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'AJ',
 			rating: 5,
 		},
@@ -134,7 +138,8 @@ export default function Main() {
 			author: 'Sophie Brown',
 			role: 'HR Director',
 			company: 'PeopleFirst',
-			avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
 			initials: 'SB',
 			rating: 5,
 		},
@@ -144,7 +149,8 @@ export default function Main() {
 			author: 'David Park',
 			role: 'Data Lead',
 			company: 'Analytics Pro',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'DP',
 			rating: 5,
 		},
@@ -158,7 +164,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Customer Love"

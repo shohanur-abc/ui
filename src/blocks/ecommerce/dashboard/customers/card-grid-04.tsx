@@ -88,7 +88,9 @@ const CustomerCard = ({ customer }: { customer: RecentCustomer }) => (
 						<div className="flex items-center gap-2">
 							<p className="font-semibold">{customer.name}</p>
 							{customer.isNewCustomer && (
-								<Badge className="bg-blue-500/10 text-blue-500 text-xs">New</Badge>
+								<Badge className="bg-blue-500/10 text-blue-500 text-xs">
+									New
+								</Badge>
 							)}
 						</div>
 						<p className="text-muted-foreground text-xs">{customer.email}</p>
@@ -96,7 +98,11 @@ const CustomerCard = ({ customer }: { customer: RecentCustomer }) => (
 				</div>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100">
+						<Button
+							variant="ghost"
+							size="icon-sm"
+							className="opacity-0 group-hover:opacity-100"
+						>
 							<MoreHorizontal className="size-4" />
 						</Button>
 					</DropdownMenuTrigger>
@@ -120,10 +126,14 @@ const CustomerCard = ({ customer }: { customer: RecentCustomer }) => (
 					</Badge>
 				</div>
 				<div className="mt-2 flex items-center justify-between text-sm">
-					<span className="text-muted-foreground">{customer.lastOrder.items} items</span>
+					<span className="text-muted-foreground">
+						{customer.lastOrder.items} items
+					</span>
 					<span className="font-semibold">{customer.lastOrder.amount}</span>
 				</div>
-				<p className="text-muted-foreground mt-1 text-xs">{customer.lastOrder.date}</p>
+				<p className="text-muted-foreground mt-1 text-xs">
+					{customer.lastOrder.date}
+				</p>
 			</div>
 
 			<div className="space-y-2 p-4">
@@ -139,7 +149,9 @@ const CustomerCard = ({ customer }: { customer: RecentCustomer }) => (
 				</div>
 				<div className="flex items-center gap-2 text-sm">
 					<Clock className="text-muted-foreground size-3.5" />
-					<span className="text-muted-foreground">{customer.recentActivity}</span>
+					<span className="text-muted-foreground">
+						{customer.recentActivity}
+					</span>
 				</div>
 			</div>
 
@@ -178,7 +190,12 @@ export default function Main() {
 			email: 'emma.t@email.com',
 			phone: '+1 (555) 123-4567',
 			initials: 'ET',
-			lastOrder: { id: 'ORD-4521', amount: '$234.99', items: 3, date: '2 hours ago' },
+			lastOrder: {
+				id: 'ORD-4521',
+				amount: '$234.99',
+				items: 3,
+				date: '2 hours ago',
+			},
 			location: { city: 'New York', country: 'USA' },
 			isNewCustomer: false,
 			hasActiveOrder: true,
@@ -191,7 +208,12 @@ export default function Main() {
 			email: 'lucas.m@email.com',
 			phone: '+1 (555) 234-5678',
 			initials: 'LM',
-			lastOrder: { id: 'ORD-4520', amount: '$89.50', items: 1, date: '5 hours ago' },
+			lastOrder: {
+				id: 'ORD-4520',
+				amount: '$89.50',
+				items: 1,
+				date: '5 hours ago',
+			},
 			location: { city: 'Los Angeles', country: 'USA' },
 			isNewCustomer: true,
 			hasActiveOrder: true,
@@ -204,7 +226,12 @@ export default function Main() {
 			email: 'sophie.c@email.com',
 			phone: '+1 (555) 345-6789',
 			initials: 'SC',
-			lastOrder: { id: 'ORD-4518', amount: '$456.00', items: 5, date: 'Yesterday' },
+			lastOrder: {
+				id: 'ORD-4518',
+				amount: '$456.00',
+				items: 5,
+				date: 'Yesterday',
+			},
 			location: { city: 'San Francisco', country: 'USA' },
 			isNewCustomer: false,
 			hasActiveOrder: false,
@@ -217,7 +244,12 @@ export default function Main() {
 			email: 'oliver.b@email.com',
 			phone: '+1 (555) 456-7890',
 			initials: 'OB',
-			lastOrder: { id: 'ORD-4515', amount: '$178.25', items: 2, date: '2 days ago' },
+			lastOrder: {
+				id: 'ORD-4515',
+				amount: '$178.25',
+				items: 2,
+				date: '2 days ago',
+			},
 			location: { city: 'Chicago', country: 'USA' },
 			isNewCustomer: false,
 			hasActiveOrder: false,
@@ -230,7 +262,12 @@ export default function Main() {
 			email: 'ava.w@email.com',
 			phone: '+1 (555) 567-8901',
 			initials: 'AW',
-			lastOrder: { id: 'ORD-4512', amount: '$567.80', items: 7, date: '3 days ago' },
+			lastOrder: {
+				id: 'ORD-4512',
+				amount: '$567.80',
+				items: 7,
+				date: '3 days ago',
+			},
 			location: { city: 'Miami', country: 'USA' },
 			isNewCustomer: false,
 			hasActiveOrder: true,
@@ -243,7 +280,12 @@ export default function Main() {
 			email: 'noah.d@email.com',
 			phone: '+1 (555) 678-9012',
 			initials: 'ND',
-			lastOrder: { id: 'ORD-4508', amount: '$123.45', items: 2, date: '4 days ago' },
+			lastOrder: {
+				id: 'ORD-4508',
+				amount: '$123.45',
+				items: 2,
+				date: '4 days ago',
+			},
 			location: { city: 'Seattle', country: 'USA' },
 			isNewCustomer: true,
 			hasActiveOrder: false,

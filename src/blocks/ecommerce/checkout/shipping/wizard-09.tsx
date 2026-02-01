@@ -1,4 +1,12 @@
-import { Check, MapPin, Truck, CreditCard, CheckCircle2, Circle, Loader2 } from 'lucide-react';
+import {
+	Check,
+	MapPin,
+	Truck,
+	CreditCard,
+	CheckCircle2,
+	Circle,
+	Loader2,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -115,7 +123,9 @@ export default function Main() {
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20 pb-32">
 				<div className="text-center mb-10">
 					<h1 className="text-3xl font-bold mb-2">Checkout</h1>
-					<p className="text-muted-foreground">Complete your order in a few simple steps</p>
+					<p className="text-muted-foreground">
+						Complete your order in a few simple steps
+					</p>
 				</div>
 
 				<FormSection
@@ -128,7 +138,12 @@ export default function Main() {
 							<ValidationField label="First Name" placeholder="John" valid />
 							<ValidationField label="Last Name" placeholder="Doe" valid />
 						</div>
-						<ValidationField label="Email" placeholder="john@example.com" type="email" valid />
+						<ValidationField
+							label="Email"
+							placeholder="john@example.com"
+							type="email"
+							valid
+						/>
 						<ValidationField
 							label="Street Address"
 							placeholder="123 Main Street"
@@ -160,17 +175,26 @@ export default function Main() {
 								<input type="radio" name="shipping" className="size-4" />
 								<div>
 									<span className="font-medium">Standard (Free)</span>
-									<p className="text-sm text-muted-foreground">5-7 business days</p>
+									<p className="text-sm text-muted-foreground">
+										5-7 business days
+									</p>
 								</div>
 							</div>
 							<span className="font-bold">$0.00</span>
 						</Label>
 						<Label className="flex items-center justify-between p-4 border rounded-xl cursor-pointer hover:bg-accent/50 border-primary bg-primary/5">
 							<div className="flex items-center gap-3">
-								<input type="radio" name="shipping" className="size-4" defaultChecked />
+								<input
+									type="radio"
+									name="shipping"
+									className="size-4"
+									defaultChecked
+								/>
 								<div>
 									<span className="font-medium">Express</span>
-									<p className="text-sm text-muted-foreground">2-3 business days</p>
+									<p className="text-sm text-muted-foreground">
+										2-3 business days
+									</p>
 								</div>
 							</div>
 							<span className="font-bold text-primary">$12.99</span>
@@ -179,7 +203,9 @@ export default function Main() {
 				</FormSection>
 
 				<div className="flex gap-3">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 

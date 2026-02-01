@@ -12,7 +12,13 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	ChartConfig,
 	ChartContainer,
@@ -94,7 +100,9 @@ export default function Main() {
 					<Card>
 						<CardHeader>
 							<CardTitle>Performance Overview</CardTitle>
-							<CardDescription>View metrics across different time periods</CardDescription>
+							<CardDescription>
+								View metrics across different time periods
+							</CardDescription>
 						</CardHeader>
 						<CardContent>
 							<Tabs defaultValue="revenue" className="w-full">
@@ -104,50 +112,120 @@ export default function Main() {
 									<TabsTrigger value="customers">Customers</TabsTrigger>
 								</TabsList>
 								<TabsContent value="revenue">
-									<ChartContainer config={chartConfig} className="h-[300px] w-full">
+									<ChartContainer
+										config={chartConfig}
+										className="h-[300px] w-full"
+									>
 										<AreaChart data={chartData}>
 											<defs>
-												<linearGradient id="tabs61revenue" x1="0" y1="0" x2="0" y2="1">
-													<stop offset="5%" stopColor="var(--color-revenue)" stopOpacity={0.3} />
-													<stop offset="95%" stopColor="var(--color-revenue)" stopOpacity={0} />
+												<linearGradient
+													id="tabs61revenue"
+													x1="0"
+													y1="0"
+													x2="0"
+													y2="1"
+												>
+													<stop
+														offset="5%"
+														stopColor="var(--color-revenue)"
+														stopOpacity={0.3}
+													/>
+													<stop
+														offset="95%"
+														stopColor="var(--color-revenue)"
+														stopOpacity={0}
+													/>
 												</linearGradient>
 											</defs>
 											<XAxis dataKey="name" tickLine={false} axisLine={false} />
-											<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v/1000}K`} />
+											<YAxis
+												tickLine={false}
+												axisLine={false}
+												tickFormatter={(v) => `$${v / 1000}K`}
+											/>
 											<ChartTooltip content={<ChartTooltipContent />} />
-											<Area type="monotone" dataKey="revenue" stroke="var(--color-revenue)" fill="url(#tabs61revenue)" />
+											<Area
+												type="monotone"
+												dataKey="revenue"
+												stroke="var(--color-revenue)"
+												fill="url(#tabs61revenue)"
+											/>
 										</AreaChart>
 									</ChartContainer>
 								</TabsContent>
 								<TabsContent value="orders">
-									<ChartContainer config={chartConfig} className="h-[300px] w-full">
+									<ChartContainer
+										config={chartConfig}
+										className="h-[300px] w-full"
+									>
 										<AreaChart data={chartData}>
 											<defs>
-												<linearGradient id="tabs61orders" x1="0" y1="0" x2="0" y2="1">
-													<stop offset="5%" stopColor="var(--color-orders)" stopOpacity={0.3} />
-													<stop offset="95%" stopColor="var(--color-orders)" stopOpacity={0} />
+												<linearGradient
+													id="tabs61orders"
+													x1="0"
+													y1="0"
+													x2="0"
+													y2="1"
+												>
+													<stop
+														offset="5%"
+														stopColor="var(--color-orders)"
+														stopOpacity={0.3}
+													/>
+													<stop
+														offset="95%"
+														stopColor="var(--color-orders)"
+														stopOpacity={0}
+													/>
 												</linearGradient>
 											</defs>
 											<XAxis dataKey="name" tickLine={false} axisLine={false} />
 											<YAxis tickLine={false} axisLine={false} />
 											<ChartTooltip content={<ChartTooltipContent />} />
-											<Area type="monotone" dataKey="orders" stroke="var(--color-orders)" fill="url(#tabs61orders)" />
+											<Area
+												type="monotone"
+												dataKey="orders"
+												stroke="var(--color-orders)"
+												fill="url(#tabs61orders)"
+											/>
 										</AreaChart>
 									</ChartContainer>
 								</TabsContent>
 								<TabsContent value="customers">
-									<ChartContainer config={chartConfig} className="h-[300px] w-full">
+									<ChartContainer
+										config={chartConfig}
+										className="h-[300px] w-full"
+									>
 										<AreaChart data={chartData}>
 											<defs>
-												<linearGradient id="tabs61customers" x1="0" y1="0" x2="0" y2="1">
-													<stop offset="5%" stopColor="var(--color-customers)" stopOpacity={0.3} />
-													<stop offset="95%" stopColor="var(--color-customers)" stopOpacity={0} />
+												<linearGradient
+													id="tabs61customers"
+													x1="0"
+													y1="0"
+													x2="0"
+													y2="1"
+												>
+													<stop
+														offset="5%"
+														stopColor="var(--color-customers)"
+														stopOpacity={0.3}
+													/>
+													<stop
+														offset="95%"
+														stopColor="var(--color-customers)"
+														stopOpacity={0}
+													/>
 												</linearGradient>
 											</defs>
 											<XAxis dataKey="name" tickLine={false} axisLine={false} />
 											<YAxis tickLine={false} axisLine={false} />
 											<ChartTooltip content={<ChartTooltipContent />} />
-											<Area type="monotone" dataKey="customers" stroke="var(--color-customers)" fill="url(#tabs61customers)" />
+											<Area
+												type="monotone"
+												dataKey="customers"
+												stroke="var(--color-customers)"
+												fill="url(#tabs61customers)"
+											/>
 										</AreaChart>
 									</ChartContainer>
 								</TabsContent>

@@ -1,6 +1,11 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Check, Zap, Building2, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
@@ -10,13 +15,25 @@ interface PricingPlan {
 	price: string;
 	period: string;
 	features: string[];
-	cta: { label: string; href: string; variant?: 'default' | 'outline' | 'secondary' };
+	cta: {
+		label: string;
+		href: string;
+		variant?: 'default' | 'outline' | 'secondary';
+	};
 	badge?: string;
 	icon: React.ComponentType<{ className?: string }>;
 	gradient: string;
 }
 
-const Header = ({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle: string }) => (
+const Header = ({
+	eyebrow,
+	title,
+	subtitle,
+}: {
+	eyebrow: string;
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center mb-12 @lg:mb-16">
 		<Badge variant="outline" className="mb-4 border-primary/30 text-primary">
 			{eyebrow}
@@ -37,7 +54,9 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 			<div className={`absolute inset-x-0 top-0 h-1 ${plan.gradient}`} />
 			<CardHeader className="pb-4">
 				<div className="flex items-center justify-between mb-2">
-					<div className={`size-12 rounded-xl ${plan.gradient} flex items-center justify-center shadow-lg`}>
+					<div
+						className={`size-12 rounded-xl ${plan.gradient} flex items-center justify-center shadow-lg`}
+					>
 						<Icon className="size-6 text-white" />
 					</div>
 					{plan.badge && (
@@ -52,7 +71,9 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 			<CardContent className="flex-1">
 				<div className="mb-8 pb-6 border-b border-border">
 					<div className="flex items-baseline gap-1">
-						<span className="text-5xl font-bold tracking-tight">{plan.price}</span>
+						<span className="text-5xl font-bold tracking-tight">
+							{plan.price}
+						</span>
 						<span className="text-muted-foreground text-lg">{plan.period}</span>
 					</div>
 				</div>
@@ -86,7 +107,8 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 export default function Main() {
 	const eyebrow = '💰 Pricing Plans';
 	const title = 'Invest in Your Success';
-	const subtitle = 'Flexible pricing that grows with your business. No contracts, no surprises.';
+	const subtitle =
+		'Flexible pricing that grows with your business. No contracts, no surprises.';
 	const plans: PricingPlan[] = [
 		{
 			name: 'Starter',

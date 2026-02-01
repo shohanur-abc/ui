@@ -10,7 +10,13 @@ interface StatItemProps {
 	target: string;
 }
 
-const StatItem = ({ icon: Icon, label, value, progress, target }: StatItemProps) => (
+const StatItem = ({
+	icon: Icon,
+	label,
+	value,
+	progress,
+	target,
+}: StatItemProps) => (
 	<div className="group flex gap-4 p-4 transition-colors hover:bg-secondary/30">
 		<div className="flex-shrink-0 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 p-3">
 			<Icon className="size-5 text-primary" />
@@ -28,10 +34,34 @@ const StatItem = ({ icon: Icon, label, value, progress, target }: StatItemProps)
 
 export default function Main() {
 	const stats: StatItemProps[] = [
-		{ icon: Target, label: 'Sales Goal', value: '$847,200', progress: 72, target: '72% of $1.2M' },
-		{ icon: BarChart3, label: 'Active Users', value: '184,294', progress: 88, target: '88% of 210K' },
-		{ icon: PieChart, label: 'Market Share', value: '24.8%', progress: 62, target: '62% of 40%' },
-		{ icon: Activity, label: 'Engagement', value: '8.4 min', progress: 94, target: '94% of 9 min' },
+		{
+			icon: Target,
+			label: 'Sales Goal',
+			value: '$847,200',
+			progress: 72,
+			target: '72% of $1.2M',
+		},
+		{
+			icon: BarChart3,
+			label: 'Active Users',
+			value: '184,294',
+			progress: 88,
+			target: '88% of 210K',
+		},
+		{
+			icon: PieChart,
+			label: 'Market Share',
+			value: '24.8%',
+			progress: 62,
+			target: '62% of 40%',
+		},
+		{
+			icon: Activity,
+			label: 'Engagement',
+			value: '8.4 min',
+			progress: 94,
+			target: '94% of 9 min',
+		},
 	];
 
 	return (

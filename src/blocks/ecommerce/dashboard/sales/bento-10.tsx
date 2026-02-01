@@ -1,6 +1,13 @@
 'use client';
 
-import { Percent, Tag, Gift, Sparkles, TrendingUp, TrendingDown } from 'lucide-react';
+import {
+	Percent,
+	Tag,
+	Gift,
+	Sparkles,
+	TrendingUp,
+	TrendingDown,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -43,10 +50,18 @@ const MetricCard = ({ metric }: { metric: PromotionMetric }) => (
 					<p className="text-sm text-muted-foreground">{metric.title}</p>
 					<p className="text-2xl font-bold mt-1">{metric.value}</p>
 				</div>
-				<div className="p-3 rounded-lg bg-primary/10 text-primary">{metric.icon}</div>
+				<div className="p-3 rounded-lg bg-primary/10 text-primary">
+					{metric.icon}
+				</div>
 			</div>
-			<div className={`flex items-center gap-1 mt-2 text-sm ${metric.change >= 0 ? 'text-primary' : 'text-destructive'}`}>
-				{metric.change >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+			<div
+				className={`flex items-center gap-1 mt-2 text-sm ${metric.change >= 0 ? 'text-primary' : 'text-destructive'}`}
+			>
+				{metric.change >= 0 ? (
+					<TrendingUp className="size-3" />
+				) : (
+					<TrendingDown className="size-3" />
+				)}
 				{Math.abs(metric.change)}% vs last period
 			</div>
 		</CardContent>
@@ -74,11 +89,16 @@ const PromotionsCard = ({ promotions }: { promotions: ActivePromotion[] }) => (
 		</CardHeader>
 		<CardContent className="space-y-4">
 			{promotions.map((promo, idx) => (
-				<div key={idx} className="flex items-center gap-4 p-3 rounded-lg bg-muted/30">
+				<div
+					key={idx}
+					className="flex items-center gap-4 p-3 rounded-lg bg-muted/30"
+				>
 					<div className="flex-1">
 						<div className="flex items-center gap-2 mb-1">
 							<span className="font-medium">{promo.name}</span>
-							<Badge variant={getStatusVariant(promo.status)}>{promo.status}</Badge>
+							<Badge variant={getStatusVariant(promo.status)}>
+								{promo.status}
+							</Badge>
 						</div>
 						<div className="flex items-center gap-4 text-sm">
 							<code className="px-2 py-0.5 rounded bg-muted">{promo.code}</code>
@@ -93,7 +113,10 @@ const PromotionsCard = ({ promotions }: { promotions: ActivePromotion[] }) => (
 							<span>{promo.usageCount}</span>
 							<span className="text-muted-foreground">/{promo.usageLimit}</span>
 						</div>
-						<Progress value={(promo.usageCount / promo.usageLimit) * 100} className="h-1.5" />
+						<Progress
+							value={(promo.usageCount / promo.usageLimit) * 100}
+							className="h-1.5"
+						/>
 					</div>
 				</div>
 			))}
@@ -101,12 +124,18 @@ const PromotionsCard = ({ promotions }: { promotions: ActivePromotion[] }) => (
 	</Card>
 );
 
-const PerformanceCard = ({ performance }: { performance: PromotionPerformance[] }) => (
+const PerformanceCard = ({
+	performance,
+}: {
+	performance: PromotionPerformance[];
+}) => (
 	<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 @xl:col-span-2">
 		<CardHeader className="pb-2">
 			<div className="flex items-center gap-2">
 				<Sparkles className="size-4 text-muted-foreground" />
-				<CardTitle className="text-sm font-medium">Promotion Type Performance</CardTitle>
+				<CardTitle className="text-sm font-medium">
+					Promotion Type Performance
+				</CardTitle>
 			</div>
 		</CardHeader>
 		<CardContent>
@@ -115,7 +144,9 @@ const PerformanceCard = ({ performance }: { performance: PromotionPerformance[] 
 					<div key={idx} className="text-center p-4 rounded-lg bg-muted/30">
 						<p className="text-sm font-medium mb-2">{perf.type}</p>
 						<p className="text-2xl font-bold">{perf.count}</p>
-						<p className="text-xs text-muted-foreground">${perf.revenue.toLocaleString()}</p>
+						<p className="text-xs text-muted-foreground">
+							${perf.revenue.toLocaleString()}
+						</p>
 						<Badge variant="outline" className="mt-2">
 							{perf.percentage}% of total
 						</Badge>
@@ -126,7 +157,11 @@ const PerformanceCard = ({ performance }: { performance: PromotionPerformance[] 
 	</Card>
 );
 
-const BentoLayout10 = ({ metrics, promotions, performance }: BentoLayout10Props) => (
+const BentoLayout10 = ({
+	metrics,
+	promotions,
+	performance,
+}: BentoLayout10Props) => (
 	<div className="grid grid-cols-1 @sm:grid-cols-2 @xl:grid-cols-4 gap-4">
 		{metrics.map((metric, idx) => (
 			<MetricCard key={idx} metric={metric} />
@@ -138,16 +173,60 @@ const BentoLayout10 = ({ metrics, promotions, performance }: BentoLayout10Props)
 
 export default function Main() {
 	const metrics: PromotionMetric[] = [
-		{ title: 'Active Promos', value: '12', change: 20, icon: <Tag className="size-5" /> },
-		{ title: 'Redeemed Today', value: '284', change: 15.2, icon: <Gift className="size-5" /> },
-		{ title: 'Total Discount', value: '$4,820', change: -8.3, icon: <Percent className="size-5" /> },
-		{ title: 'Promo Revenue', value: '$42,500', change: 28.5, icon: <Sparkles className="size-5" /> },
+		{
+			title: 'Active Promos',
+			value: '12',
+			change: 20,
+			icon: <Tag className="size-5" />,
+		},
+		{
+			title: 'Redeemed Today',
+			value: '284',
+			change: 15.2,
+			icon: <Gift className="size-5" />,
+		},
+		{
+			title: 'Total Discount',
+			value: '$4,820',
+			change: -8.3,
+			icon: <Percent className="size-5" />,
+		},
+		{
+			title: 'Promo Revenue',
+			value: '$42,500',
+			change: 28.5,
+			icon: <Sparkles className="size-5" />,
+		},
 	];
 
 	const promotions: ActivePromotion[] = [
-		{ name: 'Winter Sale', code: 'WINTER25', discount: '25% off', usageCount: 842, usageLimit: 1000, revenue: 28500, status: 'active' },
-		{ name: 'New Customer', code: 'WELCOME10', discount: '$10 off', usageCount: 1250, usageLimit: 2000, revenue: 18200, status: 'active' },
-		{ name: 'Flash Deal', code: 'FLASH30', discount: '30% off', usageCount: 450, usageLimit: 500, revenue: 12800, status: 'ending-soon' },
+		{
+			name: 'Winter Sale',
+			code: 'WINTER25',
+			discount: '25% off',
+			usageCount: 842,
+			usageLimit: 1000,
+			revenue: 28500,
+			status: 'active',
+		},
+		{
+			name: 'New Customer',
+			code: 'WELCOME10',
+			discount: '$10 off',
+			usageCount: 1250,
+			usageLimit: 2000,
+			revenue: 18200,
+			status: 'active',
+		},
+		{
+			name: 'Flash Deal',
+			code: 'FLASH30',
+			discount: '30% off',
+			usageCount: 450,
+			usageLimit: 500,
+			revenue: 12800,
+			status: 'ending-soon',
+		},
 	];
 
 	const performance: PromotionPerformance[] = [
@@ -160,7 +239,11 @@ export default function Main() {
 	return (
 		<section className="@container" data-theme="sales">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12">
-				<BentoLayout10 metrics={metrics} promotions={promotions} performance={performance} />
+				<BentoLayout10
+					metrics={metrics}
+					promotions={promotions}
+					performance={performance}
+				/>
 			</div>
 		</section>
 	);

@@ -2,7 +2,13 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -56,9 +62,15 @@ const StepperIndicator = ({
 										: 'border-muted text-muted-foreground'
 							}`}
 						>
-							{completed ? <Check className="size-5" /> : <Icon className="size-5" />}
+							{completed ? (
+								<Check className="size-5" />
+							) : (
+								<Icon className="size-5" />
+							)}
 						</div>
-						<span className={`mt-2 text-xs ${active ? 'font-medium text-primary' : 'text-muted-foreground'}`}>
+						<span
+							className={`mt-2 text-xs ${active ? 'font-medium text-primary' : 'text-muted-foreground'}`}
+						>
 							{step.label}
 						</span>
 					</div>
@@ -117,9 +129,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -139,7 +155,8 @@ export default function Main() {
 			variant: 'Ultraboost / Size 10',
 			price: 189.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -147,7 +164,8 @@ export default function Main() {
 			variant: 'GPS / Black',
 			price: 299.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 		},
 	];
 

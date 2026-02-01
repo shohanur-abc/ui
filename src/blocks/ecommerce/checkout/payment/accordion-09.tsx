@@ -1,11 +1,33 @@
 'use client';
 
-import { Award, Check, CreditCard, DollarSign, Gift, Lock, Plus, Shield, Star, Wallet, Zap } from 'lucide-react';
+import {
+	Award,
+	Check,
+	CreditCard,
+	DollarSign,
+	Gift,
+	Lock,
+	Plus,
+	Shield,
+	Star,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -19,7 +41,15 @@ interface RewardTier {
 	color: string;
 }
 
-const PointsBalanceContent = ({ balance, value, tier }: { balance: number; value: string; tier: RewardTier }) => (
+const PointsBalanceContent = ({
+	balance,
+	value,
+	tier,
+}: {
+	balance: number;
+	value: string;
+	tier: RewardTier;
+}) => (
 	<div className="space-y-4 pt-4">
 		<div className="p-4 rounded-xl bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20">
 			<div className="flex items-center justify-between mb-3">
@@ -27,7 +57,9 @@ const PointsBalanceContent = ({ balance, value, tier }: { balance: number; value
 					<Award className={`size-5 ${tier.color}`} />
 					<span className="font-medium">{tier.name} Member</span>
 				</div>
-				<Badge variant="outline" className="gap-1">{tier.multiplier} Points</Badge>
+				<Badge variant="outline" className="gap-1">
+					{tier.multiplier} Points
+				</Badge>
 			</div>
 			<div className="flex items-end justify-between">
 				<div>
@@ -41,55 +73,96 @@ const PointsBalanceContent = ({ balance, value, tier }: { balance: number; value
 			</div>
 		</div>
 		<div className="flex items-center justify-between text-sm">
-			<span className="text-muted-foreground">Next tier: {tier.name === 'Gold' ? 'Platinum' : 'Diamond'}</span>
+			<span className="text-muted-foreground">
+				Next tier: {tier.name === 'Gold' ? 'Platinum' : 'Diamond'}
+			</span>
 			<span className="font-medium">2,500 more points</span>
 		</div>
 	</div>
 );
 
-const RedeemPointsContent = ({ maxPoints, orderTotal }: { maxPoints: number; orderTotal: number }) => (
+const RedeemPointsContent = ({
+	maxPoints,
+	orderTotal,
+}: {
+	maxPoints: number;
+	orderTotal: number;
+}) => (
 	<div className="space-y-4 pt-4">
 		<div className="space-y-3">
 			<div className="flex items-center justify-between">
 				<Label className="text-sm">Points to redeem</Label>
-				<span className="text-sm font-medium">0 / {maxPoints.toLocaleString()}</span>
+				<span className="text-sm font-medium">
+					0 / {maxPoints.toLocaleString()}
+				</span>
 			</div>
-			<Slider defaultValue={[0]} max={maxPoints} step={100} className="w-full" />
+			<Slider
+				defaultValue={[0]}
+				max={maxPoints}
+				step={100}
+				className="w-full"
+			/>
 			<div className="flex justify-between text-xs text-muted-foreground">
 				<span>0 pts ($0.00)</span>
-				<span>{maxPoints.toLocaleString()} pts (${(maxPoints / 100).toFixed(2)})</span>
+				<span>
+					{maxPoints.toLocaleString()} pts (${(maxPoints / 100).toFixed(2)})
+				</span>
 			</div>
 		</div>
 		<RadioGroup defaultValue="none" className="space-y-2">
-			<Label htmlFor="none" className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			<Label
+				htmlFor="none"
+				className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+			>
 				<RadioGroupItem value="none" id="none" />
 				<span className="text-sm">Don't use points</span>
 			</Label>
-			<Label htmlFor="partial" className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			<Label
+				htmlFor="partial"
+				className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+			>
 				<RadioGroupItem value="partial" id="partial" />
 				<span className="text-sm">Use 2,500 points (-$25.00)</span>
 			</Label>
-			<Label htmlFor="max" className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			<Label
+				htmlFor="max"
+				className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+			>
 				<RadioGroupItem value="max" id="max" />
-				<span className="text-sm">Use all points (-${(maxPoints / 100).toFixed(2)})</span>
+				<span className="text-sm">
+					Use all points (-${(maxPoints / 100).toFixed(2)})
+				</span>
 			</Label>
 		</RadioGroup>
 	</div>
 );
 
-const EarnPointsContent = ({ earnablePoints, bonusItems }: { earnablePoints: number; bonusItems: { name: string; points: number }[] }) => (
+const EarnPointsContent = ({
+	earnablePoints,
+	bonusItems,
+}: {
+	earnablePoints: number;
+	bonusItems: { name: string; points: number }[];
+}) => (
 	<div className="space-y-4 pt-4">
 		<div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
 			<div className="flex items-center gap-2 mb-2">
 				<Star className="size-4 text-emerald-500" />
-				<span className="font-medium text-emerald-700 dark:text-emerald-400">Earn {earnablePoints.toLocaleString()} points!</span>
+				<span className="font-medium text-emerald-700 dark:text-emerald-400">
+					Earn {earnablePoints.toLocaleString()} points!
+				</span>
 			</div>
-			<p className="text-sm text-muted-foreground">Points will be added after order completion</p>
+			<p className="text-sm text-muted-foreground">
+				Points will be added after order completion
+			</p>
 		</div>
 		<div className="space-y-2">
 			<span className="text-sm font-medium">Point breakdown:</span>
 			{bonusItems.map((item, index) => (
-				<div key={index} className="flex items-center justify-between text-sm p-2 rounded-lg bg-muted/30">
+				<div
+					key={index}
+					className="flex items-center justify-between text-sm p-2 rounded-lg bg-muted/30"
+				>
 					<span className="text-muted-foreground">{item.name}</span>
 					<span className="font-medium">+{item.points} pts</span>
 				</div>
@@ -148,29 +221,52 @@ const PaymentMethodContent = () => (
 			</div>
 		</div>
 		<div className="p-3 rounded-lg bg-primary/5 border border-primary/20 text-sm">
-			<span className="text-primary font-medium">2x points</span> earned when using your rewards card
+			<span className="text-primary font-medium">2x points</span> earned when
+			using your rewards card
 		</div>
 	</div>
 );
 
-const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isDiscount?: boolean; isPoints?: boolean }[] }) => (
+const OrderSummary = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isDiscount?: boolean;
+		isPoints?: boolean;
+	}[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={`${line.isDiscount ? 'text-emerald-600' : ''} ${line.isPoints ? 'flex items-center gap-1' : ''} ${!line.isTotal && !line.isDiscount ? 'text-muted-foreground' : ''}`}>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={`${line.isDiscount ? 'text-emerald-600' : ''} ${line.isPoints ? 'flex items-center gap-1' : ''} ${!line.isTotal && !line.isDiscount ? 'text-muted-foreground' : ''}`}
+					>
 						{line.isPoints && <Star className="size-3 text-amber-500" />}
 						{line.label}
 					</span>
-					<span className={line.isDiscount ? 'text-emerald-600' : ''}>{line.value}</span>
+					<span className={line.isDiscount ? 'text-emerald-600' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
 	</div>
 );
 
-const PayButton = ({ label, earnPoints }: { label: string; earnPoints: number }) => (
+const PayButton = ({
+	label,
+	earnPoints,
+}: {
+	label: string;
+	earnPoints: number;
+}) => (
 	<div className="space-y-3">
 		<Button className="w-full gap-2" size="lg">
 			<Lock className="size-4" />
@@ -184,7 +280,12 @@ const PayButton = ({ label, earnPoints }: { label: string; earnPoints: number })
 );
 
 export default function Main() {
-	const tier: RewardTier = { name: 'Gold', points: 12500, multiplier: '2x', color: 'text-amber-500' };
+	const tier: RewardTier = {
+		name: 'Gold',
+		points: 12500,
+		multiplier: '2x',
+		color: 'text-amber-500',
+	};
 
 	const earnableItems = [
 		{ name: 'Base points', points: 299 },
@@ -195,7 +296,11 @@ export default function Main() {
 	const orderLines = [
 		{ label: 'Subtotal', value: '$299.00' },
 		{ label: 'Gift Card', value: '-$75.00', isDiscount: true },
-		{ label: 'Points Redeemed (2,500 pts)', value: '-$25.00', isDiscount: true },
+		{
+			label: 'Points Redeemed (2,500 pts)',
+			value: '-$25.00',
+			isDiscount: true,
+		},
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax', value: '$15.92' },
 		{ label: 'Total', value: '$214.92', isTotal: true },
@@ -219,17 +324,27 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Accordion type="multiple" defaultValue={['balance', 'redeem']} className="w-full">
+						<Accordion
+							type="multiple"
+							defaultValue={['balance', 'redeem']}
+							className="w-full"
+						>
 							<AccordionItem value="balance">
 								<AccordionTrigger className="hover:no-underline">
 									<div className="flex items-center gap-2">
 										<Award className="size-4 text-amber-500" />
 										<span className="font-medium">Points Balance</span>
-										<Badge variant="secondary" className="text-xs">{tier.points.toLocaleString()}</Badge>
+										<Badge variant="secondary" className="text-xs">
+											{tier.points.toLocaleString()}
+										</Badge>
 									</div>
 								</AccordionTrigger>
 								<AccordionContent>
-									<PointsBalanceContent balance={tier.points} value="$125.00" tier={tier} />
+									<PointsBalanceContent
+										balance={tier.points}
+										value="$125.00"
+										tier={tier}
+									/>
 								</AccordionContent>
 							</AccordionItem>
 							<AccordionItem value="redeem">
@@ -240,7 +355,10 @@ export default function Main() {
 									</div>
 								</AccordionTrigger>
 								<AccordionContent>
-									<RedeemPointsContent maxPoints={tier.points} orderTotal={299} />
+									<RedeemPointsContent
+										maxPoints={tier.points}
+										orderTotal={299}
+									/>
 								</AccordionContent>
 							</AccordionItem>
 							<AccordionItem value="earn">
@@ -248,11 +366,19 @@ export default function Main() {
 									<div className="flex items-center gap-2">
 										<Star className="size-4" />
 										<span className="font-medium">Points You'll Earn</span>
-										<Badge variant="outline" className="text-xs text-emerald-600">+698</Badge>
+										<Badge
+											variant="outline"
+											className="text-xs text-emerald-600"
+										>
+											+698
+										</Badge>
 									</div>
 								</AccordionTrigger>
 								<AccordionContent>
-									<EarnPointsContent earnablePoints={698} bonusItems={earnableItems} />
+									<EarnPointsContent
+										earnablePoints={698}
+										bonusItems={earnableItems}
+									/>
 								</AccordionContent>
 							</AccordionItem>
 							<AccordionItem value="giftcards">
@@ -260,7 +386,12 @@ export default function Main() {
 									<div className="flex items-center gap-2">
 										<Gift className="size-4" />
 										<span className="font-medium">Gift Cards</span>
-										<Badge variant="secondary" className="text-xs text-emerald-600">-$75</Badge>
+										<Badge
+											variant="secondary"
+											className="text-xs text-emerald-600"
+										>
+											-$75
+										</Badge>
 									</div>
 								</AccordionTrigger>
 								<AccordionContent>

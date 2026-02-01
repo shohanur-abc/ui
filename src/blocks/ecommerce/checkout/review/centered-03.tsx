@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -27,11 +33,18 @@ interface Product {
 const CenteredProduct = ({ product }: { product: Product }) => (
 	<div className="flex flex-col items-center text-center">
 		<div className="relative size-20 overflow-hidden rounded-xl border @md:size-24">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<p className="mt-2 text-sm font-medium">{product.name}</p>
 		<p className="text-xs text-muted-foreground">{product.variant}</p>
-		<Badge className="mt-1">${product.price.toFixed(2)} ×{product.qty}</Badge>
+		<Badge className="mt-1">
+			${product.price.toFixed(2)} ×{product.qty}
+		</Badge>
 	</div>
 );
 
@@ -63,9 +76,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -77,7 +94,8 @@ export default function Main() {
 			variant: 'WiFi / White',
 			price: 249.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558002038-1055907df827?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -85,7 +103,8 @@ export default function Main() {
 			variant: 'Set of 4',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -93,7 +112,8 @@ export default function Main() {
 			variant: 'RGB / 2-Pack',
 			price: 39.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -108,9 +128,7 @@ export default function Main() {
 					<h1 className="text-2xl font-bold tracking-tight @md:text-3xl">
 						Review Your Order
 					</h1>
-					<p className="mt-1 text-muted-foreground">
-						Your smart home upgrade
-					</p>
+					<p className="mt-1 text-muted-foreground">Your smart home upgrade</p>
 				</div>
 
 				<Card>

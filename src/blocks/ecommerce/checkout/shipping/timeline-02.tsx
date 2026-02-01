@@ -26,20 +26,24 @@ const HorizontalTimelineStep = ({
 				${status === 'upcoming' ? 'border-muted bg-background text-muted-foreground' : ''}
 			`}
 		>
-			{status === 'completed' ? <Check className="size-6" /> : <Icon className="size-6" />}
+			{status === 'completed' ? (
+				<Check className="size-6" />
+			) : (
+				<Icon className="size-6" />
+			)}
 		</div>
-		<span className={`text-sm font-medium text-center ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}>
+		<span
+			className={`text-sm font-medium text-center ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}
+		>
 			{title}
 		</span>
 	</div>
 );
 
-const ProgressConnector = ({
-	completed,
-}: {
-	completed: boolean;
-}) => (
-	<div className={`h-0.5 flex-1 mx-2 mt-6 ${completed ? 'bg-primary' : 'bg-muted'}`} />
+const ProgressConnector = ({ completed }: { completed: boolean }) => (
+	<div
+		className={`h-0.5 flex-1 mx-2 mt-6 ${completed ? 'bg-primary' : 'bg-muted'}`}
+	/>
 );
 
 const ShippingCard = ({
@@ -65,7 +69,11 @@ const ShippingCard = ({
 				${recommended ? 'ring-2 ring-primary/30' : ''}
 			`}
 		>
-			{recommended && <Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">Recommended</Badge>}
+			{recommended && (
+				<Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+					Recommended
+				</Badge>
+			)}
 			<CardContent className="p-4 text-center">
 				<RadioGroupItem value={value} id={value} className="sr-only" />
 				<h3 className="font-bold text-lg mb-1">{name}</h3>
@@ -73,10 +81,15 @@ const ShippingCard = ({
 					<Clock className="size-3.5" />
 					<span>{time}</span>
 				</div>
-				<span className="text-2xl font-bold text-primary block mb-3">{price}</span>
+				<span className="text-2xl font-bold text-primary block mb-3">
+					{price}
+				</span>
 				<div className="space-y-1">
 					{features.map((feature, i) => (
-						<div key={i} className="flex items-center justify-center gap-1 text-sm text-muted-foreground">
+						<div
+							key={i}
+							className="flex items-center justify-center gap-1 text-sm text-muted-foreground"
+						>
 							<Check className="size-3.5 text-primary" />
 							<span>{feature}</span>
 						</div>
@@ -91,14 +104,38 @@ export default function Main() {
 	const steps = [
 		{ step: 1, title: 'Address', icon: MapPin, status: 'completed' as const },
 		{ step: 2, title: 'Shipping', icon: Truck, status: 'current' as const },
-		{ step: 3, title: 'Payment', icon: CreditCard, status: 'upcoming' as const },
+		{
+			step: 3,
+			title: 'Payment',
+			icon: CreditCard,
+			status: 'upcoming' as const,
+		},
 		{ step: 4, title: 'Confirm', icon: Package, status: 'upcoming' as const },
 	];
 
 	const options = [
-		{ value: 'standard', name: 'Standard', time: '5-7 days', price: '$5.99', features: ['Basic tracking', 'Email updates'] },
-		{ value: 'express', name: 'Express', time: '2-3 days', price: '$12.99', features: ['Real-time tracking', 'Priority handling'], recommended: true },
-		{ value: 'overnight', name: 'Overnight', time: '1 day', price: '$24.99', features: ['Guaranteed delivery', 'Full insurance'] },
+		{
+			value: 'standard',
+			name: 'Standard',
+			time: '5-7 days',
+			price: '$5.99',
+			features: ['Basic tracking', 'Email updates'],
+		},
+		{
+			value: 'express',
+			name: 'Express',
+			time: '2-3 days',
+			price: '$12.99',
+			features: ['Real-time tracking', 'Priority handling'],
+			recommended: true,
+		},
+		{
+			value: 'overnight',
+			name: 'Overnight',
+			time: '1 day',
+			price: '$24.99',
+			features: ['Guaranteed delivery', 'Full insurance'],
+		},
 	];
 
 	return (
@@ -113,7 +150,9 @@ export default function Main() {
 					{steps.map((step, i) => (
 						<div key={step.step} className="contents">
 							<HorizontalTimelineStep {...step} />
-							{i < steps.length - 1 && <ProgressConnector completed={step.status === 'completed'} />}
+							{i < steps.length - 1 && (
+								<ProgressConnector completed={step.status === 'completed'} />
+							)}
 						</div>
 					))}
 				</div>
@@ -126,7 +165,10 @@ export default function Main() {
 						</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<RadioGroup defaultValue="express" className="grid @sm:grid-cols-3 gap-4">
+						<RadioGroup
+							defaultValue="express"
+							className="grid @sm:grid-cols-3 gap-4"
+						>
 							{options.map((option) => (
 								<ShippingCard key={option.value} {...option} />
 							))}

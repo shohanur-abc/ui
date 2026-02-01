@@ -99,11 +99,7 @@ const GatewayCard = ({
 	</div>
 );
 
-const PaymentMethodRow = ({
-	name,
-	icon: Icon,
-	enabled,
-}: PaymentMethod) => (
+const PaymentMethodRow = ({ name, icon: Icon, enabled }: PaymentMethod) => (
 	<div className="flex items-center justify-between py-3">
 		<div className="flex items-center gap-3">
 			<Icon className="size-5 text-muted-foreground" />
@@ -212,7 +208,11 @@ export default function Main() {
 											All connected gateways are PCI DSS compliant. Card data is
 											never stored on our servers.
 										</p>
-										<Button variant="link" size="sm" className="mt-2 h-auto p-0 gap-2">
+										<Button
+											variant="link"
+											size="sm"
+											className="mt-2 h-auto p-0 gap-2"
+										>
 											View compliance details
 											<ExternalLink className="size-3" />
 										</Button>

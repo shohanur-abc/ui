@@ -1,6 +1,13 @@
 'use client';
 
-import { CircleDollarSign, Truck, Clock, Star, ThumbsUp, RotateCcw } from 'lucide-react';
+import {
+	CircleDollarSign,
+	Truck,
+	Clock,
+	Star,
+	ThumbsUp,
+	RotateCcw,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 import {
@@ -22,7 +29,15 @@ type MetricProps = {
 	status: 'good' | 'warning' | 'critical';
 };
 
-const MetricCard = ({ icon: Icon, title, value, subValue, benchmark, progress, status }: MetricProps) => {
+const MetricCard = ({
+	icon: Icon,
+	title,
+	value,
+	subValue,
+	benchmark,
+	progress,
+	status,
+}: MetricProps) => {
 	const statusColors = {
 		good: 'text-emerald-500',
 		warning: 'text-amber-500',
@@ -48,10 +63,17 @@ const MetricCard = ({ icon: Icon, title, value, subValue, benchmark, progress, s
 				</div>
 				<div className="mt-4">
 					<div className="flex items-baseline justify-between">
-						<span className={`text-3xl font-bold ${statusColors[status]}`}>{value}</span>
-						<span className="text-xs text-muted-foreground">Benchmark: {benchmark}</span>
+						<span className={`text-3xl font-bold ${statusColors[status]}`}>
+							{value}
+						</span>
+						<span className="text-xs text-muted-foreground">
+							Benchmark: {benchmark}
+						</span>
 					</div>
-					<Progress value={progress} className={`mt-3 h-1.5 ${progressColors[status]}`} />
+					<Progress
+						value={progress}
+						className={`mt-3 h-1.5 ${progressColors[status]}`}
+					/>
 				</div>
 			</CardContent>
 		</Card>

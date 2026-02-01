@@ -118,7 +118,10 @@ const OrderSummary = ({
 	giftWrapPrice: number;
 	checkoutLabel: string;
 }) => {
-	const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 	const giftTotal = items.filter((item) => item.isGift).length * giftWrapPrice;
 	const total = subtotal + giftTotal;
 
@@ -156,35 +159,41 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=200&h=200&fit=crop',
 				name: 'Designer Sneakers',
 				variant: 'White / US 10',
-				price: 189.00,
+				price: 189.0,
 				quantity: 1,
 				isGift: true,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop',
 				name: 'Leather Belt',
 				variant: 'Black / M',
-				price: 75.00,
+				price: 75.0,
 				quantity: 1,
 				isGift: false,
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 				name: 'Card Holder',
 				variant: 'Brown',
-				price: 45.00,
+				price: 45.0,
 				quantity: 2,
 				isGift: true,
 			},
 		],
 	};
 
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

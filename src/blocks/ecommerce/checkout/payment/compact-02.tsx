@@ -14,7 +14,15 @@ interface PaymentMethod {
 	label: string;
 }
 
-const QuickPayButtons = ({ methods, selected, onSelect }: { methods: PaymentMethod[]; selected: string; onSelect: (id: string) => void }) => (
+const QuickPayButtons = ({
+	methods,
+	selected,
+	onSelect,
+}: {
+	methods: PaymentMethod[];
+	selected: string;
+	onSelect: (id: string) => void;
+}) => (
 	<div className="flex gap-2">
 		{methods.map((method) => (
 			<Button
@@ -67,7 +75,11 @@ export default function Main() {
 			<div className="mx-auto max-w-md px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardContent className="p-4 space-y-3">
-						<QuickPayButtons methods={methods} selected="card" onSelect={() => {}} />
+						<QuickPayButtons
+							methods={methods}
+							selected="card"
+							onSelect={() => {}}
+						/>
 						<SingleLineCardInput />
 						<Separator className="my-2" />
 						<InlineTotal label="Total" amount="$89.00" />

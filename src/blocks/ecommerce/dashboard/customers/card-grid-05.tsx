@@ -16,7 +16,13 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	DropdownMenu,
@@ -46,7 +52,14 @@ interface AtRiskCustomer {
 const RiskOverview = ({
 	stats,
 }: {
-	stats: { title: string; value: string; change: string; changeType: 'up' | 'down'; icon: React.ElementType; color: string }[];
+	stats: {
+		title: string;
+		value: string;
+		change: string;
+		changeType: 'up' | 'down';
+		icon: React.ElementType;
+		color: string;
+	}[];
 }) => (
 	<div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-4">
 		{stats.map((stat, i) => (
@@ -93,7 +106,9 @@ const RiskScoreBar = ({
 		<div className="space-y-1">
 			<div className="flex items-center justify-between text-xs">
 				<span className="text-muted-foreground">Risk Score</span>
-				<span className={`font-bold ${colors[level].replace('bg-', 'text-')}`}>{score}/100</span>
+				<span className={`font-bold ${colors[level].replace('bg-', 'text-')}`}>
+					{score}/100
+				</span>
 			</div>
 			<div className="bg-muted h-2 w-full overflow-hidden rounded-full">
 				<div
@@ -107,9 +122,18 @@ const RiskScoreBar = ({
 
 const RiskBadge = ({ level }: { level: AtRiskCustomer['riskLevel'] }) => {
 	const config = {
-		medium: { label: 'Medium Risk', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		high: { label: 'High Risk', className: 'bg-orange-500/10 text-orange-500 border-orange-500/20' },
-		critical: { label: 'Critical', className: 'bg-red-500/10 text-red-500 border-red-500/20' },
+		medium: {
+			label: 'Medium Risk',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		high: {
+			label: 'High Risk',
+			className: 'bg-orange-500/10 text-orange-500 border-orange-500/20',
+		},
+		critical: {
+			label: 'Critical',
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={`${config[level].className} gap-1`}>
@@ -193,13 +217,27 @@ const AtRiskCard = ({ customer }: { customer: AtRiskCustomer }) => (
 		<CardContent className="space-y-4 pl-5">
 			<div className="flex items-center justify-between">
 				<RiskBadge level={customer.riskLevel} />
-				<span className="text-muted-foreground text-xs">{customer.currentStatus}</span>
+				<span className="text-muted-foreground text-xs">
+					{customer.currentStatus}
+				</span>
 			</div>
 			<RiskScoreBar score={customer.riskScore} level={customer.riskLevel} />
 			<div className="space-y-2 border-t pt-3">
-				<MetricRow icon={Clock} label="Last Purchase" value={customer.lastPurchase} />
-				<MetricRow icon={DollarSign} label="Lifetime Value" value={customer.lifetimeValue} />
-				<MetricRow icon={TrendingDown} label="Potential Loss" value={customer.potentialLoss} />
+				<MetricRow
+					icon={Clock}
+					label="Last Purchase"
+					value={customer.lastPurchase}
+				/>
+				<MetricRow
+					icon={DollarSign}
+					label="Lifetime Value"
+					value={customer.lifetimeValue}
+				/>
+				<MetricRow
+					icon={TrendingDown}
+					label="Potential Loss"
+					value={customer.potentialLoss}
+				/>
 			</div>
 			<RiskFactorsList factors={customer.riskFactors} />
 		</CardContent>
@@ -220,10 +258,38 @@ const AtRiskCard = ({ customer }: { customer: AtRiskCustomer }) => (
 
 export default function Main() {
 	const riskStats = [
-		{ title: 'At-Risk Customers', value: '234', change: '+12 this week', changeType: 'up' as const, icon: UserMinus, color: 'bg-red-500/10 text-red-500' },
-		{ title: 'Potential Revenue Loss', value: '$45.8K', change: '+8%', changeType: 'up' as const, icon: DollarSign, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Avg. Days Inactive', value: '45', change: '-3 days', changeType: 'down' as const, icon: Clock, color: 'bg-blue-500/10 text-blue-500' },
-		{ title: 'Win-Back Rate', value: '18%', change: '+2%', changeType: 'down' as const, icon: RefreshCcw, color: 'bg-emerald-500/10 text-emerald-500' },
+		{
+			title: 'At-Risk Customers',
+			value: '234',
+			change: '+12 this week',
+			changeType: 'up' as const,
+			icon: UserMinus,
+			color: 'bg-red-500/10 text-red-500',
+		},
+		{
+			title: 'Potential Revenue Loss',
+			value: '$45.8K',
+			change: '+8%',
+			changeType: 'up' as const,
+			icon: DollarSign,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Avg. Days Inactive',
+			value: '45',
+			change: '-3 days',
+			changeType: 'down' as const,
+			icon: Clock,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
+		{
+			title: 'Win-Back Rate',
+			value: '18%',
+			change: '+2%',
+			changeType: 'down' as const,
+			icon: RefreshCcw,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
 	];
 
 	const customers: AtRiskCustomer[] = [
@@ -329,7 +395,9 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
 				<div>
-					<h1 className="text-2xl font-bold tracking-tight">At-Risk Customers</h1>
+					<h1 className="text-2xl font-bold tracking-tight">
+						At-Risk Customers
+					</h1>
 					<p className="text-muted-foreground text-sm">
 						Identify and re-engage customers at risk of churning
 					</p>

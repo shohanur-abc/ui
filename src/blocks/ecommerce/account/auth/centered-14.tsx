@@ -15,7 +15,13 @@ const ConfettiDecorative = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-4">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -24,7 +30,13 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 	</div>
 );
 
-const PromoBadge = ({ text, icon: Icon }: { text: string; icon: React.ElementType }) => (
+const PromoBadge = ({
+	text,
+	icon: Icon,
+}: {
+	text: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex justify-center mb-4">
 		<Badge className="gap-1.5 px-3 py-1 bg-gradient-to-r from-primary to-accent text-primary-foreground">
 			<Icon className="size-3" />
@@ -35,12 +47,20 @@ const PromoBadge = ({ text, icon: Icon }: { text: string; icon: React.ElementTyp
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-6">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
 
-const Benefit = ({ icon: Icon, text }: { icon: React.ElementType; text: string }) => (
+const Benefit = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ElementType;
+	text: string;
+}) => (
 	<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 		<div className="flex size-8 items-center justify-center rounded-lg bg-primary/10">
 			<Icon className="size-4 text-primary" />
@@ -133,13 +153,25 @@ export default function Main() {
 					<Benefits items={benefits} />
 
 					<form className="space-y-5">
-						<FormField label="Email address" type="email" placeholder="you@example.com" />
-						<FormField label="Create password" type="password" placeholder="••••••••" />
+						<FormField
+							label="Email address"
+							type="email"
+							placeholder="you@example.com"
+						/>
+						<FormField
+							label="Create password"
+							type="password"
+							placeholder="••••••••"
+						/>
 						<SubmitButton label="Claim My $10 Reward" icon={ArrowRight} />
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="Already a member?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already a member?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</div>
 				</div>
 			</div>

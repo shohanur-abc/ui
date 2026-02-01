@@ -145,18 +145,20 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?w=200&h=200&fit=crop',
 				name: 'Organic Face Serum',
 				variant: '30ml',
-				price: 48.00,
+				price: 48.0,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop',
 				name: 'Hydrating Moisturizer',
 				variant: '50ml',
-				price: 36.00,
+				price: 36.0,
 				quantity: 2,
 			},
 		],
@@ -166,7 +168,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">
@@ -197,9 +202,7 @@ export default function Main() {
 								totalLabel={cartData.totalLabel}
 							/>
 							<div className="flex items-center justify-between">
-								<span className="text-xs text-muted-foreground">
-									We accept
-								</span>
+								<span className="text-xs text-muted-foreground">We accept</span>
 								<PaymentIcons methods={cartData.paymentMethods} />
 							</div>
 							<Button className="w-full gap-2" size="lg">

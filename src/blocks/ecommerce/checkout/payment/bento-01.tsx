@@ -31,10 +31,16 @@ const OrderPreviewCell = ({ items }: { items: OrderItem[] }) => (
 						<Package className="size-6 text-muted-foreground" />
 					</div>
 					<div className="flex-1 min-w-0">
-						<span className="text-sm font-medium block truncate">{item.name}</span>
-						<span className="text-xs text-muted-foreground">{item.variant}</span>
+						<span className="text-sm font-medium block truncate">
+							{item.name}
+						</span>
+						<span className="text-xs text-muted-foreground">
+							{item.variant}
+						</span>
 						<div className="flex justify-between mt-1">
-							<span className="text-xs text-muted-foreground">Qty: {item.quantity}</span>
+							<span className="text-xs text-muted-foreground">
+								Qty: {item.quantity}
+							</span>
 							<span className="text-sm font-medium">{item.price}</span>
 						</div>
 					</div>
@@ -85,7 +91,15 @@ const ShippingInfoCell = () => (
 	</Card>
 );
 
-const TotalCell = ({ subtotal, shipping, total }: { subtotal: string; shipping: string; total: string }) => (
+const TotalCell = ({
+	subtotal,
+	shipping,
+	total,
+}: {
+	subtotal: string;
+	shipping: string;
+	total: string;
+}) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm col-span-2">
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between mb-4">
@@ -115,7 +129,12 @@ const TotalCell = ({ subtotal, shipping, total }: { subtotal: string; shipping: 
 
 export default function Main() {
 	const items: OrderItem[] = [
-		{ name: 'Wireless Headphones', variant: 'Black / Large', price: '$199.00', quantity: 1 },
+		{
+			name: 'Wireless Headphones',
+			variant: 'Black / Large',
+			price: '$199.00',
+			quantity: 1,
+		},
 		{ name: 'USB-C Cable', variant: '2m', price: '$29.00', quantity: 2 },
 	];
 

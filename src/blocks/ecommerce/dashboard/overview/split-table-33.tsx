@@ -82,11 +82,41 @@ export default function Main() {
 	];
 
 	const orders: OrderItem[] = [
-		{ id: 'ORD-4521', customer: 'John Doe', product: 'Wireless Headphones', amount: '$129.99', status: 'completed' },
-		{ id: 'ORD-4520', customer: 'Jane Smith', product: 'Smart Watch', amount: '$299.99', status: 'processing' },
-		{ id: 'ORD-4519', customer: 'Bob Wilson', product: 'Laptop Stand', amount: '$79.99', status: 'pending' },
-		{ id: 'ORD-4518', customer: 'Alice Brown', product: 'USB Hub', amount: '$49.99', status: 'completed' },
-		{ id: 'ORD-4517', customer: 'Mike Johnson', product: 'Keyboard', amount: '$159.99', status: 'completed' },
+		{
+			id: 'ORD-4521',
+			customer: 'John Doe',
+			product: 'Wireless Headphones',
+			amount: '$129.99',
+			status: 'completed',
+		},
+		{
+			id: 'ORD-4520',
+			customer: 'Jane Smith',
+			product: 'Smart Watch',
+			amount: '$299.99',
+			status: 'processing',
+		},
+		{
+			id: 'ORD-4519',
+			customer: 'Bob Wilson',
+			product: 'Laptop Stand',
+			amount: '$79.99',
+			status: 'pending',
+		},
+		{
+			id: 'ORD-4518',
+			customer: 'Alice Brown',
+			product: 'USB Hub',
+			amount: '$49.99',
+			status: 'completed',
+		},
+		{
+			id: 'ORD-4517',
+			customer: 'Mike Johnson',
+			product: 'Keyboard',
+			amount: '$159.99',
+			status: 'completed',
+		},
 	];
 
 	const chartData = [
@@ -123,15 +153,37 @@ export default function Main() {
 								<CardTitle className="text-sm">Weekly Trend</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={chartConfig} className="h-[140px] w-full">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[140px] w-full"
+								>
 									<AreaChart data={chartData}>
 										<defs>
-											<linearGradient id="split33fill" x1="0" y1="0" x2="0" y2="1">
-												<stop offset="5%" stopColor="var(--color-value)" stopOpacity={0.3} />
-												<stop offset="95%" stopColor="var(--color-value)" stopOpacity={0} />
+											<linearGradient
+												id="split33fill"
+												x1="0"
+												y1="0"
+												x2="0"
+												y2="1"
+											>
+												<stop
+													offset="5%"
+													stopColor="var(--color-value)"
+													stopOpacity={0.3}
+												/>
+												<stop
+													offset="95%"
+													stopColor="var(--color-value)"
+													stopOpacity={0}
+												/>
 											</linearGradient>
 										</defs>
-										<XAxis dataKey="day" tickLine={false} axisLine={false} fontSize={11} />
+										<XAxis
+											dataKey="day"
+											tickLine={false}
+											axisLine={false}
+											fontSize={11}
+										/>
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 										<Area
 											type="monotone"
@@ -157,7 +209,9 @@ export default function Main() {
 									<TableRow>
 										<TableHead>Order ID</TableHead>
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @lg:table-cell">Product</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Product
+										</TableHead>
 										<TableHead>Amount</TableHead>
 										<TableHead>Status</TableHead>
 									</TableRow>
@@ -167,10 +221,15 @@ export default function Main() {
 										<TableRow key={order.id}>
 											<TableCell className="font-medium">{order.id}</TableCell>
 											<TableCell>{order.customer}</TableCell>
-											<TableCell className="hidden @lg:table-cell">{order.product}</TableCell>
+											<TableCell className="hidden @lg:table-cell">
+												{order.product}
+											</TableCell>
 											<TableCell>{order.amount}</TableCell>
 											<TableCell>
-												<Badge variant="secondary" className={getStatusStyle(order.status)}>
+												<Badge
+													variant="secondary"
+													className={getStatusStyle(order.status)}
+												>
 													{order.status}
 												</Badge>
 											</TableCell>

@@ -13,7 +13,14 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { CalendarClock, Minus, Plus, RefreshCw, ShoppingBag, X } from 'lucide-react';
+import {
+	CalendarClock,
+	Minus,
+	Plus,
+	RefreshCw,
+	ShoppingBag,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -62,9 +69,10 @@ const ItemRow = ({
 	item: CartItem;
 	subscribeEnabled: boolean;
 }) => {
-	const displayPrice = subscribeEnabled && item.subscriptionDiscount
-		? item.price * (1 - item.subscriptionDiscount / 100)
-		: item.price;
+	const displayPrice =
+		subscribeEnabled && item.subscriptionDiscount
+			? item.price * (1 - item.subscriptionDiscount / 100)
+			: item.price;
 
 	return (
 		<div className="flex gap-3 py-3">
@@ -129,9 +137,11 @@ const SubscriptionToggle = ({
 	<Card className={`p-4 ${enabled ? 'border-primary bg-primary/5' : ''}`}>
 		<div className="flex items-center justify-between">
 			<div className="flex items-center gap-3">
-				<div className={`flex size-10 items-center justify-center rounded-lg ${
-					enabled ? 'bg-primary text-primary-foreground' : 'bg-muted'
-				}`}>
+				<div
+					className={`flex size-10 items-center justify-center rounded-lg ${
+						enabled ? 'bg-primary text-primary-foreground' : 'bg-muted'
+					}`}
+				>
 					<RefreshCw className="size-5" />
 				</div>
 				<div>
@@ -178,7 +188,9 @@ const FrequencySelector = ({
 						className="h-auto flex-col gap-0.5 py-3"
 					>
 						<span className="text-sm">{freq.label}</span>
-						<span className={`text-xs ${freq.id === selected ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+						<span
+							className={`text-xs ${freq.id === selected ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}
+						>
 							Save {freq.savings}%
 						</span>
 					</Button>
@@ -240,7 +252,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=200&fit=crop',
 				name: 'Premium Coffee Beans',
 				price: 24.99,
 				quantity: 2,
@@ -249,7 +262,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?w=200&h=200&fit=crop',
 				name: 'Organic Tea Collection',
 				price: 18.99,
 				quantity: 1,
@@ -272,13 +286,17 @@ export default function Main() {
 		0,
 	);
 	const subscriptionSubtotal = cartData.items.reduce((sum, item) => {
-		const discount = item.subscriptionEligible && item.subscriptionDiscount
-			? item.subscriptionDiscount / 100
-			: 0;
+		const discount =
+			item.subscriptionEligible && item.subscriptionDiscount
+				? item.subscriptionDiscount / 100
+				: 0;
 		return sum + item.price * (1 - discount) * item.quantity;
 	}, 0);
 	const subscriptionSavings = regularSubtotal - subscriptionSubtotal;
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">
@@ -316,8 +334,14 @@ export default function Main() {
 							</div>
 						</ScrollArea>
 						<Summary
-							subtotal={cartData.subscribeEnabled ? subscriptionSubtotal : regularSubtotal}
-							subscriptionSavings={cartData.subscribeEnabled ? subscriptionSavings : 0}
+							subtotal={
+								cartData.subscribeEnabled
+									? subscriptionSubtotal
+									: regularSubtotal
+							}
+							subscriptionSavings={
+								cartData.subscribeEnabled ? subscriptionSavings : 0
+							}
 							checkoutLabel={cartData.checkoutLabel}
 							subscribeEnabled={cartData.subscribeEnabled}
 						/>

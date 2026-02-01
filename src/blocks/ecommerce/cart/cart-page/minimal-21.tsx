@@ -48,7 +48,11 @@ const Subtotal = ({ price, quantity }: { price: number; quantity: number }) => (
 );
 
 const RemoveBtn = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<X className="size-4" />
 	</Button>
 );
@@ -75,7 +79,9 @@ const SummaryRow = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'font-semibold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'font-semibold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -94,14 +100,16 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
 			name: 'Minimalist Watch',
 			price: 129.99,
 			quantity: 1,
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1491553895911-0055uj8e14ee?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1491553895911-0055uj8e14ee?w=100&h=100&fit=crop',
 			name: 'Leather Wallet',
 			price: 49.99,
 			quantity: 2,

@@ -1,6 +1,13 @@
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { ShoppingCart, Users, DollarSign, Package, ArrowUpRight, type LucideIcon } from 'lucide-react';
+import {
+	ShoppingCart,
+	Users,
+	DollarSign,
+	Package,
+	ArrowUpRight,
+	type LucideIcon,
+} from 'lucide-react';
 
 interface StatItemProps {
 	icon: LucideIcon;
@@ -10,7 +17,13 @@ interface StatItemProps {
 	badge?: string;
 }
 
-const StatCard = ({ icon: Icon, label, value, subtitle, badge }: StatItemProps) => (
+const StatCard = ({
+	icon: Icon,
+	label,
+	value,
+	subtitle,
+	badge,
+}: StatItemProps) => (
 	<Card className="group relative overflow-hidden p-5 transition-all duration-300 hover:border-primary/30">
 		<div className="absolute right-0 top-0 h-24 w-24 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-primary/20 to-transparent blur-2xl transition-all duration-500 group-hover:scale-150" />
 		<div className="relative space-y-4">
@@ -26,7 +39,9 @@ const StatCard = ({ icon: Icon, label, value, subtitle, badge }: StatItemProps) 
 				)}
 			</div>
 			<div className="space-y-1">
-				<p className="text-2xl font-bold tracking-tight @sm:text-3xl">{value}</p>
+				<p className="text-2xl font-bold tracking-tight @sm:text-3xl">
+					{value}
+				</p>
 				<p className="text-sm font-medium text-muted-foreground">{label}</p>
 			</div>
 			<p className="text-xs text-muted-foreground/80">{subtitle}</p>
@@ -36,10 +51,34 @@ const StatCard = ({ icon: Icon, label, value, subtitle, badge }: StatItemProps) 
 
 export default function Main() {
 	const stats: StatItemProps[] = [
-		{ icon: DollarSign, label: 'Total Revenue', value: '$127.4K', subtitle: 'Last 30 days', badge: '12%' },
-		{ icon: ShoppingCart, label: 'Total Orders', value: '8,492', subtitle: 'Last 30 days', badge: '8%' },
-		{ icon: Users, label: 'Active Customers', value: '24.8K', subtitle: 'Monthly active', badge: '24%' },
-		{ icon: Package, label: 'Products Sold', value: '15,847', subtitle: 'Last 30 days', badge: '5%' },
+		{
+			icon: DollarSign,
+			label: 'Total Revenue',
+			value: '$127.4K',
+			subtitle: 'Last 30 days',
+			badge: '12%',
+		},
+		{
+			icon: ShoppingCart,
+			label: 'Total Orders',
+			value: '8,492',
+			subtitle: 'Last 30 days',
+			badge: '8%',
+		},
+		{
+			icon: Users,
+			label: 'Active Customers',
+			value: '24.8K',
+			subtitle: 'Monthly active',
+			badge: '24%',
+		},
+		{
+			icon: Package,
+			label: 'Products Sold',
+			value: '15,847',
+			subtitle: 'Last 30 days',
+			badge: '5%',
+		},
 	];
 
 	return (

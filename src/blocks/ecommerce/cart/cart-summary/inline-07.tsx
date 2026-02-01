@@ -20,7 +20,10 @@ const Countdown = ({ icon: Icon, time, message }: CountdownProps) => (
 const PriceWithSavings = ({
 	total,
 	savings,
-}: { total: string; savings: string }) => (
+}: {
+	total: string;
+	savings: string;
+}) => (
 	<div className="flex items-center gap-2">
 		<span className="text-lg font-bold">{total}</span>
 		<Badge className="bg-red-500/10 text-red-500 hover:bg-red-500/20">
@@ -37,10 +40,7 @@ export default function Main() {
 					<Countdown icon={Timer} time="01:45:30" message="left for deal" />
 					<div className="flex items-center gap-4">
 						<PriceWithSavings total="$179.99" savings="$60.00" />
-						<Button
-							className="gap-1 bg-red-500 hover:bg-red-600"
-							asChild
-						>
+						<Button className="gap-1 bg-red-500 hover:bg-red-600" asChild>
 							<Link href="/checkout">
 								<Zap className="size-4" />
 								Buy Now

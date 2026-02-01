@@ -33,7 +33,10 @@ export default function Main() {
 							{i < stats.length - 1 && (
 								<>
 									<Separator className="@lg:hidden" />
-									<Separator orientation="vertical" className="hidden self-center h-16 @lg:block" />
+									<Separator
+										orientation="vertical"
+										className="hidden self-center h-16 @lg:block"
+									/>
 								</>
 							)}
 						</div>

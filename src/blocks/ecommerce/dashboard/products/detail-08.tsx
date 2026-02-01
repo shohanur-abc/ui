@@ -69,7 +69,9 @@ const PromotionCard = ({
 	};
 
 	return (
-		<div className={`rounded-lg border bg-card p-4 ${!promotion.isActive ? 'opacity-60' : ''}`}>
+		<div
+			className={`rounded-lg border bg-card p-4 ${!promotion.isActive ? 'opacity-60' : ''}`}
+		>
 			<div className="mb-3 flex items-start justify-between">
 				<div>
 					<h3 className="font-semibold">{promotion.name}</h3>
@@ -77,20 +79,21 @@ const PromotionCard = ({
 						{typeLabels[promotion.type]}
 					</Badge>
 				</div>
-				<Switch
-					checked={promotion.isActive}
-					onCheckedChange={onToggle}
-				/>
+				<Switch checked={promotion.isActive} onCheckedChange={onToggle} />
 			</div>
 
 			<div className="mb-3 space-y-2 text-sm">
 				<div className="flex items-center gap-2 text-muted-foreground">
 					<Calendar className="size-4" />
-					<span>{labels.expires}: {promotion.endDate}</span>
+					<span>
+						{labels.expires}: {promotion.endDate}
+					</span>
 				</div>
 				<div className="flex items-center gap-2 text-muted-foreground">
 					<Target className="size-4" />
-					<span>{promotion.targetProducts} {labels.products}</span>
+					<span>
+						{promotion.targetProducts} {labels.products}
+					</span>
 				</div>
 			</div>
 
@@ -98,7 +101,9 @@ const PromotionCard = ({
 				<div className="mb-3 space-y-1">
 					<div className="flex justify-between text-xs">
 						<span>{labels.used}</span>
-						<span>{promotion.usageCount} / {promotion.usageLimit}</span>
+						<span>
+							{promotion.usageCount} / {promotion.usageLimit}
+						</span>
 					</div>
 					<Progress value={usagePercent} />
 				</div>
@@ -159,14 +164,22 @@ const CreatePromotionForm = ({ labels }: CreatePromotionFormProps) => {
 						<Label>{labels.value}</Label>
 						<div className="relative">
 							{type === 'fixed' ? (
-								<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+								<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+									$
+								</span>
 							) : type === 'percentage' ? (
 								<Percent className="absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
 							) : null}
 							<Input
 								type="number"
 								placeholder="0"
-								className={type === 'fixed' ? 'pl-7' : type === 'percentage' ? 'pr-9' : ''}
+								className={
+									type === 'fixed'
+										? 'pl-7'
+										: type === 'percentage'
+											? 'pr-9'
+											: ''
+								}
 								disabled={type === 'bogo'}
 							/>
 						</div>
@@ -186,10 +199,7 @@ const CreatePromotionForm = ({ labels }: CreatePromotionFormProps) => {
 
 				<div className="space-y-3">
 					<div className="flex items-center gap-3">
-						<Switch
-							checked={hasLimit}
-							onCheckedChange={setHasLimit}
-						/>
+						<Switch checked={hasLimit} onCheckedChange={setHasLimit} />
 						<Label>{labels.usageLimit}</Label>
 					</div>
 					{hasLimit ? (
@@ -215,11 +225,17 @@ interface SummaryStatsProps {
 const SummaryStats = ({ stats }: SummaryStatsProps) => (
 	<div className="grid gap-4 @sm:grid-cols-3">
 		{stats.map((stat) => (
-			<div key={stat.label} className="rounded-lg border bg-card p-4 text-center">
+			<div
+				key={stat.label}
+				className="rounded-lg border bg-card p-4 text-center"
+			>
 				<p className="text-2xl font-bold">{stat.value}</p>
 				<p className="text-sm text-muted-foreground">{stat.label}</p>
-				<p className={`text-xs ${stat.change >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
-					{stat.change >= 0 ? '+' : ''}{stat.change}% vs last period
+				<p
+					className={`text-xs ${stat.change >= 0 ? 'text-emerald-500' : 'text-red-500'}`}
+				>
+					{stat.change >= 0 ? '+' : ''}
+					{stat.change}% vs last period
 				</p>
 			</div>
 		))}
@@ -273,7 +289,7 @@ export default function Main() {
 
 	const togglePromotion = (id: string) => {
 		setPromotions((prev) =>
-			prev.map((p) => (p.id === id ? { ...p, isActive: !p.isActive } : p))
+			prev.map((p) => (p.id === id ? { ...p, isActive: !p.isActive } : p)),
 		);
 	};
 

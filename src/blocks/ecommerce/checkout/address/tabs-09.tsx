@@ -118,7 +118,11 @@ const ClothingShipmentTab = ({
 			<Field label="First Name" placeholder="John" />
 			<Field label="Last Name" placeholder="Doe" />
 		</div>
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="City" />
@@ -147,7 +151,11 @@ const ElectronicsShipmentTab = ({
 			<Field label="First Name" placeholder="John" />
 			<Field label="Last Name" placeholder="Doe" />
 		</div>
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="City" />
@@ -187,7 +195,11 @@ const CombinedShipmentTab = ({
 			<Field label="First Name" placeholder="John" />
 			<Field label="Last Name" placeholder="Doe" />
 		</div>
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="City" />
@@ -196,7 +208,10 @@ const CombinedShipmentTab = ({
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="eco-packaging" />
-			<Label htmlFor="eco-packaging" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="eco-packaging"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Use eco-friendly packaging
 			</Label>
 		</div>

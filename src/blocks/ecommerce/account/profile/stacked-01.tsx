@@ -38,7 +38,7 @@ const ProfileBanner = ({
 	memberSince: string;
 }) => (
 	<div className="relative">
-		<div 
+		<div
 			className="h-32 @sm:h-40 @md:h-48 rounded-xl bg-cover bg-center"
 			style={{ backgroundImage: `url(${backgroundUrl})` }}
 		/>
@@ -48,7 +48,11 @@ const ProfileBanner = ({
 				<AvatarFallback className="text-3xl">{avatarFallback}</AvatarFallback>
 			</Avatar>
 		</div>
-		<Button variant="outline" size="sm" className="absolute top-4 right-4 gap-2">
+		<Button
+			variant="outline"
+			size="sm"
+			className="absolute top-4 right-4 gap-2"
+		>
 			<Edit className="size-4" />
 			Edit Profile
 		</Button>
@@ -85,7 +89,12 @@ const ProfileInfo = ({
 const StatsRow = ({
 	stats,
 }: {
-	stats: { icon: React.ElementType; label: string; value: string; trend?: string }[];
+	stats: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		trend?: string;
+	}[];
 }) => (
 	<div className="grid grid-cols-2 @md:grid-cols-4 gap-4 px-6">
 		{stats.map((stat, i) => (
@@ -142,7 +151,9 @@ const LoyaltySection = ({
 							<span>{nextTier}</span>
 						</div>
 						<Progress value={progress} className="h-2" />
-						<p className="text-xs text-muted-foreground mt-1">Next reward unlocks at {nextTier}</p>
+						<p className="text-xs text-muted-foreground mt-1">
+							Next reward unlocks at {nextTier}
+						</p>
 					</div>
 				</div>
 			</CardContent>
@@ -153,7 +164,12 @@ const LoyaltySection = ({
 const QuickActions = ({
 	actions,
 }: {
-	actions: { icon: React.ElementType; label: string; href: string; badge?: string }[];
+	actions: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+	}[];
 }) => (
 	<div className="px-6">
 		<h2 className="font-semibold mb-4">Quick Actions</h2>
@@ -180,22 +196,34 @@ const QuickActions = ({
 const RecentActivity = ({
 	activities,
 }: {
-	activities: { icon: React.ElementType; title: string; description: string; time: string }[];
+	activities: {
+		icon: React.ElementType;
+		title: string;
+		description: string;
+		time: string;
+	}[];
 }) => (
 	<div className="px-6">
 		<h2 className="font-semibold mb-4">Recent Activity</h2>
 		<Card>
 			<CardContent className="p-4 divide-y">
 				{activities.map((activity, i) => (
-					<div key={i} className="flex items-center gap-4 py-3 first:pt-0 last:pb-0">
+					<div
+						key={i}
+						className="flex items-center gap-4 py-3 first:pt-0 last:pb-0"
+					>
 						<div className="p-2 rounded-lg bg-muted">
 							<activity.icon className="size-5 text-muted-foreground" />
 						</div>
 						<div className="flex-1">
 							<p className="font-medium">{activity.title}</p>
-							<p className="text-sm text-muted-foreground">{activity.description}</p>
+							<p className="text-sm text-muted-foreground">
+								{activity.description}
+							</p>
 						</div>
-						<span className="text-xs text-muted-foreground">{activity.time}</span>
+						<span className="text-xs text-muted-foreground">
+							{activity.time}
+						</span>
 					</div>
 				))}
 			</CardContent>
@@ -206,8 +234,10 @@ const RecentActivity = ({
 export default function Main() {
 	const profileData = {
 		banner: {
-			backgroundUrl: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=1200',
-			avatarSrc: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face',
+			backgroundUrl:
+				'https://images.unsplash.com/photo-1557683316-973673baf926?w=1200',
+			avatarSrc:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face',
 			avatarFallback: 'SM',
 			name: 'Sarah Mitchell',
 			email: 'sarah.mitchell@example.com',
@@ -220,7 +250,12 @@ export default function Main() {
 			location: 'New York, NY',
 		},
 		stats: [
-			{ icon: ShoppingBag, label: 'Orders', value: '47', trend: '+12% this month' },
+			{
+				icon: ShoppingBag,
+				label: 'Orders',
+				value: '47',
+				trend: '+12% this month',
+			},
 			{ icon: Heart, label: 'Wishlist', value: '23' },
 			{ icon: Star, label: 'Reviews', value: '18' },
 			{ icon: Gift, label: 'Rewards', value: '5' },
@@ -242,10 +277,30 @@ export default function Main() {
 			{ icon: Clock, label: 'History', href: '/history' },
 		],
 		activities: [
-			{ icon: ShoppingBag, title: 'Order Placed', description: 'Order #12345 - 3 items', time: '2h ago' },
-			{ icon: Star, title: 'Review Posted', description: 'You reviewed "Wireless Headphones"', time: '1d ago' },
-			{ icon: Gift, title: 'Reward Earned', description: '+100 points from purchase', time: '2d ago' },
-			{ icon: Heart, title: 'Added to Wishlist', description: '"Premium Backpack" saved', time: '3d ago' },
+			{
+				icon: ShoppingBag,
+				title: 'Order Placed',
+				description: 'Order #12345 - 3 items',
+				time: '2h ago',
+			},
+			{
+				icon: Star,
+				title: 'Review Posted',
+				description: 'You reviewed "Wireless Headphones"',
+				time: '1d ago',
+			},
+			{
+				icon: Gift,
+				title: 'Reward Earned',
+				description: '+100 points from purchase',
+				time: '2d ago',
+			},
+			{
+				icon: Heart,
+				title: 'Added to Wishlist',
+				description: '"Premium Backpack" saved',
+				time: '3d ago',
+			},
 		],
 	};
 

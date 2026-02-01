@@ -136,11 +136,76 @@ export default function Main() {
 	];
 
 	const transactions: TransactionItem[] = [
-		{ id: 'TXN-9281', customer: { name: 'Sarah Mitchell', email: 's.mitchell@email.com', avatar: '', initials: 'SM' }, type: 'purchase', amount: '$284.00', paymentMethod: 'Visa •••• 4242', date: 'Jan 28, 2026', time: '2:34 PM' },
-		{ id: 'TXN-9280', customer: { name: 'John Cooper', email: 'jcooper@email.com', avatar: '', initials: 'JC' }, type: 'subscription', amount: '$29.99', paymentMethod: 'Mastercard •••• 8821', date: 'Jan 28, 2026', time: '1:15 PM' },
-		{ id: 'TXN-9279', customer: { name: 'Maria Santos', email: 'm.santos@email.com', avatar: '', initials: 'MS' }, type: 'refund', amount: '$89.00', paymentMethod: 'PayPal', date: 'Jan 28, 2026', time: '11:42 AM' },
-		{ id: 'TXN-9278', customer: { name: 'David Kim', email: 'dkim@email.com', avatar: '', initials: 'DK' }, type: 'purchase', amount: '$459.00', paymentMethod: 'Amex •••• 3001', date: 'Jan 27, 2026', time: '5:28 PM' },
-		{ id: 'TXN-9277', customer: { name: 'Lisa Wang', email: 'lwang@email.com', avatar: '', initials: 'LW' }, type: 'purchase', amount: '$124.50', paymentMethod: 'Visa •••• 7654', date: 'Jan 27, 2026', time: '3:05 PM' },
+		{
+			id: 'TXN-9281',
+			customer: {
+				name: 'Sarah Mitchell',
+				email: 's.mitchell@email.com',
+				avatar: '',
+				initials: 'SM',
+			},
+			type: 'purchase',
+			amount: '$284.00',
+			paymentMethod: 'Visa •••• 4242',
+			date: 'Jan 28, 2026',
+			time: '2:34 PM',
+		},
+		{
+			id: 'TXN-9280',
+			customer: {
+				name: 'John Cooper',
+				email: 'jcooper@email.com',
+				avatar: '',
+				initials: 'JC',
+			},
+			type: 'subscription',
+			amount: '$29.99',
+			paymentMethod: 'Mastercard •••• 8821',
+			date: 'Jan 28, 2026',
+			time: '1:15 PM',
+		},
+		{
+			id: 'TXN-9279',
+			customer: {
+				name: 'Maria Santos',
+				email: 'm.santos@email.com',
+				avatar: '',
+				initials: 'MS',
+			},
+			type: 'refund',
+			amount: '$89.00',
+			paymentMethod: 'PayPal',
+			date: 'Jan 28, 2026',
+			time: '11:42 AM',
+		},
+		{
+			id: 'TXN-9278',
+			customer: {
+				name: 'David Kim',
+				email: 'dkim@email.com',
+				avatar: '',
+				initials: 'DK',
+			},
+			type: 'purchase',
+			amount: '$459.00',
+			paymentMethod: 'Amex •••• 3001',
+			date: 'Jan 27, 2026',
+			time: '5:28 PM',
+		},
+		{
+			id: 'TXN-9277',
+			customer: {
+				name: 'Lisa Wang',
+				email: 'lwang@email.com',
+				avatar: '',
+				initials: 'LW',
+			},
+			type: 'purchase',
+			amount: '$124.50',
+			paymentMethod: 'Visa •••• 7654',
+			date: 'Jan 27, 2026',
+			time: '3:05 PM',
+		},
 	];
 
 	return (

@@ -47,7 +47,11 @@ const TimeRangeInput = ({
 	label,
 	startTime,
 	endTime,
-}: { label: string; startTime: string; endTime: string }) => (
+}: {
+	label: string;
+	startTime: string;
+	endTime: string;
+}) => (
 	<div className="space-y-2">
 		<Label>{label}</Label>
 		<div className="flex items-center gap-2">
@@ -114,7 +118,9 @@ export default function Main() {
 									<BellRing className="size-5 text-muted-foreground" />
 									<div>
 										<Label>Notification Sounds</Label>
-										<p className="text-sm text-muted-foreground">Play sounds for notifications</p>
+										<p className="text-sm text-muted-foreground">
+											Play sounds for notifications
+										</p>
 									</div>
 								</div>
 								<Switch defaultChecked />
@@ -151,7 +157,9 @@ export default function Main() {
 									<Smartphone className="size-5 text-muted-foreground" />
 									<div>
 										<Label>Vibration</Label>
-										<p className="text-sm text-muted-foreground">Vibrate on notifications</p>
+										<p className="text-sm text-muted-foreground">
+											Vibrate on notifications
+										</p>
 									</div>
 								</div>
 								<Switch defaultChecked />
@@ -207,8 +215,15 @@ export default function Main() {
 									These notifications will still come through:
 								</p>
 								<div className="space-y-2">
-									{['Security alerts', 'Critical order issues', 'Payment failures'].map((item) => (
-										<div key={item} className="flex items-center justify-between py-2">
+									{[
+										'Security alerts',
+										'Critical order issues',
+										'Payment failures',
+									].map((item) => (
+										<div
+											key={item}
+											className="flex items-center justify-between py-2"
+										>
 											<span className="text-sm">{item}</span>
 											<Switch defaultChecked />
 										</div>
@@ -231,7 +246,9 @@ export default function Main() {
 									<SelectValue placeholder="Select frequency" />
 								</SelectTrigger>
 								<SelectContent>
-									<SelectItem value="instant">Instant - As they happen</SelectItem>
+									<SelectItem value="instant">
+										Instant - As they happen
+									</SelectItem>
 									<SelectItem value="hourly">Hourly Digest</SelectItem>
 									<SelectItem value="daily">Daily Digest</SelectItem>
 									<SelectItem value="weekly">Weekly Summary</SelectItem>

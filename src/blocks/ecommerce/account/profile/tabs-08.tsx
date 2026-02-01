@@ -36,9 +36,14 @@ const SubscriptionHeader = ({
 	<div className="flex flex-col @md:flex-row items-center justify-between gap-6 p-6 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl">
 		<div className="text-center @md:text-left">
 			<Badge className="bg-purple-500/20 text-purple-600 mb-2">{plan}</Badge>
-			<h1 className="text-3xl font-bold">{price}<span className="text-lg text-muted-foreground">/month</span></h1>
+			<h1 className="text-3xl font-bold">
+				{price}
+				<span className="text-lg text-muted-foreground">/month</span>
+			</h1>
 			<p className="text-muted-foreground mt-1">Member since {memberSince}</p>
-			<p className="text-sm text-muted-foreground">Next billing: {nextBilling}</p>
+			<p className="text-sm text-muted-foreground">
+				Next billing: {nextBilling}
+			</p>
 		</div>
 		<div className="flex gap-2">
 			<Button variant="outline">Change Plan</Button>
@@ -59,7 +64,9 @@ const BoxesTab = ({
 			<CardHeader className="pb-3">
 				<div className="flex items-center justify-between">
 					<h3 className="font-semibold">Upcoming Box</h3>
-					<Badge className="bg-purple-500/20 text-purple-600">{upcomingBox.status}</Badge>
+					<Badge className="bg-purple-500/20 text-purple-600">
+						{upcomingBox.status}
+					</Badge>
 				</div>
 			</CardHeader>
 			<CardContent>
@@ -74,7 +81,10 @@ const BoxesTab = ({
 							<p className="text-sm font-medium mb-2">What's inside:</p>
 							<ul className="space-y-1">
 								{upcomingBox.items.map((item, i) => (
-									<li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+									<li
+										key={i}
+										className="flex items-center gap-2 text-sm text-muted-foreground"
+									>
 										<div className="size-1.5 rounded-full bg-purple-500" />
 										{item}
 									</li>
@@ -82,8 +92,12 @@ const BoxesTab = ({
 							</ul>
 						</div>
 						<div className="flex gap-2 mt-4">
-							<Button variant="outline" size="sm">Skip This Box</Button>
-							<Button variant="outline" size="sm">Customize</Button>
+							<Button variant="outline" size="sm">
+								Skip This Box
+							</Button>
+							<Button variant="outline" size="sm">
+								Customize
+							</Button>
 						</div>
 					</div>
 				</div>
@@ -94,13 +108,21 @@ const BoxesTab = ({
 				<Card key={i}>
 					<CardContent className="p-4">
 						<div className="aspect-video rounded-lg bg-muted overflow-hidden relative">
-							<Image src={box.image} alt={box.title} fill className="object-cover" />
+							<Image
+								src={box.image}
+								alt={box.title}
+								fill
+								className="object-cover"
+							/>
 						</div>
 						<h4 className="font-medium mt-3">{box.title}</h4>
 						<p className="text-sm text-muted-foreground">{box.date}</p>
 						<div className="flex items-center gap-1 mt-2">
 							{Array.from({ length: 5 }).map((_, j) => (
-								<Star key={j} className={`size-4 ${j < box.rating ? 'text-amber-500 fill-amber-500' : 'text-gray-300'}`} />
+								<Star
+									key={j}
+									className={`size-4 ${j < box.rating ? 'text-amber-500 fill-amber-500' : 'text-gray-300'}`}
+								/>
 							))}
 						</div>
 					</CardContent>
@@ -113,7 +135,10 @@ const BoxesTab = ({
 const PreferencesTab = ({
 	preferences,
 }: {
-	preferences: { category: string; options: { label: string; selected: boolean }[] }[];
+	preferences: {
+		category: string;
+		options: { label: string; selected: boolean }[];
+	}[];
 }) => (
 	<div className="space-y-6">
 		{preferences.map((pref, i) => (
@@ -145,7 +170,12 @@ const PreferencesTab = ({
 const ShippingTab = ({
 	addresses,
 }: {
-	addresses: { label: string; address: string; city: string; isDefault: boolean }[];
+	addresses: {
+		label: string;
+		address: string;
+		city: string;
+		isDefault: boolean;
+	}[];
 }) => (
 	<div className="space-y-4">
 		<div className="flex justify-end">
@@ -163,13 +193,21 @@ const ShippingTab = ({
 							<div>
 								<div className="flex items-center gap-2">
 									<p className="font-medium">{address.label}</p>
-									{address.isDefault && <Badge className="bg-purple-500/20 text-purple-600">Default</Badge>}
+									{address.isDefault && (
+										<Badge className="bg-purple-500/20 text-purple-600">
+											Default
+										</Badge>
+									)}
 								</div>
-								<p className="text-sm text-muted-foreground">{address.address}</p>
+								<p className="text-sm text-muted-foreground">
+									{address.address}
+								</p>
 								<p className="text-sm text-muted-foreground">{address.city}</p>
 							</div>
 						</div>
-						<Button variant="ghost" size="sm">Edit</Button>
+						<Button variant="ghost" size="sm">
+							Edit
+						</Button>
 					</div>
 				</CardContent>
 			</Card>
@@ -182,14 +220,21 @@ const BillingTab = ({
 	billingHistory,
 }: {
 	paymentMethod: { type: string; last4: string; expiry: string };
-	billingHistory: { date: string; description: string; amount: string; status: string }[];
+	billingHistory: {
+		date: string;
+		description: string;
+		amount: string;
+		status: string;
+	}[];
 }) => (
 	<div className="space-y-6">
 		<Card>
 			<CardHeader className="pb-3">
 				<div className="flex items-center justify-between">
 					<h3 className="font-semibold">Payment Method</h3>
-					<Button variant="outline" size="sm">Change</Button>
+					<Button variant="outline" size="sm">
+						Change
+					</Button>
 				</div>
 			</CardHeader>
 			<CardContent>
@@ -198,8 +243,12 @@ const BillingTab = ({
 						<DollarSign className="size-5" />
 					</div>
 					<div>
-						<p className="font-medium">{paymentMethod.type} ending in {paymentMethod.last4}</p>
-						<p className="text-sm text-muted-foreground">Expires {paymentMethod.expiry}</p>
+						<p className="font-medium">
+							{paymentMethod.type} ending in {paymentMethod.last4}
+						</p>
+						<p className="text-sm text-muted-foreground">
+							Expires {paymentMethod.expiry}
+						</p>
 					</div>
 				</div>
 			</CardContent>
@@ -210,7 +259,10 @@ const BillingTab = ({
 			</CardHeader>
 			<CardContent className="space-y-3">
 				{billingHistory.map((bill, i) => (
-					<div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50">
+					<div
+						key={i}
+						className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50"
+					>
 						<div>
 							<p className="font-medium">{bill.description}</p>
 							<p className="text-sm text-muted-foreground">{bill.date}</p>
@@ -237,13 +289,36 @@ export default function Main() {
 		upcomingBox: {
 			title: 'February Mystery Box',
 			date: 'Feb 10-15, 2024',
-			items: ['Full-size skincare product', 'Limited edition accessory', 'Surprise beauty item', 'Exclusive sneak peek'],
+			items: [
+				'Full-size skincare product',
+				'Limited edition accessory',
+				'Surprise beauty item',
+				'Exclusive sneak peek',
+			],
 			status: 'Preparing',
 		},
 		pastBoxes: [
-			{ title: 'January Box', date: 'Jan 2024', image: 'https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=300', rating: 5 },
-			{ title: 'December Holiday', date: 'Dec 2023', image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=300', rating: 4 },
-			{ title: 'November Box', date: 'Nov 2023', image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=300', rating: 5 },
+			{
+				title: 'January Box',
+				date: 'Jan 2024',
+				image:
+					'https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=300',
+				rating: 5,
+			},
+			{
+				title: 'December Holiday',
+				date: 'Dec 2023',
+				image:
+					'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=300',
+				rating: 4,
+			},
+			{
+				title: 'November Box',
+				date: 'Nov 2023',
+				image:
+					'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=300',
+				rating: 5,
+			},
 		],
 		preferences: [
 			{
@@ -267,14 +342,39 @@ export default function Main() {
 			},
 		],
 		addresses: [
-			{ label: 'Home', address: '123 Main Street, Apt 4B', city: 'New York, NY 10001', isDefault: true },
-			{ label: 'Work', address: '456 Business Ave, Floor 12', city: 'New York, NY 10002', isDefault: false },
+			{
+				label: 'Home',
+				address: '123 Main Street, Apt 4B',
+				city: 'New York, NY 10001',
+				isDefault: true,
+			},
+			{
+				label: 'Work',
+				address: '456 Business Ave, Floor 12',
+				city: 'New York, NY 10002',
+				isDefault: false,
+			},
 		],
 		paymentMethod: { type: 'Visa', last4: '4242', expiry: '12/26' },
 		billingHistory: [
-			{ date: 'Jan 15, 2024', description: 'Premium Box - January', amount: '$49.99', status: 'Paid' },
-			{ date: 'Dec 15, 2023', description: 'Premium Box - December', amount: '$49.99', status: 'Paid' },
-			{ date: 'Nov 15, 2023', description: 'Premium Box - November', amount: '$49.99', status: 'Paid' },
+			{
+				date: 'Jan 15, 2024',
+				description: 'Premium Box - January',
+				amount: '$49.99',
+				status: 'Paid',
+			},
+			{
+				date: 'Dec 15, 2023',
+				description: 'Premium Box - December',
+				amount: '$49.99',
+				status: 'Paid',
+			},
+			{
+				date: 'Nov 15, 2023',
+				description: 'Premium Box - November',
+				amount: '$49.99',
+				status: 'Paid',
+			},
 		],
 	};
 
@@ -302,7 +402,10 @@ export default function Main() {
 						</TabsTrigger>
 					</TabsList>
 					<TabsContent value="boxes" className="mt-6">
-						<BoxesTab upcomingBox={profileData.upcomingBox} pastBoxes={profileData.pastBoxes} />
+						<BoxesTab
+							upcomingBox={profileData.upcomingBox}
+							pastBoxes={profileData.pastBoxes}
+						/>
 					</TabsContent>
 					<TabsContent value="preferences" className="mt-6">
 						<PreferencesTab preferences={profileData.preferences} />
@@ -311,7 +414,10 @@ export default function Main() {
 						<ShippingTab addresses={profileData.addresses} />
 					</TabsContent>
 					<TabsContent value="billing" className="mt-6">
-						<BillingTab paymentMethod={profileData.paymentMethod} billingHistory={profileData.billingHistory} />
+						<BillingTab
+							paymentMethod={profileData.paymentMethod}
+							billingHistory={profileData.billingHistory}
+						/>
 					</TabsContent>
 				</Tabs>
 			</div>

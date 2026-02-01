@@ -25,7 +25,13 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 type InventoryItem = {
@@ -55,7 +61,13 @@ type HeaderProps = {
 	onTabChange: (value: string) => void;
 };
 
-const Header = ({ title, description, tabs, activeTab, onTabChange }: HeaderProps) => (
+const Header = ({
+	title,
+	description,
+	tabs,
+	activeTab,
+	onTabChange,
+}: HeaderProps) => (
 	<CardHeader className="space-y-4">
 		<div>
 			<CardTitle className="text-xl @lg:text-2xl">{title}</CardTitle>
@@ -83,7 +95,10 @@ type StatusBadgeProps = {
 };
 
 const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
-	const variants: Record<'critical' | 'low' | 'pending-order' | 'backordered', 'destructive' | 'secondary' | 'default' | 'outline'> = {
+	const variants: Record<
+		'critical' | 'low' | 'pending-order' | 'backordered',
+		'destructive' | 'secondary' | 'default' | 'outline'
+	> = {
 		critical: 'destructive',
 		low: 'secondary',
 		'pending-order': 'default',
@@ -100,9 +115,16 @@ type StockoutIndicatorProps = {
 	unknownLabel: string;
 };
 
-const StockoutIndicator = ({ days, urgentLabel, daysLabel, unknownLabel }: StockoutIndicatorProps) => {
+const StockoutIndicator = ({
+	days,
+	urgentLabel,
+	daysLabel,
+	unknownLabel,
+}: StockoutIndicatorProps) => {
 	if (days === null) {
-		return <span className="text-sm text-muted-foreground">{unknownLabel}</span>;
+		return (
+			<span className="text-sm text-muted-foreground">{unknownLabel}</span>
+		);
 	}
 
 	if (days <= 3) {
@@ -123,7 +145,10 @@ const StockoutIndicator = ({ days, urgentLabel, daysLabel, unknownLabel }: Stock
 
 type InventoryRowProps = {
 	item: InventoryItem;
-	statusLabels: Record<'critical' | 'low' | 'pending-order' | 'backordered', string>;
+	statusLabels: Record<
+		'critical' | 'low' | 'pending-order' | 'backordered',
+		string
+	>;
 	actions: { label: string; onClick: (id: string) => void }[];
 };
 
@@ -133,7 +158,11 @@ const InventoryRow = ({ item, statusLabels, actions }: InventoryRowProps) => (
 			<div className="flex items-center gap-3">
 				<div className="relative size-10 overflow-hidden rounded-lg border bg-muted">
 					{item.image ? (
-						<img src={item.image} alt={item.name} className="size-full object-cover" />
+						<img
+							src={item.image}
+							alt={item.name}
+							className="size-full object-cover"
+						/>
 					) : (
 						<div className="flex size-full items-center justify-center">
 							<Package className="size-5 text-muted-foreground" />
@@ -148,10 +177,14 @@ const InventoryRow = ({ item, statusLabels, actions }: InventoryRowProps) => (
 		</TableCell>
 		<TableCell>
 			<div className="space-y-0.5">
-				<div className={`font-semibold tabular-nums ${item.quantity <= item.reorderPoint ? 'text-destructive' : ''}`}>
+				<div
+					className={`font-semibold tabular-nums ${item.quantity <= item.reorderPoint ? 'text-destructive' : ''}`}
+				>
 					{item.quantity}
 				</div>
-				<div className="text-xs text-muted-foreground">Reorder: {item.reorderPoint}</div>
+				<div className="text-xs text-muted-foreground">
+					Reorder: {item.reorderPoint}
+				</div>
 			</div>
 		</TableCell>
 		<TableCell>
@@ -201,18 +234,88 @@ export default function Main() {
 	const [activeTab, setActiveTab] = React.useState('all');
 
 	const inventory: InventoryItem[] = [
-		{ id: '1', name: 'Wireless Earbuds', sku: 'WE-001', image: '', quantity: 5, reorderPoint: 20, pendingOrders: 15, daysUntilStockout: 2, status: 'critical' },
-		{ id: '2', name: 'Phone Case Leather', sku: 'PCL-002', image: '', quantity: 18, reorderPoint: 25, pendingOrders: 8, daysUntilStockout: 7, status: 'low' },
-		{ id: '3', name: 'Screen Protector', sku: 'SP-003', image: '', quantity: 45, reorderPoint: 50, pendingOrders: 0, daysUntilStockout: 12, status: 'pending-order' },
-		{ id: '4', name: 'USB Cable 3m', sku: 'UC3-004', image: '', quantity: 0, reorderPoint: 100, pendingOrders: 50, daysUntilStockout: null, status: 'backordered' },
-		{ id: '5', name: 'Power Bank 10K', sku: 'PB10-005', image: '', quantity: 8, reorderPoint: 15, pendingOrders: 12, daysUntilStockout: 3, status: 'critical' },
+		{
+			id: '1',
+			name: 'Wireless Earbuds',
+			sku: 'WE-001',
+			image: '',
+			quantity: 5,
+			reorderPoint: 20,
+			pendingOrders: 15,
+			daysUntilStockout: 2,
+			status: 'critical',
+		},
+		{
+			id: '2',
+			name: 'Phone Case Leather',
+			sku: 'PCL-002',
+			image: '',
+			quantity: 18,
+			reorderPoint: 25,
+			pendingOrders: 8,
+			daysUntilStockout: 7,
+			status: 'low',
+		},
+		{
+			id: '3',
+			name: 'Screen Protector',
+			sku: 'SP-003',
+			image: '',
+			quantity: 45,
+			reorderPoint: 50,
+			pendingOrders: 0,
+			daysUntilStockout: 12,
+			status: 'pending-order',
+		},
+		{
+			id: '4',
+			name: 'USB Cable 3m',
+			sku: 'UC3-004',
+			image: '',
+			quantity: 0,
+			reorderPoint: 100,
+			pendingOrders: 50,
+			daysUntilStockout: null,
+			status: 'backordered',
+		},
+		{
+			id: '5',
+			name: 'Power Bank 10K',
+			sku: 'PB10-005',
+			image: '',
+			quantity: 8,
+			reorderPoint: 15,
+			pendingOrders: 12,
+			daysUntilStockout: 3,
+			status: 'critical',
+		},
 	];
 
 	const tabs: TabConfig[] = [
-		{ value: 'all', label: 'All Alerts', icon: AlertTriangle, count: inventory.length },
-		{ value: 'critical', label: 'Critical', icon: AlertTriangle, count: inventory.filter(i => i.status === 'critical').length },
-		{ value: 'low', label: 'Low Stock', icon: Package, count: inventory.filter(i => i.status === 'low').length },
-		{ value: 'pending', label: 'Pending', icon: Clock, count: inventory.filter(i => i.status === 'pending-order').length },
+		{
+			value: 'all',
+			label: 'All Alerts',
+			icon: AlertTriangle,
+			count: inventory.length,
+		},
+		{
+			value: 'critical',
+			label: 'Critical',
+			icon: AlertTriangle,
+			count: inventory.filter((i) => i.status === 'critical').length,
+		},
+		{
+			value: 'low',
+			label: 'Low Stock',
+			icon: Package,
+			count: inventory.filter((i) => i.status === 'low').length,
+		},
+		{
+			value: 'pending',
+			label: 'Pending',
+			icon: Clock,
+			count: inventory.filter((i) => i.status === 'pending-order').length,
+		},
 	];
 
 	const statusLabels = {
@@ -223,17 +326,27 @@ export default function Main() {
 	};
 
 	const actions = [
-		{ label: 'Create Order', onClick: (id: string) => console.log('Order', id) },
-		{ label: 'View History', onClick: (id: string) => console.log('History', id) },
-		{ label: 'Adjust Stock', onClick: (id: string) => console.log('Adjust', id) },
+		{
+			label: 'Create Order',
+			onClick: (id: string) => console.log('Order', id),
+		},
+		{
+			label: 'View History',
+			onClick: (id: string) => console.log('History', id),
+		},
+		{
+			label: 'Adjust Stock',
+			onClick: (id: string) => console.log('Adjust', id),
+		},
 	];
 
-	const filteredInventory = activeTab === 'all' 
-		? inventory 
-		: inventory.filter(item => {
-			if (activeTab === 'pending') return item.status === 'pending-order';
-			return item.status === activeTab;
-		});
+	const filteredInventory =
+		activeTab === 'all'
+			? inventory
+			: inventory.filter((item) => {
+					if (activeTab === 'pending') return item.status === 'pending-order';
+					return item.status === activeTab;
+				});
 
 	return (
 		<section className="@container" data-theme="dashboard">

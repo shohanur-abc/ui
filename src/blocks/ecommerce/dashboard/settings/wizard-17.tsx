@@ -54,7 +54,9 @@ const StepIndicator = ({ steps }: { steps: WizardStep[] }) => (
 						)}
 					</div>
 					<div className="mt-2 text-center">
-						<p className={`text-sm font-medium ${step.current ? 'text-primary' : ''}`}>
+						<p
+							className={`text-sm font-medium ${step.current ? 'text-primary' : ''}`}
+						>
 							{step.title}
 						</p>
 						<p className="hidden text-xs text-muted-foreground @sm:block">
@@ -89,10 +91,34 @@ const StoreTypeCard = ({ id, title, description }: StoreTypeOption) => (
 
 export default function Main() {
 	const steps: WizardStep[] = [
-		{ id: 1, title: 'Store Type', description: 'Choose type', completed: true, current: false },
-		{ id: 2, title: 'Basic Info', description: 'Store details', completed: false, current: true },
-		{ id: 3, title: 'Preferences', description: 'Customize', completed: false, current: false },
-		{ id: 4, title: 'Complete', description: 'Finish setup', completed: false, current: false },
+		{
+			id: 1,
+			title: 'Store Type',
+			description: 'Choose type',
+			completed: true,
+			current: false,
+		},
+		{
+			id: 2,
+			title: 'Basic Info',
+			description: 'Store details',
+			completed: false,
+			current: true,
+		},
+		{
+			id: 3,
+			title: 'Preferences',
+			description: 'Customize',
+			completed: false,
+			current: false,
+		},
+		{
+			id: 4,
+			title: 'Complete',
+			description: 'Finish setup',
+			completed: false,
+			current: false,
+		},
 	];
 
 	const storeTypes: StoreTypeOption[] = [
@@ -127,7 +153,9 @@ export default function Main() {
 							<Settings className="size-6 text-primary" />
 						</div>
 						<CardTitle className="text-xl">Store Setup Wizard</CardTitle>
-						<CardDescription>Complete these steps to set up your store</CardDescription>
+						<CardDescription>
+							Complete these steps to set up your store
+						</CardDescription>
 					</CardHeader>
 					<CardContent className="pt-8">
 						<StepIndicator steps={steps} />

@@ -52,7 +52,11 @@ interface LanguageTabsProps {
 	onSelect: (code: string) => void;
 }
 
-const LanguageTabs = ({ languages, activeCode, onSelect }: LanguageTabsProps) => (
+const LanguageTabs = ({
+	languages,
+	activeCode,
+	onSelect,
+}: LanguageTabsProps) => (
 	<div className="flex gap-2 overflow-x-auto pb-2">
 		{languages.map((lang) => (
 			<button
@@ -95,11 +99,16 @@ const CompletionBar = ({
 			<span className="text-sm font-medium">
 				{completedFields}/{totalFields} {labels.fields}
 			</span>
-			<span className={`text-sm font-bold ${percent === 100 ? 'text-emerald-500' : 'text-amber-500'}`}>
+			<span
+				className={`text-sm font-bold ${percent === 100 ? 'text-emerald-500' : 'text-amber-500'}`}
+			>
 				{percent}% {labels.complete}
 			</span>
 		</div>
-		<Progress value={percent} className={percent === 100 ? '[&>div]:bg-emerald-500' : ''} />
+		<Progress
+			value={percent}
+			className={percent === 100 ? '[&>div]:bg-emerald-500' : ''}
+		/>
 	</div>
 );
 
@@ -178,7 +187,12 @@ interface SeoFieldsProps {
 	onMetaDescriptionChange: (value: string) => void;
 	sourceMetaTitle: string;
 	sourceMetaDescription: string;
-	labels: { title: string; description: string; copy: string; translate: string };
+	labels: {
+		title: string;
+		description: string;
+		copy: string;
+		translate: string;
+	};
 }
 
 const SeoFields = ({
@@ -195,12 +209,11 @@ const SeoFields = ({
 	return (
 		<Collapsible open={isOpen} onOpenChange={setIsOpen}>
 			<CollapsibleTrigger asChild>
-				<Button
-					variant="ghost"
-					className="w-full justify-between"
-				>
+				<Button variant="ghost" className="w-full justify-between">
 					<span className="font-medium">SEO Fields</span>
-					<ChevronDown className={`size-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+					<ChevronDown
+						className={`size-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+					/>
 				</Button>
 			</CollapsibleTrigger>
 			<CollapsibleContent className="space-y-4 pt-4">
@@ -237,9 +250,11 @@ export default function Main() {
 			completionPercent: 100,
 			fields: {
 				title: 'Premium Wireless Headphones',
-				description: 'Experience crystal-clear audio with our top-of-the-line wireless headphones. Featuring active noise cancellation and 30-hour battery life.',
+				description:
+					'Experience crystal-clear audio with our top-of-the-line wireless headphones. Featuring active noise cancellation and 30-hour battery life.',
 				metaTitle: 'Premium Wireless Headphones | Best Audio Quality',
-				metaDescription: 'Shop our premium wireless headphones with ANC and long battery life. Free shipping on orders over $50.',
+				metaDescription:
+					'Shop our premium wireless headphones with ANC and long battery life. Free shipping on orders over $50.',
 			},
 		},
 		{
@@ -250,7 +265,8 @@ export default function Main() {
 			completionPercent: 75,
 			fields: {
 				title: 'Auriculares Inalámbricos Premium',
-				description: 'Experimenta un audio cristalino con nuestros auriculares inalámbricos de primera línea.',
+				description:
+					'Experimenta un audio cristalino con nuestros auriculares inalámbricos de primera línea.',
 				metaTitle: '',
 				metaDescription: '',
 			},
@@ -286,17 +302,22 @@ export default function Main() {
 	const activeTranslation = languages.find((l) => l.code === activeLanguage)!;
 	const defaultTranslation = languages.find((l) => l.isDefault)!;
 
-	const updateField = (field: keyof LanguageTranslation['fields'], value: string) => {
+	const updateField = (
+		field: keyof LanguageTranslation['fields'],
+		value: string,
+	) => {
 		setLanguages((prev) =>
 			prev.map((l) =>
 				l.code === activeLanguage
 					? { ...l, fields: { ...l.fields, [field]: value } }
-					: l
-			)
+					: l,
+			),
 		);
 	};
 
-	const filledFields = Object.values(activeTranslation.fields).filter(Boolean).length;
+	const filledFields = Object.values(activeTranslation.fields).filter(
+		Boolean,
+	).length;
 
 	return (
 		<section className="@container" data-theme="dashboard">
@@ -347,9 +368,13 @@ export default function Main() {
 								metaTitle={activeTranslation.fields.metaTitle}
 								metaDescription={activeTranslation.fields.metaDescription}
 								onMetaTitleChange={(val) => updateField('metaTitle', val)}
-								onMetaDescriptionChange={(val) => updateField('metaDescription', val)}
+								onMetaDescriptionChange={(val) =>
+									updateField('metaDescription', val)
+								}
 								sourceMetaTitle={defaultTranslation.fields.metaTitle}
-								sourceMetaDescription={defaultTranslation.fields.metaDescription}
+								sourceMetaDescription={
+									defaultTranslation.fields.metaDescription
+								}
 								labels={{
 									title: 'Meta Title',
 									description: 'Meta Description',

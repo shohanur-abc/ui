@@ -87,7 +87,9 @@ const WizardStepper = ({ currentStep }: { currentStep: number }) => {
 						active={i + 1 === currentStep}
 						completed={i + 1 < currentStep}
 					/>
-					{i < steps.length - 1 && <StepperLine completed={i + 1 < currentStep} />}
+					{i < steps.length - 1 && (
+						<StepperLine completed={i + 1 < currentStep} />
+					)}
 				</div>
 			))}
 		</div>
@@ -164,7 +166,11 @@ const AddressStep = ({
 		<CardContent className="pt-6 space-y-4">
 			<h2 className="text-xl font-bold">Enter your address</h2>
 			<div className="grid @sm:grid-cols-2 gap-4">
-				<Field label="First Name" placeholder="First name" defaultValue="John" />
+				<Field
+					label="First Name"
+					placeholder="First name"
+					defaultValue="John"
+				/>
 				<Field label="Last Name" placeholder="Last name" defaultValue="Doe" />
 			</div>
 			<Field
@@ -179,10 +185,18 @@ const AddressStep = ({
 				placeholder="Street address"
 				defaultValue="123 Main Street"
 			/>
-			<Field label="Apartment / Suite" placeholder="Apt, suite, etc. (Optional)" />
+			<Field
+				label="Apartment / Suite"
+				placeholder="Apt, suite, etc. (Optional)"
+			/>
 			<div className="grid @sm:grid-cols-3 gap-4">
 				<Field label="City" placeholder="City" defaultValue="San Francisco" />
-				<SelectField label="State" placeholder="State" options={states} defaultValue="ca" />
+				<SelectField
+					label="State"
+					placeholder="State"
+					options={states}
+					defaultValue="ca"
+				/>
 				<Field label="ZIP" placeholder="ZIP" defaultValue="94102" />
 			</div>
 			<div className="flex items-center gap-2 pt-2">

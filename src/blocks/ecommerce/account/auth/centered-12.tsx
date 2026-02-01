@@ -6,7 +6,13 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 
-const SecurityBadge = ({ icon: Icon, text }: { icon: React.ElementType; text: string }) => (
+const SecurityBadge = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ElementType;
+	text: string;
+}) => (
 	<div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
 		<Icon className="size-4 text-primary" />
 		<span>{text}</span>
@@ -23,7 +29,9 @@ const Logo = ({ icon: Icon }: { icon: React.ElementType }) => (
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -45,7 +53,13 @@ const PINInput = ({ length }: { length: number }) => (
 	</div>
 );
 
-const BiometricButton = ({ icon: Icon, label }: { icon: React.ElementType; label: string }) => (
+const BiometricButton = ({
+	icon: Icon,
+	label,
+}: {
+	icon: React.ElementType;
+	label: string;
+}) => (
 	<Button type="button" variant="outline" size="lg" className="w-full gap-2">
 		<Icon className="size-5" />
 		{label}
@@ -100,7 +114,10 @@ export default function Main() {
 				<div className="w-full max-w-sm">
 					<SecurityBadge icon={Shield} text="Secure authentication" />
 					<Logo icon={Lock} />
-					<Title text="Enter your PIN" subtitle="Use your 6-digit security PIN to continue" />
+					<Title
+						text="Enter your PIN"
+						subtitle="Use your 6-digit security PIN to continue"
+					/>
 
 					<form className="space-y-6">
 						<PINInput length={6} />
@@ -112,7 +129,11 @@ export default function Main() {
 					<BiometricButton icon={Fingerprint} label="Use fingerprint" />
 
 					<div className="mt-8">
-						<FooterLink text="Forgot your PIN?" linkText="Reset PIN" href="/reset-pin" />
+						<FooterLink
+							text="Forgot your PIN?"
+							linkText="Reset PIN"
+							href="/reset-pin"
+						/>
 					</div>
 				</div>
 			</div>

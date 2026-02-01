@@ -3,7 +3,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-type ProgressBarData = { label: string; value: number; target: number; color: string };
+type ProgressBarData = {
+	label: string;
+	value: number;
+	target: number;
+	color: string;
+};
 
 const ProgressBarChart = ({ data }: { data: ProgressBarData[] }) => {
 	return (
@@ -20,7 +25,10 @@ const ProgressBarChart = ({ data }: { data: ProgressBarData[] }) => {
 									{item.value.toLocaleString()} / {item.target.toLocaleString()}
 								</span>
 								{achieved && (
-									<Badge variant="secondary" className="text-emerald-500 bg-emerald-500/10 text-xs">
+									<Badge
+										variant="secondary"
+										className="text-emerald-500 bg-emerald-500/10 text-xs"
+									>
 										Achieved
 									</Badge>
 								)}
@@ -58,7 +66,9 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm font-medium">Goal Progress</CardTitle>
-						<p className="text-xs text-muted-foreground">Monthly targets and achievements</p>
+						<p className="text-xs text-muted-foreground">
+							Monthly targets and achievements
+						</p>
 					</CardHeader>
 					<CardContent>
 						<ProgressBarChart data={goalData} />

@@ -55,9 +55,7 @@ const PageHeader = ({
 				<CheckCircle className="size-7 text-primary" />
 			</div>
 			<div>
-				<h1 className="text-2xl @lg:text-3xl font-bold">
-					Purchase Complete
-				</h1>
+				<h1 className="text-2xl @lg:text-3xl font-bold">Purchase Complete</h1>
 				<p className="text-muted-foreground">
 					Order #{orderNumber} • {purchaseDate}
 				</p>
@@ -336,9 +334,9 @@ export default function Main() {
 	];
 
 	const orderItems = [
-		{ name: 'Pro Design Suite', price: 199.00 },
-		{ name: 'Icon Library Premium', price: 49.00 },
-		{ name: 'Font Family Bundle', price: 29.00 },
+		{ name: 'Pro Design Suite', price: 199.0 },
+		{ name: 'Icon Library Premium', price: 49.0 },
+		{ name: 'Font Family Bundle', price: 29.0 },
 	];
 
 	return (
@@ -357,11 +355,7 @@ export default function Main() {
 					<div className="space-y-6">
 						<GettingStartedCard steps={gettingStartedSteps} />
 						<ResourcesCard />
-						<OrderSummaryCard
-							items={orderItems}
-							total={277.00}
-							currency="$"
-						/>
+						<OrderSummaryCard items={orderItems} total={277.0} currency="$" />
 					</div>
 				</div>
 

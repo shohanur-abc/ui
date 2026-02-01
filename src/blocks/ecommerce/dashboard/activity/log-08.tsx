@@ -51,13 +51,22 @@ const MethodBadge = ({ method }: { method: ApiLog['method'] }) => {
 	};
 
 	return (
-		<Badge variant="outline" className={`font-mono text-xs w-16 justify-center ${config[method]}`}>
+		<Badge
+			variant="outline"
+			className={`font-mono text-xs w-16 justify-center ${config[method]}`}
+		>
 			{method}
 		</Badge>
 	);
 };
 
-const StatusBadge = ({ status, success }: { status: number; success: boolean }) => {
+const StatusBadge = ({
+	status,
+	success,
+}: {
+	status: number;
+	success: boolean;
+}) => {
 	const className = success
 		? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
 		: status >= 500
@@ -78,9 +87,7 @@ const LatencyIndicator = ({ latency }: { latency: number }) => {
 		return 'text-rose-400';
 	};
 
-	return (
-		<span className={`font-mono text-xs ${getColor()}`}>{latency}ms</span>
-	);
+	return <span className={`font-mono text-xs ${getColor()}`}>{latency}ms</span>;
 };
 
 const ApiEntry = ({ log }: { log: ApiLog }) => (
@@ -109,7 +116,9 @@ const ApiEntry = ({ log }: { log: ApiLog }) => (
 				</div>
 				<div className="flex items-center gap-1 text-muted-foreground">
 					<ArrowUpDown className="size-3" />
-					<span>{log.requestSize}/{log.responseSize}</span>
+					<span>
+						{log.requestSize}/{log.responseSize}
+					</span>
 				</div>
 			</div>
 		</div>
@@ -144,7 +153,9 @@ const StatCard = ({
 
 	return (
 		<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 border border-border/50">
-			<Icon className={`size-5 ${trend ? trendColors[trend] : 'text-primary'}`} />
+			<Icon
+				className={`size-5 ${trend ? trendColors[trend] : 'text-primary'}`}
+			/>
 			<div>
 				<p className="text-xs text-muted-foreground">{label}</p>
 				<p className="font-semibold text-foreground">{value}</p>

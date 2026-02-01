@@ -2,7 +2,14 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from '@/components/ui/table';
 
 type Review = {
 	product: string;
@@ -30,13 +37,19 @@ const StarRating = ({ rating }: { rating: number }) => (
 
 const ReviewRow = ({ review }: { review: Review }) => (
 	<TableRow className="hover:bg-muted/30">
-		<TableCell className="font-medium max-w-[150px] truncate">{review.product}</TableCell>
+		<TableCell className="font-medium max-w-[150px] truncate">
+			{review.product}
+		</TableCell>
 		<TableCell>{review.customer}</TableCell>
-		<TableCell><StarRating rating={review.rating} /></TableCell>
+		<TableCell>
+			<StarRating rating={review.rating} />
+		</TableCell>
 		<TableCell className="max-w-[250px]">
 			<p className="truncate text-sm text-muted-foreground">{review.comment}</p>
 		</TableCell>
-		<TableCell className="text-muted-foreground text-sm">{review.date}</TableCell>
+		<TableCell className="text-muted-foreground text-sm">
+			{review.date}
+		</TableCell>
 		<TableCell>{review.helpful}</TableCell>
 		<TableCell>
 			<Badge
@@ -56,12 +69,60 @@ const ReviewRow = ({ review }: { review: Review }) => (
 );
 
 const reviews: Review[] = [
-	{ product: 'Wireless Headphones Pro', customer: 'Sarah J.', rating: 5, comment: 'Amazing sound quality and very comfortable for long use.', date: 'Jan 18', helpful: 24, status: 'published' },
-	{ product: 'Smart Watch Ultra', customer: 'Michael C.', rating: 4, comment: 'Great features but battery life could be better.', date: 'Jan 17', helpful: 12, status: 'published' },
-	{ product: 'Portable Speaker', customer: 'Emily D.', rating: 3, comment: 'Decent sound but build quality feels cheap.', date: 'Jan 17', helpful: 8, status: 'pending' },
-	{ product: 'Bluetooth Earbuds', customer: 'James W.', rating: 5, comment: 'Best earbuds I have ever owned! Highly recommend.', date: 'Jan 16', helpful: 45, status: 'published' },
-	{ product: 'Gaming Mouse RGB', customer: 'Lisa B.', rating: 1, comment: 'Stopped working after 2 weeks. Very disappointed.', date: 'Jan 15', helpful: 3, status: 'flagged' },
-	{ product: 'Mechanical Keyboard', customer: 'David L.', rating: 4, comment: 'Great typing experience, keys are a bit loud though.', date: 'Jan 15', helpful: 18, status: 'published' },
+	{
+		product: 'Wireless Headphones Pro',
+		customer: 'Sarah J.',
+		rating: 5,
+		comment: 'Amazing sound quality and very comfortable for long use.',
+		date: 'Jan 18',
+		helpful: 24,
+		status: 'published',
+	},
+	{
+		product: 'Smart Watch Ultra',
+		customer: 'Michael C.',
+		rating: 4,
+		comment: 'Great features but battery life could be better.',
+		date: 'Jan 17',
+		helpful: 12,
+		status: 'published',
+	},
+	{
+		product: 'Portable Speaker',
+		customer: 'Emily D.',
+		rating: 3,
+		comment: 'Decent sound but build quality feels cheap.',
+		date: 'Jan 17',
+		helpful: 8,
+		status: 'pending',
+	},
+	{
+		product: 'Bluetooth Earbuds',
+		customer: 'James W.',
+		rating: 5,
+		comment: 'Best earbuds I have ever owned! Highly recommend.',
+		date: 'Jan 16',
+		helpful: 45,
+		status: 'published',
+	},
+	{
+		product: 'Gaming Mouse RGB',
+		customer: 'Lisa B.',
+		rating: 1,
+		comment: 'Stopped working after 2 weeks. Very disappointed.',
+		date: 'Jan 15',
+		helpful: 3,
+		status: 'flagged',
+	},
+	{
+		product: 'Mechanical Keyboard',
+		customer: 'David L.',
+		rating: 4,
+		comment: 'Great typing experience, keys are a bit loud though.',
+		date: 'Jan 15',
+		helpful: 18,
+		status: 'published',
+	},
 ];
 
 export default function Main() {
@@ -70,8 +131,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Recent Reviews</CardTitle>
-						<p className="text-xs text-muted-foreground">Customer feedback and ratings</p>
+						<CardTitle className="text-sm font-medium">
+							Recent Reviews
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Customer feedback and ratings
+						</p>
 					</CardHeader>
 					<CardContent>
 						<div className="overflow-x-auto">

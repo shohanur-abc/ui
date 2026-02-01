@@ -4,9 +4,22 @@ import { Lock, ArrowRight, KeyRound, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -40,16 +53,14 @@ const FormField = ({
 	</div>
 );
 
-const PasswordRequirement = ({
-	met,
-	text,
-}: {
-	met: boolean;
-	text: string;
-}) => (
+const PasswordRequirement = ({ met, text }: { met: boolean; text: string }) => (
 	<div className="flex items-center gap-2 text-sm">
-		<CheckCircle2 className={`size-4 ${met ? 'text-green-500' : 'text-muted-foreground'}`} />
-		<span className={met ? 'text-foreground' : 'text-muted-foreground'}>{text}</span>
+		<CheckCircle2
+			className={`size-4 ${met ? 'text-green-500' : 'text-muted-foreground'}`}
+		/>
+		<span className={met ? 'text-foreground' : 'text-muted-foreground'}>
+			{text}
+		</span>
 	</div>
 );
 
@@ -91,8 +102,18 @@ export default function Main() {
 					</CardHeader>
 					<CardContent>
 						<form className="space-y-4">
-							<FormField label="New Password" type="password" placeholder="••••••••" icon={Lock} />
-							<FormField label="Confirm Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="New Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
+							<FormField
+								label="Confirm Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<div className="p-4 rounded-lg bg-muted/50 space-y-2">
 								{requirements.map((req, i) => (
 									<PasswordRequirement key={i} met={req.met} text={req.text} />
@@ -104,7 +125,10 @@ export default function Main() {
 					<CardFooter className="justify-center">
 						<p className="text-sm text-muted-foreground text-center">
 							Remember your password?{' '}
-							<Link href="/login" className="text-primary font-medium hover:underline">
+							<Link
+								href="/login"
+								className="text-primary font-medium hover:underline"
+							>
 								Sign in
 							</Link>
 						</p>

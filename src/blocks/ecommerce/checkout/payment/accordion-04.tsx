@@ -1,15 +1,41 @@
 'use client';
 
-import { BadgeCheck, Building2, Check, CreditCard, Globe, HelpCircle, Lock, Shield, Smartphone, Wallet } from 'lucide-react';
+import {
+	BadgeCheck,
+	Building2,
+	Check,
+	CreditCard,
+	Globe,
+	HelpCircle,
+	Lock,
+	Shield,
+	Smartphone,
+	Wallet,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface SavedCard {
 	id: string;
@@ -19,12 +45,22 @@ interface SavedCard {
 	isDefault?: boolean;
 }
 
-const SavedCardRow = ({ id, brand, last4, expiry, isDefault, selected, onSelect }: SavedCard & { selected: boolean; onSelect: (id: string) => void }) => (
+const SavedCardRow = ({
+	id,
+	brand,
+	last4,
+	expiry,
+	isDefault,
+	selected,
+	onSelect,
+}: SavedCard & { selected: boolean; onSelect: (id: string) => void }) => (
 	<button
 		type="button"
 		onClick={() => onSelect(id)}
 		className={`w-full flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
-			selected ? 'border-primary bg-primary/5' : 'border-border/50 hover:border-primary/30'
+			selected
+				? 'border-primary bg-primary/5'
+				: 'border-border/50 hover:border-primary/30'
 		}`}
 	>
 		<div className="size-10 rounded-lg bg-muted flex items-center justify-center">
@@ -32,8 +68,14 @@ const SavedCardRow = ({ id, brand, last4, expiry, isDefault, selected, onSelect 
 		</div>
 		<div className="flex-1 text-left">
 			<div className="flex items-center gap-2">
-				<span className="font-medium">{brand} •••• {last4}</span>
-				{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+				<span className="font-medium">
+					{brand} •••• {last4}
+				</span>
+				{isDefault && (
+					<Badge variant="secondary" className="text-xs">
+						Default
+					</Badge>
+				)}
 			</div>
 			<p className="text-xs text-muted-foreground">Expires {expiry}</p>
 		</div>
@@ -48,7 +90,12 @@ const SavedCardRow = ({ id, brand, last4, expiry, isDefault, selected, onSelect 
 const SavedCardsContent = ({ cards }: { cards: SavedCard[] }) => (
 	<div className="space-y-3 pt-4">
 		{cards.map((card) => (
-			<SavedCardRow key={card.id} {...card} selected={card.isDefault || false} onSelect={() => {}} />
+			<SavedCardRow
+				key={card.id}
+				{...card}
+				selected={card.isDefault || false}
+				onSelect={() => {}}
+			/>
 		))}
 		<Button variant="outline" className="w-full gap-2">
 			<CreditCard className="size-4" />
@@ -84,7 +131,9 @@ const NewCardContent = () => (
 								<HelpCircle className="size-3 text-muted-foreground cursor-help" />
 							</TooltipTrigger>
 							<TooltipContent>
-								<p className="text-xs">3 or 4 digits on the back of your card</p>
+								<p className="text-xs">
+									3 or 4 digits on the back of your card
+								</p>
 							</TooltipContent>
 						</Tooltip>
 					</TooltipProvider>
@@ -128,7 +177,11 @@ const BankContent = () => (
 	<div className="space-y-4 pt-4">
 		<div className="grid grid-cols-2 gap-2">
 			{['Chase', 'Bank of America', 'Wells Fargo', 'Citibank'].map((bank) => (
-				<Button key={bank} variant="outline" className="h-12 justify-start gap-2 text-sm">
+				<Button
+					key={bank}
+					variant="outline"
+					className="h-12 justify-start gap-2 text-sm"
+				>
 					<Building2 className="size-4" />
 					{bank}
 				</Button>
@@ -174,7 +227,9 @@ const InternationalContent = () => (
 				<span>Converted amount</span>
 				<span className="font-medium">€275.08 EUR</span>
 			</div>
-			<p className="text-xs text-muted-foreground mt-1">Rate: 1 USD = 0.92 EUR</p>
+			<p className="text-xs text-muted-foreground mt-1">
+				Rate: 1 USD = 0.92 EUR
+			</p>
 		</div>
 	</div>
 );
@@ -184,7 +239,9 @@ const CvvConfirmation = () => (
 		<Label className="text-sm font-medium">Enter CVV to confirm</Label>
 		<div className="flex gap-3">
 			<Input type="password" placeholder="•••" className="w-24" />
-			<span className="text-xs text-muted-foreground self-center">For security verification</span>
+			<span className="text-xs text-muted-foreground self-center">
+				For security verification
+			</span>
 		</div>
 	</div>
 );
@@ -205,7 +262,13 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const savedCards: SavedCard[] = [
-		{ id: 'visa', brand: 'Visa', last4: '4242', expiry: '12/26', isDefault: true },
+		{
+			id: 'visa',
+			brand: 'Visa',
+			last4: '4242',
+			expiry: '12/26',
+			isDefault: true,
+		},
 		{ id: 'mc', brand: 'Mastercard', last4: '8888', expiry: '06/25' },
 	];
 
@@ -223,13 +286,20 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Accordion type="single" collapsible defaultValue="saved" className="w-full">
+						<Accordion
+							type="single"
+							collapsible
+							defaultValue="saved"
+							className="w-full"
+						>
 							<AccordionItem value="saved">
 								<AccordionTrigger className="hover:no-underline">
 									<div className="flex items-center gap-2">
 										<CreditCard className="size-4" />
 										<span className="font-medium">Saved Cards</span>
-										<Badge variant="secondary" className="text-xs">{savedCards.length}</Badge>
+										<Badge variant="secondary" className="text-xs">
+											{savedCards.length}
+										</Badge>
 									</div>
 								</AccordionTrigger>
 								<AccordionContent>

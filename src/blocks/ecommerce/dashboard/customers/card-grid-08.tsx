@@ -15,7 +15,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	DropdownMenu,
@@ -53,9 +58,18 @@ interface B2BCustomer {
 
 const AccountTypeBadge = ({ type }: { type: B2BCustomer['accountType'] }) => {
 	const config = {
-		standard: { label: 'Standard', className: 'bg-slate-500/10 text-slate-400' },
-		enterprise: { label: 'Enterprise', className: 'bg-blue-500/10 text-blue-500' },
-		strategic: { label: 'Strategic', className: 'bg-violet-500/10 text-violet-500' },
+		standard: {
+			label: 'Standard',
+			className: 'bg-slate-500/10 text-slate-400',
+		},
+		enterprise: {
+			label: 'Enterprise',
+			className: 'bg-blue-500/10 text-blue-500',
+		},
+		strategic: {
+			label: 'Strategic',
+			className: 'bg-violet-500/10 text-violet-500',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[type].className}>
@@ -73,7 +87,9 @@ const StatusIndicator = ({ status }: { status: B2BCustomer['status'] }) => {
 	return (
 		<div className="flex items-center gap-1.5">
 			<div className={`size-2 rounded-full ${config[status].color}`} />
-			<span className="text-muted-foreground text-xs">{config[status].label}</span>
+			<span className="text-muted-foreground text-xs">
+				{config[status].label}
+			</span>
 		</div>
 	);
 };
@@ -125,14 +141,19 @@ const B2BCard = ({ customer }: { customer: B2BCustomer }) => (
 			<div className="flex items-start justify-between">
 				<div className="flex items-center gap-3">
 					<Avatar className="size-12 rounded-lg">
-						<AvatarImage src={customer.company.logo} alt={customer.company.name} />
+						<AvatarImage
+							src={customer.company.logo}
+							alt={customer.company.name}
+						/>
 						<AvatarFallback className="bg-primary/10 text-primary rounded-lg">
 							{customer.company.initials}
 						</AvatarFallback>
 					</Avatar>
 					<div>
 						<p className="font-semibold">{customer.company.name}</p>
-						<p className="text-muted-foreground text-xs">{customer.company.industry}</p>
+						<p className="text-muted-foreground text-xs">
+							{customer.company.industry}
+						</p>
 					</div>
 				</div>
 				<DropdownMenu>
@@ -176,23 +197,38 @@ const B2BCard = ({ customer }: { customer: B2BCustomer }) => (
 				total={customer.contractValue}
 			/>
 			<div className="space-y-2 border-t pt-3">
-				<p className="text-muted-foreground text-xs font-medium">Primary Contact</p>
+				<p className="text-muted-foreground text-xs font-medium">
+					Primary Contact
+				</p>
 				<div className="flex items-center gap-2">
 					<Avatar className="size-8">
 						<AvatarFallback className="bg-primary/10 text-primary text-xs">
-							{customer.contact.name.split(' ').map(n => n[0]).join('')}
+							{customer.contact.name
+								.split(' ')
+								.map((n) => n[0])
+								.join('')}
 						</AvatarFallback>
 					</Avatar>
 					<div>
 						<p className="text-sm font-medium">{customer.contact.name}</p>
-						<p className="text-muted-foreground text-xs">{customer.contact.role}</p>
+						<p className="text-muted-foreground text-xs">
+							{customer.contact.role}
+						</p>
 					</div>
 				</div>
 			</div>
 			<div className="space-y-1 text-sm">
-				<InfoRow icon={Calendar} label="Contract ends" value={customer.contractEnd} />
+				<InfoRow
+					icon={Calendar}
+					label="Contract ends"
+					value={customer.contractEnd}
+				/>
 				<InfoRow icon={Package} label="Last order" value={customer.lastOrder} />
-				<InfoRow icon={DollarSign} label="Terms" value={customer.paymentTerms} />
+				<InfoRow
+					icon={DollarSign}
+					label="Terms"
+					value={customer.paymentTerms}
+				/>
 			</div>
 		</CardContent>
 		<CardFooter className="grid grid-cols-3 gap-2 border-t bg-muted/20 px-4 py-3">
@@ -216,8 +252,18 @@ export default function Main() {
 	const customers: B2BCustomer[] = [
 		{
 			id: '1',
-			company: { name: 'TechCorp Industries', initials: 'TC', industry: 'Technology', website: 'techcorp.com' },
-			contact: { name: 'John Maxwell', role: 'Procurement Director', email: 'j.maxwell@techcorp.com', phone: '+1 555-0101' },
+			company: {
+				name: 'TechCorp Industries',
+				initials: 'TC',
+				industry: 'Technology',
+				website: 'techcorp.com',
+			},
+			contact: {
+				name: 'John Maxwell',
+				role: 'Procurement Director',
+				email: 'j.maxwell@techcorp.com',
+				phone: '+1 555-0101',
+			},
 			accountType: 'strategic',
 			status: 'active',
 			contractValue: '$500,000',
@@ -230,8 +276,18 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			company: { name: 'Global Retail Co', initials: 'GR', industry: 'Retail', website: 'globalretail.com' },
-			contact: { name: 'Sarah Chen', role: 'VP Operations', email: 's.chen@globalretail.com', phone: '+1 555-0102' },
+			company: {
+				name: 'Global Retail Co',
+				initials: 'GR',
+				industry: 'Retail',
+				website: 'globalretail.com',
+			},
+			contact: {
+				name: 'Sarah Chen',
+				role: 'VP Operations',
+				email: 's.chen@globalretail.com',
+				phone: '+1 555-0102',
+			},
 			accountType: 'enterprise',
 			status: 'active',
 			contractValue: '$250,000',
@@ -244,8 +300,18 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			company: { name: 'HealthFirst Med', initials: 'HF', industry: 'Healthcare', website: 'healthfirst.com' },
-			contact: { name: 'Dr. Emily Ross', role: 'Chief Admin', email: 'e.ross@healthfirst.com', phone: '+1 555-0103' },
+			company: {
+				name: 'HealthFirst Med',
+				initials: 'HF',
+				industry: 'Healthcare',
+				website: 'healthfirst.com',
+			},
+			contact: {
+				name: 'Dr. Emily Ross',
+				role: 'Chief Admin',
+				email: 'e.ross@healthfirst.com',
+				phone: '+1 555-0103',
+			},
 			accountType: 'enterprise',
 			status: 'pending',
 			contractValue: '$175,000',
@@ -258,8 +324,18 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			company: { name: 'BuildRight Const', initials: 'BR', industry: 'Construction', website: 'buildright.com' },
-			contact: { name: 'Mike Torres', role: 'Purchasing Manager', email: 'm.torres@buildright.com', phone: '+1 555-0104' },
+			company: {
+				name: 'BuildRight Const',
+				initials: 'BR',
+				industry: 'Construction',
+				website: 'buildright.com',
+			},
+			contact: {
+				name: 'Mike Torres',
+				role: 'Purchasing Manager',
+				email: 'm.torres@buildright.com',
+				phone: '+1 555-0104',
+			},
 			accountType: 'standard',
 			status: 'at_risk',
 			contractValue: '$100,000',
@@ -272,8 +348,18 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			company: { name: 'EduLearn Inc', initials: 'EL', industry: 'Education', website: 'edulearn.com' },
-			contact: { name: 'Lisa Park', role: 'Facilities Director', email: 'l.park@edulearn.com', phone: '+1 555-0105' },
+			company: {
+				name: 'EduLearn Inc',
+				initials: 'EL',
+				industry: 'Education',
+				website: 'edulearn.com',
+			},
+			contact: {
+				name: 'Lisa Park',
+				role: 'Facilities Director',
+				email: 'l.park@edulearn.com',
+				phone: '+1 555-0105',
+			},
 			accountType: 'standard',
 			status: 'active',
 			contractValue: '$75,000',
@@ -286,8 +372,18 @@ export default function Main() {
 		},
 		{
 			id: '6',
-			company: { name: 'FinanceHub Ltd', initials: 'FH', industry: 'Finance', website: 'financehub.com' },
-			contact: { name: 'Robert Kim', role: 'Office Manager', email: 'r.kim@financehub.com', phone: '+1 555-0106' },
+			company: {
+				name: 'FinanceHub Ltd',
+				initials: 'FH',
+				industry: 'Finance',
+				website: 'financehub.com',
+			},
+			contact: {
+				name: 'Robert Kim',
+				role: 'Office Manager',
+				email: 'r.kim@financehub.com',
+				phone: '+1 555-0106',
+			},
 			accountType: 'enterprise',
 			status: 'active',
 			contractValue: '$200,000',
@@ -308,8 +404,12 @@ export default function Main() {
 						<Building2 className="size-5" />
 					</div>
 					<div>
-						<h1 className="text-2xl font-bold tracking-tight">Business Accounts</h1>
-						<p className="text-muted-foreground text-sm">Manage B2B customer relationships</p>
+						<h1 className="text-2xl font-bold tracking-tight">
+							Business Accounts
+						</h1>
+						<p className="text-muted-foreground text-sm">
+							Manage B2B customer relationships
+						</p>
 					</div>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-3">

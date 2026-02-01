@@ -53,7 +53,10 @@ const ReportSummaryCard = ({ title, value, change, period }: ReportSummary) => (
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between">
 				<p className="text-sm text-muted-foreground">{title}</p>
-				<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+				<Badge
+					variant="secondary"
+					className="bg-emerald-500/10 text-emerald-500 text-xs"
+				>
 					<ArrowUpRight className="mr-1 size-3" />
 					{change}
 				</Badge>
@@ -96,19 +99,87 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const summaries: ReportSummary[] = [
-		{ title: 'Total Revenue', value: '$248,632', change: '+28%', period: 'This month' },
-		{ title: 'Orders Processed', value: '6,842', change: '+22%', period: 'This month' },
-		{ title: 'Avg Order Value', value: '$36.33', change: '+5%', period: 'vs last month' },
-		{ title: 'Customer Growth', value: '+234', change: '+18%', period: 'New customers' },
+		{
+			title: 'Total Revenue',
+			value: '$248,632',
+			change: '+28%',
+			period: 'This month',
+		},
+		{
+			title: 'Orders Processed',
+			value: '6,842',
+			change: '+22%',
+			period: 'This month',
+		},
+		{
+			title: 'Avg Order Value',
+			value: '$36.33',
+			change: '+5%',
+			period: 'vs last month',
+		},
+		{
+			title: 'Customer Growth',
+			value: '+234',
+			change: '+18%',
+			period: 'New customers',
+		},
 	];
 
 	const reports: ReportRow[] = [
-		{ id: 'RPT-001', name: 'Monthly Sales Report', type: 'sales', period: 'December 2024', generated: 'Dec 12, 2024', status: 'ready', size: '2.4 MB' },
-		{ id: 'RPT-002', name: 'Inventory Status Report', type: 'inventory', period: 'December 2024', generated: 'Dec 12, 2024', status: 'ready', size: '1.8 MB' },
-		{ id: 'RPT-003', name: 'Customer Analytics', type: 'customers', period: 'Q4 2024', generated: 'Dec 11, 2024', status: 'ready', size: '3.2 MB' },
-		{ id: 'RPT-004', name: 'Traffic & Conversion', type: 'analytics', period: 'December 2024', generated: 'Generating...', status: 'generating', size: '-' },
-		{ id: 'RPT-005', name: 'Financial Summary', type: 'finance', period: 'November 2024', generated: 'Dec 01, 2024', status: 'ready', size: '4.1 MB' },
-		{ id: 'RPT-006', name: 'Weekly Sales Report', type: 'sales', period: 'Week 50, 2024', generated: 'Dec 15, 2024', status: 'scheduled', size: '-' },
+		{
+			id: 'RPT-001',
+			name: 'Monthly Sales Report',
+			type: 'sales',
+			period: 'December 2024',
+			generated: 'Dec 12, 2024',
+			status: 'ready',
+			size: '2.4 MB',
+		},
+		{
+			id: 'RPT-002',
+			name: 'Inventory Status Report',
+			type: 'inventory',
+			period: 'December 2024',
+			generated: 'Dec 12, 2024',
+			status: 'ready',
+			size: '1.8 MB',
+		},
+		{
+			id: 'RPT-003',
+			name: 'Customer Analytics',
+			type: 'customers',
+			period: 'Q4 2024',
+			generated: 'Dec 11, 2024',
+			status: 'ready',
+			size: '3.2 MB',
+		},
+		{
+			id: 'RPT-004',
+			name: 'Traffic & Conversion',
+			type: 'analytics',
+			period: 'December 2024',
+			generated: 'Generating...',
+			status: 'generating',
+			size: '-',
+		},
+		{
+			id: 'RPT-005',
+			name: 'Financial Summary',
+			type: 'finance',
+			period: 'November 2024',
+			generated: 'Dec 01, 2024',
+			status: 'ready',
+			size: '4.1 MB',
+		},
+		{
+			id: 'RPT-006',
+			name: 'Weekly Sales Report',
+			type: 'sales',
+			period: 'Week 50, 2024',
+			generated: 'Dec 15, 2024',
+			status: 'scheduled',
+			size: '-',
+		},
 	];
 
 	const chartData = [
@@ -146,8 +217,12 @@ export default function Main() {
 										<TableRow>
 											<TableHead>Report</TableHead>
 											<TableHead>Type</TableHead>
-											<TableHead className="hidden @lg:table-cell">Period</TableHead>
-											<TableHead className="hidden @xl:table-cell">Generated</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Period
+											</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Generated
+											</TableHead>
 											<TableHead>Status</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -162,25 +237,41 @@ export default function Main() {
 														</div>
 														<div>
 															<p className="font-medium">{report.name}</p>
-															<p className="text-xs text-muted-foreground">{report.size}</p>
+															<p className="text-xs text-muted-foreground">
+																{report.size}
+															</p>
 														</div>
 													</div>
 												</TableCell>
 												<TableCell>
-													<Badge variant="secondary" className={getTypeBadge(report.type)}>
+													<Badge
+														variant="secondary"
+														className={getTypeBadge(report.type)}
+													>
 														{report.type}
 													</Badge>
 												</TableCell>
-												<TableCell className="hidden @lg:table-cell text-muted-foreground">{report.period}</TableCell>
-												<TableCell className="hidden @xl:table-cell text-muted-foreground">{report.generated}</TableCell>
+												<TableCell className="hidden @lg:table-cell text-muted-foreground">
+													{report.period}
+												</TableCell>
+												<TableCell className="hidden @xl:table-cell text-muted-foreground">
+													{report.generated}
+												</TableCell>
 												<TableCell>
-													<Badge variant="secondary" className={getStatusBadge(report.status)}>
+													<Badge
+														variant="secondary"
+														className={getStatusBadge(report.status)}
+													>
 														{report.status}
 													</Badge>
 												</TableCell>
 												<TableCell>
 													{report.status === 'ready' && (
-														<Button variant="ghost" size="icon" className="size-8">
+														<Button
+															variant="ghost"
+															size="icon"
+															className="size-8"
+														>
 															<Download className="size-4" />
 														</Button>
 													)}
@@ -196,12 +287,19 @@ export default function Main() {
 								<CardTitle className="text-sm">Reports Generated</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={chartConfig} className="h-[280px] w-full">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[280px] w-full"
+								>
 									<BarChart data={chartData}>
 										<XAxis dataKey="month" tickLine={false} axisLine={false} />
 										<YAxis tickLine={false} axisLine={false} />
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
-										<Bar dataKey="value" fill="var(--color-value)" radius={[4, 4, 0, 0]} />
+										<Bar
+											dataKey="value"
+											fill="var(--color-value)"
+											radius={[4, 4, 0, 0]}
+										/>
 									</BarChart>
 								</ChartContainer>
 							</CardContent>

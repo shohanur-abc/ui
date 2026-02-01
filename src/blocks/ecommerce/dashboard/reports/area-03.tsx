@@ -32,16 +32,30 @@ type SummaryCardProps = {
 	positive: boolean;
 };
 
-const SummaryCard = ({ icon: Icon, label, value, change, positive }: SummaryCardProps) => (
+const SummaryCard = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	positive,
+}: SummaryCardProps) => (
 	<Card className="border-border/30 bg-muted/30">
 		<CardContent className="flex items-center gap-3 p-4">
-			<div className={`rounded-lg p-2 ${positive ? 'bg-emerald-500/10' : 'bg-rose-500/10'}`}>
-				<Icon className={`size-4 ${positive ? 'text-emerald-500' : 'text-rose-500'}`} />
+			<div
+				className={`rounded-lg p-2 ${positive ? 'bg-emerald-500/10' : 'bg-rose-500/10'}`}
+			>
+				<Icon
+					className={`size-4 ${positive ? 'text-emerald-500' : 'text-rose-500'}`}
+				/>
 			</div>
 			<div>
 				<p className="text-xs text-muted-foreground">{label}</p>
 				<p className="text-lg font-bold">{value}</p>
-				<p className={`text-xs ${positive ? 'text-emerald-500' : 'text-rose-500'}`}>{change}</p>
+				<p
+					className={`text-xs ${positive ? 'text-emerald-500' : 'text-rose-500'}`}
+				>
+					{change}
+				</p>
 			</div>
 		</CardContent>
 	</Card>
@@ -60,9 +74,27 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const summaryCards: SummaryCardProps[] = [
-		{ icon: DollarSign, label: 'Total Inflow', value: '$2.45M', change: '+18.2%', positive: true },
-		{ icon: CreditCard, label: 'Total Outflow', value: '$1.82M', change: '+12.5%', positive: false },
-		{ icon: ArrowRightLeft, label: 'Net Cashflow', value: '$630K', change: '+32.1%', positive: true },
+		{
+			icon: DollarSign,
+			label: 'Total Inflow',
+			value: '$2.45M',
+			change: '+18.2%',
+			positive: true,
+		},
+		{
+			icon: CreditCard,
+			label: 'Total Outflow',
+			value: '$1.82M',
+			change: '+12.5%',
+			positive: false,
+		},
+		{
+			icon: ArrowRightLeft,
+			label: 'Net Cashflow',
+			value: '$630K',
+			change: '+32.1%',
+			positive: true,
+		},
 	];
 
 	const chartData: CashflowData[] = [
@@ -102,12 +134,28 @@ export default function Main() {
 							<AreaChart data={chartData} margin={{ left: 12, right: 12 }}>
 								<defs>
 									<linearGradient id="inflowGrad" x1="0" y1="0" x2="0" y2="1">
-										<stop offset="5%" stopColor="var(--color-inflow)" stopOpacity={0.4} />
-										<stop offset="95%" stopColor="var(--color-inflow)" stopOpacity={0} />
+										<stop
+											offset="5%"
+											stopColor="var(--color-inflow)"
+											stopOpacity={0.4}
+										/>
+										<stop
+											offset="95%"
+											stopColor="var(--color-inflow)"
+											stopOpacity={0}
+										/>
 									</linearGradient>
 									<linearGradient id="outflowGrad" x1="0" y1="0" x2="0" y2="1">
-										<stop offset="5%" stopColor="var(--color-outflow)" stopOpacity={0.3} />
-										<stop offset="95%" stopColor="var(--color-outflow)" stopOpacity={0} />
+										<stop
+											offset="5%"
+											stopColor="var(--color-outflow)"
+											stopOpacity={0.3}
+										/>
+										<stop
+											offset="95%"
+											stopColor="var(--color-outflow)"
+											stopOpacity={0}
+										/>
 									</linearGradient>
 								</defs>
 								<CartesianGrid strokeDasharray="3 3" vertical={false} />

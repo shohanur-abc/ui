@@ -36,11 +36,17 @@ const MatchBadge = ({ score }: { score: number }) => (
 const RecommendationCard = ({ item }: { item: RecommendedItem }) => (
 	<div className="flex gap-3 p-2 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
 		<div className="size-16 shrink-0 rounded-md overflow-hidden bg-muted">
-			<img src={item.image} alt={item.name} className="size-full object-cover" />
+			<img
+				src={item.image}
+				alt={item.name}
+				className="size-full object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="text-sm font-medium line-clamp-1">{item.name}</p>
-			<p className="text-xs text-muted-foreground line-clamp-1">{item.reason}</p>
+			<p className="text-xs text-muted-foreground line-clamp-1">
+				{item.reason}
+			</p>
 			<div className="flex items-center justify-between mt-1">
 				<span className="text-sm font-semibold">${item.price.toFixed(2)}</span>
 				<MatchBadge score={item.matchScore} />
@@ -109,7 +115,9 @@ const AIBanner = () => (
 		</div>
 		<div className="flex-1">
 			<h2 className="font-semibold">AI-Powered Recommendations</h2>
-			<p className="text-sm text-muted-foreground">We&apos;ve found items that pair perfectly with your wishlist</p>
+			<p className="text-sm text-muted-foreground">
+				We&apos;ve found items that pair perfectly with your wishlist
+			</p>
 		</div>
 	</div>
 );
@@ -119,33 +127,76 @@ export default function Main() {
 		{
 			id: '1',
 			name: 'Navy Blazer',
-			price: 299.00,
-			image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=400&fit=crop',
+			price: 299.0,
+			image:
+				'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=400&fit=crop',
 			href: '/product/1',
 			recommendations: [
-				{ id: 'r1', name: 'White Oxford Shirt', price: 89.00, image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=100&h=100&fit=crop', matchScore: 95, reason: 'Classic pairing' },
-				{ id: 'r2', name: 'Gray Wool Trousers', price: 149.00, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=100&h=100&fit=crop', matchScore: 92, reason: 'Complete the look' },
+				{
+					id: 'r1',
+					name: 'White Oxford Shirt',
+					price: 89.0,
+					image:
+						'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=100&h=100&fit=crop',
+					matchScore: 95,
+					reason: 'Classic pairing',
+				},
+				{
+					id: 'r2',
+					name: 'Gray Wool Trousers',
+					price: 149.0,
+					image:
+						'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=100&h=100&fit=crop',
+					matchScore: 92,
+					reason: 'Complete the look',
+				},
 			],
 		},
 		{
 			id: '2',
 			name: 'Leather Messenger Bag',
-			price: 245.00,
-			image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop',
+			price: 245.0,
+			image:
+				'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop',
 			href: '/product/2',
 			recommendations: [
-				{ id: 'r3', name: 'Leather Belt', price: 79.00, image: 'https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=100&h=100&fit=crop', matchScore: 88, reason: 'Matching leather' },
-				{ id: 'r4', name: 'Leather Card Wallet', price: 55.00, image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=100&h=100&fit=crop', matchScore: 85, reason: 'Complete set' },
+				{
+					id: 'r3',
+					name: 'Leather Belt',
+					price: 79.0,
+					image:
+						'https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=100&h=100&fit=crop',
+					matchScore: 88,
+					reason: 'Matching leather',
+				},
+				{
+					id: 'r4',
+					name: 'Leather Card Wallet',
+					price: 55.0,
+					image:
+						'https://images.unsplash.com/photo-1627123424574-724758594e93?w=100&h=100&fit=crop',
+					matchScore: 85,
+					reason: 'Complete set',
+				},
 			],
 		},
 		{
 			id: '3',
 			name: 'Desert Boots',
-			price: 189.00,
-			image: 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=400&h=400&fit=crop',
+			price: 189.0,
+			image:
+				'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=400&h=400&fit=crop',
 			href: '/product/3',
 			recommendations: [
-				{ id: 'r5', name: 'Chino Pants', price: 95.00, image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=100&h=100&fit=crop', matchScore: 90, reason: 'Classic match' },
+				{
+					id: 'r5',
+					name: 'Chino Pants',
+					price: 95.0,
+					image:
+						'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=100&h=100&fit=crop',
+					matchScore: 90,
+					reason: 'Classic match',
+				},
 			],
 		},
 	];

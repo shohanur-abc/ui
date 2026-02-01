@@ -36,12 +36,7 @@ type ShippingZone = {
 	enabled: boolean;
 };
 
-const ZoneCard = ({
-	name,
-	countries,
-	methods,
-	enabled,
-}: ShippingZone) => (
+const ZoneCard = ({ name, countries, methods, enabled }: ShippingZone) => (
 	<div
 		className={`rounded-lg border transition-all ${
 			enabled ? 'border-primary/30 bg-primary/5' : ''
@@ -144,7 +139,16 @@ export default function Main() {
 		{
 			id: '3',
 			name: 'Europe',
-			countries: ['UK', 'Germany', 'France', 'Italy', 'Spain', 'Netherlands', 'Belgium', 'Sweden'],
+			countries: [
+				'UK',
+				'Germany',
+				'France',
+				'Italy',
+				'Spain',
+				'Netherlands',
+				'Belgium',
+				'Sweden',
+			],
 			methods: [
 				{ name: 'Standard', rate: '$14.99' },
 				{ name: 'Express', rate: '$29.99' },
@@ -154,7 +158,14 @@ export default function Main() {
 		{
 			id: '4',
 			name: 'Asia Pacific',
-			countries: ['Japan', 'Australia', 'South Korea', 'Singapore', 'Hong Kong', 'Taiwan'],
+			countries: [
+				'Japan',
+				'Australia',
+				'South Korea',
+				'Singapore',
+				'Hong Kong',
+				'Taiwan',
+			],
 			methods: [
 				{ name: 'Standard', rate: '$19.99' },
 				{ name: 'Express', rate: '$39.99' },
@@ -210,8 +221,8 @@ export default function Main() {
 								<div>
 									<h4 className="font-semibold">Zone Coverage</h4>
 									<p className="mt-1 text-sm text-muted-foreground">
-										You're shipping to {zones.filter((z) => z.enabled).length} active
-										zones covering{' '}
+										You're shipping to {zones.filter((z) => z.enabled).length}{' '}
+										active zones covering{' '}
 										{zones
 											.filter((z) => z.enabled)
 											.reduce((acc, z) => acc + z.countries.length, 0)}{' '}

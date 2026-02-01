@@ -105,17 +105,69 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const statuses: StatusItem[] = [
-		{ label: 'Pending', count: 42, icon: Clock, color: 'bg-amber-500/10 text-amber-500' },
-		{ label: 'Processing', count: 28, icon: Package, color: 'bg-primary/10 text-primary' },
-		{ label: 'Shipped', count: 156, icon: Truck, color: 'bg-blue-500/10 text-blue-500' },
-		{ label: 'Delivered', count: 892, icon: CheckCircle2, color: 'bg-emerald-500/10 text-emerald-500' },
+		{
+			label: 'Pending',
+			count: 42,
+			icon: Clock,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			label: 'Processing',
+			count: 28,
+			icon: Package,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			label: 'Shipped',
+			count: 156,
+			icon: Truck,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
+		{
+			label: 'Delivered',
+			count: 892,
+			icon: CheckCircle2,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
 	];
 
 	const recentOrders: OrderItem[] = [
-		{ id: '4521', customer: 'John Doe', initials: 'JD', items: 3, amount: '$234.50', time: '2 min ago', status: 'pending' },
-		{ id: '4520', customer: 'Jane Smith', initials: 'JS', items: 2, amount: '$189.00', time: '15 min ago', status: 'processing' },
-		{ id: '4519', customer: 'Bob Wilson', initials: 'BW', items: 5, amount: '$456.20', time: '1 hour ago', status: 'shipped' },
-		{ id: '4518', customer: 'Alice Brown', initials: 'AB', items: 1, amount: '$78.90', time: '2 hours ago', status: 'delivered' },
+		{
+			id: '4521',
+			customer: 'John Doe',
+			initials: 'JD',
+			items: 3,
+			amount: '$234.50',
+			time: '2 min ago',
+			status: 'pending',
+		},
+		{
+			id: '4520',
+			customer: 'Jane Smith',
+			initials: 'JS',
+			items: 2,
+			amount: '$189.00',
+			time: '15 min ago',
+			status: 'processing',
+		},
+		{
+			id: '4519',
+			customer: 'Bob Wilson',
+			initials: 'BW',
+			items: 5,
+			amount: '$456.20',
+			time: '1 hour ago',
+			status: 'shipped',
+		},
+		{
+			id: '4518',
+			customer: 'Alice Brown',
+			initials: 'AB',
+			items: 1,
+			amount: '$78.90',
+			time: '2 hours ago',
+			status: 'delivered',
+		},
 	];
 
 	const chartData = [
@@ -144,11 +196,23 @@ export default function Main() {
 								<CardTitle className="text-base">Orders Today</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={chartConfig} className="h-[180px] w-full">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[180px] w-full"
+								>
 									<BarChart data={chartData}>
-										<XAxis dataKey="hour" tickLine={false} axisLine={false} fontSize={11} />
+										<XAxis
+											dataKey="hour"
+											tickLine={false}
+											axisLine={false}
+											fontSize={11}
+										/>
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
-										<Bar dataKey="orders" fill="var(--color-orders)" radius={[4, 4, 0, 0]} />
+										<Bar
+											dataKey="orders"
+											fill="var(--color-orders)"
+											radius={[4, 4, 0, 0]}
+										/>
 									</BarChart>
 								</ChartContainer>
 							</CardContent>

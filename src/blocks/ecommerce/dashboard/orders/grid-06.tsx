@@ -2,7 +2,15 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { CreditCard, Wallet, Landmark, Smartphone, DollarSign, TrendingUp, ArrowUpRight } from 'lucide-react';
+import {
+	CreditCard,
+	Wallet,
+	Landmark,
+	Smartphone,
+	DollarSign,
+	TrendingUp,
+	ArrowUpRight,
+} from 'lucide-react';
 
 interface PaymentMethodCard {
 	method: string;
@@ -30,10 +38,19 @@ const PaymentGridCard = ({ payment, labels }: PaymentGridCardProps) => (
 					</div>
 					<div>
 						<p className="font-semibold">{payment.method}</p>
-						<p className="text-xs text-muted-foreground">{payment.orders} {labels.orders}</p>
+						<p className="text-xs text-muted-foreground">
+							{payment.orders} {labels.orders}
+						</p>
 					</div>
 				</div>
-				<Badge variant="outline" className={payment.growthType === 'positive' ? 'text-accent border-accent/30' : 'text-destructive border-destructive/30'}>
+				<Badge
+					variant="outline"
+					className={
+						payment.growthType === 'positive'
+							? 'text-accent border-accent/30'
+							: 'text-destructive border-destructive/30'
+					}
+				>
 					{payment.growth}
 				</Badge>
 			</div>
@@ -66,13 +83,54 @@ const PaymentGridCard = ({ payment, labels }: PaymentGridCardProps) => (
 );
 
 export default function Main() {
-	const labels = { orders: 'orders', revenue: 'Revenue', avg: 'Avg Order', share: 'Share' };
+	const labels = {
+		orders: 'orders',
+		revenue: 'Revenue',
+		avg: 'Avg Order',
+		share: 'Share',
+	};
 
 	const payments: PaymentMethodCard[] = [
-		{ method: 'Credit Card', icon: CreditCard, orders: 856, revenue: '$68,450', percentage: 65, avgOrderValue: '$79.96', growth: '+12%', growthType: 'positive' },
-		{ method: 'PayPal', icon: Wallet, orders: 234, revenue: '$18,720', percentage: 18, avgOrderValue: '$80.00', growth: '+8%', growthType: 'positive' },
-		{ method: 'Bank Transfer', icon: Landmark, orders: 145, revenue: '$14,500', percentage: 11, avgOrderValue: '$100.00', growth: '-3%', growthType: 'negative' },
-		{ method: 'Apple Pay', icon: Smartphone, orders: 78, revenue: '$6,240', percentage: 6, avgOrderValue: '$80.00', growth: '+25%', growthType: 'positive' },
+		{
+			method: 'Credit Card',
+			icon: CreditCard,
+			orders: 856,
+			revenue: '$68,450',
+			percentage: 65,
+			avgOrderValue: '$79.96',
+			growth: '+12%',
+			growthType: 'positive',
+		},
+		{
+			method: 'PayPal',
+			icon: Wallet,
+			orders: 234,
+			revenue: '$18,720',
+			percentage: 18,
+			avgOrderValue: '$80.00',
+			growth: '+8%',
+			growthType: 'positive',
+		},
+		{
+			method: 'Bank Transfer',
+			icon: Landmark,
+			orders: 145,
+			revenue: '$14,500',
+			percentage: 11,
+			avgOrderValue: '$100.00',
+			growth: '-3%',
+			growthType: 'negative',
+		},
+		{
+			method: 'Apple Pay',
+			icon: Smartphone,
+			orders: 78,
+			revenue: '$6,240',
+			percentage: 6,
+			avgOrderValue: '$80.00',
+			growth: '+25%',
+			growthType: 'positive',
+		},
 	];
 
 	return (

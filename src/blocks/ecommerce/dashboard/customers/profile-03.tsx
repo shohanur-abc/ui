@@ -58,8 +58,14 @@ interface CustomerAnalytics {
 const TrendIndicator = ({ value }: { value: number }) => {
 	const isPositive = value > 0;
 	return (
-		<span className={`flex items-center text-xs font-medium ${isPositive ? 'text-emerald-500' : value < 0 ? 'text-red-500' : 'text-muted-foreground'}`}>
-			{isPositive ? <ArrowUpRight className="size-3" /> : value < 0 ? <ArrowDownRight className="size-3" /> : null}
+		<span
+			className={`flex items-center text-xs font-medium ${isPositive ? 'text-emerald-500' : value < 0 ? 'text-red-500' : 'text-muted-foreground'}`}
+		>
+			{isPositive ? (
+				<ArrowUpRight className="size-3" />
+			) : value < 0 ? (
+				<ArrowDownRight className="size-3" />
+			) : null}
 			{Math.abs(value)}%
 		</span>
 	);
@@ -90,14 +96,25 @@ const MetricCard = ({
 	</Card>
 );
 
-const EngagementBadge = ({ level }: { level: CustomerAnalytics['engagementLevel'] }) => {
+const EngagementBadge = ({
+	level,
+}: {
+	level: CustomerAnalytics['engagementLevel'];
+}) => {
 	const config: Record<string, { label: string; className: string }> = {
 		low: { label: 'Low', className: 'bg-red-500/10 text-red-500' },
 		medium: { label: 'Medium', className: 'bg-amber-500/10 text-amber-500' },
 		high: { label: 'High', className: 'bg-emerald-500/10 text-emerald-500' },
-		'very-high': { label: 'Very High', className: 'bg-cyan-500/10 text-cyan-500' },
+		'very-high': {
+			label: 'Very High',
+			className: 'bg-cyan-500/10 text-cyan-500',
+		},
 	};
-	return <Badge variant="outline" className={config[level].className}>{config[level].label}</Badge>;
+	return (
+		<Badge variant="outline" className={config[level].className}>
+			{config[level].label}
+		</Badge>
+	);
 };
 
 const ChurnRiskBar = ({ value }: { value: number }) => {
@@ -110,7 +127,9 @@ const ChurnRiskBar = ({ value }: { value: number }) => {
 		<div>
 			<div className="flex items-center justify-between mb-2">
 				<span className="text-sm font-medium">Churn Risk</span>
-				<span className={`text-sm font-bold ${value >= 70 ? 'text-red-500' : value >= 40 ? 'text-amber-500' : 'text-emerald-500'}`}>
+				<span
+					className={`text-sm font-bold ${value >= 70 ? 'text-red-500' : value >= 40 ? 'text-amber-500' : 'text-emerald-500'}`}
+				>
 					{value}%
 				</span>
 			</div>
@@ -150,7 +169,11 @@ const ProfileHeader = ({ customer }: { customer: CustomerAnalytics }) => (
 	</div>
 );
 
-const CategoryBar = ({ category }: { category: CustomerAnalytics['categoryBreakdown'][0] }) => (
+const CategoryBar = ({
+	category,
+}: {
+	category: CustomerAnalytics['categoryBreakdown'][0];
+}) => (
 	<div>
 		<div className="flex items-center justify-between mb-1 text-sm">
 			<span>{category.name}</span>
@@ -177,7 +200,12 @@ export default function Main() {
 			frequency: { value: '2.3/mo', change: -5 },
 			recency: { value: '5 days', status: 'good' },
 		},
-		segments: ['High Value', 'Fashion Enthusiast', 'Mobile Shopper', 'Early Adopter'],
+		segments: [
+			'High Value',
+			'Fashion Enthusiast',
+			'Mobile Shopper',
+			'Early Adopter',
+		],
 		behaviorScore: 85,
 		engagementLevel: 'very-high',
 		purchaseHistory: [
@@ -270,16 +298,28 @@ export default function Main() {
 							</CardHeader>
 							<CardContent className="space-y-3">
 								<div className="flex items-center justify-between">
-									<span className="text-sm text-muted-foreground">Likelihood</span>
-									<span className="font-semibold text-emerald-500">{customer.nextPurchase.likelihood}%</span>
+									<span className="text-sm text-muted-foreground">
+										Likelihood
+									</span>
+									<span className="font-semibold text-emerald-500">
+										{customer.nextPurchase.likelihood}%
+									</span>
 								</div>
 								<div className="flex items-center justify-between">
-									<span className="text-sm text-muted-foreground">Expected</span>
-									<span className="font-medium">{customer.nextPurchase.estimatedDate}</span>
+									<span className="text-sm text-muted-foreground">
+										Expected
+									</span>
+									<span className="font-medium">
+										{customer.nextPurchase.estimatedDate}
+									</span>
 								</div>
 								<div className="flex items-center justify-between">
-									<span className="text-sm text-muted-foreground">Est. Value</span>
-									<span className="font-medium">{customer.nextPurchase.estimatedValue}</span>
+									<span className="text-sm text-muted-foreground">
+										Est. Value
+									</span>
+									<span className="font-medium">
+										{customer.nextPurchase.estimatedValue}
+									</span>
 								</div>
 							</CardContent>
 						</Card>

@@ -1,4 +1,15 @@
-import { Package, Truck, Clock, Check, MapPin, Calendar, ArrowRight, ShoppingCart, CreditCard, Gift } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	Clock,
+	Check,
+	MapPin,
+	Calendar,
+	ArrowRight,
+	ShoppingCart,
+	CreditCard,
+	Gift,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -35,19 +46,37 @@ const VerticalStep = ({
 					${status === 'upcoming' ? 'border-muted bg-muted text-muted-foreground' : ''}
 				`}
 			>
-				{status === 'completed' ? <Check className="size-6" /> : <Icon className="size-6" />}
+				{status === 'completed' ? (
+					<Check className="size-6" />
+				) : (
+					<Icon className="size-6" />
+				)}
 			</div>
 			{!isLast && (
-				<div className={`w-0.5 flex-1 my-2 min-h-[40px] ${status === 'completed' ? 'bg-primary' : 'bg-muted'}`} />
+				<div
+					className={`w-0.5 flex-1 my-2 min-h-[40px] ${status === 'completed' ? 'bg-primary' : 'bg-muted'}`}
+				/>
 			)}
 		</div>
 		<div className={`flex-1 ${isLast ? '' : 'pb-6'}`}>
 			<div className="flex items-center gap-2 mb-1">
-				<h3 className={`font-semibold text-lg ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}>{title}</h3>
-				{status === 'completed' && <Badge variant="secondary" className="text-xs">Complete</Badge>}
-				{status === 'current' && <Badge className="text-xs">Current Step</Badge>}
+				<h3
+					className={`font-semibold text-lg ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}
+				>
+					{title}
+				</h3>
+				{status === 'completed' && (
+					<Badge variant="secondary" className="text-xs">
+						Complete
+					</Badge>
+				)}
+				{status === 'current' && (
+					<Badge className="text-xs">Current Step</Badge>
+				)}
 			</div>
-			{subtitle && <p className="text-sm text-muted-foreground mb-3">{subtitle}</p>}
+			{subtitle && (
+				<p className="text-sm text-muted-foreground mb-3">{subtitle}</p>
+			)}
 			{status === 'current' && children && (
 				<Card className="mt-4">
 					<CardContent className="p-4">{children}</CardContent>

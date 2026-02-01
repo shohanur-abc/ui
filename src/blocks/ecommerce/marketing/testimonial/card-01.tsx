@@ -54,7 +54,9 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 		<CardContent className="p-6 @md:p-8 flex flex-col h-full">
 			<Quote className="size-10 text-primary/15 mb-4 group-hover:text-primary/30 transition-colors" />
 			<StarRating rating={item.rating} />
-			<p className="text-foreground text-lg leading-relaxed flex-1 mb-6">"{item.quote}"</p>
+			<p className="text-foreground text-lg leading-relaxed flex-1 mb-6">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-4 pt-6 border-t border-border/50">
 				<Avatar className="size-12 ring-2 ring-primary/10 group-hover:ring-primary/30 group-hover:scale-105 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -81,7 +83,8 @@ export default function Main() {
 			author: 'Nathan Clarke',
 			role: 'CISO',
 			company: 'SecureCorp',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'NC',
 			rating: 5,
 		},
@@ -91,7 +94,8 @@ export default function Main() {
 			author: 'Olivia Bennett',
 			role: 'VP Engineering',
 			company: 'ScaleUp Tech',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'OB',
 			rating: 5,
 		},
@@ -101,14 +105,18 @@ export default function Main() {
 			author: 'Peter Zhang',
 			role: 'Director of IT',
 			company: 'Global Solutions',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'PZ',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Enterprise Ready"

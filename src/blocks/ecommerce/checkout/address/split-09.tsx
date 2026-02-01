@@ -13,7 +13,15 @@ import {
 } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { MapPin, Plus, Edit2, Trash2, Check, Home, Briefcase } from 'lucide-react';
+import {
+	MapPin,
+	Plus,
+	Edit2,
+	Trash2,
+	Check,
+	Home,
+	Briefcase,
+} from 'lucide-react';
 
 interface FieldProps {
 	label: string;
@@ -46,9 +54,7 @@ const SavedAddressCard = ({
 }: SavedAddressCardProps) => {
 	const TypeIcon = type === 'home' ? Home : Briefcase;
 	return (
-		<label
-			className="relative flex gap-4 p-5 rounded-xl border-2 border-border bg-card cursor-pointer transition-all hover:border-primary/40 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
-		>
+		<label className="relative flex gap-4 p-5 rounded-xl border-2 border-border bg-card cursor-pointer transition-all hover:border-primary/40 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
 			<RadioGroupItem value={id} className="mt-0.5" />
 			<div className="flex-1 min-w-0">
 				<div className="flex items-center gap-2 mb-1">
@@ -68,7 +74,11 @@ const SavedAddressCard = ({
 				<Button variant="ghost" size="icon-sm" className="size-7">
 					<Edit2 className="size-3.5" />
 				</Button>
-				<Button variant="ghost" size="icon-sm" className="size-7 text-destructive">
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					className="size-7 text-destructive"
+				>
 					<Trash2 className="size-3.5" />
 				</Button>
 			</div>

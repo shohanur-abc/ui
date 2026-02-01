@@ -1,6 +1,13 @@
 'use client';
 
-import { Building, CreditCard, Gift, Percent, Smartphone, X } from 'lucide-react';
+import {
+	Building,
+	CreditCard,
+	Gift,
+	Percent,
+	Smartphone,
+	X,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -35,7 +42,13 @@ const PageTitle = ({ text, subtitle }: { text: string; subtitle: string }) => (
 	</div>
 );
 
-const PaymentOption = ({ value, icon: Icon, label, sublabel, badge }: PaymentOptionProps) => (
+const PaymentOption = ({
+	value,
+	icon: Icon,
+	label,
+	sublabel,
+	badge,
+}: PaymentOptionProps) => (
 	<Label
 		htmlFor={value}
 		className="flex items-center gap-4 p-4 rounded-xl border border-border/50 bg-background/50 cursor-pointer transition-all hover:border-primary/50 hover:bg-accent/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5 has-[:checked]:shadow-sm"
@@ -58,7 +71,11 @@ const PaymentOption = ({ value, icon: Icon, label, sublabel, badge }: PaymentOpt
 	</Label>
 );
 
-const PaymentOptionsGroup = ({ options }: { options: PaymentOptionProps[] }) => (
+const PaymentOptionsGroup = ({
+	options,
+}: {
+	options: PaymentOptionProps[];
+}) => (
 	<RadioGroup defaultValue={options[0]?.value} className="space-y-3">
 		{options.map((option) => (
 			<PaymentOption key={option.value} {...option} />
@@ -103,22 +120,45 @@ const CardFormField = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
 
-const PriceRow = ({ label, value, isTotal }: { label: string; value: string; isTotal?: boolean }) => (
-	<div className={`flex justify-between ${isTotal ? 'text-lg font-semibold' : 'text-sm'}`}>
+const PriceRow = ({
+	label,
+	value,
+	isTotal,
+}: {
+	label: string;
+	value: string;
+	isTotal?: boolean;
+}) => (
+	<div
+		className={`flex justify-between ${isTotal ? 'text-lg font-semibold' : 'text-sm'}`}
+	>
 		<span className={isTotal ? '' : 'text-muted-foreground'}>{label}</span>
 		<span>{value}</span>
 	</div>
 );
 
-const OrderTotal = ({ items }: { items: { label: string; value: string; isTotal?: boolean }[] }) => (
+const OrderTotal = ({
+	items,
+}: {
+	items: { label: string; value: string; isTotal?: boolean }[];
+}) => (
 	<div className="space-y-2 p-4 rounded-lg bg-muted/50">
 		{items.map((item, index) => (
 			<PriceRow key={index} {...item} />
@@ -134,9 +174,25 @@ const SubmitPayment = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const paymentOptions: PaymentOptionProps[] = [
-		{ value: 'card', icon: CreditCard, label: 'Credit or Debit Card', sublabel: 'All major cards accepted' },
-		{ value: 'mobile', icon: Smartphone, label: 'Mobile Payment', sublabel: 'Apple Pay, Google Pay', badge: 'Fast' },
-		{ value: 'bank', icon: Building, label: 'Bank Transfer', sublabel: 'ACH / Wire transfer' },
+		{
+			value: 'card',
+			icon: CreditCard,
+			label: 'Credit or Debit Card',
+			sublabel: 'All major cards accepted',
+		},
+		{
+			value: 'mobile',
+			icon: Smartphone,
+			label: 'Mobile Payment',
+			sublabel: 'Apple Pay, Google Pay',
+			badge: 'Fast',
+		},
+		{
+			value: 'bank',
+			icon: Building,
+			label: 'Bank Transfer',
+			sublabel: 'ACH / Wire transfer',
+		},
 	];
 
 	const priceItems = [
@@ -151,7 +207,10 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-lg px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<div className="space-y-6">
-					<PageTitle text="Complete Your Order" subtitle="Choose your preferred payment method" />
+					<PageTitle
+						text="Complete Your Order"
+						subtitle="Choose your preferred payment method"
+					/>
 					<Card className="border-border/50">
 						<CardHeader className="pb-4">
 							<h3 className="font-semibold">Payment Method</h3>
@@ -161,10 +220,20 @@ export default function Main() {
 							<Separator />
 							<div className="space-y-4">
 								<h4 className="font-medium text-sm">Card Details</h4>
-								<CardFormField id="cardNum" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
+								<CardFormField
+									id="cardNum"
+									label="Card Number"
+									placeholder="1234 5678 9012 3456"
+									icon={CreditCard}
+								/>
 								<div className="grid grid-cols-2 gap-4">
 									<CardFormField id="exp" label="Expiry" placeholder="MM/YY" />
-									<CardFormField id="cvc" label="CVC" placeholder="123" type="password" />
+									<CardFormField
+										id="cvc"
+										label="CVC"
+										placeholder="123"
+										type="password"
+									/>
 								</div>
 							</div>
 							<Separator />

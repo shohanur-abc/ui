@@ -35,26 +35,51 @@ const AreaChartVisual = ({ data }: { data: DataPoint[] }) => {
 
 	return (
 		<div className="relative h-48 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				<defs>
 					<linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-						<stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
-						<stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.05" />
+						<stop
+							offset="0%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0.4"
+						/>
+						<stop
+							offset="100%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0.05"
+						/>
 					</linearGradient>
 				</defs>
 				<path d={areaD} fill="url(#areaGradient)" />
-				<path d={pathD} fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+				<path
+					d={pathD}
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="0.5"
+				/>
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
-				{data.filter((_, i) => i % Math.ceil(data.length / 6) === 0).map((d, i) => (
-					<span key={i}>{d.label}</span>
-				))}
+				{data
+					.filter((_, i) => i % Math.ceil(data.length / 6) === 0)
+					.map((d, i) => (
+						<span key={i}>{d.label}</span>
+					))}
 			</div>
 		</div>
 	);
 };
 
-const AreaChart = ({ title, subtitle, total, change, data }: AreaChartProps) => (
+const AreaChart = ({
+	title,
+	subtitle,
+	total,
+	change,
+	data,
+}: AreaChartProps) => (
 	<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 		<CardHeader className="flex flex-row items-start justify-between pb-2">
 			<div>

@@ -43,9 +43,7 @@ const GiftSuccessHeader = () => (
 			<div className="size-16 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-pink-500/25">
 				<Gift className="size-8 text-white" />
 			</div>
-			<h1 className="text-2xl @lg:text-3xl font-bold mb-2">
-				Gift Card Sent!
-			</h1>
+			<h1 className="text-2xl @lg:text-3xl font-bold mb-2">Gift Card Sent!</h1>
 			<p className="text-muted-foreground">
 				Your gift is on its way to make someone's day special
 			</p>
@@ -60,7 +58,9 @@ const GiftCardPreviewCard = ({
 	design,
 }: GiftCardDetailsProps & { design: string }) => (
 	<Card className="overflow-hidden">
-		<div className={`h-48 flex items-center justify-center text-white ${design}`}>
+		<div
+			className={`h-48 flex items-center justify-center text-white ${design}`}
+		>
 			<div className="text-center">
 				<Gift className="size-12 mx-auto mb-3 opacity-80" />
 				<p className="text-4xl font-bold">
@@ -95,9 +95,7 @@ const RecipientCard = ({ name, email, message }: RecipientProps) => (
 		<CardContent className="space-y-4">
 			<div className="flex items-center gap-3">
 				<div className="size-12 rounded-full bg-pink-500/10 flex items-center justify-center">
-					<span className="font-bold text-pink-500">
-						{name.charAt(0)}
-					</span>
+					<span className="font-bold text-pink-500">{name.charAt(0)}</span>
 				</div>
 				<div>
 					<p className="font-semibold">{name}</p>
@@ -256,7 +254,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'Preview Email', href: '/preview', icon: Eye },
-						{ label: 'Edit Details', href: '/edit', variant: 'outline', icon: Edit3 },
+						{
+							label: 'Edit Details',
+							href: '/edit',
+							variant: 'outline',
+							icon: Edit3,
+						},
 					]}
 				/>
 			</div>

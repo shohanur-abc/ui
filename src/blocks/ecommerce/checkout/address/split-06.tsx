@@ -213,10 +213,7 @@ export default function Main() {
 										placeholder="Select country"
 										options={countries}
 									/>
-									<Field
-										label="Street Address"
-										placeholder="123 Main Street"
-									/>
+									<Field label="Street Address" placeholder="123 Main Street" />
 									<Field label="Apt / Suite" placeholder="Optional" />
 									<div className="grid grid-cols-3 gap-4">
 										<Field label="City" placeholder="City" />

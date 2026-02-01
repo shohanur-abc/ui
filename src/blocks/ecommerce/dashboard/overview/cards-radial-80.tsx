@@ -12,10 +12,7 @@ import {
 
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-	ChartConfig,
-	ChartContainer,
-} from '@/components/ui/chart';
+import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 
 type RadialCard = {
 	title: string;
@@ -32,7 +29,16 @@ const chartConfig: ChartConfig = {
 	value: { label: 'Progress' },
 };
 
-const RadialCardComponent = ({ title, value, target, progress, change, icon: Icon, description, color }: RadialCard) => {
+const RadialCardComponent = ({
+	title,
+	value,
+	target,
+	progress,
+	change,
+	icon: Icon,
+	description,
+	color,
+}: RadialCard) => {
 	const chartData = [{ name: 'progress', value: progress }];
 
 	return (
@@ -43,7 +49,10 @@ const RadialCardComponent = ({ title, value, target, progress, change, icon: Ico
 						<Icon className="size-4 text-muted-foreground" />
 						<span className="text-sm font-medium">{title}</span>
 					</div>
-					<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+					<Badge
+						variant="secondary"
+						className="bg-emerald-500/10 text-emerald-500 text-xs"
+					>
 						<ArrowUpRight className="mr-0.5 size-3" />
 						{change}
 					</Badge>

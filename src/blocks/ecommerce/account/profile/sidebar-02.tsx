@@ -52,7 +52,9 @@ const LoyaltySidebar = ({
 						{fallback}
 					</AvatarFallback>
 				</Avatar>
-				<div className={`absolute -bottom-2 -right-2 p-1.5 rounded-full ${tierGradient}`}>
+				<div
+					className={`absolute -bottom-2 -right-2 p-1.5 rounded-full ${tierGradient}`}
+				>
 					<TierIcon className="size-4 text-white" />
 				</div>
 			</div>
@@ -77,7 +79,12 @@ const LoyaltySidebar = ({
 const QuickLinks = ({
 	links,
 }: {
-	links: { icon: React.ElementType; label: string; href: string; badge?: string }[];
+	links: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+	}[];
 }) => (
 	<div className="space-y-1">
 		{links.map((link, i) => (
@@ -98,7 +105,13 @@ const QuickLinks = ({
 const RewardsCards = ({
 	rewards,
 }: {
-	rewards: { icon: React.ElementType; title: string; description: string; points: number; available: boolean }[];
+	rewards: {
+		icon: React.ElementType;
+		title: string;
+		description: string;
+		points: number;
+		available: boolean;
+	}[];
 }) => (
 	<div className="grid @md:grid-cols-2 gap-4">
 		{rewards.map((reward, i) => (
@@ -114,13 +127,11 @@ const RewardsCards = ({
 					</div>
 					<div>
 						<h4 className="font-medium">{reward.title}</h4>
-						<p className="text-sm text-muted-foreground">{reward.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{reward.description}
+						</p>
 					</div>
-					<Button
-						size="sm"
-						className="w-full"
-						disabled={!reward.available}
-					>
+					<Button size="sm" className="w-full" disabled={!reward.available}>
 						{reward.available ? 'Redeem' : 'Not Enough Points'}
 					</Button>
 				</CardContent>
@@ -132,7 +143,12 @@ const RewardsCards = ({
 const AchievementsList = ({
 	achievements,
 }: {
-	achievements: { icon: React.ElementType; title: string; earned: boolean; progress?: number }[];
+	achievements: {
+		icon: React.ElementType;
+		title: string;
+		earned: boolean;
+		progress?: number;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -149,11 +165,17 @@ const AchievementsList = ({
 		<CardContent className="space-y-3">
 			{achievements.map((achievement, i) => (
 				<div key={i} className="flex items-center gap-3">
-					<div className={`p-2 rounded-lg ${achievement.earned ? 'bg-amber-500/20' : 'bg-muted'}`}>
-						<achievement.icon className={`size-5 ${achievement.earned ? 'text-amber-500' : 'text-muted-foreground'}`} />
+					<div
+						className={`p-2 rounded-lg ${achievement.earned ? 'bg-amber-500/20' : 'bg-muted'}`}
+					>
+						<achievement.icon
+							className={`size-5 ${achievement.earned ? 'text-amber-500' : 'text-muted-foreground'}`}
+						/>
 					</div>
 					<div className="flex-1">
-						<p className={`text-sm font-medium ${!achievement.earned && 'text-muted-foreground'}`}>
+						<p
+							className={`text-sm font-medium ${!achievement.earned && 'text-muted-foreground'}`}
+						>
 							{achievement.title}
 						</p>
 						{achievement.progress !== undefined && !achievement.earned && (
@@ -189,10 +211,34 @@ export default function Main() {
 			{ icon: Settings, label: 'Settings', href: '/settings' },
 		],
 		rewards: [
-			{ icon: Gift, title: '$10 Off', description: 'On your next order', points: 1000, available: true },
-			{ icon: Sparkles, title: 'Free Shipping', description: 'One-time use', points: 500, available: true },
-			{ icon: Star, title: '20% Off', description: 'On selected items', points: 2000, available: true },
-			{ icon: Zap, title: 'VIP Access', description: 'Early sale access', points: 5000, available: true },
+			{
+				icon: Gift,
+				title: '$10 Off',
+				description: 'On your next order',
+				points: 1000,
+				available: true,
+			},
+			{
+				icon: Sparkles,
+				title: 'Free Shipping',
+				description: 'One-time use',
+				points: 500,
+				available: true,
+			},
+			{
+				icon: Star,
+				title: '20% Off',
+				description: 'On selected items',
+				points: 2000,
+				available: true,
+			},
+			{
+				icon: Zap,
+				title: 'VIP Access',
+				description: 'Early sale access',
+				points: 5000,
+				available: true,
+			},
 		],
 		achievements: [
 			{ icon: Package, title: 'First Order', earned: true },
@@ -213,7 +259,10 @@ export default function Main() {
 								<Separator />
 								<QuickLinks links={profileData.quickLinks} />
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive hover:text-destructive">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive hover:text-destructive"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>
@@ -223,7 +272,9 @@ export default function Main() {
 					<div className="flex-1 space-y-6">
 						<div>
 							<h1 className="text-2xl font-bold">Rewards Center</h1>
-							<p className="text-muted-foreground">Redeem points for exclusive rewards</p>
+							<p className="text-muted-foreground">
+								Redeem points for exclusive rewards
+							</p>
 						</div>
 						<RewardsCards rewards={profileData.rewards} />
 						<AchievementsList achievements={profileData.achievements} />

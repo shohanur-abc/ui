@@ -7,7 +7,13 @@ import {
 } from '@/components/ui/collapsible';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -49,7 +55,11 @@ const CollapsibleSection = ({
 	const [isOpen, setIsOpen] = useState(defaultOpen ?? true);
 
 	return (
-		<Collapsible open={isOpen} onOpenChange={setIsOpen} className="rounded-2xl border bg-card">
+		<Collapsible
+			open={isOpen}
+			onOpenChange={setIsOpen}
+			className="rounded-2xl border bg-card"
+		>
 			<CollapsibleTrigger className="flex w-full items-center justify-between p-5 text-left hover:bg-muted/30">
 				<div className="flex items-center gap-3">
 					<div className="flex size-10 items-center justify-center rounded-xl bg-primary/10">
@@ -79,7 +89,12 @@ const CollapsibleSection = ({
 const ProductItem = ({ product }: { product: Product }) => (
 	<div className="flex gap-4 py-3">
 		<div className="relative size-18 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex flex-1 flex-col justify-between">
 			<div>
@@ -104,7 +119,9 @@ const AddressCard = ({
 	lines: string[];
 }) => (
 	<div className="rounded-xl bg-muted/50 p-4">
-		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">{label}</p>
+		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">
+			{label}
+		</p>
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
 			<p key={i} className="text-sm text-muted-foreground">
@@ -147,7 +164,9 @@ const PaymentCard = ({
 			<CreditCard className="size-6 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -164,9 +183,13 @@ const PriceLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -178,7 +201,8 @@ export default function Main() {
 			variant: 'RGB / 4-Pack',
 			price: 79.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -186,7 +210,8 @@ export default function Main() {
 			variant: '3m / RGB',
 			price: 34.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
 		},
 	];
 

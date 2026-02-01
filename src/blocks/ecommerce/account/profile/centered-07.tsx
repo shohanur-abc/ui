@@ -71,10 +71,15 @@ const PremiumHeader = ({
 					</span>
 					<span className="text-muted-foreground">{progress}%</span>
 				</div>
-				<Progress value={progress} className="h-2 [&>div]:bg-gradient-to-r [&>div]:from-amber-500 [&>div]:to-cyan-500" />
+				<Progress
+					value={progress}
+					className="h-2 [&>div]:bg-gradient-to-r [&>div]:from-amber-500 [&>div]:to-cyan-500"
+				/>
 			</div>
 			<p className="text-sm text-muted-foreground">
-				Enjoying <span className="font-semibold text-foreground">{benefits}</span> premium benefits
+				Enjoying{' '}
+				<span className="font-semibold text-foreground">{benefits}</span>{' '}
+				premium benefits
 			</p>
 		</div>
 	</div>
@@ -97,10 +102,15 @@ const MembershipPerks = ({
 							: 'bg-muted/30 opacity-50'
 					}`}
 				>
-					<perk.icon className={`size-6 mx-auto mb-2 ${perk.active ? 'text-primary' : 'text-muted-foreground'}`} />
+					<perk.icon
+						className={`size-6 mx-auto mb-2 ${perk.active ? 'text-primary' : 'text-muted-foreground'}`}
+					/>
 					<p className="text-sm font-medium">{perk.title}</p>
 					{perk.active && (
-						<Badge variant="outline" className="mt-2 text-xs border-green-500/30 text-green-600">
+						<Badge
+							variant="outline"
+							className="mt-2 text-xs border-green-500/30 text-green-600"
+						>
 							<Check className="size-3 mr-1" />
 							Active
 						</Badge>

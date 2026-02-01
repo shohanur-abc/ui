@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, Sparkles, Wand2, RefreshCw } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	Sparkles,
+	Wand2,
+	RefreshCw,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -32,7 +39,8 @@ const heightClasses = {
 };
 
 const StyleMatchBadge = ({ score }: { score: number }) => {
-	const color = score >= 90 ? 'bg-green-500' : score >= 75 ? 'bg-amber-500' : 'bg-muted';
+	const color =
+		score >= 90 ? 'bg-green-500' : score >= 75 ? 'bg-amber-500' : 'bg-muted';
 	return (
 		<div className="flex items-center gap-1.5 bg-background/90 backdrop-blur-sm rounded-full px-2 py-1">
 			<div className={`size-2 rounded-full ${color}`} />
@@ -60,13 +68,23 @@ const AISuggestedBadge = () => (
 
 const MasonryItem = ({ item }: { item: WishlistItem }) => (
 	<div className="break-inside-avoid mb-4">
-		<Card className={`overflow-hidden group ${item.isAISuggested ? 'ring-1 ring-violet-500/30' : ''}`}>
+		<Card
+			className={`overflow-hidden group ${item.isAISuggested ? 'ring-1 ring-violet-500/30' : ''}`}
+		>
 			<div className={`relative ${heightClasses[item.height]} bg-muted`}>
-				<img src={item.image} alt={item.name} className="size-full object-cover group-hover:scale-105 transition-transform duration-500" />
+				<img
+					src={item.image}
+					alt={item.name}
+					className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
+				/>
 				<div className="absolute top-2 left-2 flex flex-col gap-1">
 					{item.isAISuggested && <AISuggestedBadge />}
 				</div>
-				<Button variant="ghost" size="icon-sm" className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm">
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm"
+				>
 					<Heart className="size-4 fill-primary text-primary" />
 				</Button>
 				<div className="absolute bottom-2 right-2">
@@ -76,9 +94,15 @@ const MasonryItem = ({ item }: { item: WishlistItem }) => (
 			<div className="p-3">
 				<div className="flex items-start justify-between gap-2">
 					<Link href={item.href} className="flex-1">
-						<h3 className="font-medium text-sm line-clamp-1 hover:text-primary transition-colors">{item.name}</h3>
+						<h3 className="font-medium text-sm line-clamp-1 hover:text-primary transition-colors">
+							{item.name}
+						</h3>
 					</Link>
-					<Button variant="ghost" size="icon-sm" className="flex-shrink-0 text-destructive hover:text-destructive size-6">
+					<Button
+						variant="ghost"
+						size="icon-sm"
+						className="flex-shrink-0 text-destructive hover:text-destructive size-6"
+					>
 						<X className="size-3" />
 					</Button>
 				</div>
@@ -112,7 +136,9 @@ const AIStyleHeader = () => (
 				</div>
 				<div>
 					<p className="font-medium">Your Style Profile</p>
-					<p className="text-sm text-muted-foreground">Curated picks based on your preferences</p>
+					<p className="text-sm text-muted-foreground">
+						Curated picks based on your preferences
+					</p>
 				</div>
 			</div>
 			<Button variant="outline" size="sm" className="gap-1">
@@ -139,12 +165,72 @@ const AIStyleHeader = () => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Linen Blend Blazer', price: 189.00, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=500&fit=crop', height: 'tall', styleMatch: { score: 98, tags: ['Minimalist', 'Earth Tones', 'Classic'] }, isAISuggested: true, href: '/product/1' },
-		{ id: '2', name: 'Cotton Trousers', price: 89.00, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=350&fit=crop', height: 'medium', styleMatch: { score: 94, tags: ['Casual', 'Neutral'] }, isAISuggested: false, href: '/product/2' },
-		{ id: '3', name: 'Leather Loafers', price: 165.00, image: 'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop', height: 'short', styleMatch: { score: 91, tags: ['Classic', 'Leather'] }, isAISuggested: true, href: '/product/3' },
-		{ id: '4', name: 'Merino Sweater', price: 125.00, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop', height: 'medium', styleMatch: { score: 96, tags: ['Cozy', 'Earth Tones'] }, isAISuggested: true, href: '/product/4' },
-		{ id: '5', name: 'Canvas Tote', price: 75.00, image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&h=450&fit=crop', height: 'tall', styleMatch: { score: 88, tags: ['Minimalist', 'Casual'] }, isAISuggested: false, href: '/product/5' },
-		{ id: '6', name: 'Wool Beanie', price: 45.00, image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&h=280&fit=crop', height: 'short', styleMatch: { score: 82, tags: ['Winter', 'Casual'] }, isAISuggested: false, href: '/product/6' },
+		{
+			id: '1',
+			name: 'Linen Blend Blazer',
+			price: 189.0,
+			image:
+				'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=500&fit=crop',
+			height: 'tall',
+			styleMatch: { score: 98, tags: ['Minimalist', 'Earth Tones', 'Classic'] },
+			isAISuggested: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Cotton Trousers',
+			price: 89.0,
+			image:
+				'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=350&fit=crop',
+			height: 'medium',
+			styleMatch: { score: 94, tags: ['Casual', 'Neutral'] },
+			isAISuggested: false,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Leather Loafers',
+			price: 165.0,
+			image:
+				'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop',
+			height: 'short',
+			styleMatch: { score: 91, tags: ['Classic', 'Leather'] },
+			isAISuggested: true,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Merino Sweater',
+			price: 125.0,
+			image:
+				'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop',
+			height: 'medium',
+			styleMatch: { score: 96, tags: ['Cozy', 'Earth Tones'] },
+			isAISuggested: true,
+			href: '/product/4',
+		},
+		{
+			id: '5',
+			name: 'Canvas Tote',
+			price: 75.0,
+			image:
+				'https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&h=450&fit=crop',
+			height: 'tall',
+			styleMatch: { score: 88, tags: ['Minimalist', 'Casual'] },
+			isAISuggested: false,
+			href: '/product/5',
+		},
+		{
+			id: '6',
+			name: 'Wool Beanie',
+			price: 45.0,
+			image:
+				'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&h=280&fit=crop',
+			height: 'short',
+			styleMatch: { score: 82, tags: ['Winter', 'Casual'] },
+			isAISuggested: false,
+			href: '/product/6',
+		},
 	];
 
 	return (

@@ -12,7 +12,15 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { AlertTriangle, Minus, Package, Plus, ShoppingBag, Truck, X } from 'lucide-react';
+import {
+	AlertTriangle,
+	Minus,
+	Package,
+	Plus,
+	ShoppingBag,
+	Truck,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -56,19 +64,28 @@ const CartTrigger = ({ count }: { count: number }) => (
 const ItemWarnings = ({ item }: { item: CartItem }) => (
 	<div className="flex flex-wrap gap-1 mt-1">
 		{item.isFragile && (
-			<Badge variant="outline" className="text-[9px] border-orange-300 text-orange-600">
+			<Badge
+				variant="outline"
+				className="text-[9px] border-orange-300 text-orange-600"
+			>
 				<Package className="mr-1 size-2.5" />
 				Fragile
 			</Badge>
 		)}
 		{item.isHazardous && (
-			<Badge variant="outline" className="text-[9px] border-red-300 text-red-600">
+			<Badge
+				variant="outline"
+				className="text-[9px] border-red-300 text-red-600"
+			>
 				<AlertTriangle className="mr-1 size-2.5" />
 				Hazmat
 			</Badge>
 		)}
 		{item.isOversized && (
-			<Badge variant="outline" className="text-[9px] border-blue-300 text-blue-600">
+			<Badge
+				variant="outline"
+				className="text-[9px] border-blue-300 text-blue-600"
+			>
 				<Truck className="mr-1 size-2.5" />
 				Oversized
 			</Badge>
@@ -146,7 +163,9 @@ const HandlingOptions = ({
 						>
 							{option.label}
 						</label>
-						<p className="text-xs text-muted-foreground">{option.description}</p>
+						<p className="text-xs text-muted-foreground">
+							{option.description}
+						</p>
 					</div>
 					<span className="text-sm font-medium">
 						+${option.price.toFixed(2)}
@@ -195,7 +214,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=200&h=200&fit=crop',
 				name: 'Fine China Set',
 				price: 499.99,
 				quantity: 1,
@@ -205,7 +225,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
 				name: 'Industrial Cleaner',
 				price: 45.99,
 				quantity: 2,
@@ -215,7 +236,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&h=200&fit=crop',
 				name: 'Sectional Sofa',
 				price: 1299.99,
 				quantity: 1,
@@ -256,7 +278,10 @@ export default function Main() {
 	const handlingFees = cartData.handlingOptions
 		.filter((o) => o.selected)
 		.reduce((sum, o) => sum + o.price, 0);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

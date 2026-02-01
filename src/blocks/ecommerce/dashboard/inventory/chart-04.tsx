@@ -3,7 +3,13 @@
 import * as React from 'react';
 import { MapPin, Package, TrendingUp } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 type LocationData = {
@@ -66,7 +72,10 @@ const RegionGroup = ({ region, locations, totalStock }: RegionGroupProps) => {
 	const regionPercentage = (regionStock / totalStock) * 100;
 
 	return (
-		<div className="space-y-2" style={{ flex: `${regionPercentage} 1 0%`, minWidth: '200px' }}>
+		<div
+			className="space-y-2"
+			style={{ flex: `${regionPercentage} 1 0%`, minWidth: '200px' }}
+		>
 			<div className="flex items-center justify-between">
 				<h4 className="font-medium">{region}</h4>
 				<Badge variant="secondary">{regionStock.toLocaleString()} units</Badge>
@@ -101,14 +110,86 @@ const LegendItem = ({ label, color }: LegendItemProps) => (
 
 export default function Main() {
 	const locations: LocationData[] = [
-		{ id: '1', name: 'Main Warehouse', code: 'WH-001', region: 'East Coast', stock: 12500, capacity: 20000, turnover: 5.2, status: 'optimal' },
-		{ id: '2', name: 'NYC Store', code: 'ST-NYC', region: 'East Coast', stock: 1800, capacity: 2000, turnover: 8.5, status: 'high' },
-		{ id: '3', name: 'Boston Hub', code: 'HB-BOS', region: 'East Coast', stock: 3200, capacity: 5000, turnover: 4.8, status: 'optimal' },
-		{ id: '4', name: 'West Fulfillment', code: 'WH-002', region: 'West Coast', stock: 8900, capacity: 15000, turnover: 6.1, status: 'optimal' },
-		{ id: '5', name: 'LA Store', code: 'ST-LA', region: 'West Coast', stock: 1500, capacity: 2500, turnover: 7.2, status: 'optimal' },
-		{ id: '6', name: 'Seattle Depot', code: 'DP-SEA', region: 'West Coast', stock: 450, capacity: 3000, turnover: 2.1, status: 'low' },
-		{ id: '7', name: 'Central Hub', code: 'HB-CHI', region: 'Central', stock: 5600, capacity: 10000, turnover: 4.5, status: 'optimal' },
-		{ id: '8', name: 'Dallas Store', code: 'ST-DAL', region: 'Central', stock: 980, capacity: 1500, turnover: 5.8, status: 'optimal' },
+		{
+			id: '1',
+			name: 'Main Warehouse',
+			code: 'WH-001',
+			region: 'East Coast',
+			stock: 12500,
+			capacity: 20000,
+			turnover: 5.2,
+			status: 'optimal',
+		},
+		{
+			id: '2',
+			name: 'NYC Store',
+			code: 'ST-NYC',
+			region: 'East Coast',
+			stock: 1800,
+			capacity: 2000,
+			turnover: 8.5,
+			status: 'high',
+		},
+		{
+			id: '3',
+			name: 'Boston Hub',
+			code: 'HB-BOS',
+			region: 'East Coast',
+			stock: 3200,
+			capacity: 5000,
+			turnover: 4.8,
+			status: 'optimal',
+		},
+		{
+			id: '4',
+			name: 'West Fulfillment',
+			code: 'WH-002',
+			region: 'West Coast',
+			stock: 8900,
+			capacity: 15000,
+			turnover: 6.1,
+			status: 'optimal',
+		},
+		{
+			id: '5',
+			name: 'LA Store',
+			code: 'ST-LA',
+			region: 'West Coast',
+			stock: 1500,
+			capacity: 2500,
+			turnover: 7.2,
+			status: 'optimal',
+		},
+		{
+			id: '6',
+			name: 'Seattle Depot',
+			code: 'DP-SEA',
+			region: 'West Coast',
+			stock: 450,
+			capacity: 3000,
+			turnover: 2.1,
+			status: 'low',
+		},
+		{
+			id: '7',
+			name: 'Central Hub',
+			code: 'HB-CHI',
+			region: 'Central',
+			stock: 5600,
+			capacity: 10000,
+			turnover: 4.5,
+			status: 'optimal',
+		},
+		{
+			id: '8',
+			name: 'Dallas Store',
+			code: 'ST-DAL',
+			region: 'Central',
+			stock: 980,
+			capacity: 1500,
+			turnover: 5.8,
+			status: 'optimal',
+		},
 	];
 
 	const regions = Array.from(new Set(locations.map((l) => l.region)));
@@ -121,8 +202,12 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex flex-col gap-4 @sm:flex-row @sm:items-center @sm:justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Stock Distribution</CardTitle>
-								<CardDescription>Inventory across all locations</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Stock Distribution
+								</CardTitle>
+								<CardDescription>
+									Inventory across all locations
+								</CardDescription>
 							</div>
 							<div className="flex gap-4">
 								<LegendItem label="Optimal" color="bg-emerald-500" />

@@ -3,7 +3,13 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -76,9 +82,15 @@ const DeliveryCard = ({
 	price: string;
 	selected?: boolean;
 }) => (
-	<div className={`flex items-center gap-4 rounded-xl border p-4 ${selected ? 'border-primary bg-primary/5' : 'bg-card'}`}>
-		<div className={`flex size-12 items-center justify-center rounded-full ${selected ? 'bg-primary' : 'bg-muted'}`}>
-			<Truck className={`size-6 ${selected ? 'text-primary-foreground' : 'text-muted-foreground'}`} />
+	<div
+		className={`flex items-center gap-4 rounded-xl border p-4 ${selected ? 'border-primary bg-primary/5' : 'bg-card'}`}
+	>
+		<div
+			className={`flex size-12 items-center justify-center rounded-full ${selected ? 'bg-primary' : 'bg-muted'}`}
+		>
+			<Truck
+				className={`size-6 ${selected ? 'text-primary-foreground' : 'text-muted-foreground'}`}
+			/>
 		</div>
 		<div className="flex-1">
 			<p className="font-medium">{method}</p>
@@ -100,12 +112,20 @@ const PaymentCard = ({
 	exp: string;
 	selected?: boolean;
 }) => (
-	<div className={`flex items-center gap-4 rounded-xl border p-4 ${selected ? 'border-primary bg-primary/5' : 'bg-card'}`}>
-		<div className={`flex size-12 items-center justify-center rounded-xl ${selected ? 'bg-primary' : 'bg-gradient-to-br from-slate-600 to-slate-800'}`}>
-			<CreditCard className={`size-6 ${selected ? 'text-primary-foreground' : 'text-white'}`} />
+	<div
+		className={`flex items-center gap-4 rounded-xl border p-4 ${selected ? 'border-primary bg-primary/5' : 'bg-card'}`}
+	>
+		<div
+			className={`flex size-12 items-center justify-center rounded-xl ${selected ? 'bg-primary' : 'bg-gradient-to-br from-slate-600 to-slate-800'}`}
+		>
+			<CreditCard
+				className={`size-6 ${selected ? 'text-primary-foreground' : 'text-white'}`}
+			/>
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 		{selected && <Check className="ml-auto size-5 text-primary" />}
@@ -123,9 +143,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -137,7 +161,8 @@ export default function Main() {
 			variant: 'Waterproof / Black',
 			price: 79.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -145,7 +170,8 @@ export default function Main() {
 			variant: 'Adjustable / Metal',
 			price: 34.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -220,7 +246,12 @@ export default function Main() {
 						</TabsContent>
 
 						<TabsContent value="payment" className="space-y-4">
-							<PaymentCard brand="Mastercard" last4="5678" exp="11/26" selected />
+							<PaymentCard
+								brand="Mastercard"
+								last4="5678"
+								exp="11/26"
+								selected
+							/>
 						</TabsContent>
 					</Tabs>
 

@@ -2,7 +2,13 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowLeft,
@@ -124,7 +130,9 @@ const PaymentCard = ({
 	<div className="flex items-center gap-4 rounded-xl border bg-card p-4">
 		<CreditCard className="size-6 text-primary" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -141,9 +149,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -158,7 +170,8 @@ export default function Main() {
 			variant: 'Semi-Auto / Black',
 			price: 549.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -166,7 +179,8 @@ export default function Main() {
 			variant: 'Burr / Conical',
 			price: 199.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -194,7 +208,8 @@ export default function Main() {
 
 				<div className="grid gap-6 @lg:grid-cols-[1fr_340px]">
 					<div className="space-y-4">
-						{step === 0 && items.map((item) => <ItemCard key={item.id} item={item} />)}
+						{step === 0 &&
+							items.map((item) => <ItemCard key={item.id} item={item} />)}
 						{step === 1 && (
 							<div className="grid gap-4 @sm:grid-cols-2">
 								<AddressCard
@@ -211,7 +226,11 @@ export default function Main() {
 						)}
 						{step === 2 && (
 							<>
-								<DeliveryCard method="Premium" date="Dec 18-19, 2025" price="$24.99" />
+								<DeliveryCard
+									method="Premium"
+									date="Dec 18-19, 2025"
+									price="$24.99"
+								/>
 								<PaymentCard brand="Visa" last4="6543" exp="12/27" />
 							</>
 						)}
@@ -232,7 +251,11 @@ export default function Main() {
 										address="456 Barista Blvd, Seattle, WA"
 									/>
 								</div>
-								<DeliveryCard method="Premium" date="Dec 18-19" price="$24.99" />
+								<DeliveryCard
+									method="Premium"
+									date="Dec 18-19"
+									price="$24.99"
+								/>
 								<PaymentCard brand="Visa" last4="6543" exp="12/27" />
 							</>
 						)}

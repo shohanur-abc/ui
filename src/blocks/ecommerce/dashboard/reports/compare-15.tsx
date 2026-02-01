@@ -1,6 +1,13 @@
 'use client';
 
-import { ArrowUpRight, ArrowDownRight, Users, ShoppingCart, CreditCard, RotateCcw } from 'lucide-react';
+import {
+	ArrowUpRight,
+	ArrowDownRight,
+	Users,
+	ShoppingCart,
+	CreditCard,
+	RotateCcw,
+} from 'lucide-react';
 
 import {
 	Card,
@@ -23,7 +30,16 @@ type CohortProps = {
 	arpu: string;
 };
 
-const CohortRow = ({ cohort, period, users, retention30, retention60, retention90, ltv, arpu }: CohortProps) => (
+const CohortRow = ({
+	cohort,
+	period,
+	users,
+	retention30,
+	retention60,
+	retention90,
+	ltv,
+	arpu,
+}: CohortProps) => (
 	<div className="grid grid-cols-7 items-center gap-4 border-b border-border/30 py-4 last:border-0">
 		<div>
 			<p className="font-medium">{cohort}</p>
@@ -62,7 +78,12 @@ type SummaryCardProps = {
 	icon: React.ElementType;
 };
 
-const SummaryCard = ({ title, value, change, icon: Icon }: SummaryCardProps) => (
+const SummaryCard = ({
+	title,
+	value,
+	change,
+	icon: Icon,
+}: SummaryCardProps) => (
 	<Card className="border-border/30 bg-card/60">
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between">
@@ -77,8 +98,13 @@ const SummaryCard = ({ title, value, change, icon: Icon }: SummaryCardProps) => 
 							: 'border-rose-500/20 bg-rose-500/10 text-rose-500'
 					}
 				>
-					{change >= 0 ? <ArrowUpRight className="mr-1 size-3" /> : <ArrowDownRight className="mr-1 size-3" />}
-					{change >= 0 ? '+' : ''}{change}%
+					{change >= 0 ? (
+						<ArrowUpRight className="mr-1 size-3" />
+					) : (
+						<ArrowDownRight className="mr-1 size-3" />
+					)}
+					{change >= 0 ? '+' : ''}
+					{change}%
 				</Badge>
 			</div>
 			<p className="mt-3 text-2xl font-bold">{value}</p>
@@ -92,15 +118,65 @@ export default function Main() {
 		{ title: 'Avg Retention (90d)', value: '38%', change: 5.2, icon: Users },
 		{ title: 'Avg LTV', value: '$485', change: 12.4, icon: ShoppingCart },
 		{ title: 'Avg ARPU', value: '$142', change: 8.1, icon: CreditCard },
-		{ title: 'Repeat Purchase Rate', value: '32%', change: 3.8, icon: RotateCcw },
+		{
+			title: 'Repeat Purchase Rate',
+			value: '32%',
+			change: 3.8,
+			icon: RotateCcw,
+		},
 	];
 
 	const cohorts: CohortProps[] = [
-		{ cohort: 'Q4 2024', period: 'Oct-Dec', users: '4,580', retention30: 72, retention60: 52, retention90: 42, ltv: '$520', arpu: '$155' },
-		{ cohort: 'Q3 2024', period: 'Jul-Sep', users: '4,120', retention30: 68, retention60: 48, retention90: 38, ltv: '$485', arpu: '$142' },
-		{ cohort: 'Q2 2024', period: 'Apr-Jun', users: '3,850', retention30: 65, retention60: 45, retention90: 35, ltv: '$458', arpu: '$135' },
-		{ cohort: 'Q1 2024', period: 'Jan-Mar', users: '3,420', retention30: 62, retention60: 42, retention90: 32, ltv: '$420', arpu: '$128' },
-		{ cohort: 'Q4 2023', period: 'Oct-Dec', users: '3,180', retention30: 60, retention60: 40, retention90: 30, ltv: '$395', arpu: '$122' },
+		{
+			cohort: 'Q4 2024',
+			period: 'Oct-Dec',
+			users: '4,580',
+			retention30: 72,
+			retention60: 52,
+			retention90: 42,
+			ltv: '$520',
+			arpu: '$155',
+		},
+		{
+			cohort: 'Q3 2024',
+			period: 'Jul-Sep',
+			users: '4,120',
+			retention30: 68,
+			retention60: 48,
+			retention90: 38,
+			ltv: '$485',
+			arpu: '$142',
+		},
+		{
+			cohort: 'Q2 2024',
+			period: 'Apr-Jun',
+			users: '3,850',
+			retention30: 65,
+			retention60: 45,
+			retention90: 35,
+			ltv: '$458',
+			arpu: '$135',
+		},
+		{
+			cohort: 'Q1 2024',
+			period: 'Jan-Mar',
+			users: '3,420',
+			retention30: 62,
+			retention60: 42,
+			retention90: 32,
+			ltv: '$420',
+			arpu: '$128',
+		},
+		{
+			cohort: 'Q4 2023',
+			period: 'Oct-Dec',
+			users: '3,180',
+			retention30: 60,
+			retention60: 40,
+			retention90: 30,
+			ltv: '$395',
+			arpu: '$122',
+		},
 	];
 
 	return (

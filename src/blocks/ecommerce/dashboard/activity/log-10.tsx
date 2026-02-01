@@ -80,7 +80,7 @@ const EventEntry = ({ event }: { event: EventLog }) => (
 						{event.timestamp}
 					</span>
 				</div>
-				
+
 				<div className="flex flex-wrap gap-1.5 mb-3">
 					{Object.entries(event.properties).map(([key, value]) => (
 						<PropertyPill key={key} name={key} value={value} />

@@ -1,10 +1,24 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Slider } from '@/components/ui/slider';
-import { Minus, Plus, X, ShoppingBag, Wallet, CreditCard, ArrowRight } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ShoppingBag,
+	Wallet,
+	CreditCard,
+	ArrowRight,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -36,7 +50,15 @@ const ItemThumbnail = ({ src, alt }: { src: string; alt: string }) => (
 	</div>
 );
 
-const ItemInfo = ({ name, variant, price }: { name: string; variant: string; price: number }) => (
+const ItemInfo = ({
+	name,
+	variant,
+	price,
+}: {
+	name: string;
+	variant: string;
+	price: number;
+}) => (
 	<div className="min-w-0 flex-1">
 		<h3 className="font-medium line-clamp-1">{name}</h3>
 		<p className="text-sm text-muted-foreground">{variant}</p>
@@ -61,7 +83,11 @@ const LineTotal = ({ amount }: { amount: number }) => (
 );
 
 const RemoveButton = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<X className="size-4" />
 	</Button>
 );
@@ -102,7 +128,9 @@ const RewardsSlider = ({
 			<CardContent className="space-y-4">
 				<div className="flex items-center justify-between text-sm">
 					<span className="text-muted-foreground">{maxLabel}</span>
-					<Badge variant="secondary">{points.available.toLocaleString()} pts</Badge>
+					<Badge variant="secondary">
+						{points.available.toLocaleString()} pts
+					</Badge>
 				</div>
 				<Slider
 					value={[points.toUse]}
@@ -114,7 +142,9 @@ const RewardsSlider = ({
 					<span className="text-sm text-muted-foreground">{valueLabel}</span>
 					<div className="text-right">
 						<p className="font-bold text-green-500">-${dollarValue}</p>
-						<p className="text-xs text-muted-foreground">({points.toUse.toLocaleString()} pts)</p>
+						<p className="text-xs text-muted-foreground">
+							({points.toUse.toLocaleString()} pts)
+						</p>
 					</div>
 				</div>
 			</CardContent>
@@ -154,8 +184,12 @@ const SummaryLine = ({
 	value: string;
 	variant?: 'default' | 'discount' | 'total';
 }) => (
-	<div className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}>
-		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>{label}</span>
+	<div
+		className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}
+	>
+		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span
 			className={
 				variant === 'total'
@@ -177,7 +211,11 @@ const OrderSummary = ({
 	checkoutHref,
 }: {
 	title: string;
-	lines: { label: string; value: string; variant?: 'default' | 'discount' | 'total' }[];
+	lines: {
+		label: string;
+		value: string;
+		variant?: 'default' | 'discount' | 'total';
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
 }) => (
@@ -208,7 +246,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=200&h=200&fit=crop',
 			name: 'Retro Basketball Sneakers',
 			variant: 'White/Red • Size 10',
 			price: 159.99,
@@ -216,7 +255,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1603252109303-2751441dd157?w=200&h=200&fit=crop',
 			name: 'Premium Cotton Hoodie',
 			variant: 'Black • Large',
 			price: 89.99,
@@ -224,7 +264,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=200&h=200&fit=crop',
 			name: 'Slim Fit Cargo Pants',
 			variant: 'Olive • 32W',
 			price: 79.99,
@@ -243,10 +284,21 @@ export default function Main() {
 
 	const summaryLines = [
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
-		{ label: 'Reward Points', value: `-$${pointsDiscount.toFixed(2)}`, variant: 'discount' as const },
+		{
+			label: 'Reward Points',
+			value: `-$${pointsDiscount.toFixed(2)}`,
+			variant: 'discount' as const,
+		},
 		{ label: 'Shipping', value: 'Free' },
-		{ label: 'Tax', value: `$${((subtotal - pointsDiscount) * 0.08).toFixed(2)}` },
-		{ label: 'Total', value: `$${((subtotal - pointsDiscount) * 1.08).toFixed(2)}`, variant: 'total' as const },
+		{
+			label: 'Tax',
+			value: `$${((subtotal - pointsDiscount) * 0.08).toFixed(2)}`,
+		},
+		{
+			label: 'Total',
+			value: `$${((subtotal - pointsDiscount) * 1.08).toFixed(2)}`,
+			variant: 'total' as const,
+		},
 	];
 
 	return (
@@ -270,7 +322,10 @@ export default function Main() {
 								maxLabel="Available Points"
 								valueLabel="Discount Applied"
 							/>
-							<GiftCardInput placeholder="Enter gift card code" applyLabel="Apply" />
+							<GiftCardInput
+								placeholder="Enter gift card code"
+								applyLabel="Apply"
+							/>
 						</div>
 					</div>
 

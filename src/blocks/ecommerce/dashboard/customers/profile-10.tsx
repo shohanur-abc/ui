@@ -67,12 +67,35 @@ interface SupportProfile {
 	tags: string[];
 }
 
-const TicketStatusBadge = ({ status }: { status: 'open' | 'in-progress' | 'resolved' | 'closed' }) => {
-	const config: Record<string, { label: string; className: string; icon: React.ElementType }> = {
-		open: { label: 'Open', className: 'bg-blue-500/10 text-blue-500', icon: Clock },
-		'in-progress': { label: 'In Progress', className: 'bg-amber-500/10 text-amber-500', icon: Clock },
-		resolved: { label: 'Resolved', className: 'bg-emerald-500/10 text-emerald-500', icon: CheckCircle },
-		closed: { label: 'Closed', className: 'bg-slate-500/10 text-slate-400', icon: XCircle },
+const TicketStatusBadge = ({
+	status,
+}: {
+	status: 'open' | 'in-progress' | 'resolved' | 'closed';
+}) => {
+	const config: Record<
+		string,
+		{ label: string; className: string; icon: React.ElementType }
+	> = {
+		open: {
+			label: 'Open',
+			className: 'bg-blue-500/10 text-blue-500',
+			icon: Clock,
+		},
+		'in-progress': {
+			label: 'In Progress',
+			className: 'bg-amber-500/10 text-amber-500',
+			icon: Clock,
+		},
+		resolved: {
+			label: 'Resolved',
+			className: 'bg-emerald-500/10 text-emerald-500',
+			icon: CheckCircle,
+		},
+		closed: {
+			label: 'Closed',
+			className: 'bg-slate-500/10 text-slate-400',
+			icon: XCircle,
+		},
 	};
 	const { label, className, icon: Icon } = config[status];
 	return (
@@ -83,14 +106,22 @@ const TicketStatusBadge = ({ status }: { status: 'open' | 'in-progress' | 'resol
 	);
 };
 
-const PriorityBadge = ({ priority }: { priority: 'low' | 'medium' | 'high' | 'urgent' }) => {
+const PriorityBadge = ({
+	priority,
+}: {
+	priority: 'low' | 'medium' | 'high' | 'urgent';
+}) => {
 	const config: Record<string, string> = {
 		low: 'bg-slate-500/10 text-slate-400',
 		medium: 'bg-blue-500/10 text-blue-500',
 		high: 'bg-orange-500/10 text-orange-500',
 		urgent: 'bg-red-500/10 text-red-500',
 	};
-	return <Badge variant="outline" className={`${config[priority]} capitalize`}>{priority}</Badge>;
+	return (
+		<Badge variant="outline" className={`${config[priority]} capitalize`}>
+			{priority}
+		</Badge>
+	);
 };
 
 const ChannelIcon = ({ channel }: { channel: string }) => {
@@ -104,7 +135,11 @@ const ChannelIcon = ({ channel }: { channel: string }) => {
 	return <Icon className="size-4" />;
 };
 
-const SatisfactionMeter = ({ satisfaction }: { satisfaction: SupportProfile['satisfaction'] }) => {
+const SatisfactionMeter = ({
+	satisfaction,
+}: {
+	satisfaction: SupportProfile['satisfaction'];
+}) => {
 	const getColor = (score: number) => {
 		if (score >= 80) return 'text-emerald-500';
 		if (score >= 60) return 'text-amber-500';
@@ -113,21 +148,33 @@ const SatisfactionMeter = ({ satisfaction }: { satisfaction: SupportProfile['sat
 	return (
 		<div className="text-center">
 			<div className="inline-flex items-center gap-1 mb-2">
-				<Star className={`size-6 ${getColor(satisfaction.score)} fill-current`} />
-				<span className={`text-3xl font-bold ${getColor(satisfaction.score)}`}>{satisfaction.score}%</span>
+				<Star
+					className={`size-6 ${getColor(satisfaction.score)} fill-current`}
+				/>
+				<span className={`text-3xl font-bold ${getColor(satisfaction.score)}`}>
+					{satisfaction.score}%
+				</span>
 			</div>
-			<p className="text-sm text-muted-foreground">{satisfaction.totalRatings} ratings</p>
+			<p className="text-sm text-muted-foreground">
+				{satisfaction.totalRatings} ratings
+			</p>
 			<div className="flex justify-center gap-4 mt-3">
 				<div className="flex items-center gap-1 text-emerald-500">
 					<ThumbsUp className="size-4" />
-					<span className="text-sm font-medium">{satisfaction.breakdown.positive}%</span>
+					<span className="text-sm font-medium">
+						{satisfaction.breakdown.positive}%
+					</span>
 				</div>
 				<div className="flex items-center gap-1 text-slate-400">
-					<span className="text-sm font-medium">{satisfaction.breakdown.neutral}%</span>
+					<span className="text-sm font-medium">
+						{satisfaction.breakdown.neutral}%
+					</span>
 				</div>
 				<div className="flex items-center gap-1 text-red-500">
 					<ThumbsDown className="size-4" />
-					<span className="text-sm font-medium">{satisfaction.breakdown.negative}%</span>
+					<span className="text-sm font-medium">
+						{satisfaction.breakdown.negative}%
+					</span>
 				</div>
 			</div>
 		</div>
@@ -149,12 +196,18 @@ const StatCard = ({
 	</div>
 );
 
-const TicketCard = ({ ticket }: { ticket: SupportProfile['recentTickets'][0] }) => (
+const TicketCard = ({
+	ticket,
+}: {
+	ticket: SupportProfile['recentTickets'][0];
+}) => (
 	<div className="flex items-start gap-3 rounded-lg border p-3">
 		<Ticket className="size-4 text-muted-foreground mt-0.5" />
 		<div className="flex-1 min-w-0">
 			<div className="flex items-center gap-2 mb-1">
-				<span className="font-mono text-xs text-muted-foreground">{ticket.id}</span>
+				<span className="font-mono text-xs text-muted-foreground">
+					{ticket.id}
+				</span>
 				<TicketStatusBadge status={ticket.status} />
 				<PriorityBadge priority={ticket.priority} />
 			</div>
@@ -245,14 +298,51 @@ export default function Main() {
 		},
 		preferredChannel: 'chat',
 		recentTickets: [
-			{ id: 'TKT-4521', subject: 'Order not received - tracking shows delivered', status: 'in-progress', priority: 'high', created: '2 hours ago', agent: 'Mike S.' },
-			{ id: 'TKT-4489', subject: 'Request for invoice copy', status: 'open', priority: 'low', created: '1 day ago' },
-			{ id: 'TKT-4423', subject: 'Product exchange inquiry', status: 'resolved', priority: 'medium', created: '1 week ago', agent: 'Sarah L.' },
-			{ id: 'TKT-4398', subject: 'Account login issues', status: 'closed', priority: 'medium', created: '2 weeks ago', agent: 'Tom K.' },
+			{
+				id: 'TKT-4521',
+				subject: 'Order not received - tracking shows delivered',
+				status: 'in-progress',
+				priority: 'high',
+				created: '2 hours ago',
+				agent: 'Mike S.',
+			},
+			{
+				id: 'TKT-4489',
+				subject: 'Request for invoice copy',
+				status: 'open',
+				priority: 'low',
+				created: '1 day ago',
+			},
+			{
+				id: 'TKT-4423',
+				subject: 'Product exchange inquiry',
+				status: 'resolved',
+				priority: 'medium',
+				created: '1 week ago',
+				agent: 'Sarah L.',
+			},
+			{
+				id: 'TKT-4398',
+				subject: 'Account login issues',
+				status: 'closed',
+				priority: 'medium',
+				created: '2 weeks ago',
+				agent: 'Tom K.',
+			},
 		],
 		notes: [
-			{ id: '1', content: 'VIP customer - prioritize all requests', author: 'Admin', date: 'Jan 10, 2024' },
-			{ id: '2', content: 'Prefers callbacks over email', author: 'Mike S.', date: 'Dec 15, 2023' },
+			{
+				id: '1',
+				content: 'VIP customer - prioritize all requests',
+				author: 'Admin',
+				date: 'Jan 10, 2024',
+			},
+			{
+				id: '2',
+				content: 'Prefers callbacks over email',
+				author: 'Mike S.',
+				date: 'Dec 15, 2023',
+			},
 		],
 		tags: ['VIP', 'Loyalty Member', 'High Value'],
 	};
@@ -266,10 +356,24 @@ export default function Main() {
 					<Card className="@lg:col-span-2">
 						<CardContent className="p-6">
 							<div className="grid grid-cols-4 gap-4">
-								<StatCard label="Total Tickets" value={profile.supportStats.totalTickets} />
-								<StatCard label="Open" value={profile.supportStats.openTickets} className="text-blue-500" />
-								<StatCard label="Resolved" value={profile.supportStats.resolvedTickets} className="text-emerald-500" />
-								<StatCard label="Avg Resolution" value={profile.supportStats.avgResolutionTime} />
+								<StatCard
+									label="Total Tickets"
+									value={profile.supportStats.totalTickets}
+								/>
+								<StatCard
+									label="Open"
+									value={profile.supportStats.openTickets}
+									className="text-blue-500"
+								/>
+								<StatCard
+									label="Resolved"
+									value={profile.supportStats.resolvedTickets}
+									className="text-emerald-500"
+								/>
+								<StatCard
+									label="Avg Resolution"
+									value={profile.supportStats.avgResolutionTime}
+								/>
 							</div>
 						</CardContent>
 					</Card>
@@ -308,7 +412,10 @@ export default function Main() {
 						</CardHeader>
 						<CardContent className="space-y-4">
 							{profile.notes.map((note) => (
-								<div key={note.id} className="rounded-lg border bg-muted/30 p-3">
+								<div
+									key={note.id}
+									className="rounded-lg border bg-muted/30 p-3"
+								>
 									<p className="text-sm">{note.content}</p>
 									<div className="flex items-center justify-between mt-2 text-xs text-muted-foreground">
 										<span>{note.author}</span>

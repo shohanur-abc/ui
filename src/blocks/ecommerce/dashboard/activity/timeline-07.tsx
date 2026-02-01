@@ -69,7 +69,9 @@ const EventIcon = ({ type }: { type: CustomerEvent['type'] }) => {
 
 const CustomerAvatar = ({
 	customer,
-}: { customer: CustomerEvent['customer'] }) => (
+}: {
+	customer: CustomerEvent['customer'];
+}) => (
 	<div className="relative">
 		<Avatar className="size-10 ring-2 ring-background">
 			<AvatarImage src={customer.avatar} alt={customer.name} />

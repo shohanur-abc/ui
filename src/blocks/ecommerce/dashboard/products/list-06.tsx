@@ -41,9 +41,16 @@ interface TrendValueProps {
 const TrendValue = ({ value, suffix = '%' }: TrendValueProps) => {
 	const isPositive = value >= 0;
 	return (
-		<span className={`flex items-center gap-0.5 text-xs ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}>
-			{isPositive ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
-			{Math.abs(value)}{suffix}
+		<span
+			className={`flex items-center gap-0.5 text-xs ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}
+		>
+			{isPositive ? (
+				<TrendingUp className="size-3" />
+			) : (
+				<TrendingDown className="size-3" />
+			)}
+			{Math.abs(value)}
+			{suffix}
 		</span>
 	);
 };
@@ -73,7 +80,12 @@ interface ConversionFunnelProps {
 	labels: { views: string; cart: string; purchase: string };
 }
 
-const ConversionFunnel = ({ views, addToCart, purchases, labels }: ConversionFunnelProps) => {
+const ConversionFunnel = ({
+	views,
+	addToCart,
+	purchases,
+	labels,
+}: ConversionFunnelProps) => {
 	const cartRate = views > 0 ? (addToCart / views) * 100 : 0;
 	const purchaseRate = addToCart > 0 ? (purchases / addToCart) * 100 : 0;
 
@@ -90,7 +102,9 @@ const ConversionFunnel = ({ views, addToCart, purchases, labels }: ConversionFun
 			<div className="flex-1 space-y-1">
 				<div className="flex items-center justify-between text-xs">
 					<span>{labels.cart}</span>
-					<span className="font-medium">{addToCart.toLocaleString()} ({cartRate.toFixed(1)}%)</span>
+					<span className="font-medium">
+						{addToCart.toLocaleString()} ({cartRate.toFixed(1)}%)
+					</span>
 				</div>
 				<Progress value={cartRate} className="h-1.5 [&>div]:bg-amber-500" />
 			</div>
@@ -98,9 +112,14 @@ const ConversionFunnel = ({ views, addToCart, purchases, labels }: ConversionFun
 			<div className="flex-1 space-y-1">
 				<div className="flex items-center justify-between text-xs">
 					<span>{labels.purchase}</span>
-					<span className="font-medium">{purchases.toLocaleString()} ({purchaseRate.toFixed(1)}%)</span>
+					<span className="font-medium">
+						{purchases.toLocaleString()} ({purchaseRate.toFixed(1)}%)
+					</span>
 				</div>
-				<Progress value={purchaseRate} className="h-1.5 [&>div]:bg-emerald-500" />
+				<Progress
+					value={purchaseRate}
+					className="h-1.5 [&>div]:bg-emerald-500"
+				/>
 			</div>
 		</div>
 	);
@@ -119,7 +138,9 @@ const RankBadge = ({ rank }: RankBadgeProps) => {
 	};
 
 	return (
-		<div className={`flex size-10 items-center justify-center rounded-full font-bold ${getBadgeStyle()}`}>
+		<div
+			className={`flex size-10 items-center justify-center rounded-full font-bold ${getBadgeStyle()}`}
+		>
 			#{rank}
 		</div>
 	);
@@ -143,7 +164,11 @@ const ProductRow = ({ product, onViewDetails, labels }: ProductRowProps) => (
 			<RankBadge rank={product.rank} />
 			<div className="size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
 				{product.image ? (
-					<img src={product.image} alt={product.name} className="size-full object-cover" />
+					<img
+						src={product.image}
+						alt={product.name}
+						className="size-full object-cover"
+					/>
 				) : (
 					<div className="flex size-full items-center justify-center">
 						<Package className="size-8 text-muted-foreground" />
@@ -156,12 +181,18 @@ const ProductRow = ({ product, onViewDetails, labels }: ProductRowProps) => (
 			</div>
 			<div className="text-right">
 				<div className="flex items-center gap-2">
-					<span className="text-2xl font-bold">${product.revenue.toLocaleString()}</span>
+					<span className="text-2xl font-bold">
+						${product.revenue.toLocaleString()}
+					</span>
 					<TrendValue value={product.revenueTrend} />
 				</div>
 				<span className="text-sm text-muted-foreground">{labels.revenue}</span>
 			</div>
-			<Button variant="outline" size="sm" onClick={() => onViewDetails(product.id)}>
+			<Button
+				variant="outline"
+				size="sm"
+				onClick={() => onViewDetails(product.id)}
+			>
 				<BarChart2 className="mr-2 size-4" />
 				{labels.viewDetails}
 			</Button>
@@ -193,7 +224,11 @@ const ProductRow = ({ product, onViewDetails, labels }: ProductRowProps) => (
 			views={product.views}
 			addToCart={product.addToCart}
 			purchases={product.purchases}
-			labels={{ views: labels.views, cart: labels.cart, purchase: labels.purchase }}
+			labels={{
+				views: labels.views,
+				cart: labels.cart,
+				purchase: labels.purchase,
+			}}
 		/>
 	</div>
 );
@@ -204,7 +239,8 @@ export default function Main() {
 			id: '1',
 			name: 'Premium Yoga Mat',
 			sku: 'YOG-PRM-001',
-			image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=100&h=100&fit=crop',
 			views: 45230,
 			viewsTrend: 23,
 			addToCart: 8934,
@@ -219,7 +255,8 @@ export default function Main() {
 			id: '2',
 			name: 'Resistance Bands Set',
 			sku: 'FIT-RBS-002',
-			image: 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=100&h=100&fit=crop',
 			views: 38450,
 			viewsTrend: 15,
 			addToCart: 7234,
@@ -234,7 +271,8 @@ export default function Main() {
 			id: '3',
 			name: 'Adjustable Dumbbells',
 			sku: 'FIT-ADB-003',
-			image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=100&h=100&fit=crop',
 			views: 32100,
 			viewsTrend: -5,
 			addToCart: 4567,
@@ -249,7 +287,8 @@ export default function Main() {
 			id: '4',
 			name: 'Foam Roller Pro',
 			sku: 'FIT-FRP-004',
-			image: 'https://images.unsplash.com/photo-1600881333168-2ef49b341f30?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1600881333168-2ef49b341f30?w=100&h=100&fit=crop',
 			views: 28900,
 			viewsTrend: 8,
 			addToCart: 5678,
@@ -264,7 +303,8 @@ export default function Main() {
 			id: '5',
 			name: 'Jump Rope Speed',
 			sku: 'FIT-JRS-005',
-			image: 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1434682881908-b43d0467b798?w=100&h=100&fit=crop',
 			views: 21500,
 			viewsTrend: -12,
 			addToCart: 3456,

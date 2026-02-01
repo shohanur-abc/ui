@@ -21,14 +21,19 @@ const GradientDecorative = () => (
 	</div>
 );
 
-const ModalContent = ({ badge, title, description, placeholder, buttonText, buttonIcon: Icon, dismissLabel, footerText }: ModalContentProps) => (
+const ModalContent = ({
+	badge,
+	title,
+	description,
+	placeholder,
+	buttonText,
+	buttonIcon: Icon,
+	dismissLabel,
+	footerText,
+}: ModalContentProps) => (
 	<div className="relative max-w-lg p-6 @md:p-8 rounded-2xl border bg-card shadow-2xl overflow-hidden">
 		<GradientDecorative />
-		<Button
-			variant="ghost"
-			size="icon-sm"
-			className="absolute top-4 right-4"
-		>
+		<Button variant="ghost" size="icon-sm" className="absolute top-4 right-4">
 			<X className="size-4" />
 			<span className="sr-only">{dismissLabel}</span>
 		</Button>
@@ -38,15 +43,15 @@ const ModalContent = ({ badge, title, description, placeholder, buttonText, butt
 					<Sparkles className="size-3" />
 					{badge}
 				</Badge>
-				<h2 className="text-2xl @md:text-3xl font-bold tracking-tight">{title}</h2>
-				<p className="text-muted-foreground text-sm @md:text-base">{description}</p>
+				<h2 className="text-2xl @md:text-3xl font-bold tracking-tight">
+					{title}
+				</h2>
+				<p className="text-muted-foreground text-sm @md:text-base">
+					{description}
+				</p>
 			</div>
 			<form className="flex flex-col @sm:flex-row gap-3">
-				<Input
-					type="email"
-					placeholder={placeholder}
-					className="flex-1 h-11"
-				/>
+				<Input type="email" placeholder={placeholder} className="flex-1 h-11" />
 				<Button size="lg" className="gap-2 h-11 shrink-0">
 					{buttonText}
 					{Icon && <Icon className="size-4" />}

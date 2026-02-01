@@ -79,7 +79,9 @@ const ActionButtons = ({
 	continueLabel: string;
 }) => (
 	<div className="flex flex-col @sm:flex-row gap-3 pt-8">
-		<Button variant="outline" className="flex-1">{backLabel}</Button>
+		<Button variant="outline" className="flex-1">
+			{backLabel}
+		</Button>
 		<Button className="flex-1">{continueLabel}</Button>
 	</div>
 );
@@ -93,7 +95,11 @@ export default function Main() {
 			description: 'Regular delivery speed',
 			time: '5-7 business days',
 			price: '$5.99',
-			features: ['Package tracking', 'Delivery confirmation', 'Standard packaging'],
+			features: [
+				'Package tracking',
+				'Delivery confirmation',
+				'Standard packaging',
+			],
 		},
 		{
 			value: 'express',
@@ -103,7 +109,11 @@ export default function Main() {
 			time: '2-3 business days',
 			price: '$12.99',
 			popular: true,
-			features: ['Priority handling', 'Real-time tracking', 'Signature on delivery'],
+			features: [
+				'Priority handling',
+				'Real-time tracking',
+				'Signature on delivery',
+			],
 		},
 		{
 			value: 'overnight',
@@ -112,7 +122,11 @@ export default function Main() {
 			description: 'Fastest option available',
 			time: 'Next business day',
 			price: '$24.99',
-			features: ['Next-day guarantee', 'Premium packaging', 'Insurance included'],
+			features: [
+				'Next-day guarantee',
+				'Premium packaging',
+				'Insurance included',
+			],
 		},
 	];
 
@@ -120,17 +134,27 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Choose Shipping Method</h1>
-					<p className="text-muted-foreground">Select how fast you want your order delivered</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Choose Shipping Method
+					</h1>
+					<p className="text-muted-foreground">
+						Select how fast you want your order delivered
+					</p>
 				</div>
 
-				<RadioGroup defaultValue="express" className="grid @md:grid-cols-3 gap-6">
+				<RadioGroup
+					defaultValue="express"
+					className="grid @md:grid-cols-3 gap-6"
+				>
 					{shippingOptions.map((option) => (
 						<ShippingCard key={option.value} {...option} />
 					))}
 				</RadioGroup>
 
-				<ActionButtons backLabel="Back to Cart" continueLabel="Continue to Payment" />
+				<ActionButtons
+					backLabel="Back to Cart"
+					continueLabel="Continue to Payment"
+				/>
 			</div>
 		</section>
 	);

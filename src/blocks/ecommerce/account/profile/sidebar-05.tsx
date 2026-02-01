@@ -79,7 +79,9 @@ const LearnerSidebar = ({
 		<div className="space-y-1">
 			<div className="flex justify-between text-xs">
 				<span>Level {level}</span>
-				<span className="text-muted-foreground">{xp}/{maxXp}</span>
+				<span className="text-muted-foreground">
+					{xp}/{maxXp}
+				</span>
 			</div>
 			<Progress value={(xp / maxXp) * 100} className="h-2" />
 		</div>
@@ -90,7 +92,12 @@ const LearnerNav = ({
 	items,
 	activeHref,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; badge?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+	}[];
 	activeHref: string;
 }) => (
 	<nav className="space-y-1">
@@ -119,7 +126,12 @@ const LearnerNav = ({
 const ContinueLearning = ({
 	courses,
 }: {
-	courses: { image: string; title: string; progress: number; nextLesson: string }[];
+	courses: {
+		image: string;
+		title: string;
+		progress: number;
+		nextLesson: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -127,19 +139,31 @@ const ContinueLearning = ({
 		</CardHeader>
 		<CardContent className="space-y-4">
 			{courses.map((course, i) => (
-				<div key={i} className="flex gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+				<div
+					key={i}
+					className="flex gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors"
+				>
 					<div className="relative w-24 aspect-video rounded-lg overflow-hidden bg-muted shrink-0">
-						<Image src={course.image} alt={course.title} fill className="object-cover" />
+						<Image
+							src={course.image}
+							alt={course.title}
+							fill
+							className="object-cover"
+						/>
 						<div className="absolute inset-0 bg-black/40 flex items-center justify-center">
 							<Play className="size-6 text-white" />
 						</div>
 					</div>
 					<div className="flex-1 min-w-0">
 						<h4 className="font-medium text-sm truncate">{course.title}</h4>
-						<p className="text-xs text-muted-foreground truncate">{course.nextLesson}</p>
+						<p className="text-xs text-muted-foreground truncate">
+							{course.nextLesson}
+						</p>
 						<div className="mt-2">
 							<Progress value={course.progress} className="h-1" />
-							<p className="text-xs text-muted-foreground mt-1">{course.progress}% complete</p>
+							<p className="text-xs text-muted-foreground mt-1">
+								{course.progress}% complete
+							</p>
 						</div>
 					</div>
 				</div>
@@ -165,9 +189,14 @@ const DailyGoals = ({
 				<div key={i} className="space-y-2">
 					<div className="flex justify-between text-sm">
 						<span>{goal.label}</span>
-						<span className="text-muted-foreground">{goal.current}/{goal.target}</span>
+						<span className="text-muted-foreground">
+							{goal.current}/{goal.target}
+						</span>
 					</div>
-					<Progress value={(goal.current / goal.target) * 100} className="h-2" />
+					<Progress
+						value={(goal.current / goal.target) * 100}
+						className="h-2"
+					/>
 				</div>
 			))}
 		</CardContent>
@@ -193,12 +222,17 @@ const Certificates = ({
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{certificates.map((cert, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+				>
 					<div className="flex items-center gap-3">
 						<FileText className="size-5 text-amber-500" />
 						<div>
 							<p className="text-sm font-medium">{cert.title}</p>
-							<p className="text-xs text-muted-foreground">{cert.issuer} • {cert.date}</p>
+							<p className="text-xs text-muted-foreground">
+								{cert.issuer} • {cert.date}
+							</p>
 						</div>
 					</div>
 					<Button variant="ghost" size="icon">
@@ -224,15 +258,32 @@ export default function Main() {
 		},
 		nav: [
 			{ icon: Book, label: 'My Courses', href: '/learn', badge: '5' },
-			{ icon: Trophy, label: 'Achievements', href: '/achievements', badge: '24' },
+			{
+				icon: Trophy,
+				label: 'Achievements',
+				href: '/achievements',
+				badge: '24',
+			},
 			{ icon: GraduationCap, label: 'Certificates', href: '/certificates' },
 			{ icon: Calendar, label: 'Schedule', href: '/schedule' },
 			{ icon: User, label: 'Profile', href: '/profile' },
 			{ icon: Settings, label: 'Settings', href: '/settings' },
 		],
 		courses: [
-			{ image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=300', title: 'Advanced React Patterns', progress: 68, nextLesson: 'Compound Components' },
-			{ image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=300', title: 'Node.js Masterclass', progress: 45, nextLesson: 'REST API Design' },
+			{
+				image:
+					'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=300',
+				title: 'Advanced React Patterns',
+				progress: 68,
+				nextLesson: 'Compound Components',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=300',
+				title: 'Node.js Masterclass',
+				progress: 45,
+				nextLesson: 'REST API Design',
+			},
 		],
 		goals: [
 			{ label: 'Learning Time', current: 45, target: 60 },
@@ -256,7 +307,10 @@ export default function Main() {
 								<Separator />
 								<LearnerNav items={profileData.nav} activeHref="/learn" />
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>

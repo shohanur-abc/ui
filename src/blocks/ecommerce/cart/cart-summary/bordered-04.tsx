@@ -37,7 +37,10 @@ const TotalRow = ({ label, value }: { label: string; value: string }) => (
 const TrustBadges = ({ badges }: { badges: TrustBadgeProps[] }) => (
 	<div className="mt-4 flex justify-center gap-4 border-t pt-4">
 		{badges.map(({ icon: Icon, text }, i) => (
-			<span key={i} className="flex items-center gap-1 text-xs text-muted-foreground">
+			<span
+				key={i}
+				className="flex items-center gap-1 text-xs text-muted-foreground"
+			>
 				<Icon className="size-3 text-green-500" />
 				{text}
 			</span>

@@ -51,7 +51,9 @@ const StepIndicator = ({ steps }: StepIndicatorProps) => (
 					</div>
 					<span
 						className={`text-xs font-medium ${
-							step.status === 'current' ? 'text-primary' : 'text-muted-foreground'
+							step.status === 'current'
+								? 'text-primary'
+								: 'text-muted-foreground'
 						}`}
 					>
 						{step.label}
@@ -141,8 +143,16 @@ export default function Main() {
 							description="We'll use this email to send your receipt"
 						/>
 						<div className="space-y-4">
-							<Field label="Email Address" placeholder="john@example.com" type="email" />
-							<Field label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
+							<Field
+								label="Email Address"
+								placeholder="john@example.com"
+								type="email"
+							/>
+							<Field
+								label="Phone Number"
+								placeholder="+1 (555) 000-0000"
+								type="tel"
+							/>
 						</div>
 					</div>
 
@@ -174,8 +184,16 @@ export default function Main() {
 					</div>
 					<Field label="City" placeholder="San Francisco" />
 					<Field label="ZIP / Postal Code" placeholder="94102" />
-					<SelectField label="State / Province" placeholder="Select state" options={states} />
-					<SelectField label="Country" placeholder="Select country" options={countries} />
+					<SelectField
+						label="State / Province"
+						placeholder="Select state"
+						options={states}
+					/>
+					<SelectField
+						label="Country"
+						placeholder="Select country"
+						options={countries}
+					/>
 				</div>
 
 				<div className="mt-10 flex flex-col-reverse @sm:flex-row gap-3">

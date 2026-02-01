@@ -12,7 +12,13 @@ interface FeaturedStatProps {
 	cta: { label: string; href: string };
 }
 
-const FeaturedStat = ({ badge, value, label, description, cta }: FeaturedStatProps) => (
+const FeaturedStat = ({
+	badge,
+	value,
+	label,
+	description,
+	cta,
+}: FeaturedStatProps) => (
 	<Card className="group relative overflow-hidden p-8 @md:p-12">
 		<div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
 		<div className="absolute -right-20 -top-20 size-60 rounded-full bg-primary/10 blur-3xl" />
@@ -23,7 +29,9 @@ const FeaturedStat = ({ badge, value, label, description, cta }: FeaturedStatPro
 				{badge}
 			</Badge>
 			<div>
-				<p className="text-6xl font-bold tracking-tighter @sm:text-7xl @lg:text-8xl">{value}</p>
+				<p className="text-6xl font-bold tracking-tighter @sm:text-7xl @lg:text-8xl">
+					{value}
+				</p>
 				<p className="mt-2 text-xl font-medium @sm:text-2xl">{label}</p>
 			</div>
 			<p className="mx-auto max-w-md text-muted-foreground">{description}</p>
@@ -42,7 +50,8 @@ export default function Main() {
 		badge: 'Milestone Reached',
 		value: '10M+',
 		label: 'Orders Delivered',
-		description: 'We\'ve officially crossed 10 million orders delivered worldwide. Thank you for being part of our journey.',
+		description:
+			"We've officially crossed 10 million orders delivered worldwide. Thank you for being part of our journey.",
 		cta: { label: 'Join Our Community', href: '/signup' },
 	};
 

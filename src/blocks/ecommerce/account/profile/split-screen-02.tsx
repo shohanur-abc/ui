@@ -75,7 +75,9 @@ const LoyaltyCard = ({
 			<Progress value={(points / maxPoints) * 100} className="h-3" />
 			<div className="flex justify-between text-xs text-muted-foreground">
 				<span>{rewards} rewards available</span>
-				<span>{(maxPoints - points).toLocaleString()} pts to {nextTier}</span>
+				<span>
+					{(maxPoints - points).toLocaleString()} pts to {nextTier}
+				</span>
 			</div>
 		</div>
 	</div>
@@ -84,7 +86,13 @@ const LoyaltyCard = ({
 const QuickLinks = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; description: string; href: string; badge?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		description: string;
+		href: string;
+		badge?: string;
+	}[];
 }) => (
 	<div className="space-y-2">
 		{items.map((link, i) => (
@@ -121,7 +129,8 @@ export default function Main() {
 			name: 'Sophia Williams',
 			email: 'sophia.w@example.com',
 			tier: 'Gold Member',
-			tierColor: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0',
+			tierColor:
+				'bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0',
 		},
 		loyalty: {
 			points: 12500,
@@ -130,10 +139,33 @@ export default function Main() {
 			rewards: 3,
 		},
 		quickLinks: [
-			{ icon: ShoppingCart, label: 'My Orders', description: 'Track and manage orders', href: '/orders', badge: '2 Active' },
-			{ icon: Gift, label: 'Rewards', description: 'Redeem your points', href: '/rewards', badge: '3 New' },
-			{ icon: Ticket, label: 'Coupons', description: 'View available discounts', href: '/coupons', badge: '5' },
-			{ icon: Star, label: 'Reviews', description: 'Manage your reviews', href: '/reviews' },
+			{
+				icon: ShoppingCart,
+				label: 'My Orders',
+				description: 'Track and manage orders',
+				href: '/orders',
+				badge: '2 Active',
+			},
+			{
+				icon: Gift,
+				label: 'Rewards',
+				description: 'Redeem your points',
+				href: '/rewards',
+				badge: '3 New',
+			},
+			{
+				icon: Ticket,
+				label: 'Coupons',
+				description: 'View available discounts',
+				href: '/coupons',
+				badge: '5',
+			},
+			{
+				icon: Star,
+				label: 'Reviews',
+				description: 'Manage your reviews',
+				href: '/reviews',
+			},
 		],
 	};
 

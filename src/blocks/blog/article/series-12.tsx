@@ -44,7 +44,10 @@ const SeriesIndicator = ({
 			<Hash className="size-5" />
 		</div>
 		<div className="flex-1 min-w-0">
-			<Link href={href} className="text-sm font-semibold text-primary hover:underline">
+			<Link
+				href={href}
+				className="text-sm font-semibold text-primary hover:underline"
+			>
 				{name}
 			</Link>
 			<p className="text-xs text-muted-foreground">
@@ -157,7 +160,8 @@ export default function Main() {
 			'How to conduct effective user research that reveals genuine problems worth solving, not just surface-level preferences.',
 		author: {
 			name: 'Christina Park',
-			avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
 			initials: 'CP',
 			role: 'Product Design Lead',
 		},
@@ -207,7 +211,10 @@ export default function Main() {
 					{articleData.nextPart && (
 						<>
 							<Separator />
-							<NextPartCTA title={articleData.nextPart.title} href={articleData.nextPart.href} />
+							<NextPartCTA
+								title={articleData.nextPart.title}
+								href={articleData.nextPart.href}
+							/>
 						</>
 					)}
 				</div>

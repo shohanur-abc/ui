@@ -108,15 +108,13 @@ const TimeSlotPicker = ({
 			</SelectTrigger>
 			<SelectContent>
 				{slots.map((slot) => (
-					<SelectItem
-						key={slot.id}
-						value={slot.id}
-						disabled={!slot.available}
-					>
+					<SelectItem key={slot.id} value={slot.id} disabled={!slot.available}>
 						<span className="flex items-center gap-2">
 							{slot.label}
 							{!slot.available && (
-								<Badge variant="secondary" className="text-[10px]">Full</Badge>
+								<Badge variant="secondary" className="text-[10px]">
+									Full
+								</Badge>
 							)}
 						</span>
 					</SelectItem>
@@ -161,14 +159,16 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=200&h=200&fit=crop',
 				name: 'Fresh Vegetables Bundle',
 				price: 35.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1553531087-b25a0b9adace?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1553531087-b25a0b9adace?w=200&h=200&fit=crop',
 				name: 'Organic Fruit Box',
 				price: 42.99,
 				quantity: 1,
@@ -189,7 +189,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

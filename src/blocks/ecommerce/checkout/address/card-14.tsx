@@ -5,13 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import {
-	MapPin,
-	Package,
-	CreditCard,
-	CheckCircle,
-	Truck,
-} from 'lucide-react';
+import { MapPin, Package, CreditCard, CheckCircle, Truck } from 'lucide-react';
 
 interface StepProps {
 	step: number;
@@ -41,7 +35,11 @@ const Step = ({ step, label, icon: Icon, active, completed }: StepProps) => (
 						: 'bg-muted text-muted-foreground'
 			}`}
 		>
-			{completed ? <CheckCircle className="size-5" /> : <Icon className="size-5" />}
+			{completed ? (
+				<CheckCircle className="size-5" />
+			) : (
+				<Icon className="size-5" />
+			)}
 		</div>
 		<span
 			className={`text-sm font-medium ${
@@ -57,10 +55,34 @@ const ProgressBar = () => (
 	<Card className="mb-8">
 		<CardContent className="py-6">
 			<div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-				<Step step={1} label="Address" icon={MapPin} active={true} completed={false} />
-				<Step step={2} label="Shipping" icon={Truck} active={false} completed={false} />
-				<Step step={3} label="Payment" icon={CreditCard} active={false} completed={false} />
-				<Step step={4} label="Review" icon={Package} active={false} completed={false} />
+				<Step
+					step={1}
+					label="Address"
+					icon={MapPin}
+					active={true}
+					completed={false}
+				/>
+				<Step
+					step={2}
+					label="Shipping"
+					icon={Truck}
+					active={false}
+					completed={false}
+				/>
+				<Step
+					step={3}
+					label="Payment"
+					icon={CreditCard}
+					active={false}
+					completed={false}
+				/>
+				<Step
+					step={4}
+					label="Review"
+					icon={Package}
+					active={false}
+					completed={false}
+				/>
 			</div>
 			<Progress value={25} className="h-2" />
 		</CardContent>

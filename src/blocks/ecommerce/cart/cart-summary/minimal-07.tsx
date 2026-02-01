@@ -18,7 +18,10 @@ const Row = ({ label, value }: RowProps) => (
 const PromoField = ({
 	placeholder,
 	buttonLabel,
-}: { placeholder: string; buttonLabel: string }) => (
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="flex gap-2">
 		<Input placeholder={placeholder} className="h-8 text-sm" />
 		<Button variant="ghost" size="sm">

@@ -13,12 +13,7 @@ import {
 } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Separator } from '@/components/ui/separator';
-import {
-	ChevronRight,
-	ChevronLeft,
-	Check,
-	Circle,
-} from 'lucide-react';
+import { ChevronRight, ChevronLeft, Check, Circle } from 'lucide-react';
 import { useState } from 'react';
 
 interface FieldProps {
@@ -188,13 +183,17 @@ const ConfirmStep = () => (
 				<div>
 					<p className="text-xs text-muted-foreground">Recipient</p>
 					<p className="font-medium">John Doe</p>
-					<p className="text-sm text-muted-foreground">john@example.com • +1 (555) 000-0000</p>
+					<p className="text-sm text-muted-foreground">
+						john@example.com • +1 (555) 000-0000
+					</p>
 				</div>
 				<Separator />
 				<div>
 					<p className="text-xs text-muted-foreground">Shipping Address</p>
 					<p className="font-medium">123 Main Street, Apt 4B</p>
-					<p className="text-sm text-muted-foreground">San Francisco, CA 94102, United States</p>
+					<p className="text-sm text-muted-foreground">
+						San Francisco, CA 94102, United States
+					</p>
 				</div>
 			</CardContent>
 		</Card>

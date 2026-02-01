@@ -100,12 +100,54 @@ const RateRow = ({
 
 export default function Main() {
 	const rates: ShippingRate[] = [
-		{ id: '1', name: 'Standard - Small', zone: 'Domestic', weightRange: '0-1 lb', rate: '$5.99', estimatedDays: '5-7 days' },
-		{ id: '2', name: 'Standard - Medium', zone: 'Domestic', weightRange: '1-5 lb', rate: '$8.99', estimatedDays: '5-7 days' },
-		{ id: '3', name: 'Standard - Large', zone: 'Domestic', weightRange: '5-20 lb', rate: '$15.99', estimatedDays: '5-7 days' },
-		{ id: '4', name: 'Express - Small', zone: 'Domestic', weightRange: '0-5 lb', rate: '$12.99', estimatedDays: '2-3 days' },
-		{ id: '5', name: 'International - Standard', zone: 'International', weightRange: '0-2 lb', rate: '$24.99', estimatedDays: '7-14 days' },
-		{ id: '6', name: 'International - Express', zone: 'International', weightRange: '0-2 lb', rate: '$49.99', estimatedDays: '3-5 days' },
+		{
+			id: '1',
+			name: 'Standard - Small',
+			zone: 'Domestic',
+			weightRange: '0-1 lb',
+			rate: '$5.99',
+			estimatedDays: '5-7 days',
+		},
+		{
+			id: '2',
+			name: 'Standard - Medium',
+			zone: 'Domestic',
+			weightRange: '1-5 lb',
+			rate: '$8.99',
+			estimatedDays: '5-7 days',
+		},
+		{
+			id: '3',
+			name: 'Standard - Large',
+			zone: 'Domestic',
+			weightRange: '5-20 lb',
+			rate: '$15.99',
+			estimatedDays: '5-7 days',
+		},
+		{
+			id: '4',
+			name: 'Express - Small',
+			zone: 'Domestic',
+			weightRange: '0-5 lb',
+			rate: '$12.99',
+			estimatedDays: '2-3 days',
+		},
+		{
+			id: '5',
+			name: 'International - Standard',
+			zone: 'International',
+			weightRange: '0-2 lb',
+			rate: '$24.99',
+			estimatedDays: '7-14 days',
+		},
+		{
+			id: '6',
+			name: 'International - Express',
+			zone: 'International',
+			weightRange: '0-2 lb',
+			rate: '$49.99',
+			estimatedDays: '3-5 days',
+		},
 	];
 
 	return (
@@ -161,20 +203,42 @@ export default function Main() {
 							<CardContent className="space-y-4 pt-6">
 								<RadioGroup defaultValue="weight" className="space-y-3">
 									{[
-										{ value: 'weight', label: 'By Weight', desc: 'Calculate based on package weight' },
-										{ value: 'price', label: 'By Order Total', desc: 'Calculate based on cart value' },
-										{ value: 'item', label: 'Per Item', desc: 'Fixed rate per item' },
-										{ value: 'flat', label: 'Flat Rate', desc: 'Same rate for all orders' },
+										{
+											value: 'weight',
+											label: 'By Weight',
+											desc: 'Calculate based on package weight',
+										},
+										{
+											value: 'price',
+											label: 'By Order Total',
+											desc: 'Calculate based on cart value',
+										},
+										{
+											value: 'item',
+											label: 'Per Item',
+											desc: 'Fixed rate per item',
+										},
+										{
+											value: 'flat',
+											label: 'Flat Rate',
+											desc: 'Same rate for all orders',
+										},
 									].map((option) => (
 										<Label
 											key={option.value}
 											htmlFor={`calc-${option.value}`}
 											className="flex items-start gap-3 rounded-lg border p-3 cursor-pointer hover:bg-muted/30 has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
 										>
-											<RadioGroupItem value={option.value} id={`calc-${option.value}`} className="mt-0.5" />
+											<RadioGroupItem
+												value={option.value}
+												id={`calc-${option.value}`}
+												className="mt-0.5"
+											/>
 											<div>
 												<span className="font-medium">{option.label}</span>
-												<p className="text-xs text-muted-foreground">{option.desc}</p>
+												<p className="text-xs text-muted-foreground">
+													{option.desc}
+												</p>
 											</div>
 										</Label>
 									))}

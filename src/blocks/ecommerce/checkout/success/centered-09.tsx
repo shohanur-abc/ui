@@ -50,15 +50,12 @@ const EcoSuccessIcon = () => (
 
 const Title = ({ text, highlight }: { text: string; highlight?: string }) => (
 	<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight text-center">
-		{text}{' '}
-		{highlight && <span className="text-emerald-500">{highlight}</span>}
+		{text} {highlight && <span className="text-emerald-500">{highlight}</span>}
 	</h1>
 );
 
 const Description = ({ text }: { text: string }) => (
-	<p className="text-muted-foreground text-center text-sm max-w-sm">
-		{text}
-	</p>
+	<p className="text-muted-foreground text-center text-sm max-w-sm">{text}</p>
 );
 
 const OrderBadge = ({ orderNumber }: { orderNumber: string }) => (

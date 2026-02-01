@@ -11,7 +11,14 @@ import {
 	Check,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -46,16 +53,26 @@ const LabelPreview = ({ config }: PreviewProps) => {
 	};
 
 	return (
-		<div className={`${sizeClasses[config.size]} rounded border bg-white p-2 text-black flex flex-col justify-between`}>
+		<div
+			className={`${sizeClasses[config.size]} rounded border bg-white p-2 text-black flex flex-col justify-between`}
+		>
 			<div className="flex items-center justify-between">
-				{config.includeName && <span className="text-xs font-medium truncate">Product Name</span>}
-				{config.includePrice && <span className="text-xs font-bold">$29.99</span>}
+				{config.includeName && (
+					<span className="text-xs font-medium truncate">Product Name</span>
+				)}
+				{config.includePrice && (
+					<span className="text-xs font-bold">$29.99</span>
+				)}
 			</div>
 			<div className="flex justify-center py-1">
 				{config.format === 'barcode' && (
 					<div className="flex gap-px">
 						{[...Array(20)].map((_, i) => (
-							<div key={i} className="w-0.5 h-6 bg-black" style={{ height: `${Math.random() * 8 + 16}px` }} />
+							<div
+								key={i}
+								className="w-0.5 h-6 bg-black"
+								style={{ height: `${Math.random() * 8 + 16}px` }}
+							/>
 						))}
 					</div>
 				)}
@@ -67,7 +84,9 @@ const LabelPreview = ({ config }: PreviewProps) => {
 				)}
 			</div>
 			{config.includeLocation && (
-				<div className="text-center text-[10px] text-gray-600">WH-001 • A-01-01</div>
+				<div className="text-center text-[10px] text-gray-600">
+					WH-001 • A-01-01
+				</div>
 			)}
 		</div>
 	);
@@ -83,10 +102,14 @@ const ProductSelect = ({ selectedCount, onSelectAll }: ProductSelectProps) => (
 		<div className="flex items-center justify-between">
 			<div>
 				<p className="font-medium">Selected Products</p>
-				<p className="text-sm text-muted-foreground">{selectedCount} products selected for label printing</p>
+				<p className="text-sm text-muted-foreground">
+					{selectedCount} products selected for label printing
+				</p>
 			</div>
 			<div className="flex gap-2">
-				<Button variant="outline" size="sm" onClick={onSelectAll}>Select All</Button>
+				<Button variant="outline" size="sm" onClick={onSelectAll}>
+					Select All
+				</Button>
 				<Button variant="outline" size="sm">
 					<Upload className="mr-2 size-4" />
 					Import List
@@ -111,8 +134,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Label Generator</CardTitle>
-						<CardDescription>Configure and print product labels</CardDescription>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Label Generator
+						</CardTitle>
+						<CardDescription>
+							Configure and print product labels
+						</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<ProductSelect selectedCount={24} onSelectAll={() => {}} />
@@ -123,33 +150,51 @@ export default function Main() {
 									<Label className="text-base">Label Format</Label>
 									<RadioGroup
 										value={config.format}
-										onValueChange={(v) => setConfig({ ...config, format: v as LabelConfig['format'] })}
+										onValueChange={(v) =>
+											setConfig({
+												...config,
+												format: v as LabelConfig['format'],
+											})
+										}
 										className="grid grid-cols-3 gap-4"
 									>
 										<div className="flex items-center space-x-2 rounded-lg border p-3 cursor-pointer">
 											<RadioGroupItem value="barcode" id="barcode" />
-											<Label htmlFor="barcode" className="cursor-pointer">Barcode</Label>
+											<Label htmlFor="barcode" className="cursor-pointer">
+												Barcode
+											</Label>
 										</div>
 										<div className="flex items-center space-x-2 rounded-lg border p-3 cursor-pointer">
 											<RadioGroupItem value="qr" id="qr" />
-											<Label htmlFor="qr" className="cursor-pointer">QR Code</Label>
+											<Label htmlFor="qr" className="cursor-pointer">
+												QR Code
+											</Label>
 										</div>
 										<div className="flex items-center space-x-2 rounded-lg border p-3 cursor-pointer">
 											<RadioGroupItem value="sku" id="sku" />
-											<Label htmlFor="sku" className="cursor-pointer">SKU Only</Label>
+											<Label htmlFor="sku" className="cursor-pointer">
+												SKU Only
+											</Label>
 										</div>
 									</RadioGroup>
 								</div>
 
 								<div className="space-y-3">
 									<Label className="text-base">Label Size</Label>
-									<Select value={config.size} onValueChange={(v) => setConfig({ ...config, size: v as LabelConfig['size'] })}>
+									<Select
+										value={config.size}
+										onValueChange={(v) =>
+											setConfig({ ...config, size: v as LabelConfig['size'] })
+										}
+									>
 										<SelectTrigger>
 											<SelectValue />
 										</SelectTrigger>
 										<SelectContent>
 											<SelectItem value="small">Small (32mm x 20mm)</SelectItem>
-											<SelectItem value="medium">Medium (40mm x 24mm)</SelectItem>
+											<SelectItem value="medium">
+												Medium (40mm x 24mm)
+											</SelectItem>
 											<SelectItem value="large">Large (48mm x 32mm)</SelectItem>
 										</SelectContent>
 									</Select>
@@ -162,25 +207,37 @@ export default function Main() {
 											<Checkbox
 												id="name"
 												checked={config.includeName}
-												onCheckedChange={(v) => setConfig({ ...config, includeName: !!v })}
+												onCheckedChange={(v) =>
+													setConfig({ ...config, includeName: !!v })
+												}
 											/>
-											<Label htmlFor="name" className="font-normal">Product Name</Label>
+											<Label htmlFor="name" className="font-normal">
+												Product Name
+											</Label>
 										</div>
 										<div className="flex items-center space-x-2">
 											<Checkbox
 												id="price"
 												checked={config.includePrice}
-												onCheckedChange={(v) => setConfig({ ...config, includePrice: !!v })}
+												onCheckedChange={(v) =>
+													setConfig({ ...config, includePrice: !!v })
+												}
 											/>
-											<Label htmlFor="price" className="font-normal">Price</Label>
+											<Label htmlFor="price" className="font-normal">
+												Price
+											</Label>
 										</div>
 										<div className="flex items-center space-x-2">
 											<Checkbox
 												id="location"
 												checked={config.includeLocation}
-												onCheckedChange={(v) => setConfig({ ...config, includeLocation: !!v })}
+												onCheckedChange={(v) =>
+													setConfig({ ...config, includeLocation: !!v })
+												}
 											/>
-											<Label htmlFor="location" className="font-normal">Location Code</Label>
+											<Label htmlFor="location" className="font-normal">
+												Location Code
+											</Label>
 										</div>
 									</div>
 								</div>
@@ -198,7 +255,9 @@ export default function Main() {
 							</div>
 
 							<div className="flex flex-col items-center justify-center rounded-lg border bg-muted/30 p-8">
-								<p className="mb-4 text-sm font-medium text-muted-foreground">Preview</p>
+								<p className="mb-4 text-sm font-medium text-muted-foreground">
+									Preview
+								</p>
 								<LabelPreview config={config} />
 							</div>
 						</div>

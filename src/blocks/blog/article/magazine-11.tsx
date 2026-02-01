@@ -25,10 +25,23 @@ interface ArticleProps {
 	content: { type: 'paragraph' | 'dropcap'; text: string }[];
 }
 
-const MagazineHeader = ({ issue, section, sectionHref }: { issue: string; section: string; sectionHref: string }) => (
+const MagazineHeader = ({
+	issue,
+	section,
+	sectionHref,
+}: {
+	issue: string;
+	section: string;
+	sectionHref: string;
+}) => (
 	<div className="flex items-center justify-between border-b-2 border-foreground pb-3">
-		<span className="text-xs font-bold uppercase tracking-[0.2em]">{issue}</span>
-		<Link href={sectionHref} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors">
+		<span className="text-xs font-bold uppercase tracking-[0.2em]">
+			{issue}
+		</span>
+		<Link
+			href={sectionHref}
+			className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors"
+		>
 			{section}
 		</Link>
 	</div>
@@ -69,7 +82,9 @@ const AuthorCredit = ({
 			</AvatarFallback>
 		</Avatar>
 		<div className="flex-1">
-			<p className="text-sm font-semibold uppercase tracking-wider">By {author.name}</p>
+			<p className="text-sm font-semibold uppercase tracking-wider">
+				By {author.name}
+			</p>
 		</div>
 		<div className="flex items-center gap-3 text-xs text-muted-foreground">
 			<span>{publishDate}</span>
@@ -85,11 +100,7 @@ const AuthorCredit = ({
 const HeroImage = ({ src, alt }: { src: string; alt: string }) => (
 	<figure className="relative">
 		<div className="aspect-[4/5] @md:aspect-[3/4] @lg:aspect-[2/3] overflow-hidden">
-			<img
-				src={src}
-				alt={alt}
-				className="size-full object-cover"
-			/>
+			<img src={src} alt={alt} className="size-full object-cover" />
 		</div>
 		<figcaption className="mt-3 text-xs text-muted-foreground italic text-center">
 			{alt}
@@ -97,7 +108,11 @@ const HeroImage = ({ src, alt }: { src: string; alt: string }) => (
 	</figure>
 );
 
-const MagazineContent = ({ blocks }: { blocks: { type: 'paragraph' | 'dropcap'; text: string }[] }) => (
+const MagazineContent = ({
+	blocks,
+}: {
+	blocks: { type: 'paragraph' | 'dropcap'; text: string }[];
+}) => (
 	<div className="columns-1 @lg:columns-2 gap-8 @xl:gap-12">
 		{blocks.map((block, index) => (
 			<p
@@ -121,10 +136,12 @@ export default function Main() {
 		sectionHref: '/blog/category/culture',
 		kicker: 'The New Artisans',
 		title: 'Crafting the Future by Hand',
-		byline: 'In an age of automation, a new generation of makers is rediscovering the value of handcrafted objects.',
+		byline:
+			'In an age of automation, a new generation of makers is rediscovering the value of handcrafted objects.',
 		author: {
 			name: 'Isabella Romano',
-			avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop',
 			initials: 'IR',
 		},
 		publishDate: 'January 15, 2026',
@@ -133,10 +150,22 @@ export default function Main() {
 			'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800&h=1200&fit=crop',
 		heroAlt: 'Artisan hands shaping clay on a pottery wheel',
 		content: [
-			{ type: 'dropcap', text: 'There is a revolution happening in workshops and studios around the world, though you might not recognize it as such. It is quiet, deliberate, and measured in the rhythm of hands working with materials rather than the pace of digital innovation.' },
-			{ type: 'paragraph', text: 'The new artisans are not Luddites. They embrace technology where it serves their craft—precision tools, online marketplaces, social media for building community. But they have chosen to center their work around the irreducible value of human attention and skill.' },
-			{ type: 'paragraph', text: 'This movement represents more than aesthetic preference. It is a response to something missing in our relationship with the objects that fill our lives. Mass production has given us abundance, but it has also created a sameness, a disconnection from the stories and hands behind what we own.' },
-			{ type: 'paragraph', text: 'In the workshops of these new makers, every piece carries intention. The slight variations that mark handmade objects are not flaws but evidence of presence—a reminder that a human being devoted hours of focus and care to creating something that would outlast them.' },
+			{
+				type: 'dropcap',
+				text: 'There is a revolution happening in workshops and studios around the world, though you might not recognize it as such. It is quiet, deliberate, and measured in the rhythm of hands working with materials rather than the pace of digital innovation.',
+			},
+			{
+				type: 'paragraph',
+				text: 'The new artisans are not Luddites. They embrace technology where it serves their craft—precision tools, online marketplaces, social media for building community. But they have chosen to center their work around the irreducible value of human attention and skill.',
+			},
+			{
+				type: 'paragraph',
+				text: 'This movement represents more than aesthetic preference. It is a response to something missing in our relationship with the objects that fill our lives. Mass production has given us abundance, but it has also created a sameness, a disconnection from the stories and hands behind what we own.',
+			},
+			{
+				type: 'paragraph',
+				text: 'In the workshops of these new makers, every piece carries intention. The slight variations that mark handmade objects are not flaws but evidence of presence—a reminder that a human being devoted hours of focus and care to creating something that would outlast them.',
+			},
 		],
 	};
 
@@ -144,7 +173,11 @@ export default function Main() {
 		<section className="@container relative" data-theme="article">
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-8">
-					<MagazineHeader issue={articleData.issue} section={articleData.section} sectionHref={articleData.sectionHref} />
+					<MagazineHeader
+						issue={articleData.issue}
+						section={articleData.section}
+						sectionHref={articleData.sectionHref}
+					/>
 
 					<div className="grid @lg:grid-cols-[1fr_1.2fr] gap-8 @lg:gap-12">
 						<div className="flex flex-col gap-6">

@@ -56,7 +56,9 @@ const PrivacyToggle = ({
 	>
 		<div
 			className={`flex size-10 shrink-0 items-center justify-center rounded-lg ${
-				enabled ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'
+				enabled
+					? 'bg-primary/10 text-primary'
+					: 'bg-muted text-muted-foreground'
 			}`}
 		>
 			<Icon className="size-5" />
@@ -206,11 +208,17 @@ export default function Main() {
 								<CardTitle className="text-base">Data Actions</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-3">
-								<Button variant="outline" className="w-full justify-start gap-2">
+								<Button
+									variant="outline"
+									className="w-full justify-start gap-2"
+								>
 									<Download className="size-4" />
 									Download My Data
 								</Button>
-								<Button variant="outline" className="w-full justify-start gap-2">
+								<Button
+									variant="outline"
+									className="w-full justify-start gap-2"
+								>
 									<FileText className="size-4" />
 									Privacy Policy
 								</Button>
@@ -231,10 +239,14 @@ export default function Main() {
 									<div>
 										<h4 className="font-medium">GDPR Request</h4>
 										<p className="mt-1 text-sm text-muted-foreground">
-											You have the right to request access, correction, or deletion
-											of your personal data.
+											You have the right to request access, correction, or
+											deletion of your personal data.
 										</p>
-										<Button variant="link" size="sm" className="mt-2 h-auto p-0">
+										<Button
+											variant="link"
+											size="sm"
+											className="mt-2 h-auto p-0"
+										>
 											Submit a request
 										</Button>
 									</div>

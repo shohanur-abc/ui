@@ -4,7 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 type DonutSlice = { label: string; value: number; color: string };
 
-const DonutChart = ({ data, centerLabel, centerValue }: { data: DonutSlice[]; centerLabel: string; centerValue: string }) => {
+const DonutChart = ({
+	data,
+	centerLabel,
+	centerValue,
+}: {
+	data: DonutSlice[];
+	centerLabel: string;
+	centerValue: string;
+}) => {
 	const total = data.reduce((a, b) => a + b.value, 0);
 	let currentAngle = -90;
 
@@ -34,7 +42,11 @@ const DonutChart = ({ data, centerLabel, centerValue }: { data: DonutSlice[]; ce
 
 		const d = `M ${x1Outer} ${y1Outer} A ${outerR} ${outerR} 0 ${largeArc} 1 ${x2Outer} ${y2Outer} L ${x2Inner} ${y2Inner} A ${innerR} ${innerR} 0 ${largeArc} 0 ${x1Inner} ${y1Inner} Z`;
 
-		return { ...slice, d, percentage: ((slice.value / total) * 100).toFixed(1) };
+		return {
+			...slice,
+			d,
+			percentage: ((slice.value / total) * 100).toFixed(1),
+		};
 	});
 
 	return (
@@ -60,10 +72,17 @@ const DonutChart = ({ data, centerLabel, centerValue }: { data: DonutSlice[]; ce
 			<div className="flex flex-col gap-3">
 				{slices.map((slice, i) => (
 					<div key={i} className="flex items-center gap-3">
-						<div className="w-3 h-3 rounded-full" style={{ backgroundColor: slice.color }} />
+						<div
+							className="w-3 h-3 rounded-full"
+							style={{ backgroundColor: slice.color }}
+						/>
 						<span className="text-sm">{slice.label}</span>
-						<span className="text-sm font-medium ml-auto">{slice.value.toLocaleString()}</span>
-						<span className="text-xs text-muted-foreground w-12 text-right">{slice.percentage}%</span>
+						<span className="text-sm font-medium ml-auto">
+							{slice.value.toLocaleString()}
+						</span>
+						<span className="text-xs text-muted-foreground w-12 text-right">
+							{slice.percentage}%
+						</span>
 					</div>
 				))}
 			</div>
@@ -85,11 +104,19 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Orders by Status</CardTitle>
-						<p className="text-xs text-muted-foreground">Current order pipeline distribution</p>
+						<CardTitle className="text-sm font-medium">
+							Orders by Status
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Current order pipeline distribution
+						</p>
 					</CardHeader>
 					<CardContent>
-						<DonutChart data={ordersByStatus} centerLabel="Total Orders" centerValue="4,085" />
+						<DonutChart
+							data={ordersByStatus}
+							centerLabel="Total Orders"
+							centerValue="4,085"
+						/>
 					</CardContent>
 				</Card>
 			</div>

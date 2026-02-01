@@ -142,7 +142,9 @@ const TimelineStep = ({
 			<div className="flex items-start justify-between gap-4">
 				<div>
 					<div className="flex items-center gap-2">
-						<p className={`font-medium ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}>
+						<p
+							className={`font-medium ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}
+						>
 							{title}
 						</p>
 						{status === 'current' && (

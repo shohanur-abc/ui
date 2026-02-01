@@ -35,7 +35,9 @@ const HealthHeader = ({
 	<div className="flex flex-col @md:flex-row items-center gap-6 p-6 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-xl">
 		<Avatar className="size-20 ring-4 ring-green-500/20">
 			<AvatarImage src={src} alt={name} />
-			<AvatarFallback className="text-2xl bg-green-500 text-white">{fallback}</AvatarFallback>
+			<AvatarFallback className="text-2xl bg-green-500 text-white">
+				{fallback}
+			</AvatarFallback>
 		</Avatar>
 		<div className="text-center @md:text-left flex-1">
 			<h1 className="text-2xl font-bold">{name}</h1>
@@ -44,30 +46,58 @@ const HealthHeader = ({
 				<div className="text-center">
 					<div className="relative size-16">
 						<svg className="size-16 -rotate-90">
-							<circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="4" className="text-muted" />
 							<circle
-								cx="32" cy="32" r="28"
-								fill="none" stroke="currentColor" strokeWidth="4"
+								cx="32"
+								cy="32"
+								r="28"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="4"
+								className="text-muted"
+							/>
+							<circle
+								cx="32"
+								cy="32"
+								r="28"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="4"
 								strokeDasharray={`${healthScore * 1.76} 176`}
 								className="text-green-500"
 							/>
 						</svg>
-						<span className="absolute inset-0 flex items-center justify-center text-lg font-bold">{healthScore}</span>
+						<span className="absolute inset-0 flex items-center justify-center text-lg font-bold">
+							{healthScore}
+						</span>
 					</div>
 					<p className="text-xs text-muted-foreground mt-1">Health Score</p>
 				</div>
 				<div className="text-center">
 					<div className="relative size-16">
 						<svg className="size-16 -rotate-90">
-							<circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="4" className="text-muted" />
 							<circle
-								cx="32" cy="32" r="28"
-								fill="none" stroke="currentColor" strokeWidth="4"
+								cx="32"
+								cy="32"
+								r="28"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="4"
+								className="text-muted"
+							/>
+							<circle
+								cx="32"
+								cy="32"
+								r="28"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="4"
 								strokeDasharray={`${todayProgress * 1.76} 176`}
 								className="text-blue-500"
 							/>
 						</svg>
-						<span className="absolute inset-0 flex items-center justify-center text-lg font-bold">{todayProgress}%</span>
+						<span className="absolute inset-0 flex items-center justify-center text-lg font-bold">
+							{todayProgress}%
+						</span>
 					</div>
 					<p className="text-xs text-muted-foreground mt-1">Today</p>
 				</div>
@@ -80,7 +110,14 @@ const ActivityTab = ({
 	metrics,
 	weeklyData,
 }: {
-	metrics: { icon: React.ElementType; label: string; value: string; target: string; progress: number; color: string }[];
+	metrics: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		target: string;
+		progress: number;
+		color: string;
+	}[];
 	weeklyData: { day: string; value: number }[];
 }) => (
 	<div className="space-y-6">
@@ -90,11 +127,15 @@ const ActivityTab = ({
 					<CardContent className="p-4">
 						<div className="flex items-center gap-2 mb-2">
 							<metric.icon className={`size-5 ${metric.color}`} />
-							<span className="text-sm text-muted-foreground">{metric.label}</span>
+							<span className="text-sm text-muted-foreground">
+								{metric.label}
+							</span>
 						</div>
 						<p className="text-2xl font-bold">{metric.value}</p>
 						<Progress value={metric.progress} className="h-1.5 mt-2" />
-						<p className="text-xs text-muted-foreground mt-1">Goal: {metric.target}</p>
+						<p className="text-xs text-muted-foreground mt-1">
+							Goal: {metric.target}
+						</p>
 					</CardContent>
 				</Card>
 			))}
@@ -137,10 +178,15 @@ const NutritionTab = ({
 					<div key={i} className="space-y-2">
 						<div className="flex justify-between text-sm">
 							<span>{macro.label}</span>
-							<span>{macro.current}g / {macro.target}g</span>
+							<span>
+								{macro.current}g / {macro.target}g
+							</span>
 						</div>
 						<div className="h-2 rounded-full bg-muted overflow-hidden">
-							<div className={`h-full rounded-full ${macro.color}`} style={{ width: `${(macro.current / macro.target) * 100}%` }} />
+							<div
+								className={`h-full rounded-full ${macro.color}`}
+								style={{ width: `${(macro.current / macro.target) * 100}%` }}
+							/>
 						</div>
 					</div>
 				))}
@@ -152,11 +198,16 @@ const NutritionTab = ({
 			</CardHeader>
 			<CardContent className="space-y-4">
 				{meals.map((meal, i) => (
-					<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+					<div
+						key={i}
+						className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+					>
 						<div>
 							<p className="font-medium">{meal.name}</p>
 							<p className="text-sm text-muted-foreground">{meal.time}</p>
-							<p className="text-xs text-muted-foreground mt-1">{meal.items.join(', ')}</p>
+							<p className="text-xs text-muted-foreground mt-1">
+								{meal.items.join(', ')}
+							</p>
 						</div>
 						<Badge variant="secondary">{meal.calories} cal</Badge>
 					</div>
@@ -170,7 +221,12 @@ const SleepTab = ({
 	sleepData,
 	weeklyAverage,
 }: {
-	sleepData: { duration: string; quality: string; bedtime: string; wakeTime: string };
+	sleepData: {
+		duration: string;
+		quality: string;
+		bedtime: string;
+		wakeTime: string;
+	};
 	weeklyAverage: { day: string; hours: number }[];
 }) => (
 	<div className="space-y-6">
@@ -214,7 +270,10 @@ const SleepTab = ({
 						<div key={i} className="flex items-center gap-4">
 							<span className="w-12 text-sm">{day.day}</span>
 							<div className="flex-1 h-4 bg-muted rounded-full overflow-hidden">
-								<div className="h-full bg-purple-500 rounded-full" style={{ width: `${(day.hours / 10) * 100}%` }} />
+								<div
+									className="h-full bg-purple-500 rounded-full"
+									style={{ width: `${(day.hours / 10) * 100}%` }}
+								/>
 							</div>
 							<span className="text-sm font-medium w-12">{day.hours}h</span>
 						</div>
@@ -228,7 +287,14 @@ const SleepTab = ({
 const VitalsTab = ({
 	vitals,
 }: {
-	vitals: { icon: React.ElementType; label: string; value: string; unit: string; status: 'normal' | 'warning' | 'alert'; history: number[] }[];
+	vitals: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		unit: string;
+		status: 'normal' | 'warning' | 'alert';
+		history: number[];
+	}[];
 }) => (
 	<div className="grid @md:grid-cols-2 gap-4">
 		{vitals.map((vital, i) => (
@@ -236,23 +302,40 @@ const VitalsTab = ({
 				<CardContent className="p-4">
 					<div className="flex items-center justify-between mb-3">
 						<div className="flex items-center gap-2">
-							<vital.icon className={`size-5 ${
-								vital.status === 'normal' ? 'text-green-500' :
-								vital.status === 'warning' ? 'text-amber-500' : 'text-red-500'
-							}`} />
+							<vital.icon
+								className={`size-5 ${
+									vital.status === 'normal'
+										? 'text-green-500'
+										: vital.status === 'warning'
+											? 'text-amber-500'
+											: 'text-red-500'
+								}`}
+							/>
 							<span className="font-medium">{vital.label}</span>
 						</div>
-						<Badge className={
-							vital.status === 'normal' ? 'bg-green-500/20 text-green-600' :
-							vital.status === 'warning' ? 'bg-amber-500/20 text-amber-600' : 'bg-red-500/20 text-red-600'
-						}>
+						<Badge
+							className={
+								vital.status === 'normal'
+									? 'bg-green-500/20 text-green-600'
+									: vital.status === 'warning'
+										? 'bg-amber-500/20 text-amber-600'
+										: 'bg-red-500/20 text-red-600'
+							}
+						>
 							{vital.status}
 						</Badge>
 					</div>
-					<p className="text-3xl font-bold">{vital.value} <span className="text-lg text-muted-foreground">{vital.unit}</span></p>
+					<p className="text-3xl font-bold">
+						{vital.value}{' '}
+						<span className="text-lg text-muted-foreground">{vital.unit}</span>
+					</p>
 					<div className="flex items-end gap-1 mt-3 h-12">
 						{vital.history.map((value, j) => (
-							<div key={j} className="flex-1 bg-muted rounded-t" style={{ height: `${value}%` }} />
+							<div
+								key={j}
+								className="flex-1 bg-muted rounded-t"
+								style={{ height: `${value}%` }}
+							/>
 						))}
 					</div>
 				</CardContent>
@@ -271,10 +354,38 @@ export default function Main() {
 			todayProgress: 72,
 		},
 		activity: [
-			{ icon: Flame, label: 'Calories', value: '1,456', target: '2,000', progress: 73, color: 'text-orange-500' },
-			{ icon: Target, label: 'Steps', value: '8,247', target: '10,000', progress: 82, color: 'text-blue-500' },
-			{ icon: Timer, label: 'Active', value: '45 min', target: '60 min', progress: 75, color: 'text-green-500' },
-			{ icon: Heart, label: 'Heart', value: '72 bpm', target: '60-80', progress: 100, color: 'text-red-500' },
+			{
+				icon: Flame,
+				label: 'Calories',
+				value: '1,456',
+				target: '2,000',
+				progress: 73,
+				color: 'text-orange-500',
+			},
+			{
+				icon: Target,
+				label: 'Steps',
+				value: '8,247',
+				target: '10,000',
+				progress: 82,
+				color: 'text-blue-500',
+			},
+			{
+				icon: Timer,
+				label: 'Active',
+				value: '45 min',
+				target: '60 min',
+				progress: 75,
+				color: 'text-green-500',
+			},
+			{
+				icon: Heart,
+				label: 'Heart',
+				value: '72 bpm',
+				target: '60-80',
+				progress: 100,
+				color: 'text-red-500',
+			},
 		],
 		weeklyActivity: [
 			{ day: 'Mon', value: 85 },
@@ -291,11 +402,31 @@ export default function Main() {
 			{ label: 'Fat', current: 55, target: 65, color: 'bg-amber-500' },
 		],
 		meals: [
-			{ name: 'Breakfast', time: '8:00 AM', calories: 420, items: ['Oatmeal', 'Banana', 'Coffee'] },
-			{ name: 'Lunch', time: '12:30 PM', calories: 650, items: ['Grilled Chicken', 'Salad', 'Rice'] },
-			{ name: 'Snack', time: '3:00 PM', calories: 180, items: ['Protein Bar', 'Apple'] },
+			{
+				name: 'Breakfast',
+				time: '8:00 AM',
+				calories: 420,
+				items: ['Oatmeal', 'Banana', 'Coffee'],
+			},
+			{
+				name: 'Lunch',
+				time: '12:30 PM',
+				calories: 650,
+				items: ['Grilled Chicken', 'Salad', 'Rice'],
+			},
+			{
+				name: 'Snack',
+				time: '3:00 PM',
+				calories: 180,
+				items: ['Protein Bar', 'Apple'],
+			},
 		],
-		sleepData: { duration: '7h 32m', quality: '85%', bedtime: '11:15 PM', wakeTime: '6:47 AM' },
+		sleepData: {
+			duration: '7h 32m',
+			quality: '85%',
+			bedtime: '11:15 PM',
+			wakeTime: '6:47 AM',
+		},
 		weeklySleep: [
 			{ day: 'Mon', hours: 7.5 },
 			{ day: 'Tue', hours: 6.8 },
@@ -306,10 +437,38 @@ export default function Main() {
 			{ day: 'Sun', hours: 7.5 },
 		],
 		vitals: [
-			{ icon: Heart, label: 'Heart Rate', value: '72', unit: 'bpm', status: 'normal' as const, history: [65, 70, 68, 75, 72, 78, 72] },
-			{ icon: Activity, label: 'Blood Pressure', value: '120/80', unit: 'mmHg', status: 'normal' as const, history: [80, 85, 82, 78, 80, 83, 80] },
-			{ icon: Scale, label: 'Weight', value: '165', unit: 'lbs', status: 'normal' as const, history: [90, 88, 85, 87, 86, 85, 85] },
-			{ icon: Zap, label: 'Blood Sugar', value: '95', unit: 'mg/dL', status: 'normal' as const, history: [75, 80, 78, 82, 80, 78, 76] },
+			{
+				icon: Heart,
+				label: 'Heart Rate',
+				value: '72',
+				unit: 'bpm',
+				status: 'normal' as const,
+				history: [65, 70, 68, 75, 72, 78, 72],
+			},
+			{
+				icon: Activity,
+				label: 'Blood Pressure',
+				value: '120/80',
+				unit: 'mmHg',
+				status: 'normal' as const,
+				history: [80, 85, 82, 78, 80, 83, 80],
+			},
+			{
+				icon: Scale,
+				label: 'Weight',
+				value: '165',
+				unit: 'lbs',
+				status: 'normal' as const,
+				history: [90, 88, 85, 87, 86, 85, 85],
+			},
+			{
+				icon: Zap,
+				label: 'Blood Sugar',
+				value: '95',
+				unit: 'mg/dL',
+				status: 'normal' as const,
+				history: [75, 80, 78, 82, 80, 78, 76],
+			},
 		],
 	};
 
@@ -337,13 +496,22 @@ export default function Main() {
 						</TabsTrigger>
 					</TabsList>
 					<TabsContent value="activity" className="mt-6">
-						<ActivityTab metrics={profileData.activity} weeklyData={profileData.weeklyActivity} />
+						<ActivityTab
+							metrics={profileData.activity}
+							weeklyData={profileData.weeklyActivity}
+						/>
 					</TabsContent>
 					<TabsContent value="nutrition" className="mt-6">
-						<NutritionTab macros={profileData.macros} meals={profileData.meals} />
+						<NutritionTab
+							macros={profileData.macros}
+							meals={profileData.meals}
+						/>
 					</TabsContent>
 					<TabsContent value="sleep" className="mt-6">
-						<SleepTab sleepData={profileData.sleepData} weeklyAverage={profileData.weeklySleep} />
+						<SleepTab
+							sleepData={profileData.sleepData}
+							weeklyAverage={profileData.weeklySleep}
+						/>
 					</TabsContent>
 					<TabsContent value="vitals" className="mt-6">
 						<VitalsTab vitals={profileData.vitals} />

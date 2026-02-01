@@ -37,7 +37,12 @@ type ToolbarButtonProps = {
 	variant?: 'default' | 'outline' | 'ghost' | 'secondary';
 };
 
-const ToolbarButton = ({ icon: Icon, label, onClick, variant = 'outline' }: ToolbarButtonProps) => (
+const ToolbarButton = ({
+	icon: Icon,
+	label,
+	onClick,
+	variant = 'outline',
+}: ToolbarButtonProps) => (
 	<Button variant={variant} size="sm" onClick={onClick} className="gap-2">
 		<Icon className="size-4" />
 		<span className="hidden @sm:inline">{label}</span>
@@ -50,7 +55,11 @@ type ToolbarIconButtonProps = {
 	tooltip?: string;
 };
 
-const ToolbarIconButton = ({ icon: Icon, onClick, tooltip }: ToolbarIconButtonProps) => (
+const ToolbarIconButton = ({
+	icon: Icon,
+	onClick,
+	tooltip,
+}: ToolbarIconButtonProps) => (
 	<Button variant="ghost" size="icon-sm" onClick={onClick} title={tooltip}>
 		<Icon className="size-4" />
 	</Button>
@@ -134,7 +143,10 @@ const MoreActionsMenu = ({ onAction }: MoreActionsMenuProps) => (
 				Table Settings
 			</DropdownMenuItem>
 			<DropdownMenuSeparator />
-			<DropdownMenuItem onClick={() => onAction('delete')} className="text-destructive">
+			<DropdownMenuItem
+				onClick={() => onAction('delete')}
+				className="text-destructive"
+			>
 				<Trash2 className="mr-2 size-4" />
 				Clear Filters
 			</DropdownMenuItem>
@@ -159,7 +171,11 @@ export default function Main() {
 							<ToolbarButton icon={Upload} label="Import" />
 							<ExportMenu
 								onExport={(format) => console.log(`Export ${format}`)}
-								labels={{ csv: 'Export CSV', excel: 'Export Excel', pdf: 'Export PDF' }}
+								labels={{
+									csv: 'Export CSV',
+									excel: 'Export Excel',
+									pdf: 'Export PDF',
+								}}
 							/>
 						</div>
 						<div className="flex items-center gap-2">

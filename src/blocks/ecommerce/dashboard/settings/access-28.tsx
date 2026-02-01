@@ -50,7 +50,11 @@ const IpRuleRow = ({ ip, label, type, addedAt }: IpRule) => (
 						: 'bg-destructive/10 text-destructive'
 				}`}
 			>
-				{type === 'allow' ? <Check className="size-4" /> : <X className="size-4" />}
+				{type === 'allow' ? (
+					<Check className="size-4" />
+				) : (
+					<X className="size-4" />
+				)}
 			</div>
 			<div>
 				<div className="flex items-center gap-2">
@@ -80,10 +84,34 @@ const GeoBlockRow = ({ country, code, blocked }: GeoBlock) => (
 
 export default function Main() {
 	const ipRules: IpRule[] = [
-		{ id: '1', ip: '192.168.1.0/24', label: 'Office Network', type: 'allow', addedAt: 'Jan 10, 2026' },
-		{ id: '2', ip: '10.0.0.1', label: 'Home', type: 'allow', addedAt: 'Dec 20, 2025' },
-		{ id: '3', ip: '203.0.113.0', label: 'Suspicious', type: 'block', addedAt: 'Jan 5, 2026' },
-		{ id: '4', ip: '198.51.100.0/24', label: 'Known Bot Network', type: 'block', addedAt: 'Dec 15, 2025' },
+		{
+			id: '1',
+			ip: '192.168.1.0/24',
+			label: 'Office Network',
+			type: 'allow',
+			addedAt: 'Jan 10, 2026',
+		},
+		{
+			id: '2',
+			ip: '10.0.0.1',
+			label: 'Home',
+			type: 'allow',
+			addedAt: 'Dec 20, 2025',
+		},
+		{
+			id: '3',
+			ip: '203.0.113.0',
+			label: 'Suspicious',
+			type: 'block',
+			addedAt: 'Jan 5, 2026',
+		},
+		{
+			id: '4',
+			ip: '198.51.100.0/24',
+			label: 'Known Bot Network',
+			type: 'block',
+			addedAt: 'Dec 15, 2025',
+		},
 	];
 
 	const geoBlocks: GeoBlock[] = [
@@ -122,19 +150,37 @@ export default function Main() {
 									</p>
 									<RadioGroup defaultValue="allowlist" className="space-y-3">
 										{[
-											{ value: 'open', label: 'Open Access', description: 'Allow access from anywhere' },
-											{ value: 'allowlist', label: 'Allowlist Mode', description: 'Only allow specific IPs' },
-											{ value: 'blocklist', label: 'Blocklist Mode', description: 'Block specific IPs' },
+											{
+												value: 'open',
+												label: 'Open Access',
+												description: 'Allow access from anywhere',
+											},
+											{
+												value: 'allowlist',
+												label: 'Allowlist Mode',
+												description: 'Only allow specific IPs',
+											},
+											{
+												value: 'blocklist',
+												label: 'Blocklist Mode',
+												description: 'Block specific IPs',
+											},
 										].map((option) => (
 											<Label
 												key={option.value}
 												htmlFor={option.value}
 												className="flex items-start gap-4 rounded-lg border p-4 cursor-pointer hover:bg-muted/30 has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
 											>
-												<RadioGroupItem value={option.value} id={option.value} className="mt-1" />
+												<RadioGroupItem
+													value={option.value}
+													id={option.value}
+													className="mt-1"
+												/>
 												<div>
 													<span className="font-medium">{option.label}</span>
-													<p className="text-sm text-muted-foreground">{option.description}</p>
+													<p className="text-sm text-muted-foreground">
+														{option.description}
+													</p>
 												</div>
 											</Label>
 										))}
@@ -150,7 +196,9 @@ export default function Main() {
 								<div className="flex items-center justify-between">
 									<div>
 										<CardTitle className="text-base">IP Rules</CardTitle>
-										<CardDescription>Manage allowed and blocked IPs</CardDescription>
+										<CardDescription>
+											Manage allowed and blocked IPs
+										</CardDescription>
 									</div>
 									<Button size="sm" variant="outline" className="gap-2">
 										<Plus className="size-4" />
@@ -191,9 +239,9 @@ export default function Main() {
 							<div>
 								<h4 className="font-medium">Important Notice</h4>
 								<p className="mt-1 text-sm text-muted-foreground">
-									Be careful when restricting access. If you block your own IP or
-									location, you may lose access to your account. Keep recovery options
-									configured.
+									Be careful when restricting access. If you block your own IP
+									or location, you may lose access to your account. Keep
+									recovery options configured.
 								</p>
 							</div>
 						</CardContent>

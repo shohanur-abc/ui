@@ -112,7 +112,10 @@ const CompleteLookSection = ({
 	addSelectedLabel: string;
 }) => {
 	const selectedItems = look.items.filter((item) => item.selected);
-	const selectedTotal = selectedItems.reduce((sum, item) => sum + item.price, 0);
+	const selectedTotal = selectedItems.reduce(
+		(sum, item) => sum + item.price,
+		0,
+	);
 
 	return (
 		<div className="space-y-3">
@@ -168,7 +171,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop',
 				name: 'White Sneakers',
 				price: 89.99,
 				quantity: 1,
@@ -180,28 +184,32 @@ export default function Main() {
 			items: [
 				{
 					id: 'l1',
-					image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop',
 					name: 'White T-Shirt',
 					price: 29.99,
 					selected: true,
 				},
 				{
 					id: 'l2',
-					image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=200&h=200&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1542272604-787c3835535d?w=200&h=200&fit=crop',
 					name: 'Slim Fit Jeans',
 					price: 79.99,
 					selected: true,
 				},
 				{
 					id: 'l3',
-					image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 					name: 'Canvas Backpack',
 					price: 59.99,
 					selected: false,
 				},
 				{
 					id: 'l4',
-					image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=200&h=200&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=200&h=200&fit=crop',
 					name: 'Sunglasses',
 					price: 49.99,
 					selected: false,
@@ -214,7 +222,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

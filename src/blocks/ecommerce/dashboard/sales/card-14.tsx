@@ -18,7 +18,11 @@ type HourlySalesCardProps = {
 	viewAllHref: string;
 };
 
-const HourlySalesCard = ({ title, data, viewAllHref }: HourlySalesCardProps) => {
+const HourlySalesCard = ({
+	title,
+	data,
+	viewAllHref,
+}: HourlySalesCardProps) => {
 	const maxOrders = Math.max(...data.map((d) => d.orders));
 
 	return (
@@ -54,7 +58,9 @@ const HourlySalesCard = ({ title, data, viewAllHref }: HourlySalesCardProps) => 
 								/>
 							</div>
 							<div className="flex items-center gap-3 min-w-[140px] justify-end">
-								<span className="text-sm font-medium">{item.orders} orders</span>
+								<span className="text-sm font-medium">
+									{item.orders} orders
+								</span>
 								{item.peak && (
 									<Badge variant="secondary" className="text-xs">
 										Peak

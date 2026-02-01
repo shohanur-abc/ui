@@ -48,9 +48,7 @@ const KpiCardGlow = ({
 				</div>
 			</div>
 			<div className="mt-4 flex items-center justify-between text-sm">
-				<span className="text-muted-foreground">
-					Previous: {previousValue}
-				</span>
+				<span className="text-muted-foreground">Previous: {previousValue}</span>
 				<span
 					className={`flex items-center gap-1 font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-red-500'}`}
 				>

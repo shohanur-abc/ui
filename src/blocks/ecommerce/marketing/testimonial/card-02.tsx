@@ -63,7 +63,9 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 				<ImpactBadge text={item.impact} />
 			</div>
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed flex-1 mt-4 mb-6">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed flex-1 mt-4 mb-6">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -90,7 +92,8 @@ export default function Main() {
 			author: 'Rebecca Stone',
 			role: 'CTO',
 			company: 'FastDeploy',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'RS',
 			rating: 5,
 			impact: '48hr Setup',
@@ -101,7 +104,8 @@ export default function Main() {
 			author: 'Steven Park',
 			role: 'Customer Success',
 			company: 'HappyCustomers',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'SP',
 			rating: 5,
 			impact: '+40 NPS',
@@ -112,7 +116,8 @@ export default function Main() {
 			author: 'Tina Williams',
 			role: 'Data Analyst',
 			company: 'DataFirst',
-			avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
 			initials: 'TW',
 			rating: 5,
 			impact: 'Real-time Data',
@@ -123,7 +128,8 @@ export default function Main() {
 			author: 'Uma Patel',
 			role: 'Operations Director',
 			company: 'EfficiencyPro',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'UP',
 			rating: 5,
 			impact: '-35% Costs',
@@ -131,7 +137,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Hot Takes"

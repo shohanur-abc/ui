@@ -54,8 +54,12 @@ const InsuranceHeader = ({
 					</Avatar>
 					<div>
 						<h1 className="text-xl font-bold">{name}</h1>
-						<p className="text-sm text-muted-foreground">Customer ID: {customerId}</p>
-						<p className="text-sm text-muted-foreground">Member since {memberSince}</p>
+						<p className="text-sm text-muted-foreground">
+							Customer ID: {customerId}
+						</p>
+						<p className="text-sm text-muted-foreground">
+							Member since {memberSince}
+						</p>
 					</div>
 				</div>
 				<div className="flex items-center gap-3">
@@ -96,11 +100,15 @@ const PolicyCard = ({
 				<div className={`p-2 rounded-lg ${color}`}>
 					<Icon className="size-5 text-white" />
 				</div>
-				<Badge className={
-					status === 'active' ? 'bg-green-500/20 text-green-600' :
-					status === 'pending' ? 'bg-blue-500/20 text-blue-600' :
-					'bg-amber-500/20 text-amber-600'
-				}>
+				<Badge
+					className={
+						status === 'active'
+							? 'bg-green-500/20 text-green-600'
+							: status === 'pending'
+								? 'bg-blue-500/20 text-blue-600'
+								: 'bg-amber-500/20 text-amber-600'
+					}
+				>
 					{status}
 				</Badge>
 			</div>
@@ -120,7 +128,12 @@ const PolicyCard = ({
 const ClaimsCard = ({
 	claims,
 }: {
-	claims: { type: string; date: string; amount: string; status: 'approved' | 'pending' | 'rejected' }[];
+	claims: {
+		type: string;
+		date: string;
+		amount: string;
+		status: 'approved' | 'pending' | 'rejected';
+	}[];
 }) => (
 	<Card className="col-span-2">
 		<CardHeader className="pb-2">
@@ -129,22 +142,31 @@ const ClaimsCard = ({
 					<FileText className="size-5" />
 					Recent Claims
 				</h3>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{claims.map((claim, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+				>
 					<div>
 						<p className="font-medium">{claim.type}</p>
 						<p className="text-xs text-muted-foreground">{claim.date}</p>
 					</div>
 					<div className="text-right">
-						<Badge className={
-							claim.status === 'approved' ? 'bg-green-500/20 text-green-600' :
-							claim.status === 'pending' ? 'bg-blue-500/20 text-blue-600' :
-							'bg-red-500/20 text-red-600'
-						}>
+						<Badge
+							className={
+								claim.status === 'approved'
+									? 'bg-green-500/20 text-green-600'
+									: claim.status === 'pending'
+										? 'bg-blue-500/20 text-blue-600'
+										: 'bg-red-500/20 text-red-600'
+							}
+						>
 							{claim.status}
 						</Badge>
 						<p className="text-sm font-medium mt-1">{claim.amount}</p>
@@ -220,16 +242,23 @@ const AlertCard = ({
 		<CardContent className="p-4">
 			<div className="space-y-3">
 				{alerts.map((alert, i) => (
-					<div key={i} className={`flex items-center gap-3 p-3 rounded-lg ${
-						alert.type === 'warning' ? 'bg-amber-500/10' : 'bg-blue-500/10'
-					}`}>
+					<div
+						key={i}
+						className={`flex items-center gap-3 p-3 rounded-lg ${
+							alert.type === 'warning' ? 'bg-amber-500/10' : 'bg-blue-500/10'
+						}`}
+					>
 						{alert.type === 'warning' ? (
 							<AlertTriangle className="size-5 text-amber-500 shrink-0" />
 						) : (
 							<Bell className="size-5 text-blue-500 shrink-0" />
 						)}
 						<p className="flex-1 text-sm">{alert.message}</p>
-						{alert.action && <Button variant="outline" size="sm">{alert.action}</Button>}
+						{alert.action && (
+							<Button variant="outline" size="sm">
+								{alert.action}
+							</Button>
+						)}
 					</div>
 				))}
 			</div>
@@ -246,12 +275,17 @@ const DocumentsCard = ({
 		<CardHeader className="pb-2">
 			<div className="flex items-center justify-between">
 				<h3 className="font-semibold">Documents</h3>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{documents.map((doc, i) => (
-				<div key={i} className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+				<div
+					key={i}
+					className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+				>
 					<div className="flex items-center gap-3">
 						<FileText className="size-5 text-muted-foreground" />
 						<div>
@@ -292,7 +326,9 @@ const BeneficiariesCard = ({
 						</div>
 						<div>
 							<p className="font-medium">{ben.name}</p>
-							<p className="text-xs text-muted-foreground">{ben.relationship}</p>
+							<p className="text-xs text-muted-foreground">
+								{ben.relationship}
+							</p>
 						</div>
 					</div>
 					<Badge variant="secondary">{ben.percentage}%</Badge>
@@ -322,7 +358,9 @@ const QuickActionsCard = ({
 						<div className="p-2 rounded-full bg-primary/10">
 							<action.icon className="size-5 text-primary" />
 						</div>
-						<span className="text-xs font-medium text-center">{action.label}</span>
+						<span className="text-xs font-medium text-center">
+							{action.label}
+						</span>
 					</Link>
 				))}
 			</div>
@@ -341,14 +379,56 @@ export default function Main() {
 			tier: 'Gold Member',
 		},
 		policies: [
-			{ type: 'Home Insurance', policyNumber: 'HOM-284759', premium: '$125/mo', nextPayment: 'Feb 15', status: 'active' as const, icon: Home, color: 'bg-blue-500' },
-			{ type: 'Auto Insurance', policyNumber: 'AUT-948271', premium: '$89/mo', nextPayment: 'Feb 15', status: 'active' as const, icon: Car, color: 'bg-green-500' },
-			{ type: 'Life Insurance', policyNumber: 'LIF-182947', premium: '$200/mo', nextPayment: 'Feb 15', status: 'active' as const, icon: Heart, color: 'bg-red-500' },
-			{ type: 'Umbrella Policy', policyNumber: 'UMB-847291', premium: '$45/mo', nextPayment: 'Feb 15', status: 'expiring' as const, icon: Umbrella, color: 'bg-purple-500' },
+			{
+				type: 'Home Insurance',
+				policyNumber: 'HOM-284759',
+				premium: '$125/mo',
+				nextPayment: 'Feb 15',
+				status: 'active' as const,
+				icon: Home,
+				color: 'bg-blue-500',
+			},
+			{
+				type: 'Auto Insurance',
+				policyNumber: 'AUT-948271',
+				premium: '$89/mo',
+				nextPayment: 'Feb 15',
+				status: 'active' as const,
+				icon: Car,
+				color: 'bg-green-500',
+			},
+			{
+				type: 'Life Insurance',
+				policyNumber: 'LIF-182947',
+				premium: '$200/mo',
+				nextPayment: 'Feb 15',
+				status: 'active' as const,
+				icon: Heart,
+				color: 'bg-red-500',
+			},
+			{
+				type: 'Umbrella Policy',
+				policyNumber: 'UMB-847291',
+				premium: '$45/mo',
+				nextPayment: 'Feb 15',
+				status: 'expiring' as const,
+				icon: Umbrella,
+				color: 'bg-purple-500',
+			},
 		],
 		claims: [
-			{ type: 'Auto - Windshield Repair', date: 'Jan 15, 2024', amount: '$350', status: 'approved' as const },
-			{ type: 'Home - Water Damage', date: 'Dec 28, 2023', amount: '$2,450', status: 'pending' as const },
+			{
+				type: 'Auto - Windshield Repair',
+				date: 'Jan 15, 2024',
+				amount: '$350',
+				status: 'approved' as const,
+			},
+			{
+				type: 'Home - Water Damage',
+				date: 'Dec 28, 2023',
+				amount: '$2,450',
+				status: 'pending' as const,
+			},
 		],
 		coverage: {
 			total: '$1,500,000',
@@ -359,10 +439,22 @@ export default function Main() {
 				{ type: 'Umbrella', amount: '$200,000' },
 			],
 		},
-		paymentMethod: { brand: 'Visa', last4: '4242', expiry: '12/25', isDefault: true },
+		paymentMethod: {
+			brand: 'Visa',
+			last4: '4242',
+			expiry: '12/25',
+			isDefault: true,
+		},
 		alerts: [
-			{ type: 'warning' as const, message: 'Your Umbrella Policy expires in 30 days.', action: 'Renew' },
-			{ type: 'info' as const, message: 'Your annual policy review is scheduled for March.' },
+			{
+				type: 'warning' as const,
+				message: 'Your Umbrella Policy expires in 30 days.',
+				action: 'Renew',
+			},
+			{
+				type: 'info' as const,
+				message: 'Your annual policy review is scheduled for March.',
+			},
 		],
 		documents: [
 			{ name: 'Home Policy Document', date: 'Jan 2024', type: 'PDF' },

@@ -51,12 +51,8 @@ const PickupReadyCard = ({
 					<Store className="size-7 text-emerald-500" />
 				</div>
 				<div className="flex-1">
-					<h1 className="text-xl @lg:text-2xl font-bold">
-						Ready for Pickup!
-					</h1>
-					<p className="text-muted-foreground text-sm">
-						Order #{orderNumber}
-					</p>
+					<h1 className="text-xl @lg:text-2xl font-bold">Ready for Pickup!</h1>
+					<p className="text-muted-foreground text-sm">Order #{orderNumber}</p>
 				</div>
 				<Badge className="bg-emerald-500">{status}</Badge>
 			</div>
@@ -71,9 +67,7 @@ const QRCodeCard = ({ code, validUntil, items }: PickupDetailsProps) => (
 				<QrCode className="size-32 text-muted-foreground/50" />
 			</div>
 			<div className="flex items-center justify-center gap-2 mb-2">
-				<p className="font-mono text-2xl font-bold tracking-wider">
-					{code}
-				</p>
+				<p className="font-mono text-2xl font-bold tracking-wider">{code}</p>
 				<Button variant="ghost" size="icon" className="size-8">
 					<Copy className="size-4" />
 				</Button>
@@ -160,11 +154,7 @@ const PickupItemsCard = ({
 	</Card>
 );
 
-const InstructionsCard = ({
-	instructions,
-}: {
-	instructions: string[];
-}) => (
+const InstructionsCard = ({ instructions }: { instructions: string[] }) => (
 	<Card className="bg-muted/30">
 		<CardHeader className="pb-2">
 			<CardTitle className="text-sm text-muted-foreground">
@@ -220,11 +210,7 @@ export default function Main() {
 
 				<div className="grid @md:grid-cols-2 gap-6">
 					<div className="space-y-6">
-						<QRCodeCard
-							code="PU-4527"
-							validUntil="Jan 22, 6:00 PM"
-							items={4}
-						/>
+						<QRCodeCard code="PU-4527" validUntil="Jan 22, 6:00 PM" items={4} />
 						<PickupItemsCard items={pickupItems} />
 					</div>
 					<div className="space-y-6">

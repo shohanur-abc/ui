@@ -171,12 +171,42 @@ export default function Main() {
 	];
 
 	const events: WebhookEvent[] = [
-		{ id: '1', name: 'order.created', description: 'When a new order is placed', enabled: true },
-		{ id: '2', name: 'order.updated', description: 'When an order is modified', enabled: true },
-		{ id: '3', name: 'order.fulfilled', description: 'When an order is shipped', enabled: true },
-		{ id: '4', name: 'order.cancelled', description: 'When an order is cancelled', enabled: false },
-		{ id: '5', name: 'product.created', description: 'When a product is added', enabled: false },
-		{ id: '6', name: 'product.updated', description: 'When a product is modified', enabled: true },
+		{
+			id: '1',
+			name: 'order.created',
+			description: 'When a new order is placed',
+			enabled: true,
+		},
+		{
+			id: '2',
+			name: 'order.updated',
+			description: 'When an order is modified',
+			enabled: true,
+		},
+		{
+			id: '3',
+			name: 'order.fulfilled',
+			description: 'When an order is shipped',
+			enabled: true,
+		},
+		{
+			id: '4',
+			name: 'order.cancelled',
+			description: 'When an order is cancelled',
+			enabled: false,
+		},
+		{
+			id: '5',
+			name: 'product.created',
+			description: 'When a product is added',
+			enabled: false,
+		},
+		{
+			id: '6',
+			name: 'product.updated',
+			description: 'When a product is modified',
+			enabled: true,
+		},
 	];
 
 	return (
@@ -229,9 +259,7 @@ export default function Main() {
 						<Card>
 							<CardHeader>
 								<CardTitle className="text-base">Webhook Events</CardTitle>
-								<CardDescription>
-									Select events to send
-								</CardDescription>
+								<CardDescription>Select events to send</CardDescription>
 							</CardHeader>
 							<CardContent className="divide-y">
 								{events.map((event) => (

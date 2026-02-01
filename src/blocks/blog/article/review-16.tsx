@@ -96,7 +96,9 @@ const OverallRating = ({ score }: { score: number }) => (
 			<span className="text-3xl font-bold">{score}</span>
 		</div>
 		<div className="flex-1">
-			<p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Overall Score</p>
+			<p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+				Overall Score
+			</p>
 			<div className="flex gap-1 mt-2">
 				{Array.from({ length: 5 }).map((_, i) => (
 					<Star
@@ -109,10 +111,16 @@ const OverallRating = ({ score }: { score: number }) => (
 	</div>
 );
 
-const RatingBreakdown = ({ categories }: { categories: { name: string; score: number }[] }) => (
+const RatingBreakdown = ({
+	categories,
+}: {
+	categories: { name: string; score: number }[];
+}) => (
 	<Card>
 		<CardHeader className="pb-3">
-			<CardTitle className="text-base font-semibold">Rating Breakdown</CardTitle>
+			<CardTitle className="text-base font-semibold">
+				Rating Breakdown
+			</CardTitle>
 		</CardHeader>
 		<CardContent className="space-y-4">
 			{categories.map((category, index) => (
@@ -210,10 +218,12 @@ export default function Main() {
 		categoryHref: '/blog/category/reviews',
 		title: 'Framework Laptop 16 Review: The Modular Dream Realized',
 		productName: 'Framework Laptop 16',
-		verdict: 'The Framework Laptop 16 proves that modularity and performance can coexist. It\'s not just a laptop—it\'s a statement about the future of consumer electronics.',
+		verdict:
+			"The Framework Laptop 16 proves that modularity and performance can coexist. It's not just a laptop—it's a statement about the future of consumer electronics.",
 		author: {
 			name: 'Taylor Morrison',
-			avatar: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1463453091185-61582044d556?w=100&h=100&fit=crop',
 			initials: 'TM',
 		},
 		publishDate: 'January 26, 2026',
@@ -246,9 +256,9 @@ export default function Main() {
 			],
 		},
 		content: [
-			'Framework has done something remarkable with the Laptop 16. They\'ve taken the modular philosophy that made their 13-inch model a cult favorite and scaled it up to a full-size gaming and workstation-class machine—without compromising on the core promise of repairability and upgrades.',
-			'The modular bay system is the star of the show. Swap between a discrete GPU, additional storage, or even a secondary battery depending on your needs that day. It\'s a level of flexibility we\'ve never seen in a laptop, and it actually works well in practice.',
-			'Performance is strong, though not class-leading. The AMD Ryzen 9 processor handles everything we threw at it with ease, and the optional RTX 4060 module delivers solid 1080p gaming. The trade-off is a chassis that\'s noticeably thicker than the competition—but that\'s the price of modularity.',
+			"Framework has done something remarkable with the Laptop 16. They've taken the modular philosophy that made their 13-inch model a cult favorite and scaled it up to a full-size gaming and workstation-class machine—without compromising on the core promise of repairability and upgrades.",
+			"The modular bay system is the star of the show. Swap between a discrete GPU, additional storage, or even a secondary battery depending on your needs that day. It's a level of flexibility we've never seen in a laptop, and it actually works well in practice.",
+			"Performance is strong, though not class-leading. The AMD Ryzen 9 processor handles everything we threw at it with ease, and the optional RTX 4060 module delivers solid 1080p gaming. The trade-off is a chassis that's noticeably thicker than the competition—but that's the price of modularity.",
 		],
 		ctaLink: 'https://frame.work',
 		ctaLabel: 'Visit Framework',
@@ -258,7 +268,10 @@ export default function Main() {
 		<section className="@container relative" data-theme="article">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-6 @md:gap-8">
-					<ReviewBadge text={articleData.category} href={articleData.categoryHref} />
+					<ReviewBadge
+						text={articleData.category}
+						href={articleData.categoryHref}
+					/>
 					<Title text={articleData.title} />
 					<Verdict text={articleData.verdict} />
 					<AuthorMeta
@@ -269,7 +282,10 @@ export default function Main() {
 					<HeroImage src={articleData.heroImage} alt={articleData.heroAlt} />
 					<OverallRating score={articleData.rating.overall} />
 					<div className="grid @lg:grid-cols-[1fr_280px] gap-6">
-						<ProsCons pros={articleData.prosCons.pros} cons={articleData.prosCons.cons} />
+						<ProsCons
+							pros={articleData.prosCons.pros}
+							cons={articleData.prosCons.cons}
+						/>
 						<RatingBreakdown categories={articleData.rating.categories} />
 					</div>
 					<Separator />

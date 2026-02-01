@@ -1,10 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-	Card,
-	CardContent,
-	CardFooter,
-} from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Sparkles, CreditCard, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
@@ -31,7 +27,10 @@ const SummaryRow = ({ label, value, discount }: SummaryRowProps) => (
 const TotalDisplay = ({
 	value,
 	badge,
-}: { value: string; badge: { label: string; icon: LucideIcon } }) => (
+}: {
+	value: string;
+	badge: { label: string; icon: LucideIcon };
+}) => (
 	<div className="rounded-xl bg-gradient-to-br from-primary/20 to-transparent p-4">
 		<div className="flex items-center justify-between">
 			<div>

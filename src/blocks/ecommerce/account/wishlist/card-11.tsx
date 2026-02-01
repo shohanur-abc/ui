@@ -37,7 +37,9 @@ const ShareDialog = ({ itemName }: { itemName: string }) => (
 		<DialogContent>
 			<DialogHeader>
 				<DialogTitle>Share Wishlist Item</DialogTitle>
-				<DialogDescription>Share &ldquo;{itemName}&rdquo; with friends and family</DialogDescription>
+				<DialogDescription>
+					Share &ldquo;{itemName}&rdquo; with friends and family
+				</DialogDescription>
 			</DialogHeader>
 			<div className="flex gap-2 mt-4">
 				<div className="flex-1 p-3 rounded-lg bg-muted text-sm truncate">
@@ -51,7 +53,11 @@ const ShareDialog = ({ itemName }: { itemName: string }) => (
 	</Dialog>
 );
 
-const AddedByIndicator = ({ user }: { user: { name: string; avatar: string } }) => (
+const AddedByIndicator = ({
+	user,
+}: {
+	user: { name: string; avatar: string };
+}) => (
 	<div className="flex items-center gap-2 mt-2">
 		<Avatar className="size-5">
 			<AvatarImage src={user.avatar} alt={user.name} />
@@ -126,7 +132,9 @@ const ShareBanner = () => (
 			</div>
 			<div>
 				<p className="font-medium">Share Your Wishlist</p>
-				<p className="text-sm text-muted-foreground">Let friends and family know what you want</p>
+				<p className="text-sm text-muted-foreground">
+					Let friends and family know what you want
+				</p>
 			</div>
 		</div>
 		<Button className="gap-2">
@@ -138,16 +146,52 @@ const ShareBanner = () => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Cashmere Throw Blanket', price: 189.00, image: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=400&h=400&fit=crop', isGiftable: true, href: '/product/1' },
-		{ id: '2', name: 'Artisan Coffee Set', price: 79.00, image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop', isGiftable: true, addedBy: { name: 'Emma', avatar: 'https://i.pravatar.cc/100?img=5' }, href: '/product/2' },
-		{ id: '3', name: 'Scented Candle Collection', price: 65.00, image: 'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=400&h=400&fit=crop', isGiftable: true, href: '/product/3' },
-		{ id: '4', name: 'Leather Watch Strap', price: 45.00, image: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400&h=400&fit=crop', isGiftable: false, addedBy: { name: 'Jake', avatar: 'https://i.pravatar.cc/100?img=8' }, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Cashmere Throw Blanket',
+			price: 189.0,
+			image:
+				'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=400&h=400&fit=crop',
+			isGiftable: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Artisan Coffee Set',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop',
+			isGiftable: true,
+			addedBy: { name: 'Emma', avatar: 'https://i.pravatar.cc/100?img=5' },
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Scented Candle Collection',
+			price: 65.0,
+			image:
+				'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=400&h=400&fit=crop',
+			isGiftable: true,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Leather Watch Strap',
+			price: 45.0,
+			image:
+				'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400&h=400&fit=crop',
+			isGiftable: false,
+			addedBy: { name: 'Jake', avatar: 'https://i.pravatar.cc/100?img=8' },
+			href: '/product/4',
+		},
 	];
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<h1 className="text-2xl @md:text-3xl font-bold mb-6">Shared Wishlist</h1>
+				<h1 className="text-2xl @md:text-3xl font-bold mb-6">
+					Shared Wishlist
+				</h1>
 				<ShareBanner />
 				<CardGrid items={wishlistItems} />
 			</div>

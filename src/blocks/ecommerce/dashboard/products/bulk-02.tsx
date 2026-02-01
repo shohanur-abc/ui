@@ -23,12 +23,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
-} from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
 interface ProductPreview {
@@ -47,7 +42,13 @@ interface PriceChangeInputProps {
 	onChange: (value: number) => void;
 	direction: 'increase' | 'decrease' | 'set';
 	onDirectionChange: (direction: 'increase' | 'decrease' | 'set') => void;
-	labels: { fixed: string; percent: string; increase: string; decrease: string; setTo: string };
+	labels: {
+		fixed: string;
+		percent: string;
+		increase: string;
+		decrease: string;
+		setTo: string;
+	};
 }
 
 const PriceChangeInput = ({
@@ -143,8 +144,13 @@ const PreviewRow = ({ product }: PreviewRowProps) => {
 				<p
 					className={`flex items-center justify-end gap-1 text-xs ${isIncrease ? 'text-emerald-500' : isDecrease ? 'text-red-500' : 'text-muted-foreground'}`}
 				>
-					{isIncrease ? <ArrowUp className="size-3" /> : isDecrease ? <ArrowDown className="size-3" /> : null}
-					{isIncrease ? '+' : ''}{product.changePercent.toFixed(1)}%
+					{isIncrease ? (
+						<ArrowUp className="size-3" />
+					) : isDecrease ? (
+						<ArrowDown className="size-3" />
+					) : null}
+					{isIncrease ? '+' : ''}
+					{product.changePercent.toFixed(1)}%
 				</p>
 			</div>
 		</div>
@@ -174,8 +180,11 @@ const SummaryCard = ({
 			<p className="text-sm text-muted-foreground">{labels.products}</p>
 		</div>
 		<div className="text-center">
-			<p className={`text-2xl font-bold ${avgChange >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
-				{avgChange >= 0 ? '+' : ''}{avgChangePercent.toFixed(1)}%
+			<p
+				className={`text-2xl font-bold ${avgChange >= 0 ? 'text-emerald-500' : 'text-red-500'}`}
+			>
+				{avgChange >= 0 ? '+' : ''}
+				{avgChangePercent.toFixed(1)}%
 			</p>
 			<p className="text-sm text-muted-foreground">{labels.avgChange}</p>
 		</div>
@@ -194,7 +203,11 @@ interface RoundingOptionsProps {
 	label: string;
 }
 
-const RoundingOptions = ({ rounding, onChange, label }: RoundingOptionsProps) => (
+const RoundingOptions = ({
+	rounding,
+	onChange,
+	label,
+}: RoundingOptionsProps) => (
 	<div className="space-y-2">
 		<Label className="text-sm">{label}</Label>
 		<div className="flex gap-2">
@@ -213,16 +226,52 @@ const RoundingOptions = ({ rounding, onChange, label }: RoundingOptionsProps) =>
 );
 
 export default function Main() {
-	const [direction, setDirection] = React.useState<'increase' | 'decrease' | 'set'>('increase');
+	const [direction, setDirection] = React.useState<
+		'increase' | 'decrease' | 'set'
+	>('increase');
 	const [value, setValue] = React.useState(10);
 	const [type] = React.useState<'fixed' | 'percent'>('percent');
-	const [rounding, setRounding] = React.useState<'none' | '0.99' | '0.95' | '0.00'>('0.99');
+	const [rounding, setRounding] = React.useState<
+		'none' | '0.99' | '0.95' | '0.00'
+	>('0.99');
 
 	const products: ProductPreview[] = [
-		{ id: '1', name: 'Wireless Headphones Pro', sku: 'WHP-001', currentPrice: 149.99, newPrice: 164.99, change: 15, changePercent: 10 },
-		{ id: '2', name: 'Mechanical Keyboard RGB', sku: 'MKB-002', currentPrice: 199.99, newPrice: 219.99, change: 20, changePercent: 10 },
-		{ id: '3', name: 'Gaming Mouse Elite', sku: 'GME-003', currentPrice: 79.99, newPrice: 87.99, change: 8, changePercent: 10 },
-		{ id: '4', name: 'USB-C Hub 7-in-1', sku: 'UCH-004', currentPrice: 49.99, newPrice: 54.99, change: 5, changePercent: 10 },
+		{
+			id: '1',
+			name: 'Wireless Headphones Pro',
+			sku: 'WHP-001',
+			currentPrice: 149.99,
+			newPrice: 164.99,
+			change: 15,
+			changePercent: 10,
+		},
+		{
+			id: '2',
+			name: 'Mechanical Keyboard RGB',
+			sku: 'MKB-002',
+			currentPrice: 199.99,
+			newPrice: 219.99,
+			change: 20,
+			changePercent: 10,
+		},
+		{
+			id: '3',
+			name: 'Gaming Mouse Elite',
+			sku: 'GME-003',
+			currentPrice: 79.99,
+			newPrice: 87.99,
+			change: 8,
+			changePercent: 10,
+		},
+		{
+			id: '4',
+			name: 'USB-C Hub 7-in-1',
+			sku: 'UCH-004',
+			currentPrice: 49.99,
+			newPrice: 54.99,
+			change: 5,
+			changePercent: 10,
+		},
 	];
 
 	return (
@@ -264,7 +313,11 @@ export default function Main() {
 					avgChangePercent={10}
 					minPrice={54.99}
 					maxPrice={219.99}
-					labels={{ products: 'Products', avgChange: 'Avg Change', priceRange: 'Price Range' }}
+					labels={{
+						products: 'Products',
+						avgChange: 'Avg Change',
+						priceRange: 'Price Range',
+					}}
 				/>
 
 				<div className="space-y-3">

@@ -5,10 +5,23 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -36,7 +49,9 @@ const TestimonialBadge = ({
 				<Star key={i} className="size-4 fill-amber-400 text-amber-400" />
 			))}
 		</div>
-		<p className="text-sm text-muted-foreground italic mb-3">&ldquo;{quote}&rdquo;</p>
+		<p className="text-sm text-muted-foreground italic mb-3">
+			&ldquo;{quote}&rdquo;
+		</p>
 		<div className="flex items-center gap-2">
 			<Avatar className="size-8">
 				<AvatarImage src={avatar} />
@@ -150,8 +165,18 @@ export default function Main() {
 							rating={5}
 						/>
 						<form className="space-y-4 mt-6">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<RememberForgot
 								rememberLabel="Remember me"
 								forgotLabel="Forgot password?"
@@ -161,7 +186,11 @@ export default function Main() {
 						</form>
 					</CardContent>
 					<CardFooter>
-						<FooterLink text="New customer?" linkText="Create account" href="/signup" />
+						<FooterLink
+							text="New customer?"
+							linkText="Create account"
+							href="/signup"
+						/>
 					</CardFooter>
 				</Card>
 			</div>

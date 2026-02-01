@@ -28,7 +28,12 @@ interface Product {
 const OverlayProduct = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-4 py-3">
 		<div className="relative size-14 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="font-medium">{product.name}</p>
@@ -69,9 +74,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -88,7 +97,7 @@ const OverlayPanel = ({
 
 	return (
 		<>
-			<div 
+			<div
 				className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
 				onClick={onClose}
 			/>
@@ -151,7 +160,8 @@ export default function Main() {
 			variant: 'Ceramic / Large',
 			price: 44.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -159,7 +169,8 @@ export default function Main() {
 			variant: 'Mini / 3-Pack',
 			price: 24.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -167,12 +178,16 @@ export default function Main() {
 			variant: 'Copper / 2L',
 			price: 19.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=200&h=200&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative min-h-[600px] overflow-hidden" data-theme="neon">
+		<section
+			className="@container relative min-h-[600px] overflow-hidden"
+			data-theme="neon"
+		>
 			<div className="mx-auto max-w-4xl px-4 py-12 @sm:px-6 @md:py-16">
 				<div className="text-center">
 					<h1 className="text-2xl font-bold tracking-tight @md:text-3xl">
@@ -181,8 +196,8 @@ export default function Main() {
 					<p className="mt-2 text-muted-foreground">
 						Click the button below to review your order
 					</p>
-					<Button 
-						size="lg" 
+					<Button
+						size="lg"
 						className="mt-6 gap-2"
 						onClick={() => setOverlayOpen(true)}
 					>
@@ -191,10 +206,10 @@ export default function Main() {
 					</Button>
 				</div>
 
-				<OverlayPanel 
-					open={overlayOpen} 
-					onClose={() => setOverlayOpen(false)} 
-					products={products} 
+				<OverlayPanel
+					open={overlayOpen}
+					onClose={() => setOverlayOpen(false)}
+					products={products}
 				/>
 			</div>
 		</section>

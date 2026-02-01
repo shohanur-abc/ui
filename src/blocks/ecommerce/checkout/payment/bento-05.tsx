@@ -1,6 +1,15 @@
 'use client';
 
-import { Building2, Check, CreditCard, FileText, Lock, Mail, Phone, User } from 'lucide-react';
+import {
+	Building2,
+	Check,
+	CreditCard,
+	FileText,
+	Lock,
+	Mail,
+	Phone,
+	User,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -121,7 +130,15 @@ const ApprovalCell = () => (
 	</Card>
 );
 
-const OrderSummaryCell = ({ subtotal, tax, total }: { subtotal: string; tax: string; total: string }) => (
+const OrderSummaryCell = ({
+	subtotal,
+	tax,
+	total,
+}: {
+	subtotal: string;
+	tax: string;
+	total: string;
+}) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm col-span-2">
 		<CardContent className="p-4 flex items-center justify-between gap-4">
 			<div className="space-y-1">
@@ -157,7 +174,11 @@ export default function Main() {
 					<PaymentTermsCell />
 					<CardPaymentCell />
 					<ApprovalCell />
-					<OrderSummaryCell subtotal="$12,500.00" tax="$1,000.00" total="$13,500.00" />
+					<OrderSummaryCell
+						subtotal="$12,500.00"
+						tax="$1,000.00"
+						total="$13,500.00"
+					/>
 				</div>
 			</div>
 		</section>

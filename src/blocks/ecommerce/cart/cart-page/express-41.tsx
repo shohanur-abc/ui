@@ -14,7 +14,13 @@ interface CartItem {
 	quantity: number;
 }
 
-const ExpressHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const ExpressHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="flex items-center gap-3">
 		<div className="rounded-full bg-primary/10 p-2">
 			<Zap className="size-5 text-primary" />
@@ -47,7 +53,11 @@ const ItemCompact = ({ item }: { item: CartItem }) => (
 						<Plus className="size-2" />
 					</Button>
 				</div>
-				<Button size="icon-sm" variant="ghost" className="size-6 text-muted-foreground hover:text-destructive">
+				<Button
+					size="icon-sm"
+					variant="ghost"
+					className="size-6 text-muted-foreground hover:text-destructive"
+				>
 					<X className="size-3" />
 				</Button>
 			</div>
@@ -75,7 +85,11 @@ const PaymentOption = ({
 	<Button variant="outline" className="flex-1 h-auto py-3 gap-2">
 		{icon}
 		<span>{label}</span>
-		{badge && <Badge variant="secondary" className="ml-1 text-xs">{badge}</Badge>}
+		{badge && (
+			<Badge variant="secondary" className="ml-1 text-xs">
+				{badge}
+			</Badge>
+		)}
 	</Button>
 );
 
@@ -83,14 +97,16 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
 			name: 'Running Shoes Pro',
 			price: 149.99,
 			quantity: 1,
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
 			name: 'Studio Headphones',
 			price: 299.99,
 			quantity: 1,
@@ -104,7 +120,10 @@ export default function Main() {
 	return (
 		<section className="@container">
 			<div className="mx-auto max-w-md px-4 py-6">
-				<ExpressHeader title="Express Checkout" subtitle="Quick & easy payment" />
+				<ExpressHeader
+					title="Express Checkout"
+					subtitle="Quick & easy payment"
+				/>
 
 				<Card className="mt-6">
 					<CardContent className="p-4 divide-y">
@@ -134,7 +153,9 @@ export default function Main() {
 				<QuickTotal label="Total" value={`$${total.toFixed(2)}`} />
 
 				<div className="mt-6 space-y-3">
-					<p className="text-sm font-medium text-center text-muted-foreground">Express payment</p>
+					<p className="text-sm font-medium text-center text-muted-foreground">
+						Express payment
+					</p>
 					<div className="flex gap-2">
 						<PaymentOption
 							icon={<CreditCard className="size-4" />}

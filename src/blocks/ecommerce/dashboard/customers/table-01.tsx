@@ -52,18 +52,30 @@ const Header = ({
 }: {
 	title: string;
 	searchPlaceholder: string;
-	actions: { label: string; icon: React.ElementType; variant?: 'outline' | 'default' }[];
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		variant?: 'outline' | 'default';
+	}[];
 }) => (
 	<div className="flex flex-col gap-4 @lg:flex-row @lg:items-center @lg:justify-between">
 		<h2 className="text-xl font-semibold tracking-tight">{title}</h2>
 		<div className="flex flex-col gap-3 @sm:flex-row @sm:items-center">
 			<div className="relative">
 				<Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
-				<Input placeholder={searchPlaceholder} className="w-full pl-9 @sm:w-64" />
+				<Input
+					placeholder={searchPlaceholder}
+					className="w-full pl-9 @sm:w-64"
+				/>
 			</div>
 			<div className="flex gap-2">
 				{actions.map((action, i) => (
-					<Button key={i} variant={action.variant || 'outline'} size="sm" className="gap-2">
+					<Button
+						key={i}
+						variant={action.variant || 'outline'}
+						size="sm"
+						className="gap-2"
+					>
 						<action.icon className="size-4" />
 						<span className="hidden @md:inline">{action.label}</span>
 					</Button>
@@ -123,7 +135,9 @@ const CustomerRow = ({
 		<TableCell className="hidden @md:table-cell text-right">
 			{customer.totalOrders}
 		</TableCell>
-		<TableCell className="text-right font-medium">{customer.totalSpent}</TableCell>
+		<TableCell className="text-right font-medium">
+			{customer.totalSpent}
+		</TableCell>
 		<TableCell className="hidden @xl:table-cell text-muted-foreground text-sm">
 			{customer.joinedDate}
 		</TableCell>
@@ -175,7 +189,11 @@ const CustomerTable = ({
 		</TableHeader>
 		<TableBody>
 			{customers.map((customer) => (
-				<CustomerRow key={customer.id} customer={customer} actionItems={actionItems} />
+				<CustomerRow
+					key={customer.id}
+					customer={customer}
+					actionItems={actionItems}
+				/>
 			))}
 		</TableBody>
 	</Table>
@@ -256,7 +274,11 @@ export default function Main() {
 		{ key: 'customer', label: 'Customer' },
 		{ key: 'phone', label: 'Phone', className: 'hidden @xl:table-cell' },
 		{ key: 'status', label: 'Status', className: 'hidden @lg:table-cell' },
-		{ key: 'orders', label: 'Orders', className: 'hidden @md:table-cell text-right' },
+		{
+			key: 'orders',
+			label: 'Orders',
+			className: 'hidden @md:table-cell text-right',
+		},
 		{ key: 'spent', label: 'Total Spent', className: 'text-right' },
 		{ key: 'joined', label: 'Joined', className: 'hidden @xl:table-cell' },
 	];

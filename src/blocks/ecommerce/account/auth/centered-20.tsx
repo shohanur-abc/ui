@@ -13,7 +13,13 @@ const GradientDecorative = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -24,7 +30,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-6">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -56,8 +64,18 @@ const FormField = ({
 
 const EmailLoginForm = () => (
 	<form className="space-y-5">
-		<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<Button type="submit" size="lg" className="w-full gap-2 group">
 			Sign in
 			<ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -67,8 +85,18 @@ const EmailLoginForm = () => (
 
 const OrderLookupForm = () => (
 	<form className="space-y-5">
-		<FormField label="Order Number" type="text" placeholder="ORD-123456789" icon={Search} />
-		<FormField label="Email or Phone" type="text" placeholder="you@example.com or (555) 123-4567" icon={Mail} />
+		<FormField
+			label="Order Number"
+			type="text"
+			placeholder="ORD-123456789"
+			icon={Search}
+		/>
+		<FormField
+			label="Email or Phone"
+			type="text"
+			placeholder="you@example.com or (555) 123-4567"
+			icon={Mail}
+		/>
 		<Button type="submit" size="lg" className="w-full gap-2 group">
 			Track Order
 			<Search className="size-4" />
@@ -78,7 +106,12 @@ const OrderLookupForm = () => (
 
 const StoreLocatorForm = () => (
 	<form className="space-y-5">
-		<FormField label="ZIP Code or City" type="text" placeholder="Enter location" icon={MapPin} />
+		<FormField
+			label="ZIP Code or City"
+			type="text"
+			placeholder="Enter location"
+			icon={MapPin}
+		/>
 		<Button type="submit" size="lg" className="w-full gap-2 group">
 			Find Stores
 			<MapPin className="size-4" />
@@ -114,7 +147,10 @@ export default function Main() {
 			<div className="relative min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo name="OmniShop" icon={Store} />
-					<Title text="Welcome to OmniShop" subtitle="Sign in, track orders, or find a store" />
+					<Title
+						text="Welcome to OmniShop"
+						subtitle="Sign in, track orders, or find a store"
+					/>
 
 					<Tabs defaultValue="signin" className="w-full">
 						<TabsList className="grid w-full grid-cols-3 mb-6">
@@ -125,19 +161,31 @@ export default function Main() {
 						<TabsContent value="signin">
 							<EmailLoginForm />
 							<div className="mt-6">
-								<FooterLink text="New customer?" linkText="Create account" href="/signup" />
+								<FooterLink
+									text="New customer?"
+									linkText="Create account"
+									href="/signup"
+								/>
 							</div>
 						</TabsContent>
 						<TabsContent value="order">
 							<OrderLookupForm />
 							<div className="mt-6">
-								<FooterLink text="Need help?" linkText="Contact support" href="/support" />
+								<FooterLink
+									text="Need help?"
+									linkText="Contact support"
+									href="/support"
+								/>
 							</div>
 						</TabsContent>
 						<TabsContent value="store">
 							<StoreLocatorForm />
 							<div className="mt-6">
-								<FooterLink text="Want to see all stores?" linkText="View directory" href="/stores" />
+								<FooterLink
+									text="Want to see all stores?"
+									linkText="View directory"
+									href="/stores"
+								/>
 							</div>
 						</TabsContent>
 					</Tabs>

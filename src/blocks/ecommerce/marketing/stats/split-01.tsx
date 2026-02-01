@@ -23,7 +23,9 @@ const Content = ({ badge, title, description, cta }: ContentProps) => (
 			<TrendingUp className="size-3" />
 			{badge}
 		</Badge>
-		<h2 className="text-3xl font-bold tracking-tight @sm:text-4xl @xl:text-5xl">{title}</h2>
+		<h2 className="text-3xl font-bold tracking-tight @sm:text-4xl @xl:text-5xl">
+			{title}
+		</h2>
 		<p className="text-muted-foreground leading-relaxed">{description}</p>
 		<Button asChild className="w-fit gap-2">
 			<Link href={cta.href}>
@@ -38,10 +40,14 @@ const StatCard = ({ value, label, change }: StatItemProps) => (
 	<Card className="group p-6 transition-all duration-300 hover:shadow-md">
 		<div className="flex items-start justify-between">
 			<div className="space-y-2">
-				<p className="text-3xl font-bold tracking-tight @sm:text-4xl">{value}</p>
+				<p className="text-3xl font-bold tracking-tight @sm:text-4xl">
+					{value}
+				</p>
 				<p className="text-sm text-muted-foreground">{label}</p>
 			</div>
-			<Badge variant="outline" className="text-xs text-accent">{change}</Badge>
+			<Badge variant="outline" className="text-xs text-accent">
+				{change}
+			</Badge>
 		</div>
 	</Card>
 );
@@ -50,7 +56,8 @@ export default function Main() {
 	const content: ContentProps = {
 		badge: 'Performance Metrics',
 		title: 'Growing faster than ever',
-		description: 'Our platform has seen unprecedented growth this quarter. Join thousands of merchants who trust us with their business.',
+		description:
+			'Our platform has seen unprecedented growth this quarter. Join thousands of merchants who trust us with their business.',
 		cta: { label: 'Start Selling', href: '/signup' },
 	};
 

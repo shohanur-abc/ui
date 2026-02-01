@@ -31,11 +31,7 @@ interface CTAProps {
 	}[];
 }
 
-const SubscriptionSuccessCard = ({
-	plan,
-}: {
-	plan: string;
-}) => (
+const SubscriptionSuccessCard = ({ plan }: { plan: string }) => (
 	<Card className="bg-gradient-to-r from-indigo-500/10 via-violet-500/5 to-purple-500/10 border-indigo-200 dark:border-indigo-800/30">
 		<CardContent className="pt-6">
 			<div className="flex items-center gap-4">
@@ -46,9 +42,7 @@ const SubscriptionSuccessCard = ({
 					<h1 className="text-xl @lg:text-2xl font-bold">
 						Subscription Active!
 					</h1>
-					<p className="text-muted-foreground">
-						Welcome to {plan}
-					</p>
+					<p className="text-muted-foreground">Welcome to {plan}</p>
 				</div>
 				<Badge className="bg-indigo-500">Active</Badge>
 			</div>
@@ -148,9 +142,7 @@ const WelcomeBonusCard = ({
 					<CheckCircle className="size-5 text-amber-500 shrink-0 mt-0.5" />
 					<div>
 						<p className="font-medium text-sm">{bonus.title}</p>
-						<p className="text-xs text-muted-foreground">
-							{bonus.description}
-						</p>
+						<p className="text-xs text-muted-foreground">{bonus.description}</p>
 					</div>
 				</div>
 			))}

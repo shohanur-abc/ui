@@ -65,7 +65,10 @@ const Header = ({
 		<div className="flex flex-col gap-2 @sm:flex-row @sm:items-center">
 			<div className="relative">
 				<Search className="absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-				<Input placeholder={searchPlaceholder} className="w-full pl-9 @sm:w-64" />
+				<Input
+					placeholder={searchPlaceholder}
+					className="w-full pl-9 @sm:w-64"
+				/>
 			</div>
 			<Button variant="outline" size="default">
 				<Filter className="size-4" />
@@ -267,7 +270,10 @@ export default function Main() {
 	const actions = [
 		{ label: 'View Details', onClick: (id: string) => console.log('View', id) },
 		{ label: 'Edit', onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Adjust Stock', onClick: (id: string) => console.log('Adjust', id) },
+		{
+			label: 'Adjust Stock',
+			onClick: (id: string) => console.log('Adjust', id),
+		},
 		{ label: 'Delete', onClick: (id: string) => console.log('Delete', id) },
 	];
 

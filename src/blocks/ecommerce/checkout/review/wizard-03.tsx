@@ -2,7 +2,13 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -51,7 +57,9 @@ const WizardStep = ({
 		>
 			{completed ? <Check className="size-5" /> : number}
 		</div>
-		<span className={`text-xs ${active ? 'font-medium' : 'text-muted-foreground'}`}>
+		<span
+			className={`text-xs ${active ? 'font-medium' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</span>
 	</div>
@@ -120,7 +128,9 @@ const PaymentBox = ({
 	<div className="flex items-center gap-4 rounded-xl border bg-card p-4">
 		<CreditCard className="size-6 text-primary" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -137,9 +147,13 @@ const SummaryRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -154,7 +168,8 @@ export default function Main() {
 			variant: 'Electric / Walnut',
 			price: 599.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -162,7 +177,8 @@ export default function Main() {
 			variant: 'Dual / Clamp',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -229,12 +245,17 @@ export default function Main() {
 						<PaymentBox brand="Amex" last4="0002" exp="03/28" />
 
 						<div className="flex justify-between pt-4">
-							<Button variant="outline" onClick={() => setStep((s) => Math.max(1, s - 1))}>
+							<Button
+								variant="outline"
+								onClick={() => setStep((s) => Math.max(1, s - 1))}
+							>
 								<ArrowLeft className="mr-2 size-4" />
 								Back
 							</Button>
 							{step < totalSteps && (
-								<Button onClick={() => setStep((s) => Math.min(totalSteps, s + 1))}>
+								<Button
+									onClick={() => setStep((s) => Math.min(totalSteps, s + 1))}
+								>
 									Next
 									<ArrowRight className="ml-2 size-4" />
 								</Button>
@@ -255,7 +276,11 @@ export default function Main() {
 							<SummaryRow label="Total" value="$713.72" bold />
 						</CardContent>
 						<CardFooter className="flex-col gap-3">
-							<Button size="lg" className="w-full gap-2" disabled={step !== totalSteps}>
+							<Button
+								size="lg"
+								className="w-full gap-2"
+								disabled={step !== totalSteps}
+							>
 								<Lock className="size-4" />
 								Place Order
 								<ArrowRight className="size-4" />

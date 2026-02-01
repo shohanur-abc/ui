@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
@@ -12,7 +18,16 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Minus, Plus, X, ArrowRight, ShoppingCart, Package, CreditCard, Percent } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	ShoppingCart,
+	Package,
+	CreditCard,
+	Percent,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -25,7 +40,13 @@ interface CartItem {
 	quantity: number;
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div>
 		<h1 className="text-2xl font-bold @md:text-3xl">{title}</h1>
 		<p className="text-muted-foreground">{subtitle}</p>
@@ -59,13 +80,19 @@ const DrawerItem = ({ item }: { item: CartItem }) => (
 					<h4 className="font-medium text-sm line-clamp-1">{item.name}</h4>
 					<p className="text-xs text-muted-foreground">{item.variant}</p>
 				</div>
-				<Button size="icon-sm" variant="ghost" className="size-6 text-muted-foreground hover:text-destructive">
+				<Button
+					size="icon-sm"
+					variant="ghost"
+					className="size-6 text-muted-foreground hover:text-destructive"
+				>
 					<X className="size-3" />
 				</Button>
 			</div>
 			<div className="flex items-center justify-between mt-2">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-semibold text-sm">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-semibold text-sm">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -80,7 +107,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between text-sm ${bold ? 'font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between text-sm ${bold ? 'font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -106,9 +135,7 @@ const CartDrawer = ({
 					<ShoppingCart className="size-5" />
 					Your Cart
 				</SheetTitle>
-				<SheetDescription>
-					{items.length} items in your cart
-				</SheetDescription>
+				<SheetDescription>{items.length} items in your cart</SheetDescription>
 			</SheetHeader>
 
 			<ScrollArea className="flex-1 -mx-6 px-6">
@@ -183,7 +210,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
 			name: 'Running Shoes Pro',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -191,7 +219,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
 			name: 'Studio Headphones',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -199,7 +228,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver • Leather',
 			price: 249.99,
@@ -207,7 +237,8 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&h=150&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White • ANC',
 			price: 179.99,
@@ -248,7 +279,10 @@ export default function Main() {
 		<section className="@container">
 			<div className="mx-auto max-w-4xl px-4 py-8 @md:py-12">
 				<div className="flex items-start justify-between gap-4">
-					<PageHeader title="Shopping" subtitle="Continue browsing or review your cart" />
+					<PageHeader
+						title="Shopping"
+						subtitle="Continue browsing or review your cart"
+					/>
 					<CartDrawer items={items} summaryLines={summaryLines} />
 				</div>
 
@@ -266,12 +300,22 @@ export default function Main() {
 						<CardContent>
 							<p className="text-muted-foreground mb-4">
 								You have {items.length} items in your cart totaling{' '}
-								<span className="font-bold text-foreground">${total.toFixed(2)}</span>
+								<span className="font-bold text-foreground">
+									${total.toFixed(2)}
+								</span>
 							</p>
 							<div className="flex flex-wrap gap-2">
 								{items.slice(0, 4).map((item) => (
-									<div key={item.id} className="relative size-12 overflow-hidden rounded-lg bg-muted">
-										<Image src={item.image} alt={item.name} fill className="object-cover" />
+									<div
+										key={item.id}
+										className="relative size-12 overflow-hidden rounded-lg bg-muted"
+									>
+										<Image
+											src={item.image}
+											alt={item.name}
+											fill
+											className="object-cover"
+										/>
 									</div>
 								))}
 								{items.length > 4 && (

@@ -35,8 +35,12 @@ interface SocialProofProps {
 
 const ImageHeader = ({ src, alt, badge }: ImageHeaderProps) => (
 	<div className="relative aspect-video overflow-hidden">
-		<img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover" />
-		<div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+		<img
+			src={src}
+			alt={alt}
+			className="absolute inset-0 w-full h-full object-cover"
+		/>
+		<div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent" />
 		{badge && (
 			<Badge className="absolute top-4 left-4 gap-1.5 shadow-lg">
 				<badge.icon className="size-3" />
@@ -47,11 +51,15 @@ const ImageHeader = ({ src, alt, badge }: ImageHeaderProps) => (
 );
 
 const Title = ({ text }: TitleProps) => (
-	<h2 className="text-xl @sm:text-2xl @lg:text-3xl font-bold tracking-tight">{text}</h2>
+	<h2 className="text-xl @sm:text-2xl @lg:text-3xl font-bold tracking-tight">
+		{text}
+	</h2>
 );
 
 const Description = ({ text }: DescriptionProps) => (
-	<p className="text-muted-foreground text-sm @md:text-base leading-relaxed">{text}</p>
+	<p className="text-muted-foreground text-sm @md:text-base leading-relaxed">
+		{text}
+	</p>
 );
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
@@ -67,7 +75,10 @@ const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 const Benefits = ({ items }: BenefitsProps) => (
 	<div className="flex flex-col gap-2">
 		{items.map((item, i) => (
-			<div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+			<div
+				key={i}
+				className="flex items-center gap-2 text-sm text-muted-foreground"
+			>
 				<Check className="size-4 text-primary shrink-0" />
 				<span>{item}</span>
 			</div>
@@ -95,9 +106,17 @@ export default function Main() {
 					<CardContent className="flex flex-col gap-5 p-6 -mt-8 relative">
 						<Title text="Insights for modern business leaders" />
 						<Description text="Weekly analysis, trends, and strategies to help you make smarter business decisions." />
-						<Form placeholder="your@company.com" buttonText="Subscribe Now" buttonIcon={Send} />
+						<Form
+							placeholder="your@company.com"
+							buttonText="Subscribe Now"
+							buttonIcon={Send}
+						/>
 						<Benefits
-							items={['Expert analysis every week', 'Exclusive case studies', 'Actionable strategies']}
+							items={[
+								'Expert analysis every week',
+								'Exclusive case studies',
+								'Actionable strategies',
+							]}
 						/>
 						<SocialProof icon={Users} text="Trusted by 18,000+ professionals" />
 					</CardContent>

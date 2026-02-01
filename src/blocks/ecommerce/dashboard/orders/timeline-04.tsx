@@ -1,7 +1,16 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Clock, Package, DollarSign, RotateCcw, Star, AlertCircle, CheckCircle, Truck } from 'lucide-react';
+import {
+	Clock,
+	Package,
+	DollarSign,
+	RotateCcw,
+	Star,
+	AlertCircle,
+	CheckCircle,
+	Truck,
+} from 'lucide-react';
 
 interface CustomerHistoryEvent {
 	id: string;
@@ -25,7 +34,10 @@ interface HistoryEventProps {
 	isLast: boolean;
 }
 
-const EventTypeConfig: Record<CustomerHistoryEvent['type'], { icon: typeof Package; color: string; bg: string }> = {
+const EventTypeConfig: Record<
+	CustomerHistoryEvent['type'],
+	{ icon: typeof Package; color: string; bg: string }
+> = {
 	order: { icon: Package, color: 'text-primary', bg: 'bg-primary/10' },
 	return: { icon: RotateCcw, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
 	review: { icon: Star, color: 'text-accent', bg: 'bg-accent/10' },
@@ -37,7 +49,9 @@ const HistoryEvent = ({ event, isLast }: HistoryEventProps) => {
 	return (
 		<div className="flex gap-4">
 			<div className="flex flex-col items-center">
-				<div className={`size-10 rounded-full flex items-center justify-center ${bg}`}>
+				<div
+					className={`size-10 rounded-full flex items-center justify-center ${bg}`}
+				>
 					<Icon className={`size-5 ${color}`} />
 				</div>
 				{!isLast && <div className="w-0.5 flex-1 bg-border my-2" />}
@@ -49,13 +63,17 @@ const HistoryEvent = ({ event, isLast }: HistoryEventProps) => {
 						<div>
 							<p className="font-semibold">{event.title}</p>
 							{event.orderId && (
-								<p className="text-xs text-muted-foreground font-mono">{event.orderId}</p>
+								<p className="text-xs text-muted-foreground font-mono">
+									{event.orderId}
+								</p>
 							)}
 						</div>
 						<span className="text-xs text-muted-foreground">{event.date}</span>
 					</div>
 
-					<p className="text-sm text-muted-foreground mb-3">{event.description}</p>
+					<p className="text-sm text-muted-foreground mb-3">
+						{event.description}
+					</p>
 
 					<div className="flex items-center gap-3">
 						{event.amount && (
@@ -67,16 +85,27 @@ const HistoryEvent = ({ event, isLast }: HistoryEventProps) => {
 						{event.rating && (
 							<div className="flex items-center gap-1">
 								{[...Array(5)].map((_, i) => (
-									<Star key={i} className={`size-3 ${i < event.rating! ? 'text-yellow-500 fill-yellow-500' : 'text-muted'}`} />
+									<Star
+										key={i}
+										className={`size-3 ${i < event.rating! ? 'text-yellow-500 fill-yellow-500' : 'text-muted'}`}
+									/>
 								))}
 							</div>
 						)}
 						{event.status && (
-							<Badge variant="outline" className={
-								event.status === 'positive' ? 'text-accent border-accent/30' :
-								event.status === 'negative' ? 'text-destructive border-destructive/30' : ''
-							}>
-								{event.status === 'positive' ? <CheckCircle className="size-3 mr-1" /> : null}
+							<Badge
+								variant="outline"
+								className={
+									event.status === 'positive'
+										? 'text-accent border-accent/30'
+										: event.status === 'negative'
+											? 'text-destructive border-destructive/30'
+											: ''
+								}
+							>
+								{event.status === 'positive' ? (
+									<CheckCircle className="size-3 mr-1" />
+								) : null}
 								{event.status}
 							</Badge>
 						)}
@@ -89,11 +118,53 @@ const HistoryEvent = ({ event, isLast }: HistoryEventProps) => {
 
 export default function Main() {
 	const events: CustomerHistoryEvent[] = [
-		{ id: '1', type: 'order', title: 'Order Completed', orderId: '#ORD-2024-156', description: 'Wireless headphones and accessories delivered', date: 'Jan 30, 2024', amount: '$289.00', status: 'positive' },
-		{ id: '2', type: 'review', title: 'Product Review', orderId: '#ORD-2024-142', description: 'Left a 5-star review for Bluetooth Speaker', date: 'Jan 25, 2024', rating: 5 },
-		{ id: '3', type: 'return', title: 'Return Processed', orderId: '#ORD-2024-138', description: 'Returned USB-C Hub - wrong product received', date: 'Jan 20, 2024', amount: '$49.99', status: 'neutral' },
-		{ id: '4', type: 'order', title: 'Order Completed', orderId: '#ORD-2024-125', description: '3 items delivered successfully', date: 'Jan 15, 2024', amount: '$156.00', status: 'positive' },
-		{ id: '5', type: 'support', title: 'Support Ticket', description: 'Inquiry about product warranty', date: 'Jan 10, 2024', status: 'positive' },
+		{
+			id: '1',
+			type: 'order',
+			title: 'Order Completed',
+			orderId: '#ORD-2024-156',
+			description: 'Wireless headphones and accessories delivered',
+			date: 'Jan 30, 2024',
+			amount: '$289.00',
+			status: 'positive',
+		},
+		{
+			id: '2',
+			type: 'review',
+			title: 'Product Review',
+			orderId: '#ORD-2024-142',
+			description: 'Left a 5-star review for Bluetooth Speaker',
+			date: 'Jan 25, 2024',
+			rating: 5,
+		},
+		{
+			id: '3',
+			type: 'return',
+			title: 'Return Processed',
+			orderId: '#ORD-2024-138',
+			description: 'Returned USB-C Hub - wrong product received',
+			date: 'Jan 20, 2024',
+			amount: '$49.99',
+			status: 'neutral',
+		},
+		{
+			id: '4',
+			type: 'order',
+			title: 'Order Completed',
+			orderId: '#ORD-2024-125',
+			description: '3 items delivered successfully',
+			date: 'Jan 15, 2024',
+			amount: '$156.00',
+			status: 'positive',
+		},
+		{
+			id: '5',
+			type: 'support',
+			title: 'Support Ticket',
+			description: 'Inquiry about product warranty',
+			date: 'Jan 10, 2024',
+			status: 'positive',
+		},
 	];
 
 	return (
@@ -105,7 +176,11 @@ export default function Main() {
 					</CardHeader>
 					<CardContent>
 						{events.map((event, i) => (
-							<HistoryEvent key={event.id} event={event} isLast={i === events.length - 1} />
+							<HistoryEvent
+								key={event.id}
+								event={event}
+								isLast={i === events.length - 1}
+							/>
 						))}
 					</CardContent>
 				</Card>

@@ -51,7 +51,9 @@ const ProfileBanner = ({
 				<div className="flex-1">
 					<h1 className="text-xl font-bold">{name}</h1>
 					<p className="text-sm text-muted-foreground">{email}</p>
-					<p className="text-xs text-muted-foreground">Member since {memberSince}</p>
+					<p className="text-xs text-muted-foreground">
+						Member since {memberSince}
+					</p>
 				</div>
 				<Button variant="outline" asChild>
 					<Link href="/settings">
@@ -111,7 +113,9 @@ const LoyaltyCard = ({
 				<Badge variant="outline">{points.toLocaleString()} pts</Badge>
 			</div>
 			<Progress value={progress} className="h-2 mb-2" />
-			<p className="text-xs text-muted-foreground">{progress}% to {nextTier}</p>
+			<p className="text-xs text-muted-foreground">
+				{progress}% to {nextTier}
+			</p>
 		</CardContent>
 	</Card>
 );
@@ -160,7 +164,9 @@ const RecentOrderCard = ({
 		<CardHeader className="pb-2">
 			<div className="flex items-center justify-between">
 				<h3 className="font-semibold">Recent Order</h3>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent>
@@ -169,7 +175,9 @@ const RecentOrderCard = ({
 					<Package className="size-10 text-muted-foreground" />
 					<div>
 						<p className="font-medium">Order #{orderId}</p>
-						<p className="text-sm text-muted-foreground">{items} items • {date}</p>
+						<p className="text-sm text-muted-foreground">
+							{items} items • {date}
+						</p>
 					</div>
 				</div>
 				<div className="text-right">
@@ -197,7 +205,11 @@ const AddressCard = ({
 				<div className="flex-1 min-w-0">
 					<div className="flex items-center gap-2">
 						<p className="font-medium text-sm">{label}</p>
-						{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+						{isDefault && (
+							<Badge variant="secondary" className="text-xs">
+								Default
+							</Badge>
+						)}
 					</div>
 					<p className="text-xs text-muted-foreground truncate">{address}</p>
 				</div>
@@ -222,7 +234,11 @@ const PaymentMethodCard = ({
 				<div className="flex-1">
 					<div className="flex items-center gap-2">
 						<p className="font-medium text-sm">{brand}</p>
-						{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+						{isDefault && (
+							<Badge variant="secondary" className="text-xs">
+								Default
+							</Badge>
+						)}
 					</div>
 					<p className="text-xs text-muted-foreground">•••• {last4}</p>
 				</div>
@@ -248,10 +264,30 @@ export default function Main() {
 		],
 		loyalty: { points: 2450, tier: 'Gold', nextTier: 'Platinum', progress: 65 },
 		quickActions: [
-			{ icon: Truck, label: 'Track Orders', description: '2 in transit', href: '/orders' },
-			{ icon: Bell, label: 'Notifications', description: '5 unread', href: '/notifications' },
-			{ icon: Wallet, label: 'Wallet', description: '$125.00 balance', href: '/wallet' },
-			{ icon: Calendar, label: 'Subscriptions', description: '2 active', href: '/subscriptions' },
+			{
+				icon: Truck,
+				label: 'Track Orders',
+				description: '2 in transit',
+				href: '/orders',
+			},
+			{
+				icon: Bell,
+				label: 'Notifications',
+				description: '5 unread',
+				href: '/notifications',
+			},
+			{
+				icon: Wallet,
+				label: 'Wallet',
+				description: '$125.00 balance',
+				href: '/wallet',
+			},
+			{
+				icon: Calendar,
+				label: 'Subscriptions',
+				description: '2 active',
+				href: '/subscriptions',
+			},
 		],
 		recentOrder: {
 			orderId: '12847',
@@ -261,8 +297,16 @@ export default function Main() {
 			total: '$156.00',
 		},
 		addresses: [
-			{ label: 'Home', address: '123 Main Street, Apt 4B, New York, NY 10001', isDefault: true },
-			{ label: 'Office', address: '456 Business Ave, Floor 12, New York, NY 10002', isDefault: false },
+			{
+				label: 'Home',
+				address: '123 Main Street, Apt 4B, New York, NY 10001',
+				isDefault: true,
+			},
+			{
+				label: 'Office',
+				address: '456 Business Ave, Floor 12, New York, NY 10002',
+				isDefault: false,
+			},
 		],
 		paymentMethods: [
 			{ brand: 'Visa', last4: '4242', isDefault: true },

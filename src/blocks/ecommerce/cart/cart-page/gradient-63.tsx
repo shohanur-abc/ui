@@ -1,8 +1,21 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, Sparkles, ShoppingBag } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	Sparkles,
+	ShoppingBag,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -56,11 +69,21 @@ const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 
 const QuantityControl = ({ quantity }: { quantity: number }) => (
 	<div className="flex items-center rounded-xl bg-gradient-to-r from-purple-100 to-pink-100">
-		<Button size="icon-sm" variant="ghost" className="size-8 text-purple-600 hover:bg-purple-200/50 rounded-l-xl">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 text-purple-600 hover:bg-purple-200/50 rounded-l-xl"
+		>
 			<Minus className="size-3" />
 		</Button>
-		<span className="w-6 text-center text-sm font-semibold text-purple-700">{quantity}</span>
-		<Button size="icon-sm" variant="ghost" className="size-8 text-purple-600 hover:bg-purple-200/50 rounded-r-xl">
+		<span className="w-6 text-center text-sm font-semibold text-purple-700">
+			{quantity}
+		</span>
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 text-purple-600 hover:bg-purple-200/50 rounded-r-xl"
+		>
 			<Plus className="size-3" />
 		</Button>
 	</div>
@@ -120,9 +143,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	discount?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span className={bold ? 'text-foreground' : ''}>{label}</span>
-		<span className={`${bold ? 'bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent' : ''} ${discount ? 'text-green-600' : ''}`}>
+		<span
+			className={`${bold ? 'bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent' : ''} ${discount ? 'text-green-600' : ''}`}
+		>
 			{value}
 		</span>
 	</div>
@@ -132,7 +159,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Studio Headphones Pro',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -140,7 +168,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White • ANC',
 			price: 179.99,
@@ -148,7 +177,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -163,7 +193,11 @@ export default function Main() {
 
 	const summaryLines = [
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
-		{ label: 'Summer Sale (-15%)', value: `-$${discount.toFixed(2)}`, discount: true },
+		{
+			label: 'Summer Sale (-15%)',
+			value: `-$${discount.toFixed(2)}`,
+			discount: true,
+		},
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax', value: `$${tax.toFixed(2)}` },
 		{ label: 'Total', value: `$${total.toFixed(2)}`, bold: true },

@@ -1,10 +1,27 @@
 'use client';
 
-import { AlertCircle, ArrowRight, Check, CreditCard, Lock, Minus, Package, Plus, Shield, Trash2, X } from 'lucide-react';
+import {
+	AlertCircle,
+	ArrowRight,
+	Check,
+	CreditCard,
+	Lock,
+	Minus,
+	Package,
+	Plus,
+	Shield,
+	Trash2,
+	X,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -17,7 +34,13 @@ interface CartItem {
 	image?: string;
 }
 
-const DrawerHeader = ({ itemCount, onClose }: { itemCount: number; onClose: () => void }) => (
+const DrawerHeader = ({
+	itemCount,
+	onClose,
+}: {
+	itemCount: number;
+	onClose: () => void;
+}) => (
 	<div className="flex items-center justify-between">
 		<div className="flex items-center gap-2">
 			<Package className="size-5 text-primary" />
@@ -30,7 +53,15 @@ const DrawerHeader = ({ itemCount, onClose }: { itemCount: number; onClose: () =
 	</div>
 );
 
-const CartItemComponent = ({ item, onQuantityChange, onRemove }: { item: CartItem; onQuantityChange: (delta: number) => void; onRemove: () => void }) => (
+const CartItemComponent = ({
+	item,
+	onQuantityChange,
+	onRemove,
+}: {
+	item: CartItem;
+	onQuantityChange: (delta: number) => void;
+	onRemove: () => void;
+}) => (
 	<div className="flex gap-3 p-3 rounded-lg bg-muted/30">
 		<div className="size-16 rounded-lg bg-muted flex items-center justify-center shrink-0">
 			<Package className="size-6 text-muted-foreground" />
@@ -39,14 +70,29 @@ const CartItemComponent = ({ item, onQuantityChange, onRemove }: { item: CartIte
 			<h3 className="font-medium truncate">{item.name}</h3>
 			<span className="text-sm text-muted-foreground">{item.price}</span>
 			<div className="flex items-center gap-2 mt-2">
-				<Button variant="outline" size="icon" className="size-6" onClick={() => onQuantityChange(-1)}>
+				<Button
+					variant="outline"
+					size="icon"
+					className="size-6"
+					onClick={() => onQuantityChange(-1)}
+				>
 					<Minus className="size-3" />
 				</Button>
 				<span className="text-sm w-6 text-center">{item.quantity}</span>
-				<Button variant="outline" size="icon" className="size-6" onClick={() => onQuantityChange(1)}>
+				<Button
+					variant="outline"
+					size="icon"
+					className="size-6"
+					onClick={() => onQuantityChange(1)}
+				>
 					<Plus className="size-3" />
 				</Button>
-				<Button variant="ghost" size="icon" className="size-6 ml-auto text-destructive" onClick={onRemove}>
+				<Button
+					variant="ghost"
+					size="icon"
+					className="size-6 ml-auto text-destructive"
+					onClick={onRemove}
+				>
 					<Trash2 className="size-3" />
 				</Button>
 			</div>
@@ -76,7 +122,11 @@ const QuickCardForm = () => (
 const PromoCodeInput = ({ appliedCode }: { appliedCode?: string }) => (
 	<div className="space-y-2">
 		<div className="flex gap-2">
-			<Input placeholder="Promo code" className="flex-1" defaultValue={appliedCode} />
+			<Input
+				placeholder="Promo code"
+				className="flex-1"
+				defaultValue={appliedCode}
+			/>
 			<Button variant="outline">{appliedCode ? 'Remove' : 'Apply'}</Button>
 		</div>
 		{appliedCode && (
@@ -88,7 +138,17 @@ const PromoCodeInput = ({ appliedCode }: { appliedCode?: string }) => (
 	</div>
 );
 
-const OrderSummary = ({ subtotal, discount, shipping, total }: { subtotal: string; discount?: string; shipping: string; total: string }) => (
+const OrderSummary = ({
+	subtotal,
+	discount,
+	shipping,
+	total,
+}: {
+	subtotal: string;
+	discount?: string;
+	shipping: string;
+	total: string;
+}) => (
 	<div className="space-y-2">
 		<div className="flex justify-between text-sm">
 			<span className="text-muted-foreground">Subtotal</span>
@@ -124,7 +184,12 @@ const DeliveryEstimate = () => (
 
 export default function Main() {
 	const cartItems: CartItem[] = [
-		{ id: '1', name: 'Premium Wireless Headphones', price: '$199.00', quantity: 1 },
+		{
+			id: '1',
+			name: 'Premium Wireless Headphones',
+			price: '$199.00',
+			quantity: 1,
+		},
 		{ id: '2', name: 'USB-C Charging Cable', price: '$29.00', quantity: 2 },
 	];
 
@@ -138,7 +203,12 @@ export default function Main() {
 					<CardContent className="space-y-4">
 						<div className="space-y-3 max-h-48 overflow-y-auto">
 							{cartItems.map((item) => (
-								<CartItemComponent key={item.id} item={item} onQuantityChange={() => {}} onRemove={() => {}} />
+								<CartItemComponent
+									key={item.id}
+									item={item}
+									onQuantityChange={() => {}}
+									onRemove={() => {}}
+								/>
 							))}
 						</div>
 						<Separator />
@@ -148,7 +218,12 @@ export default function Main() {
 						<QuickCardForm />
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
-						<OrderSummary subtotal="$257.00" discount="$25.70" shipping="Free" total="$231.30" />
+						<OrderSummary
+							subtotal="$257.00"
+							discount="$25.70"
+							shipping="Free"
+							total="$231.30"
+						/>
 						<Button className="w-full gap-2">
 							<Lock className="size-4" />
 							Pay $231.30

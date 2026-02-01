@@ -94,9 +94,7 @@ export default function Main() {
 					</Link>
 				</Button>
 				<div className="space-y-2">
-					<p className="text-center text-xs text-muted-foreground">
-						We accept
-					</p>
+					<p className="text-center text-xs text-muted-foreground">We accept</p>
 					<div className="flex justify-center gap-2">
 						{paymentMethods.map((method, i) => (
 							<PaymentIcon key={i} {...method} />

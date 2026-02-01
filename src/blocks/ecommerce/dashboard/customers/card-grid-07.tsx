@@ -46,9 +46,24 @@ interface VIPCustomer {
 }
 
 const TierConfig = {
-	gold: { label: 'Gold VIP', color: 'text-amber-500', bg: 'bg-amber-500/10', border: 'border-amber-500/30' },
-	platinum: { label: 'Platinum VIP', color: 'text-violet-400', bg: 'bg-violet-400/10', border: 'border-violet-400/30' },
-	diamond: { label: 'Diamond VIP', color: 'text-cyan-400', bg: 'bg-cyan-400/10', border: 'border-cyan-400/30' },
+	gold: {
+		label: 'Gold VIP',
+		color: 'text-amber-500',
+		bg: 'bg-amber-500/10',
+		border: 'border-amber-500/30',
+	},
+	platinum: {
+		label: 'Platinum VIP',
+		color: 'text-violet-400',
+		bg: 'bg-violet-400/10',
+		border: 'border-violet-400/30',
+	},
+	diamond: {
+		label: 'Diamond VIP',
+		color: 'text-cyan-400',
+		bg: 'bg-cyan-400/10',
+		border: 'border-cyan-400/30',
+	},
 };
 
 const PageHeader = ({
@@ -83,7 +98,10 @@ const PageHeader = ({
 const VIPBadge = ({ tier }: { tier: VIPCustomer['tier'] }) => {
 	const config = TierConfig[tier];
 	return (
-		<Badge variant="outline" className={`${config.color} ${config.border} gap-1`}>
+		<Badge
+			variant="outline"
+			className={`${config.color} ${config.border} gap-1`}
+		>
 			<Star className="size-3 fill-current" />
 			{config.label}
 		</Badge>
@@ -113,8 +131,12 @@ const StatItem = ({
 const VIPCard = ({ customer }: { customer: VIPCustomer }) => {
 	const tierConfig = TierConfig[customer.tier];
 	return (
-		<Card className={`group relative overflow-hidden transition-shadow hover:shadow-lg ${tierConfig.border} border-2`}>
-			<div className={`absolute inset-x-0 top-0 h-1 ${tierConfig.bg.replace('/10', '')}`} />
+		<Card
+			className={`group relative overflow-hidden transition-shadow hover:shadow-lg ${tierConfig.border} border-2`}
+		>
+			<div
+				className={`absolute inset-x-0 top-0 h-1 ${tierConfig.bg.replace('/10', '')}`}
+			/>
 			<CardHeader className="pb-3">
 				<div className="flex items-start justify-between">
 					<div className="flex items-center gap-3">
@@ -125,7 +147,9 @@ const VIPCard = ({ customer }: { customer: VIPCustomer }) => {
 									{customer.initials}
 								</AvatarFallback>
 							</Avatar>
-							<div className={`absolute -right-1 -bottom-1 rounded-full p-1 ${tierConfig.bg}`}>
+							<div
+								className={`absolute -right-1 -bottom-1 rounded-full p-1 ${tierConfig.bg}`}
+							>
 								<Star className={`size-3 ${tierConfig.color} fill-current`} />
 							</div>
 						</div>
@@ -161,16 +185,36 @@ const VIPCard = ({ customer }: { customer: VIPCustomer }) => {
 			<CardContent className="space-y-4">
 				<div className="flex items-center justify-between">
 					<VIPBadge tier={customer.tier} />
-					<span className="text-muted-foreground text-xs">VIP since {customer.vipSince}</span>
+					<span className="text-muted-foreground text-xs">
+						VIP since {customer.vipSince}
+					</span>
 				</div>
 				<div className="grid grid-cols-2 gap-3">
-					<StatItem icon={DollarSign} label="Total Spent" value={customer.totalSpent} />
-					<StatItem icon={ShoppingBag} label="Orders (YTD)" value={customer.ordersThisYear} />
-					<StatItem icon={TrendingUp} label="Avg. Order" value={customer.avgOrderValue} />
-					<StatItem icon={Clock} label="Last Purchase" value={customer.lastPurchase} />
+					<StatItem
+						icon={DollarSign}
+						label="Total Spent"
+						value={customer.totalSpent}
+					/>
+					<StatItem
+						icon={ShoppingBag}
+						label="Orders (YTD)"
+						value={customer.ordersThisYear}
+					/>
+					<StatItem
+						icon={TrendingUp}
+						label="Avg. Order"
+						value={customer.avgOrderValue}
+					/>
+					<StatItem
+						icon={Clock}
+						label="Last Purchase"
+						value={customer.lastPurchase}
+					/>
 				</div>
 				<div className="space-y-2 border-t pt-3">
-					<p className="text-muted-foreground text-xs font-medium">Special Perks</p>
+					<p className="text-muted-foreground text-xs font-medium">
+						Special Perks
+					</p>
 					<div className="flex flex-wrap gap-1">
 						{customer.specialPerks.map((perk) => (
 							<Badge key={perk} variant="secondary" className="text-xs">
@@ -207,7 +251,12 @@ export default function Main() {
 			avgOrderValue: '$2,614',
 			location: 'New York, USA',
 			lastPurchase: '2 days ago',
-			specialPerks: ['Free Shipping', 'Early Access', 'Personal Shopper', '20% Off'],
+			specialPerks: [
+				'Free Shipping',
+				'Early Access',
+				'Personal Shopper',
+				'20% Off',
+			],
 			accountManager: 'Sarah Johnson',
 		},
 		{

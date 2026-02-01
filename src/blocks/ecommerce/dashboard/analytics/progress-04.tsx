@@ -13,10 +13,34 @@ type Metric = {
 };
 
 const metrics: Metric[] = [
-	{ label: 'Revenue', current: 84500, previous: 72000, target: 100000, unit: '$' },
-	{ label: 'Conversion Rate', current: 3.8, previous: 3.2, target: 5.0, unit: '%' },
-	{ label: 'Avg Order Value', current: 78, previous: 82, target: 85, unit: '$' },
-	{ label: 'Customer Satisfaction', current: 4.5, previous: 4.3, target: 4.8, unit: '/5' },
+	{
+		label: 'Revenue',
+		current: 84500,
+		previous: 72000,
+		target: 100000,
+		unit: '$',
+	},
+	{
+		label: 'Conversion Rate',
+		current: 3.8,
+		previous: 3.2,
+		target: 5.0,
+		unit: '%',
+	},
+	{
+		label: 'Avg Order Value',
+		current: 78,
+		previous: 82,
+		target: 85,
+		unit: '$',
+	},
+	{
+		label: 'Customer Satisfaction',
+		current: 4.5,
+		previous: 4.3,
+		target: 4.8,
+		unit: '/5',
+	},
 ];
 
 export default function Main() {
@@ -26,15 +50,21 @@ export default function Main() {
 				<div className="grid grid-cols-1 @md:grid-cols-2 gap-4">
 					{metrics.map((metric, i) => {
 						const percent = (metric.current / metric.target) * 100;
-						const change = ((metric.current - metric.previous) / metric.previous) * 100;
+						const change =
+							((metric.current - metric.previous) / metric.previous) * 100;
 						const isUp = change > 0;
-						
+
 						return (
-							<Card key={i} className="border-border/50 bg-card/80 backdrop-blur-sm">
+							<Card
+								key={i}
+								className="border-border/50 bg-card/80 backdrop-blur-sm"
+							>
 								<CardContent className="pt-6">
 									<div className="flex items-start justify-between mb-4">
 										<div>
-											<p className="text-xs text-muted-foreground">{metric.label}</p>
+											<p className="text-xs text-muted-foreground">
+												{metric.label}
+											</p>
 											<p className="text-2xl font-bold">
 												{metric.unit === '$' && metric.unit}
 												{metric.current.toLocaleString()}
@@ -43,16 +73,27 @@ export default function Main() {
 										</div>
 										<Badge
 											variant="outline"
-											className={isUp ? 'text-emerald-500 border-emerald-500/30' : 'text-rose-500 border-rose-500/30'}
+											className={
+												isUp
+													? 'text-emerald-500 border-emerald-500/30'
+													: 'text-rose-500 border-rose-500/30'
+											}
 										>
-											{isUp ? <TrendingUp className="size-3 mr-1" /> : <TrendingDown className="size-3 mr-1" />}
-											{isUp ? '+' : ''}{change.toFixed(1)}%
+											{isUp ? (
+												<TrendingUp className="size-3 mr-1" />
+											) : (
+												<TrendingDown className="size-3 mr-1" />
+											)}
+											{isUp ? '+' : ''}
+											{change.toFixed(1)}%
 										</Badge>
 									</div>
-									
+
 									<div className="space-y-2">
 										<div className="flex items-center justify-between text-xs">
-											<span className="text-muted-foreground">Progress to target</span>
+											<span className="text-muted-foreground">
+												Progress to target
+											</span>
 											<span className="font-medium">{percent.toFixed(0)}%</span>
 										</div>
 										<div className="h-2 bg-muted/30 rounded-full overflow-hidden">
@@ -62,8 +103,16 @@ export default function Main() {
 											/>
 										</div>
 										<div className="flex items-center justify-between text-xs text-muted-foreground">
-											<span>Previous: {metric.unit === '$' && metric.unit}{metric.previous.toLocaleString()}{metric.unit !== '$' && metric.unit}</span>
-											<span>Target: {metric.unit === '$' && metric.unit}{metric.target.toLocaleString()}{metric.unit !== '$' && metric.unit}</span>
+											<span>
+												Previous: {metric.unit === '$' && metric.unit}
+												{metric.previous.toLocaleString()}
+												{metric.unit !== '$' && metric.unit}
+											</span>
+											<span>
+												Target: {metric.unit === '$' && metric.unit}
+												{metric.target.toLocaleString()}
+												{metric.unit !== '$' && metric.unit}
+											</span>
 										</div>
 									</div>
 								</CardContent>

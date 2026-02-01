@@ -8,7 +8,13 @@ interface PercentageStatProps {
 	color: 'primary' | 'accent' | 'chart-3' | 'chart-4';
 }
 
-const CircularProgress = ({ value, color }: { value: number; color: string }) => {
+const CircularProgress = ({
+	value,
+	color,
+}: {
+	value: number;
+	color: string;
+}) => {
 	const circumference = 2 * Math.PI * 40;
 	const offset = circumference - (value / 100) * circumference;
 
@@ -44,7 +50,12 @@ const CircularProgress = ({ value, color }: { value: number; color: string }) =>
 	);
 };
 
-const PercentageStat = ({ label, value, description, color }: PercentageStatProps) => (
+const PercentageStat = ({
+	label,
+	value,
+	description,
+	color,
+}: PercentageStatProps) => (
 	<Card className="group flex flex-col items-center p-6 text-center transition-all duration-300 hover:shadow-md">
 		<CircularProgress value={value} color={color} />
 		<p className="mt-4 font-semibold">{label}</p>
@@ -54,10 +65,30 @@ const PercentageStat = ({ label, value, description, color }: PercentageStatProp
 
 export default function Main() {
 	const stats: PercentageStatProps[] = [
-		{ label: 'Conversion Rate', value: 78, description: 'Above industry avg', color: 'primary' },
-		{ label: 'Customer Retention', value: 92, description: 'Year over year', color: 'accent' },
-		{ label: 'Order Accuracy', value: 99, description: 'Last quarter', color: 'chart-3' },
-		{ label: 'On-time Delivery', value: 96, description: 'Shipping performance', color: 'chart-4' },
+		{
+			label: 'Conversion Rate',
+			value: 78,
+			description: 'Above industry avg',
+			color: 'primary',
+		},
+		{
+			label: 'Customer Retention',
+			value: 92,
+			description: 'Year over year',
+			color: 'accent',
+		},
+		{
+			label: 'Order Accuracy',
+			value: 99,
+			description: 'Last quarter',
+			color: 'chart-3',
+		},
+		{
+			label: 'On-time Delivery',
+			value: 96,
+			description: 'Shipping performance',
+			color: 'chart-4',
+		},
 	];
 
 	return (

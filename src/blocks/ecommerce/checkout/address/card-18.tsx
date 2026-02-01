@@ -47,9 +47,7 @@ const PageHeader = () => (
 		<div className="inline-flex items-center justify-center size-16 rounded-2xl bg-primary/10 mb-4">
 			<MapPin className="size-8 text-primary" />
 		</div>
-		<h1 className="text-2xl @md:text-3xl font-bold mb-2">
-			Shipping Details
-		</h1>
+		<h1 className="text-2xl @md:text-3xl font-bold mb-2">Shipping Details</h1>
 		<p className="text-muted-foreground max-w-md mx-auto">
 			Select or update your delivery information
 		</p>
@@ -180,9 +178,7 @@ export default function Main() {
 					<Button variant="ghost" size="lg">
 						← Back to Cart
 					</Button>
-					<Button size="lg">
-						Continue to Payment →
-					</Button>
+					<Button size="lg">Continue to Payment →</Button>
 				</div>
 			</div>
 		</section>

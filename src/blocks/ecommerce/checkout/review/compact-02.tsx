@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -27,11 +33,18 @@ interface CartProduct {
 const CompactItem = ({ product }: { product: CartProduct }) => (
 	<div className="flex items-center gap-3 py-2">
 		<div className="relative size-12 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="truncate text-sm font-medium">{product.name}</p>
-			<p className="truncate text-xs text-muted-foreground">{product.variant}</p>
+			<p className="truncate text-xs text-muted-foreground">
+				{product.variant}
+			</p>
 		</div>
 		<div className="text-right">
 			<p className="text-sm font-semibold">${product.price.toFixed(2)}</p>
@@ -72,9 +85,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -86,7 +103,8 @@ export default function Main() {
 			variant: 'Series 8 / Black',
 			price: 399.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -94,7 +112,8 @@ export default function Main() {
 			variant: 'Sport / Navy',
 			price: 49.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -102,7 +121,8 @@ export default function Main() {
 			variant: 'USB-C / White',
 			price: 39.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -148,12 +168,7 @@ export default function Main() {
 								value="Visa •••• 1234"
 								verified
 							/>
-							<InfoChip
-								icon={Package}
-								label="Status"
-								value="Ready"
-								verified
-							/>
+							<InfoChip icon={Package} label="Status" value="Ready" verified />
 						</div>
 
 						<Separator />

@@ -15,7 +15,9 @@ const ChangeIndicator = ({ change }: { change: number }) => {
 	const Icon = isPositive ? TrendingUp : TrendingDown;
 
 	return (
-		<span className={`flex items-center gap-0.5 text-xs ${isPositive ? 'text-accent' : 'text-destructive'}`}>
+		<span
+			className={`flex items-center gap-0.5 text-xs ${isPositive ? 'text-accent' : 'text-destructive'}`}
+		>
 			<Icon className="size-3" />
 			{Math.abs(change)}%
 		</span>

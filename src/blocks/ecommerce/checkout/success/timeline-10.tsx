@@ -112,7 +112,10 @@ const TimelineStep = ({
 				<div className="text-right">
 					<span className="text-sm text-muted-foreground">{time}</span>
 					{ecoImpact && (
-						<Badge variant="outline" className="ml-2 text-emerald-600 border-emerald-200">
+						<Badge
+							variant="outline"
+							className="ml-2 text-emerald-600 border-emerald-200"
+						>
 							<Leaf className="size-3 mr-1" />
 							{ecoImpact}
 						</Badge>
@@ -169,7 +172,13 @@ const LifetimeImpactCard = ({
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 justify-center">
 		{items.map(({ label, href, variant, icon: Icon }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="gap-2" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="gap-2"
+				asChild
+			>
 				<Link href={href}>
 					{label}
 					{Icon && <Icon className="size-4" />}

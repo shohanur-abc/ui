@@ -1,21 +1,11 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	MoreHorizontal,
-	Eye,
-	Edit,
-	Trash2,
-} from 'lucide-react';
+import { Package, MoreHorizontal, Eye, Edit, Trash2 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardFooter,
-} from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -39,13 +29,21 @@ type InventoryItem = {
 
 type ProductCardProps = {
 	item: InventoryItem;
-	actions: { label: string; icon: React.ElementType; onClick: (id: string) => void; destructive?: boolean }[];
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		onClick: (id: string) => void;
+		destructive?: boolean;
+	}[];
 	statusLabels: Record<'in-stock' | 'low-stock' | 'out-of-stock', string>;
 };
 
 const ProductCard = ({ item, actions, statusLabels }: ProductCardProps) => {
 	const stockPercentage = Math.min((item.quantity / item.maxStock) * 100, 100);
-	const variants: Record<'in-stock' | 'low-stock' | 'out-of-stock', 'default' | 'secondary' | 'destructive'> = {
+	const variants: Record<
+		'in-stock' | 'low-stock' | 'out-of-stock',
+		'default' | 'secondary' | 'destructive'
+	> = {
 		'in-stock': 'default',
 		'low-stock': 'secondary',
 		'out-of-stock': 'destructive',
@@ -118,7 +116,9 @@ const ProductCard = ({ item, actions, statusLabels }: ProductCardProps) => {
 			</CardContent>
 			<CardFooter className="border-t p-4">
 				<div className="flex w-full items-center justify-between">
-					<span className="text-lg font-semibold">${item.price.toFixed(2)}</span>
+					<span className="text-lg font-semibold">
+						${item.price.toFixed(2)}
+					</span>
 					<span className="text-sm text-muted-foreground">per unit</span>
 				</div>
 			</CardFooter>
@@ -128,20 +128,113 @@ const ProductCard = ({ item, actions, statusLabels }: ProductCardProps) => {
 
 export default function Main() {
 	const inventory: InventoryItem[] = [
-		{ id: '1', name: 'Wireless Headphones', sku: 'WH-001', image: '', quantity: 85, maxStock: 100, price: 79.99, category: 'Electronics', status: 'in-stock' },
-		{ id: '2', name: 'Bluetooth Speaker', sku: 'BS-002', image: '', quantity: 12, maxStock: 50, price: 49.99, category: 'Electronics', status: 'low-stock' },
-		{ id: '3', name: 'USB-C Hub', sku: 'UCH-003', image: '', quantity: 0, maxStock: 75, price: 34.99, category: 'Accessories', status: 'out-of-stock' },
-		{ id: '4', name: 'Mechanical Keyboard', sku: 'MK-004', image: '', quantity: 45, maxStock: 60, price: 129.99, category: 'Peripherals', status: 'in-stock' },
-		{ id: '5', name: 'Gaming Mouse', sku: 'GM-005', image: '', quantity: 8, maxStock: 40, price: 59.99, category: 'Peripherals', status: 'low-stock' },
-		{ id: '6', name: 'Monitor Stand', sku: 'MS-006', image: '', quantity: 92, maxStock: 100, price: 44.99, category: 'Accessories', status: 'in-stock' },
-		{ id: '7', name: 'Webcam HD', sku: 'WC-007', image: '', quantity: 0, maxStock: 30, price: 89.99, category: 'Electronics', status: 'out-of-stock' },
-		{ id: '8', name: 'Desk Lamp LED', sku: 'DL-008', image: '', quantity: 67, maxStock: 80, price: 29.99, category: 'Accessories', status: 'in-stock' },
+		{
+			id: '1',
+			name: 'Wireless Headphones',
+			sku: 'WH-001',
+			image: '',
+			quantity: 85,
+			maxStock: 100,
+			price: 79.99,
+			category: 'Electronics',
+			status: 'in-stock',
+		},
+		{
+			id: '2',
+			name: 'Bluetooth Speaker',
+			sku: 'BS-002',
+			image: '',
+			quantity: 12,
+			maxStock: 50,
+			price: 49.99,
+			category: 'Electronics',
+			status: 'low-stock',
+		},
+		{
+			id: '3',
+			name: 'USB-C Hub',
+			sku: 'UCH-003',
+			image: '',
+			quantity: 0,
+			maxStock: 75,
+			price: 34.99,
+			category: 'Accessories',
+			status: 'out-of-stock',
+		},
+		{
+			id: '4',
+			name: 'Mechanical Keyboard',
+			sku: 'MK-004',
+			image: '',
+			quantity: 45,
+			maxStock: 60,
+			price: 129.99,
+			category: 'Peripherals',
+			status: 'in-stock',
+		},
+		{
+			id: '5',
+			name: 'Gaming Mouse',
+			sku: 'GM-005',
+			image: '',
+			quantity: 8,
+			maxStock: 40,
+			price: 59.99,
+			category: 'Peripherals',
+			status: 'low-stock',
+		},
+		{
+			id: '6',
+			name: 'Monitor Stand',
+			sku: 'MS-006',
+			image: '',
+			quantity: 92,
+			maxStock: 100,
+			price: 44.99,
+			category: 'Accessories',
+			status: 'in-stock',
+		},
+		{
+			id: '7',
+			name: 'Webcam HD',
+			sku: 'WC-007',
+			image: '',
+			quantity: 0,
+			maxStock: 30,
+			price: 89.99,
+			category: 'Electronics',
+			status: 'out-of-stock',
+		},
+		{
+			id: '8',
+			name: 'Desk Lamp LED',
+			sku: 'DL-008',
+			image: '',
+			quantity: 67,
+			maxStock: 80,
+			price: 29.99,
+			category: 'Accessories',
+			status: 'in-stock',
+		},
 	];
 
 	const actions = [
-		{ label: 'View Details', icon: Eye, onClick: (id: string) => console.log('View', id) },
-		{ label: 'Edit Product', icon: Edit, onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Delete', icon: Trash2, onClick: (id: string) => console.log('Delete', id), destructive: true },
+		{
+			label: 'View Details',
+			icon: Eye,
+			onClick: (id: string) => console.log('View', id),
+		},
+		{
+			label: 'Edit Product',
+			icon: Edit,
+			onClick: (id: string) => console.log('Edit', id),
+		},
+		{
+			label: 'Delete',
+			icon: Trash2,
+			onClick: (id: string) => console.log('Delete', id),
+			destructive: true,
+		},
 	];
 
 	const statusLabels = {

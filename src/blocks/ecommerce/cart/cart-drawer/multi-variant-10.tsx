@@ -53,7 +53,12 @@ const ImageStack = ({ images, alt }: { images: string[]; alt: string }) => (
 					zIndex: 3 - index,
 				}}
 			>
-				<Image src={src} alt={`${alt} ${index + 1}`} fill className="object-cover" />
+				<Image
+					src={src}
+					alt={`${alt} ${index + 1}`}
+					fill
+					className="object-cover"
+				/>
 			</div>
 		))}
 	</div>
@@ -90,13 +95,21 @@ const StackedItem = ({ item }: { item: CartItem }) => (
 			<OptionTags options={item.options} />
 			<div className="mt-auto flex items-center justify-between pt-2">
 				<div className="flex items-center rounded-full bg-muted px-1">
-					<Button size="icon-sm" variant="ghost" className="size-6 rounded-full">
+					<Button
+						size="icon-sm"
+						variant="ghost"
+						className="size-6 rounded-full"
+					>
 						<Minus className="size-3" />
 					</Button>
 					<span className="w-6 text-center text-sm font-medium">
 						{item.quantity}
 					</span>
-					<Button size="icon-sm" variant="ghost" className="size-6 rounded-full">
+					<Button
+						size="icon-sm"
+						variant="ghost"
+						className="size-6 rounded-full"
+					>
 						<Plus className="size-3" />
 					</Button>
 				</div>
@@ -156,7 +169,7 @@ export default function Main() {
 					{ label: 'Style', value: 'Aviator' },
 					{ label: 'Lens', value: 'Polarized' },
 				],
-				price: 245.00,
+				price: 245.0,
 				quantity: 1,
 			},
 			{
@@ -170,7 +183,7 @@ export default function Main() {
 					{ label: 'Band', value: 'Leather' },
 					{ label: 'Face', value: 'Gold' },
 				],
-				price: 599.00,
+				price: 599.0,
 				quantity: 1,
 			},
 		],
@@ -180,7 +193,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

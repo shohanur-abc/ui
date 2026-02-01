@@ -110,7 +110,9 @@ const LicenseCard = ({
 			<div className="p-3 rounded-lg bg-white/10 font-mono text-center">
 				{licenseKey}
 			</div>
-			<p className="text-xs opacity-80 mt-3 text-center">Valid until {expiresAt}</p>
+			<p className="text-xs opacity-80 mt-3 text-center">
+				Valid until {expiresAt}
+			</p>
 		</CardContent>
 	</Card>
 );
@@ -157,7 +159,13 @@ const DownloadCard = ({
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 justify-center">
 		{items.map(({ label, href, variant, icon: Icon }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="gap-2" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="gap-2"
+				asChild
+			>
 				<Link href={href}>
 					{label}
 					{Icon && <Icon className="size-4" />}

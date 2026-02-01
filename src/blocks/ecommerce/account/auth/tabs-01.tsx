@@ -5,10 +5,23 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -76,7 +89,10 @@ const TermsCheckbox = ({
 }) => (
 	<div className="flex items-start gap-2">
 		<Checkbox id={id} className="mt-0.5" />
-		<Label htmlFor={id} className="text-sm font-normal cursor-pointer leading-relaxed">
+		<Label
+			htmlFor={id}
+			className="text-sm font-normal cursor-pointer leading-relaxed"
+		>
 			{label}{' '}
 			<Link href={termsHref} className="text-primary hover:underline">
 				Terms
@@ -106,8 +122,20 @@ const SubmitButton = ({
 
 const SignInForm = () => (
 	<form className="space-y-4">
-		<FormField id="signin-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField id="signin-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			id="signin-email"
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="signin-password"
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<RememberForgot
 			id="signin-remember"
 			rememberLabel="Remember me"
@@ -120,9 +148,27 @@ const SignInForm = () => (
 
 const SignUpForm = () => (
 	<form className="space-y-4">
-		<FormField id="signup-name" label="Full Name" type="text" placeholder="John Doe" icon={User} />
-		<FormField id="signup-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField id="signup-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			id="signup-name"
+			label="Full Name"
+			type="text"
+			placeholder="John Doe"
+			icon={User}
+		/>
+		<FormField
+			id="signup-email"
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="signup-password"
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<TermsCheckbox
 			id="signup-terms"
 			label="I agree to the"

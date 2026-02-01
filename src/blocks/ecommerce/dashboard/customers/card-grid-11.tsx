@@ -19,7 +19,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	DropdownMenu,
@@ -48,13 +53,22 @@ interface RecommendationCustomer {
 	engagementScore: number;
 }
 
-const PriorityIcon = ({ priority }: { priority: 'high' | 'medium' | 'low' }) => {
+const PriorityIcon = ({
+	priority,
+}: {
+	priority: 'high' | 'medium' | 'low';
+}) => {
 	if (priority === 'high') return <Flame className="size-3.5 text-red-500" />;
-	if (priority === 'medium') return <Sparkles className="size-3.5 text-amber-500" />;
+	if (priority === 'medium')
+		return <Sparkles className="size-3.5 text-amber-500" />;
 	return <Tag className="size-3.5 text-muted-foreground" />;
 };
 
-const RecommendationTypeIcon = ({ type }: { type: 'product' | 'offer' | 'reward' | 'message' }) => {
+const RecommendationTypeIcon = ({
+	type,
+}: {
+	type: 'product' | 'offer' | 'reward' | 'message';
+}) => {
 	const icons = {
 		product: ShoppingBag,
 		offer: Percent,
@@ -84,7 +98,9 @@ const RecommendationItem = ({
 			</p>
 			<div className="mt-1.5 flex items-center gap-2">
 				<Progress value={recommendation.confidence} className="h-1 flex-1" />
-				<span className="text-muted-foreground text-xs">{recommendation.confidence}%</span>
+				<span className="text-muted-foreground text-xs">
+					{recommendation.confidence}%
+				</span>
 			</div>
 		</div>
 	</div>
@@ -97,9 +113,7 @@ const EngagementMeter = ({ score }: { score: number }) => (
 				<div
 					key={level}
 					className={`h-3 w-1.5 rounded-full ${
-						score >= level * 20
-							? 'bg-primary'
-							: 'bg-muted'
+						score >= level * 20 ? 'bg-primary' : 'bg-muted'
 					}`}
 				/>
 			))}
@@ -108,7 +122,11 @@ const EngagementMeter = ({ score }: { score: number }) => (
 	</div>
 );
 
-const RecommendationCard = ({ customer }: { customer: RecommendationCustomer }) => (
+const RecommendationCard = ({
+	customer,
+}: {
+	customer: RecommendationCustomer;
+}) => (
 	<Card className="group flex flex-col transition-shadow hover:shadow-lg">
 		<CardHeader className="pb-3">
 			<div className="flex items-start justify-between">
@@ -126,7 +144,11 @@ const RecommendationCard = ({ customer }: { customer: RecommendationCustomer }) 
 				</div>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100">
+						<Button
+							variant="ghost"
+							size="icon-sm"
+							className="opacity-0 group-hover:opacity-100"
+						>
 							<MoreHorizontal className="size-4" />
 						</Button>
 					</DropdownMenuTrigger>
@@ -151,11 +173,17 @@ const RecommendationCard = ({ customer }: { customer: RecommendationCustomer }) 
 			</div>
 			<div className="flex items-center gap-2 rounded-lg bg-violet-500/10 px-3 py-2">
 				<Clock className="text-violet-400 size-4" />
-				<span className="text-muted-foreground text-xs">Predicted next purchase:</span>
-				<span className="text-sm font-medium text-violet-400">{customer.predictedNextPurchase}</span>
+				<span className="text-muted-foreground text-xs">
+					Predicted next purchase:
+				</span>
+				<span className="text-sm font-medium text-violet-400">
+					{customer.predictedNextPurchase}
+				</span>
 			</div>
 			<div className="space-y-2">
-				<p className="text-muted-foreground text-xs font-medium">AI Recommendations</p>
+				<p className="text-muted-foreground text-xs font-medium">
+					AI Recommendations
+				</p>
 				{customer.recommendations.slice(0, 2).map((rec, index) => (
 					<RecommendationItem key={index} recommendation={rec} />
 				))}
@@ -188,8 +216,20 @@ export default function Main() {
 			lastPurchase: '5 days ago',
 			totalSpent: '$2,450',
 			recommendations: [
-				{ type: 'product', title: 'Wireless Earbuds Pro', description: 'Based on browsing history and similar customers', confidence: 92, priority: 'high' },
-				{ type: 'offer', title: '15% Off Next Order', description: 'High likelihood of conversion with discount', confidence: 85, priority: 'medium' },
+				{
+					type: 'product',
+					title: 'Wireless Earbuds Pro',
+					description: 'Based on browsing history and similar customers',
+					confidence: 92,
+					priority: 'high',
+				},
+				{
+					type: 'offer',
+					title: '15% Off Next Order',
+					description: 'High likelihood of conversion with discount',
+					confidence: 85,
+					priority: 'medium',
+				},
 			],
 			predictedNextPurchase: '3-5 days',
 			preferredCategories: ['Electronics', 'Audio', 'Tech'],
@@ -203,8 +243,20 @@ export default function Main() {
 			lastPurchase: '12 days ago',
 			totalSpent: '$1,890',
 			recommendations: [
-				{ type: 'message', title: 'Re-engagement Email', description: 'Customer shows signs of declining activity', confidence: 78, priority: 'high' },
-				{ type: 'reward', title: 'Loyalty Points Bonus', description: 'Offer 2x points to encourage return visit', confidence: 72, priority: 'medium' },
+				{
+					type: 'message',
+					title: 'Re-engagement Email',
+					description: 'Customer shows signs of declining activity',
+					confidence: 78,
+					priority: 'high',
+				},
+				{
+					type: 'reward',
+					title: 'Loyalty Points Bonus',
+					description: 'Offer 2x points to encourage return visit',
+					confidence: 72,
+					priority: 'medium',
+				},
 			],
 			predictedNextPurchase: '7-10 days',
 			preferredCategories: ['Sports', 'Fitness', 'Outdoor'],
@@ -218,8 +270,20 @@ export default function Main() {
 			lastPurchase: '2 days ago',
 			totalSpent: '$4,120',
 			recommendations: [
-				{ type: 'product', title: 'Premium Skincare Set', description: 'Frequently purchased with recent items', confidence: 95, priority: 'high' },
-				{ type: 'offer', title: 'VIP Early Access', description: 'New collection matching preferences', confidence: 90, priority: 'high' },
+				{
+					type: 'product',
+					title: 'Premium Skincare Set',
+					description: 'Frequently purchased with recent items',
+					confidence: 95,
+					priority: 'high',
+				},
+				{
+					type: 'offer',
+					title: 'VIP Early Access',
+					description: 'New collection matching preferences',
+					confidence: 90,
+					priority: 'high',
+				},
 			],
 			predictedNextPurchase: '1-2 days',
 			preferredCategories: ['Beauty', 'Skincare', 'Wellness'],
@@ -233,8 +297,20 @@ export default function Main() {
 			lastPurchase: '8 days ago',
 			totalSpent: '$950',
 			recommendations: [
-				{ type: 'reward', title: 'Free Shipping Upgrade', description: 'Low-cost incentive with high impact', confidence: 82, priority: 'medium' },
-				{ type: 'product', title: 'Smart Home Starter Kit', description: 'Trending in customer segment', confidence: 68, priority: 'low' },
+				{
+					type: 'reward',
+					title: 'Free Shipping Upgrade',
+					description: 'Low-cost incentive with high impact',
+					confidence: 82,
+					priority: 'medium',
+				},
+				{
+					type: 'product',
+					title: 'Smart Home Starter Kit',
+					description: 'Trending in customer segment',
+					confidence: 68,
+					priority: 'low',
+				},
 			],
 			predictedNextPurchase: '5-7 days',
 			preferredCategories: ['Home', 'Smart Devices'],
@@ -248,8 +324,20 @@ export default function Main() {
 			lastPurchase: '20 days ago',
 			totalSpent: '$680',
 			recommendations: [
-				{ type: 'offer', title: 'Win-Back Offer: 25% Off', description: 'At-risk customer, aggressive discount recommended', confidence: 75, priority: 'high' },
-				{ type: 'message', title: 'Personal Check-in', description: 'High-touch outreach may improve retention', confidence: 65, priority: 'medium' },
+				{
+					type: 'offer',
+					title: 'Win-Back Offer: 25% Off',
+					description: 'At-risk customer, aggressive discount recommended',
+					confidence: 75,
+					priority: 'high',
+				},
+				{
+					type: 'message',
+					title: 'Personal Check-in',
+					description: 'High-touch outreach may improve retention',
+					confidence: 65,
+					priority: 'medium',
+				},
 			],
 			predictedNextPurchase: '10-14 days',
 			preferredCategories: ['Fashion', 'Accessories'],
@@ -263,8 +351,20 @@ export default function Main() {
 			lastPurchase: '1 day ago',
 			totalSpent: '$3,200',
 			recommendations: [
-				{ type: 'product', title: 'Premium Headphones', description: 'Perfect upsell opportunity post-purchase', confidence: 88, priority: 'high' },
-				{ type: 'reward', title: 'Refer-a-Friend Bonus', description: 'High satisfaction, ideal for referral program', confidence: 80, priority: 'medium' },
+				{
+					type: 'product',
+					title: 'Premium Headphones',
+					description: 'Perfect upsell opportunity post-purchase',
+					confidence: 88,
+					priority: 'high',
+				},
+				{
+					type: 'reward',
+					title: 'Refer-a-Friend Bonus',
+					description: 'High satisfaction, ideal for referral program',
+					confidence: 80,
+					priority: 'medium',
+				},
 			],
 			predictedNextPurchase: '2-4 days',
 			preferredCategories: ['Electronics', 'Gaming'],
@@ -280,8 +380,12 @@ export default function Main() {
 						<Sparkles className="size-5" />
 					</div>
 					<div>
-						<h1 className="text-2xl font-bold tracking-tight">AI Recommendations</h1>
-						<p className="text-muted-foreground text-sm">Personalized suggestions for each customer</p>
+						<h1 className="text-2xl font-bold tracking-tight">
+							AI Recommendations
+						</h1>
+						<p className="text-muted-foreground text-sm">
+							Personalized suggestions for each customer
+						</p>
 					</div>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-3">

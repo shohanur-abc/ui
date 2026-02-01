@@ -27,7 +27,9 @@ const FeaturePanel = ({
 						</div>
 						<div>
 							<div className="font-semibold mb-1">{feature.title}</div>
-							<div className="text-sm text-muted-foreground">{feature.description}</div>
+							<div className="text-sm text-muted-foreground">
+								{feature.description}
+							</div>
 						</div>
 					</div>
 				))}
@@ -36,7 +38,13 @@ const FeaturePanel = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -47,7 +55,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -115,7 +125,10 @@ const FooterLink = ({
 
 export default function Main() {
 	const features = [
-		{ title: 'Premium Quality', description: 'Curated selection of luxury products' },
+		{
+			title: 'Premium Quality',
+			description: 'Curated selection of luxury products',
+		},
 		{ title: 'Free Shipping', description: 'On all orders over $100' },
 		{ title: 'VIP Support', description: 'Personal shopping assistance 24/7' },
 		{ title: 'Easy Returns', description: '30-day hassle-free returns' },
@@ -131,21 +144,53 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0">
 						<Logo name="LuxeMarket" icon={Gem} />
-						<Title text="Join LuxeMarket" subtitle="Create your premium account today" />
+						<Title
+							text="Join LuxeMarket"
+							subtitle="Create your premium account today"
+						/>
 
 						<form className="space-y-5">
 							<FormRow>
-								<FormField label="First Name" type="text" placeholder="John" icon={User} />
-								<FormField label="Last Name" type="text" placeholder="Doe" icon={User} />
+								<FormField
+									label="First Name"
+									type="text"
+									placeholder="John"
+									icon={User}
+								/>
+								<FormField
+									label="Last Name"
+									type="text"
+									placeholder="Doe"
+									icon={User}
+								/>
 							</FormRow>
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Phone" type="tel" placeholder="+1 (555) 000-0000" icon={Phone} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Phone"
+								type="tel"
+								placeholder="+1 (555) 000-0000"
+								icon={Phone}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<SubmitButton label="Create Premium Account" icon={ArrowRight} />
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="Already a member?" linkText="Sign in" href="/login" />
+							<FooterLink
+								text="Already a member?"
+								linkText="Sign in"
+								href="/login"
+							/>
 						</div>
 					</div>
 				</div>

@@ -1,14 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Search,
-	Filter,
-	X,
-	ChevronDown,
-	ChevronUp,
-	Check,
-} from 'lucide-react';
+import { Search, Filter, X, ChevronDown, ChevronUp, Check } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -48,7 +41,13 @@ interface FilterSectionProps {
 	defaultOpen?: boolean;
 }
 
-const FilterSection = ({ title, options, selected, onToggle, defaultOpen = true }: FilterSectionProps) => {
+const FilterSection = ({
+	title,
+	options,
+	selected,
+	onToggle,
+	defaultOpen = true,
+}: FilterSectionProps) => {
 	const [isOpen, setIsOpen] = React.useState(defaultOpen);
 
 	return (
@@ -73,7 +72,9 @@ const FilterSection = ({ title, options, selected, onToggle, defaultOpen = true 
 								onCheckedChange={() => onToggle(option.id)}
 							/>
 							<span className="flex-1 text-sm">{option.label}</span>
-							<span className="text-xs text-muted-foreground">({option.count})</span>
+							<span className="text-xs text-muted-foreground">
+								({option.count})
+							</span>
 						</label>
 					))}
 				</div>
@@ -145,7 +146,12 @@ interface ActiveFiltersProps {
 	labels: { clearAll: string };
 }
 
-const ActiveFilters = ({ filters, onRemove, onClearAll, labels }: ActiveFiltersProps) => {
+const ActiveFilters = ({
+	filters,
+	onRemove,
+	onClearAll,
+	labels,
+}: ActiveFiltersProps) => {
 	if (filters.length === 0) return null;
 
 	return (
@@ -162,7 +168,12 @@ const ActiveFilters = ({ filters, onRemove, onClearAll, labels }: ActiveFiltersP
 					</button>
 				</Badge>
 			))}
-			<Button variant="ghost" size="sm" onClick={onClearAll} className="text-xs">
+			<Button
+				variant="ghost"
+				size="sm"
+				onClick={onClearAll}
+				className="text-xs"
+			>
 				{labels.clearAll}
 			</Button>
 		</div>
@@ -197,9 +208,15 @@ const SearchBar = ({ value, onChange, placeholder }: SearchBarProps) => (
 
 export default function Main() {
 	const [searchQuery, setSearchQuery] = React.useState('');
-	const [priceRange, setPriceRange] = React.useState<[number, number]>([0, 500]);
-	const [selectedCategories, setSelectedCategories] = React.useState<string[]>(['electronics']);
-	const [selectedStatus, setSelectedStatus] = React.useState<string[]>(['active']);
+	const [priceRange, setPriceRange] = React.useState<[number, number]>([
+		0, 500,
+	]);
+	const [selectedCategories, setSelectedCategories] = React.useState<string[]>([
+		'electronics',
+	]);
+	const [selectedStatus, setSelectedStatus] = React.useState<string[]>([
+		'active',
+	]);
 	const [selectedStock, setSelectedStock] = React.useState<string[]>([]);
 
 	const categories: FilterOption[] = [
@@ -242,19 +259,19 @@ export default function Main() {
 
 	const handleToggleCategory = (id: string) => {
 		setSelectedCategories((prev) =>
-			prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
+			prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id],
 		);
 	};
 
 	const handleToggleStatus = (id: string) => {
 		setSelectedStatus((prev) =>
-			prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+			prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id],
 		);
 	};
 
 	const handleToggleStock = (id: string) => {
 		setSelectedStock((prev) =>
-			prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+			prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id],
 		);
 	};
 

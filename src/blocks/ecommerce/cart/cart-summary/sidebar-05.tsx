@@ -4,7 +4,13 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Truck, Zap, Calendar, ArrowRight, type LucideIcon } from 'lucide-react';
+import {
+	Truck,
+	Zap,
+	Calendar,
+	ArrowRight,
+	type LucideIcon,
+} from 'lucide-react';
 import Link from 'next/link';
 
 type SummaryRowProps = {
@@ -52,9 +58,27 @@ const SummaryRow = ({ label, value }: SummaryRowProps) => (
 
 export default function Main() {
 	const shippingOptions: ShippingOptionProps[] = [
-		{ id: 'standard', icon: Truck, name: 'Standard', duration: '5-7 days', price: '$9.99' },
-		{ id: 'express', icon: Zap, name: 'Express', duration: '2-3 days', price: '$19.99' },
-		{ id: 'scheduled', icon: Calendar, name: 'Scheduled', duration: 'Pick a date', price: '$14.99' },
+		{
+			id: 'standard',
+			icon: Truck,
+			name: 'Standard',
+			duration: '5-7 days',
+			price: '$9.99',
+		},
+		{
+			id: 'express',
+			icon: Zap,
+			name: 'Express',
+			duration: '2-3 days',
+			price: '$19.99',
+		},
+		{
+			id: 'scheduled',
+			icon: Calendar,
+			name: 'Scheduled',
+			duration: 'Pick a date',
+			price: '$14.99',
+		},
 	];
 
 	const summaryItems: SummaryRowProps[] = [

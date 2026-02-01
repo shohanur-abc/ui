@@ -1,8 +1,23 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, ShoppingBag, Truck, Shield, Percent } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	ShoppingBag,
+	Truck,
+	Shield,
+	Percent,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,10 +38,14 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 			</div>
 			<div>
 				<h1 className="text-3xl font-bold @lg:text-4xl">{title}</h1>
-				<p className="text-muted-foreground">Review your items before checkout</p>
+				<p className="text-muted-foreground">
+					Review your items before checkout
+				</p>
 			</div>
 		</div>
-		<Badge variant="secondary" className="px-4 py-2 text-lg">{count} items</Badge>
+		<Badge variant="secondary" className="px-4 py-2 text-lg">
+			{count} items
+		</Badge>
 	</div>
 );
 
@@ -88,14 +107,28 @@ const WideItem = ({ item }: { item: CartItem }) => (
 			</div>
 			<div className="flex items-center justify-between mt-4">
 				<QuantityControl quantity={item.quantity} />
-				<p className="text-2xl font-bold text-primary">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="text-2xl font-bold text-primary">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
 );
 
-const SummaryLine = ({ label, value, bold, highlight }: { label: string; value: string; bold?: boolean; highlight?: boolean }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : ''} ${highlight ? 'text-green-600' : 'text-muted-foreground'}`}>
+const SummaryLine = ({
+	label,
+	value,
+	bold,
+	highlight,
+}: {
+	label: string;
+	value: string;
+	bold?: boolean;
+	highlight?: boolean;
+}) => (
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : ''} ${highlight ? 'text-green-600' : 'text-muted-foreground'}`}
+	>
 		<span className={bold ? 'text-foreground' : ''}>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -103,13 +136,37 @@ const SummaryLine = ({ label, value, bold, highlight }: { label: string; value: 
 
 export default function Main() {
 	const items: CartItem[] = [
-		{ id: '1', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop', name: 'Studio Headphones Pro', variant: 'Midnight Black • Wireless • Premium Edition', price: 299.99, quantity: 1 },
-		{ id: '2', image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop', name: 'Wireless Earbuds Elite', variant: 'Pearl White • Active Noise Cancellation', price: 179.99, quantity: 1 },
-		{ id: '3', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop', name: 'Pro Running Shoes', variant: 'Racing Red • US 10 • Ultralight', price: 149.99, quantity: 1 },
+		{
+			id: '1',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
+			name: 'Studio Headphones Pro',
+			variant: 'Midnight Black • Wireless • Premium Edition',
+			price: 299.99,
+			quantity: 1,
+		},
+		{
+			id: '2',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
+			name: 'Wireless Earbuds Elite',
+			variant: 'Pearl White • Active Noise Cancellation',
+			price: 179.99,
+			quantity: 1,
+		},
+		{
+			id: '3',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop',
+			name: 'Pro Running Shoes',
+			variant: 'Racing Red • US 10 • Ultralight',
+			price: 149.99,
+			quantity: 1,
+		},
 	];
 
 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
-	const discount = subtotal * 0.10;
+	const discount = subtotal * 0.1;
 	const tax = (subtotal - discount) * 0.08;
 	const total = subtotal - discount + tax;
 
@@ -142,12 +199,23 @@ export default function Main() {
 								<CardTitle>Order Summary</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-3">
-								<SummaryLine label="Subtotal" value={`$${subtotal.toFixed(2)}`} />
-								<SummaryLine label="Member Discount" value={`-$${discount.toFixed(2)}`} highlight />
+								<SummaryLine
+									label="Subtotal"
+									value={`$${subtotal.toFixed(2)}`}
+								/>
+								<SummaryLine
+									label="Member Discount"
+									value={`-$${discount.toFixed(2)}`}
+									highlight
+								/>
 								<SummaryLine label="Shipping" value="Free" />
 								<SummaryLine label="Tax" value={`$${tax.toFixed(2)}`} />
 								<Separator className="my-4" />
-								<SummaryLine label="Total" value={`$${total.toFixed(2)}`} bold />
+								<SummaryLine
+									label="Total"
+									value={`$${total.toFixed(2)}`}
+									bold
+								/>
 							</CardContent>
 							<CardFooter className="flex-col gap-3">
 								<Button className="w-full gap-2" size="lg" asChild>

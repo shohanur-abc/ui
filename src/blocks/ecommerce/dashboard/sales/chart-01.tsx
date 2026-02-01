@@ -48,11 +48,22 @@ const AreaChartCard = ({
 		</CardHeader>
 		<CardContent>
 			<ChartContainer config={config} className="h-[300px] w-full">
-				<AreaChart data={data} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+				<AreaChart
+					data={data}
+					margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+				>
 					<defs>
 						<linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-							<stop offset="5%" stopColor="var(--color-revenue)" stopOpacity={0.4} />
-							<stop offset="95%" stopColor="var(--color-revenue)" stopOpacity={0} />
+							<stop
+								offset="5%"
+								stopColor="var(--color-revenue)"
+								stopOpacity={0.4}
+							/>
+							<stop
+								offset="95%"
+								stopColor="var(--color-revenue)"
+								stopOpacity={0}
+							/>
 						</linearGradient>
 					</defs>
 					<CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />

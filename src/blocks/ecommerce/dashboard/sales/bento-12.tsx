@@ -29,7 +29,13 @@ type BentoLayout12Props = {
 	onExport: () => void;
 };
 
-const FilterBar = ({ filters, onFilterChange }: { filters: FilterOption[]; onFilterChange: (value: string) => void }) => (
+const FilterBar = ({
+	filters,
+	onFilterChange,
+}: {
+	filters: FilterOption[];
+	onFilterChange: (value: string) => void;
+}) => (
 	<div className="flex flex-wrap gap-2">
 		{filters.map((filter, idx) => (
 			<Button
@@ -47,21 +53,33 @@ const FilterBar = ({ filters, onFilterChange }: { filters: FilterOption[]; onFil
 const DataCard = ({ data }: { data: DataRow[] }) => (
 	<div className="space-y-4">
 		{data.map((row, idx) => (
-			<div key={idx} className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+			<div
+				key={idx}
+				className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors"
+			>
 				<div className="flex-1 min-w-0">
 					<p className="font-medium truncate">{row.name}</p>
 					<div className="flex items-center gap-2 mt-1">
 						<Progress value={row.progress} className="h-1.5 w-24" />
-						<span className="text-xs text-muted-foreground">{row.progress}%</span>
+						<span className="text-xs text-muted-foreground">
+							{row.progress}%
+						</span>
 					</div>
 				</div>
 				<div className="text-right">
 					<p className="text-lg font-bold">${row.value.toLocaleString()}</p>
 					<Badge
-						variant={row.status === 'up' ? 'default' : row.status === 'down' ? 'destructive' : 'secondary'}
+						variant={
+							row.status === 'up'
+								? 'default'
+								: row.status === 'down'
+									? 'destructive'
+									: 'secondary'
+						}
 						className="text-xs"
 					>
-						{row.change >= 0 ? '+' : ''}{row.change}%
+						{row.change >= 0 ? '+' : ''}
+						{row.change}%
 					</Badge>
 				</div>
 			</div>
@@ -89,7 +107,12 @@ const BentoLayout12 = ({
 						<Calendar className="size-4" />
 						<span className="hidden @sm:inline">Date Range</span>
 					</Button>
-					<Button variant="outline" size="sm" className="gap-1" onClick={onExport}>
+					<Button
+						variant="outline"
+						size="sm"
+						className="gap-1"
+						onClick={onExport}
+					>
 						<Download className="size-4" />
 						<span className="hidden @sm:inline">Export</span>
 					</Button>
@@ -115,11 +138,41 @@ export default function Main() {
 	];
 
 	const data: DataRow[] = [
-		{ name: 'Wireless Headphones Pro', value: 248750, change: 12.5, progress: 85, status: 'up' },
-		{ name: 'Smart Watch Ultra', value: 198600, change: 8.3, progress: 72, status: 'up' },
-		{ name: 'Premium Laptop Stand', value: 165900, change: -2.1, progress: 58, status: 'down' },
-		{ name: 'USB-C Hub Professional', value: 142800, change: 15.7, progress: 48, status: 'up' },
-		{ name: 'Mechanical Keyboard RGB', value: 107280, change: 0, progress: 35, status: 'stable' },
+		{
+			name: 'Wireless Headphones Pro',
+			value: 248750,
+			change: 12.5,
+			progress: 85,
+			status: 'up',
+		},
+		{
+			name: 'Smart Watch Ultra',
+			value: 198600,
+			change: 8.3,
+			progress: 72,
+			status: 'up',
+		},
+		{
+			name: 'Premium Laptop Stand',
+			value: 165900,
+			change: -2.1,
+			progress: 58,
+			status: 'down',
+		},
+		{
+			name: 'USB-C Hub Professional',
+			value: 142800,
+			change: 15.7,
+			progress: 48,
+			status: 'up',
+		},
+		{
+			name: 'Mechanical Keyboard RGB',
+			value: 107280,
+			change: 0,
+			progress: 35,
+			status: 'stable',
+		},
 	];
 
 	return (

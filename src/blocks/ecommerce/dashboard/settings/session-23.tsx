@@ -67,7 +67,9 @@ const SessionCard = ({
 		>
 			<div
 				className={`flex size-12 shrink-0 items-center justify-center rounded-lg ${
-					current ? 'bg-emerald-500/10 text-emerald-500' : 'bg-muted text-muted-foreground'
+					current
+						? 'bg-emerald-500/10 text-emerald-500'
+						: 'bg-muted text-muted-foreground'
 				}`}
 			>
 				<DeviceIcon className="size-6" />
@@ -101,7 +103,11 @@ const SessionCard = ({
 			{!current && (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100">
+						<Button
+							variant="ghost"
+							size="icon-sm"
+							className="opacity-0 group-hover:opacity-100"
+						>
 							<MoreVertical className="size-4" />
 						</Button>
 					</DropdownMenuTrigger>
@@ -202,9 +208,9 @@ export default function Main() {
 							<div>
 								<h4 className="font-medium">Security Tip</h4>
 								<p className="mt-1 text-sm text-muted-foreground">
-									If you see a session you don't recognize, revoke it immediately and
-									change your password. Enable two-factor authentication for additional
-									security.
+									If you see a session you don't recognize, revoke it
+									immediately and change your password. Enable two-factor
+									authentication for additional security.
 								</p>
 							</div>
 						</CardContent>

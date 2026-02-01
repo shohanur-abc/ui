@@ -53,7 +53,11 @@ interface ChannelStatusProps {
 
 const ChannelStatus = ({ channel }: ChannelStatusProps) => {
 	const config = {
-		synced: { icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+		synced: {
+			icon: CheckCircle2,
+			color: 'text-emerald-500',
+			bg: 'bg-emerald-500/10',
+		},
 		pending: { icon: Clock, color: 'text-amber-500', bg: 'bg-amber-500/10' },
 		error: { icon: AlertCircle, color: 'text-red-500', bg: 'bg-red-500/10' },
 		unlinked: { icon: Unlink, color: 'text-muted-foreground', bg: 'bg-muted' },
@@ -71,7 +75,9 @@ const ChannelStatus = ({ channel }: ChannelStatusProps) => {
 					<div className="min-w-0 flex-1">
 						<p className="text-sm font-medium">{channel.name}</p>
 						{channel.externalId && (
-							<p className="truncate text-xs text-muted-foreground">{channel.externalId}</p>
+							<p className="truncate text-xs text-muted-foreground">
+								{channel.externalId}
+							</p>
 						)}
 					</div>
 					<Icon className={`size-4 shrink-0 ${color}`} />
@@ -81,7 +87,9 @@ const ChannelStatus = ({ channel }: ChannelStatusProps) => {
 				<div className="text-xs">
 					<p className="font-medium capitalize">{channel.status}</p>
 					{channel.lastSync && (
-						<p className="text-muted-foreground">Last sync: {channel.lastSync}</p>
+						<p className="text-muted-foreground">
+							Last sync: {channel.lastSync}
+						</p>
 					)}
 				</div>
 			</TooltipContent>
@@ -138,8 +146,16 @@ const SyncSummary = ({ channels, labels }: SyncSummaryProps) => {
 interface ProductRowProps {
 	product: LinkedProduct;
 	onSync: (id: string) => void;
-	actions: { label: string; icon: React.ElementType; onClick: (id: string) => void; variant?: 'destructive' }[];
-	labels: { sync: string; syncSummary: { synced: string; pending: string; errors: string } };
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		onClick: (id: string) => void;
+		variant?: 'destructive';
+	}[];
+	labels: {
+		sync: string;
+		syncSummary: { synced: string; pending: string; errors: string };
+	};
 }
 
 const ProductRow = ({ product, onSync, actions, labels }: ProductRowProps) => (
@@ -147,7 +163,11 @@ const ProductRow = ({ product, onSync, actions, labels }: ProductRowProps) => (
 		<div className="mb-4 flex items-start gap-4">
 			<div className="size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
 				{product.image ? (
-					<img src={product.image} alt={product.name} className="size-full object-cover" />
+					<img
+						src={product.image}
+						alt={product.name}
+						className="size-full object-cover"
+					/>
 				) : (
 					<div className="flex size-full items-center justify-center">
 						<Package className="size-8 text-muted-foreground" />
@@ -179,10 +199,16 @@ const ProductRow = ({ product, onSync, actions, labels }: ProductRowProps) => (
 							<DropdownMenuContent align="end">
 								{actions.map((action) => (
 									<React.Fragment key={action.label}>
-										{action.variant === 'destructive' && <DropdownMenuSeparator />}
+										{action.variant === 'destructive' && (
+											<DropdownMenuSeparator />
+										)}
 										<DropdownMenuItem
 											onClick={() => action.onClick(product.id)}
-											className={action.variant === 'destructive' ? 'text-destructive' : ''}
+											className={
+												action.variant === 'destructive'
+													? 'text-destructive'
+													: ''
+											}
 										>
 											<action.icon className="mr-2 size-4" />
 											{action.label}
@@ -195,8 +221,13 @@ const ProductRow = ({ product, onSync, actions, labels }: ProductRowProps) => (
 				</div>
 				<div className="mt-2 flex items-center gap-4 text-sm">
 					<span className="font-medium">${product.price.toFixed(2)}</span>
-					<span className="text-muted-foreground">{product.stock} in stock</span>
-					<SyncSummary channels={product.channels} labels={labels.syncSummary} />
+					<span className="text-muted-foreground">
+						{product.stock} in stock
+					</span>
+					<SyncSummary
+						channels={product.channels}
+						labels={labels.syncSummary}
+					/>
 				</div>
 			</div>
 		</div>
@@ -210,13 +241,34 @@ export default function Main() {
 			id: '1',
 			name: 'Wireless Bluetooth Speaker',
 			sku: 'SPK-BT-001',
-			image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100&h=100&fit=crop',
 			price: 79.99,
 			stock: 145,
 			channels: [
-				{ id: 'c1', name: 'Amazon', icon: '🛒', status: 'synced', lastSync: '2 min ago', externalId: 'B09X7K3M2P' },
-				{ id: 'c2', name: 'eBay', icon: '🏷️', status: 'synced', lastSync: '5 min ago', externalId: '394827561234' },
-				{ id: 'c3', name: 'Shopify', icon: '🛍️', status: 'pending', externalId: '7823456789' },
+				{
+					id: 'c1',
+					name: 'Amazon',
+					icon: '🛒',
+					status: 'synced',
+					lastSync: '2 min ago',
+					externalId: 'B09X7K3M2P',
+				},
+				{
+					id: 'c2',
+					name: 'eBay',
+					icon: '🏷️',
+					status: 'synced',
+					lastSync: '5 min ago',
+					externalId: '394827561234',
+				},
+				{
+					id: 'c3',
+					name: 'Shopify',
+					icon: '🛍️',
+					status: 'pending',
+					externalId: '7823456789',
+				},
 				{ id: 'c4', name: 'Walmart', icon: '🏪', status: 'unlinked' },
 			],
 		},
@@ -224,36 +276,99 @@ export default function Main() {
 			id: '2',
 			name: 'Smart LED Light Bulb Pack',
 			sku: 'LED-SMT-002',
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100&h=100&fit=crop',
 			price: 34.99,
 			stock: 289,
 			channels: [
-				{ id: 'c1', name: 'Amazon', icon: '🛒', status: 'synced', lastSync: '1 hour ago', externalId: 'B08Y6K4N3Q' },
-				{ id: 'c2', name: 'eBay', icon: '🏷️', status: 'error', lastSync: '1 day ago', externalId: '394827561235' },
-				{ id: 'c3', name: 'Shopify', icon: '🛍️', status: 'synced', lastSync: '30 min ago', externalId: '7823456790' },
-				{ id: 'c4', name: 'Walmart', icon: '🏪', status: 'synced', lastSync: '15 min ago', externalId: 'WM-5678901' },
+				{
+					id: 'c1',
+					name: 'Amazon',
+					icon: '🛒',
+					status: 'synced',
+					lastSync: '1 hour ago',
+					externalId: 'B08Y6K4N3Q',
+				},
+				{
+					id: 'c2',
+					name: 'eBay',
+					icon: '🏷️',
+					status: 'error',
+					lastSync: '1 day ago',
+					externalId: '394827561235',
+				},
+				{
+					id: 'c3',
+					name: 'Shopify',
+					icon: '🛍️',
+					status: 'synced',
+					lastSync: '30 min ago',
+					externalId: '7823456790',
+				},
+				{
+					id: 'c4',
+					name: 'Walmart',
+					icon: '🏪',
+					status: 'synced',
+					lastSync: '15 min ago',
+					externalId: 'WM-5678901',
+				},
 			],
 		},
 		{
 			id: '3',
 			name: 'Portable USB-C Hub',
 			sku: 'HUB-USB-003',
-			image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop',
 			price: 49.99,
 			stock: 67,
 			channels: [
-				{ id: 'c1', name: 'Amazon', icon: '🛒', status: 'error', lastSync: '3 hours ago', externalId: 'B07Z8L5M4R' },
-				{ id: 'c2', name: 'eBay', icon: '🏷️', status: 'pending', externalId: '394827561236' },
-				{ id: 'c3', name: 'Shopify', icon: '🛍️', status: 'synced', lastSync: '10 min ago', externalId: '7823456791' },
+				{
+					id: 'c1',
+					name: 'Amazon',
+					icon: '🛒',
+					status: 'error',
+					lastSync: '3 hours ago',
+					externalId: 'B07Z8L5M4R',
+				},
+				{
+					id: 'c2',
+					name: 'eBay',
+					icon: '🏷️',
+					status: 'pending',
+					externalId: '394827561236',
+				},
+				{
+					id: 'c3',
+					name: 'Shopify',
+					icon: '🛍️',
+					status: 'synced',
+					lastSync: '10 min ago',
+					externalId: '7823456791',
+				},
 				{ id: 'c4', name: 'Walmart', icon: '🏪', status: 'unlinked' },
 			],
 		},
 	];
 
 	const actions = [
-		{ label: 'View Listings', icon: ExternalLink, onClick: (id: string) => console.log('View', id) },
-		{ label: 'Edit Mappings', icon: Link2, onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Unlink All', icon: Unlink, onClick: (id: string) => console.log('Unlink', id), variant: 'destructive' as const },
+		{
+			label: 'View Listings',
+			icon: ExternalLink,
+			onClick: (id: string) => console.log('View', id),
+		},
+		{
+			label: 'Edit Mappings',
+			icon: Link2,
+			onClick: (id: string) => console.log('Edit', id),
+		},
+		{
+			label: 'Unlink All',
+			icon: Unlink,
+			onClick: (id: string) => console.log('Unlink', id),
+			variant: 'destructive' as const,
+		},
 	];
 
 	const labels = {

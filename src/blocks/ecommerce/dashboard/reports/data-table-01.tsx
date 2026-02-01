@@ -67,9 +67,7 @@ const SortableHeader = ({
 			className={`flex items-center gap-1 ${align === 'right' ? 'justify-end' : ''}`}
 		>
 			{label}
-			{sortable && (
-				<ArrowUpDown className="size-3 text-muted-foreground/50" />
-			)}
+			{sortable && <ArrowUpDown className="size-3 text-muted-foreground/50" />}
 		</div>
 	</TableHead>
 );
@@ -164,12 +162,60 @@ const Pagination = ({
 
 export default function Main() {
 	const inventory: InventoryItem[] = [
-		{ sku: 'SKU-001', name: 'Premium Wireless Mouse', category: 'Electronics', stock: 245, price: '$49.99', status: 'in-stock', lastUpdated: 'Jan 28' },
-		{ sku: 'SKU-002', name: 'USB-C Hub 7-in-1', category: 'Accessories', stock: 12, price: '$79.99', status: 'low-stock', lastUpdated: 'Jan 28' },
-		{ sku: 'SKU-003', name: 'Laptop Stand Aluminum', category: 'Accessories', stock: 0, price: '$39.99', status: 'out-of-stock', lastUpdated: 'Jan 27' },
-		{ sku: 'SKU-004', name: 'Mechanical Keyboard TKL', category: 'Electronics', stock: 89, price: '$149.99', status: 'in-stock', lastUpdated: 'Jan 27' },
-		{ sku: 'SKU-005', name: 'Monitor Light Bar', category: 'Lighting', stock: 34, price: '$59.99', status: 'in-stock', lastUpdated: 'Jan 26' },
-		{ sku: 'SKU-006', name: 'Webcam 4K Ultra HD', category: 'Electronics', stock: 8, price: '$129.99', status: 'low-stock', lastUpdated: 'Jan 26' },
+		{
+			sku: 'SKU-001',
+			name: 'Premium Wireless Mouse',
+			category: 'Electronics',
+			stock: 245,
+			price: '$49.99',
+			status: 'in-stock',
+			lastUpdated: 'Jan 28',
+		},
+		{
+			sku: 'SKU-002',
+			name: 'USB-C Hub 7-in-1',
+			category: 'Accessories',
+			stock: 12,
+			price: '$79.99',
+			status: 'low-stock',
+			lastUpdated: 'Jan 28',
+		},
+		{
+			sku: 'SKU-003',
+			name: 'Laptop Stand Aluminum',
+			category: 'Accessories',
+			stock: 0,
+			price: '$39.99',
+			status: 'out-of-stock',
+			lastUpdated: 'Jan 27',
+		},
+		{
+			sku: 'SKU-004',
+			name: 'Mechanical Keyboard TKL',
+			category: 'Electronics',
+			stock: 89,
+			price: '$149.99',
+			status: 'in-stock',
+			lastUpdated: 'Jan 27',
+		},
+		{
+			sku: 'SKU-005',
+			name: 'Monitor Light Bar',
+			category: 'Lighting',
+			stock: 34,
+			price: '$59.99',
+			status: 'in-stock',
+			lastUpdated: 'Jan 26',
+		},
+		{
+			sku: 'SKU-006',
+			name: 'Webcam 4K Ultra HD',
+			category: 'Electronics',
+			stock: 8,
+			price: '$129.99',
+			status: 'low-stock',
+			lastUpdated: 'Jan 26',
+		},
 	];
 
 	return (

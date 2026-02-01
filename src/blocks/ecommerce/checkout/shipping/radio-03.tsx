@@ -32,12 +32,18 @@ const AddressRadio = ({
 		<div className="flex-1">
 			<div className="flex items-center gap-2 mb-1">
 				<span className="font-semibold">{type}</span>
-				{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+				{isDefault && (
+					<Badge variant="secondary" className="text-xs">
+						Default
+					</Badge>
+				)}
 			</div>
 			<p className="text-sm text-muted-foreground">{name}</p>
 			<p className="text-sm text-muted-foreground">{address}</p>
 		</div>
-		<Button variant="ghost" size="sm">Edit</Button>
+		<Button variant="ghost" size="sm">
+			Edit
+		</Button>
 	</Label>
 );
 
@@ -81,13 +87,38 @@ const PickupRadio = ({
 
 export default function Main() {
 	const addresses = [
-		{ value: 'home', icon: Home, type: 'Home', name: 'John Doe', address: '123 Main St, Apt 4B, New York, NY 10001', isDefault: true },
-		{ value: 'work', icon: Building2, type: 'Work', name: 'John Doe', address: '456 Business Ave, Floor 12, New York, NY 10002' },
+		{
+			value: 'home',
+			icon: Home,
+			type: 'Home',
+			name: 'John Doe',
+			address: '123 Main St, Apt 4B, New York, NY 10001',
+			isDefault: true,
+		},
+		{
+			value: 'work',
+			icon: Building2,
+			type: 'Work',
+			name: 'John Doe',
+			address: '456 Business Ave, Floor 12, New York, NY 10002',
+		},
 	];
 
 	const pickupLocations = [
-		{ value: 'store-1', name: 'Downtown Store', address: '100 Central Plaza', hours: 'Open 9 AM - 9 PM', distance: '0.3 mi' },
-		{ value: 'store-2', name: 'City Mall', address: '500 Shopping Center', hours: 'Open 10 AM - 8 PM', distance: '0.8 mi' },
+		{
+			value: 'store-1',
+			name: 'Downtown Store',
+			address: '100 Central Plaza',
+			hours: 'Open 9 AM - 9 PM',
+			distance: '0.3 mi',
+		},
+		{
+			value: 'store-2',
+			name: 'City Mall',
+			address: '500 Shopping Center',
+			hours: 'Open 10 AM - 8 PM',
+			distance: '0.8 mi',
+		},
 	];
 
 	return (
@@ -128,7 +159,9 @@ export default function Main() {
 				</Card>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue</Button>
 				</div>
 			</div>

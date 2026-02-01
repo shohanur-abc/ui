@@ -15,14 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import {
-	Clock,
-	Calendar,
-	Sun,
-	Moon,
-	ArrowRight,
-	Truck,
-} from 'lucide-react';
+import { Clock, Calendar, Sun, Moon, ArrowRight, Truck } from 'lucide-react';
 
 interface FieldProps {
 	label: string;
@@ -107,7 +100,11 @@ const StandardTab = ({
 			<Field label="First Name" placeholder="John" />
 			<Field label="Last Name" placeholder="Doe" />
 		</div>
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="City" />
@@ -183,12 +180,7 @@ const ExpressTab = ({
 	<div className="space-y-4">
 		<div className="grid @sm:grid-cols-2 gap-3">
 			<label className="p-4 rounded-xl border border-border cursor-pointer hover:bg-muted/30 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
-				<input
-					type="radio"
-					name="express"
-					className="sr-only"
-					defaultChecked
-				/>
+				<input type="radio" name="express" className="sr-only" defaultChecked />
 				<div className="flex items-center gap-3">
 					<Sun className="size-5 text-yellow-500" />
 					<div>
@@ -223,7 +215,10 @@ const ExpressTab = ({
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="call-delivery" />
-			<Label htmlFor="call-delivery" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="call-delivery"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Call me before delivery
 			</Label>
 		</div>

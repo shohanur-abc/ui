@@ -1,7 +1,14 @@
 'use client';
 
 import { ArrowUpRight, ArrowDownRight, TrendingUp } from 'lucide-react';
-import { Line, LineChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import {
+	Line,
+	LineChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	ResponsiveContainer,
+} from 'recharts';
 
 import {
 	Card,
@@ -34,7 +41,12 @@ type ChannelSummaryProps = {
 	growth: number;
 };
 
-const ChannelSummary = ({ channel, color, revenue, growth }: ChannelSummaryProps) => (
+const ChannelSummary = ({
+	channel,
+	color,
+	revenue,
+	growth,
+}: ChannelSummaryProps) => (
 	<div className="flex items-center justify-between rounded-lg border border-border/30 bg-muted/20 p-4">
 		<div className="flex items-center gap-3">
 			<div className="size-3 rounded-full" style={{ backgroundColor: color }} />
@@ -51,8 +63,13 @@ const ChannelSummary = ({ channel, color, revenue, growth }: ChannelSummaryProps
 					: 'border-rose-500/20 bg-rose-500/10 text-rose-500'
 			}
 		>
-			{growth >= 0 ? <ArrowUpRight className="mr-1 size-3" /> : <ArrowDownRight className="mr-1 size-3" />}
-			{growth >= 0 ? '+' : ''}{growth}%
+			{growth >= 0 ? (
+				<ArrowUpRight className="mr-1 size-3" />
+			) : (
+				<ArrowDownRight className="mr-1 size-3" />
+			)}
+			{growth >= 0 ? '+' : ''}
+			{growth}%
 		</Badge>
 	</div>
 );
@@ -74,9 +91,24 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const channels: ChannelSummaryProps[] = [
-		{ channel: 'Organic Search', color: 'var(--chart-1)', revenue: '$245,800', growth: 15.2 },
-		{ channel: 'Paid Ads', color: 'var(--chart-2)', revenue: '$198,500', growth: 8.4 },
-		{ channel: 'Social Media', color: 'var(--chart-3)', revenue: '$142,300', growth: -3.2 },
+		{
+			channel: 'Organic Search',
+			color: 'var(--chart-1)',
+			revenue: '$245,800',
+			growth: 15.2,
+		},
+		{
+			channel: 'Paid Ads',
+			color: 'var(--chart-2)',
+			revenue: '$198,500',
+			growth: 8.4,
+		},
+		{
+			channel: 'Social Media',
+			color: 'var(--chart-3)',
+			revenue: '$142,300',
+			growth: -3.2,
+		},
 	];
 
 	const chartData: TrendData[] = [
@@ -118,7 +150,12 @@ export default function Main() {
 						<ChartContainer config={chartConfig} className="h-[320px] w-full">
 							<LineChart data={chartData} margin={{ left: 12, right: 12 }}>
 								<CartesianGrid strokeDasharray="3 3" vertical={false} />
-								<XAxis dataKey="week" tickLine={false} axisLine={false} tickMargin={8} />
+								<XAxis
+									dataKey="week"
+									tickLine={false}
+									axisLine={false}
+									tickMargin={8}
+								/>
 								<YAxis
 									tickLine={false}
 									axisLine={false}

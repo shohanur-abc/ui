@@ -1,8 +1,23 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, Clock, CheckCircle2, Package, AlertCircle } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	Clock,
+	CheckCircle2,
+	Package,
+	AlertCircle,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -42,7 +57,9 @@ const ColumnHeader = ({
 	<div className={`flex items-center gap-2 p-3 rounded-t-xl ${colorClass}`}>
 		<Icon className="size-5" />
 		<span className="font-semibold">{title}</span>
-		<Badge variant="secondary" className="ml-auto">{count}</Badge>
+		<Badge variant="secondary" className="ml-auto">
+			{count}
+		</Badge>
 	</div>
 );
 
@@ -60,15 +77,25 @@ const ItemInfo = ({ name, variant }: { name: string; variant: string }) => (
 );
 
 const QuantityBadge = ({ quantity }: { quantity: number }) => (
-	<Badge variant="outline" className="text-xs">×{quantity}</Badge>
+	<Badge variant="outline" className="text-xs">
+		×{quantity}
+	</Badge>
 );
 
-const ItemPrice = ({ price, quantity }: { price: number; quantity: number }) => (
-	<p className="font-semibold text-sm">${(price * quantity).toFixed(2)}</p>
-);
+const ItemPrice = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => <p className="font-semibold text-sm">${(price * quantity).toFixed(2)}</p>;
 
 const RemoveItem = () => (
-	<Button size="icon-sm" variant="ghost" className="size-6 text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="size-6 text-muted-foreground hover:text-destructive"
+	>
 		<X className="size-3" />
 	</Button>
 );
@@ -123,7 +150,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -162,7 +191,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -171,7 +201,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
 			name: 'Headphones',
 			variant: 'Black',
 			price: 299.99,
@@ -180,7 +211,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver',
 			price: 249.99,
@@ -189,7 +221,8 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White',
 			price: 179.99,
@@ -198,7 +231,8 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop',
 			name: 'Silk Scarf',
 			variant: 'Navy',
 			price: 89.99,

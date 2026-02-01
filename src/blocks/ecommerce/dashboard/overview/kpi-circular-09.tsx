@@ -80,7 +80,9 @@ const KpiCardCircular = ({
 		</CardHeader>
 		<CardContent className="flex items-center justify-between pt-0">
 			<div>
-				<p className="text-2xl font-bold tracking-tight @sm:text-3xl">{value}</p>
+				<p className="text-2xl font-bold tracking-tight @sm:text-3xl">
+					{value}
+				</p>
 				<div
 					className={`mt-1 flex items-center gap-1 text-sm font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-red-500'}`}
 				>

@@ -3,7 +3,15 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, Trash2, Truck, Package, Clock, ChevronRight } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Trash2,
+	Truck,
+	Package,
+	Clock,
+	ChevronRight,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -42,7 +50,9 @@ const FreeShippingProgress = ({
 				<div className="flex items-center gap-3 mb-3">
 					<Truck className="size-5 text-primary" />
 					<span className="font-medium">
-						{remaining > 0 ? progressLabel.replace('{amount}', `$${remaining.toFixed(2)}`) : completeLabel}
+						{remaining > 0
+							? progressLabel.replace('{amount}', `$${remaining.toFixed(2)}`)
+							: completeLabel}
 					</span>
 				</div>
 				<Progress value={progress} className="h-2" />
@@ -64,7 +74,13 @@ const ItemHeader = ({ name, variant }: { name: string; variant: string }) => (
 	</div>
 );
 
-const DeliveryEstimate = ({ icon: Icon, date }: { icon: React.ComponentType<{ className?: string }>; date: string }) => (
+const DeliveryEstimate = ({
+	icon: Icon,
+	date,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	date: string;
+}) => (
 	<div className="flex items-center gap-2 text-sm text-muted-foreground">
 		<Icon className="size-4" />
 		<span>Delivery by {date}</span>
@@ -88,7 +104,11 @@ const PriceTag = ({ amount }: { amount: number }) => (
 );
 
 const DeleteButton = ({ label }: { label: string }) => (
-	<Button variant="ghost" size="sm" className="gap-1 text-muted-foreground hover:text-destructive">
+	<Button
+		variant="ghost"
+		size="sm"
+		className="gap-1 text-muted-foreground hover:text-destructive"
+	>
 		<Trash2 className="size-4" />
 		<span className="hidden @sm:inline">{label}</span>
 	</Button>
@@ -122,9 +142,21 @@ const PriceSummaryLine = ({
 	isHighlighted?: boolean;
 	isFree?: boolean;
 }) => (
-	<div className={`flex justify-between ${isHighlighted ? 'text-xl font-bold' : ''}`}>
-		<span className={isHighlighted ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={isHighlighted ? 'text-primary' : isFree ? 'text-green-500 font-medium' : ''}>
+	<div
+		className={`flex justify-between ${isHighlighted ? 'text-xl font-bold' : ''}`}
+	>
+		<span className={isHighlighted ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
+		<span
+			className={
+				isHighlighted
+					? 'text-primary'
+					: isFree
+						? 'text-green-500 font-medium'
+						: ''
+			}
+		>
 			{value}
 		</span>
 	</div>
@@ -154,7 +186,15 @@ const OrderActions = ({
 	</div>
 );
 
-const DeliveryInfo = ({ icon: Icon, title, description }: { icon: React.ComponentType<{ className?: string }>; title: string; description: string }) => (
+const DeliveryInfo = ({
+	icon: Icon,
+	title,
+	description,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	title: string;
+	description: string;
+}) => (
 	<div className="flex items-start gap-3 rounded-lg border p-4">
 		<Icon className="size-5 text-primary shrink-0" />
 		<div>
@@ -168,7 +208,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=200&h=200&fit=crop',
 			name: 'Ergonomic Office Chair Pro',
 			variant: 'Mesh / Black',
 			price: 449.99,
@@ -177,7 +218,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=200&h=200&fit=crop',
 			name: 'Adjustable Standing Desk',
 			variant: '60" / Walnut',
 			price: 599.99,
@@ -186,7 +228,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200&h=200&fit=crop',
 			name: 'LED Desk Lamp with Wireless Charger',
 			variant: 'White',
 			price: 79.99,
@@ -195,7 +238,10 @@ export default function Main() {
 		},
 	];
 
-	const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 	const freeShippingThreshold = 1500;
 
 	return (
@@ -232,13 +278,19 @@ export default function Main() {
 						<Card>
 							<CardContent className="p-6 space-y-4">
 								<h2 className="font-semibold text-lg">Order Summary</h2>
-								<PriceSummaryLine label="Subtotal" value={`$${subtotal.toFixed(2)}`} />
+								<PriceSummaryLine
+									label="Subtotal"
+									value={`$${subtotal.toFixed(2)}`}
+								/>
 								<PriceSummaryLine
 									label="Shipping"
 									value={subtotal >= freeShippingThreshold ? 'FREE' : '$29.99'}
 									isFree={subtotal >= freeShippingThreshold}
 								/>
-								<PriceSummaryLine label="Estimated Tax" value={`$${(subtotal * 0.08).toFixed(2)}`} />
+								<PriceSummaryLine
+									label="Estimated Tax"
+									value={`$${(subtotal * 0.08).toFixed(2)}`}
+								/>
 								<Separator />
 								<PriceSummaryLine
 									label="Total"

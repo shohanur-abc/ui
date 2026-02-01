@@ -69,11 +69,7 @@ const ScatterChartCard = ({
 					/>
 					<ZAxis range={[60, 200]} />
 					<ChartTooltip content={<ChartTooltipContent />} />
-					<Scatter
-						data={data}
-						fill="var(--color-scatter)"
-						fillOpacity={0.7}
-					/>
+					<Scatter data={data} fill="var(--color-scatter)" fillOpacity={0.7} />
 				</ScatterChart>
 			</ChartContainer>
 		</CardContent>

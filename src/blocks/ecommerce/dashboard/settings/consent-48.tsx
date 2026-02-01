@@ -170,10 +170,34 @@ export default function Main() {
 	];
 
 	const legalDocuments: LegalDocument[] = [
-		{ id: '1', name: 'Terms of Service', version: '2.1', acceptedAt: 'Jan 1, 2026', updateAvailable: false },
-		{ id: '2', name: 'Privacy Policy', version: '3.0', acceptedAt: 'Jan 1, 2026', updateAvailable: true },
-		{ id: '3', name: 'Cookie Policy', version: '1.2', acceptedAt: 'Dec 20, 2025', updateAvailable: false },
-		{ id: '4', name: 'Acceptable Use Policy', version: '1.0', acceptedAt: 'Nov 10, 2025', updateAvailable: false },
+		{
+			id: '1',
+			name: 'Terms of Service',
+			version: '2.1',
+			acceptedAt: 'Jan 1, 2026',
+			updateAvailable: false,
+		},
+		{
+			id: '2',
+			name: 'Privacy Policy',
+			version: '3.0',
+			acceptedAt: 'Jan 1, 2026',
+			updateAvailable: true,
+		},
+		{
+			id: '3',
+			name: 'Cookie Policy',
+			version: '1.2',
+			acceptedAt: 'Dec 20, 2025',
+			updateAvailable: false,
+		},
+		{
+			id: '4',
+			name: 'Acceptable Use Policy',
+			version: '1.0',
+			acceptedAt: 'Nov 10, 2025',
+			updateAvailable: false,
+		},
 	];
 
 	return (
@@ -206,18 +230,38 @@ export default function Main() {
 							<CardHeader className="border-b">
 								<div className="flex items-center justify-between">
 									<div>
-										<CardTitle className="text-base">Communication Preferences</CardTitle>
+										<CardTitle className="text-base">
+											Communication Preferences
+										</CardTitle>
 										<CardDescription>How we can contact you</CardDescription>
 									</div>
 								</div>
 							</CardHeader>
 							<CardContent className="space-y-4 pt-6">
 								{[
-									{ icon: Mail, label: 'Email', description: 'Receive updates via email', enabled: true },
-									{ icon: Phone, label: 'SMS', description: 'Receive text messages', enabled: false },
-									{ icon: Bell, label: 'Push', description: 'Browser notifications', enabled: true },
+									{
+										icon: Mail,
+										label: 'Email',
+										description: 'Receive updates via email',
+										enabled: true,
+									},
+									{
+										icon: Phone,
+										label: 'SMS',
+										description: 'Receive text messages',
+										enabled: false,
+									},
+									{
+										icon: Bell,
+										label: 'Push',
+										description: 'Browser notifications',
+										enabled: true,
+									},
 								].map((pref) => (
-									<div key={pref.label} className="flex items-center justify-between">
+									<div
+										key={pref.label}
+										className="flex items-center justify-between"
+									>
 										<div className="flex items-center gap-3">
 											<pref.icon className="size-5 text-muted-foreground" />
 											<div>
@@ -253,7 +297,8 @@ export default function Main() {
 								</div>
 								<h4 className="font-semibold">Your Rights</h4>
 								<p className="mt-2 text-sm text-muted-foreground">
-									You have the right to access, correct, or delete your data at any time.
+									You have the right to access, correct, or delete your data at
+									any time.
 								</p>
 								<Button variant="link" size="sm" className="mt-2">
 									Learn more about your rights

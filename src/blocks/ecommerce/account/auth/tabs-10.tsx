@@ -1,11 +1,29 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Store, Globe, User, Building2, MapPin, Phone, Check } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Store,
+	Globe,
+	User,
+	Building2,
+	MapPin,
+	Phone,
+	Check,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -16,7 +34,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -66,7 +90,10 @@ const SelectField = ({
 			</SelectTrigger>
 			<SelectContent>
 				{options.map((option) => (
-					<SelectItem key={option} value={option.toLowerCase().replace(/\s/g, '-')}>
+					<SelectItem
+						key={option}
+						value={option.toLowerCase().replace(/\s/g, '-')}
+					>
 						{option}
 					</SelectItem>
 				))}
@@ -90,11 +117,7 @@ const SubmitButton = ({
 	</Button>
 );
 
-const SellerBenefit = ({
-	label,
-}: {
-	label: string;
-}) => (
+const SellerBenefit = ({ label }: { label: string }) => (
 	<div className="flex items-center gap-2 text-sm">
 		<Check className="size-4 text-primary flex-shrink-0" />
 		<span>{label}</span>
@@ -103,8 +126,20 @@ const SellerBenefit = ({
 
 const BuyerLogin = () => (
 	<form className="space-y-4">
-		<FormField id="buyer-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField id="buyer-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			id="buyer-email"
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="buyer-password"
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<SubmitButton label="Sign in as Buyer" icon={ArrowRight} />
 		<p className="text-sm text-muted-foreground text-center">
 			<Link href="/forgot-password" className="text-primary hover:underline">
@@ -136,8 +171,20 @@ const SellerLogin = () => {
 				</div>
 			</div>
 			<form className="space-y-4">
-				<FormField id="seller-email" label="Business Email" type="email" placeholder="you@company.com" icon={Mail} />
-				<FormField id="seller-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+				<FormField
+					id="seller-email"
+					label="Business Email"
+					type="email"
+					placeholder="you@company.com"
+					icon={Mail}
+				/>
+				<FormField
+					id="seller-password"
+					label="Password"
+					type="password"
+					placeholder="••••••••"
+					icon={Lock}
+				/>
 				<SubmitButton label="Sign in as Seller" icon={ArrowRight} />
 			</form>
 		</div>
@@ -153,8 +200,20 @@ const AffiliateLogin = () => (
 				Earn up to 15% commission on referrals
 			</p>
 		</div>
-		<FormField id="affiliate-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField id="affiliate-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			id="affiliate-email"
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="affiliate-password"
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<SubmitButton label="Access Affiliate Dashboard" icon={ArrowRight} />
 	</form>
 );
@@ -198,7 +257,10 @@ export default function Main() {
 					<CardFooter className="justify-center">
 						<p className="text-sm text-muted-foreground">
 							Don&apos;t have an account?{' '}
-							<Link href="/register" className="text-primary font-medium hover:underline">
+							<Link
+								href="/register"
+								className="text-primary font-medium hover:underline"
+							>
 								Register now
 							</Link>
 						</p>

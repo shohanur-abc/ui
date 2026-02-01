@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	Select,
@@ -9,7 +15,15 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import { Minus, Plus, Trash2, RefreshCw, Calendar, ArrowRight, CheckCircle } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Trash2,
+	RefreshCw,
+	Calendar,
+	ArrowRight,
+	CheckCircle,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -91,14 +105,24 @@ const FrequencySelector = ({
 	</Select>
 );
 
-const ItemPricing = ({ price, quantity, discount }: { price: number; quantity: number; discount?: number }) => {
+const ItemPricing = ({
+	price,
+	quantity,
+	discount,
+}: {
+	price: number;
+	quantity: number;
+	discount?: number;
+}) => {
 	const subtotal = price * quantity;
 	const discounted = discount ? subtotal * (1 - discount / 100) : subtotal;
 
 	return (
 		<div className="text-right">
 			{discount && (
-				<p className="text-sm text-muted-foreground line-through">${subtotal.toFixed(2)}</p>
+				<p className="text-sm text-muted-foreground line-through">
+					${subtotal.toFixed(2)}
+				</p>
 			)}
 			<p className="text-lg font-bold">${discounted.toFixed(2)}</p>
 		</div>
@@ -106,7 +130,11 @@ const ItemPricing = ({ price, quantity, discount }: { price: number; quantity: n
 };
 
 const RemoveAction = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<Trash2 className="size-4" />
 	</Button>
 );
@@ -131,7 +159,9 @@ const CartItemRow = ({
 	item: CartItem;
 	frequencies: FrequencyOption[];
 }) => (
-	<Card className={`${item.isSubscription ? 'border-green-500/30 bg-green-500/5' : ''}`}>
+	<Card
+		className={`${item.isSubscription ? 'border-green-500/30 bg-green-500/5' : ''}`}
+	>
 		<CardContent className="p-4">
 			<div className="flex gap-4">
 				<ItemImage src={item.image} alt={item.name} />
@@ -147,7 +177,10 @@ const CartItemRow = ({
 						<div className="flex items-center gap-4">
 							<QuantityControl quantity={item.quantity} />
 							{item.isSubscription && (
-								<FrequencySelector current={item.frequency || 'monthly'} options={frequencies} />
+								<FrequencySelector
+									current={item.frequency || 'monthly'}
+									options={frequencies}
+								/>
 							)}
 						</div>
 						<ItemPricing
@@ -181,7 +214,13 @@ const SubscriptionBenefits = ({ benefits }: { benefits: string[] }) => (
 	</Card>
 );
 
-const NextDelivery = ({ date, manageLabel }: { date: string; manageLabel: string }) => (
+const NextDelivery = ({
+	date,
+	manageLabel,
+}: {
+	date: string;
+	manageLabel: string;
+}) => (
 	<Card>
 		<CardContent className="flex items-center justify-between p-4">
 			<div className="flex items-center gap-3">
@@ -209,8 +248,12 @@ const SummaryLine = ({
 	value: string;
 	variant?: 'default' | 'discount' | 'total';
 }) => (
-	<div className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}>
-		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>{label}</span>
+	<div
+		className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}
+	>
+		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span
 			className={
 				variant === 'total'
@@ -232,7 +275,11 @@ const OrderSummary = ({
 	checkoutHref,
 }: {
 	title: string;
-	lines: { label: string; value: string; variant?: 'default' | 'discount' | 'total' }[];
+	lines: {
+		label: string;
+		value: string;
+		variant?: 'default' | 'discount' | 'total';
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
 }) => (
@@ -263,7 +310,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=200&fit=crop',
 			name: 'Premium Coffee Beans',
 			variant: '500g • Dark Roast',
 			price: 24.99,
@@ -273,7 +321,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=200&h=200&fit=crop',
 			name: 'Organic Protein Powder',
 			variant: '1kg • Chocolate',
 			price: 49.99,
@@ -283,7 +332,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&h=200&fit=crop',
 			name: 'Stainless Steel Water Bottle',
 			variant: '750ml • Matte Black',
 			price: 29.99,
@@ -308,10 +358,14 @@ export default function Main() {
 
 	const summaryLines = [
 		{ label: 'Subtotal', value: '$179.95' },
-		{ label: 'Subscription Discount', value: '-$22.49', variant: 'discount' as const },
+		{
+			label: 'Subscription Discount',
+			value: '-$22.49',
+			variant: 'discount' as const,
+		},
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax', value: '$12.60' },
-		{ label: 'Today\'s Total', value: '$170.06', variant: 'total' as const },
+		{ label: "Today's Total", value: '$170.06', variant: 'total' as const },
 	];
 
 	return (
@@ -322,7 +376,11 @@ export default function Main() {
 				<div className="mt-8 grid gap-8 @xl:grid-cols-5">
 					<div className="space-y-4 @xl:col-span-3">
 						{items.map((item) => (
-							<CartItemRow key={item.id} item={item} frequencies={frequencies} />
+							<CartItemRow
+								key={item.id}
+								item={item}
+								frequencies={frequencies}
+							/>
 						))}
 					</div>
 

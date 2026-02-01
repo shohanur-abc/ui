@@ -1,5 +1,11 @@
 import Link from 'next/link';
-import { Clock, ArrowLeft, Share2, Bookmark, type LucideIcon } from 'lucide-react';
+import {
+	Clock,
+	ArrowLeft,
+	Share2,
+	Bookmark,
+	type LucideIcon,
+} from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -59,7 +65,15 @@ const Subtitle = ({ text }: { text: string }) => (
 	</p>
 );
 
-const AuthorInfo = ({ author, publishDate, readTime }: { author: AuthorProps; publishDate: string; readTime: string }) => (
+const AuthorInfo = ({
+	author,
+	publishDate,
+	readTime,
+}: {
+	author: AuthorProps;
+	publishDate: string;
+	readTime: string;
+}) => (
 	<div className="flex items-center gap-4">
 		<Avatar className="size-12 ring-2 ring-border">
 			<AvatarImage src={author.avatar} alt={author.name} />
@@ -125,7 +139,8 @@ export default function Main() {
 			'Exploring how AI is transforming the way we live, work, and interact with the world around us.',
 		author: {
 			name: 'Sarah Mitchell',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'SM',
 			role: 'Senior Tech Writer',
 		},
@@ -152,7 +167,10 @@ export default function Main() {
 				</div>
 
 				<div className="flex flex-col gap-6 @md:gap-8 mb-8 @md:mb-12">
-					<CategoryBadge text={articleData.category} href={articleData.categoryHref} />
+					<CategoryBadge
+						text={articleData.category}
+						href={articleData.categoryHref}
+					/>
 					<Title text={articleData.title} />
 					<Subtitle text={articleData.subtitle} />
 

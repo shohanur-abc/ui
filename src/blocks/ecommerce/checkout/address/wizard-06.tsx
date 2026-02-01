@@ -163,7 +163,11 @@ const AddressForm = ({
 			<Field label="Street Address" placeholder="123 Main Street" />
 			<Field label="Apartment / Suite" placeholder="Apt 4B (Optional)" />
 			<div className="grid @sm:grid-cols-2 gap-4">
-				<SelectField label="State" placeholder="Select state" options={states} />
+				<SelectField
+					label="State"
+					placeholder="Select state"
+					options={states}
+				/>
 				<Field label="ZIP Code" placeholder="94102" />
 			</div>
 			<div className="flex items-center gap-2 pt-2">

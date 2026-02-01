@@ -73,24 +73,33 @@ const FlashSaleTimer = ({
 				<Zap className="size-5" fill="currentColor" />
 				<span className="font-bold">{label}</span>
 			</div>
-			<Badge variant="secondary" className="bg-white/20 text-white hover:bg-white/30">
+			<Badge
+				variant="secondary"
+				className="bg-white/20 text-white hover:bg-white/30"
+			>
 				<Clock className="mr-1 size-3" />
 				{endsIn}
 			</Badge>
 		</div>
 		<div className="mt-3 flex items-center justify-center gap-2">
 			<div className="flex flex-col items-center rounded bg-white/20 px-3 py-1">
-				<span className="font-mono text-2xl font-bold">{String(hours).padStart(2, '0')}</span>
+				<span className="font-mono text-2xl font-bold">
+					{String(hours).padStart(2, '0')}
+				</span>
 				<span className="text-[10px]">Hours</span>
 			</div>
 			<span className="text-2xl font-bold">:</span>
 			<div className="flex flex-col items-center rounded bg-white/20 px-3 py-1">
-				<span className="font-mono text-2xl font-bold">{String(minutes).padStart(2, '0')}</span>
+				<span className="font-mono text-2xl font-bold">
+					{String(minutes).padStart(2, '0')}
+				</span>
 				<span className="text-[10px]">Min</span>
 			</div>
 			<span className="text-2xl font-bold">:</span>
 			<div className="flex flex-col items-center rounded bg-white/20 px-3 py-1">
-				<span className="font-mono text-2xl font-bold">{String(seconds).padStart(2, '0')}</span>
+				<span className="font-mono text-2xl font-bold">
+					{String(seconds).padStart(2, '0')}
+				</span>
 				<span className="text-[10px]">Sec</span>
 			</div>
 		</div>
@@ -175,7 +184,10 @@ const FlashSaleSummary = ({
 			<span className="font-medium">Flash Price</span>
 			<span className="font-bold text-red-500">${saleTotal.toFixed(2)}</span>
 		</div>
-		<Button className="w-full gap-2 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600" size="lg">
+		<Button
+			className="w-full gap-2 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600"
+			size="lg"
+		>
 			<Zap className="size-4" />
 			{checkoutLabel}
 		</Button>
@@ -194,7 +206,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Air Max Limited',
 				originalPrice: 199.99,
 				salePrice: 99.99,
@@ -202,7 +215,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Ultra Boost Pro',
 				originalPrice: 249.99,
 				salePrice: 149.99,
@@ -225,7 +239,10 @@ export default function Main() {
 		(sum, item) => sum + item.salePrice * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

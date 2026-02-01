@@ -56,7 +56,9 @@ const CreatorHeader = ({
 			</div>
 			<div className="flex items-center gap-1">
 				<LinkIcon className="size-4" />
-				<a href={website} className="hover:text-foreground transition-colors">{website.replace('https://', '')}</a>
+				<a href={website} className="hover:text-foreground transition-colors">
+					{website.replace('https://', '')}
+				</a>
 			</div>
 			<div className="flex items-center gap-1">
 				<Calendar className="size-4" />
@@ -84,7 +86,12 @@ const SocialStats = ({
 const SocialLinks = ({
 	links,
 }: {
-	links: { icon: React.ElementType; label: string; href: string; color: string }[];
+	links: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		color: string;
+	}[];
 }) => (
 	<div className="flex justify-center gap-3">
 		{links.map((link, i) => (
@@ -165,15 +172,50 @@ export default function Main() {
 			{ value: '156', label: 'Products' },
 		],
 		socialLinks: [
-			{ icon: Instagram, label: 'Instagram', href: '#', color: 'bg-pink-500/20 text-pink-500 hover:bg-pink-500/30' },
-			{ icon: Twitter, label: 'Twitter', href: '#', color: 'bg-blue-500/20 text-blue-500 hover:bg-blue-500/30' },
-			{ icon: Youtube, label: 'YouTube', href: '#', color: 'bg-red-500/20 text-red-500 hover:bg-red-500/30' },
-			{ icon: Globe, label: 'Website', href: '#', color: 'bg-muted text-muted-foreground hover:bg-muted/80' },
+			{
+				icon: Instagram,
+				label: 'Instagram',
+				href: '#',
+				color: 'bg-pink-500/20 text-pink-500 hover:bg-pink-500/30',
+			},
+			{
+				icon: Twitter,
+				label: 'Twitter',
+				href: '#',
+				color: 'bg-blue-500/20 text-blue-500 hover:bg-blue-500/30',
+			},
+			{
+				icon: Youtube,
+				label: 'YouTube',
+				href: '#',
+				color: 'bg-red-500/20 text-red-500 hover:bg-red-500/30',
+			},
+			{
+				icon: Globe,
+				label: 'Website',
+				href: '#',
+				color: 'bg-muted text-muted-foreground hover:bg-muted/80',
+			},
 		],
 		products: [
-			{ image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=300', name: 'Designer Bag', price: '$299' },
-			{ image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300', name: 'Signature Scent', price: '$125' },
-			{ image: 'https://images.unsplash.com/photo-1611923134239-b9be5b4d1b27?w=300', name: 'Silk Scarf', price: '$89' },
+			{
+				image:
+					'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=300',
+				name: 'Designer Bag',
+				price: '$299',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300',
+				name: 'Signature Scent',
+				price: '$125',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1611923134239-b9be5b4d1b27?w=300',
+				name: 'Silk Scarf',
+				price: '$89',
+			},
 		],
 	};
 

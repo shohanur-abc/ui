@@ -1,6 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, DollarSign, Package, TrendingUp, TrendingDown, Clock, CheckCircle } from 'lucide-react';
+import {
+	ShoppingCart,
+	DollarSign,
+	Package,
+	TrendingUp,
+	TrendingDown,
+	Clock,
+	CheckCircle,
+} from 'lucide-react';
 
 interface OrderSummaryProps {
 	stats: {
@@ -22,8 +30,18 @@ const iconMap = {
 
 const StatCard = ({ stat }: { stat: OrderSummaryProps['stats'][0] }) => {
 	const Icon = iconMap[stat.icon];
-	const TrendIcon = stat.trend === 'up' ? TrendingUp : stat.trend === 'down' ? TrendingDown : null;
-	const trendColor = stat.trend === 'up' ? 'text-accent' : stat.trend === 'down' ? 'text-destructive' : 'text-muted-foreground';
+	const TrendIcon =
+		stat.trend === 'up'
+			? TrendingUp
+			: stat.trend === 'down'
+				? TrendingDown
+				: null;
+	const trendColor =
+		stat.trend === 'up'
+			? 'text-accent'
+			: stat.trend === 'down'
+				? 'text-destructive'
+				: 'text-muted-foreground';
 
 	return (
 		<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
@@ -64,10 +82,34 @@ const OrderSummary = ({ stats, period }: OrderSummaryProps) => (
 
 export default function Main() {
 	const stats = [
-		{ label: 'Total Orders', value: '1,247', change: '+12.5%', trend: 'up' as const, icon: 'orders' as const },
-		{ label: 'Revenue', value: '$89,432', change: '+8.2%', trend: 'up' as const, icon: 'revenue' as const },
-		{ label: 'Items Sold', value: '3,891', change: '-2.1%', trend: 'down' as const, icon: 'items' as const },
-		{ label: 'Avg. Fulfillment', value: '2.4 days', change: '-15%', trend: 'up' as const, icon: 'time' as const },
+		{
+			label: 'Total Orders',
+			value: '1,247',
+			change: '+12.5%',
+			trend: 'up' as const,
+			icon: 'orders' as const,
+		},
+		{
+			label: 'Revenue',
+			value: '$89,432',
+			change: '+8.2%',
+			trend: 'up' as const,
+			icon: 'revenue' as const,
+		},
+		{
+			label: 'Items Sold',
+			value: '3,891',
+			change: '-2.1%',
+			trend: 'down' as const,
+			icon: 'items' as const,
+		},
+		{
+			label: 'Avg. Fulfillment',
+			value: '2.4 days',
+			change: '-15%',
+			trend: 'up' as const,
+			icon: 'time' as const,
+		},
 	];
 
 	return (

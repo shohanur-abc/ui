@@ -27,7 +27,14 @@ type CompactMetric = {
 	subMetrics: { label: string; value: string }[];
 };
 
-const CompactMetricCard = ({ title, value, change, trend, icon: Icon, subMetrics }: CompactMetric) => (
+const CompactMetricCard = ({
+	title,
+	value,
+	change,
+	trend,
+	icon: Icon,
+	subMetrics,
+}: CompactMetric) => (
 	<Card>
 		<CardContent className="p-4">
 			<div className="flex items-center gap-3">
@@ -42,7 +49,11 @@ const CompactMetricCard = ({ title, value, change, trend, icon: Icon, subMetrics
 							variant="secondary"
 							className={`text-xs ${trend === 'up' ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500'}`}
 						>
-							{trend === 'up' ? <ArrowUpRight className="mr-0.5 size-2.5" /> : <ArrowDownRight className="mr-0.5 size-2.5" />}
+							{trend === 'up' ? (
+								<ArrowUpRight className="mr-0.5 size-2.5" />
+							) : (
+								<ArrowDownRight className="mr-0.5 size-2.5" />
+							)}
 							{change}
 						</Badge>
 					</div>

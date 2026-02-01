@@ -1,6 +1,13 @@
 'use client';
 
-import { TrendingUp, TrendingDown, DollarSign, ShoppingCart, Users, Package } from 'lucide-react';
+import {
+	TrendingUp,
+	TrendingDown,
+	DollarSign,
+	ShoppingCart,
+	Users,
+	Package,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 import {
@@ -116,9 +123,7 @@ export default function Main() {
 						<CardTitle className="text-lg @sm:text-xl">
 							Performance Overview
 						</CardTitle>
-						<CardDescription>
-							Key business metrics at a glance
-						</CardDescription>
+						<CardDescription>Key business metrics at a glance</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">

@@ -1,9 +1,24 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Minus, Plus, Trash2, Gift, MessageSquare, Heart, ArrowRight, Share2 } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Trash2,
+	Gift,
+	MessageSquare,
+	Heart,
+	ArrowRight,
+	Share2,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,7 +38,13 @@ interface Recipient {
 	items: GiftItem[];
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="flex items-center gap-4">
 		<div className="rounded-full bg-primary/10 p-3">
 			<Gift className="size-6 text-primary" />
@@ -96,20 +117,36 @@ const GiftItemRow = ({ item }: { item: GiftItem }) => (
 		<ItemImage src={item.image} alt={item.name} />
 		<ItemDetails name={item.name} price={item.price} />
 		<QuantityControl quantity={item.quantity} />
-		<p className="font-semibold w-16 text-right">${(item.price * item.quantity).toFixed(2)}</p>
-		<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+		<p className="font-semibold w-16 text-right">
+			${(item.price * item.quantity).toFixed(2)}
+		</p>
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="text-muted-foreground hover:text-destructive"
+		>
 			<Trash2 className="size-4" />
 		</Button>
 	</div>
 );
 
-const RecipientActions = ({ saveLabel, removeLabel }: { saveLabel: string; removeLabel: string }) => (
+const RecipientActions = ({
+	saveLabel,
+	removeLabel,
+}: {
+	saveLabel: string;
+	removeLabel: string;
+}) => (
 	<div className="flex gap-2 text-sm">
 		<Button variant="ghost" size="sm" className="gap-1 text-muted-foreground">
 			<Heart className="size-3" />
 			{saveLabel}
 		</Button>
-		<Button variant="ghost" size="sm" className="gap-1 text-muted-foreground hover:text-destructive">
+		<Button
+			variant="ghost"
+			size="sm"
+			className="gap-1 text-muted-foreground hover:text-destructive"
+		>
 			<Trash2 className="size-3" />
 			{removeLabel}
 		</Button>
@@ -117,7 +154,10 @@ const RecipientActions = ({ saveLabel, removeLabel }: { saveLabel: string; remov
 );
 
 const RecipientCard = ({ recipient }: { recipient: Recipient }) => {
-	const subtotal = recipient.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+	const subtotal = recipient.items.reduce(
+		(sum, i) => sum + i.price * i.quantity,
+		0,
+	);
 
 	return (
 		<Card className="overflow-hidden">
@@ -163,8 +203,12 @@ const PriceLine = ({
 	value: string;
 	variant?: 'default' | 'highlight' | 'total';
 }) => (
-	<div className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}>
-		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>{label}</span>
+	<div
+		className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}
+	>
+		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span
 			className={
 				variant === 'total'
@@ -179,7 +223,11 @@ const PriceLine = ({
 	</div>
 );
 
-const GiftOptions = ({ options }: { options: { label: string; included: boolean }[] }) => (
+const GiftOptions = ({
+	options,
+}: {
+	options: { label: string; included: boolean }[];
+}) => (
 	<Card>
 		<CardHeader className="pb-3">
 			<CardTitle className="text-sm flex items-center gap-2">
@@ -192,7 +240,9 @@ const GiftOptions = ({ options }: { options: { label: string; included: boolean 
 				<div key={i} className="flex items-center justify-between text-sm">
 					<span>{opt.label}</span>
 					{opt.included ? (
-						<Badge variant="secondary" className="text-xs">Included</Badge>
+						<Badge variant="secondary" className="text-xs">
+							Included
+						</Badge>
 					) : (
 						<Button variant="link" size="sm" className="h-auto p-0 text-xs">
 							Add
@@ -211,7 +261,11 @@ const OrderSummary = ({
 	checkoutHref,
 }: {
 	title: string;
-	lines: { label: string; value: string; variant?: 'default' | 'highlight' | 'total' }[];
+	lines: {
+		label: string;
+		value: string;
+		variant?: 'default' | 'highlight' | 'total';
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
 }) => (
@@ -248,14 +302,16 @@ export default function Main() {
 			items: [
 				{
 					id: '1a',
-					image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop',
 					name: 'Silk Scarf',
 					price: 89.99,
 					quantity: 1,
 				},
 				{
 					id: '1b',
-					image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop',
 					name: 'Wireless Earbuds',
 					price: 149.99,
 					quantity: 1,
@@ -266,11 +322,12 @@ export default function Main() {
 			id: '2',
 			name: 'Mom',
 			avatar: '/avatars/mom.jpg',
-			message: "Thank you for everything! Love you! ❤️",
+			message: 'Thank you for everything! Love you! ❤️',
 			items: [
 				{
 					id: '2a',
-					image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=100&h=100&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=100&h=100&fit=crop',
 					name: 'Luxury Candle Set',
 					price: 79.99,
 					quantity: 1,
@@ -290,10 +347,18 @@ export default function Main() {
 
 	const summaryLines = [
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
-		{ label: 'Gift Wrapping', value: 'Included', variant: 'highlight' as const },
+		{
+			label: 'Gift Wrapping',
+			value: 'Included',
+			variant: 'highlight' as const,
+		},
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax', value: `$${(subtotal * 0.08).toFixed(2)}` },
-		{ label: 'Total', value: `$${(subtotal * 1.08).toFixed(2)}`, variant: 'total' as const },
+		{
+			label: 'Total',
+			value: `$${(subtotal * 1.08).toFixed(2)}`,
+			variant: 'total' as const,
+		},
 	];
 
 	return (

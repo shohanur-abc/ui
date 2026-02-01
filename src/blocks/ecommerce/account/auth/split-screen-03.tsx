@@ -32,7 +32,10 @@ const TestimonialPanel = ({
 		<div className="relative z-10 max-w-md">
 			<div className="flex gap-1 mb-6">
 				{Array.from({ length: rating }).map((_, i) => (
-					<Star key={i} className="size-5 fill-primary-foreground text-primary-foreground" />
+					<Star
+						key={i}
+						className="size-5 fill-primary-foreground text-primary-foreground"
+					/>
 				))}
 			</div>
 			<blockquote className="text-2xl @xl:text-3xl text-primary-foreground font-medium leading-relaxed mb-8">
@@ -54,7 +57,13 @@ const TestimonialPanel = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -65,7 +74,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -177,19 +188,36 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="StyleStore" icon={Sparkles} />
-						<Title text="Sign in to your account" subtitle="Continue your shopping journey" />
+						<Title
+							text="Sign in to your account"
+							subtitle="Continue your shopping journey"
+						/>
 
 						<SocialButton icon={GoogleIcon} label="Continue with Google" />
 						<DividerText text="or" />
 
 						<form className="space-y-5">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<SubmitButton label="Sign in" icon={ArrowRight} />
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="New here?" linkText="Create an account" href="/signup" />
+							<FooterLink
+								text="New here?"
+								linkText="Create an account"
+								href="/signup"
+							/>
 						</div>
 					</div>
 				</div>

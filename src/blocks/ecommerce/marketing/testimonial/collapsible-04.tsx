@@ -64,7 +64,10 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 const ImpactBadge = ({ impact }: { impact: string }) => (
-	<Badge variant="outline" className="bg-primary/5 border-primary/20 text-primary font-semibold">
+	<Badge
+		variant="outline"
+		className="bg-primary/5 border-primary/20 text-primary font-semibold"
+	>
 		{impact}
 	</Badge>
 );
@@ -106,7 +109,9 @@ const CompanyCard = ({ section }: { section: CompanySection }) => {
 									{section.logo}
 								</div>
 								<div>
-									<h3 className="font-bold text-foreground">{section.company}</h3>
+									<h3 className="font-bold text-foreground">
+										{section.company}
+									</h3>
 									<p className="text-xs text-muted-foreground">
 										{section.industry} · {section.testimonials.length} reviews
 									</p>
@@ -144,7 +149,8 @@ export default function Main() {
 					author: 'Zach Wilson',
 					role: 'VP Engineering',
 					company: 'TechCorp',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'ZW',
 					rating: 5,
 					impact: '+60% productivity',
@@ -154,7 +160,8 @@ export default function Main() {
 					author: 'Amy Chen',
 					role: 'CISO',
 					company: 'TechCorp',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'AC',
 					rating: 5,
 					impact: '100% compliant',
@@ -171,7 +178,8 @@ export default function Main() {
 					author: 'Brian Park',
 					role: 'CFO',
 					company: 'FinanceFirst',
-					avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 					initials: 'BP',
 					rating: 5,
 					impact: '90% time saved',
@@ -188,7 +196,8 @@ export default function Main() {
 					author: 'Clara Davis',
 					role: 'CTO',
 					company: 'HealthCare Plus',
-					avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 					initials: 'CD',
 					rating: 5,
 					impact: 'HIPAA certified',
@@ -198,7 +207,8 @@ export default function Main() {
 					author: 'Dan Lee',
 					role: 'Security Lead',
 					company: 'HealthCare Plus',
-					avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 					initials: 'DL',
 					rating: 5,
 					impact: 'Zero breaches',
@@ -208,7 +218,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="By Company"

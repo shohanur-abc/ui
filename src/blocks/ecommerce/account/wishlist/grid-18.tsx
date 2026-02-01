@@ -24,7 +24,11 @@ interface WishlistGridProps {
 	items: WishlistItem[];
 }
 
-const CertificationIcon = ({ type }: { type: 'leaf' | 'recycle' | 'award' }) => {
+const CertificationIcon = ({
+	type,
+}: {
+	type: 'leaf' | 'recycle' | 'award';
+}) => {
 	const icons = {
 		leaf: Leaf,
 		recycle: Recycle,
@@ -52,13 +56,20 @@ const SustainabilityMeter = ({ score }: { score: number }) => {
 				<span className="font-medium">{score}/100</span>
 			</div>
 			<div className="h-1.5 rounded-full bg-muted overflow-hidden">
-				<div className={`h-full rounded-full ${getColor(score)} transition-all`} style={{ width: `${score}%` }} />
+				<div
+					className={`h-full rounded-full ${getColor(score)} transition-all`}
+					style={{ width: `${score}%` }}
+				/>
 			</div>
 		</div>
 	);
 };
 
-const CertificationBadges = ({ certifications }: { certifications: Certification[] }) => (
+const CertificationBadges = ({
+	certifications,
+}: {
+	certifications: Certification[];
+}) => (
 	<div className="flex flex-wrap gap-1 mt-2">
 		{certifications.map((cert, i) => (
 			<Badge key={i} variant="outline" className="gap-1 text-[10px] py-0 h-5">
@@ -92,7 +103,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			)}
 		</div>
 		<CardContent className="p-4">
-			<p className="text-xs text-muted-foreground uppercase tracking-wider">{item.brand}</p>
+			<p className="text-xs text-muted-foreground uppercase tracking-wider">
+				{item.brand}
+			</p>
 			<Link href={item.href}>
 				<h3 className="font-semibold line-clamp-1 group-hover:text-primary transition-colors">
 					{item.name}
@@ -125,10 +138,15 @@ const EcoHeader = ({ ecoScore }: { ecoScore: number }) => (
 			</div>
 			<div>
 				<h2 className="font-semibold">Your Eco Impact</h2>
-				<p className="text-sm text-muted-foreground">Average sustainability score: {ecoScore}/100</p>
+				<p className="text-sm text-muted-foreground">
+					Average sustainability score: {ecoScore}/100
+				</p>
 			</div>
 		</div>
-		<Button variant="outline" className="gap-2 border-green-500/30 text-green-700 hover:bg-green-500/10">
+		<Button
+			variant="outline"
+			className="gap-2 border-green-500/30 text-green-700 hover:bg-green-500/10"
+		>
 			<Leaf className="size-4" />
 			Shop Sustainable
 		</Button>
@@ -141,8 +159,9 @@ export default function Main() {
 			id: '1',
 			name: 'Organic Cotton Tee',
 			brand: 'EcoWear',
-			price: 45.00,
-			image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop',
+			price: 45.0,
+			image:
+				'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop',
 			sustainabilityScore: 92,
 			certifications: [
 				{ name: 'GOTS', icon: 'leaf' },
@@ -154,8 +173,9 @@ export default function Main() {
 			id: '2',
 			name: 'Recycled Denim Jacket',
 			brand: 'ReThread',
-			price: 129.00,
-			image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop',
+			price: 129.0,
+			image:
+				'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop',
 			sustainabilityScore: 85,
 			certifications: [
 				{ name: 'Recycled', icon: 'recycle' },
@@ -167,20 +187,20 @@ export default function Main() {
 			id: '3',
 			name: 'Bamboo Sneakers',
 			brand: 'GreenStep',
-			price: 98.00,
-			image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&fit=crop',
+			price: 98.0,
+			image:
+				'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&h=400&fit=crop',
 			sustainabilityScore: 78,
-			certifications: [
-				{ name: 'Carbon Neutral', icon: 'leaf' },
-			],
+			certifications: [{ name: 'Carbon Neutral', icon: 'leaf' }],
 			href: '/product/3',
 		},
 		{
 			id: '4',
 			name: 'Hemp Canvas Bag',
 			brand: 'NatureCraft',
-			price: 65.00,
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop',
+			price: 65.0,
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop',
 			sustainabilityScore: 95,
 			certifications: [
 				{ name: 'Organic', icon: 'leaf' },
@@ -191,12 +211,17 @@ export default function Main() {
 		},
 	];
 
-	const avgScore = Math.round(wishlistItems.reduce((sum, item) => sum + item.sustainabilityScore, 0) / wishlistItems.length);
+	const avgScore = Math.round(
+		wishlistItems.reduce((sum, item) => sum + item.sustainabilityScore, 0) /
+			wishlistItems.length,
+	);
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<h1 className="text-2xl @md:text-3xl font-bold mb-6">Sustainable Wishlist</h1>
+				<h1 className="text-2xl @md:text-3xl font-bold mb-6">
+					Sustainable Wishlist
+				</h1>
 				<EcoHeader ecoScore={avgScore} />
 				<WishlistGrid items={wishlistItems} />
 			</div>

@@ -55,7 +55,9 @@ const TravelerProfileCard = ({
 				<h1 className="text-xl font-bold">{name}</h1>
 				<div className="flex items-center gap-2 mt-1">
 					<Badge className="bg-sky-500/20 text-sky-600">{level}</Badge>
-					<span className="text-sm text-muted-foreground">since {memberSince}</span>
+					<span className="text-sm text-muted-foreground">
+						since {memberSince}
+					</span>
 				</div>
 				<div className="flex items-center gap-2 mt-4">
 					<Globe className="size-5 text-sky-500" />
@@ -111,14 +113,18 @@ const UpcomingTripCard = ({
 				</div>
 			</div>
 			<CardContent className="p-4 flex-1">
-				<Badge variant="outline" className="mb-2">Upcoming Trip</Badge>
+				<Badge variant="outline" className="mb-2">
+					Upcoming Trip
+				</Badge>
 				<p className="font-bold">{destination}</p>
 				<p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
 					<Calendar className="size-3" />
 					{dates}
 				</p>
 				<div className="flex gap-2 mt-3">
-					<Button size="sm" variant="outline">View Details</Button>
+					<Button size="sm" variant="outline">
+						View Details
+					</Button>
 					<Button size="sm">Check In</Button>
 				</div>
 			</CardContent>
@@ -148,7 +154,9 @@ const MilesCard = ({
 			</div>
 			<p className="text-3xl font-bold">{balance}</p>
 			<p className="text-sm text-muted-foreground">miles available</p>
-			<p className="text-xs text-amber-600 mt-2">{expiring} miles expiring {expiringDate}</p>
+			<p className="text-xs text-amber-600 mt-2">
+				{expiring} miles expiring {expiringDate}
+			</p>
 		</CardContent>
 	</Card>
 );
@@ -201,14 +209,24 @@ const SavedPlacesCard = ({
 					<Heart className="size-5 text-red-500" />
 					Saved Places
 				</h3>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{places.map((place, i) => (
-				<div key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+				<div
+					key={i}
+					className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
+				>
 					<div className="relative size-12 rounded-lg overflow-hidden">
-						<Image src={place.image} alt={place.name} fill className="object-cover" />
+						<Image
+							src={place.image}
+							alt={place.name}
+							fill
+							className="object-cover"
+						/>
 					</div>
 					<div className="flex-1 min-w-0">
 						<p className="font-medium truncate">{place.name}</p>
@@ -247,7 +265,9 @@ const TravelBadgesCard = ({
 						title={badge.name}
 					>
 						<span className="text-2xl">{badge.icon}</span>
-						<span className="text-xs mt-1 truncate w-16 text-center">{badge.name}</span>
+						<span className="text-xs mt-1 truncate w-16 text-center">
+							{badge.name}
+						</span>
 					</div>
 				))}
 			</div>
@@ -281,7 +301,9 @@ const TravelCompanionsCard = ({
 							<AvatarFallback>{companion.name[0]}</AvatarFallback>
 						</Avatar>
 						<p className="text-xs font-medium mt-1">{companion.name}</p>
-						<p className="text-xs text-muted-foreground">{companion.trips} trips</p>
+						<p className="text-xs text-muted-foreground">
+							{companion.trips} trips
+						</p>
 					</div>
 				))}
 			</div>
@@ -308,7 +330,8 @@ export default function Main() {
 		upcomingTrip: {
 			destination: 'Tokyo, Japan',
 			dates: 'Mar 15 - Mar 28, 2024',
-			image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400',
+			image:
+				'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400',
 			daysUntil: 45,
 		},
 		miles: {
@@ -318,12 +341,36 @@ export default function Main() {
 			tier: 'Gold',
 		},
 		recentTrips: [
-			{ destination: 'Paris, France', dates: 'Dec 2023', image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400', rating: 5, photos: 156 },
-			{ destination: 'Barcelona, Spain', dates: 'Oct 2023', image: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400', rating: 4, photos: 98 },
+			{
+				destination: 'Paris, France',
+				dates: 'Dec 2023',
+				image:
+					'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400',
+				rating: 5,
+				photos: 156,
+			},
+			{
+				destination: 'Barcelona, Spain',
+				dates: 'Oct 2023',
+				image:
+					'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400',
+				rating: 4,
+				photos: 98,
+			},
 		],
 		savedPlaces: [
-			{ name: 'Santorini', location: 'Greece', image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=100' },
-			{ name: 'Machu Picchu', location: 'Peru', image: 'https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=100' },
+			{
+				name: 'Santorini',
+				location: 'Greece',
+				image:
+					'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=100',
+			},
+			{
+				name: 'Machu Picchu',
+				location: 'Peru',
+				image:
+					'https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=100',
+			},
 		],
 		badges: [
 			{ name: 'Globe Trotter', icon: '🌍', unlocked: true },

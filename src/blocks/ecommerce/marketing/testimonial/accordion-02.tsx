@@ -61,7 +61,10 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 const MetricBadge = ({ metric }: { metric: string }) => (
-	<Badge variant="outline" className="bg-primary/5 border-primary/20 text-primary text-xs">
+	<Badge
+		variant="outline"
+		className="bg-primary/5 border-primary/20 text-primary text-xs"
+	>
 		<TrendingUp className="size-3 mr-1" />
 		{metric}
 	</Badge>
@@ -110,7 +113,8 @@ export default function Main() {
 					author: 'Paula Chen',
 					role: 'VP Operations',
 					company: 'ProductivityCo',
-					avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 					initials: 'PC',
 					rating: 5,
 					metric: '+60% output',
@@ -121,7 +125,8 @@ export default function Main() {
 					author: 'Quinn Park',
 					role: 'Director',
 					company: 'EfficiencyFirst',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'QP',
 					rating: 5,
 					metric: '-80% manual work',
@@ -139,7 +144,8 @@ export default function Main() {
 					author: 'Rachel Lee',
 					role: 'CFO',
 					company: 'SaveSmart',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'RL',
 					rating: 5,
 					metric: '$500K saved',
@@ -157,7 +163,8 @@ export default function Main() {
 					author: 'Sam Kim',
 					role: 'CX Director',
 					company: 'HappyCustomers',
-					avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 					initials: 'SK',
 					rating: 5,
 					metric: 'NPS +37 pts',
@@ -168,7 +175,8 @@ export default function Main() {
 					author: 'Tina Davis',
 					role: 'Support Lead',
 					company: 'ServicePro',
-					avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 					initials: 'TD',
 					rating: 5,
 					metric: '-65% complaints',
@@ -178,7 +186,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Grouped Results"

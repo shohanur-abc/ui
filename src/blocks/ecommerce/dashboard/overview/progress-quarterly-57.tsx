@@ -12,11 +12,14 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
-	ChartConfig,
-	ChartContainer,
-} from '@/components/ui/chart';
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
+import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 import { Progress } from '@/components/ui/progress';
 
 type QuarterlyGoal = {
@@ -35,7 +38,15 @@ type RadialData = {
 	fill: string;
 };
 
-const QuarterlyGoalCard = ({ title, current, target, progress, daysLeft, icon: Icon, color }: QuarterlyGoal) => (
+const QuarterlyGoalCard = ({
+	title,
+	current,
+	target,
+	progress,
+	daysLeft,
+	icon: Icon,
+	color,
+}: QuarterlyGoal) => (
 	<Card>
 		<CardContent className="p-5">
 			<div className="flex items-center gap-3">
@@ -48,7 +59,11 @@ const QuarterlyGoalCard = ({ title, current, target, progress, daysLeft, icon: I
 				</div>
 				<Badge
 					variant="secondary"
-					className={progress >= 100 ? 'bg-emerald-500/10 text-emerald-500' : 'bg-primary/10 text-primary'}
+					className={
+						progress >= 100
+							? 'bg-emerald-500/10 text-emerald-500'
+							: 'bg-primary/10 text-primary'
+					}
 				>
 					{progress}%
 				</Badge>
@@ -68,10 +83,42 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const goals: QuarterlyGoal[] = [
-		{ title: 'Quarterly Revenue', current: '$720K', target: '$900K', progress: 80, daysLeft: 21, icon: TrendingUp, color: 'bg-primary/10 text-primary' },
-		{ title: 'New Customers', current: '845', target: '1,000', progress: 85, daysLeft: 21, icon: Target, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'Product Launches', current: '8', target: '12', progress: 67, daysLeft: 21, icon: Flag, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Support Resolution', current: '94%', target: '95%', progress: 99, daysLeft: 21, icon: Clock, color: 'bg-blue-500/10 text-blue-500' },
+		{
+			title: 'Quarterly Revenue',
+			current: '$720K',
+			target: '$900K',
+			progress: 80,
+			daysLeft: 21,
+			icon: TrendingUp,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'New Customers',
+			current: '845',
+			target: '1,000',
+			progress: 85,
+			daysLeft: 21,
+			icon: Target,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'Product Launches',
+			current: '8',
+			target: '12',
+			progress: 67,
+			daysLeft: 21,
+			icon: Flag,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Support Resolution',
+			current: '94%',
+			target: '95%',
+			progress: 99,
+			daysLeft: 21,
+			icon: Clock,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
 	];
 
 	const radialData: RadialData[] = [
@@ -107,7 +154,10 @@ export default function Main() {
 							<CardDescription>Quarterly achievements</CardDescription>
 						</CardHeader>
 						<CardContent className="flex flex-col items-center">
-							<ChartContainer config={chartConfig} className="h-[180px] w-[180px]">
+							<ChartContainer
+								config={chartConfig}
+								className="h-[180px] w-[180px]"
+							>
 								<RadialBarChart
 									innerRadius="30%"
 									outerRadius="100%"
@@ -115,11 +165,7 @@ export default function Main() {
 									startAngle={180}
 									endAngle={-180}
 								>
-									<RadialBar
-										dataKey="value"
-										background
-										cornerRadius={4}
-									/>
+									<RadialBar dataKey="value" background cornerRadius={4} />
 								</RadialBarChart>
 							</ChartContainer>
 							<div className="mt-6 w-full space-y-3">

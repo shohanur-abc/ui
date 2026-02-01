@@ -138,17 +138,65 @@ const IntegrationCard = ({
 
 export default function Main() {
 	const integrations: Integration[] = [
-		{ id: '1', name: 'Google Analytics', icon: '📊', description: 'Track website traffic and conversions', category: 'Analytics', status: 'connected', lastSync: '2 min ago' },
-		{ id: '2', name: 'Mailchimp', icon: '🐵', description: 'Email marketing automation', category: 'Marketing', status: 'connected', lastSync: '1 hour ago' },
-		{ id: '3', name: 'Slack', icon: '💬', description: 'Get order notifications in Slack', category: 'Communication', status: 'connected', lastSync: '5 min ago' },
-		{ id: '4', name: 'QuickBooks', icon: '📗', description: 'Sync orders and inventory', category: 'Accounting', status: 'error' },
-		{ id: '5', name: 'Shopify', icon: '🛍️', description: 'Multi-channel selling', category: 'Sales', status: 'disconnected' },
-		{ id: '6', name: 'Zapier', icon: '⚡', description: 'Connect 5000+ apps', category: 'Automation', status: 'disconnected' },
+		{
+			id: '1',
+			name: 'Google Analytics',
+			icon: '📊',
+			description: 'Track website traffic and conversions',
+			category: 'Analytics',
+			status: 'connected',
+			lastSync: '2 min ago',
+		},
+		{
+			id: '2',
+			name: 'Mailchimp',
+			icon: '🐵',
+			description: 'Email marketing automation',
+			category: 'Marketing',
+			status: 'connected',
+			lastSync: '1 hour ago',
+		},
+		{
+			id: '3',
+			name: 'Slack',
+			icon: '💬',
+			description: 'Get order notifications in Slack',
+			category: 'Communication',
+			status: 'connected',
+			lastSync: '5 min ago',
+		},
+		{
+			id: '4',
+			name: 'QuickBooks',
+			icon: '📗',
+			description: 'Sync orders and inventory',
+			category: 'Accounting',
+			status: 'error',
+		},
+		{
+			id: '5',
+			name: 'Shopify',
+			icon: '🛍️',
+			description: 'Multi-channel selling',
+			category: 'Sales',
+			status: 'disconnected',
+		},
+		{
+			id: '6',
+			name: 'Zapier',
+			icon: '⚡',
+			description: 'Connect 5000+ apps',
+			category: 'Automation',
+			status: 'disconnected',
+		},
 	];
 
 	const categories: Category[] = [
 		{ name: 'All', count: integrations.length },
-		{ name: 'Connected', count: integrations.filter((i) => i.status === 'connected').length },
+		{
+			name: 'Connected',
+			count: integrations.filter((i) => i.status === 'connected').length,
+		},
 		{ name: 'Analytics', count: 1 },
 		{ name: 'Marketing', count: 1 },
 		{ name: 'Communication', count: 1 },

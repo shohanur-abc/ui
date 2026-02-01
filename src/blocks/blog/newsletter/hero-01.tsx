@@ -44,9 +44,7 @@ const Eyebrow = ({ icon: Icon, text }: EyebrowProps) => (
 
 const Title = ({ preText, highlight, postText }: TitleProps) => (
 	<h2 className="text-3xl @sm:text-4xl @lg:text-5xl @xl:text-6xl font-bold tracking-tight leading-tight">
-		{preText}{' '}
-		<span className="text-primary">{highlight}</span>{' '}
-		{postText}
+		{preText} <span className="text-primary">{highlight}</span> {postText}
 	</h2>
 );
 
@@ -75,7 +73,10 @@ const TrustBadges = ({ items }: TrustBadgesProps) => (
 		{items.map((item, i) => {
 			const Icon = item.icon;
 			return (
-				<div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+				<div
+					key={i}
+					className="flex items-center gap-2 text-sm text-muted-foreground"
+				>
 					<Icon className="size-4 text-primary" />
 					<span>{item.text}</span>
 				</div>
@@ -91,7 +92,11 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-20 @md:py-28 @xl:py-36">
 				<div className="flex flex-col items-center text-center gap-8">
 					<Eyebrow icon={Sparkles} text="Newsletter" />
-					<Title preText="Stay ahead with" highlight="weekly" postText="insights" />
+					<Title
+						preText="Stay ahead with"
+						highlight="weekly"
+						postText="insights"
+					/>
 					<Description text="Join thousands of professionals who receive our curated newsletter featuring the latest trends, tutorials, and exclusive content." />
 					<Form
 						placeholder="Enter your email address"

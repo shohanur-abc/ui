@@ -55,8 +55,13 @@ const StarRating = ({ rating }: { rating: number }) => (
 const StatsBar = ({ stats }: { stats: StatItem[] }) => (
 	<div className="grid grid-cols-2 @md:grid-cols-4 gap-4 mb-12 @lg:mb-16">
 		{stats.map((stat, index) => (
-			<div key={index} className="text-center p-4 @md:p-6 bg-muted/30 rounded-xl">
-				<p className="text-2xl @md:text-3xl font-bold text-primary mb-1">{stat.value}</p>
+			<div
+				key={index}
+				className="text-center p-4 @md:p-6 bg-muted/30 rounded-xl"
+			>
+				<p className="text-2xl @md:text-3xl font-bold text-primary mb-1">
+					{stat.value}
+				</p>
 				<p className="text-sm text-muted-foreground">{stat.label}</p>
 			</div>
 		))}
@@ -81,7 +86,9 @@ const CenteredTestimonial = ({ item }: { item: TestimonialItem }) => (
 			</div>
 			<StarRating rating={item.rating} />
 			<Quote className="size-8 text-primary/20 mx-auto mb-3" />
-			<p className="text-foreground text-lg leading-relaxed flex-1 mb-5">"{item.quote}"</p>
+			<p className="text-foreground text-lg leading-relaxed flex-1 mb-5">
+				"{item.quote}"
+			</p>
 			<div className="pt-4 border-t border-border/50">
 				<p className="font-bold text-foreground">{item.author}</p>
 				<p className="text-muted-foreground text-sm">
@@ -107,7 +114,8 @@ export default function Main() {
 			author: 'Tina Johnson',
 			role: 'Product Manager',
 			company: 'ProductFirst',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'TJ',
 			rating: 5,
 		},
@@ -117,7 +125,8 @@ export default function Main() {
 			author: 'Uma Patel',
 			role: 'IT Director',
 			company: 'TechSupport',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'UP',
 			rating: 5,
 		},
@@ -127,14 +136,18 @@ export default function Main() {
 			author: 'Victor Lee',
 			role: 'CFO',
 			company: 'ROI Masters',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'VL',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Verified Reviews"

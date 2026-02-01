@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -48,7 +54,10 @@ const Panel = ({
 			</div>
 			<div className="flex items-center gap-2">
 				{verified && (
-					<Badge variant="secondary" className="gap-1 text-green-600 dark:text-green-400">
+					<Badge
+						variant="secondary"
+						className="gap-1 text-green-600 dark:text-green-400"
+					>
 						<Check className="size-3" />
 						Verified
 					</Badge>
@@ -68,7 +77,12 @@ const Panel = ({
 const ProductCard = ({ product }: { product: CartProduct }) => (
 	<div className="flex items-center gap-4 rounded-lg bg-muted/30 p-3">
 		<div className="relative size-16 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="font-medium">{product.name}</p>
@@ -134,7 +148,9 @@ const PaymentInfo = ({
 	<div className="flex items-center gap-3">
 		<CreditCard className="size-5 text-primary" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -151,9 +167,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -165,7 +185,8 @@ export default function Main() {
 			variant: 'Travel / Black',
 			price: 129.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -173,7 +194,8 @@ export default function Main() {
 			variant: 'Set of 6 / Grey',
 			price: 44.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -222,7 +244,11 @@ export default function Main() {
 						</div>
 
 						<Panel title="Delivery" icon={Truck} editable verified>
-							<DeliveryInfo method="Express" date="Dec 18-19, 2025" price="$14.99" />
+							<DeliveryInfo
+								method="Express"
+								date="Dec 18-19, 2025"
+								price="$14.99"
+							/>
 						</Panel>
 
 						<Panel title="Payment" icon={CreditCard} editable verified>

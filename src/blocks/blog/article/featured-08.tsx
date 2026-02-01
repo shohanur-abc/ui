@@ -3,7 +3,11 @@ import { Clock, Star, ChevronDown, Quote } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import {
+	Collapsible,
+	CollapsibleContent,
+	CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 
 interface AuthorProps {
 	name: string;
@@ -84,7 +88,9 @@ const AuthorBar = ({
 			</Avatar>
 			<div>
 				<p className="font-semibold">{author.name}</p>
-				<p className="text-sm text-muted-foreground line-clamp-1">{author.bio}</p>
+				<p className="text-sm text-muted-foreground line-clamp-1">
+					{author.bio}
+				</p>
 			</div>
 		</div>
 		<div className="flex items-center gap-4 text-sm text-muted-foreground @sm:text-right">
@@ -124,7 +130,10 @@ const KeyTakeaways = ({ items }: { items: string[] }) => (
 			<div className="px-4 @md:px-6 pb-4 @md:pb-6 pt-0">
 				<ul className="space-y-3">
 					{items.map((item, index) => (
-						<li key={index} className="flex gap-3 text-sm @md:text-base text-foreground/85">
+						<li
+							key={index}
+							className="flex gap-3 text-sm @md:text-base text-foreground/85"
+						>
 							<span className="shrink-0 flex items-center justify-center size-6 rounded-full bg-primary/10 text-primary text-xs font-semibold">
 								{index + 1}
 							</span>
@@ -162,7 +171,8 @@ export default function Main() {
 			'We are not just exploring space—we are ensuring the long-term survival of consciousness in the universe.',
 		author: {
 			name: 'Commander Sarah Chen',
-			avatar: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=100&h=100&fit=crop',
 			initials: 'SC',
 			bio: 'Former NASA Astronaut & Space Policy Advisor',
 		},
@@ -173,7 +183,7 @@ export default function Main() {
 		heroAlt: 'Astronaut with Earth in background',
 		content: [
 			'The next decade promises to be the most exciting era in space exploration since the Apollo program. Multiple nations and private companies are racing to establish a permanent human presence beyond Earth, with the Moon serving as our first stepping stone.',
-			'NASA\'s Artemis program aims to return humans to the lunar surface and establish a sustainable base camp. But this time, we\'re going to stay. The goal is to develop the technologies and experience needed for the ultimate destination: Mars.',
+			"NASA's Artemis program aims to return humans to the lunar surface and establish a sustainable base camp. But this time, we're going to stay. The goal is to develop the technologies and experience needed for the ultimate destination: Mars.",
 			'Private space companies have fundamentally altered the economics of reaching orbit. Reusable rockets have slashed launch costs by an order of magnitude, making previously impossible missions financially viable. This democratization of space access is accelerating innovation at an unprecedented pace.',
 			'The challenges ahead are immense: radiation exposure, life support systems, psychological factors of long-duration spaceflight. But with each mission, we learn more. The question is no longer whether humans will walk on Mars, but when.',
 		],
@@ -191,7 +201,10 @@ export default function Main() {
 				<div className="flex flex-col gap-6 @md:gap-8">
 					<div className="flex flex-wrap items-center gap-3">
 						{articleData.featured && <FeaturedBadge />}
-						<CategoryLink text={articleData.category} href={articleData.categoryHref} />
+						<CategoryLink
+							text={articleData.category}
+							href={articleData.categoryHref}
+						/>
 					</div>
 
 					<Title text={articleData.title} />

@@ -1,4 +1,10 @@
-import { HelpCircle, Keyboard, MessageCircle, Search, Video } from 'lucide-react';
+import {
+	HelpCircle,
+	Keyboard,
+	MessageCircle,
+	Search,
+	Video,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -42,7 +48,9 @@ const QuickLinkCard = ({ title, description, icon: Icon, href }: QuickLink) => (
 			<Icon className="size-5 text-primary" />
 		</div>
 		<div>
-			<h4 className="font-medium transition-colors group-hover:text-primary">{title}</h4>
+			<h4 className="font-medium transition-colors group-hover:text-primary">
+				{title}
+			</h4>
 			<p className="text-sm text-muted-foreground">{description}</p>
 		</div>
 	</a>
@@ -55,14 +63,20 @@ const ShortcutRow = ({ action, keys }: KeyboardShortcut) => (
 			{keys.map((key, i) => (
 				<span key={key} className="flex items-center gap-1">
 					<Kbd>{key}</Kbd>
-					{i < keys.length - 1 && <span className="text-muted-foreground">+</span>}
+					{i < keys.length - 1 && (
+						<span className="text-muted-foreground">+</span>
+					)}
 				</span>
 			))}
 		</div>
 	</div>
 );
 
-const AccessibilityToggle = ({ title, description, enabled }: AccessibilitySetting) => (
+const AccessibilityToggle = ({
+	title,
+	description,
+	enabled,
+}: AccessibilitySetting) => (
 	<div className="flex items-center justify-between gap-4 py-3">
 		<div className="space-y-0.5">
 			<Label className="font-medium">{title}</Label>
@@ -144,7 +158,9 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Help & Support</CardTitle>
-									<CardDescription>Find answers and get assistance</CardDescription>
+									<CardDescription>
+										Find answers and get assistance
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>
@@ -193,7 +209,9 @@ export default function Main() {
 										</div>
 										<div>
 											<CardTitle>Accessibility</CardTitle>
-											<CardDescription>Customize your experience</CardDescription>
+											<CardDescription>
+												Customize your experience
+											</CardDescription>
 										</div>
 									</div>
 									<Badge variant="secondary">WCAG 2.1</Badge>

@@ -35,7 +35,11 @@ interface ArticleProps {
 }
 
 const EventBadge = ({ text, href }: { text: string; href: string }) => (
-	<Badge variant="default" className="gap-1.5 bg-gradient-to-r from-violet-500 to-purple-500 border-0" asChild>
+	<Badge
+		variant="default"
+		className="gap-1.5 bg-gradient-to-r from-violet-500 to-purple-500 border-0"
+		asChild
+	>
 		<Link href={href}>
 			<Calendar className="size-3" />
 			{text}
@@ -118,7 +122,9 @@ const HeroImage = ({ src, alt }: { src: string; alt: string }) => (
 const Highlights = ({ items }: { items: string[] }) => (
 	<Card className="bg-muted/30 border-dashed">
 		<CardContent className="p-4 @md:p-6">
-			<h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">Key Highlights</h3>
+			<h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+				Key Highlights
+			</h3>
 			<ul className="grid @md:grid-cols-2 gap-3">
 				{items.map((item, index) => (
 					<li key={index} className="flex items-start gap-2 text-sm">
@@ -159,7 +165,8 @@ export default function Main() {
 		},
 		author: {
 			name: 'Jordan Lee',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'JL',
 		},
 		publishDate: 'January 20, 2026',
@@ -177,7 +184,7 @@ export default function Main() {
 			'React Summit 2026 marked a turning point for the React ecosystem. After years of experimentation with Server Components, the technology has finally reached a level of maturity where most teams feel confident using it in production. The talks reflected this shift, focusing less on "what" and more on "how."',
 			'The announcement of the React compiler stole the show. By automatically optimizing re-renders and memoization, it promises to eliminate entire categories of performance bugs while simplifying the mental model for developers. The demo was impressive—though the team was careful to set realistic expectations about the rollout timeline.',
 			'Perhaps most interesting was the subtle shift in community perspective. The server-first architecture that seemed controversial just two years ago is now the assumed default. Speakers consistently framed client-only rendering as a special case rather than the norm.',
-			'Beyond the main stage, the hallway track delivered its usual magic. Conversations with fellow developers revealed a community that\'s more pragmatic and less dogmatic than online discourse might suggest. The vibe was collaborative rather than competitive—people sharing solutions rather than arguing about tools.',
+			"Beyond the main stage, the hallway track delivered its usual magic. Conversations with fellow developers revealed a community that's more pragmatic and less dogmatic than online discourse might suggest. The vibe was collaborative rather than competitive—people sharing solutions rather than arguing about tools.",
 		],
 	};
 
@@ -185,7 +192,10 @@ export default function Main() {
 		<section className="@container relative" data-theme="article">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-6 @md:gap-8">
-					<EventBadge text={articleData.category} href={articleData.categoryHref} />
+					<EventBadge
+						text={articleData.category}
+						href={articleData.categoryHref}
+					/>
 					<Title text={articleData.title} />
 					<Subtitle text={articleData.subtitle} />
 					<EventCard event={articleData.event} />

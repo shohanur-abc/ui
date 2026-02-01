@@ -37,13 +37,20 @@ interface InvoiceCustomer {
 	isRecurring: boolean;
 }
 
-const InvoiceStatusBadge = ({ status }: { status: InvoiceCustomer['invoice']['status'] }) => {
+const InvoiceStatusBadge = ({
+	status,
+}: {
+	status: InvoiceCustomer['invoice']['status'];
+}) => {
 	const config: Record<string, { label: string; className: string }> = {
 		draft: { label: 'Draft', className: 'bg-slate-500/10 text-slate-400' },
 		sent: { label: 'Sent', className: 'bg-blue-500/10 text-blue-500' },
 		paid: { label: 'Paid', className: 'bg-emerald-500/10 text-emerald-500' },
 		overdue: { label: 'Overdue', className: 'bg-red-500/10 text-red-500' },
-		cancelled: { label: 'Cancelled', className: 'bg-orange-500/10 text-orange-500' },
+		cancelled: {
+			label: 'Cancelled',
+			className: 'bg-orange-500/10 text-orange-500',
+		},
 	};
 	const { label, className } = config[status];
 	return (
@@ -90,10 +97,14 @@ const InvoiceListItem = ({ customer }: { customer: InvoiceCustomer }) => (
 				<div className="flex items-center gap-2">
 					<p className="font-semibold truncate">{customer.name}</p>
 					{customer.isRecurring && (
-						<Badge variant="secondary" className="text-xs">Recurring</Badge>
+						<Badge variant="secondary" className="text-xs">
+							Recurring
+						</Badge>
 					)}
 				</div>
-				<p className="text-muted-foreground text-sm truncate">{customer.email}</p>
+				<p className="text-muted-foreground text-sm truncate">
+					{customer.email}
+				</p>
 			</div>
 		</div>
 		<div className="flex items-center gap-2 min-w-[140px]">
@@ -115,13 +126,21 @@ const InvoiceListItem = ({ customer }: { customer: InvoiceCustomer }) => (
 				<p className="text-muted-foreground text-xs flex items-center gap-1">
 					<Calendar className="size-3" /> Due
 				</p>
-				<p className={customer.invoice.status === 'overdue' ? 'text-red-500 font-medium' : ''}>
+				<p
+					className={
+						customer.invoice.status === 'overdue'
+							? 'text-red-500 font-medium'
+							: ''
+					}
+				>
 					{customer.invoice.dueDate}
 				</p>
 			</div>
 			<div className="hidden @md:block">
 				<p className="text-muted-foreground text-xs">Outstanding</p>
-				<p className={`font-medium ${customer.outstandingBalance !== '$0.00' ? 'text-amber-500' : 'text-emerald-500'}`}>
+				<p
+					className={`font-medium ${customer.outstandingBalance !== '$0.00' ? 'text-amber-500' : 'text-emerald-500'}`}
+				>
 					{customer.outstandingBalance}
 				</p>
 			</div>
@@ -144,7 +163,11 @@ const InvoiceListItem = ({ customer }: { customer: InvoiceCustomer }) => (
 				</Button>
 			)}
 			{customer.invoice.status === 'overdue' && (
-				<Button variant="outline" size="sm" className="hidden @md:flex text-red-500">
+				<Button
+					variant="outline"
+					size="sm"
+					className="hidden @md:flex text-red-500"
+				>
 					Follow up
 				</Button>
 			)}
@@ -160,7 +183,9 @@ const InvoiceListItem = ({ customer }: { customer: InvoiceCustomer }) => (
 					<DropdownMenuItem>Send reminder</DropdownMenuItem>
 					<DropdownMenuItem>Mark as paid</DropdownMenuItem>
 					<DropdownMenuItem>Duplicate</DropdownMenuItem>
-					<DropdownMenuItem className="text-red-500">Void invoice</DropdownMenuItem>
+					<DropdownMenuItem className="text-red-500">
+						Void invoice
+					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
 		</div>
@@ -174,7 +199,13 @@ export default function Main() {
 			name: 'George Harrison',
 			email: 'george.h@company.com',
 			initials: 'GH',
-			invoice: { number: 'INV-2024-0145', status: 'sent', amount: '$2,450.00', issuedDate: 'Jan 15, 2024', dueDate: 'Feb 15, 2024' },
+			invoice: {
+				number: 'INV-2024-0145',
+				status: 'sent',
+				amount: '$2,450.00',
+				issuedDate: 'Jan 15, 2024',
+				dueDate: 'Feb 15, 2024',
+			},
 			paymentMethod: 'Bank Transfer',
 			outstandingBalance: '$2,450.00',
 			isRecurring: true,
@@ -184,7 +215,14 @@ export default function Main() {
 			name: 'Helen Brooks',
 			email: 'helen.b@company.com',
 			initials: 'HB',
-			invoice: { number: 'INV-2024-0144', status: 'paid', amount: '$1,890.00', issuedDate: 'Jan 10, 2024', dueDate: 'Feb 10, 2024', paidDate: 'Jan 25, 2024' },
+			invoice: {
+				number: 'INV-2024-0144',
+				status: 'paid',
+				amount: '$1,890.00',
+				issuedDate: 'Jan 10, 2024',
+				dueDate: 'Feb 10, 2024',
+				paidDate: 'Jan 25, 2024',
+			},
 			paymentMethod: 'Credit Card',
 			outstandingBalance: '$0.00',
 			isRecurring: false,
@@ -194,7 +232,13 @@ export default function Main() {
 			name: 'Isaac Newton Ltd.',
 			email: 'accounts@isaacnewton.com',
 			initials: 'IN',
-			invoice: { number: 'INV-2024-0143', status: 'overdue', amount: '$5,670.00', issuedDate: 'Dec 20, 2023', dueDate: 'Jan 20, 2024' },
+			invoice: {
+				number: 'INV-2024-0143',
+				status: 'overdue',
+				amount: '$5,670.00',
+				issuedDate: 'Dec 20, 2023',
+				dueDate: 'Jan 20, 2024',
+			},
 			paymentMethod: 'Wire Transfer',
 			outstandingBalance: '$5,670.00',
 			isRecurring: true,
@@ -204,7 +248,13 @@ export default function Main() {
 			name: 'Janet Mitchell',
 			email: 'janet.m@company.com',
 			initials: 'JM',
-			invoice: { number: 'INV-2024-0142', status: 'draft', amount: '$890.00', issuedDate: 'Jan 18, 2024', dueDate: 'Feb 18, 2024' },
+			invoice: {
+				number: 'INV-2024-0142',
+				status: 'draft',
+				amount: '$890.00',
+				issuedDate: 'Jan 18, 2024',
+				dueDate: 'Feb 18, 2024',
+			},
 			outstandingBalance: '$0.00',
 			isRecurring: false,
 		},
@@ -213,7 +263,14 @@ export default function Main() {
 			name: 'Kenneth Wright Corp.',
 			email: 'billing@kwright.com',
 			initials: 'KW',
-			invoice: { number: 'INV-2024-0141', status: 'paid', amount: '$12,340.00', issuedDate: 'Jan 5, 2024', dueDate: 'Feb 5, 2024', paidDate: 'Jan 30, 2024' },
+			invoice: {
+				number: 'INV-2024-0141',
+				status: 'paid',
+				amount: '$12,340.00',
+				issuedDate: 'Jan 5, 2024',
+				dueDate: 'Feb 5, 2024',
+				paidDate: 'Jan 30, 2024',
+			},
 			paymentMethod: 'Bank Transfer',
 			outstandingBalance: '$0.00',
 			isRecurring: true,
@@ -223,7 +280,13 @@ export default function Main() {
 			name: 'Linda Foster',
 			email: 'linda.f@email.com',
 			initials: 'LF',
-			invoice: { number: 'INV-2024-0140', status: 'sent', amount: '$456.00', issuedDate: 'Jan 12, 2024', dueDate: 'Feb 12, 2024' },
+			invoice: {
+				number: 'INV-2024-0140',
+				status: 'sent',
+				amount: '$456.00',
+				issuedDate: 'Jan 12, 2024',
+				dueDate: 'Feb 12, 2024',
+			},
 			paymentMethod: 'PayPal',
 			outstandingBalance: '$456.00',
 			isRecurring: false,
@@ -233,7 +296,13 @@ export default function Main() {
 			name: 'Martin Tech Inc.',
 			email: 'invoices@martintech.com',
 			initials: 'MT',
-			invoice: { number: 'INV-2024-0139', status: 'cancelled', amount: '$3,200.00', issuedDate: 'Jan 8, 2024', dueDate: 'Feb 8, 2024' },
+			invoice: {
+				number: 'INV-2024-0139',
+				status: 'cancelled',
+				amount: '$3,200.00',
+				issuedDate: 'Jan 8, 2024',
+				dueDate: 'Feb 8, 2024',
+			},
 			outstandingBalance: '$0.00',
 			isRecurring: false,
 		},
@@ -242,7 +311,13 @@ export default function Main() {
 			name: 'Nancy Chen',
 			email: 'nancy.c@company.com',
 			initials: 'NC',
-			invoice: { number: 'INV-2024-0138', status: 'overdue', amount: '$780.00', issuedDate: 'Dec 28, 2023', dueDate: 'Jan 28, 2024' },
+			invoice: {
+				number: 'INV-2024-0138',
+				status: 'overdue',
+				amount: '$780.00',
+				issuedDate: 'Dec 28, 2023',
+				dueDate: 'Jan 28, 2024',
+			},
 			paymentMethod: 'Credit Card',
 			outstandingBalance: '$780.00',
 			isRecurring: false,

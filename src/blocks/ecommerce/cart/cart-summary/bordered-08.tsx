@@ -21,7 +21,11 @@ const CountdownHeader = ({
 	icon: Icon,
 	message,
 	time,
-}: { icon: LucideIcon; message: string; time: string }) => (
+}: {
+	icon: LucideIcon;
+	message: string;
+	time: string;
+}) => (
 	<div className="mb-4 flex items-center justify-between">
 		<div className="flex items-center gap-2">
 			<Icon className="size-5 text-amber-500" />
@@ -34,7 +38,9 @@ const CountdownHeader = ({
 const SummaryRow = ({ label, value, strike }: SummaryRowProps) => (
 	<div className="flex items-center justify-between text-sm">
 		<span className="text-muted-foreground">{label}</span>
-		<span className={strike ? 'text-muted-foreground line-through' : 'font-medium'}>
+		<span
+			className={strike ? 'text-muted-foreground line-through' : 'font-medium'}
+		>
 			{value}
 		</span>
 	</div>
@@ -44,12 +50,18 @@ const TotalRow = ({
 	label,
 	value,
 	savings,
-}: { label: string; value: string; savings: string }) => (
+}: {
+	label: string;
+	value: string;
+	savings: string;
+}) => (
 	<div className="flex items-center justify-between">
 		<span className="font-semibold">{label}</span>
 		<div className="text-right">
 			<span className="text-xl font-bold">{value}</span>
-			<p className="text-xs text-green-600 dark:text-green-400">Save {savings}</p>
+			<p className="text-xs text-green-600 dark:text-green-400">
+				Save {savings}
+			</p>
 		</div>
 	</div>
 );

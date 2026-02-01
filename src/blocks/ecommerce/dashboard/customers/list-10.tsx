@@ -50,16 +50,39 @@ interface ReferralCustomer {
 }
 
 const TierConfig = {
-	starter: { label: 'Starter', color: 'text-slate-400', bg: 'bg-slate-400/10', minRefs: 0 },
-	advocate: { label: 'Advocate', color: 'text-blue-500', bg: 'bg-blue-500/10', minRefs: 5 },
-	champion: { label: 'Champion', color: 'text-amber-500', bg: 'bg-amber-500/10', minRefs: 15 },
-	ambassador: { label: 'Ambassador', color: 'text-violet-500', bg: 'bg-violet-500/10', minRefs: 30 },
+	starter: {
+		label: 'Starter',
+		color: 'text-slate-400',
+		bg: 'bg-slate-400/10',
+		minRefs: 0,
+	},
+	advocate: {
+		label: 'Advocate',
+		color: 'text-blue-500',
+		bg: 'bg-blue-500/10',
+		minRefs: 5,
+	},
+	champion: {
+		label: 'Champion',
+		color: 'text-amber-500',
+		bg: 'bg-amber-500/10',
+		minRefs: 15,
+	},
+	ambassador: {
+		label: 'Ambassador',
+		color: 'text-violet-500',
+		bg: 'bg-violet-500/10',
+		minRefs: 30,
+	},
 };
 
 const TierBadge = ({ tier }: { tier: ReferralCustomer['tier'] }) => {
 	const config = TierConfig[tier];
 	return (
-		<Badge variant="outline" className={`${config.color} border-current/30 gap-1`}>
+		<Badge
+			variant="outline"
+			className={`${config.color} border-current/30 gap-1`}
+		>
 			<Trophy className="size-3" />
 			{config.label}
 		</Badge>
@@ -85,7 +108,9 @@ const ReferredAvatars = ({
 				))}
 			</div>
 			{remaining > 0 && (
-				<span className="text-muted-foreground text-xs ml-2">+{remaining} more</span>
+				<span className="text-muted-foreground text-xs ml-2">
+					+{remaining} more
+				</span>
 			)}
 		</div>
 	);
@@ -123,11 +148,15 @@ const ReferralListItem = ({ customer }: { customer: ReferralCustomer }) => (
 					<p className="font-semibold truncate">{customer.name}</p>
 					<TierBadge tier={customer.tier} />
 				</div>
-				<p className="text-muted-foreground text-sm truncate">{customer.email}</p>
+				<p className="text-muted-foreground text-sm truncate">
+					{customer.email}
+				</p>
 			</div>
 		</div>
 		<div className="flex items-center gap-2 rounded-lg border bg-muted/30 px-3 py-1.5">
-			<code className="font-mono text-sm font-medium">{customer.referralCode}</code>
+			<code className="font-mono text-sm font-medium">
+				{customer.referralCode}
+			</code>
 			<Button variant="ghost" size="icon-sm" className="size-6">
 				<Link className="size-3" />
 			</Button>
@@ -135,11 +164,15 @@ const ReferralListItem = ({ customer }: { customer: ReferralCustomer }) => (
 		<div className="flex-1 grid grid-cols-2 @md:grid-cols-4 gap-4 text-sm">
 			<div>
 				<p className="text-muted-foreground text-xs">Successful</p>
-				<p className="font-semibold text-emerald-500">{customer.referrals.successful}</p>
+				<p className="font-semibold text-emerald-500">
+					{customer.referrals.successful}
+				</p>
 			</div>
 			<div>
 				<p className="text-muted-foreground text-xs">Pending</p>
-				<p className="font-semibold text-amber-500">{customer.referrals.pending}</p>
+				<p className="font-semibold text-amber-500">
+					{customer.referrals.pending}
+				</p>
 			</div>
 			<div>
 				<p className="text-muted-foreground text-xs">Conv. Rate</p>
@@ -233,9 +266,7 @@ export default function Main() {
 			tier: 'advocate',
 			referrals: { total: 12, successful: 8, pending: 4, conversionRate: 66 },
 			earnings: { total: '$400', pending: '$200', lastPayout: '1 month ago' },
-			referredCustomers: [
-				{ name: 'Ryan H.', initials: 'RH' },
-			],
+			referredCustomers: [{ name: 'Ryan H.', initials: 'RH' }],
 		},
 		{
 			id: '5',
@@ -260,9 +291,7 @@ export default function Main() {
 			tier: 'starter',
 			referrals: { total: 3, successful: 2, pending: 1, conversionRate: 66 },
 			earnings: { total: '$100', pending: '$50', lastPayout: 'N/A' },
-			referredCustomers: [
-				{ name: 'Amy Z.', initials: 'AZ' },
-			],
+			referredCustomers: [{ name: 'Amy Z.', initials: 'AZ' }],
 		},
 		{
 			id: '7',
@@ -273,9 +302,7 @@ export default function Main() {
 			tier: 'starter',
 			referrals: { total: 2, successful: 1, pending: 1, conversionRate: 50 },
 			earnings: { total: '$50', pending: '$50', lastPayout: 'N/A' },
-			referredCustomers: [
-				{ name: 'Jack B.', initials: 'JB' },
-			],
+			referredCustomers: [{ name: 'Jack B.', initials: 'JB' }],
 			joinedVia: 'PATRICIA50',
 		},
 		{

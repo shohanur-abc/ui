@@ -1,4 +1,11 @@
-import { Calendar, Clock, Truck, ChevronLeft, ChevronRight, Check } from 'lucide-react';
+import {
+	Calendar,
+	Clock,
+	Truck,
+	ChevronLeft,
+	ChevronRight,
+	Check,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -28,10 +35,21 @@ const DateCard = ({
 			has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-primary-foreground
 		`}
 	>
-		<RadioGroupItem value={value} id={value} className="sr-only" disabled={!available} />
-		<span className="text-xs uppercase text-muted-foreground has-[:checked]:text-primary-foreground/70">{day}</span>
+		<RadioGroupItem
+			value={value}
+			id={value}
+			className="sr-only"
+			disabled={!available}
+		/>
+		<span className="text-xs uppercase text-muted-foreground has-[:checked]:text-primary-foreground/70">
+			{day}
+		</span>
 		<span className="text-xl font-bold">{date}</span>
-		{slots && <span className="text-xs text-muted-foreground has-[:checked]:text-primary-foreground/70">{slots} left</span>}
+		{slots && (
+			<span className="text-xs text-muted-foreground has-[:checked]:text-primary-foreground/70">
+				{slots} left
+			</span>
+		)}
 	</Label>
 );
 
@@ -54,7 +72,12 @@ const TimeSlot = ({
 			has-[:checked]:border-primary has-[:checked]:bg-primary/10
 		`}
 	>
-		<RadioGroupItem value={value} id={value} className="sr-only" disabled={!available} />
+		<RadioGroupItem
+			value={value}
+			id={value}
+			className="sr-only"
+			disabled={!available}
+		/>
 		<Clock className="size-4 text-muted-foreground" />
 		<span className="font-medium">{time}</span>
 		{popular && <Badge className="text-xs">Popular</Badge>}
@@ -84,7 +107,12 @@ export default function Main() {
 
 	const timeSlots = [
 		{ value: 'morning-1', time: '8:00 - 10:00 AM', available: true },
-		{ value: 'morning-2', time: '10:00 - 12:00 PM', available: true, popular: true },
+		{
+			value: 'morning-2',
+			time: '10:00 - 12:00 PM',
+			available: true,
+			popular: true,
+		},
 		{ value: 'afternoon-1', time: '12:00 - 2:00 PM', available: false },
 		{ value: 'afternoon-2', time: '2:00 - 4:00 PM', available: true },
 		{ value: 'evening-1', time: '4:00 - 6:00 PM', available: true },
@@ -99,8 +127,12 @@ export default function Main() {
 						<Truck className="size-4" />
 						Scheduled Delivery
 					</div>
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Choose Delivery Time</h1>
-					<p className="text-muted-foreground">Select when you'd like to receive your order</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Choose Delivery Time
+					</h1>
+					<p className="text-muted-foreground">
+						Select when you'd like to receive your order
+					</p>
 				</div>
 
 				<Card className="mb-6">
@@ -121,7 +153,10 @@ export default function Main() {
 							</TabsList>
 
 							<TabsContent value="this-week">
-								<RadioGroup defaultValue="tue" className="flex gap-2 overflow-x-auto pb-2">
+								<RadioGroup
+									defaultValue="tue"
+									className="flex gap-2 overflow-x-auto pb-2"
+								>
 									{thisWeekDates.map((date) => (
 										<DateCard key={date.value} {...date} />
 									))}
@@ -147,7 +182,10 @@ export default function Main() {
 						</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<RadioGroup defaultValue="morning-2" className="grid @sm:grid-cols-2 @md:grid-cols-3 gap-3">
+						<RadioGroup
+							defaultValue="morning-2"
+							className="grid @sm:grid-cols-2 @md:grid-cols-3 gap-3"
+						>
 							{timeSlots.map((slot) => (
 								<TimeSlot key={slot.value} {...slot} />
 							))}
@@ -156,7 +194,9 @@ export default function Main() {
 				</Card>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Confirm Delivery Time</Button>
 				</div>
 			</div>

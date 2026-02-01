@@ -14,11 +14,7 @@ import {
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardFooter,
-} from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -65,7 +61,9 @@ const StockLevel = ({ current, min, max, reserved }: StockLevelProps) => {
 		<div className="space-y-2">
 			<div className="flex items-center justify-between text-sm">
 				<span className="text-muted-foreground">Stock Level</span>
-				<span className={`font-medium ${isCritical ? 'text-red-500' : isLow ? 'text-amber-500' : 'text-emerald-500'}`}>
+				<span
+					className={`font-medium ${isCritical ? 'text-red-500' : isLow ? 'text-amber-500' : 'text-emerald-500'}`}
+				>
 					{current} / {max}
 				</span>
 			</div>
@@ -92,7 +90,9 @@ const LowStockAlert = ({ current, min, labels }: LowStockAlertProps) => {
 	return (
 		<div
 			className={`flex items-center gap-2 rounded-lg p-2 text-xs ${
-				isCritical ? 'bg-red-500/10 text-red-500' : 'bg-amber-500/10 text-amber-500'
+				isCritical
+					? 'bg-red-500/10 text-red-500'
+					: 'bg-amber-500/10 text-amber-500'
 			}`}
 		>
 			<AlertTriangle className="size-4" />
@@ -112,7 +112,9 @@ const IncomingStock = ({ quantity, label }: IncomingStockProps) => {
 	return (
 		<div className="flex items-center gap-2 rounded-lg bg-primary/10 p-2 text-xs text-primary">
 			<Boxes className="size-4" />
-			<span>{quantity} {label}</span>
+			<span>
+				{quantity} {label}
+			</span>
 		</div>
 	);
 };
@@ -162,7 +164,9 @@ const RestockInfo = ({ date, label }: RestockInfoProps) => {
 	return (
 		<div className="flex items-center gap-2 text-xs text-muted-foreground">
 			<RotateCcw className="size-3.5" />
-			<span>{label}: {formatDate(date)}</span>
+			<span>
+				{label}: {formatDate(date)}
+			</span>
 		</div>
 	);
 };
@@ -221,7 +225,10 @@ const ProductCard = ({ product, actions, labels }: ProductCardProps) => (
 							</DropdownMenuContent>
 						</DropdownMenu>
 					</div>
-					<RestockInfo date={product.lastRestocked} label={labels.lastRestock} />
+					<RestockInfo
+						date={product.lastRestocked}
+						label={labels.lastRestock}
+					/>
 				</div>
 			</div>
 
@@ -262,7 +269,8 @@ export default function Main() {
 			id: '1',
 			name: 'Wireless Bluetooth Headphones',
 			sku: 'WBH-001',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			currentStock: 12,
 			minStock: 25,
 			maxStock: 100,
@@ -276,7 +284,8 @@ export default function Main() {
 			id: '2',
 			name: 'USB-C Charging Cable 2m',
 			sku: 'USB-C-2M',
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
 			currentStock: 156,
 			minStock: 50,
 			maxStock: 300,
@@ -290,7 +299,8 @@ export default function Main() {
 			id: '3',
 			name: 'Portable Power Bank 20000mAh',
 			sku: 'PPB-20K',
-			image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=200&h=200&fit=crop',
 			currentStock: 8,
 			minStock: 30,
 			maxStock: 150,
@@ -304,7 +314,8 @@ export default function Main() {
 			id: '4',
 			name: 'Laptop Sleeve 15 inch',
 			sku: 'LSV-15',
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 			currentStock: 5,
 			minStock: 20,
 			maxStock: 80,
@@ -318,7 +329,8 @@ export default function Main() {
 			id: '5',
 			name: 'Mechanical Keyboard TKL',
 			sku: 'MKB-TKL',
-			image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=200&h=200&fit=crop',
 			currentStock: 67,
 			minStock: 15,
 			maxStock: 100,
@@ -332,7 +344,8 @@ export default function Main() {
 			id: '6',
 			name: 'Wireless Mouse Ergonomic',
 			sku: 'WME-001',
-			image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200&h=200&fit=crop',
 			currentStock: 34,
 			minStock: 25,
 			maxStock: 120,
@@ -347,8 +360,14 @@ export default function Main() {
 	const actions = [
 		{ label: 'View Details', onClick: (id: string) => console.log('View', id) },
 		{ label: 'Edit Stock', onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Create PO', onClick: (id: string) => console.log('Create PO', id) },
-		{ label: 'Stock History', onClick: (id: string) => console.log('History', id) },
+		{
+			label: 'Create PO',
+			onClick: (id: string) => console.log('Create PO', id),
+		},
+		{
+			label: 'Stock History',
+			onClick: (id: string) => console.log('History', id),
+		},
 	];
 
 	const labels = {

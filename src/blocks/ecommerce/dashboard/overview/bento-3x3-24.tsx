@@ -102,20 +102,66 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const mainKpis: MainKpi[] = [
-		{ title: 'Total Revenue', value: '$156,432', change: '+24%', icon: DollarSign },
-		{ title: 'Total Orders', value: '4,521', change: '+18%', icon: ShoppingCart },
+		{
+			title: 'Total Revenue',
+			value: '$156,432',
+			change: '+24%',
+			icon: DollarSign,
+		},
+		{
+			title: 'Total Orders',
+			value: '4,521',
+			change: '+18%',
+			icon: ShoppingCart,
+		},
 	];
 
 	const topProducts: TopProduct[] = [
-		{ name: 'Wireless Headphones Pro', sales: 234, revenue: '$12,450', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80' },
-		{ name: 'Smart Watch Ultra', sales: 189, revenue: '$10,280', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80' },
-		{ name: 'Laptop Stand Ergonomic', sales: 156, revenue: '$8,920', image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=80' },
+		{
+			name: 'Wireless Headphones Pro',
+			sales: 234,
+			revenue: '$12,450',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80',
+		},
+		{
+			name: 'Smart Watch Ultra',
+			sales: 189,
+			revenue: '$10,280',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80',
+		},
+		{
+			name: 'Laptop Stand Ergonomic',
+			sales: 156,
+			revenue: '$8,920',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=80',
+		},
 	];
 
 	const recentCustomers: RecentCustomer[] = [
-		{ name: 'Sarah Wilson', email: 'sarah@example.com', avatar: '', initials: 'SW', spent: '$1,234' },
-		{ name: 'Mike Johnson', email: 'mike@example.com', avatar: '', initials: 'MJ', spent: '$987' },
-		{ name: 'Emily Davis', email: 'emily@example.com', avatar: '', initials: 'ED', spent: '$756' },
+		{
+			name: 'Sarah Wilson',
+			email: 'sarah@example.com',
+			avatar: '',
+			initials: 'SW',
+			spent: '$1,234',
+		},
+		{
+			name: 'Mike Johnson',
+			email: 'mike@example.com',
+			avatar: '',
+			initials: 'MJ',
+			spent: '$987',
+		},
+		{
+			name: 'Emily Davis',
+			email: 'emily@example.com',
+			avatar: '',
+			initials: 'ED',
+			spent: '$756',
+		},
 	];
 
 	const chartData = [
@@ -148,12 +194,29 @@ export default function Main() {
 								</Button>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={chartConfig} className="h-[200px] w-full">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[200px] w-full"
+								>
 									<AreaChart data={chartData}>
 										<defs>
-											<linearGradient id="bento24fill" x1="0" y1="0" x2="0" y2="1">
-												<stop offset="5%" stopColor="var(--color-value)" stopOpacity={0.3} />
-												<stop offset="95%" stopColor="var(--color-value)" stopOpacity={0} />
+											<linearGradient
+												id="bento24fill"
+												x1="0"
+												y1="0"
+												x2="0"
+												y2="1"
+											>
+												<stop
+													offset="5%"
+													stopColor="var(--color-value)"
+													stopOpacity={0.3}
+												/>
+												<stop
+													offset="95%"
+													stopColor="var(--color-value)"
+													stopOpacity={0}
+												/>
 											</linearGradient>
 										</defs>
 										<XAxis dataKey="name" tickLine={false} axisLine={false} />

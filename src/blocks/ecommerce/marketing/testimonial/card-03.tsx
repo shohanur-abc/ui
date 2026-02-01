@@ -38,7 +38,10 @@ const SectionHeader = ({
 );
 
 const IndustryBadge = ({ text }: { text: string }) => (
-	<Badge variant="outline" className="text-xs gap-1 border-primary/20 text-primary bg-primary/5">
+	<Badge
+		variant="outline"
+		className="text-xs gap-1 border-primary/20 text-primary bg-primary/5"
+	>
 		{text}
 	</Badge>
 );
@@ -70,7 +73,9 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 			</div>
 			<Quote className="size-8 text-primary/20 mb-3" />
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed flex-1 mt-4 mb-6">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed flex-1 mt-4 mb-6">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-11 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -97,7 +102,8 @@ export default function Main() {
 			author: 'Dr. Victoria Hayes',
 			role: 'Chief Medical Officer',
 			company: 'MedTech Solutions',
-			avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop',
 			initials: 'VH',
 			rating: 5,
 			industry: 'Healthcare',
@@ -108,7 +114,8 @@ export default function Main() {
 			author: 'William Chen',
 			role: 'Compliance Director',
 			company: 'FinanceGuard',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'WC',
 			rating: 5,
 			industry: 'Finance',
@@ -119,7 +126,8 @@ export default function Main() {
 			author: 'Xena Martinez',
 			role: 'E-commerce Manager',
 			company: 'ShopSmart',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'XM',
 			rating: 5,
 			industry: 'E-commerce',
@@ -127,7 +135,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Industry Leaders"

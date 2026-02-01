@@ -26,7 +26,8 @@ export default function Main() {
 					<EmptyHeart />
 					<h1 className="text-2xl font-bold mt-8">Your wishlist is empty</h1>
 					<p className="text-muted-foreground mt-2 max-w-sm">
-						Start adding items you love to your wishlist. We'll save them here for you.
+						Start adding items you love to your wishlist. We'll save them here
+						for you.
 					</p>
 
 					<div className="w-full max-w-sm mt-8">
@@ -47,13 +48,22 @@ export default function Main() {
 					</div>
 
 					<div className="mt-12 pt-8 border-t w-full">
-						<p className="text-sm text-muted-foreground mb-4">Popular categories</p>
+						<p className="text-sm text-muted-foreground mb-4">
+							Popular categories
+						</p>
 						<div className="flex flex-wrap justify-center gap-2">
-							{['Electronics', 'Fashion', 'Home', 'Beauty', 'Sports'].map((category) => (
-								<Button key={category} variant="outline" size="sm" className="rounded-full">
-									{category}
-								</Button>
-							))}
+							{['Electronics', 'Fashion', 'Home', 'Beauty', 'Sports'].map(
+								(category) => (
+									<Button
+										key={category}
+										variant="outline"
+										size="sm"
+										className="rounded-full"
+									>
+										{category}
+									</Button>
+								),
+							)}
 						</div>
 					</div>
 				</div>

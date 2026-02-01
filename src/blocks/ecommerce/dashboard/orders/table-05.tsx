@@ -15,7 +15,15 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { Package, MapPin, Calendar, DollarSign, Eye, Edit2, Trash2 } from 'lucide-react';
+import {
+	Package,
+	MapPin,
+	Calendar,
+	DollarSign,
+	Eye,
+	Edit2,
+	Trash2,
+} from 'lucide-react';
 
 interface OrderItem {
 	name: string;
@@ -54,12 +62,16 @@ const ItemsPreview = ({ items, totalCount }: ItemsPreviewProps) => (
 			{items.slice(0, 3).map((item, i) => (
 				<Avatar key={i} className="size-8 border-2 border-card">
 					<AvatarImage src={item.image} alt={item.name} />
-					<AvatarFallback className="bg-muted text-xs">{item.initials}</AvatarFallback>
+					<AvatarFallback className="bg-muted text-xs">
+						{item.initials}
+					</AvatarFallback>
 				</Avatar>
 			))}
 		</div>
 		{totalCount > 3 && (
-			<span className="ml-2 text-sm text-muted-foreground">+{totalCount - 3} more</span>
+			<span className="ml-2 text-sm text-muted-foreground">
+				+{totalCount - 3} more
+			</span>
 		)}
 	</div>
 );
@@ -73,20 +85,30 @@ const PriorityIndicator = ({ priority }: PriorityIndicatorProps) => {
 	return (
 		<Tooltip>
 			<TooltipTrigger>
-				<span className={`inline-block size-2.5 rounded-full ${config[priority].color}`} />
+				<span
+					className={`inline-block size-2.5 rounded-full ${config[priority].color}`}
+				/>
 			</TooltipTrigger>
 			<TooltipContent>{config[priority].label}</TooltipContent>
 		</Tooltip>
 	);
 };
 
-const ActionButton = ({ icon: Icon, tooltip, variant = 'ghost' }: ActionButtonProps) => (
+const ActionButton = ({
+	icon: Icon,
+	tooltip,
+	variant = 'ghost',
+}: ActionButtonProps) => (
 	<Tooltip>
 		<TooltipTrigger asChild>
 			<Button
 				variant={variant === 'destructive' ? 'ghost' : 'ghost'}
 				size="icon-sm"
-				className={variant === 'destructive' ? 'hover:bg-destructive/10 hover:text-destructive' : 'hover:bg-muted'}
+				className={
+					variant === 'destructive'
+						? 'hover:bg-destructive/10 hover:text-destructive'
+						: 'hover:bg-muted'
+				}
 			>
 				<Icon className="size-4" />
 			</Button>
@@ -95,7 +117,13 @@ const ActionButton = ({ icon: Icon, tooltip, variant = 'ghost' }: ActionButtonPr
 	</Tooltip>
 );
 
-const InfoCell = ({ icon: Icon, value }: { icon: React.ComponentType<{ className?: string }>; value: string }) => (
+const InfoCell = ({
+	icon: Icon,
+	value,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	value: string;
+}) => (
 	<div className="flex items-center gap-2 text-sm">
 		<Icon className="size-4 text-muted-foreground" />
 		<span>{value}</span>
@@ -159,9 +187,7 @@ export default function Main() {
 		},
 		{
 			id: 'WH-001236',
-			items: [
-				{ name: 'Product F', image: '', initials: 'PF' },
-			],
+			items: [{ name: 'Product F', image: '', initials: 'PF' }],
 			itemCount: 1,
 			destination: 'Tokyo, Japan',
 			total: '$299.00',
@@ -184,7 +210,15 @@ export default function Main() {
 		},
 	];
 
-	const headers = ['', 'Order', 'Items', 'Destination', 'Total', 'Date', 'Actions'];
+	const headers = [
+		'',
+		'Order',
+		'Items',
+		'Destination',
+		'Total',
+		'Date',
+		'Actions',
+	];
 
 	return (
 		<section className="@container" data-theme="orders">
@@ -194,7 +228,10 @@ export default function Main() {
 						<TableHeader>
 							<TableRow className="border-border/50 hover:bg-transparent">
 								{headers.map((header) => (
-									<TableHead key={header} className="text-xs uppercase tracking-wide text-muted-foreground">
+									<TableHead
+										key={header}
+										className="text-xs uppercase tracking-wide text-muted-foreground"
+									>
 										{header}
 									</TableHead>
 								))}

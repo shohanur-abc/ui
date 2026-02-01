@@ -15,7 +15,10 @@ const Line = ({ label, value }: LineProps) => (
 const TotalInline = ({
 	total,
 	itemCount,
-}: { total: string; itemCount: number }) => (
+}: {
+	total: string;
+	itemCount: number;
+}) => (
 	<div className="flex items-baseline justify-between">
 		<span className="text-sm text-muted-foreground">{itemCount} items</span>
 		<span className="text-2xl font-bold">{total}</span>

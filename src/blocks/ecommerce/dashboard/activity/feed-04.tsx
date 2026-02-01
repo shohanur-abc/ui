@@ -45,7 +45,11 @@ interface SupportFeedProps {
 	};
 }
 
-const ChannelIcon = ({ channel }: { channel: SupportInteraction['channel'] }) => {
+const ChannelIcon = ({
+	channel,
+}: {
+	channel: SupportInteraction['channel'];
+}) => {
 	const config: Record<
 		SupportInteraction['channel'],
 		{ icon: LucideIcon; className: string }
@@ -66,7 +70,11 @@ const ChannelIcon = ({ channel }: { channel: SupportInteraction['channel'] }) =>
 	);
 };
 
-const StatusIndicator = ({ status }: { status: SupportInteraction['status'] }) => {
+const StatusIndicator = ({
+	status,
+}: {
+	status: SupportInteraction['status'];
+}) => {
 	const config = {
 		waiting: {
 			icon: Clock,
@@ -97,7 +105,9 @@ const StatusIndicator = ({ status }: { status: SupportInteraction['status'] }) =
 
 const InteractionCard = ({
 	interaction,
-}: { interaction: SupportInteraction }) => (
+}: {
+	interaction: SupportInteraction;
+}) => (
 	<div className="group rounded-xl border border-border/50 bg-card/80 p-4 backdrop-blur-sm transition-all hover:border-primary/30">
 		<div className="flex gap-4">
 			<ChannelIcon channel={interaction.channel} />
@@ -180,7 +190,9 @@ const QueueStats = ({ stats }: { stats: SupportFeedProps['queueStats'] }) => (
 				<Clock className="size-4 text-muted-foreground" />
 				<span className="text-xs text-muted-foreground">Avg Wait</span>
 			</div>
-			<span className="text-2xl font-bold text-foreground">{stats.avgWaitTime}</span>
+			<span className="text-2xl font-bold text-foreground">
+				{stats.avgWaitTime}
+			</span>
 		</div>
 	</div>
 );
@@ -233,7 +245,8 @@ export default function Main() {
 				initials: 'RC',
 			},
 			subject: 'Refund request for damaged item',
-			preview: 'Customer received damaged product, requesting full refund and return label',
+			preview:
+				'Customer received damaged product, requesting full refund and return label',
 			status: 'active',
 			agent: { name: 'Sarah K.', initials: 'SK' },
 			timestamp: '5 min ago',

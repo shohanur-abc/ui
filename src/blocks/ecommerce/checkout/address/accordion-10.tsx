@@ -203,7 +203,11 @@ const AddressSection = ({
 	states: { value: string; label: string }[];
 }) => (
 	<div className="space-y-4 pt-4">
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -218,7 +222,10 @@ const BillingSection = () => (
 	<div className="space-y-4 pt-4">
 		<div className="flex items-center gap-2">
 			<Checkbox id="same-billing" defaultChecked />
-			<Label htmlFor="same-billing" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="same-billing"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Billing address same as shipping
 			</Label>
 		</div>
@@ -257,11 +264,7 @@ export default function Main() {
 
 				<Card>
 					<CardContent className="pt-6">
-						<Accordion
-							type="single"
-							collapsible
-							defaultValue="address"
-						>
+						<Accordion type="single" collapsible defaultValue="address">
 							<AccordionItem value="contact">
 								<AccordionTrigger className="hover:no-underline">
 									<AccordionSectionHeader

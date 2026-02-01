@@ -73,7 +73,9 @@ const TimelineCard = ({
 }) => (
 	<div
 		className={`relative pl-8 @lg:pl-0 @lg:w-[calc(50%-2rem)] ${
-			position === 'left' ? '@lg:pr-0 @lg:text-right @lg:mr-auto' : '@lg:pl-0 @lg:ml-auto'
+			position === 'left'
+				? '@lg:pr-0 @lg:text-right @lg:mr-auto'
+				: '@lg:pl-0 @lg:ml-auto'
 		}`}
 	>
 		<TimelineDot milestone={item.milestone} />
@@ -103,7 +105,9 @@ const TimelineCard = ({
 						</AvatarFallback>
 					</Avatar>
 					<div className={position === 'left' ? '@lg:text-right' : ''}>
-						<p className="font-semibold text-sm text-foreground">{item.author}</p>
+						<p className="font-semibold text-sm text-foreground">
+							{item.author}
+						</p>
 						<p className="text-xs text-muted-foreground">
 							{item.role} · {item.company}
 						</p>
@@ -122,7 +126,8 @@ export default function Main() {
 			author: 'Liam Foster',
 			role: 'Operations Lead',
 			company: 'StartupFirst',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'LF',
 			rating: 5,
 			date: 'January 2023',
@@ -134,7 +139,8 @@ export default function Main() {
 			author: 'Maria Chen',
 			role: 'IT Manager',
 			company: 'TechIntegrate',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'MC',
 			rating: 5,
 			date: 'February 2023',
@@ -146,7 +152,8 @@ export default function Main() {
 			author: 'Nathan Park',
 			role: 'VP Operations',
 			company: 'ProductivityPlus',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'NP',
 			rating: 5,
 			date: 'April 2023',
@@ -158,7 +165,8 @@ export default function Main() {
 			author: 'Olivia Wright',
 			role: 'CEO',
 			company: 'GrowthCorp',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'OW',
 			rating: 5,
 			date: 'January 2024',
@@ -167,7 +175,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Journey"

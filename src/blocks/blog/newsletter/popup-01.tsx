@@ -1,7 +1,13 @@
 import { Mail, ArrowRight, X, Shield, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 
 interface PopupCardProps {
 	title: string;
@@ -12,13 +18,16 @@ interface PopupCardProps {
 	dismissLabel: string;
 }
 
-const PopupCard = ({ title, description, placeholder, buttonText, features, dismissLabel }: PopupCardProps) => (
+const PopupCard = ({
+	title,
+	description,
+	placeholder,
+	buttonText,
+	features,
+	dismissLabel,
+}: PopupCardProps) => (
 	<Card className="relative max-w-md shadow-2xl">
-		<Button
-			variant="ghost"
-			size="icon-sm"
-			className="absolute top-3 right-3"
-		>
+		<Button variant="ghost" size="icon-sm" className="absolute top-3 right-3">
 			<X className="size-4" />
 			<span className="sr-only">{dismissLabel}</span>
 		</Button>
@@ -31,11 +40,7 @@ const PopupCard = ({ title, description, placeholder, buttonText, features, dism
 		</CardHeader>
 		<CardContent className="flex flex-col gap-4">
 			<form className="flex flex-col gap-3">
-				<Input
-					type="email"
-					placeholder={placeholder}
-					className="h-11"
-				/>
+				<Input type="email" placeholder={placeholder} className="h-11" />
 				<Button size="lg" className="gap-2 w-full h-11">
 					{buttonText}
 					<ArrowRight className="size-4" />
@@ -45,7 +50,10 @@ const PopupCard = ({ title, description, placeholder, buttonText, features, dism
 				{features.map((feature, i) => {
 					const Icon = feature.icon;
 					return (
-						<div key={i} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+						<div
+							key={i}
+							className="flex items-center gap-1.5 text-xs text-muted-foreground"
+						>
 							<Icon className="size-3.5" />
 							<span>{feature.text}</span>
 						</div>

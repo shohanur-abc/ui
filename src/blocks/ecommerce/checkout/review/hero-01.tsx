@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -80,9 +86,13 @@ const TotalLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -94,7 +104,8 @@ export default function Main() {
 			variant: 'Vintage Brown / Large',
 			price: 189.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=400&fit=crop',
 		},
 		{
 			id: '2',
@@ -102,7 +113,8 @@ export default function Main() {
 			variant: 'Canvas / 3-Piece',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1473188588951-666fce8e7c68?w=600&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1473188588951-666fce8e7c68?w=600&h=400&fit=crop',
 		},
 	];
 

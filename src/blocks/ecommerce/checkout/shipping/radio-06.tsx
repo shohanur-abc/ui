@@ -1,7 +1,21 @@
-import { Truck, Globe2, Plane, Ship, Clock, AlertCircle, Check } from 'lucide-react';
+import {
+	Truck,
+	Globe2,
+	Plane,
+	Ship,
+	Clock,
+	AlertCircle,
+	Check,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
@@ -102,9 +116,36 @@ const InternationalRadio = ({
 
 export default function Main() {
 	const domesticCarriers = [
-		{ value: 'usps', carrier: 'USPS', icon: Truck, method: 'Priority Mail', time: '2-3 days', price: '$8.99', rating: 4.5, reviews: 1234 },
-		{ value: 'ups', carrier: 'UPS', icon: Truck, method: 'Ground', time: '3-5 days', price: '$10.99', rating: 4.7, reviews: 2156 },
-		{ value: 'fedex', carrier: 'FedEx', icon: Truck, method: 'Home Delivery', time: '2-5 days', price: '$12.99', rating: 4.6, reviews: 1879 },
+		{
+			value: 'usps',
+			carrier: 'USPS',
+			icon: Truck,
+			method: 'Priority Mail',
+			time: '2-3 days',
+			price: '$8.99',
+			rating: 4.5,
+			reviews: 1234,
+		},
+		{
+			value: 'ups',
+			carrier: 'UPS',
+			icon: Truck,
+			method: 'Ground',
+			time: '3-5 days',
+			price: '$10.99',
+			rating: 4.7,
+			reviews: 2156,
+		},
+		{
+			value: 'fedex',
+			carrier: 'FedEx',
+			icon: Truck,
+			method: 'Home Delivery',
+			time: '2-5 days',
+			price: '$12.99',
+			rating: 4.6,
+			reviews: 1879,
+		},
 	];
 
 	const internationalOptions = [
@@ -171,7 +212,9 @@ export default function Main() {
 				</Alert>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue</Button>
 				</div>
 			</div>

@@ -1,11 +1,29 @@
 import Link from 'next/link';
-import { Mail, Lock, User, ArrowRight, ArrowLeft, Store, Check, Building2, Phone, MapPin, Globe } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	ArrowRight,
+	ArrowLeft,
+	Store,
+	Check,
+	Building2,
+	Phone,
+	MapPin,
+	Globe,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	Select,
 	SelectContent,
@@ -14,7 +32,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -46,7 +70,9 @@ const StepCircle = ({
 		>
 			{isCompleted ? <Check className="size-5" /> : step}
 		</div>
-		<span className={`text-xs mt-2 ${isActive || isCompleted ? 'text-primary' : 'text-muted-foreground'}`}>
+		<span
+			className={`text-xs mt-2 ${isActive || isCompleted ? 'text-primary' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</span>
 	</div>
@@ -125,10 +151,34 @@ const NavigationButtons = ({
 
 const BusinessInfoStep = () => (
 	<form className="space-y-4">
-		<FormField id="seller-business" label="Business Name" type="text" placeholder="Your Store Name" icon={Building2} />
-		<FormField id="seller-email" label="Business Email" type="email" placeholder="contact@yourstore.com" icon={Mail} />
-		<FormField id="seller-phone" label="Phone Number" type="tel" placeholder="+1 (555) 123-4567" icon={Phone} />
-		<FormField id="seller-website" label="Website (optional)" type="url" placeholder="https://yourstore.com" icon={Globe} />
+		<FormField
+			id="seller-business"
+			label="Business Name"
+			type="text"
+			placeholder="Your Store Name"
+			icon={Building2}
+		/>
+		<FormField
+			id="seller-email"
+			label="Business Email"
+			type="email"
+			placeholder="contact@yourstore.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="seller-phone"
+			label="Phone Number"
+			type="tel"
+			placeholder="+1 (555) 123-4567"
+			icon={Phone}
+		/>
+		<FormField
+			id="seller-website"
+			label="Website (optional)"
+			type="url"
+			placeholder="https://yourstore.com"
+			icon={Globe}
+		/>
 		<NavigationButtons showBack={false} nextLabel="Continue" />
 	</form>
 );
@@ -145,7 +195,9 @@ export default function Main() {
 							<Logo name="SellerHub" icon={Store} />
 						</div>
 						<CardTitle className="text-2xl">Become a Seller</CardTitle>
-						<CardDescription>Set up your seller account in minutes</CardDescription>
+						<CardDescription>
+							Set up your seller account in minutes
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<StepProgress steps={steps} currentStep={1} />

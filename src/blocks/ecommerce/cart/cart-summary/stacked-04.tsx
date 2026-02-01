@@ -47,7 +47,11 @@ const TotalRow = ({
 	label,
 	value,
 	savings,
-}: { label: string; value: string; savings?: string }) => (
+}: {
+	label: string;
+	value: string;
+	savings?: string;
+}) => (
 	<div className="space-y-1">
 		<div className="flex items-center justify-between text-xl font-bold">
 			<span>{label}</span>
@@ -64,7 +68,10 @@ const TotalRow = ({
 const Header = ({
 	title,
 	badge,
-}: { title: string; badge?: { label: string; icon: LucideIcon } }) => (
+}: {
+	title: string;
+	badge?: { label: string; icon: LucideIcon };
+}) => (
 	<CardHeader className="border-b">
 		<CardTitle className="flex items-center justify-between">
 			{title}

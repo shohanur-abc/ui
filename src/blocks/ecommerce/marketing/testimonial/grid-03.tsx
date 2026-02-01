@@ -31,7 +31,9 @@ const SectionHeader = ({
 		<h2 className="text-3xl @sm:text-4xl @lg:text-5xl font-bold tracking-tight mb-4">
 			{title}
 		</h2>
-		<p className="text-muted-foreground text-lg max-w-2xl mx-auto">{description}</p>
+		<p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+			{description}
+		</p>
 	</div>
 );
 
@@ -93,7 +95,8 @@ export default function Main() {
 			author: 'Patricia Moore',
 			role: 'COO',
 			company: 'Efficiency Labs',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'PM',
 			rating: 5,
 			highlights: ['Time Savings', 'Automation', 'Scalability'],
@@ -104,7 +107,8 @@ export default function Main() {
 			author: 'Daniel Roberts',
 			role: 'IT Manager',
 			company: 'TechSolutions',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'DR',
 			rating: 5,
 			highlights: ['Support', 'Onboarding', 'Training'],
@@ -115,7 +119,8 @@ export default function Main() {
 			author: 'Samantha Lee',
 			role: 'Product Designer',
 			company: 'DesignCraft',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'SL',
 			rating: 5,
 			highlights: ['Intuitive', 'Powerful', 'Modern'],
@@ -126,7 +131,8 @@ export default function Main() {
 			author: 'Andrew Kim',
 			role: 'Security Lead',
 			company: 'SecureNet',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'AK',
 			rating: 5,
 			highlights: ['Security', 'Compliance', 'Enterprise'],
@@ -137,7 +143,8 @@ export default function Main() {
 			author: 'Rachel Adams',
 			role: 'Analytics Director',
 			company: 'InsightPro',
-			avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
 			initials: 'RA',
 			rating: 5,
 			highlights: ['Analytics', 'Reporting', 'Visibility'],
@@ -148,7 +155,8 @@ export default function Main() {
 			author: 'Thomas Wright',
 			role: 'DevOps Engineer',
 			company: 'CloudScale',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'TW',
 			rating: 5,
 			highlights: ['Integration', 'APIs', 'Developer-Friendly'],
@@ -156,7 +164,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Success Stories"

@@ -344,7 +344,11 @@ export default function Main() {
 	const upcomingDeliveries = [
 		{
 			date: 'February 15, 2024',
-			items: ['Premium Blend Coffee (12oz)', 'Organic Tea Selection', 'Artisan Chocolate Bar'],
+			items: [
+				'Premium Blend Coffee (12oz)',
+				'Organic Tea Selection',
+				'Artisan Chocolate Bar',
+			],
 		},
 		{
 			date: 'March 15, 2024',
@@ -372,8 +376,8 @@ export default function Main() {
 				<div className="grid @lg:grid-cols-3 gap-6">
 					<div className="@lg:col-span-2 space-y-6">
 						<SavingsCard
-							monthlysSavings={15.50}
-							annualSavings={186.00}
+							monthlysSavings={15.5}
+							annualSavings={186.0}
 							currency="$"
 						/>
 						<UpcomingDeliveryCard deliveries={upcomingDeliveries} />
@@ -394,7 +398,11 @@ export default function Main() {
 
 				<CTA
 					items={[
-						{ label: 'Manage Subscription', href: '/subscriptions', icon: ArrowRight },
+						{
+							label: 'Manage Subscription',
+							href: '/subscriptions',
+							icon: ArrowRight,
+						},
 						{ label: 'Shop Add-ons', href: '/shop', variant: 'outline' },
 					]}
 				/>

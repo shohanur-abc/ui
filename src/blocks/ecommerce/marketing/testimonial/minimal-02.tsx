@@ -53,7 +53,8 @@ export default function Main() {
 		author: 'Sam Foster',
 		role: 'CEO',
 		company: 'ElegantCorp',
-		avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 		initials: 'SF',
 		rating: 5,
 	};

@@ -66,7 +66,12 @@ const SidebarNav = ({
 	items,
 	activeHref,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; badge?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+	}[];
 	activeHref: string;
 }) => (
 	<nav className="space-y-1">
@@ -83,7 +88,10 @@ const SidebarNav = ({
 				<item.icon className="size-5" />
 				<span className="flex-1 text-sm font-medium">{item.label}</span>
 				{item.badge && (
-					<Badge variant={item.href === activeHref ? 'secondary' : 'outline'} className="text-xs">
+					<Badge
+						variant={item.href === activeHref ? 'secondary' : 'outline'}
+						className="text-xs"
+					>
 						{item.badge}
 					</Badge>
 				)}
@@ -92,20 +100,19 @@ const SidebarNav = ({
 	</nav>
 );
 
-const MainContent = ({
-	children,
-}: {
-	children: React.ReactNode;
-}) => (
-	<div className="flex-1 space-y-6">
-		{children}
-	</div>
+const MainContent = ({ children }: { children: React.ReactNode }) => (
+	<div className="flex-1 space-y-6">{children}</div>
 );
 
 const StatsGrid = ({
 	items,
 }: {
-	items: { icon: React.ElementType; value: string; label: string; color: string }[];
+	items: {
+		icon: React.ElementType;
+		value: string;
+		label: string;
+		color: string;
+	}[];
 }) => (
 	<div className="grid grid-cols-2 @lg:grid-cols-4 gap-4">
 		{items.map((stat, i) => (
@@ -123,7 +130,13 @@ const StatsGrid = ({
 const RecentOrders = ({
 	orders,
 }: {
-	orders: { id: string; date: string; total: string; status: string; statusColor: string }[];
+	orders: {
+		id: string;
+		date: string;
+		total: string;
+		status: string;
+		statusColor: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -172,7 +185,12 @@ export default function Main() {
 			{ icon: Heart, label: 'Wishlist', href: '/wishlist', badge: '12' },
 			{ icon: MapPin, label: 'Addresses', href: '/addresses' },
 			{ icon: CreditCard, label: 'Payment', href: '/payment' },
-			{ icon: Bell, label: 'Notifications', href: '/notifications', badge: '5' },
+			{
+				icon: Bell,
+				label: 'Notifications',
+				href: '/notifications',
+				badge: '5',
+			},
 			{ icon: Settings, label: 'Settings', href: '/settings' },
 		],
 		stats: [
@@ -182,9 +200,27 @@ export default function Main() {
 			{ icon: Gift, value: '5', label: 'Rewards', color: 'text-purple-500' },
 		],
 		orders: [
-			{ id: '48291', date: 'Jan 28, 2024', total: '$156.00', status: 'Delivered', statusColor: 'bg-green-500/20 text-green-600' },
-			{ id: '48287', date: 'Jan 25, 2024', total: '$89.50', status: 'In Transit', statusColor: 'bg-blue-500/20 text-blue-600' },
-			{ id: '48280', date: 'Jan 20, 2024', total: '$234.00', status: 'Processing', statusColor: 'bg-amber-500/20 text-amber-600' },
+			{
+				id: '48291',
+				date: 'Jan 28, 2024',
+				total: '$156.00',
+				status: 'Delivered',
+				statusColor: 'bg-green-500/20 text-green-600',
+			},
+			{
+				id: '48287',
+				date: 'Jan 25, 2024',
+				total: '$89.50',
+				status: 'In Transit',
+				statusColor: 'bg-blue-500/20 text-blue-600',
+			},
+			{
+				id: '48280',
+				date: 'Jan 20, 2024',
+				total: '$234.00',
+				status: 'Processing',
+				statusColor: 'bg-amber-500/20 text-amber-600',
+			},
 		],
 	};
 
@@ -199,7 +235,10 @@ export default function Main() {
 								<Separator />
 								<SidebarNav items={profileData.nav} activeHref="/account" />
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive hover:text-destructive hover:bg-destructive/10">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive hover:text-destructive hover:bg-destructive/10"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>
@@ -209,7 +248,9 @@ export default function Main() {
 					<MainContent>
 						<div className="space-y-2">
 							<h1 className="text-2xl font-bold">Account Overview</h1>
-							<p className="text-muted-foreground">Welcome back, {profileData.sidebar.name.split(' ')[0]}!</p>
+							<p className="text-muted-foreground">
+								Welcome back, {profileData.sidebar.name.split(' ')[0]}!
+							</p>
 						</div>
 						<StatsGrid items={profileData.stats} />
 						<RecentOrders orders={profileData.orders} />

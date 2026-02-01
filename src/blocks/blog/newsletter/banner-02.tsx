@@ -28,11 +28,7 @@ const Content = ({ icon: Icon, title, description }: ContentProps) => (
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 	<form className="flex gap-2">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="w-56 h-9"
-		/>
+		<Input type="email" placeholder={placeholder} className="w-56 h-9" />
 		<Button size="sm" className="gap-1.5 h-9">
 			{buttonText}
 			{Icon && <Icon className="size-3.5" />}

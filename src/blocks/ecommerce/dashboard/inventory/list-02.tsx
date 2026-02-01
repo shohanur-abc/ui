@@ -1,11 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	ChevronDown,
-	Box,
-} from 'lucide-react';
+import { Package, ChevronDown, Box } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -61,7 +57,9 @@ const CategoryRow = ({ group, itemsLabel, valueLabel }: CategoryRowProps) => {
 						</div>
 						<div className="flex items-center gap-4">
 							<div className="text-right">
-								<p className="font-semibold">${group.totalValue.toLocaleString()}</p>
+								<p className="font-semibold">
+									${group.totalValue.toLocaleString()}
+								</p>
 								<p className="text-xs text-muted-foreground">{valueLabel}</p>
 							</div>
 							<ChevronDown
@@ -84,16 +82,22 @@ const CategoryRow = ({ group, itemsLabel, valueLabel }: CategoryRowProps) => {
 										</div>
 										<div>
 											<p className="font-medium">{item.name}</p>
-											<p className="text-xs text-muted-foreground">{item.sku}</p>
+											<p className="text-xs text-muted-foreground">
+												{item.sku}
+											</p>
 										</div>
 									</div>
 									<div className="flex items-center gap-6">
 										<div className="text-right">
-											<p className="font-medium tabular-nums">{item.quantity}</p>
+											<p className="font-medium tabular-nums">
+												{item.quantity}
+											</p>
 											<p className="text-xs text-muted-foreground">units</p>
 										</div>
 										<div className="text-right">
-											<p className="font-medium tabular-nums">${item.price.toFixed(2)}</p>
+											<p className="font-medium tabular-nums">
+												${item.price.toFixed(2)}
+											</p>
 											<p className="text-xs text-muted-foreground">each</p>
 										</div>
 									</div>
@@ -114,10 +118,34 @@ export default function Main() {
 			totalItems: 1250,
 			totalValue: 156000,
 			items: [
-				{ id: '1', name: 'Wireless Headphones', sku: 'WH-001', quantity: 450, price: 79.99 },
-				{ id: '2', name: 'Bluetooth Speaker', sku: 'BS-002', quantity: 320, price: 49.99 },
-				{ id: '3', name: 'Smart Watch', sku: 'SW-003', quantity: 280, price: 199.99 },
-				{ id: '4', name: 'Portable Charger', sku: 'PC-004', quantity: 200, price: 29.99 },
+				{
+					id: '1',
+					name: 'Wireless Headphones',
+					sku: 'WH-001',
+					quantity: 450,
+					price: 79.99,
+				},
+				{
+					id: '2',
+					name: 'Bluetooth Speaker',
+					sku: 'BS-002',
+					quantity: 320,
+					price: 49.99,
+				},
+				{
+					id: '3',
+					name: 'Smart Watch',
+					sku: 'SW-003',
+					quantity: 280,
+					price: 199.99,
+				},
+				{
+					id: '4',
+					name: 'Portable Charger',
+					sku: 'PC-004',
+					quantity: 200,
+					price: 29.99,
+				},
 			],
 		},
 		{
@@ -125,10 +153,34 @@ export default function Main() {
 			totalItems: 2800,
 			totalValue: 42000,
 			items: [
-				{ id: '5', name: 'Phone Case', sku: 'PHC-001', quantity: 1200, price: 14.99 },
-				{ id: '6', name: 'Screen Protector', sku: 'SP-002', quantity: 800, price: 9.99 },
-				{ id: '7', name: 'USB Cable', sku: 'USB-003', quantity: 600, price: 12.99 },
-				{ id: '8', name: 'Car Mount', sku: 'CM-004', quantity: 200, price: 19.99 },
+				{
+					id: '5',
+					name: 'Phone Case',
+					sku: 'PHC-001',
+					quantity: 1200,
+					price: 14.99,
+				},
+				{
+					id: '6',
+					name: 'Screen Protector',
+					sku: 'SP-002',
+					quantity: 800,
+					price: 9.99,
+				},
+				{
+					id: '7',
+					name: 'USB Cable',
+					sku: 'USB-003',
+					quantity: 600,
+					price: 12.99,
+				},
+				{
+					id: '8',
+					name: 'Car Mount',
+					sku: 'CM-004',
+					quantity: 200,
+					price: 19.99,
+				},
 			],
 		},
 		{
@@ -136,10 +188,34 @@ export default function Main() {
 			totalItems: 680,
 			totalValue: 89000,
 			items: [
-				{ id: '9', name: 'Mechanical Keyboard', sku: 'MK-001', quantity: 180, price: 149.99 },
-				{ id: '10', name: 'Gaming Mouse', sku: 'GM-002', quantity: 250, price: 59.99 },
-				{ id: '11', name: 'Webcam HD', sku: 'WC-003', quantity: 150, price: 89.99 },
-				{ id: '12', name: 'USB Hub', sku: 'UH-004', quantity: 100, price: 34.99 },
+				{
+					id: '9',
+					name: 'Mechanical Keyboard',
+					sku: 'MK-001',
+					quantity: 180,
+					price: 149.99,
+				},
+				{
+					id: '10',
+					name: 'Gaming Mouse',
+					sku: 'GM-002',
+					quantity: 250,
+					price: 59.99,
+				},
+				{
+					id: '11',
+					name: 'Webcam HD',
+					sku: 'WC-003',
+					quantity: 150,
+					price: 89.99,
+				},
+				{
+					id: '12',
+					name: 'USB Hub',
+					sku: 'UH-004',
+					quantity: 100,
+					price: 34.99,
+				},
 			],
 		},
 	];
@@ -149,7 +225,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Inventory by Category</CardTitle>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Inventory by Category
+						</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-3">
 						{categoryGroups.map((group) => (

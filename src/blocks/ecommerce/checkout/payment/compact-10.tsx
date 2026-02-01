@@ -16,7 +16,13 @@ interface Currency {
 	flag: string;
 }
 
-const CurrencySelector = ({ currencies, selected }: { currencies: Currency[]; selected: string }) => (
+const CurrencySelector = ({
+	currencies,
+	selected,
+}: {
+	currencies: Currency[];
+	selected: string;
+}) => (
 	<RadioGroup defaultValue={selected} className="flex gap-2">
 		{currencies.map((currency) => (
 			<Label
@@ -24,7 +30,11 @@ const CurrencySelector = ({ currencies, selected }: { currencies: Currency[]; se
 				htmlFor={currency.code}
 				className="flex-1 flex items-center justify-center gap-1.5 p-2 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
 			>
-				<RadioGroupItem value={currency.code} id={currency.code} className="sr-only" />
+				<RadioGroupItem
+					value={currency.code}
+					id={currency.code}
+					className="sr-only"
+				/>
 				<span>{currency.flag}</span>
 				<span className="text-xs font-medium">{currency.code}</span>
 			</Label>
@@ -46,15 +56,29 @@ const CompactCardForm = () => (
 	</div>
 );
 
-const ConversionDisplay = ({ from, to, rate }: { from: { amount: string; currency: string }; to: { amount: string; currency: string }; rate: string }) => (
+const ConversionDisplay = ({
+	from,
+	to,
+	rate,
+}: {
+	from: { amount: string; currency: string };
+	to: { amount: string; currency: string };
+	rate: string;
+}) => (
 	<div className="p-2.5 rounded-lg bg-muted/30 space-y-1.5">
 		<div className="flex items-center justify-between text-xs">
-			<span className="text-muted-foreground">{from.amount} {from.currency}</span>
-			<span className="font-medium">{to.amount} {to.currency}</span>
+			<span className="text-muted-foreground">
+				{from.amount} {from.currency}
+			</span>
+			<span className="font-medium">
+				{to.amount} {to.currency}
+			</span>
 		</div>
 		<div className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
 			<Globe className="size-2.5" />
-			<span>Rate: 1 {from.currency} = {rate} {to.currency}</span>
+			<span>
+				Rate: 1 {from.currency} = {rate} {to.currency}
+			</span>
 		</div>
 	</div>
 );

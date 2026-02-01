@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -118,7 +124,9 @@ const AddressInfo = ({
 	lines: string[];
 }) => (
 	<div className="rounded-lg bg-muted/50 p-4">
-		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">{label}</p>
+		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">
+			{label}
+		</p>
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
 			<p key={i} className="text-sm text-muted-foreground">
@@ -142,7 +150,9 @@ const PaymentCard = ({
 			<CreditCard className="size-7 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -172,7 +182,9 @@ const GiftOption = ({ message }: { message: string }) => (
 		<Gift className="mt-0.5 size-5 text-primary" />
 		<div>
 			<p className="text-sm font-medium">Gift wrapping included</p>
-			<p className="text-sm text-muted-foreground">Message: &quot;{message}&quot;</p>
+			<p className="text-sm text-muted-foreground">
+				Message: &quot;{message}&quot;
+			</p>
 		</div>
 	</div>
 );
@@ -188,16 +200,23 @@ const PriceLine = ({
 	large?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${large ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${large ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={large ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
 const TermsCheckbox = ({ label }: { label: string }) => (
 	<div className="flex items-start gap-3">
 		<Checkbox id="terms" className="mt-0.5" />
-		<label htmlFor="terms" className="text-sm text-muted-foreground leading-relaxed">
+		<label
+			htmlFor="terms"
+			className="text-sm text-muted-foreground leading-relaxed"
+		>
 			{label}
 		</label>
 	</div>

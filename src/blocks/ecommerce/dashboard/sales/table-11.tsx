@@ -32,7 +32,13 @@ type InventoryTableCardProps = {
 };
 
 const getStatusBadge = (status: InventoryItem['status']) => {
-	const styles: Record<InventoryItem['status'], { variant: 'default' | 'secondary' | 'destructive' | 'outline'; icon: typeof CheckCircle }> = {
+	const styles: Record<
+		InventoryItem['status'],
+		{
+			variant: 'default' | 'secondary' | 'destructive' | 'outline';
+			icon: typeof CheckCircle;
+		}
+	> = {
 		healthy: { variant: 'default', icon: CheckCircle },
 		low: { variant: 'secondary', icon: AlertTriangle },
 		critical: { variant: 'destructive', icon: AlertTriangle },
@@ -79,13 +85,21 @@ const InventoryTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{items.map((item) => {
-							const stockPercentage = Math.min(100, (item.inStock / (item.reorderPoint * 3)) * 100);
+							const stockPercentage = Math.min(
+								100,
+								(item.inStock / (item.reorderPoint * 3)) * 100,
+							);
 							return (
-								<TableRow key={item.sku} className="hover:bg-muted/50 transition-colors">
+								<TableRow
+									key={item.sku}
+									className="hover:bg-muted/50 transition-colors"
+								>
 									<TableCell>
 										<div>
 											<p className="font-medium">{item.name}</p>
-											<p className="text-xs text-muted-foreground font-mono">{item.sku}</p>
+											<p className="text-xs text-muted-foreground font-mono">
+												{item.sku}
+											</p>
 										</div>
 									</TableCell>
 									<TableCell className="text-muted-foreground">
@@ -101,10 +115,7 @@ const InventoryTableCard = ({
 										{item.available.toLocaleString()}
 									</TableCell>
 									<TableCell>
-										<Progress
-											value={stockPercentage}
-											className="h-2"
-										/>
+										<Progress value={stockPercentage} className="h-2" />
 									</TableCell>
 									<TableCell>{getStatusBadge(item.status)}</TableCell>
 									<TableCell className="text-right">
@@ -132,11 +143,61 @@ const InventoryTableCard = ({
 
 export default function Main() {
 	const items: InventoryItem[] = [
-		{ sku: 'SKU-001', name: 'Wireless Headphones', category: 'Electronics', inStock: 450, reserved: 85, available: 365, reorderPoint: 100, status: 'healthy', daysOfSupply: 32 },
-		{ sku: 'SKU-002', name: 'Smart Watch Pro', category: 'Electronics', inStock: 120, reserved: 45, available: 75, reorderPoint: 100, status: 'low', daysOfSupply: 12 },
-		{ sku: 'SKU-003', name: 'USB-C Hub', category: 'Accessories', inStock: 25, reserved: 18, available: 7, reorderPoint: 50, status: 'critical', daysOfSupply: 3 },
-		{ sku: 'SKU-004', name: 'Laptop Stand', category: 'Accessories', inStock: 280, reserved: 32, available: 248, reorderPoint: 75, status: 'healthy', daysOfSupply: 45 },
-		{ sku: 'SKU-005', name: 'Mechanical Keyboard', category: 'Electronics', inStock: 0, reserved: 0, available: 0, reorderPoint: 100, status: 'out-of-stock', daysOfSupply: 0 },
+		{
+			sku: 'SKU-001',
+			name: 'Wireless Headphones',
+			category: 'Electronics',
+			inStock: 450,
+			reserved: 85,
+			available: 365,
+			reorderPoint: 100,
+			status: 'healthy',
+			daysOfSupply: 32,
+		},
+		{
+			sku: 'SKU-002',
+			name: 'Smart Watch Pro',
+			category: 'Electronics',
+			inStock: 120,
+			reserved: 45,
+			available: 75,
+			reorderPoint: 100,
+			status: 'low',
+			daysOfSupply: 12,
+		},
+		{
+			sku: 'SKU-003',
+			name: 'USB-C Hub',
+			category: 'Accessories',
+			inStock: 25,
+			reserved: 18,
+			available: 7,
+			reorderPoint: 50,
+			status: 'critical',
+			daysOfSupply: 3,
+		},
+		{
+			sku: 'SKU-004',
+			name: 'Laptop Stand',
+			category: 'Accessories',
+			inStock: 280,
+			reserved: 32,
+			available: 248,
+			reorderPoint: 75,
+			status: 'healthy',
+			daysOfSupply: 45,
+		},
+		{
+			sku: 'SKU-005',
+			name: 'Mechanical Keyboard',
+			category: 'Electronics',
+			inStock: 0,
+			reserved: 0,
+			available: 0,
+			reorderPoint: 100,
+			status: 'out-of-stock',
+			daysOfSupply: 0,
+		},
 	];
 
 	return (

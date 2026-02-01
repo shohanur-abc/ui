@@ -42,7 +42,10 @@ const NotificationIcon = ({ type }: { type: Notification['type'] }) => {
 		{ icon: LucideIcon; className: string }
 	> = {
 		order: { icon: ShoppingCart, className: 'bg-blue-500/20 text-blue-400' },
-		payment: { icon: CreditCard, className: 'bg-emerald-500/20 text-emerald-400' },
+		payment: {
+			icon: CreditCard,
+			className: 'bg-emerald-500/20 text-emerald-400',
+		},
 		shipping: { icon: Package, className: 'bg-purple-500/20 text-purple-400' },
 		review: { icon: Star, className: 'bg-amber-500/20 text-amber-400' },
 		message: { icon: MessageSquare, className: 'bg-pink-500/20 text-pink-400' },
@@ -60,11 +63,7 @@ const NotificationIcon = ({ type }: { type: Notification['type'] }) => {
 	);
 };
 
-const NotificationItem = ({
-	notification,
-}: {
-	notification: Notification;
-}) => (
+const NotificationItem = ({ notification }: { notification: Notification }) => (
 	<div
 		className={`group flex items-start gap-4 p-4 transition-all hover:bg-muted/50 ${
 			!notification.isRead ? 'bg-primary/5' : ''
@@ -172,7 +171,8 @@ export default function Main() {
 			id: '2',
 			type: 'payment',
 			title: 'Payment successful',
-			message: 'Payment of $1,299.00 has been received for order #ORD-2024-0891.',
+			message:
+				'Payment of $1,299.00 has been received for order #ORD-2024-0891.',
 			timestamp: '15 minutes ago',
 			isRead: false,
 		},

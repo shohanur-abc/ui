@@ -93,13 +93,9 @@ const LanguageRow = ({
 	</div>
 );
 
-const CategoryProgress = ({
-	name,
-	translated,
-	total,
-}: TranslationCategory) => {
+const CategoryProgress = ({ name, translated, total }: TranslationCategory) => {
 	const percentage = Math.round((translated / total) * 100);
-	
+
 	return (
 		<div className="flex items-center justify-between py-2">
 			<span className="text-sm">{name}</span>
@@ -120,11 +116,46 @@ const CategoryProgress = ({
 
 export default function Main() {
 	const languages: Language[] = [
-		{ code: 'en', name: 'English', native: 'English', isDefault: true, enabled: true, progress: 100 },
-		{ code: 'es', name: 'Spanish', native: 'Español', isDefault: false, enabled: true, progress: 95 },
-		{ code: 'fr', name: 'French', native: 'Français', isDefault: false, enabled: true, progress: 88 },
-		{ code: 'de', name: 'German', native: 'Deutsch', isDefault: false, enabled: false, progress: 72 },
-		{ code: 'ja', name: 'Japanese', native: '日本語', isDefault: false, enabled: false, progress: 45 },
+		{
+			code: 'en',
+			name: 'English',
+			native: 'English',
+			isDefault: true,
+			enabled: true,
+			progress: 100,
+		},
+		{
+			code: 'es',
+			name: 'Spanish',
+			native: 'Español',
+			isDefault: false,
+			enabled: true,
+			progress: 95,
+		},
+		{
+			code: 'fr',
+			name: 'French',
+			native: 'Français',
+			isDefault: false,
+			enabled: true,
+			progress: 88,
+		},
+		{
+			code: 'de',
+			name: 'German',
+			native: 'Deutsch',
+			isDefault: false,
+			enabled: false,
+			progress: 72,
+		},
+		{
+			code: 'ja',
+			name: 'Japanese',
+			native: '日本語',
+			isDefault: false,
+			enabled: false,
+			progress: 45,
+		},
 	];
 
 	const categories: TranslationCategory[] = [
@@ -171,7 +202,9 @@ export default function Main() {
 					<div className="space-y-6">
 						<Card>
 							<CardHeader>
-								<CardTitle className="text-base">Translation Progress</CardTitle>
+								<CardTitle className="text-base">
+									Translation Progress
+								</CardTitle>
 							</CardHeader>
 							<CardContent className="divide-y">
 								{categories.map((category) => (

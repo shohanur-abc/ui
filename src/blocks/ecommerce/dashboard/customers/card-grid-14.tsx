@@ -18,7 +18,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	DropdownMenu,
@@ -63,11 +68,36 @@ interface GamifiedCustomer {
 }
 
 const RankConfig = {
-	bronze: { label: 'Bronze', icon: Medal, color: 'text-amber-700', bg: 'bg-amber-700/10' },
-	silver: { label: 'Silver', icon: Award, color: 'text-slate-400', bg: 'bg-slate-400/10' },
-	gold: { label: 'Gold', icon: Trophy, color: 'text-amber-500', bg: 'bg-amber-500/10' },
-	platinum: { label: 'Platinum', icon: Crown, color: 'text-violet-400', bg: 'bg-violet-400/10' },
-	diamond: { label: 'Diamond', icon: Diamond, color: 'text-cyan-400', bg: 'bg-cyan-400/10' },
+	bronze: {
+		label: 'Bronze',
+		icon: Medal,
+		color: 'text-amber-700',
+		bg: 'bg-amber-700/10',
+	},
+	silver: {
+		label: 'Silver',
+		icon: Award,
+		color: 'text-slate-400',
+		bg: 'bg-slate-400/10',
+	},
+	gold: {
+		label: 'Gold',
+		icon: Trophy,
+		color: 'text-amber-500',
+		bg: 'bg-amber-500/10',
+	},
+	platinum: {
+		label: 'Platinum',
+		icon: Crown,
+		color: 'text-violet-400',
+		bg: 'bg-violet-400/10',
+	},
+	diamond: {
+		label: 'Diamond',
+		icon: Diamond,
+		color: 'text-cyan-400',
+		bg: 'bg-cyan-400/10',
+	},
 };
 
 const BadgeIconMap = {
@@ -83,7 +113,10 @@ const RankBadge = ({ rank }: { rank: GamifiedCustomer['rank'] }) => {
 	const config = RankConfig[rank];
 	const Icon = config.icon;
 	return (
-		<Badge variant="outline" className={`${config.color} border-current/30 gap-1`}>
+		<Badge
+			variant="outline"
+			className={`${config.color} border-current/30 gap-1`}
+		>
 			<Icon className="size-3 fill-current" />
 			{config.label}
 		</Badge>
@@ -109,7 +142,9 @@ const XPBar = ({
 	<div className="space-y-1">
 		<div className="flex items-center justify-between text-xs">
 			<span className="text-muted-foreground">XP Progress</span>
-			<span className="font-medium">{current.toLocaleString()} / {nextLevel.toLocaleString()}</span>
+			<span className="font-medium">
+				{current.toLocaleString()} / {nextLevel.toLocaleString()}
+			</span>
 		</div>
 		<Progress value={percentage} className="h-2" />
 	</div>
@@ -178,7 +213,9 @@ const GamifiedCard = ({ customer }: { customer: GamifiedCustomer }) => {
 	const rankConfig = RankConfig[customer.rank];
 	return (
 		<Card className="group relative overflow-hidden transition-shadow hover:shadow-lg">
-			<div className={`absolute inset-x-0 top-0 h-1 ${rankConfig.bg.replace('/10', '')}`} />
+			<div
+				className={`absolute inset-x-0 top-0 h-1 ${rankConfig.bg.replace('/10', '')}`}
+			/>
 			<CardHeader className="pb-3">
 				<div className="flex items-start justify-between">
 					<div className="flex items-center gap-3">
@@ -221,7 +258,9 @@ const GamifiedCard = ({ customer }: { customer: GamifiedCustomer }) => {
 					<RankBadge rank={customer.rank} />
 					<div className="flex items-center gap-1 text-sm">
 						<Star className="text-amber-500 size-4 fill-amber-500" />
-						<span className="font-bold">{customer.points.toLocaleString()}</span>
+						<span className="font-bold">
+							{customer.points.toLocaleString()}
+						</span>
 						<span className="text-muted-foreground">pts</span>
 					</div>
 				</div>
@@ -246,7 +285,9 @@ const GamifiedCard = ({ customer }: { customer: GamifiedCustomer }) => {
 				/>
 				<div className="space-y-2">
 					<div className="flex items-center justify-between">
-						<p className="text-muted-foreground text-xs font-medium">Active Challenges</p>
+						<p className="text-muted-foreground text-xs font-medium">
+							Active Challenges
+						</p>
 						<Badge variant="outline" className="text-xs">
 							<Target className="mr-1 size-3" />
 							{customer.achievements.unlocked}/{customer.achievements.total}
@@ -407,8 +448,12 @@ export default function Main() {
 						<Trophy className="size-5" />
 					</div>
 					<div>
-						<h1 className="text-2xl font-bold tracking-tight">Gamification Profiles</h1>
-						<p className="text-muted-foreground text-sm">Customer progress, achievements, and rewards</p>
+						<h1 className="text-2xl font-bold tracking-tight">
+							Gamification Profiles
+						</h1>
+						<p className="text-muted-foreground text-sm">
+							Customer progress, achievements, and rewards
+						</p>
 					</div>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-3">

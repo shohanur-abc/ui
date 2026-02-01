@@ -28,15 +28,20 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Checkout Flow Analysis</CardTitle>
-						<p className="text-xs text-muted-foreground">Step-by-step conversion with timing</p>
+						<CardTitle className="text-sm font-medium">
+							Checkout Flow Analysis
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Step-by-step conversion with timing
+						</p>
 					</CardHeader>
 					<CardContent className="pt-4">
 						<div className="space-y-3">
 							{steps.map((step, i) => {
 								const width = (step.value / maxValue) * 100;
-								const dropOff = i > 0 ? 100 - ((step.value / steps[i - 1].value) * 100) : 0;
-								
+								const dropOff =
+									i > 0 ? 100 - (step.value / steps[i - 1].value) * 100 : 0;
+
 								return (
 									<div key={i} className="relative">
 										<div className="flex items-center justify-between mb-1 text-sm">
@@ -47,12 +52,22 @@ export default function Main() {
 												<span className="font-medium">{step.label}</span>
 											</div>
 											<div className="flex items-center gap-4">
-												<span className="text-xs text-muted-foreground">{step.avgTime}</span>
-												<div className={`flex items-center gap-1 text-xs ${step.trend >= 0 ? 'text-emerald-500' : 'text-rose-500'}`}>
-													{step.trend >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+												<span className="text-xs text-muted-foreground">
+													{step.avgTime}
+												</span>
+												<div
+													className={`flex items-center gap-1 text-xs ${step.trend >= 0 ? 'text-emerald-500' : 'text-rose-500'}`}
+												>
+													{step.trend >= 0 ? (
+														<TrendingUp className="size-3" />
+													) : (
+														<TrendingDown className="size-3" />
+													)}
 													{Math.abs(step.trend)}%
 												</div>
-												<span className="font-medium w-16 text-right">{step.value.toLocaleString()}</span>
+												<span className="font-medium w-16 text-right">
+													{step.value.toLocaleString()}
+												</span>
 											</div>
 										</div>
 										<div className="h-6 bg-muted/30 rounded-sm overflow-hidden relative">
@@ -62,7 +77,10 @@ export default function Main() {
 											/>
 											{i > 0 && dropOff > 0 && (
 												<div className="absolute right-2 top-1/2 -translate-y-1/2">
-													<Badge variant="outline" className="text-[10px] text-rose-500 border-rose-500/30 py-0">
+													<Badge
+														variant="outline"
+														className="text-[10px] text-rose-500 border-rose-500/30 py-0"
+													>
 														-{dropOff.toFixed(1)}%
 													</Badge>
 												</div>
@@ -74,13 +92,21 @@ export default function Main() {
 						</div>
 						<div className="mt-6 flex items-center justify-between pt-4 border-t border-border/50">
 							<div className="text-sm">
-								<span className="text-muted-foreground">Avg. Time to Purchase: </span>
+								<span className="text-muted-foreground">
+									Avg. Time to Purchase:{' '}
+								</span>
 								<span className="font-medium">6m 45s</span>
 							</div>
 							<div className="text-sm">
-								<span className="text-muted-foreground">Checkout Conversion: </span>
+								<span className="text-muted-foreground">
+									Checkout Conversion:{' '}
+								</span>
 								<span className="font-medium text-emerald-500">
-									{((steps[steps.length - 1].value / steps[0].value) * 100).toFixed(2)}%
+									{(
+										(steps[steps.length - 1].value / steps[0].value) *
+										100
+									).toFixed(2)}
+									%
 								</span>
 							</div>
 						</div>

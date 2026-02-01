@@ -20,7 +20,11 @@ const FlashSaleBanner = ({
 	icon: Icon,
 	message,
 	countdown,
-}: { icon: LucideIcon; message: string; countdown: CountdownProps }) => (
+}: {
+	icon: LucideIcon;
+	message: string;
+	countdown: CountdownProps;
+}) => (
 	<div className="mb-4 overflow-hidden rounded-lg bg-gradient-to-r from-red-500 to-orange-500 p-4 text-white">
 		<div className="flex items-center gap-2">
 			<Icon className="size-5" />
@@ -45,7 +49,9 @@ const FlashSaleBanner = ({
 const SummaryRow = ({ label, value, strike }: SummaryRowProps) => (
 	<div className="flex items-center justify-between py-1 text-sm">
 		<span className="text-muted-foreground">{label}</span>
-		<span className={strike ? 'text-muted-foreground line-through' : 'font-medium'}>
+		<span
+			className={strike ? 'text-muted-foreground line-through' : 'font-medium'}
+		>
 			{value}
 		</span>
 	</div>

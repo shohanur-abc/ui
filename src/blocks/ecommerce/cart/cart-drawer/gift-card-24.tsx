@@ -108,7 +108,9 @@ const GiftCardForm = ({
 		</div>
 		<div className="space-y-3">
 			<div>
-				<label className="text-xs text-muted-foreground">{recipientNameLabel}</label>
+				<label className="text-xs text-muted-foreground">
+					{recipientNameLabel}
+				</label>
 				<Input
 					placeholder="John Doe"
 					defaultValue={giftCard.recipientName}
@@ -116,7 +118,9 @@ const GiftCardForm = ({
 				/>
 			</div>
 			<div>
-				<label className="text-xs text-muted-foreground">{recipientEmailLabel}</label>
+				<label className="text-xs text-muted-foreground">
+					{recipientEmailLabel}
+				</label>
 				<Input
 					type="email"
 					placeholder="john@example.com"
@@ -167,7 +171,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Luxury Watch',
 				price: 599.99,
 				quantity: 1,
@@ -185,7 +190,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

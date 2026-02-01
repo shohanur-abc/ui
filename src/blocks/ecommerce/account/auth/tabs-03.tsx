@@ -1,11 +1,25 @@
 import Link from 'next/link';
-import { Mail, Lock, User, ArrowRight, ShoppingCart, Building2 } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	ArrowRight,
+	ShoppingCart,
+	Building2,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
 	Select,
@@ -15,7 +29,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -63,7 +83,10 @@ const SelectField = ({
 			</SelectTrigger>
 			<SelectContent>
 				{options.map((option) => (
-					<SelectItem key={option} value={option.toLowerCase().replace(/\s/g, '-')}>
+					<SelectItem
+						key={option}
+						value={option.toLowerCase().replace(/\s/g, '-')}
+					>
 						{option}
 					</SelectItem>
 				))}
@@ -83,7 +106,10 @@ const TermsCheckbox = ({
 }) => (
 	<div className="flex items-start gap-2">
 		<Checkbox id={id} className="mt-0.5" />
-		<Label htmlFor={id} className="text-sm font-normal cursor-pointer leading-relaxed">
+		<Label
+			htmlFor={id}
+			className="text-sm font-normal cursor-pointer leading-relaxed"
+		>
 			{label}{' '}
 			<Link href={termsHref} className="text-primary hover:underline">
 				Terms & Conditions
@@ -109,24 +135,77 @@ const SubmitButton = ({
 
 const PersonalSignUp = () => (
 	<form className="space-y-4">
-		<FormField id="personal-name" label="Full Name" type="text" placeholder="John Doe" icon={User} />
-		<FormField id="personal-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField id="personal-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
-		<TermsCheckbox id="personal-terms" label="I agree to the" termsHref="/terms" />
+		<FormField
+			id="personal-name"
+			label="Full Name"
+			type="text"
+			placeholder="John Doe"
+			icon={User}
+		/>
+		<FormField
+			id="personal-email"
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="personal-password"
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
+		<TermsCheckbox
+			id="personal-terms"
+			label="I agree to the"
+			termsHref="/terms"
+		/>
 		<SubmitButton label="Create Personal Account" icon={ArrowRight} />
 	</form>
 );
 
 const BusinessSignUp = () => {
-	const companySizes = ['1-10 employees', '11-50 employees', '51-200 employees', '201+ employees'];
+	const companySizes = [
+		'1-10 employees',
+		'11-50 employees',
+		'51-200 employees',
+		'201+ employees',
+	];
 
 	return (
 		<form className="space-y-4">
-			<FormField id="business-company" label="Company Name" type="text" placeholder="Acme Inc." icon={Building2} />
-			<FormField id="business-email" label="Work Email" type="email" placeholder="you@company.com" icon={Mail} />
-			<SelectField label="Company Size" placeholder="Select size" options={companySizes} />
-			<FormField id="business-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
-			<TermsCheckbox id="business-terms" label="I agree to the" termsHref="/terms" />
+			<FormField
+				id="business-company"
+				label="Company Name"
+				type="text"
+				placeholder="Acme Inc."
+				icon={Building2}
+			/>
+			<FormField
+				id="business-email"
+				label="Work Email"
+				type="email"
+				placeholder="you@company.com"
+				icon={Mail}
+			/>
+			<SelectField
+				label="Company Size"
+				placeholder="Select size"
+				options={companySizes}
+			/>
+			<FormField
+				id="business-password"
+				label="Password"
+				type="password"
+				placeholder="••••••••"
+				icon={Lock}
+			/>
+			<TermsCheckbox
+				id="business-terms"
+				label="I agree to the"
+				termsHref="/terms"
+			/>
 			<SubmitButton label="Create Business Account" icon={ArrowRight} />
 		</form>
 	);
@@ -167,7 +246,10 @@ export default function Main() {
 					<CardFooter className="justify-center">
 						<p className="text-sm text-muted-foreground">
 							Already have an account?{' '}
-							<Link href="/login" className="text-primary font-medium hover:underline">
+							<Link
+								href="/login"
+								className="text-primary font-medium hover:underline"
+							>
 								Sign in
 							</Link>
 						</p>

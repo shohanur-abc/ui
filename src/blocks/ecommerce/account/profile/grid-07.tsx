@@ -103,7 +103,13 @@ const StatCard = ({
 const ProjectsCard = ({
 	projects,
 }: {
-	projects: { name: string; client: string; status: string; value: string; deadline: string }[];
+	projects: {
+		name: string;
+		client: string;
+		status: string;
+		value: string;
+		deadline: string;
+	}[];
 }) => (
 	<Card className="col-span-2">
 		<CardHeader className="pb-2">
@@ -112,18 +118,31 @@ const ProjectsCard = ({
 					<Briefcase className="size-5" />
 					Active Projects
 				</h3>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{projects.map((project, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+				>
 					<div className="flex-1 min-w-0">
 						<p className="font-medium truncate">{project.name}</p>
-						<p className="text-xs text-muted-foreground">{project.client} • Due {project.deadline}</p>
+						<p className="text-xs text-muted-foreground">
+							{project.client} • Due {project.deadline}
+						</p>
 					</div>
 					<div className="text-right shrink-0">
-						<Badge variant={project.status === 'In Progress' ? 'default' : 'secondary'}>{project.status}</Badge>
+						<Badge
+							variant={
+								project.status === 'In Progress' ? 'default' : 'secondary'
+							}
+						>
+							{project.status}
+						</Badge>
 						<p className="text-sm font-medium mt-1">{project.value}</p>
 					</div>
 				</div>
@@ -190,7 +209,9 @@ const SkillsCard = ({
 				{skills.map((skill, i) => (
 					<Badge key={i} variant="secondary" className="gap-1 py-1.5">
 						{skill.name}
-						<span className="text-xs bg-background/50 px-1.5 rounded">{skill.endorsements}</span>
+						<span className="text-xs bg-background/50 px-1.5 rounded">
+							{skill.endorsements}
+						</span>
 					</Badge>
 				))}
 			</div>
@@ -218,7 +239,9 @@ const ClientCard = ({
 				</Avatar>
 				<div className="flex-1 min-w-0">
 					<p className="font-medium truncate">{name}</p>
-					<p className="text-xs text-muted-foreground">{projectCount} projects</p>
+					<p className="text-xs text-muted-foreground">
+						{projectCount} projects
+					</p>
 				</div>
 			</div>
 			<p className="text-sm font-medium mt-2">{totalValue}</p>
@@ -246,7 +269,9 @@ const ReviewsCard = ({
 						<span className="text-muted-foreground">({count})</span>
 					</div>
 				</div>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-3">
@@ -267,7 +292,9 @@ const ReviewsCard = ({
 							))}
 						</div>
 					</div>
-					<p className="text-sm text-muted-foreground line-clamp-2">"{review.comment}"</p>
+					<p className="text-sm text-muted-foreground line-clamp-2">
+						"{review.comment}"
+					</p>
 				</div>
 			))}
 		</CardContent>
@@ -288,7 +315,10 @@ const CertificationsCard = ({
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{certifications.map((cert, i) => (
-				<div key={i} className="flex items-center justify-between p-2 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-2 rounded-lg bg-muted/30"
+				>
 					<div className="flex items-center gap-2">
 						<Award className="size-4 text-amber-500" />
 						<div>
@@ -315,16 +345,44 @@ export default function Main() {
 			availability: 'Available',
 		},
 		stats: [
-			{ icon: Briefcase, label: 'Projects', value: '86', color: 'text-blue-500' },
+			{
+				icon: Briefcase,
+				label: 'Projects',
+				value: '86',
+				color: 'text-blue-500',
+			},
 			{ icon: Users, label: 'Clients', value: '24', color: 'text-green-500' },
 			{ icon: Clock, label: 'Hours', value: '2.4K', color: 'text-purple-500' },
-			{ icon: Star, label: 'Rating', value: '4.9', sublabel: '142 reviews', color: 'text-amber-500' },
+			{
+				icon: Star,
+				label: 'Rating',
+				value: '4.9',
+				sublabel: '142 reviews',
+				color: 'text-amber-500',
+			},
 		],
 		projects: [
-			{ name: 'E-commerce Redesign', client: 'TechCorp', status: 'In Progress', value: '$8,500', deadline: 'Feb 15' },
-			{ name: 'Mobile App Design', client: 'StartupXYZ', status: 'Review', value: '$12,000', deadline: 'Feb 28' },
+			{
+				name: 'E-commerce Redesign',
+				client: 'TechCorp',
+				status: 'In Progress',
+				value: '$8,500',
+				deadline: 'Feb 15',
+			},
+			{
+				name: 'Mobile App Design',
+				client: 'StartupXYZ',
+				status: 'Review',
+				value: '$12,000',
+				deadline: 'Feb 28',
+			},
 		],
-		earnings: { thisMonth: '$14,250', lastMonth: '$11,800', pending: '$5,200', change: '+21%' },
+		earnings: {
+			thisMonth: '$14,250',
+			lastMonth: '$11,800',
+			pending: '$5,200',
+			change: '+21%',
+		},
 		skills: [
 			{ name: 'UI Design', endorsements: 89 },
 			{ name: 'UX Research', endorsements: 67 },
@@ -333,15 +391,37 @@ export default function Main() {
 			{ name: 'Design Systems', endorsements: 45 },
 		],
 		clients: [
-			{ name: 'Google', logo: 'https://logo.clearbit.com/google.com', projectCount: 5, totalValue: '$45K' },
-			{ name: 'Stripe', logo: 'https://logo.clearbit.com/stripe.com', projectCount: 3, totalValue: '$28K' },
+			{
+				name: 'Google',
+				logo: 'https://logo.clearbit.com/google.com',
+				projectCount: 5,
+				totalValue: '$45K',
+			},
+			{
+				name: 'Stripe',
+				logo: 'https://logo.clearbit.com/stripe.com',
+				projectCount: 3,
+				totalValue: '$28K',
+			},
 		],
 		reviews: {
 			rating: 4.9,
 			count: 142,
 			recent: [
-				{ name: 'Sarah Chen', avatar: 'https://i.pravatar.cc/32?img=1', rating: 5, comment: 'Ryan delivered exceptional work. His attention to detail and creative solutions exceeded our expectations.' },
-				{ name: 'Mike Johnson', avatar: 'https://i.pravatar.cc/32?img=2', rating: 5, comment: 'Great communication and professional delivery. Would definitely hire again!' },
+				{
+					name: 'Sarah Chen',
+					avatar: 'https://i.pravatar.cc/32?img=1',
+					rating: 5,
+					comment:
+						'Ryan delivered exceptional work. His attention to detail and creative solutions exceeded our expectations.',
+				},
+				{
+					name: 'Mike Johnson',
+					avatar: 'https://i.pravatar.cc/32?img=2',
+					rating: 5,
+					comment:
+						'Great communication and professional delivery. Would definitely hire again!',
+				},
 			],
 		},
 		certifications: [

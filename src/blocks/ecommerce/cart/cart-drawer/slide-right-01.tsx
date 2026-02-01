@@ -32,13 +32,7 @@ interface CartDrawerProps {
 	items: CartItem[];
 }
 
-const CartTrigger = ({
-	label,
-	count,
-}: {
-	label: string;
-	count: number;
-}) => (
+const CartTrigger = ({ label, count }: { label: string; count: number }) => (
 	<Button variant="outline" className="relative gap-2">
 		<ShoppingBag className="size-4" />
 		{label}
@@ -152,7 +146,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Air Max Premium',
 				variant: 'Size 10 / Red',
 				price: 189.99,
@@ -160,7 +155,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Classic Watch',
 				variant: 'Gold / Leather',
 				price: 249.99,
@@ -168,7 +164,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds',
 				variant: 'White',
 				price: 129.99,

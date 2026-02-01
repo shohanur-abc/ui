@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -76,7 +82,12 @@ const BentoTile = ({
 const ProductTile = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-3 rounded-lg bg-muted/30 p-3">
 		<div className="relative size-14 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="truncate text-sm font-medium">{product.name}</p>
@@ -84,18 +95,14 @@ const ProductTile = ({ product }: { product: Product }) => (
 		</div>
 		<div className="text-right">
 			<p className="text-sm font-bold">${product.price.toFixed(2)}</p>
-			<Badge variant="secondary" className="text-xs">×{product.qty}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				×{product.qty}
+			</Badge>
 		</div>
 	</div>
 );
 
-const AddressLine = ({
-	name,
-	address,
-}: {
-	name: string;
-	address: string;
-}) => (
+const AddressLine = ({ name, address }: { name: string; address: string }) => (
 	<div className="rounded-lg bg-muted/30 p-3">
 		<p className="font-medium">{name}</p>
 		<p className="text-sm text-muted-foreground">{address}</p>
@@ -123,32 +130,24 @@ const DeliveryLine = ({
 	</div>
 );
 
-const PaymentLine = ({
-	brand,
-	last4,
-}: {
-	brand: string;
-	last4: string;
-}) => (
+const PaymentLine = ({ brand, last4 }: { brand: string; last4: string }) => (
 	<div className="flex items-center gap-3 rounded-lg bg-muted/30 p-3">
 		<CreditCard className="size-4 text-primary" />
-		<span className="font-medium">{brand} •••• {last4}</span>
+		<span className="font-medium">
+			{brand} •••• {last4}
+		</span>
 	</div>
 );
 
-const PromoLine = ({
-	code,
-	discount,
-}: {
-	code: string;
-	discount: string;
-}) => (
+const PromoLine = ({ code, discount }: { code: string; discount: string }) => (
 	<div className="flex items-center justify-between rounded-lg bg-green-500/10 p-3">
 		<div className="flex items-center gap-2">
 			<Percent className="size-4 text-green-600 dark:text-green-400" />
 			<span className="font-mono text-sm">{code}</span>
 		</div>
-		<span className="font-semibold text-green-600 dark:text-green-400">{discount}</span>
+		<span className="font-semibold text-green-600 dark:text-green-400">
+			{discount}
+		</span>
 	</div>
 );
 
@@ -170,9 +169,13 @@ const TotalLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -184,7 +187,8 @@ export default function Main() {
 			variant: 'LED / Adjustable',
 			price: 89.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -192,7 +196,8 @@ export default function Main() {
 			variant: 'WiFi / 2-Pack',
 			price: 29.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -222,15 +227,25 @@ export default function Main() {
 					</BentoTile>
 
 					<BentoTile title="Shipping" icon={MapPin} onEdit={() => {}}>
-						<AddressLine name="Nicole S." address="321 Bright Ave, Denver, CO 80202" />
+						<AddressLine
+							name="Nicole S."
+							address="321 Bright Ave, Denver, CO 80202"
+						/>
 					</BentoTile>
 
 					<BentoTile title="Billing" icon={MapPin} onEdit={() => {}}>
-						<AddressLine name="Nicole S." address="321 Bright Ave, Denver, CO 80202" />
+						<AddressLine
+							name="Nicole S."
+							address="321 Bright Ave, Denver, CO 80202"
+						/>
 					</BentoTile>
 
 					<BentoTile title="Delivery" icon={Truck} onEdit={() => {}}>
-						<DeliveryLine method="Express" date="Dec 19-20, 2025" price="$9.99" />
+						<DeliveryLine
+							method="Express"
+							date="Dec 19-20, 2025"
+							price="$9.99"
+						/>
 					</BentoTile>
 
 					<BentoTile title="Payment" icon={CreditCard} onEdit={() => {}}>

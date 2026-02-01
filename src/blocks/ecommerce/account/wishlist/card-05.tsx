@@ -29,7 +29,13 @@ const DealTimer = ({ endsIn }: { endsIn: string }) => (
 	</div>
 );
 
-const ClaimProgress = ({ claimed, total }: { claimed: number; total: number }) => {
+const ClaimProgress = ({
+	claimed,
+	total,
+}: {
+	claimed: number;
+	total: number;
+}) => {
 	const percentage = (claimed / total) * 100;
 	return (
 		<div className="mt-2">
@@ -42,7 +48,13 @@ const ClaimProgress = ({ claimed, total }: { claimed: number; total: number }) =
 	);
 };
 
-const DiscountBadge = ({ original, current }: { original: number; current: number }) => {
+const DiscountBadge = ({
+	original,
+	current,
+}: {
+	original: number;
+	current: number;
+}) => {
 	const discount = Math.round((1 - current / original) * 100);
 	return (
 		<Badge className="gap-1 bg-gradient-to-r from-red-500 to-orange-500 text-white border-0">
@@ -83,8 +95,12 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 				</h3>
 			</Link>
 			<div className="mt-2 flex items-baseline gap-2">
-				<span className="text-xl font-bold text-destructive">${item.price.toFixed(2)}</span>
-				<span className="text-sm text-muted-foreground line-through">${item.originalPrice.toFixed(2)}</span>
+				<span className="text-xl font-bold text-destructive">
+					${item.price.toFixed(2)}
+				</span>
+				<span className="text-sm text-muted-foreground line-through">
+					${item.originalPrice.toFixed(2)}
+				</span>
 			</div>
 			<ClaimProgress claimed={item.claimed} total={item.total} />
 			<Button className="w-full mt-4 gap-2">
@@ -110,23 +126,75 @@ const DealBanner = () => (
 		</div>
 		<div>
 			<h2 className="font-bold text-lg">Flash Deals in Your Wishlist!</h2>
-			<p className="text-sm text-muted-foreground">Limited time offers on items you love</p>
+			<p className="text-sm text-muted-foreground">
+				Limited time offers on items you love
+			</p>
 		</div>
 	</div>
 );
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Bluetooth Noise Cancelling Headphones', price: 149.99, originalPrice: 249.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', dealEndsIn: '2h 34m', claimed: 78, total: 100, isFlashDeal: true, href: '/product/1' },
-		{ id: '2', name: 'Smart Fitness Tracker', price: 79.99, originalPrice: 149.99, image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop', dealEndsIn: '5h 12m', claimed: 45, total: 100, isFlashDeal: true, href: '/product/2' },
-		{ id: '3', name: 'Portable Bluetooth Speaker', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop', dealEndsIn: '1h 08m', claimed: 92, total: 100, isFlashDeal: true, href: '/product/3' },
-		{ id: '4', name: 'Wireless Charging Pad', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=400&h=400&fit=crop', dealEndsIn: '3h 45m', claimed: 65, total: 100, isFlashDeal: true, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Bluetooth Noise Cancelling Headphones',
+			price: 149.99,
+			originalPrice: 249.99,
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+			dealEndsIn: '2h 34m',
+			claimed: 78,
+			total: 100,
+			isFlashDeal: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Smart Fitness Tracker',
+			price: 79.99,
+			originalPrice: 149.99,
+			image:
+				'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop',
+			dealEndsIn: '5h 12m',
+			claimed: 45,
+			total: 100,
+			isFlashDeal: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Portable Bluetooth Speaker',
+			price: 39.99,
+			originalPrice: 79.99,
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop',
+			dealEndsIn: '1h 08m',
+			claimed: 92,
+			total: 100,
+			isFlashDeal: true,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Wireless Charging Pad',
+			price: 19.99,
+			originalPrice: 39.99,
+			image:
+				'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=400&h=400&fit=crop',
+			dealEndsIn: '3h 45m',
+			claimed: 65,
+			total: 100,
+			isFlashDeal: true,
+			href: '/product/4',
+		},
 	];
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<h1 className="text-2xl @md:text-3xl font-bold mb-6">Deals in Your Wishlist</h1>
+				<h1 className="text-2xl @md:text-3xl font-bold mb-6">
+					Deals in Your Wishlist
+				</h1>
 				<DealBanner />
 				<CardGrid items={wishlistItems} />
 			</div>

@@ -105,7 +105,11 @@ export default function Main() {
 			reviews: '12.5k',
 			price: '$15.99',
 			time: '2-3 days',
-			features: ['Real-time tracking', 'Insurance included', 'Signature required'],
+			features: [
+				'Real-time tracking',
+				'Insurance included',
+				'Signature required',
+			],
 			selected: true,
 		},
 		{
@@ -129,7 +133,11 @@ export default function Main() {
 	];
 
 	const summaryItems = [
-		{ icon: MapPin, label: 'Shipping To', value: '123 Main St, New York, NY 10001' },
+		{
+			icon: MapPin,
+			label: 'Shipping To',
+			value: '123 Main St, New York, NY 10001',
+		},
 		{ icon: Package, label: 'Package Weight', value: '2.5 lbs (3 items)' },
 	];
 
@@ -142,7 +150,9 @@ export default function Main() {
 					</div>
 					<div>
 						<h1 className="text-2xl font-bold">Choose Carrier</h1>
-						<p className="text-muted-foreground">Compare shipping options from top carriers</p>
+						<p className="text-muted-foreground">
+							Compare shipping options from top carriers
+						</p>
 					</div>
 				</div>
 
@@ -161,7 +171,9 @@ export default function Main() {
 				<Separator className="my-8" />
 
 				<div className="flex flex-col @sm:flex-row gap-3">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue with FedEx Express</Button>
 				</div>
 			</div>

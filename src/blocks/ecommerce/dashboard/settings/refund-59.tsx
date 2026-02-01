@@ -47,10 +47,7 @@ type RefundStat = {
 	subtext?: string;
 };
 
-const RefundReasonRow = ({
-	reason,
-	autoApprove,
-}: RefundReason) => (
+const RefundReasonRow = ({ reason, autoApprove }: RefundReason) => (
 	<div className="flex items-center justify-between py-3">
 		<span className="text-sm">{reason}</span>
 		<Switch defaultChecked={autoApprove} />
@@ -62,7 +59,9 @@ const StatCard = ({ label, value, subtext }: RefundStat) => (
 		<CardContent className="pt-6 text-center">
 			<p className="text-2xl font-bold">{value}</p>
 			<p className="text-sm text-muted-foreground">{label}</p>
-			{subtext && <p className="text-xs text-muted-foreground mt-1">{subtext}</p>}
+			{subtext && (
+				<p className="text-xs text-muted-foreground mt-1">{subtext}</p>
+			)}
 		</CardContent>
 	</Card>
 );
@@ -130,7 +129,9 @@ export default function Main() {
 											<SelectValue />
 										</SelectTrigger>
 										<SelectContent>
-											<SelectItem value="original">Original Payment Method</SelectItem>
+											<SelectItem value="original">
+												Original Payment Method
+											</SelectItem>
 											<SelectItem value="credit">Store Credit</SelectItem>
 											<SelectItem value="choice">Customer's Choice</SelectItem>
 										</SelectContent>
@@ -147,12 +148,14 @@ export default function Main() {
 										{
 											value: 'strict',
 											label: 'Strict',
-											description: 'Only accept returns for defective/incorrect items',
+											description:
+												'Only accept returns for defective/incorrect items',
 										},
 										{
 											value: 'standard',
 											label: 'Standard',
-											description: 'Accept most returns within the return window',
+											description:
+												'Accept most returns within the return window',
 										},
 										{
 											value: 'flexible',
@@ -165,7 +168,11 @@ export default function Main() {
 											htmlFor={policy.value}
 											className="flex items-start gap-3 rounded-lg border p-4 cursor-pointer hover:bg-muted/30 has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
 										>
-											<RadioGroupItem value={policy.value} id={policy.value} className="mt-1" />
+											<RadioGroupItem
+												value={policy.value}
+												id={policy.value}
+												className="mt-1"
+											/>
 											<div>
 												<span className="font-medium">{policy.label}</span>
 												<p className="text-sm text-muted-foreground">
@@ -182,7 +189,9 @@ export default function Main() {
 					<div className="grid gap-6 @lg:grid-cols-2">
 						<Card>
 							<CardHeader className="border-b">
-								<CardTitle className="text-base">Auto-Approve Reasons</CardTitle>
+								<CardTitle className="text-base">
+									Auto-Approve Reasons
+								</CardTitle>
 								<CardDescription>
 									Automatically approve refunds for these reasons
 								</CardDescription>

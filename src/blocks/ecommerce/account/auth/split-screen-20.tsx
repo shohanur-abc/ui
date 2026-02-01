@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Lock, ArrowRight, Snowflake, Gift, Star, PartyPopper } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Snowflake,
+	Gift,
+	Star,
+	PartyPopper,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -39,10 +47,16 @@ const SeasonalPanel = ({
 				{discount}
 			</p>
 			<p className="text-muted-foreground mb-8">
-				Use code <code className="px-2 py-1 rounded bg-primary/20 text-primary font-mono font-bold">{promoCode}</code> at checkout
+				Use code{' '}
+				<code className="px-2 py-1 rounded bg-primary/20 text-primary font-mono font-bold">
+					{promoCode}
+				</code>{' '}
+				at checkout
 			</p>
 			<div className="p-5 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/50 mb-6">
-				<p className="text-sm text-muted-foreground mb-4">Offer ends {endDate}</p>
+				<p className="text-sm text-muted-foreground mb-4">
+					Offer ends {endDate}
+				</p>
 				<div className="space-y-2">
 					{features.map((feature, i) => (
 						<div key={i} className="flex items-center gap-2">
@@ -56,7 +70,13 @@ const SeasonalPanel = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -67,7 +87,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -164,11 +186,24 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="FestiveShop" icon={Gift} />
-						<Title text="Welcome back" subtitle="Sign in to access holiday deals" />
+						<Title
+							text="Welcome back"
+							subtitle="Sign in to access holiday deals"
+						/>
 
 						<form className="space-y-5">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<RememberForgot
 								rememberLabel="Remember me"
 								forgotLabel="Forgot password?"
@@ -178,7 +213,11 @@ export default function Main() {
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="New customer?" linkText="Create account" href="/signup" />
+							<FooterLink
+								text="New customer?"
+								linkText="Create account"
+								href="/signup"
+							/>
 						</div>
 					</div>
 				</div>

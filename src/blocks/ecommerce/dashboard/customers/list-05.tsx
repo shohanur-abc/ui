@@ -43,14 +43,38 @@ interface OrderCustomer {
 }
 
 const OrderStatusConfig = {
-	pending: { label: 'Pending', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20', icon: Clock },
-	processing: { label: 'Processing', className: 'bg-blue-500/10 text-blue-500 border-blue-500/20', icon: Package },
-	shipped: { label: 'Shipped', className: 'bg-violet-500/10 text-violet-500 border-violet-500/20', icon: Truck },
-	delivered: { label: 'Delivered', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20', icon: Package },
-	cancelled: { label: 'Cancelled', className: 'bg-slate-500/10 text-slate-400 border-slate-500/20', icon: Package },
+	pending: {
+		label: 'Pending',
+		className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		icon: Clock,
+	},
+	processing: {
+		label: 'Processing',
+		className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		icon: Package,
+	},
+	shipped: {
+		label: 'Shipped',
+		className: 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+		icon: Truck,
+	},
+	delivered: {
+		label: 'Delivered',
+		className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		icon: Package,
+	},
+	cancelled: {
+		label: 'Cancelled',
+		className: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
+		icon: Package,
+	},
 };
 
-const OrderStatusBadge = ({ status }: { status: OrderCustomer['order']['status'] }) => {
+const OrderStatusBadge = ({
+	status,
+}: {
+	status: OrderCustomer['order']['status'];
+}) => {
 	const config = OrderStatusConfig[status];
 	const Icon = config.icon;
 	return (
@@ -99,12 +123,17 @@ const OrderListItem = ({ customer }: { customer: OrderCustomer }) => (
 				<div className="flex items-center gap-2">
 					<p className="font-semibold truncate">{customer.name}</p>
 					{customer.isFirstOrder && (
-						<Badge variant="secondary" className="text-xs bg-blue-500/10 text-blue-500">
+						<Badge
+							variant="secondary"
+							className="text-xs bg-blue-500/10 text-blue-500"
+						>
 							First Order
 						</Badge>
 					)}
 				</div>
-				<p className="text-muted-foreground text-sm truncate">{customer.email}</p>
+				<p className="text-muted-foreground text-sm truncate">
+					{customer.email}
+				</p>
 			</div>
 		</div>
 		<div className="flex-1 grid grid-cols-2 @md:grid-cols-4 gap-4 @lg:gap-6">
@@ -132,7 +161,9 @@ const OrderListItem = ({ customer }: { customer: OrderCustomer }) => (
 				<MapPin className="text-muted-foreground size-3.5 mt-0.5 shrink-0" />
 				<div className="min-w-0">
 					<p className="text-sm truncate">{customer.shipping.address}</p>
-					<p className="text-muted-foreground text-xs">{customer.shipping.method}</p>
+					<p className="text-muted-foreground text-xs">
+						{customer.shipping.method}
+					</p>
 				</div>
 			</div>
 		</div>
@@ -141,12 +172,16 @@ const OrderListItem = ({ customer }: { customer: OrderCustomer }) => (
 				<p className="text-muted-foreground text-xs">Placed</p>
 				<p className="text-sm">{customer.order.placedAt}</p>
 			</div>
-			{customer.order.estimatedDelivery && customer.order.status !== 'delivered' && customer.order.status !== 'cancelled' && (
-				<div className="text-right hidden @lg:block">
-					<p className="text-muted-foreground text-xs">Est. Delivery</p>
-					<p className="text-sm text-emerald-500">{customer.order.estimatedDelivery}</p>
-				</div>
-			)}
+			{customer.order.estimatedDelivery &&
+				customer.order.status !== 'delivered' &&
+				customer.order.status !== 'cancelled' && (
+					<div className="text-right hidden @lg:block">
+						<p className="text-muted-foreground text-xs">Est. Delivery</p>
+						<p className="text-sm text-emerald-500">
+							{customer.order.estimatedDelivery}
+						</p>
+					</div>
+				)}
 			<div className="flex items-center gap-2">
 				<Button variant="outline" size="sm" className="hidden @md:flex gap-1.5">
 					<ExternalLink className="size-3.5" />
@@ -178,7 +213,14 @@ export default function Main() {
 			name: 'Henry Crawford',
 			email: 'henry.c@email.com',
 			initials: 'HC',
-			order: { id: 'ORD-5128', status: 'processing', total: '$245.99', items: 3, placedAt: '2h ago', estimatedDelivery: 'Jan 28' },
+			order: {
+				id: 'ORD-5128',
+				status: 'processing',
+				total: '$245.99',
+				items: 3,
+				placedAt: '2h ago',
+				estimatedDelivery: 'Jan 28',
+			},
 			shipping: { address: '123 Main St, NYC', method: 'Express' },
 			isFirstOrder: false,
 			isVIP: true,
@@ -188,7 +230,14 @@ export default function Main() {
 			name: 'Iris Mitchell',
 			email: 'iris.m@email.com',
 			initials: 'IM',
-			order: { id: 'ORD-5127', status: 'pending', total: '$89.50', items: 1, placedAt: '4h ago', estimatedDelivery: 'Jan 30' },
+			order: {
+				id: 'ORD-5127',
+				status: 'pending',
+				total: '$89.50',
+				items: 1,
+				placedAt: '4h ago',
+				estimatedDelivery: 'Jan 30',
+			},
 			shipping: { address: '456 Oak Ave, LA', method: 'Standard' },
 			isFirstOrder: true,
 			isVIP: false,
@@ -198,7 +247,14 @@ export default function Main() {
 			name: 'Jack Reynolds',
 			email: 'jack.r@email.com',
 			initials: 'JR',
-			order: { id: 'ORD-5126', status: 'shipped', total: '$567.00', items: 5, placedAt: '1d ago', estimatedDelivery: 'Jan 26' },
+			order: {
+				id: 'ORD-5126',
+				status: 'shipped',
+				total: '$567.00',
+				items: 5,
+				placedAt: '1d ago',
+				estimatedDelivery: 'Jan 26',
+			},
 			shipping: { address: '789 Pine Rd, Chicago', method: 'Express' },
 			isFirstOrder: false,
 			isVIP: false,
@@ -208,7 +264,13 @@ export default function Main() {
 			name: 'Katherine Liu',
 			email: 'katherine.l@email.com',
 			initials: 'KL',
-			order: { id: 'ORD-5125', status: 'delivered', total: '$156.75', items: 2, placedAt: '3d ago' },
+			order: {
+				id: 'ORD-5125',
+				status: 'delivered',
+				total: '$156.75',
+				items: 2,
+				placedAt: '3d ago',
+			},
 			shipping: { address: '321 Elm Blvd, Miami', method: 'Standard' },
 			isFirstOrder: false,
 			isVIP: true,
@@ -218,7 +280,13 @@ export default function Main() {
 			name: 'Liam Henderson',
 			email: 'liam.h@email.com',
 			initials: 'LH',
-			order: { id: 'ORD-5124', status: 'cancelled', total: '$78.25', items: 1, placedAt: '2d ago' },
+			order: {
+				id: 'ORD-5124',
+				status: 'cancelled',
+				total: '$78.25',
+				items: 1,
+				placedAt: '2d ago',
+			},
 			shipping: { address: '654 Maple Dr, Seattle', method: 'Standard' },
 			isFirstOrder: false,
 			isVIP: false,
@@ -228,7 +296,14 @@ export default function Main() {
 			name: 'Maya Thompson',
 			email: 'maya.t@email.com',
 			initials: 'MT',
-			order: { id: 'ORD-5123', status: 'shipped', total: '$892.00', items: 8, placedAt: '1d ago', estimatedDelivery: 'Jan 27' },
+			order: {
+				id: 'ORD-5123',
+				status: 'shipped',
+				total: '$892.00',
+				items: 8,
+				placedAt: '1d ago',
+				estimatedDelivery: 'Jan 27',
+			},
 			shipping: { address: '987 Cedar Ln, Boston', method: 'Express' },
 			isFirstOrder: false,
 			isVIP: true,
@@ -238,7 +313,14 @@ export default function Main() {
 			name: 'Nathan Brooks',
 			email: 'nathan.b@email.com',
 			initials: 'NB',
-			order: { id: 'ORD-5122', status: 'processing', total: '$234.50', items: 4, placedAt: '6h ago', estimatedDelivery: 'Jan 29' },
+			order: {
+				id: 'ORD-5122',
+				status: 'processing',
+				total: '$234.50',
+				items: 4,
+				placedAt: '6h ago',
+				estimatedDelivery: 'Jan 29',
+			},
 			shipping: { address: '147 Birch Way, Denver', method: 'Standard' },
 			isFirstOrder: true,
 			isVIP: false,
@@ -248,7 +330,14 @@ export default function Main() {
 			name: 'Olivia Chen',
 			email: 'olivia.c@email.com',
 			initials: 'OC',
-			order: { id: 'ORD-5121', status: 'pending', total: '$445.00', items: 3, placedAt: '1h ago', estimatedDelivery: 'Jan 31' },
+			order: {
+				id: 'ORD-5121',
+				status: 'pending',
+				total: '$445.00',
+				items: 3,
+				placedAt: '1h ago',
+				estimatedDelivery: 'Jan 31',
+			},
 			shipping: { address: '258 Spruce Ct, Austin', method: 'Express' },
 			isFirstOrder: false,
 			isVIP: false,

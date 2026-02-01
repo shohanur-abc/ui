@@ -42,7 +42,11 @@ const Header = ({
 	icon: Icon,
 	title,
 	itemCount,
-}: { icon: LucideIcon; title: string; itemCount: number }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	itemCount: number;
+}) => (
 	<CardHeader className="border-b">
 		<CardTitle className="flex items-center gap-2">
 			<Icon className="size-5" />

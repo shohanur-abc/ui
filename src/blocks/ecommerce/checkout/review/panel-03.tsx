@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -42,7 +48,12 @@ const PanelCard = ({
 				{title}
 			</CardTitle>
 			{action && (
-				<Button variant="ghost" size="sm" className="h-8 gap-1" onClick={action}>
+				<Button
+					variant="ghost"
+					size="sm"
+					className="h-8 gap-1"
+					onClick={action}
+				>
 					<Edit2 className="size-3" />
 					Edit
 				</Button>
@@ -124,7 +135,9 @@ const PaymentContent = ({
 	<div className="flex items-center gap-3">
 		<CreditCard className="size-5 text-muted-foreground" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 		<Check className="ml-auto size-5 text-green-500" />
@@ -142,9 +155,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -156,7 +173,8 @@ export default function Main() {
 			variant: 'Pro / 25mph',
 			price: 599.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -164,7 +182,8 @@ export default function Main() {
 			variant: 'Smart / Black',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1557803175-2f8c4cf46b6e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1557803175-2f8c4cf46b6e?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -215,7 +234,11 @@ export default function Main() {
 						</div>
 
 						<PanelCard title="Delivery" icon={Truck} action={() => {}}>
-							<DeliveryContent method="Premium" date="Dec 19-20, 2025" price="$29.99" />
+							<DeliveryContent
+								method="Premium"
+								date="Dec 19-20, 2025"
+								price="$29.99"
+							/>
 						</PanelCard>
 
 						<PanelCard title="Payment" icon={CreditCard} action={() => {}}>

@@ -16,10 +16,7 @@ type RewardProps = {
 	value: string;
 };
 
-const MemberBanner = ({
-	tier,
-	badge,
-}: { tier: string; badge: string }) => (
+const MemberBanner = ({ tier, badge }: { tier: string; badge: string }) => (
 	<div className="mb-4 rounded-lg bg-gradient-to-r from-amber-500/20 via-yellow-500/20 to-orange-500/20 p-4">
 		<div className="flex items-center gap-2">
 			<Crown className="size-5 text-amber-500" />
@@ -35,16 +32,26 @@ const RewardRow = ({ icon: Icon, label, value }: RewardProps) => (
 	<div className="flex items-center gap-2 text-sm">
 		<Icon className="size-4 text-amber-500" />
 		<span className="flex-1 text-muted-foreground">{label}</span>
-		<span className="font-medium text-amber-600 dark:text-amber-400">{value}</span>
+		<span className="font-medium text-amber-600 dark:text-amber-400">
+			{value}
+		</span>
 	</div>
 );
 
 const SummaryRow = ({ label, value, highlight }: SummaryRowProps) => (
 	<div className="flex items-center justify-between py-1 text-sm">
-		<span className={highlight ? 'text-amber-600 dark:text-amber-400' : 'text-muted-foreground'}>
+		<span
+			className={
+				highlight
+					? 'text-amber-600 dark:text-amber-400'
+					: 'text-muted-foreground'
+			}
+		>
 			{label}
 		</span>
-		<span className={`font-medium ${highlight ? 'text-amber-600 dark:text-amber-400' : ''}`}>
+		<span
+			className={`font-medium ${highlight ? 'text-amber-600 dark:text-amber-400' : ''}`}
+		>
 			{value}
 		</span>
 	</div>

@@ -1,18 +1,20 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	Plus,
-	Upload,
-	Barcode,
-} from 'lucide-react';
+import { Package, Plus, Upload, Barcode } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import {
 	Select,
 	SelectContent,
@@ -28,14 +30,21 @@ type FormFieldProps = {
 	description?: string;
 };
 
-const FormField = ({ label, required, children, description }: FormFieldProps) => (
+const FormField = ({
+	label,
+	required,
+	children,
+	description,
+}: FormFieldProps) => (
 	<div className="space-y-2">
 		<Label>
 			{label}
 			{required && <span className="text-destructive"> *</span>}
 		</Label>
 		{children}
-		{description && <p className="text-xs text-muted-foreground">{description}</p>}
+		{description && (
+			<p className="text-xs text-muted-foreground">{description}</p>
+		)}
 	</div>
 );
 
@@ -69,7 +78,12 @@ type SelectFieldProps = {
 	required?: boolean;
 };
 
-const SelectField = ({ label, placeholder, options, required }: SelectFieldProps) => (
+const SelectField = ({
+	label,
+	placeholder,
+	options,
+	required,
+}: SelectFieldProps) => (
 	<FormField label={label} required={required}>
 		<Select>
 			<SelectTrigger>
@@ -112,7 +126,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Add New Product</CardTitle>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Add New Product
+						</CardTitle>
 						<CardDescription>Create a new inventory item</CardDescription>
 					</CardHeader>
 					<CardContent>
@@ -122,7 +138,11 @@ export default function Main() {
 									<Input placeholder="Enter product name" />
 								</FormField>
 								<div className="grid grid-cols-2 gap-4">
-									<FormField label="SKU" required description="Unique product identifier">
+									<FormField
+										label="SKU"
+										required
+										description="Unique product identifier"
+									>
 										<div className="relative">
 											<Input placeholder="SKU-0001" className="pr-10" />
 											<Barcode className="absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -139,7 +159,10 @@ export default function Main() {
 									required
 								/>
 								<FormField label="Description">
-									<Textarea placeholder="Enter product description" className="min-h-24" />
+									<Textarea
+										placeholder="Enter product description"
+										className="min-h-24"
+									/>
 								</FormField>
 							</div>
 							<div className="space-y-6">
@@ -150,14 +173,26 @@ export default function Main() {
 								<div className="grid grid-cols-2 gap-4">
 									<FormField label="Cost Price" required>
 										<div className="relative">
-											<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
-											<Input type="number" placeholder="0.00" className="pl-7" />
+											<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+												$
+											</span>
+											<Input
+												type="number"
+												placeholder="0.00"
+												className="pl-7"
+											/>
 										</div>
 									</FormField>
 									<FormField label="Sale Price" required>
 										<div className="relative">
-											<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
-											<Input type="number" placeholder="0.00" className="pl-7" />
+											<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+												$
+											</span>
+											<Input
+												type="number"
+												placeholder="0.00"
+												className="pl-7"
+											/>
 										</div>
 									</FormField>
 								</div>
@@ -165,7 +200,12 @@ export default function Main() {
 									<FormField label="Initial Stock" required>
 										<Input type="number" placeholder="0" />
 									</FormField>
-									<SelectField label="Unit" placeholder="Select unit" options={units} required />
+									<SelectField
+										label="Unit"
+										placeholder="Select unit"
+										options={units}
+										required
+									/>
 								</div>
 								<SelectField
 									label="Warehouse"

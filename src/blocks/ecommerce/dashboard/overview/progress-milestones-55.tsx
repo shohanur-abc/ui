@@ -11,7 +11,13 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	ChartConfig,
 	ChartContainer,
@@ -35,7 +41,14 @@ type MilestoneItem = {
 	achieved: boolean;
 };
 
-const KpiProgressCard = ({ title, value, target, progress, change, icon: Icon }: KpiWithProgress) => (
+const KpiProgressCard = ({
+	title,
+	value,
+	target,
+	progress,
+	change,
+	icon: Icon,
+}: KpiWithProgress) => (
 	<Card>
 		<CardContent className="p-5">
 			<div className="flex items-center justify-between">
@@ -45,7 +58,10 @@ const KpiProgressCard = ({ title, value, target, progress, change, icon: Icon }:
 					</div>
 					<span className="font-medium">{title}</span>
 				</div>
-				<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+				<Badge
+					variant="secondary"
+					className="bg-emerald-500/10 text-emerald-500 text-xs"
+				>
 					<ArrowUpRight className="mr-0.5 size-3" />
 					{change}
 				</Badge>
@@ -68,7 +84,9 @@ const KpiProgressCard = ({ title, value, target, progress, change, icon: Icon }:
 const MilestoneChip = ({ label, value, achieved }: MilestoneItem) => (
 	<div
 		className={`rounded-full px-3 py-1.5 text-xs font-medium ${
-			achieved ? 'bg-emerald-500/10 text-emerald-500' : 'bg-muted text-muted-foreground'
+			achieved
+				? 'bg-emerald-500/10 text-emerald-500'
+				: 'bg-muted text-muted-foreground'
 		}`}
 	>
 		{label}: {value}
@@ -82,10 +100,38 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const kpis: KpiWithProgress[] = [
-		{ title: 'Revenue', value: '$248K', target: '$300K', progress: 83, change: '+28%', icon: DollarSign },
-		{ title: 'Orders', value: '6,842', target: '8,000', progress: 85, change: '+22%', icon: ShoppingCart },
-		{ title: 'Products Sold', value: '12.4K', target: '15K', progress: 83, change: '+18%', icon: Package },
-		{ title: 'Growth Rate', value: '28%', target: '35%', progress: 80, change: '+5%', icon: TrendingUp },
+		{
+			title: 'Revenue',
+			value: '$248K',
+			target: '$300K',
+			progress: 83,
+			change: '+28%',
+			icon: DollarSign,
+		},
+		{
+			title: 'Orders',
+			value: '6,842',
+			target: '8,000',
+			progress: 85,
+			change: '+22%',
+			icon: ShoppingCart,
+		},
+		{
+			title: 'Products Sold',
+			value: '12.4K',
+			target: '15K',
+			progress: 83,
+			change: '+18%',
+			icon: Package,
+		},
+		{
+			title: 'Growth Rate',
+			value: '28%',
+			target: '35%',
+			progress: 80,
+			change: '+5%',
+			icon: TrendingUp,
+		},
 	];
 
 	const milestones: MilestoneItem[] = [
@@ -114,7 +160,9 @@ export default function Main() {
 					<Card>
 						<CardHeader>
 							<CardTitle>Revenue Progress</CardTitle>
-							<CardDescription>Current vs Target progress over time</CardDescription>
+							<CardDescription>
+								Current vs Target progress over time
+							</CardDescription>
 						</CardHeader>
 						<CardContent>
 							<div className="mb-6 flex flex-wrap gap-2">
@@ -125,13 +173,31 @@ export default function Main() {
 							<ChartContainer config={chartConfig} className="h-[240px] w-full">
 								<AreaChart data={chartData}>
 									<defs>
-										<linearGradient id="progress55current" x1="0" y1="0" x2="0" y2="1">
-											<stop offset="5%" stopColor="var(--color-current)" stopOpacity={0.3} />
-											<stop offset="95%" stopColor="var(--color-current)" stopOpacity={0} />
+										<linearGradient
+											id="progress55current"
+											x1="0"
+											y1="0"
+											x2="0"
+											y2="1"
+										>
+											<stop
+												offset="5%"
+												stopColor="var(--color-current)"
+												stopOpacity={0.3}
+											/>
+											<stop
+												offset="95%"
+												stopColor="var(--color-current)"
+												stopOpacity={0}
+											/>
 										</linearGradient>
 									</defs>
 									<XAxis dataKey="week" tickLine={false} axisLine={false} />
-									<YAxis tickLine={false} axisLine={false} tickFormatter={(value) => `$${value / 1000}K`} />
+									<YAxis
+										tickLine={false}
+										axisLine={false}
+										tickFormatter={(value) => `$${value / 1000}K`}
+									/>
 									<ChartTooltip content={<ChartTooltipContent />} />
 									<Area
 										type="monotone"

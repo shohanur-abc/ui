@@ -68,7 +68,12 @@ const LearnerHeader = ({
 const DailyGoals = ({
 	goals,
 }: {
-	goals: { label: string; current: number; target: number; icon: React.ElementType }[];
+	goals: {
+		label: string;
+		current: number;
+		target: number;
+		icon: React.ElementType;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -85,12 +90,19 @@ const DailyGoals = ({
 							<goal.icon className="size-4 text-muted-foreground" />
 							<span>{goal.label}</span>
 						</div>
-						<span className={goal.current >= goal.target ? 'text-green-500' : ''}>
+						<span
+							className={goal.current >= goal.target ? 'text-green-500' : ''}
+						>
 							{goal.current}/{goal.target}
-							{goal.current >= goal.target && <CheckCircle2 className="inline size-4 ml-1" />}
+							{goal.current >= goal.target && (
+								<CheckCircle2 className="inline size-4 ml-1" />
+							)}
 						</span>
 					</div>
-					<Progress value={(goal.current / goal.target) * 100} className="h-2" />
+					<Progress
+						value={(goal.current / goal.target) * 100}
+						className="h-2"
+					/>
 				</div>
 			))}
 		</CardContent>
@@ -100,7 +112,13 @@ const DailyGoals = ({
 const ContinueLearning = ({
 	courses,
 }: {
-	courses: { image: string; title: string; instructor: string; progress: number; timeLeft: string }[];
+	courses: {
+		image: string;
+		title: string;
+		instructor: string;
+		progress: number;
+		timeLeft: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -113,9 +131,17 @@ const ContinueLearning = ({
 		</CardHeader>
 		<CardContent className="space-y-4">
 			{courses.map((course, i) => (
-				<div key={i} className="flex gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+				<div
+					key={i}
+					className="flex gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+				>
 					<div className="relative w-24 aspect-video rounded-lg overflow-hidden bg-muted shrink-0">
-						<Image src={course.image} alt={course.title} fill className="object-cover" />
+						<Image
+							src={course.image}
+							alt={course.title}
+							fill
+							className="object-cover"
+						/>
 						<div className="absolute inset-0 flex items-center justify-center bg-black/30">
 							<PlayCircle className="size-8 text-white" />
 						</div>
@@ -125,9 +151,13 @@ const ContinueLearning = ({
 						<p className="text-sm text-muted-foreground">{course.instructor}</p>
 						<div className="flex items-center gap-2 mt-2">
 							<Progress value={course.progress} className="h-1.5 flex-1" />
-							<span className="text-xs text-muted-foreground">{course.progress}%</span>
+							<span className="text-xs text-muted-foreground">
+								{course.progress}%
+							</span>
 						</div>
-						<p className="text-xs text-muted-foreground mt-1">{course.timeLeft} left</p>
+						<p className="text-xs text-muted-foreground mt-1">
+							{course.timeLeft} left
+						</p>
 					</div>
 				</div>
 			))}
@@ -138,7 +168,13 @@ const ContinueLearning = ({
 const Achievements = ({
 	achievements,
 }: {
-	achievements: { icon: React.ElementType; title: string; description: string; date: string; color: string }[];
+	achievements: {
+		icon: React.ElementType;
+		title: string;
+		description: string;
+		date: string;
+		color: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -149,15 +185,22 @@ const Achievements = ({
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{achievements.map((achievement, i) => (
-				<div key={i} className="flex items-center gap-4 p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center gap-4 p-3 rounded-lg bg-muted/30"
+				>
 					<div className={`p-2 rounded-full ${achievement.color}`}>
 						<achievement.icon className="size-5 text-white" />
 					</div>
 					<div className="flex-1">
 						<p className="font-medium">{achievement.title}</p>
-						<p className="text-sm text-muted-foreground">{achievement.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{achievement.description}
+						</p>
 					</div>
-					<span className="text-xs text-muted-foreground">{achievement.date}</span>
+					<span className="text-xs text-muted-foreground">
+						{achievement.date}
+					</span>
 				</div>
 			))}
 		</CardContent>
@@ -187,7 +230,11 @@ const WeeklyProgress = ({
 							className={`w-full rounded-t-lg transition-all ${day.completed ? 'bg-primary' : 'bg-muted'}`}
 							style={{ height: `${Math.max(day.minutes, 10)}%` }}
 						/>
-						<span className={`text-xs ${day.completed ? 'font-medium' : 'text-muted-foreground'}`}>{day.day}</span>
+						<span
+							className={`text-xs ${day.completed ? 'font-medium' : 'text-muted-foreground'}`}
+						>
+							{day.day}
+						</span>
 					</div>
 				))}
 			</div>
@@ -237,13 +284,45 @@ export default function Main() {
 			{ label: 'Earn 100 XP', current: 100, target: 100, icon: Zap },
 		],
 		courses: [
-			{ image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=300', title: 'Advanced React Patterns', instructor: 'Sarah Chen', progress: 68, timeLeft: '2h 15m' },
-			{ image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=300', title: 'TypeScript Fundamentals', instructor: 'Mike Johnson', progress: 45, timeLeft: '4h 30m' },
+			{
+				image:
+					'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=300',
+				title: 'Advanced React Patterns',
+				instructor: 'Sarah Chen',
+				progress: 68,
+				timeLeft: '2h 15m',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=300',
+				title: 'TypeScript Fundamentals',
+				instructor: 'Mike Johnson',
+				progress: 45,
+				timeLeft: '4h 30m',
+			},
 		],
 		achievements: [
-			{ icon: Flame, title: 'On Fire!', description: '14 day learning streak', date: 'Today', color: 'bg-orange-500' },
-			{ icon: Trophy, title: 'Quick Learner', description: 'Complete 10 lessons in a day', date: 'Yesterday', color: 'bg-amber-500' },
-			{ icon: Star, title: 'Perfect Score', description: 'Ace a quiz with 100%', date: '3 days ago', color: 'bg-blue-500' },
+			{
+				icon: Flame,
+				title: 'On Fire!',
+				description: '14 day learning streak',
+				date: 'Today',
+				color: 'bg-orange-500',
+			},
+			{
+				icon: Trophy,
+				title: 'Quick Learner',
+				description: 'Complete 10 lessons in a day',
+				date: 'Yesterday',
+				color: 'bg-amber-500',
+			},
+			{
+				icon: Star,
+				title: 'Perfect Score',
+				description: 'Ace a quiz with 100%',
+				date: '3 days ago',
+				color: 'bg-blue-500',
+			},
 		],
 		weeklyProgress: [
 			{ day: 'Mon', minutes: 45, completed: true },

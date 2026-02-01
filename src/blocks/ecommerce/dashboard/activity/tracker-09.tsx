@@ -43,18 +43,36 @@ interface PromotionTrackerProps {
 	};
 }
 
-const TypeConfig: Record<Promotion['type'], { icon: LucideIcon; className: string }> = {
+const TypeConfig: Record<
+	Promotion['type'],
+	{ icon: LucideIcon; className: string }
+> = {
 	percentage: { icon: Percent, className: 'bg-purple-500/20 text-purple-400' },
 	fixed: { icon: DollarSign, className: 'bg-emerald-500/20 text-emerald-400' },
 	free_shipping: { icon: Gift, className: 'bg-blue-500/20 text-blue-400' },
 	bogo: { icon: Tag, className: 'bg-orange-500/20 text-orange-400' },
 };
 
-const StatusConfig: Record<Promotion['status'], { label: string; className: string }> = {
-	active: { label: 'Active', className: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
-	scheduled: { label: 'Scheduled', className: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
-	expired: { label: 'Expired', className: 'bg-muted text-muted-foreground border-border' },
-	paused: { label: 'Paused', className: 'bg-amber-500/20 text-amber-400 border-amber-500/30' },
+const StatusConfig: Record<
+	Promotion['status'],
+	{ label: string; className: string }
+> = {
+	active: {
+		label: 'Active',
+		className: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+	},
+	scheduled: {
+		label: 'Scheduled',
+		className: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+	},
+	expired: {
+		label: 'Expired',
+		className: 'bg-muted text-muted-foreground border-border',
+	},
+	paused: {
+		label: 'Paused',
+		className: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+	},
 };
 
 const PromotionCard = ({ promotion }: { promotion: Promotion }) => {
@@ -75,7 +93,9 @@ const PromotionCard = ({ promotion }: { promotion: Promotion }) => {
 		>
 			<div className="flex items-start justify-between mb-3">
 				<div className="flex items-center gap-3">
-					<div className={`flex size-10 items-center justify-center rounded-lg ${typeConfig.className}`}>
+					<div
+						className={`flex size-10 items-center justify-center rounded-lg ${typeConfig.className}`}
+					>
 						<TypeIcon className="size-5" />
 					</div>
 					<div>
@@ -100,12 +120,16 @@ const PromotionCard = ({ promotion }: { promotion: Promotion }) => {
 			</div>
 
 			<div className="flex items-center gap-4 mb-3">
-				<div className="text-2xl font-bold text-primary">{promotion.discount}</div>
+				<div className="text-2xl font-bold text-primary">
+					{promotion.discount}
+				</div>
 				<div className="flex-1 text-right">
 					<span className="text-lg font-semibold text-emerald-400 block">
 						{promotion.revenueGenerated}
 					</span>
-					<span className="text-xs text-muted-foreground">Revenue Generated</span>
+					<span className="text-xs text-muted-foreground">
+						Revenue Generated
+					</span>
 				</div>
 			</div>
 
@@ -130,7 +154,8 @@ const PromotionCard = ({ promotion }: { promotion: Promotion }) => {
 					</span>
 					<span className="text-foreground">
 						{promotion.usageCount.toLocaleString()}
-						{promotion.usageLimit && ` / ${promotion.usageLimit.toLocaleString()}`}
+						{promotion.usageLimit &&
+							` / ${promotion.usageLimit.toLocaleString()}`}
 					</span>
 				</div>
 				{usageProgress !== null && (
@@ -143,23 +168,28 @@ const PromotionCard = ({ promotion }: { promotion: Promotion }) => {
 						}`}
 					/>
 				)}
-				{promotion.daysRemaining !== undefined && promotion.status === 'active' && (
-					<span
-						className={`text-xs ${
-							promotion.daysRemaining <= 3
-								? 'text-amber-400'
-								: 'text-muted-foreground'
-						}`}
-					>
-						{promotion.daysRemaining} days remaining
-					</span>
-				)}
+				{promotion.daysRemaining !== undefined &&
+					promotion.status === 'active' && (
+						<span
+							className={`text-xs ${
+								promotion.daysRemaining <= 3
+									? 'text-amber-400'
+									: 'text-muted-foreground'
+							}`}
+						>
+							{promotion.daysRemaining} days remaining
+						</span>
+					)}
 			</div>
 		</div>
 	);
 };
 
-const PromotionStats = ({ stats }: { stats: PromotionTrackerProps['stats'] }) => (
+const PromotionStats = ({
+	stats,
+}: {
+	stats: PromotionTrackerProps['stats'];
+}) => (
 	<div className="grid grid-cols-4 gap-2">
 		<div className="p-3 rounded-lg bg-primary/10 border border-primary/20 text-center">
 			<Gift className="size-4 text-primary mx-auto mb-1" />
@@ -192,7 +222,11 @@ const PromotionStats = ({ stats }: { stats: PromotionTrackerProps['stats'] }) =>
 	</div>
 );
 
-const PromotionTracker = ({ title, promotions, stats }: PromotionTrackerProps) => (
+const PromotionTracker = ({
+	title,
+	promotions,
+	stats,
+}: PromotionTrackerProps) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardHeader className="flex-row items-center justify-between border-b border-border/50">
 			<CardTitle className="text-lg font-semibold flex items-center gap-2">

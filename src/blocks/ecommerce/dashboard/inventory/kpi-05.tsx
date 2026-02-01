@@ -45,7 +45,9 @@ const AlertRow = ({ alert, labels, actionLabel, onAction }: AlertRowProps) => {
 			<div className="flex-1 min-w-0">
 				<div className="flex items-center justify-between gap-2">
 					<span className="truncate font-medium">{alert.productName}</span>
-					<span className="shrink-0 text-xs text-muted-foreground">{alert.sku}</span>
+					<span className="shrink-0 text-xs text-muted-foreground">
+						{alert.sku}
+					</span>
 				</div>
 				<div className="mt-1 flex items-center gap-2">
 					<Progress
@@ -86,11 +88,46 @@ const SummaryStat = ({ icon: Icon, label, value, color }: SummaryStatProps) => (
 
 export default function Main() {
 	const alerts: AlertItem[] = [
-		{ id: '1', type: 'low-stock', productName: 'Wireless Earbuds Pro', sku: 'WEP-001', currentStock: 8, threshold: 50 },
-		{ id: '2', type: 'low-stock', productName: 'USB-C Hub 7-Port', sku: 'UCH-002', currentStock: 12, threshold: 30 },
-		{ id: '3', type: 'overstock', productName: 'Phone Case Clear', sku: 'PCC-003', currentStock: 850, threshold: 500 },
-		{ id: '4', type: 'expiring', productName: 'Face Cream SPF30', sku: 'FC-004', currentStock: 45, threshold: 45 },
-		{ id: '5', type: 'low-stock', productName: 'Gaming Mouse RGB', sku: 'GMR-005', currentStock: 5, threshold: 25 },
+		{
+			id: '1',
+			type: 'low-stock',
+			productName: 'Wireless Earbuds Pro',
+			sku: 'WEP-001',
+			currentStock: 8,
+			threshold: 50,
+		},
+		{
+			id: '2',
+			type: 'low-stock',
+			productName: 'USB-C Hub 7-Port',
+			sku: 'UCH-002',
+			currentStock: 12,
+			threshold: 30,
+		},
+		{
+			id: '3',
+			type: 'overstock',
+			productName: 'Phone Case Clear',
+			sku: 'PCC-003',
+			currentStock: 850,
+			threshold: 500,
+		},
+		{
+			id: '4',
+			type: 'expiring',
+			productName: 'Face Cream SPF30',
+			sku: 'FC-004',
+			currentStock: 45,
+			threshold: 45,
+		},
+		{
+			id: '5',
+			type: 'low-stock',
+			productName: 'Gaming Mouse RGB',
+			sku: 'GMR-005',
+			currentStock: 5,
+			threshold: 25,
+		},
 	];
 
 	const alertLabels = {
@@ -108,7 +145,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader className="flex flex-col gap-4 @lg:flex-row @lg:items-center @lg:justify-between">
-						<CardTitle className="text-xl @lg:text-2xl">Inventory Alerts</CardTitle>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Inventory Alerts
+						</CardTitle>
 						<div className="flex flex-wrap gap-6">
 							<SummaryStat
 								icon={AlertTriangle}

@@ -43,12 +43,7 @@ interface SelectFieldProps {
 	options: { value: string; label: string }[];
 }
 
-const Field = ({
-	label,
-	placeholder,
-	type = 'text',
-	required,
-}: FieldProps) => (
+const Field = ({ label, placeholder, type = 'text', required }: FieldProps) => (
 	<div className="space-y-2">
 		<Label className="text-sm">
 			{label}
@@ -101,9 +96,19 @@ const BusinessDetailsSection = () => (
 		<Field label="Attention / Department" placeholder="e.g., Purchasing Dept" />
 		<div className="grid @sm:grid-cols-2 gap-4">
 			<Field label="Contact Name" placeholder="Jane Smith" required />
-			<Field label="Contact Email" placeholder="jane@acme.com" type="email" required />
+			<Field
+				label="Contact Email"
+				placeholder="jane@acme.com"
+				type="email"
+				required
+			/>
 		</div>
-		<Field label="Contact Phone" placeholder="+1 (555) 000-0000" type="tel" required />
+		<Field
+			label="Contact Phone"
+			placeholder="+1 (555) 000-0000"
+			type="tel"
+			required
+		/>
 	</div>
 );
 
@@ -115,7 +120,11 @@ const BusinessAddressSection = ({
 	states: { value: string; label: string }[];
 }) => (
 	<div className="space-y-4 pt-4">
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="Business address" required />
 		<Field label="Suite / Floor" placeholder="Suite 500 (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -166,13 +175,19 @@ const DeliveryRestrictionsSection = () => {
 			</div>
 			<div className="flex items-center gap-2">
 				<Checkbox id="appointment" />
-				<Label htmlFor="appointment" className="text-sm font-normal cursor-pointer">
+				<Label
+					htmlFor="appointment"
+					className="text-sm font-normal cursor-pointer"
+				>
 					Require delivery appointment
 				</Label>
 			</div>
 			<div className="flex items-center gap-2">
 				<Checkbox id="liftgate" />
-				<Label htmlFor="liftgate" className="text-sm font-normal cursor-pointer">
+				<Label
+					htmlFor="liftgate"
+					className="text-sm font-normal cursor-pointer"
+				>
 					Liftgate service needed (+$75)
 				</Label>
 			</div>
@@ -198,9 +213,7 @@ export default function Main() {
 					<Badge variant="outline" className="text-primary border-primary">
 						B2B
 					</Badge>
-					<h1 className="text-2xl @md:text-3xl font-bold">
-						Business Shipping
-					</h1>
+					<h1 className="text-2xl @md:text-3xl font-bold">Business Shipping</h1>
 				</div>
 
 				<Card>

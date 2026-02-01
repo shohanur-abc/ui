@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import { Heart, ShoppingCart, Trash2, Star, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -21,7 +26,13 @@ interface CardGridProps {
 	items: WishlistItem[];
 }
 
-const RatingDisplay = ({ rating, reviews }: { rating: number; reviews: number }) => (
+const RatingDisplay = ({
+	rating,
+	reviews,
+}: {
+	rating: number;
+	reviews: number;
+}) => (
 	<div className="flex items-center gap-1">
 		<div className="flex">
 			{[...Array(5)].map((_, i) => (
@@ -46,10 +57,18 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 				/>
 				<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 				<div className="absolute top-3 right-3 flex gap-2">
-					<Button size="icon-sm" variant="secondary" className="rounded-full shadow-lg backdrop-blur-sm bg-background/70">
+					<Button
+						size="icon-sm"
+						variant="secondary"
+						className="rounded-full shadow-lg backdrop-blur-sm bg-background/70"
+					>
 						<Eye className="size-4" />
 					</Button>
-					<Button size="icon-sm" variant="secondary" className="rounded-full shadow-lg backdrop-blur-sm bg-background/70 text-destructive">
+					<Button
+						size="icon-sm"
+						variant="secondary"
+						className="rounded-full shadow-lg backdrop-blur-sm bg-background/70 text-destructive"
+					>
 						<Trash2 className="size-4" />
 					</Button>
 				</div>
@@ -70,13 +89,17 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 					{item.name}
 				</h3>
 			</Link>
-			<p className="mt-1 text-sm text-muted-foreground line-clamp-2">{item.description}</p>
+			<p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+				{item.description}
+			</p>
 		</CardContent>
 		<CardFooter className="p-4 pt-0 flex items-center justify-between">
 			<div className="flex items-baseline gap-2">
 				<span className="text-xl font-bold">${item.price.toFixed(2)}</span>
 				{item.originalPrice && (
-					<span className="text-sm text-muted-foreground line-through">${item.originalPrice.toFixed(2)}</span>
+					<span className="text-sm text-muted-foreground line-through">
+						${item.originalPrice.toFixed(2)}
+					</span>
 				)}
 			</div>
 			<Button size="sm" className="gap-1.5">
@@ -97,10 +120,53 @@ const CardGrid = ({ items }: CardGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Wireless Gaming Mouse', description: 'High precision optical sensor with customizable RGB lighting', price: 79.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop', rating: 4.7, reviews: 1234, href: '/product/1' },
-		{ id: '2', name: 'Mechanical Keyboard', description: 'Cherry MX switches with per-key RGB backlighting', price: 149.99, image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=300&fit=crop', rating: 4.9, reviews: 2341, href: '/product/2' },
-		{ id: '3', name: '4K Gaming Monitor', description: '27-inch IPS panel with 144Hz refresh rate and HDR support', price: 449.99, originalPrice: 549.99, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop', rating: 4.6, reviews: 892, href: '/product/3' },
-		{ id: '4', name: 'Gaming Headset', description: 'Surround sound with noise-cancelling microphone', price: 129.99, image: 'https://images.unsplash.com/photo-1599669454699-248893623440?w=400&h=300&fit=crop', rating: 4.5, reviews: 1567, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Wireless Gaming Mouse',
+			description:
+				'High precision optical sensor with customizable RGB lighting',
+			price: 79.99,
+			originalPrice: 99.99,
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop',
+			rating: 4.7,
+			reviews: 1234,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Mechanical Keyboard',
+			description: 'Cherry MX switches with per-key RGB backlighting',
+			price: 149.99,
+			image:
+				'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=300&fit=crop',
+			rating: 4.9,
+			reviews: 2341,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: '4K Gaming Monitor',
+			description: '27-inch IPS panel with 144Hz refresh rate and HDR support',
+			price: 449.99,
+			originalPrice: 549.99,
+			image:
+				'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop',
+			rating: 4.6,
+			reviews: 892,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Gaming Headset',
+			description: 'Surround sound with noise-cancelling microphone',
+			price: 129.99,
+			image:
+				'https://images.unsplash.com/photo-1599669454699-248893623440?w=400&h=300&fit=crop',
+			rating: 4.5,
+			reviews: 1567,
+			href: '/product/4',
+		},
 	];
 
 	return (

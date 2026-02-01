@@ -20,9 +20,7 @@ const Header = ({ title, subtitle }: { title: string; subtitle: string }) => (
 		<h2 className="text-3xl @sm:text-4xl @lg:text-5xl font-bold tracking-tight mb-4">
 			{title}
 		</h2>
-		<p className="text-muted-foreground text-base @md:text-lg">
-			{subtitle}
-		</p>
+		<p className="text-muted-foreground text-base @md:text-lg">{subtitle}</p>
 	</div>
 );
 
@@ -69,7 +67,8 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => (
 
 export default function Main() {
 	const title = 'Pricing That Scales With You';
-	const subtitle = 'Whether you\'re just starting out or running a large enterprise, we have a plan that fits.';
+	const subtitle =
+		"Whether you're just starting out or running a large enterprise, we have a plan that fits.";
 	const plans: PricingPlan[] = [
 		{
 			name: 'Hobby',

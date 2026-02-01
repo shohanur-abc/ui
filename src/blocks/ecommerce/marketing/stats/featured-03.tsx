@@ -16,7 +16,13 @@ interface StatItemProps {
 	label: string;
 }
 
-const FeaturedReview = ({ rating, quote, author, role, avatar }: FeaturedReviewProps) => (
+const FeaturedReview = ({
+	rating,
+	quote,
+	author,
+	role,
+	avatar,
+}: FeaturedReviewProps) => (
 	<Card className="relative overflow-hidden p-6 @md:p-8">
 		<Quote className="absolute -right-4 -top-4 size-24 text-primary/5" />
 		<div className="relative space-y-4">
@@ -50,7 +56,8 @@ const StatCard = ({ value, label }: StatItemProps) => (
 export default function Main() {
 	const review: FeaturedReviewProps = {
 		rating: 5,
-		quote: "The best e-commerce platform we've ever used. Sales increased by 300% in just 6 months.",
+		quote:
+			"The best e-commerce platform we've ever used. Sales increased by 300% in just 6 months.",
 		author: 'Michael Torres',
 		role: 'CEO, StyleHouse',
 		avatar: '/placeholder.svg',

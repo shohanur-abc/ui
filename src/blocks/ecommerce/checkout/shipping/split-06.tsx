@@ -48,7 +48,9 @@ const CheckboxOption = ({
 	<div className="flex items-start gap-3 p-4 rounded-xl border hover:bg-accent/30 transition-colors">
 		<Checkbox id={id} className="mt-0.5" />
 		<div className="flex-1">
-			<Label htmlFor={id} className="font-medium cursor-pointer">{label}</Label>
+			<Label htmlFor={id} className="font-medium cursor-pointer">
+				{label}
+			</Label>
 			<p className="text-sm text-muted-foreground">{description}</p>
 		</div>
 		{price && <span className="text-sm font-medium text-primary">{price}</span>}
@@ -84,16 +86,39 @@ const SummaryLine = ({
 	total?: boolean;
 }) => (
 	<div className={`flex justify-between ${total ? 'text-xl font-bold' : ''}`}>
-		<span className={discount ? 'text-green-600' : total ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={discount ? 'text-green-600' : total ? 'text-primary' : ''}>{value}</span>
+		<span
+			className={
+				discount ? 'text-green-600' : total ? '' : 'text-muted-foreground'
+			}
+		>
+			{label}
+		</span>
+		<span className={discount ? 'text-green-600' : total ? 'text-primary' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
 export default function Main() {
 	const addons = [
-		{ id: 'gift', label: 'Gift Wrapping', description: 'Add premium gift wrap with personalized message', price: '+$5.99' },
-		{ id: 'insurance', label: 'Shipping Insurance', description: 'Full coverage for loss or damage', price: '+$3.99' },
-		{ id: 'signature', label: 'Signature Required', description: 'Require signature on delivery', price: 'Free' },
+		{
+			id: 'gift',
+			label: 'Gift Wrapping',
+			description: 'Add premium gift wrap with personalized message',
+			price: '+$5.99',
+		},
+		{
+			id: 'insurance',
+			label: 'Shipping Insurance',
+			description: 'Full coverage for loss or damage',
+			price: '+$3.99',
+		},
+		{
+			id: 'signature',
+			label: 'Signature Required',
+			description: 'Require signature on delivery',
+			price: 'Free',
+		},
 	];
 
 	const summary = [
@@ -110,21 +135,41 @@ export default function Main() {
 					<div className="space-y-8">
 						<div>
 							<h1 className="text-2xl font-bold mb-2">Shipping Address</h1>
-							<p className="text-muted-foreground">Enter your delivery details</p>
+							<p className="text-muted-foreground">
+								Enter your delivery details
+							</p>
 						</div>
 
 						<div className="rounded-2xl border bg-card p-6">
 							<div className="grid @sm:grid-cols-2 gap-4">
 								<FormInput label="First Name" placeholder="John" halfWidth />
 								<FormInput label="Last Name" placeholder="Doe" halfWidth />
-								<FormInput label="Email Address" placeholder="john@example.com" type="email" />
-								<FormInput label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
-								<FormInput label="Street Address" placeholder="123 Main Street" />
-								<FormInput label="Apt, Suite, Unit" placeholder="Apartment 4B" />
+								<FormInput
+									label="Email Address"
+									placeholder="john@example.com"
+									type="email"
+								/>
+								<FormInput
+									label="Phone Number"
+									placeholder="+1 (555) 000-0000"
+									type="tel"
+								/>
+								<FormInput
+									label="Street Address"
+									placeholder="123 Main Street"
+								/>
+								<FormInput
+									label="Apt, Suite, Unit"
+									placeholder="Apartment 4B"
+								/>
 								<FormInput label="City" placeholder="New York" halfWidth />
 								<FormInput label="State" placeholder="NY" halfWidth />
 								<FormInput label="ZIP Code" placeholder="10001" halfWidth />
-								<FormInput label="Country" placeholder="United States" halfWidth />
+								<FormInput
+									label="Country"
+									placeholder="United States"
+									halfWidth
+								/>
 							</div>
 						</div>
 
@@ -139,7 +184,9 @@ export default function Main() {
 						</div>
 
 						<div className="flex gap-3">
-							<Button variant="outline" className="flex-1">Back</Button>
+							<Button variant="outline" className="flex-1">
+								Back
+							</Button>
 							<Button className="flex-1">Continue to Payment</Button>
 						</div>
 					</div>
@@ -176,7 +223,9 @@ export default function Main() {
 
 							<div className="flex items-center gap-2 p-3 rounded-lg bg-green-500/10 text-green-700 dark:text-green-400">
 								<Truck className="size-4" />
-								<span className="text-sm font-medium">Free shipping on orders over $100!</span>
+								<span className="text-sm font-medium">
+									Free shipping on orders over $100!
+								</span>
 							</div>
 						</div>
 
@@ -184,7 +233,10 @@ export default function Main() {
 							<Gift className="size-5 text-primary" />
 							<p className="text-sm">
 								<span className="font-medium">Free gift</span>
-								<span className="text-muted-foreground"> with orders over $200</span>
+								<span className="text-muted-foreground">
+									{' '}
+									with orders over $200
+								</span>
 							</p>
 						</div>
 					</div>

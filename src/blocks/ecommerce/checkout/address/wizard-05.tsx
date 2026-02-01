@@ -146,7 +146,11 @@ const AddressForm = ({
 			</div>
 			<Field label="Email" placeholder="john@example.com" type="email" />
 			<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
-			<SelectField label="Country" placeholder="Select country" options={countries} />
+			<SelectField
+				label="Country"
+				placeholder="Select country"
+				options={countries}
+			/>
 			<Field label="Address Line 1" placeholder="123 Main Street" />
 			<Field label="Address Line 2" placeholder="Apt, Suite, etc. (Optional)" />
 			<div className="grid @sm:grid-cols-3 gap-4">
@@ -221,7 +225,11 @@ export default function Main() {
 		{ value: 'ny', label: 'New York' },
 	];
 
-	const titles = ['Shipping Address', 'Shipping Method', 'Delivery Preferences'];
+	const titles = [
+		'Shipping Address',
+		'Shipping Method',
+		'Delivery Preferences',
+	];
 
 	return (
 		<section className="@container" data-theme="neon">

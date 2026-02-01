@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, ChevronLeft, ChevronRight, Tag, Calendar } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	ChevronLeft,
+	ChevronRight,
+	Tag,
+	Calendar,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -31,7 +39,9 @@ const CouponBadge = ({ coupon }: { coupon: Coupon }) => (
 				<Tag className="size-4 text-primary" />
 				<span className="font-mono font-bold text-primary">{coupon.code}</span>
 			</div>
-			<Badge variant="secondary" className="text-xs">{coupon.discount}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				{coupon.discount}
+			</Badge>
 		</div>
 		<div className="flex items-center gap-1 mt-1 text-xs text-muted-foreground">
 			<Calendar className="size-3" />
@@ -42,10 +52,20 @@ const CouponBadge = ({ coupon }: { coupon: Coupon }) => (
 
 const CarouselItem = ({ item }: { item: WishlistItem }) => (
 	<div className="flex-shrink-0 w-64 @sm:w-72 @md:w-80">
-		<Card className={`overflow-hidden group h-full ${item.coupon ? 'ring-2 ring-primary/30' : ''}`}>
+		<Card
+			className={`overflow-hidden group h-full ${item.coupon ? 'ring-2 ring-primary/30' : ''}`}
+		>
 			<div className="relative aspect-square bg-muted">
-				<img src={item.image} alt={item.name} className="size-full object-cover" />
-				<Button variant="ghost" size="icon-sm" className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm">
+				<img
+					src={item.image}
+					alt={item.name}
+					className="size-full object-cover"
+				/>
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm"
+				>
 					<Heart className="size-4 fill-primary text-primary" />
 				</Button>
 				{item.coupon && (
@@ -57,12 +77,16 @@ const CarouselItem = ({ item }: { item: WishlistItem }) => (
 			</div>
 			<div className="p-4">
 				<Link href={item.href}>
-					<h3 className="font-semibold line-clamp-1 hover:text-primary transition-colors">{item.name}</h3>
+					<h3 className="font-semibold line-clamp-1 hover:text-primary transition-colors">
+						{item.name}
+					</h3>
 				</Link>
 				<div className="flex items-center gap-2 mt-2">
 					<span className="text-lg font-bold">${item.price.toFixed(2)}</span>
 					{item.originalPrice && (
-						<span className="text-sm text-muted-foreground line-through">${item.originalPrice.toFixed(2)}</span>
+						<span className="text-sm text-muted-foreground line-through">
+							${item.originalPrice.toFixed(2)}
+						</span>
 					)}
 				</div>
 				{item.coupon && <CouponBadge coupon={item.coupon} />}
@@ -71,7 +95,11 @@ const CarouselItem = ({ item }: { item: WishlistItem }) => (
 						<ShoppingCart className="size-4" />
 						{item.coupon ? 'Apply & Add' : 'Add to Cart'}
 					</Button>
-					<Button variant="ghost" size="icon-sm" className="text-destructive hover:text-destructive">
+					<Button
+						variant="ghost"
+						size="icon-sm"
+						className="text-destructive hover:text-destructive"
+					>
 						<X className="size-4" />
 					</Button>
 				</div>
@@ -89,10 +117,18 @@ const CarouselSlider = ({ items }: CarouselProps) => (
 				</div>
 			))}
 		</div>
-		<Button variant="outline" size="icon" className="absolute left-0 top-1/3 -translate-x-1/2 hidden @md:flex bg-background shadow-lg">
+		<Button
+			variant="outline"
+			size="icon"
+			className="absolute left-0 top-1/3 -translate-x-1/2 hidden @md:flex bg-background shadow-lg"
+		>
 			<ChevronLeft className="size-5" />
 		</Button>
-		<Button variant="outline" size="icon" className="absolute right-0 top-1/3 translate-x-1/2 hidden @md:flex bg-background shadow-lg">
+		<Button
+			variant="outline"
+			size="icon"
+			className="absolute right-0 top-1/3 translate-x-1/2 hidden @md:flex bg-background shadow-lg"
+		>
 			<ChevronRight className="size-5" />
 		</Button>
 	</div>
@@ -106,20 +142,65 @@ const CouponsHeader = () => (
 			</div>
 			<div>
 				<h1 className="text-xl @md:text-2xl font-bold">Coupons Available</h1>
-				<p className="text-sm text-muted-foreground">Special offers for your saved items</p>
+				<p className="text-sm text-muted-foreground">
+					Special offers for your saved items
+				</p>
 			</div>
 		</div>
-		<Badge variant="default" className="text-lg px-3 py-1">3 Active</Badge>
+		<Badge variant="default" className="text-lg px-3 py-1">
+			3 Active
+		</Badge>
 	</div>
 );
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Wireless Noise-Canceling Headphones', price: 249.00, originalPrice: 349.00, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', coupon: { code: 'AUDIO20', discount: '20% OFF', expiresIn: '2 days' }, href: '/product/1' },
-		{ id: '2', name: 'Smart Watch Pro', price: 399.00, image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop', href: '/product/2' },
-		{ id: '3', name: 'Leather Messenger Bag', price: 189.00, originalPrice: 229.00, image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop', coupon: { code: 'STYLE15', discount: '$15 OFF', expiresIn: '5 days' }, href: '/product/3' },
-		{ id: '4', name: 'Running Shoes', price: 145.00, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop', href: '/product/4' },
-		{ id: '5', name: 'Portable Bluetooth Speaker', price: 79.00, originalPrice: 99.00, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop', coupon: { code: 'SOUND10', discount: '10% OFF', expiresIn: '1 week' }, href: '/product/5' },
+		{
+			id: '1',
+			name: 'Wireless Noise-Canceling Headphones',
+			price: 249.0,
+			originalPrice: 349.0,
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+			coupon: { code: 'AUDIO20', discount: '20% OFF', expiresIn: '2 days' },
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Smart Watch Pro',
+			price: 399.0,
+			image:
+				'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop',
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Leather Messenger Bag',
+			price: 189.0,
+			originalPrice: 229.0,
+			image:
+				'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop',
+			coupon: { code: 'STYLE15', discount: '$15 OFF', expiresIn: '5 days' },
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Running Shoes',
+			price: 145.0,
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop',
+			href: '/product/4',
+		},
+		{
+			id: '5',
+			name: 'Portable Bluetooth Speaker',
+			price: 79.0,
+			originalPrice: 99.0,
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop',
+			coupon: { code: 'SOUND10', discount: '10% OFF', expiresIn: '1 week' },
+			href: '/product/5',
+		},
 	];
 
 	return (

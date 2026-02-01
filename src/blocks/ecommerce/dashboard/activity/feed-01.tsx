@@ -88,7 +88,9 @@ const ProductPreview = ({ product }: { product: FeedItem['product'] }) => {
 
 const EngagementBar = ({
 	engagement,
-}: { engagement?: FeedItem['engagement'] }) => {
+}: {
+	engagement?: FeedItem['engagement'];
+}) => {
 	if (!engagement) return null;
 
 	return (
@@ -187,7 +189,8 @@ export default function Main() {
 			id: '2',
 			type: 'review',
 			user: { name: 'James Wilson', initials: 'JW' },
-			content: 'Left a 5-star review: "Absolutely love this product! The quality exceeded my expectations."',
+			content:
+				'Left a 5-star review: "Absolutely love this product! The quality exceeded my expectations."',
 			product: {
 				name: 'Smart Watch Pro',
 				price: '$449.00',

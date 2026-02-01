@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, Gift, Users, Lock, Globe, Share2 } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	Gift,
+	Users,
+	Lock,
+	Globe,
+	Share2,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -31,7 +39,11 @@ interface Wishlist {
 const ItemCard = ({ item }: { item: WishlistItem }) => (
 	<div className="flex items-center gap-3 p-3 rounded-lg bg-card border hover:border-primary transition-colors">
 		<div className="size-14 rounded-lg overflow-hidden bg-muted flex-shrink-0">
-			<img src={item.image} alt={item.name} className="size-full object-cover" />
+			<img
+				src={item.image}
+				alt={item.name}
+				className="size-full object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="font-medium text-sm truncate">{item.name}</p>
@@ -45,9 +57,21 @@ const ItemCard = ({ item }: { item: WishlistItem }) => (
 
 const PrivacyBadge = ({ type }: { type: 'private' | 'shared' | 'public' }) => {
 	const config = {
-		private: { icon: Lock, text: 'Private', className: 'bg-slate-100 text-slate-700' },
-		shared: { icon: Users, text: 'Shared', className: 'bg-blue-100 text-blue-700' },
-		public: { icon: Globe, text: 'Public', className: 'bg-green-100 text-green-700' },
+		private: {
+			icon: Lock,
+			text: 'Private',
+			className: 'bg-slate-100 text-slate-700',
+		},
+		shared: {
+			icon: Users,
+			text: 'Shared',
+			className: 'bg-blue-100 text-blue-700',
+		},
+		public: {
+			icon: Globe,
+			text: 'Public',
+			className: 'bg-green-100 text-green-700',
+		},
 	};
 	const Icon = config[type].icon;
 	return (
@@ -106,8 +130,22 @@ export default function Main() {
 			type: 'private',
 			name: 'My Private List',
 			items: [
-				{ id: '1', name: 'Premium Headphones', price: 299, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', href: '/product/1' },
-				{ id: '2', name: 'Fitness Tracker', price: 199, image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop', href: '/product/2' },
+				{
+					id: '1',
+					name: 'Premium Headphones',
+					price: 299,
+					image:
+						'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+					href: '/product/1',
+				},
+				{
+					id: '2',
+					name: 'Fitness Tracker',
+					price: 199,
+					image:
+						'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop',
+					href: '/product/2',
+				},
 			],
 		},
 		{
@@ -115,9 +153,30 @@ export default function Main() {
 			type: 'shared',
 			name: 'Family Gift Ideas',
 			items: [
-				{ id: '3', name: 'Coffee Machine', price: 449, image: 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=400&h=400&fit=crop', href: '/product/3' },
-				{ id: '4', name: 'Smart Speaker', price: 99, image: 'https://images.unsplash.com/photo-1589003077984-894e133dabab?w=400&h=400&fit=crop', href: '/product/4' },
-				{ id: '5', name: 'Board Game Set', price: 59, image: 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=400&h=400&fit=crop', href: '/product/5' },
+				{
+					id: '3',
+					name: 'Coffee Machine',
+					price: 449,
+					image:
+						'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=400&h=400&fit=crop',
+					href: '/product/3',
+				},
+				{
+					id: '4',
+					name: 'Smart Speaker',
+					price: 99,
+					image:
+						'https://images.unsplash.com/photo-1589003077984-894e133dabab?w=400&h=400&fit=crop',
+					href: '/product/4',
+				},
+				{
+					id: '5',
+					name: 'Board Game Set',
+					price: 59,
+					image:
+						'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=400&h=400&fit=crop',
+					href: '/product/5',
+				},
 			],
 			sharedWith: [
 				{ id: '1', name: 'Mom', avatar: 'https://i.pravatar.cc/100?img=1' },
@@ -130,8 +189,22 @@ export default function Main() {
 			type: 'public',
 			name: 'Wedding Registry',
 			items: [
-				{ id: '6', name: 'Kitchen Aid Mixer', price: 399, image: 'https://images.unsplash.com/photo-1594385208974-2e75f8d7bb48?w=400&h=400&fit=crop', href: '/product/6' },
-				{ id: '7', name: 'Dinnerware Set', price: 189, image: 'https://images.unsplash.com/photo-1603199506016-b9a594b593c0?w=400&h=400&fit=crop', href: '/product/7' },
+				{
+					id: '6',
+					name: 'Kitchen Aid Mixer',
+					price: 399,
+					image:
+						'https://images.unsplash.com/photo-1594385208974-2e75f8d7bb48?w=400&h=400&fit=crop',
+					href: '/product/6',
+				},
+				{
+					id: '7',
+					name: 'Dinnerware Set',
+					price: 189,
+					image:
+						'https://images.unsplash.com/photo-1603199506016-b9a594b593c0?w=400&h=400&fit=crop',
+					href: '/product/7',
+				},
 			],
 		},
 	];

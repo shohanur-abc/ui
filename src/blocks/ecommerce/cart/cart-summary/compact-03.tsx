@@ -21,9 +21,14 @@ const DiscountTag = ({ icon: Icon, label, value }: DiscountRowProps) => (
 const PriceStack = ({
 	original,
 	final,
-}: { original: string; final: string }) => (
+}: {
+	original: string;
+	final: string;
+}) => (
 	<div className="flex items-baseline gap-2">
-		<span className="text-sm text-muted-foreground line-through">{original}</span>
+		<span className="text-sm text-muted-foreground line-through">
+			{original}
+		</span>
 		<span className="text-xl font-bold text-primary">{final}</span>
 	</div>
 );

@@ -64,8 +64,18 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const metrics: MetricProps[] = [
-		{ label: 'Online Sales', value: '$845.2K', badge: '+22.5%', positive: true },
-		{ label: 'In-Store Sales', value: '$412.8K', badge: '+8.3%', positive: true },
+		{
+			label: 'Online Sales',
+			value: '$845.2K',
+			badge: '+22.5%',
+			positive: true,
+		},
+		{
+			label: 'In-Store Sales',
+			value: '$412.8K',
+			badge: '+8.3%',
+			positive: true,
+		},
 	];
 
 	const chartData: SalesData[] = [
@@ -107,12 +117,28 @@ export default function Main() {
 							<AreaChart data={chartData} margin={{ left: 12, right: 12 }}>
 								<defs>
 									<linearGradient id="onlineGrad" x1="0" y1="0" x2="0" y2="1">
-										<stop offset="5%" stopColor="var(--color-online)" stopOpacity={0.4} />
-										<stop offset="95%" stopColor="var(--color-online)" stopOpacity={0} />
+										<stop
+											offset="5%"
+											stopColor="var(--color-online)"
+											stopOpacity={0.4}
+										/>
+										<stop
+											offset="95%"
+											stopColor="var(--color-online)"
+											stopOpacity={0}
+										/>
 									</linearGradient>
 									<linearGradient id="storeGrad" x1="0" y1="0" x2="0" y2="1">
-										<stop offset="5%" stopColor="var(--color-inStore)" stopOpacity={0.4} />
-										<stop offset="95%" stopColor="var(--color-inStore)" stopOpacity={0} />
+										<stop
+											offset="5%"
+											stopColor="var(--color-inStore)"
+											stopOpacity={0.4}
+										/>
+										<stop
+											offset="95%"
+											stopColor="var(--color-inStore)"
+											stopOpacity={0}
+										/>
 									</linearGradient>
 								</defs>
 								<CartesianGrid strokeDasharray="3 3" vertical={false} />

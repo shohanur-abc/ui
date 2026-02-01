@@ -48,7 +48,10 @@ const GridCard = ({
 	>
 		{verified && (
 			<div className="absolute right-3 top-3">
-				<Badge variant="outline" className="gap-1 border-green-500/30 text-green-600 dark:text-green-400">
+				<Badge
+					variant="outline"
+					className="gap-1 border-green-500/30 text-green-600 dark:text-green-400"
+				>
 					<CheckCircle className="size-3" />
 					Verified
 				</Badge>
@@ -69,7 +72,12 @@ const GridCard = ({
 const ProductTile = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-3 rounded-lg bg-muted/50 p-3">
 		<div className="relative size-16 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.img} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.img}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 			{product.eco && (
 				<div className="absolute bottom-0 right-0 rounded-tl-lg bg-green-500 p-1">
 					<Leaf className="size-3 text-white" />
@@ -81,7 +89,9 @@ const ProductTile = ({ product }: { product: Product }) => (
 			<p className="text-xs text-muted-foreground">{product.options}</p>
 			<div className="mt-1 flex items-center justify-between">
 				<span className="text-xs text-muted-foreground">×{product.qty}</span>
-				<span className="text-sm font-semibold">${product.price.toFixed(2)}</span>
+				<span className="text-sm font-semibold">
+					${product.price.toFixed(2)}
+				</span>
 			</div>
 		</div>
 	</div>
@@ -160,7 +170,9 @@ const PaymentDisplay = ({
 			<CreditCard className="size-6 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -177,9 +189,13 @@ const PriceRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 

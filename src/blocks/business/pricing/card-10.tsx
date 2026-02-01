@@ -14,7 +14,15 @@ interface PricingPlan {
 	style: 'minimal' | 'gradient' | 'glass';
 }
 
-const Header = ({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle: string }) => (
+const Header = ({
+	eyebrow,
+	title,
+	subtitle,
+}: {
+	eyebrow: string;
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center mb-12 @lg:mb-16">
 		<div className="inline-flex items-center gap-2 text-sm text-primary mb-4">
 			<Sparkles className="size-4" />
@@ -31,12 +39,15 @@ const Header = ({ eyebrow, title, subtitle }: { eyebrow: string; title: string; 
 
 const cardStyles = {
 	minimal: 'bg-card border',
-	gradient: 'bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-primary/20 border',
+	gradient:
+		'bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-primary/20 border',
 	glass: 'bg-card/80 backdrop-blur-sm border border-primary shadow-xl',
 };
 
 const PricingCard = ({ plan }: { plan: PricingPlan }) => (
-	<Card className={`relative flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${cardStyles[plan.style]}`}>
+	<Card
+		className={`relative flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${cardStyles[plan.style]}`}
+	>
 		{plan.style === 'glass' && (
 			<Badge className="absolute -top-3 left-1/2 -translate-x-1/2">
 				Popular Choice
@@ -79,7 +90,8 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => (
 export default function Main() {
 	const eyebrow = 'Pricing';
 	const title = 'Pick Your Perfect Plan';
-	const subtitle = 'Start free, then upgrade as you grow. No credit card required.';
+	const subtitle =
+		'Start free, then upgrade as you grow. No credit card required.';
 	const plans: PricingPlan[] = [
 		{
 			name: 'Free Forever',

@@ -40,14 +40,18 @@ const FitnessHeader = ({
 			<div className="flex flex-col @sm:flex-row items-center gap-6">
 				<Avatar className="size-24 ring-4 ring-green-500/20">
 					<AvatarImage src={src} alt={name} />
-					<AvatarFallback className="text-2xl bg-green-500 text-white">{fallback}</AvatarFallback>
+					<AvatarFallback className="text-2xl bg-green-500 text-white">
+						{fallback}
+					</AvatarFallback>
 				</Avatar>
 				<div className="text-center @sm:text-left flex-1">
 					<h1 className="text-2xl font-bold">{name}</h1>
 					<Badge className="bg-green-500/20 text-green-600 mt-1">{level}</Badge>
 					<div className="flex items-center justify-center @sm:justify-start gap-2 mt-2">
 						<Heart className="size-4 text-red-500" />
-						<span className="text-muted-foreground">Fitness Age: {fitnessAge}</span>
+						<span className="text-muted-foreground">
+							Fitness Age: {fitnessAge}
+						</span>
 					</div>
 				</div>
 				<div className="flex gap-3">
@@ -68,7 +72,14 @@ const FitnessHeader = ({
 const TodayStats = ({
 	stats,
 }: {
-	stats: { icon: React.ElementType; label: string; value: string; target: string; progress: number; color: string }[];
+	stats: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		target: string;
+		progress: number;
+		color: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -81,13 +92,17 @@ const TodayStats = ({
 			<div className="grid grid-cols-2 @md:grid-cols-4 gap-4">
 				{stats.map((stat, i) => (
 					<div key={i} className="text-center">
-						<div className={`mx-auto size-16 rounded-full flex items-center justify-center ${stat.color} mb-2`}>
+						<div
+							className={`mx-auto size-16 rounded-full flex items-center justify-center ${stat.color} mb-2`}
+						>
 							<stat.icon className="size-7 text-white" />
 						</div>
 						<p className="text-xl font-bold">{stat.value}</p>
 						<p className="text-xs text-muted-foreground">{stat.label}</p>
 						<Progress value={stat.progress} className="h-1 mt-2" />
-						<p className="text-xs text-muted-foreground mt-1">Goal: {stat.target}</p>
+						<p className="text-xs text-muted-foreground mt-1">
+							Goal: {stat.target}
+						</p>
 					</div>
 				))}
 			</div>
@@ -113,10 +128,22 @@ const ActiveRings = ({
 				<div className="relative size-36">
 					{/* Outer ring - Move */}
 					<svg className="size-36 -rotate-90">
-						<circle cx="72" cy="72" r="64" fill="none" stroke="currentColor" strokeWidth="12" className="text-red-500/20" />
 						<circle
-							cx="72" cy="72" r="64"
-							fill="none" stroke="currentColor" strokeWidth="12"
+							cx="72"
+							cy="72"
+							r="64"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="12"
+							className="text-red-500/20"
+						/>
+						<circle
+							cx="72"
+							cy="72"
+							r="64"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="12"
 							strokeDasharray={`${(move.current / move.goal) * 402} 402`}
 							strokeLinecap="round"
 							className="text-red-500"
@@ -124,10 +151,22 @@ const ActiveRings = ({
 					</svg>
 					{/* Middle ring - Exercise */}
 					<svg className="size-28 -rotate-90 absolute top-4 left-4">
-						<circle cx="56" cy="56" r="48" fill="none" stroke="currentColor" strokeWidth="12" className="text-green-500/20" />
 						<circle
-							cx="56" cy="56" r="48"
-							fill="none" stroke="currentColor" strokeWidth="12"
+							cx="56"
+							cy="56"
+							r="48"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="12"
+							className="text-green-500/20"
+						/>
+						<circle
+							cx="56"
+							cy="56"
+							r="48"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="12"
 							strokeDasharray={`${(exercise.current / exercise.goal) * 301} 301`}
 							strokeLinecap="round"
 							className="text-green-500"
@@ -135,10 +174,22 @@ const ActiveRings = ({
 					</svg>
 					{/* Inner ring - Stand */}
 					<svg className="size-20 -rotate-90 absolute top-8 left-8">
-						<circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" strokeWidth="12" className="text-blue-500/20" />
 						<circle
-							cx="40" cy="40" r="32"
-							fill="none" stroke="currentColor" strokeWidth="12"
+							cx="40"
+							cy="40"
+							r="32"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="12"
+							className="text-blue-500/20"
+						/>
+						<circle
+							cx="40"
+							cy="40"
+							r="32"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="12"
 							strokeDasharray={`${(stand.current / stand.goal) * 201} 201`}
 							strokeLinecap="round"
 							className="text-blue-500"
@@ -150,21 +201,27 @@ const ActiveRings = ({
 						<div className="size-3 rounded-full bg-red-500" />
 						<div>
 							<p className="font-medium">Move</p>
-							<p className="text-sm text-muted-foreground">{move.current}/{move.goal} cal</p>
+							<p className="text-sm text-muted-foreground">
+								{move.current}/{move.goal} cal
+							</p>
 						</div>
 					</div>
 					<div className="flex items-center gap-3">
 						<div className="size-3 rounded-full bg-green-500" />
 						<div>
 							<p className="font-medium">Exercise</p>
-							<p className="text-sm text-muted-foreground">{exercise.current}/{exercise.goal} min</p>
+							<p className="text-sm text-muted-foreground">
+								{exercise.current}/{exercise.goal} min
+							</p>
 						</div>
 					</div>
 					<div className="flex items-center gap-3">
 						<div className="size-3 rounded-full bg-blue-500" />
 						<div>
 							<p className="font-medium">Stand</p>
-							<p className="text-sm text-muted-foreground">{stand.current}/{stand.goal} hrs</p>
+							<p className="text-sm text-muted-foreground">
+								{stand.current}/{stand.goal} hrs
+							</p>
 						</div>
 					</div>
 				</div>
@@ -176,18 +233,29 @@ const ActiveRings = ({
 const RecentWorkouts = ({
 	workouts,
 }: {
-	workouts: { type: string; duration: string; calories: string; date: string; icon: React.ElementType }[];
+	workouts: {
+		type: string;
+		duration: string;
+		calories: string;
+		date: string;
+		icon: React.ElementType;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
 			<div className="flex items-center justify-between">
 				<h2 className="font-semibold">Recent Workouts</h2>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{workouts.map((workout, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+				>
 					<div className="flex items-center gap-3">
 						<div className="p-2 rounded-lg bg-primary/10">
 							<workout.icon className="size-5 text-primary" />
@@ -199,7 +267,9 @@ const RecentWorkouts = ({
 					</div>
 					<div className="text-right">
 						<p className="font-medium">{workout.duration}</p>
-						<p className="text-sm text-muted-foreground">{workout.calories} cal</p>
+						<p className="text-sm text-muted-foreground">
+							{workout.calories} cal
+						</p>
 					</div>
 				</div>
 			))}
@@ -210,7 +280,12 @@ const RecentWorkouts = ({
 const WeeklySummary = ({
 	summary,
 }: {
-	summary: { label: string; value: string; change: string; positive: boolean }[];
+	summary: {
+		label: string;
+		value: string;
+		change: string;
+		positive: boolean;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -225,7 +300,9 @@ const WeeklySummary = ({
 					<div key={i} className="text-center p-3 rounded-lg bg-muted/30">
 						<p className="text-2xl font-bold">{item.value}</p>
 						<p className="text-sm text-muted-foreground">{item.label}</p>
-						<p className={`text-xs mt-1 ${item.positive ? 'text-green-500' : 'text-red-500'}`}>
+						<p
+							className={`text-xs mt-1 ${item.positive ? 'text-green-500' : 'text-red-500'}`}
+						>
 							{item.change}
 						</p>
 					</div>
@@ -238,7 +315,12 @@ const WeeklySummary = ({
 const Challenges = ({
 	challenges,
 }: {
-	challenges: { title: string; progress: number; reward: string; daysLeft: number }[];
+	challenges: {
+		title: string;
+		progress: number;
+		reward: string;
+		daysLeft: number;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -278,10 +360,38 @@ export default function Main() {
 			fitnessAge: 28,
 		},
 		todayStats: [
-			{ icon: Footprints, label: 'Steps', value: '8,542', target: '10,000', progress: 85, color: 'bg-blue-500' },
-			{ icon: Flame, label: 'Calories', value: '1,847', target: '2,500', progress: 74, color: 'bg-orange-500' },
-			{ icon: Timer, label: 'Active', value: '52 min', target: '60 min', progress: 87, color: 'bg-green-500' },
-			{ icon: Moon, label: 'Sleep', value: '7h 23m', target: '8h', progress: 92, color: 'bg-purple-500' },
+			{
+				icon: Footprints,
+				label: 'Steps',
+				value: '8,542',
+				target: '10,000',
+				progress: 85,
+				color: 'bg-blue-500',
+			},
+			{
+				icon: Flame,
+				label: 'Calories',
+				value: '1,847',
+				target: '2,500',
+				progress: 74,
+				color: 'bg-orange-500',
+			},
+			{
+				icon: Timer,
+				label: 'Active',
+				value: '52 min',
+				target: '60 min',
+				progress: 87,
+				color: 'bg-green-500',
+			},
+			{
+				icon: Moon,
+				label: 'Sleep',
+				value: '7h 23m',
+				target: '8h',
+				progress: 92,
+				color: 'bg-purple-500',
+			},
 		],
 		rings: {
 			move: { current: 425, goal: 500 },
@@ -289,19 +399,57 @@ export default function Main() {
 			stand: { current: 10, goal: 12 },
 		},
 		recentWorkouts: [
-			{ type: 'Running', duration: '45 min', calories: '456', date: 'Today', icon: Activity },
-			{ type: 'Weight Training', duration: '1h 15m', calories: '380', date: 'Yesterday', icon: Dumbbell },
-			{ type: 'Yoga', duration: '30 min', calories: '120', date: '2 days ago', icon: Zap },
+			{
+				type: 'Running',
+				duration: '45 min',
+				calories: '456',
+				date: 'Today',
+				icon: Activity,
+			},
+			{
+				type: 'Weight Training',
+				duration: '1h 15m',
+				calories: '380',
+				date: 'Yesterday',
+				icon: Dumbbell,
+			},
+			{
+				type: 'Yoga',
+				duration: '30 min',
+				calories: '120',
+				date: '2 days ago',
+				icon: Zap,
+			},
 		],
 		weeklySummary: [
-			{ label: 'Workouts', value: '6', change: '+2 vs last week', positive: true },
+			{
+				label: 'Workouts',
+				value: '6',
+				change: '+2 vs last week',
+				positive: true,
+			},
 			{ label: 'Active Min', value: '285', change: '+45 min', positive: true },
-			{ label: 'Avg Steps', value: '9.2K', change: '-500 steps', positive: false },
+			{
+				label: 'Avg Steps',
+				value: '9.2K',
+				change: '-500 steps',
+				positive: false,
+			},
 			{ label: 'Calories', value: '12.5K', change: '+1.2K', positive: true },
 		],
 		challenges: [
-			{ title: 'Run 50km this month', progress: 72, reward: '500 XP', daysLeft: 8 },
-			{ title: 'Complete 20 workouts', progress: 85, reward: 'Gold Badge', daysLeft: 8 },
+			{
+				title: 'Run 50km this month',
+				progress: 72,
+				reward: '500 XP',
+				daysLeft: 8,
+			},
+			{
+				title: 'Complete 20 workouts',
+				progress: 85,
+				reward: 'Gold Badge',
+				daysLeft: 8,
+			},
 		],
 	};
 

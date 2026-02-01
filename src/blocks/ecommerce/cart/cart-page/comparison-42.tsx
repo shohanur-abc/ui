@@ -1,9 +1,23 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Minus, Plus, X, ArrowRight, GitCompareArrows, Check, Minus as MinusIcon } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	GitCompareArrows,
+	Check,
+	Minus as MinusIcon,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -21,7 +35,13 @@ interface CartItem {
 	};
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="flex items-center gap-3">
 		<GitCompareArrows className="size-6 text-primary" />
 		<div>
@@ -62,7 +82,9 @@ const ItemColumn = ({ item }: { item: CartItem }) => (
 			<Image src={item.image} alt={item.name} fill className="object-cover" />
 		</div>
 		<h3 className="font-semibold mt-3 line-clamp-2">{item.name}</h3>
-		<p className="text-xl font-bold text-primary mt-1">${item.price.toFixed(2)}</p>
+		<p className="text-xl font-bold text-primary mt-1">
+			${item.price.toFixed(2)}
+		</p>
 		<div className="flex items-center justify-center gap-2 mt-3">
 			<div className="flex items-center rounded-lg border">
 				<Button size="icon-sm" variant="ghost" className="size-8">
@@ -73,14 +95,24 @@ const ItemColumn = ({ item }: { item: CartItem }) => (
 					<Plus className="size-3" />
 				</Button>
 			</div>
-			<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+			<Button
+				size="icon-sm"
+				variant="ghost"
+				className="text-muted-foreground hover:text-destructive"
+			>
 				<X className="size-4" />
 			</Button>
 		</div>
 	</th>
 );
 
-const SelectionCheckbox = ({ id, checked }: { id: string; checked: boolean }) => (
+const SelectionCheckbox = ({
+	id,
+	checked,
+}: {
+	id: string;
+	checked: boolean;
+}) => (
 	<td className="py-3 px-4 text-center">
 		<Checkbox id={id} defaultChecked={checked} />
 	</td>
@@ -95,7 +127,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -105,7 +139,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
 			name: 'Studio Headphones Pro',
 			price: 349.99,
 			quantity: 1,
@@ -118,7 +153,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
 			name: 'Wireless Earbuds',
 			price: 199.99,
 			quantity: 1,
@@ -131,7 +167,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
 			name: 'Classic Watch',
 			price: 249.99,
 			quantity: 1,
@@ -158,7 +195,10 @@ export default function Main() {
 	return (
 		<section className="@container">
 			<div className="mx-auto max-w-5xl px-4 py-8 @md:py-12">
-				<PageHeader title="Compare Cart Items" subtitle="Select items for checkout" />
+				<PageHeader
+					title="Compare Cart Items"
+					subtitle="Select items for checkout"
+				/>
 
 				<Card className="mt-8 overflow-x-auto">
 					<table className="w-full min-w-[600px]">
@@ -176,7 +216,11 @@ export default function Main() {
 							<tr className="border-b bg-muted/30">
 								<td className="py-3 px-4 font-medium">Select for checkout</td>
 								{items.map((item) => (
-									<SelectionCheckbox key={item.id} id={item.id} checked={true} />
+									<SelectionCheckbox
+										key={item.id}
+										id={item.id}
+										checked={true}
+									/>
 								))}
 							</tr>
 							<FeatureRow
@@ -198,7 +242,10 @@ export default function Main() {
 							<tr className="bg-muted/30">
 								<td className="py-3 px-4 font-medium">Item Total</td>
 								{items.map((item) => (
-									<td key={item.id} className="py-3 px-4 text-center font-bold text-primary">
+									<td
+										key={item.id}
+										className="py-3 px-4 text-center font-bold text-primary"
+									>
 										${(item.price * item.quantity).toFixed(2)}
 									</td>
 								))}

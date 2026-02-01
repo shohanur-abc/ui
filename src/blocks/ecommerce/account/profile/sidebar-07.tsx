@@ -137,7 +137,13 @@ const AccountCards = ({
 const RecentTransactions = ({
 	transactions,
 }: {
-	transactions: { type: 'in' | 'out'; title: string; description: string; amount: string; date: string }[];
+	transactions: {
+		type: 'in' | 'out';
+		title: string;
+		description: string;
+		amount: string;
+		date: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -150,11 +156,16 @@ const RecentTransactions = ({
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{transactions.map((tx, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50"
+				>
 					<div className="flex items-center gap-3">
-						<div className={`p-2 rounded-lg ${
-							tx.type === 'in' ? 'bg-green-500/10' : 'bg-red-500/10'
-						}`}>
+						<div
+							className={`p-2 rounded-lg ${
+								tx.type === 'in' ? 'bg-green-500/10' : 'bg-red-500/10'
+							}`}
+						>
 							{tx.type === 'in' ? (
 								<ArrowDownToLine className="size-5 text-green-500" />
 							) : (
@@ -167,8 +178,11 @@ const RecentTransactions = ({
 						</div>
 					</div>
 					<div className="text-right">
-						<p className={`font-medium ${tx.type === 'in' ? 'text-green-500' : ''}`}>
-							{tx.type === 'in' ? '+' : '-'}{tx.amount}
+						<p
+							className={`font-medium ${tx.type === 'in' ? 'text-green-500' : ''}`}
+						>
+							{tx.type === 'in' ? '+' : '-'}
+							{tx.amount}
 						</p>
 						<p className="text-xs text-muted-foreground">{tx.date}</p>
 					</div>
@@ -181,7 +195,12 @@ const RecentTransactions = ({
 const SpendingOverview = ({
 	categories,
 }: {
-	categories: { name: string; amount: string; percentage: number; color: string }[];
+	categories: {
+		name: string;
+		amount: string;
+		percentage: number;
+		color: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -198,7 +217,10 @@ const SpendingOverview = ({
 						<span className="font-medium">{cat.amount}</span>
 					</div>
 					<div className="h-2 rounded-full bg-muted overflow-hidden">
-						<div className={`h-full rounded-full ${cat.color}`} style={{ width: `${cat.percentage}%` }} />
+						<div
+							className={`h-full rounded-full ${cat.color}`}
+							style={{ width: `${cat.percentage}%` }}
+						/>
 					</div>
 				</div>
 			))}
@@ -229,20 +251,74 @@ export default function Main() {
 			{ icon: Settings, label: 'Settings', href: '/settings' },
 		],
 		cards: [
-			{ type: 'VISA', last4: '4829', expiry: '12/26', color: 'bg-gradient-to-br from-blue-600 to-blue-800' },
-			{ type: 'Mastercard', last4: '3156', expiry: '08/25', color: 'bg-gradient-to-br from-orange-500 to-red-600' },
+			{
+				type: 'VISA',
+				last4: '4829',
+				expiry: '12/26',
+				color: 'bg-gradient-to-br from-blue-600 to-blue-800',
+			},
+			{
+				type: 'Mastercard',
+				last4: '3156',
+				expiry: '08/25',
+				color: 'bg-gradient-to-br from-orange-500 to-red-600',
+			},
 		],
 		transactions: [
-			{ type: 'in' as const, title: 'Salary', description: 'Monthly salary', amount: '$5,200.00', date: 'Today' },
-			{ type: 'out' as const, title: 'Netflix', description: 'Subscription', amount: '$15.99', date: 'Yesterday' },
-			{ type: 'out' as const, title: 'Amazon', description: 'Shopping', amount: '$89.50', date: 'Jan 28' },
-			{ type: 'in' as const, title: 'Refund', description: 'Order #48291', amount: '$34.00', date: 'Jan 27' },
+			{
+				type: 'in' as const,
+				title: 'Salary',
+				description: 'Monthly salary',
+				amount: '$5,200.00',
+				date: 'Today',
+			},
+			{
+				type: 'out' as const,
+				title: 'Netflix',
+				description: 'Subscription',
+				amount: '$15.99',
+				date: 'Yesterday',
+			},
+			{
+				type: 'out' as const,
+				title: 'Amazon',
+				description: 'Shopping',
+				amount: '$89.50',
+				date: 'Jan 28',
+			},
+			{
+				type: 'in' as const,
+				title: 'Refund',
+				description: 'Order #48291',
+				amount: '$34.00',
+				date: 'Jan 27',
+			},
 		],
 		spending: [
-			{ name: 'Shopping', amount: '$456', percentage: 40, color: 'bg-blue-500' },
-			{ name: 'Food & Dining', amount: '$284', percentage: 25, color: 'bg-green-500' },
-			{ name: 'Entertainment', amount: '$171', percentage: 15, color: 'bg-purple-500' },
-			{ name: 'Transport', amount: '$114', percentage: 10, color: 'bg-orange-500' },
+			{
+				name: 'Shopping',
+				amount: '$456',
+				percentage: 40,
+				color: 'bg-blue-500',
+			},
+			{
+				name: 'Food & Dining',
+				amount: '$284',
+				percentage: 25,
+				color: 'bg-green-500',
+			},
+			{
+				name: 'Entertainment',
+				amount: '$171',
+				percentage: 15,
+				color: 'bg-purple-500',
+			},
+			{
+				name: 'Transport',
+				amount: '$114',
+				percentage: 10,
+				color: 'bg-orange-500',
+			},
 		],
 	};
 
@@ -258,7 +334,10 @@ export default function Main() {
 								<Separator />
 								<WalletNav items={profileData.nav} activeHref="/wallet" />
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>

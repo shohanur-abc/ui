@@ -10,7 +10,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 
-const SubscriptionHeader = ({ plan, price, interval }: { plan: string; price: string; interval: string }) => (
+const SubscriptionHeader = ({
+	plan,
+	price,
+	interval,
+}: {
+	plan: string;
+	price: string;
+	interval: string;
+}) => (
 	<div className="flex items-center justify-between">
 		<div className="flex items-center gap-2">
 			<RefreshCcw className="size-4 text-primary" />
@@ -39,7 +47,9 @@ const CompactCardForm = () => (
 const SubscriptionFeatures = ({ features }: { features: string[] }) => (
 	<div className="flex flex-wrap gap-1.5">
 		{features.map((feature, index) => (
-			<Badge key={index} variant="secondary" className="text-xs">{feature}</Badge>
+			<Badge key={index} variant="secondary" className="text-xs">
+				{feature}
+			</Badge>
 		))}
 	</div>
 );
@@ -54,7 +64,10 @@ const TrialNotice = () => (
 const TermsCheckbox = () => (
 	<div className="flex items-start gap-2">
 		<Checkbox id="terms" className="size-3.5 mt-0.5" />
-		<Label htmlFor="terms" className="text-[11px] text-muted-foreground cursor-pointer leading-tight">
+		<Label
+			htmlFor="terms"
+			className="text-[11px] text-muted-foreground cursor-pointer leading-tight"
+		>
 			I agree to recurring billing
 		</Label>
 	</div>

@@ -103,7 +103,11 @@ const AddressForm = ({
 			<Field label="Recipient Name" placeholder="John Doe" />
 			<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 		</div>
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -124,7 +128,10 @@ const GiftOptionsSection = () => (
 		</div>
 		<div className="flex items-center gap-2">
 			<Checkbox id="gift-receipt" />
-			<Label htmlFor="gift-receipt" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="gift-receipt"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Include gift receipt (prices hidden)
 			</Label>
 		</div>
@@ -157,11 +164,22 @@ const DeliveryScheduleSection = () => {
 
 	return (
 		<div className="space-y-4 pt-4">
-			<SelectField label="Delivery Date" placeholder="Select date preference" options={dates} />
-			<SelectField label="Preferred Time" placeholder="Select time window" options={times} />
+			<SelectField
+				label="Delivery Date"
+				placeholder="Select date preference"
+				options={dates}
+			/>
+			<SelectField
+				label="Preferred Time"
+				placeholder="Select time window"
+				options={times}
+			/>
 			<div className="flex items-center gap-2">
 				<Checkbox id="leave-door" />
-				<Label htmlFor="leave-door" className="text-sm font-normal cursor-pointer">
+				<Label
+					htmlFor="leave-door"
+					className="text-sm font-normal cursor-pointer"
+				>
 					Leave at door if no one is home
 				</Label>
 			</div>

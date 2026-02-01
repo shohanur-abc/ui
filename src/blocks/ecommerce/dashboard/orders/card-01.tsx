@@ -1,8 +1,22 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { Package, Truck, MapPin, Calendar, Clock, ArrowRight } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	MapPin,
+	Calendar,
+	Clock,
+	ArrowRight,
+} from 'lucide-react';
 
 interface OrderItem {
 	name: string;
@@ -40,7 +54,10 @@ interface OrderItemRowProps {
 }
 
 const StatusBadge = ({ status }: StatusBadgeProps) => {
-	const config: Record<OrderCardProps['order']['status'], { icon: typeof Package; variant: 'default' | 'secondary'; label: string }> = {
+	const config: Record<
+		OrderCardProps['order']['status'],
+		{ icon: typeof Package; variant: 'default' | 'secondary'; label: string }
+	> = {
 		processing: { icon: Clock, variant: 'secondary', label: 'Processing' },
 		shipped: { icon: Truck, variant: 'default', label: 'Shipped' },
 		delivered: { icon: Package, variant: 'default', label: 'Delivered' },
@@ -69,7 +86,15 @@ const OrderItemRow = ({ item }: OrderItemRowProps) => (
 	</div>
 );
 
-const InfoRow = ({ icon: Icon, label, value }: { icon: React.ComponentType<{ className?: string }>; label: string; value: string }) => (
+const InfoRow = ({
+	icon: Icon,
+	label,
+	value,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	label: string;
+	value: string;
+}) => (
 	<div className="flex items-center gap-2 text-sm">
 		<Icon className="size-4 text-muted-foreground" />
 		<span className="text-muted-foreground">{label}:</span>
@@ -93,7 +118,9 @@ const OrderCard = ({ order, labels }: OrderCardProps) => (
 		</CardHeader>
 		<CardContent className="space-y-4">
 			<div>
-				<p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">{labels.items}</p>
+				<p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">
+					{labels.items}
+				</p>
 				<div className="divide-y divide-border/50">
 					{order.items.map((item, i) => (
 						<OrderItemRow key={i} item={item} />
@@ -102,8 +129,16 @@ const OrderCard = ({ order, labels }: OrderCardProps) => (
 			</div>
 			<Separator />
 			<div className="space-y-2">
-				<InfoRow icon={MapPin} label={labels.shipping} value={order.shippingAddress} />
-				<InfoRow icon={Truck} label={labels.delivery} value={order.estimatedDelivery} />
+				<InfoRow
+					icon={MapPin}
+					label={labels.shipping}
+					value={order.shippingAddress}
+				/>
+				<InfoRow
+					icon={Truck}
+					label={labels.delivery}
+					value={order.estimatedDelivery}
+				/>
 			</div>
 			<div className="flex items-center justify-between pt-2 border-t border-border/50">
 				<span className="text-sm text-muted-foreground">{labels.total}</span>
@@ -111,7 +146,9 @@ const OrderCard = ({ order, labels }: OrderCardProps) => (
 			</div>
 		</CardContent>
 		<CardFooter className="gap-3">
-			<Button variant="outline" className="flex-1">{labels.viewDetails}</Button>
+			<Button variant="outline" className="flex-1">
+				{labels.viewDetails}
+			</Button>
 			<Button className="flex-1 gap-1.5">
 				{labels.trackOrder}
 				<ArrowRight className="size-4" />

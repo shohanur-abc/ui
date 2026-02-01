@@ -1,9 +1,20 @@
 'use client';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -95,7 +106,9 @@ const PaymentDisplay = ({
 	<div className="flex items-center gap-3 rounded-lg bg-muted/30 p-4">
 		<CreditCard className="size-5 text-primary" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 		<Check className="ml-auto size-5 text-green-500" />
@@ -113,9 +126,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -127,7 +144,8 @@ export default function Main() {
 			variant: 'Bamboo / Multi-tier',
 			price: 54.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1544816155-12df9643f363?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -135,7 +153,8 @@ export default function Main() {
 			variant: '3-Drawer / White',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -143,7 +162,8 @@ export default function Main() {
 			variant: 'Leather / Dark Brown',
 			price: 39.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -164,8 +184,15 @@ export default function Main() {
 				</div>
 
 				<div className="grid gap-6 @lg:grid-cols-[1fr_340px]">
-					<Accordion type="multiple" defaultValue={['items']} className="space-y-3">
-						<AccordionItem value="items" className="rounded-xl border bg-card px-4">
+					<Accordion
+						type="multiple"
+						defaultValue={['items']}
+						className="space-y-3"
+					>
+						<AccordionItem
+							value="items"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<div className="flex items-center gap-2">
 									<Package className="size-5 text-primary" />
@@ -181,7 +208,10 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="address" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="address"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<div className="flex items-center gap-2">
 									<MapPin className="size-5 text-primary" />
@@ -206,7 +236,10 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="delivery" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="delivery"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<div className="flex items-center gap-2">
 									<Truck className="size-5 text-primary" />
@@ -214,11 +247,18 @@ export default function Main() {
 								</div>
 							</AccordionTrigger>
 							<AccordionContent className="pb-4">
-								<DeliveryDisplay method="Office Delivery" date="Dec 21-23, 2025" price="$14.99" />
+								<DeliveryDisplay
+									method="Office Delivery"
+									date="Dec 21-23, 2025"
+									price="$14.99"
+								/>
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="payment" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="payment"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<div className="flex items-center gap-2">
 									<CreditCard className="size-5 text-primary" />

@@ -33,7 +33,11 @@ const FloatingHeader = ({
 	icon: Icon,
 	title,
 	itemCount,
-}: { icon: LucideIcon; title: string; itemCount: number }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	itemCount: number;
+}) => (
 	<CardHeader className="pb-4">
 		<CardTitle className="flex items-center gap-2">
 			<div className="flex size-10 items-center justify-center rounded-full bg-primary/10">
@@ -53,7 +57,11 @@ const CheckoutButton = ({
 	label,
 	href,
 	icon: Icon,
-}: { label: string; href: string; icon: LucideIcon }) => (
+}: {
+	label: string;
+	href: string;
+	icon: LucideIcon;
+}) => (
 	<Button className="w-full gap-2 shadow-lg" size="lg" asChild>
 		<Link href={href}>
 			{label}

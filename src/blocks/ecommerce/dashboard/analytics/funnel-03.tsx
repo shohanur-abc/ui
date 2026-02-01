@@ -27,8 +27,12 @@ export default function Main() {
 					<CardHeader className="pb-2">
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-sm font-medium">Funnel Comparison</CardTitle>
-								<p className="text-xs text-muted-foreground">Current vs Previous Period</p>
+								<CardTitle className="text-sm font-medium">
+									Funnel Comparison
+								</CardTitle>
+								<p className="text-xs text-muted-foreground">
+									Current vs Previous Period
+								</p>
 							</div>
 							<div className="flex items-center gap-4 text-xs">
 								<div className="flex items-center gap-2">
@@ -47,18 +51,26 @@ export default function Main() {
 							{steps.map((step, i) => {
 								const currentWidth = (step.current / maxValue) * 100;
 								const previousWidth = (step.previous / maxValue) * 100;
-								const change = ((step.current - step.previous) / step.previous * 100).toFixed(1);
+								const change = (
+									((step.current - step.previous) / step.previous) *
+									100
+								).toFixed(1);
 								const isPositive = step.current > step.previous;
-								
+
 								return (
 									<div key={i}>
 										<div className="flex items-center justify-between mb-1">
 											<span className="text-sm font-medium">{step.label}</span>
 											<Badge
 												variant="outline"
-												className={isPositive ? 'text-emerald-500 border-emerald-500/30' : 'text-rose-500 border-rose-500/30'}
+												className={
+													isPositive
+														? 'text-emerald-500 border-emerald-500/30'
+														: 'text-rose-500 border-rose-500/30'
+												}
 											>
-												{isPositive ? '+' : ''}{change}%
+												{isPositive ? '+' : ''}
+												{change}%
 											</Badge>
 										</div>
 										<div className="space-y-1">
@@ -69,7 +81,9 @@ export default function Main() {
 														style={{ width: `${currentWidth}%` }}
 													/>
 												</div>
-												<span className="text-xs w-16 text-right">{step.current.toLocaleString()}</span>
+												<span className="text-xs w-16 text-right">
+													{step.current.toLocaleString()}
+												</span>
 											</div>
 											<div className="flex items-center gap-2">
 												<div className="h-5 bg-muted/30 rounded-sm overflow-hidden flex-1">
@@ -78,7 +92,9 @@ export default function Main() {
 														style={{ width: `${previousWidth}%` }}
 													/>
 												</div>
-												<span className="text-xs w-16 text-right text-muted-foreground">{step.previous.toLocaleString()}</span>
+												<span className="text-xs w-16 text-right text-muted-foreground">
+													{step.previous.toLocaleString()}
+												</span>
 											</div>
 										</div>
 									</div>

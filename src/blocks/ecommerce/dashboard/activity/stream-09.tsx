@@ -70,8 +70,10 @@ const StatusCodeBadge = ({ code }: { code?: number }) => {
 	if (!code) return null;
 
 	const getClass = () => {
-		if (code >= 200 && code < 300) return 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30';
-		if (code >= 400 && code < 500) return 'bg-amber-500/20 text-amber-400 border-amber-500/30';
+		if (code >= 200 && code < 300)
+			return 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30';
+		if (code >= 400 && code < 500)
+			return 'bg-amber-500/20 text-amber-400 border-amber-500/30';
 		if (code >= 500) return 'bg-rose-500/20 text-rose-400 border-rose-500/30';
 		return 'bg-muted text-muted-foreground border-border';
 	};
@@ -174,7 +176,9 @@ const WebhookStats = ({ stats }: { stats: WebhookStreamProps['stats'] }) => (
 	<div className="grid grid-cols-4 gap-3">
 		<div className="flex flex-col p-3 rounded-lg bg-muted/30 border border-border/50">
 			<Webhook className="size-4 text-primary mb-1" />
-			<span className="text-xl font-bold text-foreground">{stats.totalToday}</span>
+			<span className="text-xl font-bold text-foreground">
+				{stats.totalToday}
+			</span>
 			<span className="text-xs text-muted-foreground">Today</span>
 		</div>
 		<div className="flex flex-col p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
@@ -186,7 +190,9 @@ const WebhookStats = ({ stats }: { stats: WebhookStreamProps['stats'] }) => (
 		</div>
 		<div className="flex flex-col p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
 			<Clock className="size-4 text-blue-400 mb-1" />
-			<span className="text-xl font-bold text-blue-400">{stats.avgLatency}</span>
+			<span className="text-xl font-bold text-blue-400">
+				{stats.avgLatency}
+			</span>
 			<span className="text-xs text-muted-foreground">Avg Latency</span>
 		</div>
 		<div className="flex flex-col p-3 rounded-lg bg-rose-500/10 border border-rose-500/20">
@@ -263,7 +269,8 @@ export default function Main() {
 			status: 'failed',
 			statusCode: 500,
 			latency: '2.3s',
-			payload: '{"payment_id": "pay_456", "amount": 89.99, "error": "declined"}',
+			payload:
+				'{"payment_id": "pay_456", "amount": 89.99, "error": "declined"}',
 			response: 'Internal Server Error: Database connection timeout',
 			timestamp: '5m ago',
 		},

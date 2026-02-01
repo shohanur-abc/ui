@@ -1,14 +1,35 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Gift, Crown, Sparkles, Star, Check } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Gift,
+	Crown,
+	Sparkles,
+	Star,
+	Check,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-yellow-600">
 			<Icon className="size-5 text-white" />
@@ -61,7 +82,12 @@ const SubmitButton = ({
 	icon?: React.ElementType;
 	variant?: 'default' | 'secondary';
 }) => (
-	<Button type="submit" size="lg" variant={variant} className="w-full gap-2 group">
+	<Button
+		type="submit"
+		size="lg"
+		variant={variant}
+		className="w-full gap-2 group"
+	>
 		{label}
 		{Icon && (
 			<Icon className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -91,8 +117,20 @@ const StandardSignUp = () => {
 				</div>
 			</div>
 			<form className="space-y-4">
-				<FormField id="standard-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-				<FormField id="standard-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+				<FormField
+					id="standard-email"
+					label="Email"
+					type="email"
+					placeholder="you@example.com"
+					icon={Mail}
+				/>
+				<FormField
+					id="standard-password"
+					label="Password"
+					type="password"
+					placeholder="••••••••"
+					icon={Lock}
+				/>
 				<SubmitButton label="Join Free" icon={ArrowRight} />
 			</form>
 		</div>
@@ -123,8 +161,20 @@ const PremiumSignUp = () => {
 				</div>
 			</div>
 			<form className="space-y-4">
-				<FormField id="premium-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-				<FormField id="premium-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+				<FormField
+					id="premium-email"
+					label="Email"
+					type="email"
+					placeholder="you@example.com"
+					icon={Mail}
+				/>
+				<FormField
+					id="premium-password"
+					label="Password"
+					type="password"
+					placeholder="••••••••"
+					icon={Lock}
+				/>
 				<SubmitButton label="Start Premium Trial" icon={Sparkles} />
 			</form>
 		</div>

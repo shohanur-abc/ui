@@ -40,7 +40,12 @@ type ChannelSummaryProps = {
 	change: string;
 };
 
-const ChannelSummary = ({ channel, color, value, change }: ChannelSummaryProps) => (
+const ChannelSummary = ({
+	channel,
+	color,
+	value,
+	change,
+}: ChannelSummaryProps) => (
 	<div className="flex items-center justify-between rounded-lg border border-border/50 p-3">
 		<div className="flex items-center gap-2">
 			<div className={`size-2.5 rounded-full ${color}`} />
@@ -74,10 +79,30 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const channels: ChannelSummaryProps[] = [
-		{ channel: 'Organic', color: 'bg-[oklch(0.7_0.18_160)]', value: '$142.5K', change: '+18.2%' },
-		{ channel: 'Paid Ads', color: 'bg-[oklch(0.7_0.2_280)]', value: '$98.4K', change: '+12.5%' },
-		{ channel: 'Social', color: 'bg-[oklch(0.65_0.2_320)]', value: '$67.2K', change: '+24.8%' },
-		{ channel: 'Email', color: 'bg-[oklch(0.72_0.16_200)]', value: '$45.8K', change: '+8.3%' },
+		{
+			channel: 'Organic',
+			color: 'bg-[oklch(0.7_0.18_160)]',
+			value: '$142.5K',
+			change: '+18.2%',
+		},
+		{
+			channel: 'Paid Ads',
+			color: 'bg-[oklch(0.7_0.2_280)]',
+			value: '$98.4K',
+			change: '+12.5%',
+		},
+		{
+			channel: 'Social',
+			color: 'bg-[oklch(0.65_0.2_320)]',
+			value: '$67.2K',
+			change: '+24.8%',
+		},
+		{
+			channel: 'Email',
+			color: 'bg-[oklch(0.72_0.16_200)]',
+			value: '$45.8K',
+			change: '+8.3%',
+		},
 	];
 
 	const chartData: ChannelData[] = [

@@ -137,7 +137,12 @@ const CTA = ({ items }: CTAProps) => (
 
 export default function Main() {
 	const orderItems: OrderItemProps[] = [
-		{ name: 'Wireless Bluetooth Headphones', quantity: 1, price: 199.99, currency: '$' },
+		{
+			name: 'Wireless Bluetooth Headphones',
+			quantity: 1,
+			price: 199.99,
+			currency: '$',
+		},
 		{ name: 'USB-C Fast Charger', quantity: 2, price: 29.99, currency: '$' },
 	];
 
@@ -167,11 +172,7 @@ export default function Main() {
 					/>
 				</div>
 
-				<OrderItemsCard
-					items={orderItems}
-					total={259.97}
-					currency="$"
-				/>
+				<OrderItemsCard items={orderItems} total={259.97} currency="$" />
 
 				<Card className="bg-muted/30">
 					<CardContent className="pt-6">

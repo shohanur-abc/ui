@@ -63,7 +63,9 @@ const MembershipCard = ({
 			<div className="pt-4">
 				<p className="text-sm text-white/70">Available Points</p>
 				<div className="flex items-baseline gap-2">
-					<span className="text-3xl font-bold text-white">{points.toLocaleString()}</span>
+					<span className="text-3xl font-bold text-white">
+						{points.toLocaleString()}
+					</span>
 					<span className="text-sm text-white/70">≈ {pointsValue}</span>
 				</div>
 			</div>
@@ -74,7 +76,12 @@ const MembershipCard = ({
 const BenefitsList = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; value: string; active: boolean }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		active: boolean;
+	}[];
 }) => (
 	<div className="space-y-2">
 		{items.map((benefit, i) => (
@@ -83,10 +90,14 @@ const BenefitsList = ({
 				className={`flex items-center justify-between p-3 rounded-lg ${benefit.active ? 'bg-primary/10' : 'bg-muted/30'}`}
 			>
 				<div className="flex items-center gap-3">
-					<benefit.icon className={`size-4 ${benefit.active ? 'text-primary' : 'text-muted-foreground'}`} />
+					<benefit.icon
+						className={`size-4 ${benefit.active ? 'text-primary' : 'text-muted-foreground'}`}
+					/>
 					<span className="text-sm">{benefit.label}</span>
 				</div>
-				<span className={`text-sm font-medium ${benefit.active ? 'text-primary' : 'text-muted-foreground'}`}>
+				<span
+					className={`text-sm font-medium ${benefit.active ? 'text-primary' : 'text-muted-foreground'}`}
+				>
 					{benefit.value}
 				</span>
 			</div>
@@ -114,7 +125,8 @@ const TierProgress = ({
 			</div>
 			<Progress value={progress} className="h-2" />
 			<p className="text-xs text-muted-foreground text-center">
-				Spend ${(requiredSpend - currentSpend).toLocaleString()} more to reach {nextTier}
+				Spend ${(requiredSpend - currentSpend).toLocaleString()} more to reach{' '}
+				{nextTier}
 			</p>
 		</div>
 	);
@@ -123,12 +135,21 @@ const TierProgress = ({
 const EarningOpportunities = ({
 	items,
 }: {
-	items: { icon: React.ElementType; title: string; reward: string; action: string; href: string }[];
+	items: {
+		icon: React.ElementType;
+		title: string;
+		reward: string;
+		action: string;
+		href: string;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<h3 className="font-medium">Earn More Points</h3>
 		{items.map((item, i) => (
-			<div key={i} className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/30 transition-colors">
+			<div
+				key={i}
+				className="flex items-center gap-3 p-3 rounded-lg border hover:bg-muted/30 transition-colors"
+			>
 				<div className="p-2 rounded-lg bg-primary/10">
 					<item.icon className="size-4 text-primary" />
 				</div>
@@ -160,11 +181,31 @@ export default function Main() {
 			pointsValue: '$124.50',
 		},
 		benefits: [
-			{ icon: Percent, label: 'Member Discount', value: '10% off', active: true },
-			{ icon: Truck, label: 'Free Shipping', value: 'Orders $50+', active: true },
+			{
+				icon: Percent,
+				label: 'Member Discount',
+				value: '10% off',
+				active: true,
+			},
+			{
+				icon: Truck,
+				label: 'Free Shipping',
+				value: 'Orders $50+',
+				active: true,
+			},
 			{ icon: Gift, label: 'Birthday Bonus', value: '2x Points', active: true },
-			{ icon: Tag, label: 'Early Access', value: 'Sales & Drops', active: true },
-			{ icon: CreditCard, label: 'Exclusive Offers', value: 'Monthly', active: false },
+			{
+				icon: Tag,
+				label: 'Early Access',
+				value: 'Sales & Drops',
+				active: true,
+			},
+			{
+				icon: CreditCard,
+				label: 'Exclusive Offers',
+				value: 'Monthly',
+				active: false,
+			},
 		],
 		tierProgress: {
 			currentTier: 'Gold',
@@ -173,9 +214,27 @@ export default function Main() {
 			requiredSpend: 5000,
 		},
 		opportunities: [
-			{ icon: Star, title: 'Write a Review', reward: '+50 points per review', action: 'Review', href: '/reviews' },
-			{ icon: Heart, title: 'Refer a Friend', reward: '+500 points each', action: 'Invite', href: '/referral' },
-			{ icon: BarChart3, title: 'Complete Profile', reward: '+100 points', action: 'Update', href: '/profile/edit' },
+			{
+				icon: Star,
+				title: 'Write a Review',
+				reward: '+50 points per review',
+				action: 'Review',
+				href: '/reviews',
+			},
+			{
+				icon: Heart,
+				title: 'Refer a Friend',
+				reward: '+500 points each',
+				action: 'Invite',
+				href: '/referral',
+			},
+			{
+				icon: BarChart3,
+				title: 'Complete Profile',
+				reward: '+100 points',
+				action: 'Update',
+				href: '/profile/edit',
+			},
 		],
 	};
 
@@ -207,11 +266,20 @@ export default function Main() {
 }
 
 const Truck = ({ className }: { className?: string }) => (
-	<svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-		<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
-		<path d="M15 18H9"/>
-		<path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
-		<circle cx="17" cy="18" r="2"/>
-		<circle cx="7" cy="18" r="2"/>
+	<svg
+		className={className}
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		strokeWidth="2"
+		strokeLinecap="round"
+		strokeLinejoin="round"
+	>
+		<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+		<path d="M15 18H9" />
+		<path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+		<circle cx="17" cy="18" r="2" />
+		<circle cx="7" cy="18" r="2" />
 	</svg>
 );

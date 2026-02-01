@@ -22,7 +22,13 @@ interface SummaryLine {
 	highlight?: boolean;
 }
 
-const PageHeader = ({ title, itemCount }: { title: string; itemCount: number }) => (
+const PageHeader = ({
+	title,
+	itemCount,
+}: {
+	title: string;
+	itemCount: number;
+}) => (
 	<div className="flex items-center justify-between">
 		<div className="flex items-center gap-3">
 			<ShoppingBag className="size-6 text-primary" />
@@ -70,7 +76,13 @@ const QuantitySelector = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const ItemPrice = ({ price, quantity }: { price: number; quantity: number }) => (
+const ItemPrice = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => (
 	<div className="text-right">
 		<p className="font-semibold">${(price * quantity).toFixed(2)}</p>
 		<p className="text-xs text-muted-foreground">${price.toFixed(2)} each</p>
@@ -78,7 +90,11 @@ const ItemPrice = ({ price, quantity }: { price: number; quantity: number }) => 
 );
 
 const RemoveItemButton = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<Trash2 className="size-4" />
 	</Button>
 );
@@ -88,7 +104,11 @@ const CartItemRow = ({ item }: { item: CartItem }) => (
 		<CartItemImage src={item.image} alt={item.name} />
 		<div className="flex min-w-0 flex-1 flex-col gap-3">
 			<div className="flex items-start justify-between gap-2">
-				<CartItemDetails name={item.name} variant={item.variant} inStock={item.inStock} />
+				<CartItemDetails
+					name={item.name}
+					variant={item.variant}
+					inStock={item.inStock}
+				/>
 				<RemoveItemButton />
 			</div>
 			<div className="flex items-center justify-between gap-2">
@@ -100,7 +120,9 @@ const CartItemRow = ({ item }: { item: CartItem }) => (
 );
 
 const SummaryRow = ({ label, value, highlight }: SummaryLine) => (
-	<div className={`flex justify-between ${highlight ? 'text-lg font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${highlight ? 'text-lg font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={highlight ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -138,7 +160,15 @@ const OrderSummary = ({
 	</Card>
 );
 
-const EmptyCart = ({ message, ctaLabel, ctaHref }: { message: string; ctaLabel: string; ctaHref: string }) => (
+const EmptyCart = ({
+	message,
+	ctaLabel,
+	ctaHref,
+}: {
+	message: string;
+	ctaLabel: string;
+	ctaHref: string;
+}) => (
 	<div className="flex flex-col items-center justify-center py-16 text-center">
 		<ShoppingBag className="mb-4 size-16 text-muted-foreground/50" />
 		<p className="mb-6 text-lg text-muted-foreground">{message}</p>
@@ -152,7 +182,8 @@ export default function Main() {
 	const cartItems: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Premium Running Sneakers',
 			variant: 'Size: 10 / Color: Red',
 			price: 189.99,
@@ -161,7 +192,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 			name: 'Classic Wristwatch',
 			variant: 'Band: Leather / Gold',
 			price: 299.99,
@@ -170,7 +202,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 			name: 'Wireless Noise-Canceling Headphones',
 			variant: 'Color: Matte Black',
 			price: 349.99,
@@ -196,7 +229,9 @@ export default function Main() {
 						<Card>
 							<CardContent className="divide-y p-4 @sm:p-6">
 								{cartItems.length > 0 ? (
-									cartItems.map((item) => <CartItemRow key={item.id} item={item} />)
+									cartItems.map((item) => (
+										<CartItemRow key={item.id} item={item} />
+									))
 								) : (
 									<EmptyCart
 										message="Your cart is empty"

@@ -1,11 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -63,7 +59,9 @@ const MonthlyStats = ({
 			<div key={i} className="p-3 rounded-lg bg-muted/30 space-y-1">
 				<p className="text-xs text-muted-foreground">{stat.label}</p>
 				<p className="text-xl font-bold">{stat.value}</p>
-				<div className={`flex items-center gap-1 text-xs ${stat.positive ? 'text-green-500' : 'text-red-500'}`}>
+				<div
+					className={`flex items-center gap-1 text-xs ${stat.positive ? 'text-green-500' : 'text-red-500'}`}
+				>
 					<TrendingUp className={`size-3 ${!stat.positive && 'rotate-180'}`} />
 					{stat.change}
 				</div>
@@ -103,7 +101,7 @@ const ActivityGraph = ({
 }: {
 	data: { day: string; value: number }[];
 }) => {
-	const max = Math.max(...data.map(d => d.value));
+	const max = Math.max(...data.map((d) => d.value));
 	return (
 		<div className="space-y-3">
 			<h3 className="text-sm font-medium">Weekly Activity</h3>
@@ -112,7 +110,10 @@ const ActivityGraph = ({
 					<div key={i} className="flex-1 flex flex-col items-center gap-1">
 						<div
 							className="w-full bg-primary/20 rounded-sm hover:bg-primary/40 transition-colors"
-							style={{ height: `${(item.value / max) * 100}%`, minHeight: '4px' }}
+							style={{
+								height: `${(item.value / max) * 100}%`,
+								minHeight: '4px',
+							}}
 						/>
 						<span className="text-xs text-muted-foreground">{item.day}</span>
 					</div>
@@ -125,7 +126,12 @@ const ActivityGraph = ({
 const Milestones = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; current: number; target: number }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		current: number;
+		target: number;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<h3 className="text-sm font-medium">Milestones</h3>
@@ -138,9 +144,14 @@ const Milestones = ({
 					<div className="flex-1 space-y-1">
 						<div className="flex justify-between text-sm">
 							<span>{milestone.label}</span>
-							<span className="text-muted-foreground">{milestone.current}/{milestone.target}</span>
+							<span className="text-muted-foreground">
+								{milestone.current}/{milestone.target}
+							</span>
 						</div>
-						<Progress value={(milestone.current / milestone.target) * 100} className="h-1.5" />
+						<Progress
+							value={(milestone.current / milestone.target) * 100}
+							className="h-1.5"
+						/>
 					</div>
 				</div>
 			))}
@@ -180,7 +191,12 @@ export default function Main() {
 			{ day: 'S', value: 6 },
 		],
 		milestones: [
-			{ icon: ShoppingBag, label: 'Complete 100 Orders', current: 78, target: 100 },
+			{
+				icon: ShoppingBag,
+				label: 'Complete 100 Orders',
+				current: 78,
+				target: 100,
+			},
 			{ icon: Star, label: 'Write 50 Reviews', current: 32, target: 50 },
 			{ icon: Heart, label: 'Add 25 to Wishlist', current: 25, target: 25 },
 		],

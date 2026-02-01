@@ -103,7 +103,9 @@ const ErrorEntry = ({ error }: { error: ErrorLog }) => {
 						) : (
 							<AlertCircle
 								className={`size-5 ${
-									error.severity === 'error' ? 'text-orange-400' : 'text-amber-400'
+									error.severity === 'error'
+										? 'text-orange-400'
+										: 'text-amber-400'
 								}`}
 							/>
 						)}

@@ -52,7 +52,13 @@ interface CustomerReturn {
 	orderNumber: string;
 	product: string;
 	reason: string;
-	status: 'pending' | 'approved' | 'shipped' | 'received' | 'refunded' | 'rejected';
+	status:
+		| 'pending'
+		| 'approved'
+		| 'shipped'
+		| 'received'
+		| 'refunded'
+		| 'rejected';
 	refundAmount: string;
 	refundMethod: 'original' | 'store_credit' | 'exchange';
 	requestDate: string;
@@ -62,7 +68,13 @@ interface CustomerReturn {
 const ReturnMetrics = ({
 	metrics,
 }: {
-	metrics: { title: string; value: string; change: string; changeType: 'up' | 'down'; icon: React.ElementType }[];
+	metrics: {
+		title: string;
+		value: string;
+		change: string;
+		changeType: 'up' | 'down';
+		icon: React.ElementType;
+	}[];
 }) => (
 	<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 		{metrics.map((metric, i) => (
@@ -112,11 +124,7 @@ const TabHeader = ({
 	</div>
 );
 
-const SearchBar = ({
-	searchPlaceholder,
-}: {
-	searchPlaceholder: string;
-}) => (
+const SearchBar = ({ searchPlaceholder }: { searchPlaceholder: string }) => (
 	<div className="flex flex-col gap-3 border-b px-6 py-4 @lg:flex-row @lg:items-center @lg:justify-between">
 		<div className="relative">
 			<Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
@@ -148,12 +156,36 @@ const SearchBar = ({
 
 const StatusBadge = ({ status }: { status: CustomerReturn['status'] }) => {
 	const config = {
-		pending: { label: 'Pending', icon: Clock, className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		approved: { label: 'Approved', icon: RefreshCw, className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
-		shipped: { label: 'Shipped', icon: Truck, className: 'bg-violet-500/10 text-violet-500 border-violet-500/20' },
-		received: { label: 'Received', icon: Package, className: 'bg-cyan-500/10 text-cyan-500 border-cyan-500/20' },
-		refunded: { label: 'Refunded', icon: DollarSign, className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		rejected: { label: 'Rejected', icon: XCircle, className: 'bg-red-500/10 text-red-500 border-red-500/20' },
+		pending: {
+			label: 'Pending',
+			icon: Clock,
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		approved: {
+			label: 'Approved',
+			icon: RefreshCw,
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
+		shipped: {
+			label: 'Shipped',
+			icon: Truck,
+			className: 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+		},
+		received: {
+			label: 'Received',
+			icon: Package,
+			className: 'bg-cyan-500/10 text-cyan-500 border-cyan-500/20',
+		},
+		refunded: {
+			label: 'Refunded',
+			icon: DollarSign,
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		rejected: {
+			label: 'Rejected',
+			icon: XCircle,
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
 	};
 	const Icon = config[status].icon;
 	return (
@@ -166,9 +198,18 @@ const StatusBadge = ({ status }: { status: CustomerReturn['status'] }) => {
 
 const TypeBadge = ({ type }: { type: CustomerReturn['type'] }) => {
 	const config = {
-		return: { label: 'Return', className: 'bg-slate-500/10 text-slate-400 border-slate-500/20' },
-		exchange: { label: 'Exchange', className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
-		refund: { label: 'Refund', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
+		return: {
+			label: 'Return',
+			className: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
+		},
+		exchange: {
+			label: 'Exchange',
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
+		refund: {
+			label: 'Refund',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[type].className}>
@@ -177,7 +218,11 @@ const TypeBadge = ({ type }: { type: CustomerReturn['type'] }) => {
 	);
 };
 
-const RefundMethodBadge = ({ method }: { method: CustomerReturn['refundMethod'] }) => {
+const RefundMethodBadge = ({
+	method,
+}: {
+	method: CustomerReturn['refundMethod'];
+}) => {
 	const labels = {
 		original: 'Original Payment',
 		store_credit: 'Store Credit',
@@ -210,7 +255,9 @@ const ReturnRow = ({ item }: { item: CustomerReturn }) => (
 		<TableCell>
 			<div>
 				<p className="font-medium text-sm">#{item.orderNumber}</p>
-				<p className="text-muted-foreground max-w-[120px] truncate text-xs">{item.product}</p>
+				<p className="text-muted-foreground max-w-[120px] truncate text-xs">
+					{item.product}
+				</p>
 			</div>
 		</TableCell>
 		<TableCell className="hidden @md:table-cell">
@@ -222,7 +269,9 @@ const ReturnRow = ({ item }: { item: CustomerReturn }) => (
 		<TableCell className="hidden @lg:table-cell">
 			<p className="max-w-[120px] truncate text-sm">{item.reason}</p>
 		</TableCell>
-		<TableCell className="hidden @xl:table-cell font-semibold">{item.refundAmount}</TableCell>
+		<TableCell className="hidden @xl:table-cell font-semibold">
+			{item.refundAmount}
+		</TableCell>
 		<TableCell className="hidden @xl:table-cell">
 			<RefundMethodBadge method={item.refundMethod} />
 		</TableCell>
@@ -270,10 +319,34 @@ const ReturnRow = ({ item }: { item: CustomerReturn }) => (
 
 export default function Main() {
 	const metrics = [
-		{ title: 'Total Returns', value: '234', change: '+8% this month', changeType: 'up' as const, icon: RotateCcw },
-		{ title: 'Pending Approval', value: '18', change: '-3 from last week', changeType: 'down' as const, icon: Clock },
-		{ title: 'Total Refunded', value: '$12.4K', change: '+12% this month', changeType: 'up' as const, icon: DollarSign },
-		{ title: 'Return Rate', value: '3.2%', change: '-0.5% this month', changeType: 'down' as const, icon: RefreshCw },
+		{
+			title: 'Total Returns',
+			value: '234',
+			change: '+8% this month',
+			changeType: 'up' as const,
+			icon: RotateCcw,
+		},
+		{
+			title: 'Pending Approval',
+			value: '18',
+			change: '-3 from last week',
+			changeType: 'down' as const,
+			icon: Clock,
+		},
+		{
+			title: 'Total Refunded',
+			value: '$12.4K',
+			change: '+12% this month',
+			changeType: 'up' as const,
+			icon: DollarSign,
+		},
+		{
+			title: 'Return Rate',
+			value: '3.2%',
+			change: '-0.5% this month',
+			changeType: 'down' as const,
+			icon: RefreshCw,
+		},
 	];
 
 	const tabs = [
@@ -286,7 +359,11 @@ export default function Main() {
 	const returns: CustomerReturn[] = [
 		{
 			id: '1',
-			customer: { name: 'Alice Morgan', email: 'alice.m@email.com', initials: 'AM' },
+			customer: {
+				name: 'Alice Morgan',
+				email: 'alice.m@email.com',
+				initials: 'AM',
+			},
 			orderNumber: 'ORD-2024-001',
 			product: 'Wireless Bluetooth Headphones',
 			reason: 'Defective product',
@@ -298,7 +375,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'Bob Wilson', email: 'bob.w@email.com', initials: 'BW' },
+			customer: {
+				name: 'Bob Wilson',
+				email: 'bob.w@email.com',
+				initials: 'BW',
+			},
 			orderNumber: 'ORD-2024-002',
 			product: 'Smart Watch Series 5',
 			reason: 'Wrong size',
@@ -310,7 +391,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Carol Davis', email: 'carol.d@email.com', initials: 'CD' },
+			customer: {
+				name: 'Carol Davis',
+				email: 'carol.d@email.com',
+				initials: 'CD',
+			},
 			orderNumber: 'ORD-2024-003',
 			product: 'Running Shoes Pro',
 			reason: 'Changed mind',
@@ -322,7 +407,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'David Lee', email: 'david.l@email.com', initials: 'DL' },
+			customer: {
+				name: 'David Lee',
+				email: 'david.l@email.com',
+				initials: 'DL',
+			},
 			orderNumber: 'ORD-2024-004',
 			product: 'Laptop Stand Adjustable',
 			reason: 'Not as described',
@@ -334,7 +423,11 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Emma Thompson', email: 'emma.t@email.com', initials: 'ET' },
+			customer: {
+				name: 'Emma Thompson',
+				email: 'emma.t@email.com',
+				initials: 'ET',
+			},
 			orderNumber: 'ORD-2024-005',
 			product: 'Mechanical Keyboard RGB',
 			reason: 'Received damaged',
@@ -350,7 +443,9 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
 				<div>
-					<h1 className="text-2xl font-bold tracking-tight">Returns & Refunds</h1>
+					<h1 className="text-2xl font-bold tracking-tight">
+						Returns & Refunds
+					</h1>
 					<p className="text-muted-foreground text-sm">
 						Manage customer returns, exchanges, and refund requests
 					</p>
@@ -371,12 +466,24 @@ export default function Main() {
 										</TableHead>
 										<TableHead>Customer</TableHead>
 										<TableHead>Order</TableHead>
-										<TableHead className="hidden @md:table-cell">Type</TableHead>
-										<TableHead className="hidden @lg:table-cell">Status</TableHead>
-										<TableHead className="hidden @lg:table-cell">Reason</TableHead>
-										<TableHead className="hidden @xl:table-cell">Amount</TableHead>
-										<TableHead className="hidden @xl:table-cell">Method</TableHead>
-										<TableHead className="hidden @2xl:table-cell">Requested</TableHead>
+										<TableHead className="hidden @md:table-cell">
+											Type
+										</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Status
+										</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Reason
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Amount
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Method
+										</TableHead>
+										<TableHead className="hidden @2xl:table-cell">
+											Requested
+										</TableHead>
 										<TableHead className="w-12" />
 									</TableRow>
 								</TableHeader>

@@ -3,7 +3,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-type RankedBarData = { rank: number; label: string; value: number; change: number };
+type RankedBarData = {
+	rank: number;
+	label: string;
+	value: number;
+	change: number;
+};
 
 const RankedBarChart = ({ data }: { data: RankedBarData[] }) => {
 	const max = Math.max(...data.map((d) => d.value));
@@ -14,17 +19,24 @@ const RankedBarChart = ({ data }: { data: RankedBarData[] }) => {
 				const width = (item.value / max) * 100;
 				return (
 					<div key={i} className="flex items-center gap-3">
-						<span className="w-6 text-sm font-bold text-muted-foreground">#{item.rank}</span>
+						<span className="w-6 text-sm font-bold text-muted-foreground">
+							#{item.rank}
+						</span>
 						<div className="flex-1 flex flex-col gap-1">
 							<div className="flex items-center justify-between">
-								<span className="text-sm font-medium truncate">{item.label}</span>
+								<span className="text-sm font-medium truncate">
+									{item.label}
+								</span>
 								<div className="flex items-center gap-2">
-									<span className="text-sm font-bold">${item.value.toLocaleString()}</span>
+									<span className="text-sm font-bold">
+										${item.value.toLocaleString()}
+									</span>
 									<Badge
 										variant="outline"
 										className={`text-xs ${item.change >= 0 ? 'text-emerald-500 border-emerald-500/30' : 'text-rose-500 border-rose-500/30'}`}
 									>
-										{item.change >= 0 ? '+' : ''}{item.change}%
+										{item.change >= 0 ? '+' : ''}
+										{item.change}%
 									</Badge>
 								</div>
 							</div>
@@ -56,8 +68,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Top Products by Revenue</CardTitle>
-						<p className="text-xs text-muted-foreground">Best performing products this month</p>
+						<CardTitle className="text-sm font-medium">
+							Top Products by Revenue
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Best performing products this month
+						</p>
 					</CardHeader>
 					<CardContent>
 						<RankedBarChart data={topProducts} />

@@ -14,7 +14,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	DropdownMenu,
@@ -42,10 +47,30 @@ interface ReferralCustomer {
 }
 
 const TierConfig = {
-	bronze: { label: 'Bronze', color: 'text-amber-700', bg: 'bg-amber-700/10', minRefs: 0 },
-	silver: { label: 'Silver', color: 'text-slate-400', bg: 'bg-slate-400/10', minRefs: 5 },
-	gold: { label: 'Gold', color: 'text-amber-500', bg: 'bg-amber-500/10', minRefs: 15 },
-	platinum: { label: 'Platinum', color: 'text-violet-500', bg: 'bg-violet-500/10', minRefs: 30 },
+	bronze: {
+		label: 'Bronze',
+		color: 'text-amber-700',
+		bg: 'bg-amber-700/10',
+		minRefs: 0,
+	},
+	silver: {
+		label: 'Silver',
+		color: 'text-slate-400',
+		bg: 'bg-slate-400/10',
+		minRefs: 5,
+	},
+	gold: {
+		label: 'Gold',
+		color: 'text-amber-500',
+		bg: 'bg-amber-500/10',
+		minRefs: 15,
+	},
+	platinum: {
+		label: 'Platinum',
+		color: 'text-violet-500',
+		bg: 'bg-violet-500/10',
+		minRefs: 30,
+	},
 };
 
 const PageHeader = ({
@@ -69,7 +94,10 @@ const PageHeader = ({
 const TierBadge = ({ tier }: { tier: ReferralCustomer['tier'] }) => {
 	const config = TierConfig[tier];
 	return (
-		<Badge variant="outline" className={`${config.color} border-current/20 gap-1`}>
+		<Badge
+			variant="outline"
+			className={`${config.color} border-current/20 gap-1`}
+		>
 			<Trophy className="size-3" />
 			{config.label}
 		</Badge>
@@ -159,7 +187,11 @@ const ReferralCard = ({ customer }: { customer: ReferralCustomer }) => (
 				</div>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100">
+						<Button
+							variant="ghost"
+							size="icon-sm"
+							className="opacity-0 group-hover:opacity-100"
+						>
 							<MoreHorizontal className="size-4" />
 						</Button>
 					</DropdownMenuTrigger>
@@ -183,7 +215,10 @@ const ReferralCard = ({ customer }: { customer: ReferralCustomer }) => (
 			</div>
 			<ReferralCodeDisplay code={customer.referralCode} />
 			<ConversionRateBar rate={customer.conversionRate} />
-			<EarningsDisplay total={customer.totalEarnings} pending={customer.pendingEarnings} />
+			<EarningsDisplay
+				total={customer.totalEarnings}
+				pending={customer.pendingEarnings}
+			/>
 			<div className="flex flex-wrap gap-1">
 				<p className="text-muted-foreground mr-1 text-xs">Top products:</p>
 				{customer.topReferredProducts.map((product) => (

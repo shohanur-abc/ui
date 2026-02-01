@@ -247,7 +247,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'Preview Email', href: '/preview', icon: Mail },
-						{ label: 'Edit Gift', href: '/edit', variant: 'outline', icon: Edit3 },
+						{
+							label: 'Edit Gift',
+							href: '/edit',
+							variant: 'outline',
+							icon: Edit3,
+						},
 					]}
 				/>
 			</div>

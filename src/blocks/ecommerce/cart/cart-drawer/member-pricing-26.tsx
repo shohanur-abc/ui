@@ -39,13 +39,7 @@ interface CartDrawerProps {
 	membership: MembershipInfo;
 }
 
-const MemberTrigger = ({
-	count,
-	tier,
-}: {
-	count: number;
-	tier: string;
-}) => (
+const MemberTrigger = ({ count, tier }: { count: number; tier: string }) => (
 	<Button variant="outline" size="icon" className="relative">
 		<ShoppingBag className="size-4" />
 		{count > 0 && (
@@ -88,7 +82,9 @@ const MembershipBanner = ({
 		<div className="mt-2 h-1.5 rounded-full bg-muted">
 			<div
 				className="h-full rounded-full bg-gradient-to-r from-yellow-500 to-amber-500"
-				style={{ width: `${(membership.pointsEarned / (membership.pointsEarned + membership.pointsToNextTier)) * 100}%` }}
+				style={{
+					width: `${(membership.pointsEarned / (membership.pointsEarned + membership.pointsToNextTier)) * 100}%`,
+				}}
 			/>
 		</div>
 		<p className="mt-1 text-xs text-muted-foreground">
@@ -186,7 +182,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Premium Watch',
 				originalPrice: 299.99,
 				memberPrice: 254.99,
@@ -194,7 +191,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds Pro',
 				originalPrice: 199.99,
 				memberPrice: 169.99,
@@ -217,7 +215,10 @@ export default function Main() {
 		(sum, item) => sum + item.memberPrice * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

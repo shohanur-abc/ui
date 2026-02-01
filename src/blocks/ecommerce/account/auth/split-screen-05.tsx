@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Lock, ArrowRight, Store, Truck, Shield, CreditCard } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Store,
+	Truck,
+	Shield,
+	CreditCard,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,17 +23,15 @@ const StatsPanel = ({
 	stats: Array<{ value: string; label: string }>;
 }) => (
 	<div className="relative hidden @lg:flex flex-col justify-between p-8 @xl:p-12">
-		<Image
-			src={imageUrl}
-			alt="Store"
-			fill
-			className="object-cover"
-		/>
+		<Image src={imageUrl} alt="Store" fill className="object-cover" />
 		<div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
 		<div className="relative z-10 mt-auto">
 			<div className="grid grid-cols-2 gap-6">
 				{stats.map((stat, i) => (
-					<div key={i} className="text-center p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border/50">
+					<div
+						key={i}
+						className="text-center p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border/50"
+					>
 						<div className="text-3xl font-bold text-primary">{stat.value}</div>
 						<div className="text-sm text-muted-foreground">{stat.label}</div>
 					</div>
@@ -35,7 +41,13 @@ const StatsPanel = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -46,7 +58,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-6">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -58,7 +72,10 @@ const TrustBadges = ({
 }) => (
 	<div className="flex flex-wrap gap-4 mb-8">
 		{items.map((item, i) => (
-			<div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+			<div
+				key={i}
+				className="flex items-center gap-2 text-sm text-muted-foreground"
+			>
 				<item.icon className="size-4 text-primary" />
 				<span>{item.label}</span>
 			</div>
@@ -165,12 +182,25 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="MegaStore" icon={Store} />
-						<Title text="Welcome back" subtitle="Sign in to access your account" />
+						<Title
+							text="Welcome back"
+							subtitle="Sign in to access your account"
+						/>
 						<TrustBadges items={trustBadges} />
 
 						<form className="space-y-5">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<RememberForgot
 								rememberLabel="Keep me signed in"
 								forgotLabel="Forgot password?"
@@ -180,7 +210,11 @@ export default function Main() {
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="New customer?" linkText="Create an account" href="/signup" />
+							<FooterLink
+								text="New customer?"
+								linkText="Create an account"
+								href="/signup"
+							/>
 						</div>
 					</div>
 				</div>

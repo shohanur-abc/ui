@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -59,7 +65,12 @@ const TimelineStep = ({
 const ProductItem = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-3 rounded-lg bg-muted/30 p-3">
 		<div className="relative size-12 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="text-sm font-medium">{product.name}</p>
@@ -67,7 +78,9 @@ const ProductItem = ({ product }: { product: Product }) => (
 		</div>
 		<div className="text-right">
 			<p className="text-sm font-bold">${product.price.toFixed(2)}</p>
-			<Badge variant="secondary" className="text-xs">×{product.qty}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				×{product.qty}
+			</Badge>
 		</div>
 	</div>
 );
@@ -109,16 +122,12 @@ const DeliveryBox = ({
 	</div>
 );
 
-const PaymentBox = ({
-	brand,
-	last4,
-}: {
-	brand: string;
-	last4: string;
-}) => (
+const PaymentBox = ({ brand, last4 }: { brand: string; last4: string }) => (
 	<div className="flex items-center gap-2 rounded-lg bg-muted/30 p-3">
 		<CreditCard className="size-4 text-primary" />
-		<span className="text-sm font-medium">{brand} •••• {last4}</span>
+		<span className="text-sm font-medium">
+			{brand} •••• {last4}
+		</span>
 		<Check className="ml-auto size-4 text-green-500" />
 	</div>
 );
@@ -134,9 +143,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -148,7 +161,8 @@ export default function Main() {
 			variant: 'HD / Night Vision',
 			price: 129.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -156,7 +170,8 @@ export default function Main() {
 			variant: 'Musical / Stars',
 			price: 44.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -188,13 +203,25 @@ export default function Main() {
 
 						<TimelineStep step={2} title="Addresses" completed>
 							<div className="grid gap-3 @sm:grid-cols-2">
-								<AddressBox type="Shipping" name="Emma W." address="123 Baby Lane, Nashville, TN 37201" />
-								<AddressBox type="Billing" name="Emma W." address="123 Baby Lane, Nashville, TN 37201" />
+								<AddressBox
+									type="Shipping"
+									name="Emma W."
+									address="123 Baby Lane, Nashville, TN 37201"
+								/>
+								<AddressBox
+									type="Billing"
+									name="Emma W."
+									address="123 Baby Lane, Nashville, TN 37201"
+								/>
 							</div>
 						</TimelineStep>
 
 						<TimelineStep step={3} title="Delivery" completed>
-							<DeliveryBox method="Standard" date="Dec 24-26, 2025" price="Free" />
+							<DeliveryBox
+								method="Standard"
+								date="Dec 24-26, 2025"
+								price="Free"
+							/>
 						</TimelineStep>
 
 						<TimelineStep step={4} title="Payment" completed last>

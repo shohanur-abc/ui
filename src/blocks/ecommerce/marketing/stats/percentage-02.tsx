@@ -21,16 +21,26 @@ const SemiCircleProgress = ({ value }: { value: number }) => {
 					clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
 				}}
 			/>
-			<div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-lg font-bold">{value}%</div>
+			<div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-lg font-bold">
+				{value}%
+			</div>
 		</div>
 	);
 };
 
-const PercentageStat = ({ label, value, change, positive }: PercentageStatProps) => (
+const PercentageStat = ({
+	label,
+	value,
+	change,
+	positive,
+}: PercentageStatProps) => (
 	<Card className="group flex flex-col items-center p-6 text-center transition-all duration-300 hover:shadow-md">
 		<SemiCircleProgress value={value} />
 		<p className="mt-4 font-medium">{label}</p>
-		<Badge variant={positive ? 'default' : 'destructive'} className="mt-2 text-[10px]">
+		<Badge
+			variant={positive ? 'default' : 'destructive'}
+			className="mt-2 text-[10px]"
+		>
 			{change}
 		</Badge>
 	</Card>

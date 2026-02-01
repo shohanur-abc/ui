@@ -7,7 +7,11 @@ interface DistributionStatProps {
 	label: string;
 }
 
-const DistributionStat = ({ segments, total, label }: DistributionStatProps) => {
+const DistributionStat = ({
+	segments,
+	total,
+	label,
+}: DistributionStatProps) => {
 	const totalValue = segments.reduce((acc, s) => acc + s.value, 0);
 
 	return (
@@ -37,7 +41,9 @@ const DistributionStat = ({ segments, total, label }: DistributionStatProps) => 
 								style={{ backgroundColor: `var(--${segment.color})` }}
 							/>
 							<span className="flex-1 text-sm">{segment.label}</span>
-							<span className="text-sm font-medium">{Math.round((segment.value / totalValue) * 100)}%</span>
+							<span className="text-sm font-medium">
+								{Math.round((segment.value / totalValue) * 100)}%
+							</span>
 						</div>
 					))}
 				</div>

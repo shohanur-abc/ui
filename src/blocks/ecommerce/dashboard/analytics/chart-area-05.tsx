@@ -10,7 +10,13 @@ type DataPoint = {
 	value: number;
 };
 
-const GradientAreaChart = ({ data, showGrid = true }: { data: DataPoint[]; showGrid?: boolean }) => {
+const GradientAreaChart = ({
+	data,
+	showGrid = true,
+}: {
+	data: DataPoint[];
+	showGrid?: boolean;
+}) => {
 	const max = Math.max(...data.map((d) => d.value));
 	const min = Math.min(...data.map((d) => d.value));
 	const range = max - min || 1;
@@ -32,12 +38,28 @@ const GradientAreaChart = ({ data, showGrid = true }: { data: DataPoint[]; showG
 
 	return (
 		<div className="relative h-72 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				<defs>
 					<linearGradient id="gradientFill" x1="0%" y1="0%" x2="0%" y2="100%">
-						<stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
-						<stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
-						<stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+						<stop
+							offset="0%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0.5"
+						/>
+						<stop
+							offset="50%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0.2"
+						/>
+						<stop
+							offset="100%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0"
+						/>
 					</linearGradient>
 					<filter id="glow">
 						<feGaussianBlur stdDeviation="1" result="coloredBlur" />
@@ -55,10 +77,24 @@ const GradientAreaChart = ({ data, showGrid = true }: { data: DataPoint[]; showG
 					</g>
 				)}
 				<path d={areaD} fill="url(#gradientFill)" />
-				<path d={pathD} fill="none" stroke="hsl(var(--primary))" strokeWidth="0.4" filter="url(#glow)" />
-				{points.filter((_, i) => i === points.length - 1).map((p, i) => (
-					<circle key={i} cx={p.x} cy={p.y} r="1" fill="hsl(var(--primary))" />
-				))}
+				<path
+					d={pathD}
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="0.4"
+					filter="url(#glow)"
+				/>
+				{points
+					.filter((_, i) => i === points.length - 1)
+					.map((p, i) => (
+						<circle
+							key={i}
+							cx={p.x}
+							cy={p.y}
+							r="1"
+							fill="hsl(var(--primary))"
+						/>
+					))}
 			</svg>
 			<div className="absolute left-0 top-0 bottom-12 flex flex-col justify-between text-xs text-muted-foreground">
 				<span>${(max / 1000).toFixed(0)}K</span>
@@ -66,15 +102,25 @@ const GradientAreaChart = ({ data, showGrid = true }: { data: DataPoint[]; showG
 				<span>${(min / 1000).toFixed(0)}K</span>
 			</div>
 			<div className="absolute bottom-0 left-8 right-0 flex justify-between text-xs text-muted-foreground">
-				{data.filter((_, i) => i % Math.ceil(data.length / 5) === 0).map((d, i) => (
-					<span key={i}>{d.time}</span>
-				))}
+				{data
+					.filter((_, i) => i % Math.ceil(data.length / 5) === 0)
+					.map((d, i) => (
+						<span key={i}>{d.time}</span>
+					))}
 			</div>
 		</div>
 	);
 };
 
-const TimeRangeSelector = ({ ranges, active, onSelect }: { ranges: TimeRange[]; active: TimeRange; onSelect: (r: TimeRange) => void }) => (
+const TimeRangeSelector = ({
+	ranges,
+	active,
+	onSelect,
+}: {
+	ranges: TimeRange[];
+	active: TimeRange;
+	onSelect: (r: TimeRange) => void;
+}) => (
 	<div className="flex items-center gap-1 p-1 bg-muted/50 rounded-lg">
 		{ranges.map((r) => (
 			<button
@@ -110,10 +156,14 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="flex flex-col @md:flex-row @md:items-center justify-between gap-4 pb-2">
 						<div>
-							<CardTitle className="text-sm font-medium">Revenue Trend</CardTitle>
+							<CardTitle className="text-sm font-medium">
+								Revenue Trend
+							</CardTitle>
 							<div className="flex items-baseline gap-2 mt-1">
 								<p className="text-3xl font-bold">$72,450</p>
-								<Badge variant="secondary" className="text-emerald-500">+15.3%</Badge>
+								<Badge variant="secondary" className="text-emerald-500">
+									+15.3%
+								</Badge>
 							</div>
 						</div>
 						<TimeRangeSelector

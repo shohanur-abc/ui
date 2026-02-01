@@ -29,7 +29,11 @@ const AppliedCoupon = ({
 	icon: Icon,
 	code,
 	discount,
-}: { icon: LucideIcon; code: string; discount: string }) => (
+}: {
+	icon: LucideIcon;
+	code: string;
+	discount: string;
+}) => (
 	<div className="flex items-center justify-between rounded-xl bg-green-500/20 p-3 backdrop-blur">
 		<div className="flex items-center gap-2">
 			<Check className="size-4 text-green-400" />
@@ -47,7 +51,9 @@ const SummaryRow = ({ label, value, discount }: SummaryRowProps) => (
 			discount ? 'text-green-400' : ''
 		}`}
 	>
-		<span className={discount ? 'flex items-center gap-1' : 'text-muted-foreground'}>
+		<span
+			className={discount ? 'flex items-center gap-1' : 'text-muted-foreground'}
+		>
 			{discount && <Check className="size-3" />}
 			{label}
 		</span>
@@ -55,14 +61,13 @@ const SummaryRow = ({ label, value, discount }: SummaryRowProps) => (
 	</div>
 );
 
-const TotalRow = ({
-	original,
-	final,
-}: { original: string; final: string }) => (
+const TotalRow = ({ original, final }: { original: string; final: string }) => (
 	<div className="flex items-center justify-between">
 		<span className="text-lg font-semibold">Total</span>
 		<div className="text-right">
-			<span className="mr-2 text-sm text-muted-foreground line-through">{original}</span>
+			<span className="mr-2 text-sm text-muted-foreground line-through">
+				{original}
+			</span>
 			<span className="text-2xl font-bold">{final}</span>
 		</div>
 	</div>
@@ -71,13 +76,19 @@ const TotalRow = ({
 const CouponInput = ({
 	placeholder,
 	buttonLabel,
-}: { placeholder: string; buttonLabel: string }) => (
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="flex gap-2">
 		<Input
 			placeholder={placeholder}
 			className="flex-1 border-white/20 bg-white/10 backdrop-blur"
 		/>
-		<Button variant="outline" className="border-white/20 bg-white/10 backdrop-blur">
+		<Button
+			variant="outline"
+			className="border-white/20 bg-white/10 backdrop-blur"
+		>
 			{buttonLabel}
 		</Button>
 	</div>

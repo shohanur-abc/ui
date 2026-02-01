@@ -2,7 +2,14 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from '@/components/ui/table';
 
 type Product = {
 	name: string;
@@ -31,19 +38,65 @@ const ProductRow = ({ product }: { product: Product }) => (
 							: 'text-rose-500 border-rose-500/30'
 				}
 			>
-				{product.status === 'in-stock' ? 'In Stock' : product.status === 'low-stock' ? 'Low Stock' : 'Out of Stock'}
+				{product.status === 'in-stock'
+					? 'In Stock'
+					: product.status === 'low-stock'
+						? 'Low Stock'
+						: 'Out of Stock'}
 			</Badge>
 		</TableCell>
 	</TableRow>
 );
 
 const products: Product[] = [
-	{ name: 'Wireless Headphones Pro', category: 'Electronics', price: 149.99, sales: 1245, stock: 58, status: 'in-stock' },
-	{ name: 'Smart Watch Ultra', category: 'Electronics', price: 299.99, sales: 892, stock: 12, status: 'low-stock' },
-	{ name: 'Portable Speaker', category: 'Electronics', price: 79.99, sales: 2156, stock: 0, status: 'out-of-stock' },
-	{ name: 'Bluetooth Earbuds', category: 'Electronics', price: 59.99, sales: 3421, stock: 124, status: 'in-stock' },
-	{ name: 'Gaming Mouse RGB', category: 'Accessories', price: 49.99, sales: 1876, stock: 45, status: 'in-stock' },
-	{ name: 'Mechanical Keyboard', category: 'Accessories', price: 129.99, sales: 987, stock: 8, status: 'low-stock' },
+	{
+		name: 'Wireless Headphones Pro',
+		category: 'Electronics',
+		price: 149.99,
+		sales: 1245,
+		stock: 58,
+		status: 'in-stock',
+	},
+	{
+		name: 'Smart Watch Ultra',
+		category: 'Electronics',
+		price: 299.99,
+		sales: 892,
+		stock: 12,
+		status: 'low-stock',
+	},
+	{
+		name: 'Portable Speaker',
+		category: 'Electronics',
+		price: 79.99,
+		sales: 2156,
+		stock: 0,
+		status: 'out-of-stock',
+	},
+	{
+		name: 'Bluetooth Earbuds',
+		category: 'Electronics',
+		price: 59.99,
+		sales: 3421,
+		stock: 124,
+		status: 'in-stock',
+	},
+	{
+		name: 'Gaming Mouse RGB',
+		category: 'Accessories',
+		price: 49.99,
+		sales: 1876,
+		stock: 45,
+		status: 'in-stock',
+	},
+	{
+		name: 'Mechanical Keyboard',
+		category: 'Accessories',
+		price: 129.99,
+		sales: 987,
+		stock: 8,
+		status: 'low-stock',
+	},
 ];
 
 export default function Main() {
@@ -52,8 +105,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Product Inventory</CardTitle>
-						<p className="text-xs text-muted-foreground">Stock levels and sales performance</p>
+						<CardTitle className="text-sm font-medium">
+							Product Inventory
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Stock levels and sales performance
+						</p>
 					</CardHeader>
 					<CardContent>
 						<div className="overflow-x-auto">

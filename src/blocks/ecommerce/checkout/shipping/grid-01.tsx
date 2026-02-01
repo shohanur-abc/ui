@@ -31,7 +31,11 @@ const ShippingCard = ({
 				${popular ? 'ring-2 ring-primary/30' : ''}
 			`}
 		>
-			{popular && <Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">Popular</Badge>}
+			{popular && (
+				<Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+					Popular
+				</Badge>
+			)}
 			<CardContent className="p-5 text-center flex flex-col h-full">
 				<RadioGroupItem value={value} id={value} className="sr-only" />
 				<div className="flex size-14 mx-auto mb-3 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -97,18 +101,27 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Choose Shipping</h1>
-					<p className="text-muted-foreground">Select the best option for your needs</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Choose Shipping
+					</h1>
+					<p className="text-muted-foreground">
+						Select the best option for your needs
+					</p>
 				</div>
 
-				<RadioGroup defaultValue="express" className="grid @sm:grid-cols-2 @lg:grid-cols-4 gap-4">
+				<RadioGroup
+					defaultValue="express"
+					className="grid @sm:grid-cols-2 @lg:grid-cols-4 gap-4"
+				>
 					{options.map((option) => (
 						<ShippingCard key={option.value} {...option} />
 					))}
 				</RadioGroup>
 
 				<div className="flex justify-center pt-10">
-					<Button size="lg" className="min-w-[200px]">Continue to Payment</Button>
+					<Button size="lg" className="min-w-[200px]">
+						Continue to Payment
+					</Button>
 				</div>
 			</div>
 		</section>

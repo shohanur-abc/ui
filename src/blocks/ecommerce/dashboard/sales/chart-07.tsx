@@ -1,11 +1,7 @@
 'use client';
 
 import { Gauge } from 'lucide-react';
-import {
-	RadialBar,
-	RadialBarChart,
-	PolarAngleAxis,
-} from 'recharts';
+import { RadialBar, RadialBarChart, PolarAngleAxis } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 import { Badge } from '@/components/ui/badge';
@@ -78,7 +74,13 @@ const GaugeChartCard = ({ title, gauges, config }: GaugeChartCardProps) => (
 								</p>
 								<p className="text-sm font-medium mt-1">{gauge.label}</p>
 								<Badge
-									variant={gauge.status === 'success' ? 'default' : gauge.status === 'warning' ? 'secondary' : 'destructive'}
+									variant={
+										gauge.status === 'success'
+											? 'default'
+											: gauge.status === 'warning'
+												? 'secondary'
+												: 'destructive'
+									}
 									className="mt-2"
 								>
 									Target: {gauge.target}
@@ -95,9 +97,27 @@ const GaugeChartCard = ({ title, gauges, config }: GaugeChartCardProps) => (
 
 export default function Main() {
 	const gauges: GaugeData[] = [
-		{ label: 'Conversion Rate', value: 3.8, target: 4.0, unit: '%', status: 'success' },
-		{ label: 'Avg Order Value', value: 85, target: 100, unit: '$', status: 'warning' },
-		{ label: 'Customer Satisfaction', value: 4.2, target: 4.5, unit: '/5', status: 'success' },
+		{
+			label: 'Conversion Rate',
+			value: 3.8,
+			target: 4.0,
+			unit: '%',
+			status: 'success',
+		},
+		{
+			label: 'Avg Order Value',
+			value: 85,
+			target: 100,
+			unit: '$',
+			status: 'warning',
+		},
+		{
+			label: 'Customer Satisfaction',
+			value: 4.2,
+			target: 4.5,
+			unit: '/5',
+			status: 'success',
+		},
 	];
 
 	const chartConfig: ChartConfig = {

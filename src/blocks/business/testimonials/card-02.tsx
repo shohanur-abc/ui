@@ -43,13 +43,7 @@ const Eyebrow = ({ text }: { text: string }) => (
 	</div>
 );
 
-const Title = ({
-	text,
-	highlight,
-}: {
-	text: string;
-	highlight?: string;
-}) => {
+const Title = ({ text, highlight }: { text: string; highlight?: string }) => {
 	if (!highlight) {
 		return (
 			<h2 className="text-3xl @sm:text-4xl @md:text-5xl font-bold tracking-tight mb-4">
@@ -99,7 +93,9 @@ const TestimonialCard = ({
 							</AvatarFallback>
 						</Avatar>
 						<div>
-							<div className="font-semibold text-base @md:text-lg">{author}</div>
+							<div className="font-semibold text-base @md:text-lg">
+								{author}
+							</div>
 							<div className="text-sm text-muted-foreground">{role}</div>
 							<div className="text-sm text-primary">{company}</div>
 						</div>

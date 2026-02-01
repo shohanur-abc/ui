@@ -1,10 +1,28 @@
 'use client';
 
-import { Building2, Check, Clock, CreditCard, Lock, Percent, Shield, Smartphone, Sparkles, Timer, Wallet, Zap } from 'lucide-react';
+import {
+	Building2,
+	Check,
+	Clock,
+	CreditCard,
+	Lock,
+	Percent,
+	Shield,
+	Smartphone,
+	Sparkles,
+	Timer,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -20,21 +38,27 @@ interface PaymentMethod {
 	badge?: { text: string; variant: 'default' | 'secondary' | 'outline' };
 }
 
-const PageTitle = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageTitle = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="mb-6">
 		<h1 className="text-2xl font-bold">{title}</h1>
 		<p className="text-muted-foreground mt-1">{subtitle}</p>
 	</div>
 );
 
-const MethodCard = ({ 
-	id, 
-	name, 
-	description, 
-	processingTime, 
-	fee, 
-	icon: Icon, 
-	badge 
+const MethodCard = ({
+	id,
+	name,
+	description,
+	processingTime,
+	fee,
+	icon: Icon,
+	badge,
 }: PaymentMethod) => (
 	<Label
 		htmlFor={id}
@@ -108,16 +132,37 @@ const CardDetailsForm = () => (
 	</div>
 );
 
-const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isDiscount?: boolean }[] }) => (
+const OrderSummary = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isDiscount?: boolean;
+	}[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isDiscount ? 'text-primary' : line.isTotal ? '' : 'text-muted-foreground'}>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={
+							line.isDiscount
+								? 'text-primary'
+								: line.isTotal
+									? ''
+									: 'text-muted-foreground'
+						}
+					>
 						{line.label}
 					</span>
-					<span className={line.isDiscount ? 'text-primary' : ''}>{line.value}</span>
+					<span className={line.isDiscount ? 'text-primary' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
@@ -193,7 +238,10 @@ export default function Main() {
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<PageTitle title="Payment Method" subtitle="Select how you'd like to pay" />
+				<PageTitle
+					title="Payment Method"
+					subtitle="Select how you'd like to pay"
+				/>
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardContent className="pt-6">
 						<PaymentMethodList methods={paymentMethods} />

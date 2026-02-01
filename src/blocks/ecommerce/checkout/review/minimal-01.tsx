@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -54,7 +60,9 @@ const TotalLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'font-semibold' : 'text-sm text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'font-semibold' : 'text-sm text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -67,14 +75,16 @@ export default function Main() {
 			name: 'Minimalist Watch',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
 			name: 'Watch Band',
 			price: 29.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1617043786394-f977fa12eddf?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1617043786394-f977fa12eddf?w=200&h=200&fit=crop',
 		},
 	];
 

@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -51,7 +57,11 @@ const HorizontalStepper = ({
 										: 'bg-muted text-muted-foreground'
 							}`}
 						>
-							{isComplete ? <Check className="size-5" /> : <Icon className="size-5" />}
+							{isComplete ? (
+								<Check className="size-5" />
+							) : (
+								<Icon className="size-5" />
+							)}
 						</div>
 						<span
 							className={`mt-2 text-xs ${isCurrent ? 'font-medium' : 'text-muted-foreground'}`}
@@ -75,7 +85,12 @@ const HorizontalStepper = ({
 const OrderItem = ({ product }: { product: Product }) => (
 	<div className="flex gap-4 py-4">
 		<div className="relative size-20 shrink-0 overflow-hidden rounded-xl bg-muted">
-			<Image src={product.img} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.img}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 			<div className="absolute bottom-0 right-0 flex size-6 items-center justify-center rounded-tl-lg bg-primary text-xs font-bold text-primary-foreground">
 				{product.qty}
 			</div>
@@ -160,7 +175,9 @@ const PaymentContent = ({
 			<CreditCard className="size-5 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-xs text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -177,9 +194,13 @@ const SummaryRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 

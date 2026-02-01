@@ -86,7 +86,9 @@ const SyncConnectionCard = ({
 	};
 
 	return (
-		<div className={`rounded-lg border p-4 ${status === 'synced' ? 'border-primary/30' : ''}`}>
+		<div
+			className={`rounded-lg border p-4 ${status === 'synced' ? 'border-primary/30' : ''}`}
+		>
 			<div className="flex items-start justify-between">
 				<div className="flex items-start gap-4">
 					<div
@@ -100,7 +102,9 @@ const SyncConnectionCard = ({
 						<div className="flex items-center gap-2">
 							<h4 className="font-semibold">{name}</h4>
 							<Badge className={`${statusStyles[status]} border-0 text-xs`}>
-								{status === 'syncing' && <Loader2 className="mr-1 size-3 animate-spin" />}
+								{status === 'syncing' && (
+									<Loader2 className="mr-1 size-3 animate-spin" />
+								)}
 								{statusLabels[status]}
 							</Badge>
 						</div>
@@ -194,16 +198,68 @@ const SyncLogRow = ({ action, items, timestamp, status }: SyncLog) => (
 
 export default function Main() {
 	const connections: SyncConnection[] = [
-		{ id: '1', name: 'Shopify', icon: '🛍️', type: 'Products & Orders', status: 'synced', lastSync: '5 min ago', nextSync: 'In 25 min', itemsSynced: 1234 },
-		{ id: '2', name: 'QuickBooks', icon: '📗', type: 'Orders & Invoices', status: 'syncing', lastSync: '1 hour ago', nextSync: 'Now', itemsSynced: 892, progress: 68 },
-		{ id: '3', name: 'Mailchimp', icon: '🐵', type: 'Customers', status: 'paused', lastSync: '2 days ago', nextSync: 'Paused', itemsSynced: 5420 },
+		{
+			id: '1',
+			name: 'Shopify',
+			icon: '🛍️',
+			type: 'Products & Orders',
+			status: 'synced',
+			lastSync: '5 min ago',
+			nextSync: 'In 25 min',
+			itemsSynced: 1234,
+		},
+		{
+			id: '2',
+			name: 'QuickBooks',
+			icon: '📗',
+			type: 'Orders & Invoices',
+			status: 'syncing',
+			lastSync: '1 hour ago',
+			nextSync: 'Now',
+			itemsSynced: 892,
+			progress: 68,
+		},
+		{
+			id: '3',
+			name: 'Mailchimp',
+			icon: '🐵',
+			type: 'Customers',
+			status: 'paused',
+			lastSync: '2 days ago',
+			nextSync: 'Paused',
+			itemsSynced: 5420,
+		},
 	];
 
 	const logs: SyncLog[] = [
-		{ id: '1', action: 'Products synced from Shopify', items: 45, timestamp: '5 min ago', status: 'success' },
-		{ id: '2', action: 'Orders synced to QuickBooks', items: 12, timestamp: '1 hour ago', status: 'success' },
-		{ id: '3', action: 'Inventory update failed', items: 0, timestamp: '2 hours ago', status: 'error' },
-		{ id: '4', action: 'Customers synced to Mailchimp', items: 156, timestamp: '2 days ago', status: 'success' },
+		{
+			id: '1',
+			action: 'Products synced from Shopify',
+			items: 45,
+			timestamp: '5 min ago',
+			status: 'success',
+		},
+		{
+			id: '2',
+			action: 'Orders synced to QuickBooks',
+			items: 12,
+			timestamp: '1 hour ago',
+			status: 'success',
+		},
+		{
+			id: '3',
+			action: 'Inventory update failed',
+			items: 0,
+			timestamp: '2 hours ago',
+			status: 'error',
+		},
+		{
+			id: '4',
+			action: 'Customers synced to Mailchimp',
+			items: 156,
+			timestamp: '2 days ago',
+			status: 'success',
+		},
 	];
 
 	return (

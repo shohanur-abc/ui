@@ -104,14 +104,43 @@ export default function Main() {
 	const customerKpis: CustomerKpi[] = [
 		{ title: 'Total Customers', value: '3,847', change: '+18%', icon: Users },
 		{ title: 'New This Month', value: '234', change: '+24%', icon: TrendingUp },
-		{ title: 'Avg Lifetime Value', value: '$456', change: '+12%', icon: DollarSign },
+		{
+			title: 'Avg Lifetime Value',
+			value: '$456',
+			change: '+12%',
+			icon: DollarSign,
+		},
 		{ title: 'Retention Rate', value: '78%', change: '+5%', icon: Star },
 	];
 
 	const topCustomers: TopCustomer[] = [
-		{ name: 'Sarah Wilson', email: 'sarah@example.com', avatar: '', initials: 'SW', orders: 45, spent: '$4,521', location: 'New York, US' },
-		{ name: 'Michael Chen', email: 'michael@example.com', avatar: '', initials: 'MC', orders: 38, spent: '$3,892', location: 'San Francisco, US' },
-		{ name: 'Emma Johnson', email: 'emma@example.com', avatar: '', initials: 'EJ', orders: 32, spent: '$3,245', location: 'London, UK' },
+		{
+			name: 'Sarah Wilson',
+			email: 'sarah@example.com',
+			avatar: '',
+			initials: 'SW',
+			orders: 45,
+			spent: '$4,521',
+			location: 'New York, US',
+		},
+		{
+			name: 'Michael Chen',
+			email: 'michael@example.com',
+			avatar: '',
+			initials: 'MC',
+			orders: 38,
+			spent: '$3,892',
+			location: 'San Francisco, US',
+		},
+		{
+			name: 'Emma Johnson',
+			email: 'emma@example.com',
+			avatar: '',
+			initials: 'EJ',
+			orders: 32,
+			spent: '$3,245',
+			location: 'London, UK',
+		},
 	];
 
 	const segmentData: SegmentData[] = [
@@ -145,7 +174,10 @@ export default function Main() {
 								<CardTitle className="text-base">Customer Segments</CardTitle>
 							</CardHeader>
 							<CardContent className="flex items-center gap-6">
-								<ChartContainer config={pieConfig} className="h-[140px] w-[140px]">
+								<ChartContainer
+									config={pieConfig}
+									className="h-[140px] w-[140px]"
+								>
 									<PieChart>
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 										<Pie
@@ -182,12 +214,29 @@ export default function Main() {
 								<CardTitle className="text-base">Customer Growth</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={areaConfig} className="h-[140px] w-full">
+								<ChartContainer
+									config={areaConfig}
+									className="h-[140px] w-full"
+								>
 									<AreaChart data={growthData}>
 										<defs>
-											<linearGradient id="split36fill" x1="0" y1="0" x2="0" y2="1">
-												<stop offset="5%" stopColor="var(--color-customers)" stopOpacity={0.3} />
-												<stop offset="95%" stopColor="var(--color-customers)" stopOpacity={0} />
+											<linearGradient
+												id="split36fill"
+												x1="0"
+												y1="0"
+												x2="0"
+												y2="1"
+											>
+												<stop
+													offset="5%"
+													stopColor="var(--color-customers)"
+													stopOpacity={0.3}
+												/>
+												<stop
+													offset="95%"
+													stopColor="var(--color-customers)"
+													stopOpacity={0}
+												/>
 											</linearGradient>
 										</defs>
 										<XAxis dataKey="month" tickLine={false} axisLine={false} />

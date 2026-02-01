@@ -20,7 +20,9 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 			<div className="size-12 rounded-xl bg-background shadow-2xl flex items-center justify-center">
 				<ShoppingBag className="size-6" />
 			</div>
-			<h1 className="text-2xl font-bold @md:text-3xl drop-shadow-lg">{title}</h1>
+			<h1 className="text-2xl font-bold @md:text-3xl drop-shadow-lg">
+				{title}
+			</h1>
 		</div>
 		<Badge className="shadow-lg px-3 py-1">{count} items</Badge>
 	</div>
@@ -41,7 +43,9 @@ const ShadowedCard = ({
 		deep: 'shadow-2xl',
 	};
 	return (
-		<div className={`rounded-2xl bg-background ${shadows[depth]} p-6 ${className}`}>
+		<div
+			className={`rounded-2xl bg-background ${shadows[depth]} p-6 ${className}`}
+		>
 			{children}
 		</div>
 	);
@@ -55,11 +59,19 @@ const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 
 const QuantityControl = ({ quantity }: { quantity: number }) => (
 	<div className="flex items-center rounded-lg bg-background shadow-md">
-		<Button size="icon-sm" variant="ghost" className="size-8 rounded-l-lg hover:bg-muted">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 rounded-l-lg hover:bg-muted"
+		>
 			<Minus className="size-3" />
 		</Button>
 		<span className="w-6 text-center text-sm font-medium">{quantity}</span>
-		<Button size="icon-sm" variant="ghost" className="size-8 rounded-r-lg hover:bg-muted">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 rounded-r-lg hover:bg-muted"
+		>
 			<Plus className="size-3" />
 		</Button>
 	</div>
@@ -84,7 +96,9 @@ const ShadowedItem = ({ item }: { item: CartItem }) => (
 			</div>
 			<div className="flex items-center justify-between mt-3">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-bold text-lg">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-bold text-lg">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -93,7 +107,9 @@ const ShadowedItem = ({ item }: { item: CartItem }) => (
 const FloatingPromo = () => (
 	<div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-xl p-4 shadow-xl shadow-primary/30">
 		<p className="font-semibold">🎉 Free shipping on orders over $500!</p>
-		<p className="text-sm opacity-90 mt-1">Your order qualifies for free shipping</p>
+		<p className="text-sm opacity-90 mt-1">
+			Your order qualifies for free shipping
+		</p>
 	</div>
 );
 
@@ -106,7 +122,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span className={bold ? 'text-foreground' : ''}>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -116,7 +134,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Studio Headphones Pro',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -124,7 +143,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White • ANC',
 			price: 179.99,
@@ -132,7 +152,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -200,7 +221,10 @@ export default function Main() {
 							</div>
 
 							<div className="mt-4 text-center">
-								<Link href="/shop" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+								<Link
+									href="/shop"
+									className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+								>
 									Continue Shopping →
 								</Link>
 							</div>

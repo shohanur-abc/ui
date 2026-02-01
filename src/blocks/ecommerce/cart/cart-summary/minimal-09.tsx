@@ -15,10 +15,7 @@ const Row = ({ label, value }: RowProps) => (
 	</div>
 );
 
-const TotalDisplay = ({
-	label,
-	value,
-}: { label: string; value: string }) => (
+const TotalDisplay = ({ label, value }: { label: string; value: string }) => (
 	<div className="flex items-baseline justify-between">
 		<span className="text-sm font-medium">{label}</span>
 		<span className="text-xl font-bold">{value}</span>
@@ -27,7 +24,14 @@ const TotalDisplay = ({
 
 const PaymentButtons = ({
 	items,
-}: { items: { label: string; href: string; icon: React.ElementType; variant: 'default' | 'outline' }[] }) => (
+}: {
+	items: {
+		label: string;
+		href: string;
+		icon: React.ElementType;
+		variant: 'default' | 'outline';
+	}[];
+}) => (
 	<div className="flex gap-2">
 		{items.map(({ label, href, icon: Icon, variant }, i) => (
 			<Button key={i} variant={variant} className="flex-1 gap-1.5" asChild>
@@ -48,8 +52,18 @@ export default function Main() {
 	];
 
 	const paymentOptions = [
-		{ label: 'Card', href: '/checkout/card', icon: CreditCard, variant: 'default' as const },
-		{ label: 'Pay', href: '/checkout/mobile', icon: Smartphone, variant: 'outline' as const },
+		{
+			label: 'Card',
+			href: '/checkout/card',
+			icon: CreditCard,
+			variant: 'default' as const,
+		},
+		{
+			label: 'Pay',
+			href: '/checkout/mobile',
+			icon: Smartphone,
+			variant: 'outline' as const,
+		},
 	];
 
 	return (

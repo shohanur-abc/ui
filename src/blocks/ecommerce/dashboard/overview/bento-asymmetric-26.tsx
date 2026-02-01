@@ -42,7 +42,13 @@ type OrderStatus = {
 	color: string;
 };
 
-const MiniStatCard = ({ title, value, change, trend, icon: Icon }: MiniStat) => (
+const MiniStatCard = ({
+	title,
+	value,
+	change,
+	trend,
+	icon: Icon,
+}: MiniStat) => (
 	<div className="flex items-center gap-3 rounded-lg border bg-card/50 p-3 transition-all hover:bg-card">
 		<div className="rounded-lg bg-primary/10 p-2">
 			<Icon className="size-4 text-primary" />
@@ -85,19 +91,65 @@ const barConfig: ChartConfig = {
 
 export default function Main() {
 	const miniStats: MiniStat[] = [
-		{ title: 'Revenue', value: '$67.8k', change: '+22%', trend: 'up', icon: CircleDollarSign },
-		{ title: 'Orders', value: '1,847', change: '+15%', trend: 'up', icon: ShoppingBag },
-		{ title: 'Avg Order', value: '$36.70', change: '-3%', trend: 'down', icon: CreditCard },
-		{ title: 'Customers', value: '892', change: '+18%', trend: 'up', icon: TrendingUp },
-		{ title: 'Products', value: '456', change: '+8%', trend: 'up', icon: Package },
-		{ title: 'Returns', value: '2.1%', change: '-0.5%', trend: 'up', icon: RefreshCw },
+		{
+			title: 'Revenue',
+			value: '$67.8k',
+			change: '+22%',
+			trend: 'up',
+			icon: CircleDollarSign,
+		},
+		{
+			title: 'Orders',
+			value: '1,847',
+			change: '+15%',
+			trend: 'up',
+			icon: ShoppingBag,
+		},
+		{
+			title: 'Avg Order',
+			value: '$36.70',
+			change: '-3%',
+			trend: 'down',
+			icon: CreditCard,
+		},
+		{
+			title: 'Customers',
+			value: '892',
+			change: '+18%',
+			trend: 'up',
+			icon: TrendingUp,
+		},
+		{
+			title: 'Products',
+			value: '456',
+			change: '+8%',
+			trend: 'up',
+			icon: Package,
+		},
+		{
+			title: 'Returns',
+			value: '2.1%',
+			change: '-0.5%',
+			trend: 'up',
+			icon: RefreshCw,
+		},
 	];
 
 	const orderStatuses: OrderStatus[] = [
-		{ label: 'Delivered', count: 1245, percentage: 68, color: 'bg-emerald-500' },
+		{
+			label: 'Delivered',
+			count: 1245,
+			percentage: 68,
+			color: 'bg-emerald-500',
+		},
 		{ label: 'Shipped', count: 342, percentage: 18, color: 'bg-primary' },
 		{ label: 'Processing', count: 186, percentage: 10, color: 'bg-amber-500' },
-		{ label: 'Pending', count: 74, percentage: 4, color: 'bg-muted-foreground' },
+		{
+			label: 'Pending',
+			count: 74,
+			percentage: 4,
+			color: 'bg-muted-foreground',
+		},
 	];
 
 	const revenueData = [
@@ -150,9 +202,23 @@ export default function Main() {
 							<ChartContainer config={areaConfig} className="h-[180px] w-full">
 								<AreaChart data={revenueData}>
 									<defs>
-										<linearGradient id="bento26fill" x1="0" y1="0" x2="0" y2="1">
-											<stop offset="5%" stopColor="var(--color-revenue)" stopOpacity={0.3} />
-											<stop offset="95%" stopColor="var(--color-revenue)" stopOpacity={0} />
+										<linearGradient
+											id="bento26fill"
+											x1="0"
+											y1="0"
+											x2="0"
+											y2="1"
+										>
+											<stop
+												offset="5%"
+												stopColor="var(--color-revenue)"
+												stopOpacity={0.3}
+											/>
+											<stop
+												offset="95%"
+												stopColor="var(--color-revenue)"
+												stopOpacity={0}
+											/>
 										</linearGradient>
 									</defs>
 									<XAxis dataKey="day" tickLine={false} axisLine={false} />
@@ -176,7 +242,11 @@ export default function Main() {
 								<BarChart data={ordersData}>
 									<XAxis dataKey="day" tickLine={false} axisLine={false} />
 									<ChartTooltip content={<ChartTooltipContent hideLabel />} />
-									<Bar dataKey="orders" fill="var(--color-orders)" radius={[4, 4, 0, 0]} />
+									<Bar
+										dataKey="orders"
+										fill="var(--color-orders)"
+										radius={[4, 4, 0, 0]}
+									/>
 								</BarChart>
 							</ChartContainer>
 						</CardContent>

@@ -27,7 +27,11 @@ const CountdownHeader = ({
 	icon: Icon,
 	message,
 	time,
-}: { icon: LucideIcon; message: string; time: string }) => (
+}: {
+	icon: LucideIcon;
+	message: string;
+	time: string;
+}) => (
 	<div className="mb-4 flex items-center justify-between rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 p-3 backdrop-blur">
 		<div className="flex items-center gap-2">
 			<Icon className="size-5 text-amber-500" />
@@ -40,7 +44,9 @@ const CountdownHeader = ({
 const SummaryRow = ({ label, value, strike }: SummaryRowProps) => (
 	<div className="flex items-center justify-between text-sm">
 		<span className="text-muted-foreground">{label}</span>
-		<span className={strike ? 'text-muted-foreground line-through' : 'font-medium'}>
+		<span
+			className={strike ? 'text-muted-foreground line-through' : 'font-medium'}
+		>
 			{value}
 		</span>
 	</div>
@@ -50,7 +56,11 @@ const TotalRow = ({
 	label,
 	value,
 	savings,
-}: { label: string; value: string; savings: string }) => (
+}: {
+	label: string;
+	value: string;
+	savings: string;
+}) => (
 	<div className="space-y-1">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>
@@ -73,11 +83,7 @@ export default function Main() {
 			<FlashBackground />
 			<div className="relative mx-auto max-w-md px-4 py-16 @sm:px-6 @md:py-20 @xl:py-24">
 				<GlassCard>
-					<CountdownHeader
-						icon={Timer}
-						message="Flash Sale"
-						time="02:45:30"
-					/>
+					<CountdownHeader icon={Timer} message="Flash Sale" time="02:45:30" />
 					<div className="space-y-3">
 						{summaryItems.map((item, i) => (
 							<SummaryRow key={i} {...item} />

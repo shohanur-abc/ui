@@ -1,4 +1,12 @@
-import { CreditCard, Package, Gift, Truck, Shield, Clock, Check } from 'lucide-react';
+import {
+	CreditCard,
+	Package,
+	Gift,
+	Truck,
+	Shield,
+	Clock,
+	Check,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -9,16 +17,14 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 
-const CompareHeader = ({
-	features,
-}: {
-	features: string[];
-}) => (
+const CompareHeader = ({ features }: { features: string[] }) => (
 	<div className="hidden @lg:block">
 		<div className="grid grid-cols-4 gap-4 p-4 bg-muted/30 rounded-t-xl">
 			<div className="font-semibold">Features</div>
 			{features.map((feature, i) => (
-				<div key={i} className="font-semibold text-center">{feature}</div>
+				<div key={i} className="font-semibold text-center">
+					{feature}
+				</div>
 			))}
 		</div>
 	</div>
@@ -36,7 +42,11 @@ const CompareRow = ({
 		{values.map((value, i) => (
 			<div key={i} className="text-center">
 				{typeof value === 'boolean' ? (
-					value ? <Check className="size-5 text-primary mx-auto" /> : <span className="text-muted-foreground">—</span>
+					value ? (
+						<Check className="size-5 text-primary mx-auto" />
+					) : (
+						<span className="text-muted-foreground">—</span>
+					)
 				) : (
 					<span>{value}</span>
 				)}
@@ -83,12 +93,23 @@ export default function Main() {
 
 	const quickOptions = [
 		{ value: 'standard', name: 'Standard', time: '5-7 days', price: '$5.99' },
-		{ value: 'express', name: 'Express', time: '2-3 days', price: '$12.99', best: true },
+		{
+			value: 'express',
+			name: 'Express',
+			time: '2-3 days',
+			price: '$12.99',
+			best: true,
+		},
 		{ value: 'premium', name: 'Premium', time: '1 day', price: '$24.99' },
 	];
 
 	const addons = [
-		{ id: 'insurance', icon: Shield, label: 'Shipping Insurance', price: '+$2.99' },
+		{
+			id: 'insurance',
+			icon: Shield,
+			label: 'Shipping Insurance',
+			price: '+$2.99',
+		},
 		{ id: 'gift', icon: Gift, label: 'Gift Wrapping', price: '+$4.99' },
 	];
 
@@ -96,8 +117,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Choose Your Shipping</h1>
-					<p className="text-muted-foreground">Compare options or quickly select a plan</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Choose Your Shipping
+					</h1>
+					<p className="text-muted-foreground">
+						Compare options or quickly select a plan
+					</p>
 				</div>
 
 				<Tabs defaultValue="quick" className="w-full">
@@ -113,7 +138,10 @@ export default function Main() {
 					</TabsList>
 
 					<TabsContent value="quick">
-						<RadioGroup defaultValue="express" className="grid @sm:grid-cols-3 gap-4 mb-6">
+						<RadioGroup
+							defaultValue="express"
+							className="grid @sm:grid-cols-3 gap-4 mb-6"
+						>
 							{quickOptions.map((option) => (
 								<QuickOption key={option.value} {...option} />
 							))}
@@ -124,10 +152,16 @@ export default function Main() {
 								<h3 className="font-semibold mb-4">Add-ons</h3>
 								<div className="space-y-3">
 									{addons.map((addon) => (
-										<div key={addon.id} className="flex items-center justify-between">
+										<div
+											key={addon.id}
+											className="flex items-center justify-between"
+										>
 											<div className="flex items-center gap-3">
 												<Checkbox id={addon.id} />
-												<Label htmlFor={addon.id} className="flex items-center gap-2 cursor-pointer">
+												<Label
+													htmlFor={addon.id}
+													className="flex items-center gap-2 cursor-pointer"
+												>
 													<addon.icon className="size-4 text-muted-foreground" />
 													{addon.label}
 												</Label>
@@ -150,7 +184,9 @@ export default function Main() {
 								<div className="grid grid-cols-4 gap-4 p-4 bg-muted/30">
 									<div className="font-semibold">Price</div>
 									<div className="text-center font-bold">$5.99</div>
-									<div className="text-center font-bold text-primary">$12.99</div>
+									<div className="text-center font-bold text-primary">
+										$12.99
+									</div>
 									<div className="text-center font-bold">$24.99</div>
 								</div>
 							</CardContent>
@@ -159,7 +195,9 @@ export default function Main() {
 				</Tabs>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

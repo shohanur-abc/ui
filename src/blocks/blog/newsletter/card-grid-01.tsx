@@ -28,11 +28,7 @@ const CardItem = ({ icon: Icon, title, description }: CardItemProps) => (
 
 const Form = ({ placeholder, buttonText }: FormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 w-full">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="flex-1 h-11"
-		/>
+		<Input type="email" placeholder={placeholder} className="flex-1 h-11" />
 		<Button size="lg" className="gap-2 h-11 shrink-0">
 			{buttonText}
 			<ArrowRight className="size-4" />
@@ -47,8 +43,12 @@ interface HeaderProps {
 
 const Header = ({ title, description }: HeaderProps) => (
 	<div className="flex flex-col gap-3 text-center @lg:text-left">
-		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">{title}</h2>
-		<p className="text-muted-foreground text-base @md:text-lg max-w-2xl">{description}</p>
+		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">
+			{title}
+		</h2>
+		<p className="text-muted-foreground text-base @md:text-lg max-w-2xl">
+			{description}
+		</p>
 	</div>
 );
 
@@ -84,7 +84,10 @@ export default function Main() {
 						/>
 					</div>
 					<div className="max-w-xl mx-auto @lg:mx-0 w-full">
-						<Form placeholder="Enter your email address" buttonText="Subscribe" />
+						<Form
+							placeholder="Enter your email address"
+							buttonText="Subscribe"
+						/>
 					</div>
 				</div>
 			</div>

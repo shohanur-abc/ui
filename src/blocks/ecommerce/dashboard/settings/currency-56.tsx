@@ -90,12 +90,7 @@ const CurrencyCard = ({
 	</div>
 );
 
-const ExchangeRateRow = ({
-	from,
-	to,
-	rate,
-	lastUpdated,
-}: ExchangeRate) => (
+const ExchangeRateRow = ({ from, to, rate, lastUpdated }: ExchangeRate) => (
 	<div className="flex items-center justify-between py-3">
 		<div className="flex items-center gap-2">
 			<Badge variant="outline">{from}</Badge>
@@ -111,12 +106,43 @@ const ExchangeRateRow = ({
 
 export default function Main() {
 	const currencies: Currency[] = [
-		{ code: 'USD', name: 'US Dollar', symbol: '$', rate: '1.00', enabled: true, isDefault: true },
+		{
+			code: 'USD',
+			name: 'US Dollar',
+			symbol: '$',
+			rate: '1.00',
+			enabled: true,
+			isDefault: true,
+		},
 		{ code: 'EUR', name: 'Euro', symbol: '€', rate: '0.92', enabled: true },
-		{ code: 'GBP', name: 'British Pound', symbol: '£', rate: '0.79', enabled: true },
-		{ code: 'JPY', name: 'Japanese Yen', symbol: '¥', rate: '149.50', enabled: false },
-		{ code: 'AUD', name: 'Australian Dollar', symbol: 'A$', rate: '1.53', enabled: true },
-		{ code: 'CAD', name: 'Canadian Dollar', symbol: 'C$', rate: '1.35', enabled: false },
+		{
+			code: 'GBP',
+			name: 'British Pound',
+			symbol: '£',
+			rate: '0.79',
+			enabled: true,
+		},
+		{
+			code: 'JPY',
+			name: 'Japanese Yen',
+			symbol: '¥',
+			rate: '149.50',
+			enabled: false,
+		},
+		{
+			code: 'AUD',
+			name: 'Australian Dollar',
+			symbol: 'A$',
+			rate: '1.53',
+			enabled: true,
+		},
+		{
+			code: 'CAD',
+			name: 'Canadian Dollar',
+			symbol: 'C$',
+			rate: '1.35',
+			enabled: false,
+		},
 	];
 
 	const exchangeRates: ExchangeRate[] = [
@@ -164,8 +190,12 @@ export default function Main() {
 												<SelectValue />
 											</SelectTrigger>
 											<SelectContent>
-												<SelectItem value="before">Before amount ($100)</SelectItem>
-												<SelectItem value="after">After amount (100$)</SelectItem>
+												<SelectItem value="before">
+													Before amount ($100)
+												</SelectItem>
+												<SelectItem value="after">
+													After amount (100$)
+												</SelectItem>
 											</SelectContent>
 										</Select>
 									</div>
@@ -225,10 +255,7 @@ export default function Main() {
 							</CardHeader>
 							<CardContent className="divide-y">
 								{exchangeRates.map((rate) => (
-									<ExchangeRateRow
-										key={`${rate.from}-${rate.to}`}
-										{...rate}
-									/>
+									<ExchangeRateRow key={`${rate.from}-${rate.to}`} {...rate} />
 								))}
 							</CardContent>
 						</Card>
@@ -256,7 +283,9 @@ export default function Main() {
 										</SelectTrigger>
 										<SelectContent>
 											<SelectItem value="ecb">European Central Bank</SelectItem>
-											<SelectItem value="openexchange">Open Exchange Rates</SelectItem>
+											<SelectItem value="openexchange">
+												Open Exchange Rates
+											</SelectItem>
 											<SelectItem value="custom">Custom Rates</SelectItem>
 										</SelectContent>
 									</Select>

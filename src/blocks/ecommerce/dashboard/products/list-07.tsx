@@ -71,19 +71,28 @@ interface WarrantyProgressProps {
 	labels: { warranty: string; claims: string };
 }
 
-const WarrantyProgress = ({ periodMonths, usedCount, soldCount, labels }: WarrantyProgressProps) => {
+const WarrantyProgress = ({
+	periodMonths,
+	usedCount,
+	soldCount,
+	labels,
+}: WarrantyProgressProps) => {
 	const claimRate = soldCount > 0 ? (usedCount / soldCount) * 100 : 0;
 
 	return (
 		<div className="space-y-2 rounded-lg border bg-muted/30 p-3">
 			<div className="flex items-center gap-2 text-sm">
 				<Shield className="size-4 text-primary" />
-				<span className="font-medium">{labels.warranty}: {periodMonths} months</span>
+				<span className="font-medium">
+					{labels.warranty}: {periodMonths} months
+				</span>
 			</div>
 			<div className="space-y-1">
 				<div className="flex items-center justify-between text-xs">
 					<span className="text-muted-foreground">{labels.claims}</span>
-					<span>{usedCount} / {soldCount} ({claimRate.toFixed(1)}%)</span>
+					<span>
+						{usedCount} / {soldCount} ({claimRate.toFixed(1)}%)
+					</span>
 				</div>
 				<Progress value={claimRate} className="h-1.5" />
 			</div>
@@ -93,7 +102,12 @@ const WarrantyProgress = ({ periodMonths, usedCount, soldCount, labels }: Warran
 
 interface ReturnStatsDisplayProps {
 	stats: ReturnStats;
-	labels: { total: string; pending: string; approved: string; rejected: string };
+	labels: {
+		total: string;
+		pending: string;
+		approved: string;
+		rejected: string;
+	};
 }
 
 const ReturnStatsDisplay = ({ stats, labels }: ReturnStatsDisplayProps) => (
@@ -149,7 +163,9 @@ interface AvgReturnTimeProps {
 const AvgReturnTime = ({ days, label }: AvgReturnTimeProps) => (
 	<div className="flex items-center gap-2 text-sm text-muted-foreground">
 		<Clock className="size-4" />
-		<span>{label}: {days} days</span>
+		<span>
+			{label}: {days} days
+		</span>
 	</div>
 );
 
@@ -159,7 +175,12 @@ interface ProductRowProps {
 	labels: {
 		warranty: string;
 		claims: string;
-		returnStats: { total: string; pending: string; approved: string; rejected: string };
+		returnStats: {
+			total: string;
+			pending: string;
+			approved: string;
+			rejected: string;
+		};
 		topReasons: string;
 		avgTime: string;
 	};
@@ -170,7 +191,11 @@ const ProductRow = ({ product, actions, labels }: ProductRowProps) => (
 		<div className="mb-4 flex items-start gap-4">
 			<div className="size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
 				{product.image ? (
-					<img src={product.image} alt={product.name} className="size-full object-cover" />
+					<img
+						src={product.image}
+						alt={product.name}
+						className="size-full object-cover"
+					/>
 				) : (
 					<div className="flex size-full items-center justify-center">
 						<Package className="size-8 text-muted-foreground" />
@@ -203,7 +228,9 @@ const ProductRow = ({ product, actions, labels }: ProductRowProps) => (
 				</div>
 				<div className="mt-2 flex flex-wrap items-center gap-3">
 					<span className="text-lg font-bold">${product.price.toFixed(2)}</span>
-					<span className="text-sm text-muted-foreground">{product.soldCount} sold</span>
+					<span className="text-sm text-muted-foreground">
+						{product.soldCount} sold
+					</span>
 					<ReturnRateBadge rate={product.returnRate} />
 					<AvgReturnTime days={product.avgReturnTime} label={labels.avgTime} />
 				</div>
@@ -216,7 +243,10 @@ const ProductRow = ({ product, actions, labels }: ProductRowProps) => (
 				soldCount={product.soldCount}
 				labels={{ warranty: labels.warranty, claims: labels.claims }}
 			/>
-			<ReturnStatsDisplay stats={product.returnStats} labels={labels.returnStats} />
+			<ReturnStatsDisplay
+				stats={product.returnStats}
+				labels={labels.returnStats}
+			/>
 			<TopReasons reasons={product.topReasons} label={labels.topReasons} />
 		</div>
 	</div>
@@ -228,7 +258,8 @@ export default function Main() {
 			id: '1',
 			name: 'Wireless Gaming Mouse',
 			sku: 'GAM-MOU-001',
-			image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=100&h=100&fit=crop',
 			price: 79.99,
 			soldCount: 2345,
 			returnRate: 3.2,
@@ -246,7 +277,8 @@ export default function Main() {
 			id: '2',
 			name: 'Mechanical Keyboard RGB',
 			sku: 'GAM-KEY-002',
-			image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=100&h=100&fit=crop',
 			price: 149.99,
 			soldCount: 1234,
 			returnRate: 1.8,
@@ -264,7 +296,8 @@ export default function Main() {
 			id: '3',
 			name: 'Budget Webcam HD',
 			sku: 'ACC-WEB-003',
-			image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=100&h=100&fit=crop',
 			price: 34.99,
 			soldCount: 5678,
 			returnRate: 8.5,
@@ -282,7 +315,8 @@ export default function Main() {
 			id: '4',
 			name: 'Premium Headset Pro',
 			sku: 'AUD-HSP-004',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
 			price: 199.99,
 			soldCount: 890,
 			returnRate: 2.1,
@@ -300,14 +334,25 @@ export default function Main() {
 
 	const actions = [
 		{ label: 'View Returns', onClick: (id: string) => console.log('View', id) },
-		{ label: 'Manage Warranty', onClick: (id: string) => console.log('Warranty', id) },
-		{ label: 'Return Policy', onClick: (id: string) => console.log('Policy', id) },
+		{
+			label: 'Manage Warranty',
+			onClick: (id: string) => console.log('Warranty', id),
+		},
+		{
+			label: 'Return Policy',
+			onClick: (id: string) => console.log('Policy', id),
+		},
 	];
 
 	const labels = {
 		warranty: 'Warranty',
 		claims: 'Warranty Claims',
-		returnStats: { total: 'Total', pending: 'Pending', approved: 'Approved', rejected: 'Rejected' },
+		returnStats: {
+			total: 'Total',
+			pending: 'Pending',
+			approved: 'Approved',
+			rejected: 'Rejected',
+		},
 		topReasons: 'Top Return Reasons',
 		avgTime: 'Avg return time',
 	};

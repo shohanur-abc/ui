@@ -1,11 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ShoppingCart, ArrowRight, type LucideIcon } from 'lucide-react';
@@ -57,7 +52,11 @@ const Header = ({
 	icon: Icon,
 	title,
 	badge,
-}: { icon: LucideIcon; title: string; badge: string }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	badge: string;
+}) => (
 	<CardHeader className="border-b">
 		<CardTitle className="flex items-center gap-2">
 			<Icon className="size-5" />
@@ -73,7 +72,11 @@ const CheckoutButton = ({
 	label,
 	href,
 	icon: Icon,
-}: { label: string; href: string; icon: LucideIcon }) => (
+}: {
+	label: string;
+	href: string;
+	icon: LucideIcon;
+}) => (
 	<Button className="w-full gap-2" size="lg" asChild>
 		<Link href={href}>
 			{label}
@@ -85,19 +88,22 @@ const CheckoutButton = ({
 export default function Main() {
 	const cartItems: CartItemProps[] = [
 		{
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200',
 			name: 'Leather Messenger Bag',
 			price: '$189.00',
 			quantity: 1,
 		},
 		{
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
 			name: 'Minimalist Watch',
 			price: '$249.00',
 			quantity: 1,
 		},
 		{
-			image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=200',
+			image:
+				'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=200',
 			name: 'Classic Sunglasses',
 			price: '$129.00',
 			quantity: 2,
@@ -115,11 +121,7 @@ export default function Main() {
 			<div className="mx-auto max-w-4xl px-4 py-16 @sm:px-6 @md:py-20 @xl:py-24 @2xl:px-8">
 				<div className="grid gap-6 @lg:grid-cols-2">
 					<Card>
-						<Header
-							icon={ShoppingCart}
-							title="Your Cart"
-							badge="4 items"
-						/>
+						<Header icon={ShoppingCart} title="Your Cart" badge="4 items" />
 						<CardContent className="space-y-4">
 							{cartItems.map((item, i) => (
 								<CartItem key={i} {...item} />

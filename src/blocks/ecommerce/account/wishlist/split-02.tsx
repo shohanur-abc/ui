@@ -19,10 +19,20 @@ interface SplitProps {
 	rightItem: WishlistItem;
 }
 
-const CompareColumn = ({ item, side }: { item: WishlistItem; side: 'left' | 'right' }) => (
+const CompareColumn = ({
+	item,
+	side,
+}: {
+	item: WishlistItem;
+	side: 'left' | 'right';
+}) => (
 	<div className="flex-1 p-4">
 		<div className="aspect-square rounded-xl overflow-hidden bg-muted mb-4">
-			<img src={item.image} alt={item.name} className="size-full object-cover" />
+			<img
+				src={item.image}
+				alt={item.name}
+				className="size-full object-cover"
+			/>
 		</div>
 		<h3 className="font-bold text-lg">{item.name}</h3>
 		<div className="flex items-center gap-1 mt-1">
@@ -45,23 +55,43 @@ const CompareColumn = ({ item, side }: { item: WishlistItem; side: 'left' | 'rig
 	</div>
 );
 
-const CompareIndicator = ({ leftValue, rightValue }: { leftValue: number; rightValue: number }) => {
+const CompareIndicator = ({
+	leftValue,
+	rightValue,
+}: {
+	leftValue: number;
+	rightValue: number;
+}) => {
 	if (leftValue === rightValue) return null;
 	return leftValue > rightValue ? (
-		<Badge className="absolute left-1/4 -translate-x-1/2 bg-green-500">Better</Badge>
+		<Badge className="absolute left-1/4 -translate-x-1/2 bg-green-500">
+			Better
+		</Badge>
 	) : (
-		<Badge className="absolute right-1/4 translate-x-1/2 bg-green-500">Better</Badge>
+		<Badge className="absolute right-1/4 translate-x-1/2 bg-green-500">
+			Better
+		</Badge>
 	);
 };
 
-const ItemSelector = ({ items, selectedId }: { items: WishlistItem[]; selectedId: string }) => (
+const ItemSelector = ({
+	items,
+	selectedId,
+}: {
+	items: WishlistItem[];
+	selectedId: string;
+}) => (
 	<div className="flex gap-2 overflow-x-auto p-2 bg-muted rounded-lg">
 		{items.map((item) => (
 			<div
 				key={item.id}
 				className={`size-14 rounded-lg overflow-hidden flex-shrink-0 cursor-pointer transition-all ${item.id === selectedId ? 'ring-2 ring-primary' : 'opacity-60 hover:opacity-100'}`}
 			>
-				<img src={item.image} alt={item.name} className="size-full object-cover" />
+				<img
+					src={item.image}
+					alt={item.name}
+					className="size-full object-cover"
+				/>
 			</div>
 		))}
 	</div>
@@ -73,7 +103,8 @@ export default function Main() {
 			id: '1',
 			name: 'iPhone 15 Pro',
 			price: 999,
-			image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop',
 			rating: 4.9,
 			specs: [
 				{ label: 'Display', value: '6.1" OLED' },
@@ -88,7 +119,8 @@ export default function Main() {
 			id: '2',
 			name: 'Samsung Galaxy S24',
 			price: 899,
-			image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=400&fit=crop',
 			rating: 4.8,
 			specs: [
 				{ label: 'Display', value: '6.2" AMOLED' },

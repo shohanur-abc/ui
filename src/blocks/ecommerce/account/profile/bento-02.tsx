@@ -81,21 +81,30 @@ const OrdersCard = ({
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-4">
-			<Link href="/orders?status=active" className="flex items-center justify-between p-3 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 transition-colors">
+			<Link
+				href="/orders?status=active"
+				className="flex items-center justify-between p-3 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 transition-colors"
+			>
 				<div className="flex items-center gap-2">
 					<Truck className="size-4 text-blue-500" />
 					<span className="text-sm">Active</span>
 				</div>
 				<Badge variant="secondary">{active}</Badge>
 			</Link>
-			<Link href="/orders?status=delivered" className="flex items-center justify-between p-3 rounded-lg bg-green-500/10 hover:bg-green-500/20 transition-colors">
+			<Link
+				href="/orders?status=delivered"
+				className="flex items-center justify-between p-3 rounded-lg bg-green-500/10 hover:bg-green-500/20 transition-colors"
+			>
 				<div className="flex items-center gap-2">
 					<Package className="size-4 text-green-500" />
 					<span className="text-sm">Delivered</span>
 				</div>
 				<Badge variant="secondary">{delivered}</Badge>
 			</Link>
-			<Link href="/returns" className="flex items-center justify-between p-3 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 transition-colors">
+			<Link
+				href="/returns"
+				className="flex items-center justify-between p-3 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 transition-colors"
+			>
 				<div className="flex items-center gap-2">
 					<Clock className="size-4 text-amber-500" />
 					<span className="text-sm">Returns</span>
@@ -156,8 +165,16 @@ const WishlistCard = ({
 		<CardContent>
 			<div className="flex -space-x-2">
 				{items.slice(0, 4).map((item, i) => (
-					<div key={i} className="size-12 rounded-lg overflow-hidden ring-2 ring-background relative">
-						<Image src={item.image} alt={item.name} fill className="object-cover" />
+					<div
+						key={i}
+						className="size-12 rounded-lg overflow-hidden ring-2 ring-background relative"
+					>
+						<Image
+							src={item.image}
+							alt={item.name}
+							fill
+							className="object-cover"
+						/>
 					</div>
 				))}
 				{items.length > 4 && (
@@ -195,7 +212,10 @@ const RewardsCard = ({
 		<CardContent>
 			<div className="grid @sm:grid-cols-3 gap-3">
 				{items.map((reward, i) => (
-					<div key={i} className="p-3 rounded-lg bg-muted/30 text-center hover:bg-muted/50 transition-colors">
+					<div
+						key={i}
+						className="p-3 rounded-lg bg-muted/30 text-center hover:bg-muted/50 transition-colors"
+					>
 						<reward.icon className="size-6 mx-auto mb-2 text-purple-500" />
 						<p className="text-sm font-medium">{reward.value}</p>
 						<p className="text-xs text-muted-foreground">{reward.label}</p>
@@ -228,11 +248,35 @@ export default function Main() {
 		},
 		wishlist: {
 			items: [
-				{ image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100', name: 'Sneakers', price: '$129' },
-				{ image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100', name: 'Watch', price: '$299' },
-				{ image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100', name: 'Perfume', price: '$85' },
-				{ image: 'https://images.unsplash.com/photo-1491553895911-0055uj?w=100', name: 'Headphones', price: '$199' },
-				{ image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=100', name: 'Shoes', price: '$145' },
+				{
+					image:
+						'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100',
+					name: 'Sneakers',
+					price: '$129',
+				},
+				{
+					image:
+						'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100',
+					name: 'Watch',
+					price: '$299',
+				},
+				{
+					image:
+						'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100',
+					name: 'Perfume',
+					price: '$85',
+				},
+				{
+					image: 'https://images.unsplash.com/photo-1491553895911-0055uj?w=100',
+					name: 'Headphones',
+					price: '$199',
+				},
+				{
+					image:
+						'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=100',
+					name: 'Shoes',
+					price: '$145',
+				},
 			],
 			onSale: 2,
 		},

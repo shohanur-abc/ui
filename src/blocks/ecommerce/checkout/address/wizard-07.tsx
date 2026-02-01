@@ -131,9 +131,22 @@ const TypeStep = () => (
 		<p className="text-muted-foreground mb-8">
 			What kind of address are you adding?
 		</p>
-		<RadioGroup defaultValue="home" className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-			<AddressTypeOption value="home" icon={Home} label="Home" selected={true} />
-			<AddressTypeOption value="office" icon={Building2} label="Office" selected={false} />
+		<RadioGroup
+			defaultValue="home"
+			className="grid grid-cols-2 gap-4 max-w-md mx-auto"
+		>
+			<AddressTypeOption
+				value="home"
+				icon={Home}
+				label="Home"
+				selected={true}
+			/>
+			<AddressTypeOption
+				value="office"
+				icon={Building2}
+				label="Office"
+				selected={false}
+			/>
 		</RadioGroup>
 	</div>
 );
@@ -156,7 +169,12 @@ const DetailsStep = ({
 					<Field label="First Name" placeholder="John" required />
 					<Field label="Last Name" placeholder="Doe" required />
 				</div>
-				<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" required />
+				<Field
+					label="Phone"
+					placeholder="+1 (555) 000-0000"
+					type="tel"
+					required
+				/>
 				<Separator />
 				<SelectField
 					label="Country"
@@ -168,7 +186,12 @@ const DetailsStep = ({
 				<Field label="Apartment / Suite" placeholder="Apt 4B (Optional)" />
 				<div className="grid @sm:grid-cols-3 gap-4">
 					<Field label="City" placeholder="City" required />
-					<SelectField label="State" placeholder="State" options={states} required />
+					<SelectField
+						label="State"
+						placeholder="State"
+						options={states}
+						required
+					/>
 					<Field label="ZIP" placeholder="12345" required />
 				</div>
 			</CardContent>

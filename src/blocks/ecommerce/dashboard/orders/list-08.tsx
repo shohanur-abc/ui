@@ -2,7 +2,16 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import { Warehouse, Package, Truck, Clock, AlertCircle, CheckCircle, ArrowRight, RotateCcw } from 'lucide-react';
+import {
+	Warehouse,
+	Package,
+	Truck,
+	Clock,
+	AlertCircle,
+	CheckCircle,
+	ArrowRight,
+	RotateCcw,
+} from 'lucide-react';
 
 interface BatchOrder {
 	batchId: string;
@@ -29,30 +38,79 @@ interface BatchOrderRowProps {
 	};
 }
 
-const StatusConfig: Record<BatchOrder['status'], { icon: typeof Clock; className: string; label: string; bgClass: string }> = {
-	queued: { icon: Clock, className: 'text-muted-foreground', label: 'Queued', bgClass: 'bg-muted' },
-	picking: { icon: Package, className: 'text-blue-500', label: 'Picking', bgClass: 'bg-blue-500' },
-	packing: { icon: Warehouse, className: 'text-purple-500', label: 'Packing', bgClass: 'bg-purple-500' },
-	ready: { icon: CheckCircle, className: 'text-accent', label: 'Ready', bgClass: 'bg-accent' },
-	shipped: { icon: Truck, className: 'text-primary', label: 'Shipped', bgClass: 'bg-primary' },
+const StatusConfig: Record<
+	BatchOrder['status'],
+	{ icon: typeof Clock; className: string; label: string; bgClass: string }
+> = {
+	queued: {
+		icon: Clock,
+		className: 'text-muted-foreground',
+		label: 'Queued',
+		bgClass: 'bg-muted',
+	},
+	picking: {
+		icon: Package,
+		className: 'text-blue-500',
+		label: 'Picking',
+		bgClass: 'bg-blue-500',
+	},
+	packing: {
+		icon: Warehouse,
+		className: 'text-purple-500',
+		label: 'Packing',
+		bgClass: 'bg-purple-500',
+	},
+	ready: {
+		icon: CheckCircle,
+		className: 'text-accent',
+		label: 'Ready',
+		bgClass: 'bg-accent',
+	},
+	shipped: {
+		icon: Truck,
+		className: 'text-primary',
+		label: 'Shipped',
+		bgClass: 'bg-primary',
+	},
 };
 
-const PriorityIndicator = ({ priority }: { priority: BatchOrder['priority'] }) => {
-	const config: Record<BatchOrder['priority'], { className: string; label: string }> = {
+const PriorityIndicator = ({
+	priority,
+}: {
+	priority: BatchOrder['priority'];
+}) => {
+	const config: Record<
+		BatchOrder['priority'],
+		{ className: string; label: string }
+	> = {
 		normal: { className: 'bg-muted text-muted-foreground', label: 'Normal' },
-		rush: { className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30', label: 'Rush' },
-		express: { className: 'bg-destructive/10 text-destructive border-destructive/30', label: 'Express' },
+		rush: {
+			className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30',
+			label: 'Rush',
+		},
+		express: {
+			className: 'bg-destructive/10 text-destructive border-destructive/30',
+			label: 'Express',
+		},
 	};
 	const { className, label } = config[priority];
-	return <Badge variant="outline" className={className}>{label}</Badge>;
+	return (
+		<Badge variant="outline" className={className}>
+			{label}
+		</Badge>
+	);
 };
 
 const BatchOrderRow = ({ batch, labels }: BatchOrderRowProps) => {
 	const { icon: Icon, className, label, bgClass } = StatusConfig[batch.status];
 	return (
-		<div className={`p-4 rounded-xl border transition-all ${batch.priority === 'express' ? 'border-destructive/30 bg-destructive/5' : 'border-border/50 bg-card/50'} hover:shadow-md`}>
+		<div
+			className={`p-4 rounded-xl border transition-all ${batch.priority === 'express' ? 'border-destructive/30 bg-destructive/5' : 'border-border/50 bg-card/50'} hover:shadow-md`}
+		>
 			<div className="flex items-center gap-4 mb-3">
-				<div className={`size-12 rounded-lg flex items-center justify-center ${className} bg-current/10`}>
+				<div
+					className={`size-12 rounded-lg flex items-center justify-center ${className} bg-current/10`}
+				>
 					<Icon className="size-6" />
 				</div>
 
@@ -62,13 +120,19 @@ const BatchOrderRow = ({ batch, labels }: BatchOrderRowProps) => {
 						<PriorityIndicator priority={batch.priority} />
 					</div>
 					<div className="flex items-center gap-3 text-sm text-muted-foreground">
-						<span>{batch.ordersCount} {labels.orders}</span>
+						<span>
+							{batch.ordersCount} {labels.orders}
+						</span>
 						<span>•</span>
-						<span>{batch.itemsCount} {labels.items}</span>
+						<span>
+							{batch.itemsCount} {labels.items}
+						</span>
 						{batch.assignedTo && (
 							<>
 								<span>•</span>
-								<span>{labels.assignee}: {batch.assignedTo}</span>
+								<span>
+									{labels.assignee}: {batch.assignedTo}
+								</span>
 							</>
 						)}
 					</div>
@@ -91,10 +155,14 @@ const BatchOrderRow = ({ batch, labels }: BatchOrderRowProps) => {
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-4 text-sm text-muted-foreground">
 					{batch.startedAt && (
-						<span>{labels.started}: {batch.startedAt}</span>
+						<span>
+							{labels.started}: {batch.startedAt}
+						</span>
 					)}
 					{batch.estimatedCompletion && (
-						<span>{labels.eta}: {batch.estimatedCompletion}</span>
+						<span>
+							{labels.eta}: {batch.estimatedCompletion}
+						</span>
 					)}
 				</div>
 
@@ -126,11 +194,56 @@ export default function Main() {
 	};
 
 	const batches: BatchOrder[] = [
-		{ batchId: 'BATCH-001', ordersCount: 24, itemsCount: 67, status: 'picking', progress: 45, assignedTo: 'John S.', startedAt: '10:30 AM', estimatedCompletion: '11:45 AM', priority: 'express' },
-		{ batchId: 'BATCH-002', ordersCount: 18, itemsCount: 42, status: 'packing', progress: 78, assignedTo: 'Maria K.', startedAt: '09:15 AM', estimatedCompletion: '10:30 AM', priority: 'rush' },
-		{ batchId: 'BATCH-003', ordersCount: 32, itemsCount: 95, status: 'ready', progress: 100, assignedTo: 'Alex B.', startedAt: '08:00 AM', priority: 'normal' },
-		{ batchId: 'BATCH-004', ordersCount: 15, itemsCount: 38, status: 'queued', progress: 0, priority: 'normal' },
-		{ batchId: 'BATCH-005', ordersCount: 28, itemsCount: 73, status: 'shipped', progress: 100, assignedTo: 'Team A', startedAt: 'Yesterday', priority: 'normal' },
+		{
+			batchId: 'BATCH-001',
+			ordersCount: 24,
+			itemsCount: 67,
+			status: 'picking',
+			progress: 45,
+			assignedTo: 'John S.',
+			startedAt: '10:30 AM',
+			estimatedCompletion: '11:45 AM',
+			priority: 'express',
+		},
+		{
+			batchId: 'BATCH-002',
+			ordersCount: 18,
+			itemsCount: 42,
+			status: 'packing',
+			progress: 78,
+			assignedTo: 'Maria K.',
+			startedAt: '09:15 AM',
+			estimatedCompletion: '10:30 AM',
+			priority: 'rush',
+		},
+		{
+			batchId: 'BATCH-003',
+			ordersCount: 32,
+			itemsCount: 95,
+			status: 'ready',
+			progress: 100,
+			assignedTo: 'Alex B.',
+			startedAt: '08:00 AM',
+			priority: 'normal',
+		},
+		{
+			batchId: 'BATCH-004',
+			ordersCount: 15,
+			itemsCount: 38,
+			status: 'queued',
+			progress: 0,
+			priority: 'normal',
+		},
+		{
+			batchId: 'BATCH-005',
+			ordersCount: 28,
+			itemsCount: 73,
+			status: 'shipped',
+			progress: 100,
+			assignedTo: 'Team A',
+			startedAt: 'Yesterday',
+			priority: 'normal',
+		},
 	];
 
 	return (

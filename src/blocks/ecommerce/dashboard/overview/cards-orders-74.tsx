@@ -27,15 +27,35 @@ type OrderCard = {
 const getStatusConfig = (status: OrderCard['status']) => {
 	switch (status) {
 		case 'pending':
-			return { icon: Clock, color: 'bg-amber-500/10 text-amber-500', label: 'Pending' };
+			return {
+				icon: Clock,
+				color: 'bg-amber-500/10 text-amber-500',
+				label: 'Pending',
+			};
 		case 'processing':
-			return { icon: Package, color: 'bg-blue-500/10 text-blue-500', label: 'Processing' };
+			return {
+				icon: Package,
+				color: 'bg-blue-500/10 text-blue-500',
+				label: 'Processing',
+			};
 		case 'shipped':
-			return { icon: Truck, color: 'bg-primary/10 text-primary', label: 'Shipped' };
+			return {
+				icon: Truck,
+				color: 'bg-primary/10 text-primary',
+				label: 'Shipped',
+			};
 		case 'delivered':
-			return { icon: CheckCircle2, color: 'bg-emerald-500/10 text-emerald-500', label: 'Delivered' };
+			return {
+				icon: CheckCircle2,
+				color: 'bg-emerald-500/10 text-emerald-500',
+				label: 'Delivered',
+			};
 		case 'cancelled':
-			return { icon: XCircle, color: 'bg-red-500/10 text-red-500', label: 'Cancelled' };
+			return {
+				icon: XCircle,
+				color: 'bg-red-500/10 text-red-500',
+				label: 'Cancelled',
+			};
 	}
 };
 
@@ -102,12 +122,66 @@ const OrderCardComponent = (order: OrderCard) => {
 
 export default function Main() {
 	const orders: OrderCard[] = [
-		{ id: 'ORD-4521', customer: 'John Doe', email: 'john@example.com', address: '123 Main St, New York, NY 10001', items: 3, total: '$234.50', date: 'Dec 12, 2024', status: 'pending' },
-		{ id: 'ORD-4520', customer: 'Jane Smith', email: 'jane@example.com', address: '456 Oak Ave, San Francisco, CA 94102', items: 2, total: '$189.00', date: 'Dec 12, 2024', status: 'processing' },
-		{ id: 'ORD-4519', customer: 'Bob Wilson', email: 'bob@example.com', address: '789 Pine Rd, Chicago, IL 60601', items: 5, total: '$456.20', date: 'Dec 11, 2024', status: 'shipped' },
-		{ id: 'ORD-4518', customer: 'Alice Brown', email: 'alice@example.com', address: '321 Elm Blvd, Seattle, WA 98101', items: 1, total: '$78.90', date: 'Dec 11, 2024', status: 'delivered' },
-		{ id: 'ORD-4517', customer: 'Mike Johnson', email: 'mike@example.com', address: '654 Maple Dr, Austin, TX 78701', items: 4, total: '$321.00', date: 'Dec 10, 2024', status: 'delivered' },
-		{ id: 'ORD-4516', customer: 'Sarah Davis', email: 'sarah@example.com', address: '987 Cedar Ln, Boston, MA 02101', items: 2, total: '$145.50', date: 'Dec 10, 2024', status: 'cancelled' },
+		{
+			id: 'ORD-4521',
+			customer: 'John Doe',
+			email: 'john@example.com',
+			address: '123 Main St, New York, NY 10001',
+			items: 3,
+			total: '$234.50',
+			date: 'Dec 12, 2024',
+			status: 'pending',
+		},
+		{
+			id: 'ORD-4520',
+			customer: 'Jane Smith',
+			email: 'jane@example.com',
+			address: '456 Oak Ave, San Francisco, CA 94102',
+			items: 2,
+			total: '$189.00',
+			date: 'Dec 12, 2024',
+			status: 'processing',
+		},
+		{
+			id: 'ORD-4519',
+			customer: 'Bob Wilson',
+			email: 'bob@example.com',
+			address: '789 Pine Rd, Chicago, IL 60601',
+			items: 5,
+			total: '$456.20',
+			date: 'Dec 11, 2024',
+			status: 'shipped',
+		},
+		{
+			id: 'ORD-4518',
+			customer: 'Alice Brown',
+			email: 'alice@example.com',
+			address: '321 Elm Blvd, Seattle, WA 98101',
+			items: 1,
+			total: '$78.90',
+			date: 'Dec 11, 2024',
+			status: 'delivered',
+		},
+		{
+			id: 'ORD-4517',
+			customer: 'Mike Johnson',
+			email: 'mike@example.com',
+			address: '654 Maple Dr, Austin, TX 78701',
+			items: 4,
+			total: '$321.00',
+			date: 'Dec 10, 2024',
+			status: 'delivered',
+		},
+		{
+			id: 'ORD-4516',
+			customer: 'Sarah Davis',
+			email: 'sarah@example.com',
+			address: '987 Cedar Ln, Boston, MA 02101',
+			items: 2,
+			total: '$145.50',
+			date: 'Dec 10, 2024',
+			status: 'cancelled',
+		},
 	];
 
 	return (

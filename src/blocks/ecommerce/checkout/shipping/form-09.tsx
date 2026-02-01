@@ -61,7 +61,9 @@ const ToggleOption = ({
 }) => (
 	<div className="flex items-center justify-between p-4 rounded-xl bg-muted/50 border">
 		<div className="space-y-1">
-			<Label htmlFor={id} className="font-medium cursor-pointer">{label}</Label>
+			<Label htmlFor={id} className="font-medium cursor-pointer">
+				{label}
+			</Label>
 			<p className="text-sm text-muted-foreground">{description}</p>
 		</div>
 		<Switch id={id} defaultChecked={defaultChecked} />
@@ -114,8 +116,12 @@ export default function Main() {
 						<Sparkles className="size-4" />
 						<span className="text-sm font-medium">Express Checkout</span>
 					</div>
-					<h1 className="text-3xl font-bold tracking-tight">Shipping Information</h1>
-					<p className="text-muted-foreground mt-2">Fast, secure, and reliable delivery</p>
+					<h1 className="text-3xl font-bold tracking-tight">
+						Shipping Information
+					</h1>
+					<p className="text-muted-foreground mt-2">
+						Fast, secure, and reliable delivery
+					</p>
 				</div>
 
 				<div className="rounded-2xl border bg-card/80 backdrop-blur-sm p-6 @md:p-8 shadow-xl space-y-6">
@@ -129,8 +135,16 @@ export default function Main() {
 						<InputWithIcon label="Last Name" placeholder="Doe" />
 					</div>
 
-					<InputWithIcon label="Email" placeholder="john@example.com" type="email" />
-					<InputWithIcon label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
+					<InputWithIcon
+						label="Email"
+						placeholder="john@example.com"
+						type="email"
+					/>
+					<InputWithIcon
+						label="Phone"
+						placeholder="+1 (555) 000-0000"
+						type="tel"
+					/>
 					<InputWithIcon label="Street Address" placeholder="123 Main Street" />
 
 					<div className="grid @sm:grid-cols-3 gap-4">
@@ -140,8 +154,14 @@ export default function Main() {
 					</div>
 
 					<ExpandableSection title="Additional Options">
-						<InputWithIcon label="Company Name" placeholder="Company (optional)" />
-						<InputWithIcon label="Delivery Instructions" placeholder="Gate code, building access..." />
+						<InputWithIcon
+							label="Company Name"
+							placeholder="Company (optional)"
+						/>
+						<InputWithIcon
+							label="Delivery Instructions"
+							placeholder="Gate code, building access..."
+						/>
 					</ExpandableSection>
 
 					<div className="space-y-3">

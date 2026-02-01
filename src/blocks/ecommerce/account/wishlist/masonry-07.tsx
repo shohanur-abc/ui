@@ -27,7 +27,13 @@ const heightClasses = {
 	tall: 'h-76',
 };
 
-const BrandBadge = ({ brand, isPartner }: { brand: string; isPartner: boolean }) => (
+const BrandBadge = ({
+	brand,
+	isPartner,
+}: {
+	brand: string;
+	isPartner: boolean;
+}) => (
 	<Badge variant={isPartner ? 'default' : 'outline'} className="gap-1 text-xs">
 		{isPartner && <Star className="size-2.5 fill-current" />}
 		{brand}
@@ -43,13 +49,23 @@ const RatingBadge = ({ rating }: { rating: number }) => (
 
 const MasonryItem = ({ item }: { item: WishlistItem }) => (
 	<div className="break-inside-avoid mb-4">
-		<Card className={`overflow-hidden group ${item.isPartner ? 'ring-1 ring-primary/30' : ''}`}>
+		<Card
+			className={`overflow-hidden group ${item.isPartner ? 'ring-1 ring-primary/30' : ''}`}
+		>
 			<div className={`relative ${heightClasses[item.height]} bg-muted`}>
-				<img src={item.image} alt={item.name} className="size-full object-cover group-hover:scale-105 transition-transform duration-500" />
+				<img
+					src={item.image}
+					alt={item.name}
+					className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
+				/>
 				<div className="absolute top-2 left-2 right-10 flex flex-wrap gap-1">
 					<BrandBadge brand={item.brand} isPartner={item.isPartner} />
 				</div>
-				<Button variant="ghost" size="icon-sm" className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm">
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm"
+				>
 					<Heart className="size-4 fill-primary text-primary" />
 				</Button>
 				<div className="absolute bottom-2 right-2">
@@ -65,9 +81,15 @@ const MasonryItem = ({ item }: { item: WishlistItem }) => (
 			<div className="p-3">
 				<div className="flex items-start justify-between gap-2">
 					<Link href={item.href} className="flex-1">
-						<h3 className="font-medium text-sm line-clamp-2 hover:text-primary transition-colors">{item.name}</h3>
+						<h3 className="font-medium text-sm line-clamp-2 hover:text-primary transition-colors">
+							{item.name}
+						</h3>
 					</Link>
-					<Button variant="ghost" size="icon-sm" className="flex-shrink-0 text-destructive hover:text-destructive size-6">
+					<Button
+						variant="ghost"
+						size="icon-sm"
+						className="flex-shrink-0 text-destructive hover:text-destructive size-6"
+					>
 						<X className="size-3" />
 					</Button>
 				</div>
@@ -93,9 +115,16 @@ const MasonryGrid = ({ items }: MasonryProps) => (
 	</div>
 );
 
-const BrandFilter = ({ brands }: { brands: { name: string; isPartner: boolean }[] }) => (
+const BrandFilter = ({
+	brands,
+}: {
+	brands: { name: string; isPartner: boolean }[];
+}) => (
 	<div className="flex flex-wrap gap-2 mb-6">
-		<Badge variant="secondary" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">
+		<Badge
+			variant="secondary"
+			className="cursor-pointer hover:bg-primary hover:text-primary-foreground"
+		>
 			All Brands
 		</Badge>
 		{brands.map((brand) => (
@@ -104,7 +133,9 @@ const BrandFilter = ({ brands }: { brands: { name: string; isPartner: boolean }[
 				variant="outline"
 				className={`cursor-pointer hover:bg-primary hover:text-primary-foreground gap-1 ${brand.isPartner ? 'border-primary/50' : ''}`}
 			>
-				{brand.isPartner && <Star className="size-2.5 fill-primary text-primary" />}
+				{brand.isPartner && (
+					<Star className="size-2.5 fill-primary text-primary" />
+				)}
 				{brand.name}
 			</Badge>
 		))}
@@ -121,14 +152,102 @@ export default function Main() {
 	];
 
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Nike Air Max 270', price: 150.00, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop', height: 'medium', brand: 'Nike', isPartner: true, rating: 4.8, href: '/product/1' },
-		{ id: '2', name: 'Apple AirPods Pro', price: 249.00, image: 'https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=400&h=350&fit=crop', height: 'short', brand: 'Apple', isPartner: true, rating: 4.9, href: '/product/2' },
-		{ id: '3', name: 'Sony WH-1000XM5', price: 349.00, image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400&h=500&fit=crop', height: 'tall', brand: 'Sony', isPartner: false, rating: 4.7, href: '/product/3' },
-		{ id: '4', name: 'Samsung Galaxy Buds', price: 179.00, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=300&fit=crop', height: 'short', brand: 'Samsung', isPartner: false, rating: 4.5, href: '/product/4' },
-		{ id: '5', name: 'Adidas Ultraboost', price: 190.00, image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&h=450&fit=crop', height: 'medium', brand: 'Adidas', isPartner: true, rating: 4.6, href: '/product/5' },
-		{ id: '6', name: 'Apple Watch Series 9', price: 399.00, image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop', height: 'medium', brand: 'Apple', isPartner: true, rating: 4.8, href: '/product/6' },
-		{ id: '7', name: 'Nike Dunk Low', price: 110.00, image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=350&fit=crop', height: 'short', brand: 'Nike', isPartner: true, rating: 4.7, href: '/product/7' },
-		{ id: '8', name: 'Sony LinkBuds', price: 199.00, image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&h=450&fit=crop', height: 'tall', brand: 'Sony', isPartner: false, rating: 4.3, href: '/product/8' },
+		{
+			id: '1',
+			name: 'Nike Air Max 270',
+			price: 150.0,
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop',
+			height: 'medium',
+			brand: 'Nike',
+			isPartner: true,
+			rating: 4.8,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Apple AirPods Pro',
+			price: 249.0,
+			image:
+				'https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?w=400&h=350&fit=crop',
+			height: 'short',
+			brand: 'Apple',
+			isPartner: true,
+			rating: 4.9,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Sony WH-1000XM5',
+			price: 349.0,
+			image:
+				'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400&h=500&fit=crop',
+			height: 'tall',
+			brand: 'Sony',
+			isPartner: false,
+			rating: 4.7,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Samsung Galaxy Buds',
+			price: 179.0,
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=300&fit=crop',
+			height: 'short',
+			brand: 'Samsung',
+			isPartner: false,
+			rating: 4.5,
+			href: '/product/4',
+		},
+		{
+			id: '5',
+			name: 'Adidas Ultraboost',
+			price: 190.0,
+			image:
+				'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&h=450&fit=crop',
+			height: 'medium',
+			brand: 'Adidas',
+			isPartner: true,
+			rating: 4.6,
+			href: '/product/5',
+		},
+		{
+			id: '6',
+			name: 'Apple Watch Series 9',
+			price: 399.0,
+			image:
+				'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop',
+			height: 'medium',
+			brand: 'Apple',
+			isPartner: true,
+			rating: 4.8,
+			href: '/product/6',
+		},
+		{
+			id: '7',
+			name: 'Nike Dunk Low',
+			price: 110.0,
+			image:
+				'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=350&fit=crop',
+			height: 'short',
+			brand: 'Nike',
+			isPartner: true,
+			rating: 4.7,
+			href: '/product/7',
+		},
+		{
+			id: '8',
+			name: 'Sony LinkBuds',
+			price: 199.0,
+			image:
+				'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&h=450&fit=crop',
+			height: 'tall',
+			brand: 'Sony',
+			isPartner: false,
+			rating: 4.3,
+			href: '/product/8',
+		},
 	];
 
 	return (

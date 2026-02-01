@@ -1,16 +1,39 @@
 'use client';
 
-import { ArrowRight, Bitcoin, Building2, CreditCard, Globe, HelpCircle, Lock, Percent, Shield, Smartphone, Timer, Wallet } from 'lucide-react';
+import {
+	ArrowRight,
+	Bitcoin,
+	Building2,
+	CreditCard,
+	Globe,
+	HelpCircle,
+	Lock,
+	Percent,
+	Shield,
+	Smartphone,
+	Timer,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface ExpressOption {
 	id: string;
@@ -41,11 +64,17 @@ const ExpressPaymentGrid = ({ options }: { options: ExpressOption[] }) => (
 		<h3 className="text-sm font-medium">Express Checkout</h3>
 		<div className="grid grid-cols-2 gap-2">
 			{options.map((option) => (
-				<Button key={option.id} variant="outline" className="h-14 gap-2 relative">
+				<Button
+					key={option.id}
+					variant="outline"
+					className="h-14 gap-2 relative"
+				>
 					<option.icon className="size-5" />
 					<span className="text-sm">{option.name}</span>
 					{option.label && (
-						<Badge className="absolute -top-2 -right-2 text-xs">{option.label}</Badge>
+						<Badge className="absolute -top-2 -right-2 text-xs">
+							{option.label}
+						</Badge>
 					)}
 				</Button>
 			))}
@@ -93,7 +122,9 @@ const CardForm = () => (
 		</div>
 		<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 			<Checkbox id="save-card" />
-			<Label htmlFor="save-card" className="text-sm cursor-pointer">Remember this card</Label>
+			<Label htmlFor="save-card" className="text-sm cursor-pointer">
+				Remember this card
+			</Label>
 		</div>
 	</div>
 );
@@ -116,7 +147,11 @@ const BankList = ({ banks }: { banks: string[] }) => (
 		<h3 className="text-sm font-medium">Select Your Bank</h3>
 		<div className="grid grid-cols-2 gap-2">
 			{banks.map((bank) => (
-				<Button key={bank} variant="outline" className="h-12 justify-start gap-2 text-sm">
+				<Button
+					key={bank}
+					variant="outline"
+					className="h-12 justify-start gap-2 text-sm"
+				>
 					<Building2 className="size-4" />
 					{bank}
 				</Button>
@@ -130,18 +165,33 @@ const BankList = ({ banks }: { banks: string[] }) => (
 );
 
 const BankTab = () => (
-	<BankList banks={['Chase', 'Bank of America', 'Wells Fargo', 'Citibank', 'Capital One', 'US Bank']} />
+	<BankList
+		banks={[
+			'Chase',
+			'Bank of America',
+			'Wells Fargo',
+			'Citibank',
+			'Capital One',
+			'US Bank',
+		]}
+	/>
 );
 
 const CryptoGrid = ({ options }: { options: CryptoOption[] }) => (
 	<div className="space-y-4">
 		<div className="flex items-center gap-2 p-3 rounded-lg bg-primary/5 border border-primary/20">
 			<Percent className="size-4 text-primary" />
-			<span className="text-sm font-medium text-primary">5% discount with crypto!</span>
+			<span className="text-sm font-medium text-primary">
+				5% discount with crypto!
+			</span>
 		</div>
 		<div className="grid grid-cols-2 gap-2">
 			{options.map((option) => (
-				<Button key={option.id} variant="outline" className={`h-16 flex-col gap-1 ${option.color}`}>
+				<Button
+					key={option.id}
+					variant="outline"
+					className={`h-16 flex-col gap-1 ${option.color}`}
+				>
 					<Bitcoin className="size-5" />
 					<span className="text-sm">{option.name}</span>
 					<span className="text-xs text-muted-foreground">{option.rate}</span>
@@ -153,10 +203,30 @@ const CryptoGrid = ({ options }: { options: CryptoOption[] }) => (
 
 const CryptoTab = () => {
 	const cryptoOptions: CryptoOption[] = [
-		{ id: 'btc', name: 'Bitcoin', rate: '≈ 0.0043 BTC', color: 'hover:border-orange-500/50' },
-		{ id: 'eth', name: 'Ethereum', rate: '≈ 0.065 ETH', color: 'hover:border-blue-500/50' },
-		{ id: 'usdc', name: 'USDC', rate: '≈ 189.99 USDC', color: 'hover:border-green-500/50' },
-		{ id: 'usdt', name: 'USDT', rate: '≈ 189.99 USDT', color: 'hover:border-teal-500/50' },
+		{
+			id: 'btc',
+			name: 'Bitcoin',
+			rate: '≈ 0.0043 BTC',
+			color: 'hover:border-orange-500/50',
+		},
+		{
+			id: 'eth',
+			name: 'Ethereum',
+			rate: '≈ 0.065 ETH',
+			color: 'hover:border-blue-500/50',
+		},
+		{
+			id: 'usdc',
+			name: 'USDC',
+			rate: '≈ 189.99 USDC',
+			color: 'hover:border-green-500/50',
+		},
+		{
+			id: 'usdt',
+			name: 'USDT',
+			rate: '≈ 189.99 USDT',
+			color: 'hover:border-teal-500/50',
+		},
 	];
 
 	return <CryptoGrid options={cryptoOptions} />;
@@ -209,12 +279,22 @@ const InternationalTab = () => (
 	</div>
 );
 
-const OrderTotal = ({ total, savings }: { total: string; savings?: string }) => (
+const OrderTotal = ({
+	total,
+	savings,
+}: {
+	total: string;
+	savings?: string;
+}) => (
 	<div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
 		<div className="flex items-center justify-between">
 			<div>
 				<span className="text-sm text-muted-foreground">Order Total</span>
-				{savings && <Badge variant="secondary" className="ml-2 text-xs">{savings}</Badge>}
+				{savings && (
+					<Badge variant="secondary" className="ml-2 text-xs">
+						{savings}
+					</Badge>
+				)}
 			</div>
 			<span className="text-2xl font-bold">{total}</span>
 		</div>

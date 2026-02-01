@@ -24,8 +24,7 @@ type PointsEarnedProps = {
 
 const PointsEarned = ({ icon: Icon, points }: PointsEarnedProps) => (
 	<span className="flex items-center gap-1 text-sm text-amber-600 dark:text-amber-400">
-		<Icon className="size-4" />
-		+{points} pts
+		<Icon className="size-4" />+{points} pts
 	</span>
 );
 

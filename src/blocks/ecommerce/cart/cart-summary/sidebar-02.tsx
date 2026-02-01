@@ -19,7 +19,11 @@ const ShippingProgress = ({
 	current,
 	target,
 	message,
-}: { current: number; target: number; message: string }) => {
+}: {
+	current: number;
+	target: number;
+	message: string;
+}) => {
 	const progress = (current / target) * 100;
 	return (
 		<div className="mb-6 rounded-lg bg-green-500/10 p-4">

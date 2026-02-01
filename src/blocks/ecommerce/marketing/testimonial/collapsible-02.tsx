@@ -136,16 +136,19 @@ export default function Main() {
 					author: 'Maya Foster',
 					role: 'CIO',
 					company: 'Fortune 500',
-					avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 					initials: 'MF',
 					rating: 5,
 				},
 				{
-					quote: 'Enterprise-grade security met all our compliance requirements.',
+					quote:
+						'Enterprise-grade security met all our compliance requirements.',
 					author: 'Nathan Chen',
 					role: 'CISO',
 					company: 'Global Corp',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'NC',
 					rating: 5,
 				},
@@ -154,7 +157,8 @@ export default function Main() {
 					author: 'Olivia Park',
 					role: 'VP IT',
 					company: 'MegaTech',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'OP',
 					rating: 5,
 				},
@@ -170,7 +174,8 @@ export default function Main() {
 					author: 'Patrick Lee',
 					role: 'Founder',
 					company: 'StartupX',
-					avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 					initials: 'PL',
 					rating: 5,
 				},
@@ -179,7 +184,8 @@ export default function Main() {
 					author: 'Quinn Brown',
 					role: 'CEO',
 					company: 'LaunchPad',
-					avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 					initials: 'QB',
 					rating: 5,
 				},
@@ -188,7 +194,8 @@ export default function Main() {
 					author: 'Rachel Kim',
 					role: 'CTO',
 					company: 'InnovateLab',
-					avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 					initials: 'RK',
 					rating: 5,
 				},
@@ -204,7 +211,8 @@ export default function Main() {
 					author: 'Sam Davis',
 					role: 'Agency Owner',
 					company: 'Creative Co',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'SD',
 					rating: 5,
 				},
@@ -213,7 +221,8 @@ export default function Main() {
 					author: 'Tina Wilson',
 					role: 'Director',
 					company: 'Brand Studio',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'TW',
 					rating: 5,
 				},
@@ -222,7 +231,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="By Category"

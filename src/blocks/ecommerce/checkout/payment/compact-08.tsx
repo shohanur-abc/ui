@@ -8,10 +8,20 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 
-const ProductHeader = ({ name, type, price }: { name: string; type: string; price: string }) => (
+const ProductHeader = ({
+	name,
+	type,
+	price,
+}: {
+	name: string;
+	type: string;
+	price: string;
+}) => (
 	<div className="flex items-center justify-between">
 		<div>
-			<Badge variant="secondary" className="text-[10px] mb-1">{type}</Badge>
+			<Badge variant="secondary" className="text-[10px] mb-1">
+				{type}
+			</Badge>
 			<h3 className="font-medium text-sm">{name}</h3>
 		</div>
 		<span className="font-bold">{price}</span>
@@ -21,7 +31,11 @@ const ProductHeader = ({ name, type, price }: { name: string; type: string; pric
 const EmailInput = () => (
 	<div className="relative">
 		<Mail className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" />
-		<Input type="email" placeholder="Email for delivery" className="h-9 text-sm pl-8" />
+		<Input
+			type="email"
+			placeholder="Email for delivery"
+			className="h-9 text-sm pl-8"
+		/>
 	</div>
 );
 

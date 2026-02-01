@@ -134,9 +134,17 @@ export default function Main() {
 
 	const notifications: Notification[] = [
 		{ title: 'New order #ORD-4521 received', time: '2 min ago', type: 'order' },
-		{ title: 'Low stock alert: Wireless Headphones', time: '15 min ago', type: 'alert' },
+		{
+			title: 'Low stock alert: Wireless Headphones',
+			time: '15 min ago',
+			type: 'alert',
+		},
 		{ title: 'Sales target reached for Q1', time: '1 hour ago', type: 'info' },
-		{ title: 'New order #ORD-4520 received', time: '2 hours ago', type: 'order' },
+		{
+			title: 'New order #ORD-4520 received',
+			time: '2 hours ago',
+			type: 'order',
+		},
 	];
 
 	return (

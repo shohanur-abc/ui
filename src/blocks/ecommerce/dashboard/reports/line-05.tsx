@@ -1,6 +1,13 @@
 'use client';
 
-import { Line, LineChart, CartesianGrid, XAxis, YAxis, ReferenceArea } from 'recharts';
+import {
+	Line,
+	LineChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	ReferenceArea,
+} from 'recharts';
 import { Calendar, TrendingUp } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -106,8 +113,16 @@ export default function Main() {
 							<LineChart data={chartData} margin={{ left: 12, right: 12 }}>
 								<defs>
 									<linearGradient id="convGradient" x1="0" y1="0" x2="0" y2="1">
-										<stop offset="5%" stopColor="var(--color-rate)" stopOpacity={0.15} />
-										<stop offset="95%" stopColor="var(--color-rate)" stopOpacity={0} />
+										<stop
+											offset="5%"
+											stopColor="var(--color-rate)"
+											stopOpacity={0.15}
+										/>
+										<stop
+											offset="95%"
+											stopColor="var(--color-rate)"
+											stopOpacity={0}
+										/>
 									</linearGradient>
 								</defs>
 								<CartesianGrid strokeDasharray="3 3" vertical={false} />

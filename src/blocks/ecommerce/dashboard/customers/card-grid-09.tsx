@@ -19,7 +19,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	DropdownMenu,
@@ -55,14 +60,38 @@ interface SubscriptionCustomer {
 }
 
 const StatusConfig = {
-	active: { label: 'Active', icon: Play, className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-	paused: { label: 'Paused', icon: Pause, className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-	cancelled: { label: 'Cancelled', icon: XCircle, className: 'bg-slate-500/10 text-slate-400 border-slate-500/20' },
-	past_due: { label: 'Past Due', icon: Bell, className: 'bg-red-500/10 text-red-500 border-red-500/20' },
-	trial: { label: 'Trial', icon: TrendingUp, className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
+	active: {
+		label: 'Active',
+		icon: Play,
+		className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+	},
+	paused: {
+		label: 'Paused',
+		icon: Pause,
+		className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+	},
+	cancelled: {
+		label: 'Cancelled',
+		icon: XCircle,
+		className: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
+	},
+	past_due: {
+		label: 'Past Due',
+		icon: Bell,
+		className: 'bg-red-500/10 text-red-500 border-red-500/20',
+	},
+	trial: {
+		label: 'Trial',
+		icon: TrendingUp,
+		className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+	},
 };
 
-const StatusBadge = ({ status }: { status: SubscriptionCustomer['status'] }) => {
+const StatusBadge = ({
+	status,
+}: {
+	status: SubscriptionCustomer['status'];
+}) => {
 	const config = StatusConfig[status];
 	const Icon = config.icon;
 	return (
@@ -206,7 +235,9 @@ const SubscriptionCard = ({ customer }: { customer: SubscriptionCustomer }) => (
 						price={customer.plan.price}
 						interval={customer.plan.interval}
 					/>
-					<span className="text-muted-foreground text-xs">Cycle #{customer.billingCycle}</span>
+					<span className="text-muted-foreground text-xs">
+						Cycle #{customer.billingCycle}
+					</span>
 				</div>
 			</div>
 			<UsageBar
@@ -216,9 +247,17 @@ const SubscriptionCard = ({ customer }: { customer: SubscriptionCustomer }) => (
 			/>
 			<div className="space-y-2 border-t pt-3">
 				<InfoItem icon={Calendar} label="Started" value={customer.startDate} />
-				<InfoItem icon={RefreshCw} label="Next billing" value={customer.nextBilling} />
+				<InfoItem
+					icon={RefreshCw}
+					label="Next billing"
+					value={customer.nextBilling}
+				/>
 				<InfoItem icon={DollarSign} label="MRR" value={customer.mrr} />
-				<InfoItem icon={CreditCard} label="Payment" value={customer.paymentMethod} />
+				<InfoItem
+					icon={CreditCard}
+					label="Payment"
+					value={customer.paymentMethod}
+				/>
 			</div>
 		</CardContent>
 		<CardFooter className="border-t bg-muted/20 px-4 py-3">
@@ -334,7 +373,9 @@ export default function Main() {
 					</div>
 					<div>
 						<h1 className="text-2xl font-bold tracking-tight">Subscriptions</h1>
-						<p className="text-muted-foreground text-sm">Manage customer subscriptions and billing</p>
+						<p className="text-muted-foreground text-sm">
+							Manage customer subscriptions and billing
+						</p>
 					</div>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-3">

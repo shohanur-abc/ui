@@ -1,6 +1,11 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Check, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
@@ -15,7 +20,13 @@ interface PricingPlan {
 	icon: React.ComponentType<{ className?: string }>;
 }
 
-const Eyebrow = ({ icon: Icon, text }: { icon: React.ComponentType<{ className?: string }>; text: string }) => (
+const Eyebrow = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	text: string;
+}) => (
 	<div className="inline-flex items-center gap-2 text-sm text-muted-foreground mb-4">
 		<Icon className="size-4" />
 		<span>{text}</span>
@@ -24,8 +35,7 @@ const Eyebrow = ({ icon: Icon, text }: { icon: React.ComponentType<{ className?:
 
 const Title = ({ text, highlight }: { text: string; highlight?: string }) => (
 	<h2 className="text-3xl @sm:text-4xl @lg:text-5xl font-bold tracking-tight mb-4">
-		{text}{' '}
-		{highlight && <span className="text-primary">{highlight}</span>}
+		{text} {highlight && <span className="text-primary">{highlight}</span>}
 	</h2>
 );
 

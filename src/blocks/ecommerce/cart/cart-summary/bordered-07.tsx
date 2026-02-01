@@ -18,7 +18,11 @@ const CircularHeader = ({
 	icon: Icon,
 	title,
 	itemCount,
-}: { icon: LucideIcon; title: string; itemCount: number }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	itemCount: number;
+}) => (
 	<div className="mb-6 flex flex-col items-center text-center">
 		<div className="mb-3 flex size-16 items-center justify-center rounded-full border-2 border-primary bg-primary/10">
 			<Icon className="size-7 text-primary" />

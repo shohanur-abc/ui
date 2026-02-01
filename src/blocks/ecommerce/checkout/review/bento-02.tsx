@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -109,7 +115,9 @@ const AddressInfo = ({
 	lines: string[];
 }) => (
 	<div>
-		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">{type}</p>
+		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">
+			{type}
+		</p>
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
 			<p key={i} className="text-sm text-muted-foreground">
@@ -152,7 +160,9 @@ const PaymentInfo = ({
 			<CreditCard className="size-7 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -179,9 +189,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -193,7 +207,8 @@ export default function Main() {
 			variant: 'Midnight Blue',
 			price: 199.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -201,7 +216,8 @@ export default function Main() {
 			variant: 'Clear',
 			price: 24.99,
 			quantity: 2,
-			image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -222,7 +238,13 @@ export default function Main() {
 				</div>
 
 				<div className="grid gap-4 @md:grid-cols-2 @lg:grid-cols-3">
-					<BentoTile title="Order Items" icon={Box} span="col-2" verified onEdit={() => {}}>
+					<BentoTile
+						title="Order Items"
+						icon={Box}
+						span="col-2"
+						verified
+						onEdit={() => {}}
+					>
 						<div className="grid gap-3 @sm:grid-cols-2">
 							{items.map((item) => (
 								<ProductCard key={item.id} item={item} />
@@ -246,7 +268,12 @@ export default function Main() {
 						/>
 					</BentoTile>
 
-					<BentoTile title="Payment" icon={CreditCard} verified onEdit={() => {}}>
+					<BentoTile
+						title="Payment"
+						icon={CreditCard}
+						verified
+						onEdit={() => {}}
+					>
 						<PaymentInfo brand="Amex" last4="0000" exp="09/27" />
 					</BentoTile>
 

@@ -63,7 +63,12 @@ interface CustomerPayment {
 const MetricCards = ({
 	metrics,
 }: {
-	metrics: { title: string; value: string; change: string; icon: React.ElementType }[];
+	metrics: {
+		title: string;
+		value: string;
+		change: string;
+		icon: React.ElementType;
+	}[];
 }) => (
 	<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 		{metrics.map((metric, i) => (
@@ -88,7 +93,11 @@ const MetricCards = ({
 	</div>
 );
 
-const PaymentMethodIcon = ({ type }: { type: CustomerPayment['paymentMethod']['type'] }) => {
+const PaymentMethodIcon = ({
+	type,
+}: {
+	type: CustomerPayment['paymentMethod']['type'];
+}) => {
 	const icons = {
 		visa: 'Visa',
 		mastercard: 'MC',
@@ -103,12 +112,28 @@ const PaymentMethodIcon = ({ type }: { type: CustomerPayment['paymentMethod']['t
 	);
 };
 
-const PaymentStatusBadge = ({ status }: { status: CustomerPayment['paymentStatus'] }) => {
+const PaymentStatusBadge = ({
+	status,
+}: {
+	status: CustomerPayment['paymentStatus'];
+}) => {
 	const config = {
-		completed: { label: 'Completed', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		pending: { label: 'Pending', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		failed: { label: 'Failed', className: 'bg-red-500/10 text-red-500 border-red-500/20' },
-		refunded: { label: 'Refunded', className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
+		completed: {
+			label: 'Completed',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		pending: {
+			label: 'Pending',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		failed: {
+			label: 'Failed',
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
+		refunded: {
+			label: 'Refunded',
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[status].className}>
@@ -123,7 +148,9 @@ const SubscriptionBadge = ({
 	subscription: CustomerPayment['subscription'];
 }) => {
 	if (!subscription) {
-		return <span className="text-muted-foreground text-sm">No subscription</span>;
+		return (
+			<span className="text-muted-foreground text-sm">No subscription</span>
+		);
 	}
 	const statusColors = {
 		active: 'text-emerald-500',
@@ -136,7 +163,8 @@ const SubscriptionBadge = ({
 			<p className={`text-xs ${statusColors[subscription.status]}`}>
 				{subscription.status === 'active'
 					? `Next: ${subscription.nextBilling}`
-					: subscription.status.charAt(0).toUpperCase() + subscription.status.slice(1)}
+					: subscription.status.charAt(0).toUpperCase() +
+						subscription.status.slice(1)}
 			</p>
 		</div>
 	);
@@ -147,14 +175,19 @@ const CustomerRow = ({ customer }: { customer: CustomerPayment }) => (
 		<TableCell>
 			<div className="flex items-center gap-3">
 				<Avatar className="size-9">
-					<AvatarImage src={customer.customer.avatar} alt={customer.customer.name} />
+					<AvatarImage
+						src={customer.customer.avatar}
+						alt={customer.customer.name}
+					/>
 					<AvatarFallback className="bg-primary/10 text-primary text-xs">
 						{customer.customer.initials}
 					</AvatarFallback>
 				</Avatar>
 				<div>
 					<p className="font-medium">{customer.customer.name}</p>
-					<p className="text-muted-foreground text-xs">{customer.customer.email}</p>
+					<p className="text-muted-foreground text-xs">
+						{customer.customer.email}
+					</p>
 				</div>
 			</div>
 		</TableCell>
@@ -228,26 +261,53 @@ const CustomerRow = ({ customer }: { customer: CustomerPayment }) => (
 
 export default function Main() {
 	const metrics = [
-		{ title: 'Total Revenue', value: '$156.8K', change: '+12.5%', icon: DollarSign },
-		{ title: 'Active Subscriptions', value: '1,234', change: '+8.2%', icon: RefreshCw },
-		{ title: 'Avg. Transaction', value: '$89.50', change: '+5.3%', icon: CreditCard },
+		{
+			title: 'Total Revenue',
+			value: '$156.8K',
+			change: '+12.5%',
+			icon: DollarSign,
+		},
+		{
+			title: 'Active Subscriptions',
+			value: '1,234',
+			change: '+8.2%',
+			icon: RefreshCw,
+		},
+		{
+			title: 'Avg. Transaction',
+			value: '$89.50',
+			change: '+5.3%',
+			icon: CreditCard,
+		},
 		{ title: 'Credit Balance', value: '$12.4K', change: '+3.1%', icon: Wallet },
 	];
 
 	const customers: CustomerPayment[] = [
 		{
 			id: '1',
-			customer: { name: 'Victoria Adams', email: 'victoria.a@email.com', initials: 'VA' },
+			customer: {
+				name: 'Victoria Adams',
+				email: 'victoria.a@email.com',
+				initials: 'VA',
+			},
 			paymentMethod: { type: 'visa', last4: '4242' },
 			totalSpent: '$4,567.00',
 			lastPayment: 'Jan 15, 2024',
 			paymentStatus: 'completed',
-			subscription: { plan: 'Premium', status: 'active', nextBilling: 'Feb 15' },
+			subscription: {
+				plan: 'Premium',
+				status: 'active',
+				nextBilling: 'Feb 15',
+			},
 			creditBalance: '$125.00',
 		},
 		{
 			id: '2',
-			customer: { name: 'Michael Scott', email: 'michael.s@email.com', initials: 'MS' },
+			customer: {
+				name: 'Michael Scott',
+				email: 'michael.s@email.com',
+				initials: 'MS',
+			},
 			paymentMethod: { type: 'mastercard', last4: '5555' },
 			totalSpent: '$2,340.00',
 			lastPayment: 'Jan 12, 2024',
@@ -257,7 +317,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Rachel Green', email: 'rachel.g@email.com', initials: 'RG' },
+			customer: {
+				name: 'Rachel Green',
+				email: 'rachel.g@email.com',
+				initials: 'RG',
+			},
 			paymentMethod: { type: 'paypal' },
 			totalSpent: '$890.00',
 			lastPayment: 'Jan 10, 2024',
@@ -266,7 +330,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'David Palmer', email: 'david.p@email.com', initials: 'DP' },
+			customer: {
+				name: 'David Palmer',
+				email: 'david.p@email.com',
+				initials: 'DP',
+			},
 			paymentMethod: { type: 'visa', last4: '1234' },
 			totalSpent: '$1,234.00',
 			lastPayment: 'Jan 8, 2024',
@@ -276,7 +344,11 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Emily Chen', email: 'emily.c@email.com', initials: 'EC' },
+			customer: {
+				name: 'Emily Chen',
+				email: 'emily.c@email.com',
+				initials: 'EC',
+			},
 			paymentMethod: { type: 'applepay' },
 			totalSpent: '$567.00',
 			lastPayment: 'Jan 5, 2024',
@@ -290,7 +362,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
 				<div className="flex flex-col gap-4 @lg:flex-row @lg:items-center @lg:justify-between">
 					<div>
-						<h1 className="text-2xl font-bold tracking-tight">Payment Overview</h1>
+						<h1 className="text-2xl font-bold tracking-tight">
+							Payment Overview
+						</h1>
 						<p className="text-muted-foreground text-sm">
 							Manage customer payment methods and transactions
 						</p>
@@ -325,18 +399,27 @@ export default function Main() {
 					<div className="flex items-center gap-3 border-b px-6 py-4">
 						<div className="relative flex-1">
 							<Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
-							<Input placeholder="Search by name or email..." className="max-w-sm pl-9" />
+							<Input
+								placeholder="Search by name or email..."
+								className="max-w-sm pl-9"
+							/>
 						</div>
 					</div>
 					<Table>
 						<TableHeader>
 							<TableRow className="hover:bg-transparent">
 								<TableHead>Customer</TableHead>
-								<TableHead className="hidden @md:table-cell">Payment Method</TableHead>
+								<TableHead className="hidden @md:table-cell">
+									Payment Method
+								</TableHead>
 								<TableHead>Total Spent</TableHead>
-								<TableHead className="hidden @lg:table-cell">Last Payment</TableHead>
+								<TableHead className="hidden @lg:table-cell">
+									Last Payment
+								</TableHead>
 								<TableHead className="hidden @lg:table-cell">Status</TableHead>
-								<TableHead className="hidden @xl:table-cell">Subscription</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Subscription
+								</TableHead>
 								<TableHead className="hidden @xl:table-cell">Credit</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>

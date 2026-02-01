@@ -70,7 +70,9 @@ const NotificationBanner = ({
 					<Bell className="size-5 text-amber-500" />
 					<p className="text-sm">{message}</p>
 				</div>
-				<Button variant="outline" size="sm">{action}</Button>
+				<Button variant="outline" size="sm">
+					{action}
+				</Button>
 			</div>
 		</CardContent>
 	</Card>
@@ -81,7 +83,14 @@ const AccountSection = ({
 	items,
 }: {
 	title: string;
-	items: { icon: React.ElementType; label: string; description?: string; href: string; badge?: string; status?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		description?: string;
+		href: string;
+		badge?: string;
+		status?: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -98,12 +107,20 @@ const AccountSection = ({
 						<item.icon className="size-5 text-muted-foreground" />
 						<div>
 							<p className="font-medium">{item.label}</p>
-							{item.description && <p className="text-sm text-muted-foreground">{item.description}</p>}
+							{item.description && (
+								<p className="text-sm text-muted-foreground">
+									{item.description}
+								</p>
+							)}
 						</div>
 					</div>
 					<div className="flex items-center gap-2">
 						{item.badge && <Badge>{item.badge}</Badge>}
-						{item.status && <span className="text-sm text-muted-foreground">{item.status}</span>}
+						{item.status && (
+							<span className="text-sm text-muted-foreground">
+								{item.status}
+							</span>
+						)}
 						<ArrowRight className="size-4 text-muted-foreground" />
 					</div>
 				</Link>
@@ -149,7 +166,13 @@ const RewardsCard = ({
 const OrdersPreview = ({
 	orders,
 }: {
-	orders: { id: string; items: number; total: string; status: string; statusColor: string }[];
+	orders: {
+		id: string;
+		items: number;
+		total: string;
+		status: string;
+		statusColor: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -162,10 +185,15 @@ const OrdersPreview = ({
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{orders.map((order, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+				>
 					<div>
 						<p className="font-medium">Order #{order.id}</p>
-						<p className="text-sm text-muted-foreground">{order.items} items • {order.total}</p>
+						<p className="text-sm text-muted-foreground">
+							{order.items} items • {order.total}
+						</p>
 					</div>
 					<Badge className={order.statusColor}>{order.status}</Badge>
 				</div>
@@ -196,14 +224,18 @@ const SecurityCard = ({
 					<Key className="size-4 text-muted-foreground" />
 					<span className="text-sm">Password</span>
 				</div>
-				<span className="text-sm text-muted-foreground">Changed {passwordAge}</span>
+				<span className="text-sm text-muted-foreground">
+					Changed {passwordAge}
+				</span>
 			</div>
 			<div className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
 				<div className="flex items-center gap-3">
 					<Smartphone className="size-4 text-muted-foreground" />
 					<span className="text-sm">Two-Factor Auth</span>
 				</div>
-				<Badge variant={twoFactor ? 'default' : 'secondary'}>{twoFactor ? 'Enabled' : 'Disabled'}</Badge>
+				<Badge variant={twoFactor ? 'default' : 'secondary'}>
+					{twoFactor ? 'Enabled' : 'Disabled'}
+				</Badge>
 			</div>
 			<div className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
 				<div className="flex items-center gap-3">
@@ -219,7 +251,10 @@ const SecurityCard = ({
 const LogoutButton = () => (
 	<Card className="border-red-500/20">
 		<CardContent className="p-4">
-			<Button variant="outline" className="w-full text-red-500 hover:text-red-600 hover:bg-red-500/10 gap-2">
+			<Button
+				variant="outline"
+				className="w-full text-red-500 hover:text-red-600 hover:bg-red-500/10 gap-2"
+			>
 				<LogOut className="size-4" />
 				Sign Out
 			</Button>
@@ -241,14 +276,46 @@ export default function Main() {
 			action: 'Complete Now',
 		},
 		accountItems: [
-			{ icon: User, label: 'Personal Information', description: 'Name, email, phone number', href: '/profile/personal' },
-			{ icon: MapPin, label: 'Addresses', description: 'Manage delivery addresses', href: '/profile/addresses', badge: '3' },
-			{ icon: CreditCard, label: 'Payment Methods', description: 'Cards and billing info', href: '/profile/payment', status: '2 cards' },
-			{ icon: Bell, label: 'Notifications', description: 'Email and push preferences', href: '/profile/notifications' },
+			{
+				icon: User,
+				label: 'Personal Information',
+				description: 'Name, email, phone number',
+				href: '/profile/personal',
+			},
+			{
+				icon: MapPin,
+				label: 'Addresses',
+				description: 'Manage delivery addresses',
+				href: '/profile/addresses',
+				badge: '3',
+			},
+			{
+				icon: CreditCard,
+				label: 'Payment Methods',
+				description: 'Cards and billing info',
+				href: '/profile/payment',
+				status: '2 cards',
+			},
+			{
+				icon: Bell,
+				label: 'Notifications',
+				description: 'Email and push preferences',
+				href: '/profile/notifications',
+			},
 		],
 		preferencesItems: [
-			{ icon: Globe, label: 'Language & Region', href: '/settings/region', status: 'English (US)' },
-			{ icon: Moon, label: 'Appearance', href: '/settings/appearance', status: 'System' },
+			{
+				icon: Globe,
+				label: 'Language & Region',
+				href: '/settings/region',
+				status: 'English (US)',
+			},
+			{
+				icon: Moon,
+				label: 'Appearance',
+				href: '/settings/appearance',
+				status: 'System',
+			},
 			{ icon: Mail, label: 'Email Preferences', href: '/settings/email' },
 		],
 		rewards: {
@@ -258,8 +325,20 @@ export default function Main() {
 			progress: 85,
 		},
 		orders: [
-			{ id: '78542', items: 3, total: '$189.00', status: 'Shipped', statusColor: 'bg-blue-500/20 text-blue-600' },
-			{ id: '78539', items: 1, total: '$49.99', status: 'Delivered', statusColor: 'bg-green-500/20 text-green-600' },
+			{
+				id: '78542',
+				items: 3,
+				total: '$189.00',
+				status: 'Shipped',
+				statusColor: 'bg-blue-500/20 text-blue-600',
+			},
+			{
+				id: '78539',
+				items: 1,
+				total: '$49.99',
+				status: 'Delivered',
+				statusColor: 'bg-green-500/20 text-green-600',
+			},
 		],
 		security: {
 			lastLogin: 'Today, 2:45 PM',
@@ -275,8 +354,14 @@ export default function Main() {
 				<NotificationBanner {...profileData.notification} />
 				<RewardsCard {...profileData.rewards} />
 				<OrdersPreview orders={profileData.orders} />
-				<AccountSection title="Account Settings" items={profileData.accountItems} />
-				<AccountSection title="Preferences" items={profileData.preferencesItems} />
+				<AccountSection
+					title="Account Settings"
+					items={profileData.accountItems}
+				/>
+				<AccountSection
+					title="Preferences"
+					items={profileData.preferencesItems}
+				/>
 				<SecurityCard {...profileData.security} />
 				<LogoutButton />
 			</div>

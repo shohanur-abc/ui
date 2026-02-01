@@ -1,6 +1,13 @@
 'use client';
 
-import { Users, ShoppingCart, CreditCard, Package, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import {
+	Users,
+	ShoppingCart,
+	CreditCard,
+	Package,
+	ArrowUpRight,
+	ArrowDownRight,
+} from 'lucide-react';
 
 import {
 	Card,
@@ -20,7 +27,14 @@ type SegmentProps = {
 	winner: 'A' | 'B' | 'tie';
 };
 
-const SegmentCompare = ({ segment, description, icon: Icon, metricsA, metricsB, winner }: SegmentProps) => (
+const SegmentCompare = ({
+	segment,
+	description,
+	icon: Icon,
+	metricsA,
+	metricsB,
+	winner,
+}: SegmentProps) => (
 	<Card className="border-border/30 bg-card/60">
 		<CardContent className="p-5">
 			<div className="mb-4 flex items-center gap-3">
@@ -33,10 +47,18 @@ const SegmentCompare = ({ segment, description, icon: Icon, metricsA, metricsB, 
 				</div>
 			</div>
 			<div className="grid grid-cols-2 gap-4">
-				<div className={`rounded-lg border p-3 ${winner === 'A' ? 'border-primary bg-primary/5' : 'border-border/30 bg-muted/20'}`}>
+				<div
+					className={`rounded-lg border p-3 ${winner === 'A' ? 'border-primary bg-primary/5' : 'border-border/30 bg-muted/20'}`}
+				>
 					<div className="mb-2 flex items-center justify-between">
-						<span className="text-xs font-medium text-muted-foreground">Segment A</span>
-						{winner === 'A' && <Badge variant="default" className="text-[10px]">Winner</Badge>}
+						<span className="text-xs font-medium text-muted-foreground">
+							Segment A
+						</span>
+						{winner === 'A' && (
+							<Badge variant="default" className="text-[10px]">
+								Winner
+							</Badge>
+						)}
 					</div>
 					{metricsA.map((m, i) => (
 						<div key={i} className="flex justify-between text-sm">
@@ -45,10 +67,18 @@ const SegmentCompare = ({ segment, description, icon: Icon, metricsA, metricsB, 
 						</div>
 					))}
 				</div>
-				<div className={`rounded-lg border p-3 ${winner === 'B' ? 'border-primary bg-primary/5' : 'border-border/30 bg-muted/20'}`}>
+				<div
+					className={`rounded-lg border p-3 ${winner === 'B' ? 'border-primary bg-primary/5' : 'border-border/30 bg-muted/20'}`}
+				>
 					<div className="mb-2 flex items-center justify-between">
-						<span className="text-xs font-medium text-muted-foreground">Segment B</span>
-						{winner === 'B' && <Badge variant="default" className="text-[10px]">Winner</Badge>}
+						<span className="text-xs font-medium text-muted-foreground">
+							Segment B
+						</span>
+						{winner === 'B' && (
+							<Badge variant="default" className="text-[10px]">
+								Winner
+							</Badge>
+						)}
 					</div>
 					{metricsB.map((m, i) => (
 						<div key={i} className="flex justify-between text-sm">
@@ -143,7 +173,10 @@ export default function Main() {
 								Live experiment results across key user journeys
 							</CardDescription>
 						</div>
-						<Badge variant="outline" className="w-fit border-primary/20 bg-primary/10 text-primary">
+						<Badge
+							variant="outline"
+							className="w-fit border-primary/20 bg-primary/10 text-primary"
+						>
 							4 Active Tests
 						</Badge>
 					</CardHeader>

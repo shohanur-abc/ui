@@ -174,12 +174,13 @@ export default function Main() {
 	const cartData: CartDrawerProps = {
 		title: 'Your Cart',
 		lastChanceLabel: 'Last Chance!',
-		lastChanceDescription: 'These deals expire soon. Don\'t miss out!',
+		lastChanceDescription: "These deals expire soon. Don't miss out!",
 		checkoutLabel: 'Checkout',
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes',
 				price: 129.99,
 				quantity: 1,
@@ -188,7 +189,8 @@ export default function Main() {
 		lastChance: [
 			{
 				id: 'lc1',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Ultra Boost',
 				originalPrice: 179.99,
 				salePrice: 99.99,
@@ -196,7 +198,8 @@ export default function Main() {
 			},
 			{
 				id: 'lc2',
-				image: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
 				name: 'Classic Leather',
 				originalPrice: 99.99,
 				salePrice: 59.99,
@@ -204,7 +207,8 @@ export default function Main() {
 			},
 			{
 				id: 'lc3',
-				image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
 				name: 'Air Force One',
 				originalPrice: 119.99,
 				salePrice: 79.99,
@@ -217,7 +221,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

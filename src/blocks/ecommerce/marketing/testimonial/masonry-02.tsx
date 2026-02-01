@@ -28,7 +28,10 @@ const SectionHeader = ({
 	description: string;
 }) => (
 	<div className="max-w-3xl mb-12 @lg:mb-16">
-		<Badge variant="outline" className="mb-4 gap-2 border-primary/30 text-primary">
+		<Badge
+			variant="outline"
+			className="mb-4 gap-2 border-primary/30 text-primary"
+		>
 			<Award className="size-3" />
 			{badge}
 		</Badge>
@@ -108,7 +111,13 @@ const TestimonialCard = ({
 	</Card>
 );
 
-const CTAButton = ({ text, icon: Icon }: { text: string; icon: React.ElementType }) => (
+const CTAButton = ({
+	text,
+	icon: Icon,
+}: {
+	text: string;
+	icon: React.ElementType;
+}) => (
 	<div className="text-center mt-12">
 		<Button size="lg" className="gap-2 group">
 			{text}
@@ -125,7 +134,8 @@ export default function Main() {
 			author: 'Jennifer Walsh',
 			role: 'CEO',
 			company: 'InnovateTech',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'JW',
 			rating: 5,
 			date: '2 weeks ago',
@@ -136,7 +146,8 @@ export default function Main() {
 			author: 'Robert Chen',
 			role: 'Founder',
 			company: 'TechStart',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'RC',
 			rating: 5,
 			date: '1 month ago',
@@ -148,7 +159,8 @@ export default function Main() {
 			author: 'Amanda Foster',
 			role: 'Marketing Director',
 			company: 'GrowthCo',
-			avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
 			initials: 'AF',
 			rating: 5,
 			date: '3 weeks ago',
@@ -159,7 +171,8 @@ export default function Main() {
 			author: 'Marcus Lee',
 			role: 'Tech Lead',
 			company: 'DevHub',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'ML',
 			rating: 5,
 			date: '2 months ago',
@@ -171,7 +184,8 @@ export default function Main() {
 			author: 'Sarah Bennett',
 			role: 'Operations Manager',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
 			initials: 'SB',
 			rating: 5,
 			date: '1 week ago',
@@ -180,7 +194,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="5-Star Reviews"

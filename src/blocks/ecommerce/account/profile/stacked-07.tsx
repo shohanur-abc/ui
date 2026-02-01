@@ -61,7 +61,9 @@ const JobSeekerHeader = ({
 						<MapPin className="size-4" />
 						{location}
 					</div>
-					<Badge variant="outline" className="mt-2">{lookingFor}</Badge>
+					<Badge variant="outline" className="mt-2">
+						{lookingFor}
+					</Badge>
 				</div>
 				<div className="flex gap-2">
 					<Button variant="outline">View Resume</Button>
@@ -83,7 +85,9 @@ const ProfileStrength = ({
 		<CardHeader className="pb-3">
 			<div className="flex items-center justify-between">
 				<h2 className="font-semibold">Profile Strength</h2>
-				<Badge variant={percentage >= 80 ? 'default' : 'secondary'}>{percentage}%</Badge>
+				<Badge variant={percentage >= 80 ? 'default' : 'secondary'}>
+					{percentage}%
+				</Badge>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-4">
@@ -99,7 +103,13 @@ const ProfileStrength = ({
 							) : (
 								<div className="size-5 rounded-full border-2 border-dashed border-muted-foreground" />
 							)}
-							<span className={item.completed ? 'text-muted-foreground line-through' : ''}>{item.label}</span>
+							<span
+								className={
+									item.completed ? 'text-muted-foreground line-through' : ''
+								}
+							>
+								{item.label}
+							</span>
 						</div>
 						{!item.completed && (
 							<Button variant="ghost" size="sm">
@@ -138,7 +148,14 @@ const ApplicationStats = ({
 const SavedJobs = ({
 	jobs,
 }: {
-	jobs: { title: string; company: string; location: string; salary: string; postedAgo: string; logo: string }[];
+	jobs: {
+		title: string;
+		company: string;
+		location: string;
+		salary: string;
+		postedAgo: string;
+		logo: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -154,10 +171,15 @@ const SavedJobs = ({
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{jobs.map((job, i) => (
-				<div key={i} className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+				<div
+					key={i}
+					className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+				>
 					<Avatar className="size-12 rounded-lg shrink-0">
 						<AvatarImage src={job.logo} alt={job.company} />
-						<AvatarFallback className="rounded-lg">{job.company[0]}</AvatarFallback>
+						<AvatarFallback className="rounded-lg">
+							{job.company[0]}
+						</AvatarFallback>
 					</Avatar>
 					<div className="flex-1 min-w-0">
 						<h4 className="font-medium truncate">{job.title}</h4>
@@ -172,7 +194,9 @@ const SavedJobs = ({
 					</div>
 					<div className="text-right">
 						<p className="text-xs text-muted-foreground">{job.postedAgo}</p>
-						<Button variant="outline" size="sm" className="mt-2">Apply</Button>
+						<Button variant="outline" size="sm" className="mt-2">
+							Apply
+						</Button>
 					</div>
 				</div>
 			))}
@@ -183,7 +207,12 @@ const SavedJobs = ({
 const Experience = ({
 	experiences,
 }: {
-	experiences: { title: string; company: string; period: string; current: boolean }[];
+	experiences: {
+		title: string;
+		company: string;
+		period: string;
+		current: boolean;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -201,8 +230,12 @@ const Experience = ({
 			{experiences.map((exp, i) => (
 				<div key={i} className="flex gap-3">
 					<div className="flex flex-col items-center">
-						<div className={`size-3 rounded-full ${exp.current ? 'bg-green-500' : 'bg-muted-foreground'}`} />
-						{i < experiences.length - 1 && <div className="w-px flex-1 bg-muted" />}
+						<div
+							className={`size-3 rounded-full ${exp.current ? 'bg-green-500' : 'bg-muted-foreground'}`}
+						/>
+						{i < experiences.length - 1 && (
+							<div className="w-px flex-1 bg-muted" />
+						)}
 					</div>
 					<div className="pb-4">
 						<div className="flex items-center gap-2">
@@ -221,7 +254,11 @@ const Experience = ({
 const Skills = ({
 	skills,
 }: {
-	skills: { name: string; level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert'; endorsements: number }[];
+	skills: {
+		name: string;
+		level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+		endorsements: number;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -240,7 +277,9 @@ const Skills = ({
 				{skills.map((skill, i) => (
 					<Badge key={i} variant="secondary" className="gap-1 py-1.5">
 						{skill.name}
-						<span className="text-xs bg-background/50 px-1 rounded">{skill.endorsements}</span>
+						<span className="text-xs bg-background/50 px-1 rounded">
+							{skill.endorsements}
+						</span>
 					</Badge>
 				))}
 			</div>
@@ -278,7 +317,9 @@ const Recommendations = ({
 							<p className="text-xs text-muted-foreground">{rec.title}</p>
 						</div>
 					</div>
-					<p className="text-sm text-muted-foreground line-clamp-2">"{rec.snippet}"</p>
+					<p className="text-sm text-muted-foreground line-clamp-2">
+						"{rec.snippet}"
+					</p>
 				</div>
 			))}
 		</CardContent>
@@ -313,13 +354,42 @@ export default function Main() {
 			{ label: 'Profile Views', value: '142', color: 'text-purple-500' },
 		],
 		savedJobs: [
-			{ title: 'Staff Engineer', company: 'Stripe', location: 'Remote', salary: '$180k - $220k', postedAgo: '2d ago', logo: 'https://logo.clearbit.com/stripe.com' },
-			{ title: 'Principal Engineer', company: 'Airbnb', location: 'San Francisco', salary: '$200k - $250k', postedAgo: '3d ago', logo: 'https://logo.clearbit.com/airbnb.com' },
+			{
+				title: 'Staff Engineer',
+				company: 'Stripe',
+				location: 'Remote',
+				salary: '$180k - $220k',
+				postedAgo: '2d ago',
+				logo: 'https://logo.clearbit.com/stripe.com',
+			},
+			{
+				title: 'Principal Engineer',
+				company: 'Airbnb',
+				location: 'San Francisco',
+				salary: '$200k - $250k',
+				postedAgo: '3d ago',
+				logo: 'https://logo.clearbit.com/airbnb.com',
+			},
 		],
 		experiences: [
-			{ title: 'Senior Software Engineer', company: 'Tech Corp', period: 'Jan 2022 - Present', current: true },
-			{ title: 'Software Engineer', company: 'StartupXYZ', period: 'Jun 2019 - Dec 2021', current: false },
-			{ title: 'Junior Developer', company: 'Agency Inc', period: 'Jan 2017 - May 2019', current: false },
+			{
+				title: 'Senior Software Engineer',
+				company: 'Tech Corp',
+				period: 'Jan 2022 - Present',
+				current: true,
+			},
+			{
+				title: 'Software Engineer',
+				company: 'StartupXYZ',
+				period: 'Jun 2019 - Dec 2021',
+				current: false,
+			},
+			{
+				title: 'Junior Developer',
+				company: 'Agency Inc',
+				period: 'Jan 2017 - May 2019',
+				current: false,
+			},
 		],
 		skills: [
 			{ name: 'React', level: 'Expert' as const, endorsements: 45 },
@@ -332,8 +402,20 @@ export default function Main() {
 		recommendations: {
 			count: 8,
 			preview: [
-				{ name: 'Sarah Chen', title: 'Engineering Manager at Tech Corp', avatar: 'https://i.pravatar.cc/40?img=1', snippet: 'Michael is one of the most talented engineers I\'ve worked with. His technical skills and leadership...' },
-				{ name: 'David Kim', title: 'CTO at StartupXYZ', avatar: 'https://i.pravatar.cc/40?img=2', snippet: 'An exceptional problem solver who consistently delivers high-quality work under tight deadlines...' },
+				{
+					name: 'Sarah Chen',
+					title: 'Engineering Manager at Tech Corp',
+					avatar: 'https://i.pravatar.cc/40?img=1',
+					snippet:
+						"Michael is one of the most talented engineers I've worked with. His technical skills and leadership...",
+				},
+				{
+					name: 'David Kim',
+					title: 'CTO at StartupXYZ',
+					avatar: 'https://i.pravatar.cc/40?img=2',
+					snippet:
+						'An exceptional problem solver who consistently delivers high-quality work under tight deadlines...',
+				},
 			],
 		},
 	};

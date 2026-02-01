@@ -118,8 +118,16 @@ const ReviewStatusBadge = ({ status, labels }: ReviewStatusBadgeProps) => {
 
 interface ReviewCardProps {
 	review: Review;
-	actions: { label: string; icon: React.ElementType; onClick: (id: string) => void; variant?: 'destructive' }[];
-	labels: { status: Record<'published' | 'pending' | 'flagged', string>; verified: string };
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		onClick: (id: string) => void;
+		variant?: 'destructive';
+	}[];
+	labels: {
+		status: Record<'published' | 'pending' | 'flagged', string>;
+		verified: string;
+	};
 }
 
 const ReviewCard = ({ review, actions, labels }: ReviewCardProps) => (
@@ -136,7 +144,10 @@ const ReviewCard = ({ review, actions, labels }: ReviewCardProps) => (
 					<div className="flex items-center gap-2">
 						<span className="text-sm font-medium">{review.author.name}</span>
 						{review.author.verified && (
-							<Badge variant="outline" className="gap-1 text-xs text-emerald-500">
+							<Badge
+								variant="outline"
+								className="gap-1 text-xs text-emerald-500"
+							>
 								<CheckCircle2 className="size-3" />
 								{labels.verified}
 							</Badge>
@@ -163,7 +174,9 @@ const ReviewCard = ({ review, actions, labels }: ReviewCardProps) => (
 								{action.variant === 'destructive' && <DropdownMenuSeparator />}
 								<DropdownMenuItem
 									onClick={() => action.onClick(review.id)}
-									className={action.variant === 'destructive' ? 'text-destructive' : ''}
+									className={
+										action.variant === 'destructive' ? 'text-destructive' : ''
+									}
 								>
 									<action.icon className="mr-2 size-4" />
 									{action.label}
@@ -175,7 +188,9 @@ const ReviewCard = ({ review, actions, labels }: ReviewCardProps) => (
 			</div>
 		</div>
 		{review.title && <h4 className="mb-1 font-medium">{review.title}</h4>}
-		<p className="mb-2 text-sm text-muted-foreground line-clamp-2">{review.content}</p>
+		<p className="mb-2 text-sm text-muted-foreground line-clamp-2">
+			{review.content}
+		</p>
 		<div className="flex items-center gap-3 text-xs text-muted-foreground">
 			<span className="flex items-center gap-1">
 				<ThumbsUp className="size-3" />
@@ -191,7 +206,12 @@ const ReviewCard = ({ review, actions, labels }: ReviewCardProps) => (
 
 interface ProductRowProps {
 	product: ProductWithReviews;
-	reviewActions: { label: string; icon: React.ElementType; onClick: (id: string) => void; variant?: 'destructive' }[];
+	reviewActions: {
+		label: string;
+		icon: React.ElementType;
+		onClick: (id: string) => void;
+		variant?: 'destructive';
+	}[];
 	labels: {
 		reviews: string;
 		status: Record<'published' | 'pending' | 'flagged', string>;
@@ -204,7 +224,11 @@ const ProductRow = ({ product, reviewActions, labels }: ProductRowProps) => (
 		<div className="mb-4 flex gap-4">
 			<div className="size-20 shrink-0 overflow-hidden rounded-lg bg-muted">
 				{product.image ? (
-					<img src={product.image} alt={product.name} className="size-full object-cover" />
+					<img
+						src={product.image}
+						alt={product.name}
+						className="size-full object-cover"
+					/>
 				) : (
 					<div className="flex size-full items-center justify-center">
 						<Package className="size-10 text-muted-foreground" />
@@ -217,7 +241,9 @@ const ProductRow = ({ product, reviewActions, labels }: ProductRowProps) => (
 				<div className="mt-2 flex items-center gap-4">
 					<div className="flex items-center gap-2">
 						<RatingStars rating={product.averageRating} />
-						<span className="text-lg font-bold">{product.averageRating.toFixed(1)}</span>
+						<span className="text-lg font-bold">
+							{product.averageRating.toFixed(1)}
+						</span>
 					</div>
 					<span className="text-sm text-muted-foreground">
 						{product.totalReviews} {labels.reviews}
@@ -250,7 +276,8 @@ export default function Main() {
 			id: '1',
 			name: 'Professional Chef Knife Set',
 			sku: 'KNF-PRO-001',
-			image: 'https://images.unsplash.com/photo-1593618998160-e34014e67546?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1593618998160-e34014e67546?w=100&h=100&fit=crop',
 			averageRating: 4.7,
 			totalReviews: 234,
 			ratingBreakdown: [
@@ -264,8 +291,9 @@ export default function Main() {
 				{
 					id: 'r1',
 					rating: 5,
-					title: 'Best knives I\'ve ever owned!',
-					content: 'These knives are incredibly sharp and well-balanced. The ergonomic handles make them comfortable to use for extended periods.',
+					title: "Best knives I've ever owned!",
+					content:
+						'These knives are incredibly sharp and well-balanced. The ergonomic handles make them comfortable to use for extended periods.',
 					author: { name: 'Chef Mike', avatar: '', verified: true },
 					date: '2 days ago',
 					helpful: 24,
@@ -276,7 +304,8 @@ export default function Main() {
 					id: 'r2',
 					rating: 4,
 					title: 'Great quality, minor issue',
-					content: 'Overall excellent set. The paring knife could be slightly sharper out of the box, but that\'s a minor complaint.',
+					content:
+						"Overall excellent set. The paring knife could be slightly sharper out of the box, but that's a minor complaint.",
 					author: { name: 'Home Cook', avatar: '', verified: false },
 					date: '5 days ago',
 					helpful: 12,
@@ -289,7 +318,8 @@ export default function Main() {
 			id: '2',
 			name: 'Cast Iron Dutch Oven',
 			sku: 'POT-CIO-002',
-			image: 'https://images.unsplash.com/photo-1585442245067-bf2a97e8ea13?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585442245067-bf2a97e8ea13?w=100&h=100&fit=crop',
 			averageRating: 4.9,
 			totalReviews: 567,
 			ratingBreakdown: [
@@ -304,7 +334,8 @@ export default function Main() {
 					id: 'r3',
 					rating: 5,
 					title: 'Perfect for slow cooking',
-					content: 'This Dutch oven has become my go-to for soups, stews, and bread baking. The heat distribution is phenomenal.',
+					content:
+						'This Dutch oven has become my go-to for soups, stews, and bread baking. The heat distribution is phenomenal.',
 					author: { name: 'Baker Jane', avatar: '', verified: true },
 					date: '1 day ago',
 					helpful: 45,
@@ -315,7 +346,8 @@ export default function Main() {
 					id: 'r4',
 					rating: 1,
 					title: 'Arrived damaged',
-					content: 'The enamel was chipped when it arrived. Very disappointed with the packaging.',
+					content:
+						'The enamel was chipped when it arrived. Very disappointed with the packaging.',
 					author: { name: 'Angry Customer', avatar: '', verified: false },
 					date: '3 days ago',
 					helpful: 2,
@@ -327,9 +359,22 @@ export default function Main() {
 	];
 
 	const reviewActions = [
-		{ label: 'Approve', icon: CheckCircle2, onClick: (id: string) => console.log('Approve', id) },
-		{ label: 'Flag', icon: Flag, onClick: (id: string) => console.log('Flag', id) },
-		{ label: 'Delete', icon: XCircle, onClick: (id: string) => console.log('Delete', id), variant: 'destructive' as const },
+		{
+			label: 'Approve',
+			icon: CheckCircle2,
+			onClick: (id: string) => console.log('Approve', id),
+		},
+		{
+			label: 'Flag',
+			icon: Flag,
+			onClick: (id: string) => console.log('Flag', id),
+		},
+		{
+			label: 'Delete',
+			icon: XCircle,
+			onClick: (id: string) => console.log('Delete', id),
+			variant: 'destructive' as const,
+		},
 	];
 
 	const labels = {

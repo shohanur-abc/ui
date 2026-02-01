@@ -23,7 +23,11 @@ interface ArticleProps {
 }
 
 const EditorialBadge = ({ text, href }: { text: string; href: string }) => (
-	<Badge variant="secondary" className="gap-1.5 uppercase tracking-widest text-[10px] font-bold" asChild>
+	<Badge
+		variant="secondary"
+		className="gap-1.5 uppercase tracking-widest text-[10px] font-bold"
+		asChild
+	>
 		<Link href={href}>
 			<Pencil className="size-3" />
 			{text}
@@ -82,7 +86,11 @@ const InitialLetter = ({ letter }: { letter: string }) => (
 	</span>
 );
 
-const EditorialContent = ({ blocks }: { blocks: { type: 'paragraph' | 'quote' | 'emphasis'; text: string }[] }) => (
+const EditorialContent = ({
+	blocks,
+}: {
+	blocks: { type: 'paragraph' | 'quote' | 'emphasis'; text: string }[];
+}) => (
 	<div className="space-y-8">
 		{blocks.map((block, index) => {
 			if (block.type === 'quote') {
@@ -135,10 +143,12 @@ export default function Main() {
 		category: 'Editorial',
 		categoryHref: '/blog/category/editorial',
 		title: 'On the Virtue of Patience in an Age of Instant Everything',
-		subtitle: 'Why slowing down might be the most radical act in a world obsessed with speed.',
+		subtitle:
+			'Why slowing down might be the most radical act in a world obsessed with speed.',
 		author: {
 			name: 'Catherine Wells',
-			avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',
 			initials: 'CW',
 			bio: 'Editor-in-Chief',
 		},
@@ -181,7 +191,10 @@ export default function Main() {
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-28">
 				<div className="flex flex-col gap-8 @md:gap-10">
 					<div className="text-center">
-						<EditorialBadge text={articleData.category} href={articleData.categoryHref} />
+						<EditorialBadge
+							text={articleData.category}
+							href={articleData.categoryHref}
+						/>
 					</div>
 					<Title text={articleData.title} />
 					<Subtitle text={articleData.subtitle} />

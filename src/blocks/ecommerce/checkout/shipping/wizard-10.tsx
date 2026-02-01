@@ -1,4 +1,12 @@
-import { Check, MapPin, Truck, CreditCard, Gift, ChevronDown, Edit2 } from 'lucide-react';
+import {
+	Check,
+	MapPin,
+	Truck,
+	CreditCard,
+	Gift,
+	ChevronDown,
+	Edit2,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -110,7 +118,9 @@ const SummaryRow = ({
 	value: string;
 	highlight?: boolean;
 }) => (
-	<div className={`flex justify-between ${highlight ? 'font-semibold text-lg' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${highlight ? 'font-semibold text-lg' : 'text-sm'}`}
+	>
 		<span className={highlight ? '' : 'text-muted-foreground'}>{label}</span>
 		<span className={highlight ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -118,22 +128,44 @@ const SummaryRow = ({
 
 export default function Main() {
 	const shippingOptions = [
-		{ value: 'standard', name: 'Standard', time: '5-7 business days', price: 'Free' },
-		{ value: 'express', name: 'Express', time: '2-3 business days', price: '$12.99' },
-		{ value: 'overnight', name: 'Overnight', time: 'Next business day', price: '$29.99', best: true },
+		{
+			value: 'standard',
+			name: 'Standard',
+			time: '5-7 business days',
+			price: 'Free',
+		},
+		{
+			value: 'express',
+			name: 'Express',
+			time: '2-3 business days',
+			price: '$12.99',
+		},
+		{
+			value: 'overnight',
+			name: 'Overnight',
+			time: 'Next business day',
+			price: '$29.99',
+			best: true,
+		},
 	];
 
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<Badge variant="outline" className="mb-3">Secure Checkout</Badge>
+					<Badge variant="outline" className="mb-3">
+						Secure Checkout
+					</Badge>
 					<h1 className="text-3xl font-bold">Complete Your Order</h1>
 				</div>
 
 				<div className="grid @lg:grid-cols-[1fr_340px] gap-8">
 					<div>
-						<Accordion type="single" defaultValue="shipping" className="space-y-4">
+						<Accordion
+							type="single"
+							defaultValue="shipping"
+							className="space-y-4"
+						>
 							<AccordionItem value="address" className="border rounded-xl px-4">
 								<AccordionTrigger className="hover:no-underline py-4">
 									<AccordionStepHeader
@@ -147,15 +179,24 @@ export default function Main() {
 									<Card className="bg-muted/30">
 										<CardContent className="p-4">
 											<p className="font-medium">John Doe</p>
-											<p className="text-sm text-muted-foreground">123 Main Street, Apt 4B</p>
-											<p className="text-sm text-muted-foreground">New York, NY 10001</p>
-											<p className="text-sm text-muted-foreground">United States</p>
+											<p className="text-sm text-muted-foreground">
+												123 Main Street, Apt 4B
+											</p>
+											<p className="text-sm text-muted-foreground">
+												New York, NY 10001
+											</p>
+											<p className="text-sm text-muted-foreground">
+												United States
+											</p>
 										</CardContent>
 									</Card>
 								</AccordionContent>
 							</AccordionItem>
 
-							<AccordionItem value="shipping" className="border rounded-xl px-4 border-primary">
+							<AccordionItem
+								value="shipping"
+								className="border rounded-xl px-4 border-primary"
+							>
 								<AccordionTrigger className="hover:no-underline py-4">
 									<AccordionStepHeader
 										icon={Truck}

@@ -4,7 +4,14 @@ import { Phone, ArrowRight, Smartphone, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	Select,
 	SelectContent,
@@ -18,7 +25,13 @@ import {
 	InputOTPSlot,
 } from '@/components/ui/input-otp';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -70,8 +83,20 @@ const OTPInput = ({ label }: { label: string }) => (
 	</div>
 );
 
-const ResendButton = ({ label, countdown }: { label: string; countdown?: number }) => (
-	<Button type="button" variant="ghost" size="sm" className="gap-2" disabled={!!countdown}>
+const ResendButton = ({
+	label,
+	countdown,
+}: {
+	label: string;
+	countdown?: number;
+}) => (
+	<Button
+		type="button"
+		variant="ghost"
+		size="sm"
+		className="gap-2"
+		disabled={!!countdown}
+	>
 		<RefreshCw className="size-4" />
 		{countdown ? `${countdown}s` : label}
 	</Button>
@@ -142,7 +167,11 @@ export default function Main() {
 						</form>
 					</CardContent>
 					<CardFooter>
-						<FooterLink text="Use a different method?" linkText="Sign in with email" href="/login" />
+						<FooterLink
+							text="Use a different method?"
+							linkText="Sign in with email"
+							href="/login"
+						/>
 					</CardFooter>
 				</Card>
 			</div>

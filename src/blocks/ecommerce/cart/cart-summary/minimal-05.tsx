@@ -18,7 +18,11 @@ const TotalRow = ({
 	label,
 	value,
 	badge,
-}: { label: string; value: string; badge?: string }) => (
+}: {
+	label: string;
+	value: string;
+	badge?: string;
+}) => (
 	<div className="flex items-center justify-between border-t py-3">
 		<div className="flex items-center gap-2">
 			<span className="font-semibold">{label}</span>

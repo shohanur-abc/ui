@@ -1,11 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	Award,
@@ -69,7 +65,12 @@ const LoyaltyProgress = ({
 const QuickStats = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; value: string; color: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		color: string;
+	}[];
 }) => (
 	<div className="grid grid-cols-2 gap-3">
 		{items.map((item, i) => (
@@ -127,10 +128,30 @@ export default function Main() {
 			nextTier: 'Platinum',
 		},
 		stats: [
-			{ icon: Package, label: 'Orders', value: '156', color: 'bg-blue-500/20 text-blue-600' },
-			{ icon: Heart, label: 'Wishlist', value: '28', color: 'bg-pink-500/20 text-pink-600' },
-			{ icon: Star, label: 'Reviews', value: '42', color: 'bg-yellow-500/20 text-yellow-600' },
-			{ icon: TrendingUp, label: 'Spent', value: '$4.2k', color: 'bg-green-500/20 text-green-600' },
+			{
+				icon: Package,
+				label: 'Orders',
+				value: '156',
+				color: 'bg-blue-500/20 text-blue-600',
+			},
+			{
+				icon: Heart,
+				label: 'Wishlist',
+				value: '28',
+				color: 'bg-pink-500/20 text-pink-600',
+			},
+			{
+				icon: Star,
+				label: 'Reviews',
+				value: '42',
+				color: 'bg-yellow-500/20 text-yellow-600',
+			},
+			{
+				icon: TrendingUp,
+				label: 'Spent',
+				value: '$4.2k',
+				color: 'bg-green-500/20 text-green-600',
+			},
 		],
 		actions: [
 			{ label: 'Orders', href: '/orders', icon: Package },

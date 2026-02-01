@@ -1,8 +1,24 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, LayoutGrid, Shirt, Headphones, Watch, ShoppingBag } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	LayoutGrid,
+	Shirt,
+	Headphones,
+	Watch,
+	ShoppingBag,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -87,13 +103,19 @@ const SegmentItem = ({ item }: { item: CartItem }) => (
 					<h3 className="font-semibold line-clamp-1">{item.name}</h3>
 					<p className="text-sm text-muted-foreground">{item.variant}</p>
 				</div>
-				<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive shrink-0">
+				<Button
+					size="icon-sm"
+					variant="ghost"
+					className="text-muted-foreground hover:text-destructive shrink-0"
+				>
 					<X className="size-4" />
 				</Button>
 			</div>
 			<div className="flex items-center justify-between mt-3">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-bold text-primary">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-bold text-primary">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -126,7 +148,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -136,7 +160,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Studio Headphones',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -145,7 +170,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White • ANC',
 			price: 179.99,
@@ -154,7 +180,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -163,7 +190,8 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver • Leather',
 			price: 249.99,
@@ -172,7 +200,8 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=200&h=200&fit=crop',
 			name: 'Silk Scarf',
 			variant: 'Navy pattern',
 			price: 89.99,
@@ -187,15 +216,39 @@ export default function Main() {
 
 	const segments: Segment[] = [
 		{ id: 'all', label: 'All Items', icon: ShoppingBag, count: items.length },
-		{ id: 'electronics', label: 'Electronics', icon: Headphones, count: electronicsItems.length },
-		{ id: 'apparel', label: 'Apparel', icon: Shirt, count: apparelItems.length },
-		{ id: 'accessories', label: 'Accessories', icon: Watch, count: accessoriesItems.length },
+		{
+			id: 'electronics',
+			label: 'Electronics',
+			icon: Headphones,
+			count: electronicsItems.length,
+		},
+		{
+			id: 'apparel',
+			label: 'Apparel',
+			icon: Shirt,
+			count: apparelItems.length,
+		},
+		{
+			id: 'accessories',
+			label: 'Accessories',
+			icon: Watch,
+			count: accessoriesItems.length,
+		},
 	];
 
 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
-	const electronicsTotal = electronicsItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
-	const apparelTotal = apparelItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
-	const accessoriesTotal = accessoriesItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
+	const electronicsTotal = electronicsItems.reduce(
+		(sum, i) => sum + i.price * i.quantity,
+		0,
+	);
+	const apparelTotal = apparelItems.reduce(
+		(sum, i) => sum + i.price * i.quantity,
+		0,
+	);
+	const accessoriesTotal = accessoriesItems.reduce(
+		(sum, i) => sum + i.price * i.quantity,
+		0,
+	);
 	const tax = subtotal * 0.08;
 	const total = subtotal + tax;
 
@@ -223,7 +276,9 @@ export default function Main() {
 								<CardHeader className="flex flex-row items-center gap-2 pb-2">
 									<Headphones className="size-5 text-primary" />
 									<CardTitle className="text-base">Electronics</CardTitle>
-									<Badge variant="secondary" className="ml-auto">{electronicsItems.length}</Badge>
+									<Badge variant="secondary" className="ml-auto">
+										{electronicsItems.length}
+									</Badge>
 								</CardHeader>
 								<CardContent className="divide-y">
 									{electronicsItems.map((item) => (
@@ -239,7 +294,9 @@ export default function Main() {
 								<CardHeader className="flex flex-row items-center gap-2 pb-2">
 									<Shirt className="size-5 text-primary" />
 									<CardTitle className="text-base">Apparel</CardTitle>
-									<Badge variant="secondary" className="ml-auto">{apparelItems.length}</Badge>
+									<Badge variant="secondary" className="ml-auto">
+										{apparelItems.length}
+									</Badge>
 								</CardHeader>
 								<CardContent className="divide-y">
 									{apparelItems.map((item) => (
@@ -255,7 +312,9 @@ export default function Main() {
 								<CardHeader className="flex flex-row items-center gap-2 pb-2">
 									<Watch className="size-5 text-primary" />
 									<CardTitle className="text-base">Accessories</CardTitle>
-									<Badge variant="secondary" className="ml-auto">{accessoriesItems.length}</Badge>
+									<Badge variant="secondary" className="ml-auto">
+										{accessoriesItems.length}
+									</Badge>
 								</CardHeader>
 								<CardContent className="divide-y">
 									{accessoriesItems.map((item) => (
@@ -272,9 +331,21 @@ export default function Main() {
 								<CardTitle>Summary by Category</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-3">
-								<SegmentSummary label="Electronics" count={electronicsItems.length} total={electronicsTotal} />
-								<SegmentSummary label="Apparel" count={apparelItems.length} total={apparelTotal} />
-								<SegmentSummary label="Accessories" count={accessoriesItems.length} total={accessoriesTotal} />
+								<SegmentSummary
+									label="Electronics"
+									count={electronicsItems.length}
+									total={electronicsTotal}
+								/>
+								<SegmentSummary
+									label="Apparel"
+									count={apparelItems.length}
+									total={apparelTotal}
+								/>
+								<SegmentSummary
+									label="Accessories"
+									count={accessoriesItems.length}
+									total={accessoriesTotal}
+								/>
 
 								<Separator className="my-4" />
 

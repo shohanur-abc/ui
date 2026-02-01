@@ -56,10 +56,22 @@ interface CustomerProfile {
 
 const TierBadge = ({ tier }: { tier: CustomerProfile['tier'] }) => {
 	const config: Record<string, { label: string; className: string }> = {
-		bronze: { label: 'Bronze', className: 'bg-orange-700/20 text-orange-400 border-orange-700/30' },
-		silver: { label: 'Silver', className: 'bg-slate-400/20 text-slate-300 border-slate-400/30' },
-		gold: { label: 'Gold', className: 'bg-amber-500/20 text-amber-400 border-amber-500/30' },
-		platinum: { label: 'Platinum', className: 'bg-violet-500/20 text-violet-300 border-violet-500/30' },
+		bronze: {
+			label: 'Bronze',
+			className: 'bg-orange-700/20 text-orange-400 border-orange-700/30',
+		},
+		silver: {
+			label: 'Silver',
+			className: 'bg-slate-400/20 text-slate-300 border-slate-400/30',
+		},
+		gold: {
+			label: 'Gold',
+			className: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+		},
+		platinum: {
+			label: 'Platinum',
+			className: 'bg-violet-500/20 text-violet-300 border-violet-500/30',
+		},
 	};
 	const { label, className } = config[tier];
 	return (
@@ -106,11 +118,7 @@ const StatCard = ({
 	</div>
 );
 
-const PageHeader = ({
-	customer,
-}: {
-	customer: CustomerProfile;
-}) => (
+const PageHeader = ({ customer }: { customer: CustomerProfile }) => (
 	<div className="flex flex-col @lg:flex-row gap-6">
 		<Avatar className="size-24 @lg:size-28">
 			<AvatarImage src={customer.avatar} alt={customer.name} />
@@ -122,7 +130,9 @@ const PageHeader = ({
 			<div className="flex flex-col @md:flex-row @md:items-start @md:justify-between gap-4">
 				<div>
 					<div className="flex items-center gap-3 mb-2">
-						<h1 className="text-2xl font-bold tracking-tight">{customer.name}</h1>
+						<h1 className="text-2xl font-bold tracking-tight">
+							{customer.name}
+						</h1>
 						<TierBadge tier={customer.tier} />
 					</div>
 					<div className="flex flex-col @sm:flex-row @sm:items-center gap-2 @sm:gap-4 text-sm text-muted-foreground">
@@ -163,7 +173,9 @@ const PageHeader = ({
 							<DropdownMenuItem>Send message</DropdownMenuItem>
 							<DropdownMenuItem>Export data</DropdownMenuItem>
 							<DropdownMenuSeparator />
-							<DropdownMenuItem className="text-red-500">Deactivate</DropdownMenuItem>
+							<DropdownMenuItem className="text-red-500">
+								Deactivate
+							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
 				</div>
@@ -202,7 +214,9 @@ const LoyaltyCard = ({
 				</div>
 				<div className="space-y-2">
 					<div className="flex items-center justify-between text-sm">
-						<span className="text-muted-foreground">Progress to {nextTier[tier]}</span>
+						<span className="text-muted-foreground">
+							Progress to {nextTier[tier]}
+						</span>
 						<span className="font-medium">{progress}%</span>
 					</div>
 					<Progress value={progress} className="h-2" />
@@ -237,7 +251,7 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-4xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
 				<PageHeader customer={customer} />
-				
+
 				<div className="grid grid-cols-2 @md:grid-cols-4 gap-4">
 					<StatCard
 						label="Total Orders"

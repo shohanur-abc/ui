@@ -73,7 +73,13 @@ const MapPlaceholder = () => (
 	</div>
 );
 
-const Title = ({ text, orderNumber }: { text: string; orderNumber: string }) => (
+const Title = ({
+	text,
+	orderNumber,
+}: {
+	text: string;
+	orderNumber: string;
+}) => (
 	<div className="flex items-center justify-between">
 		<h1 className="text-xl @xl:text-2xl font-bold">{text}</h1>
 		<Badge variant="outline" className="font-mono">
@@ -109,7 +115,9 @@ const TrackingPoint = ({
 		</div>
 		<div className="flex-1 -mt-1">
 			<div className="flex items-center justify-between">
-				<p className={`font-medium text-sm ${current ? '' : 'text-muted-foreground'}`}>
+				<p
+					className={`font-medium text-sm ${current ? '' : 'text-muted-foreground'}`}
+				>
 					{status}
 				</p>
 				<span className="text-xs text-muted-foreground">{time}</span>
@@ -148,7 +156,10 @@ const DriverContact = ({ name, role, phone }: ContactProps) => (
 			<div className="flex items-center gap-3">
 				<div className="size-10 rounded-full bg-muted flex items-center justify-center">
 					<span className="text-sm font-semibold">
-						{name.split(' ').map((n) => n[0]).join('')}
+						{name
+							.split(' ')
+							.map((n) => n[0])
+							.join('')}
 					</span>
 				</div>
 				<div>
@@ -233,7 +244,11 @@ export default function Main() {
 
 						<CTA
 							items={[
-								{ label: 'Get Directions', href: '/directions', icon: Navigation },
+								{
+									label: 'Get Directions',
+									href: '/directions',
+									icon: Navigation,
+								},
 								{ label: 'View Order', href: '/orders', variant: 'outline' },
 							]}
 						/>

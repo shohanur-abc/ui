@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -157,7 +163,9 @@ const PaymentDisplay = ({
 			<CreditCard className="size-7 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{type} •••• {last4}</p>
+			<p className="font-medium">
+				{type} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {expiry}</p>
 		</div>
 	</div>
@@ -175,7 +183,9 @@ const DiscountRow = ({
 			<Percent className="size-4 text-green-600 dark:text-green-400" />
 			<span className="font-mono text-sm">{code}</span>
 		</div>
-		<span className="font-medium text-green-600 dark:text-green-400">{discount}</span>
+		<span className="font-medium text-green-600 dark:text-green-400">
+			{discount}
+		</span>
 	</div>
 );
 
@@ -188,7 +198,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -202,7 +214,8 @@ export default function Main() {
 			variant: 'Ocean Blue',
 			price: 89.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -210,7 +223,8 @@ export default function Main() {
 			variant: '15W Fast Charge',
 			price: 34.99,
 			quantity: 2,
-			image: 'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -218,7 +232,10 @@ export default function Main() {
 		<section className="@container relative overflow-hidden" data-theme="neon">
 			<div className="mx-auto max-w-6xl px-4 py-12 @sm:px-6 @md:py-16 @xl:py-20 @2xl:px-8">
 				<div className="mb-10 text-center">
-					<Badge variant="outline" className="mb-4 gap-1.5 border-primary/30 text-primary">
+					<Badge
+						variant="outline"
+						className="mb-4 gap-1.5 border-primary/30 text-primary"
+					>
 						<Shield className="size-3.5" />
 						Secure Checkout
 					</Badge>
@@ -233,7 +250,11 @@ export default function Main() {
 				<div className="grid gap-4 @md:grid-cols-2 @xl:grid-cols-3">
 					<BentoCard className="@xl:col-span-2">
 						<StatusBadge status="verified" />
-						<SectionTitle icon={Package} title="Order Items" onEdit={() => {}} />
+						<SectionTitle
+							icon={Package}
+							title="Order Items"
+							onEdit={() => {}}
+						/>
 						<div className="grid gap-4 @md:grid-cols-2">
 							{items.map((item) => (
 								<ItemRow key={item.id} item={item} />

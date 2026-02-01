@@ -122,7 +122,11 @@ const AddressTab = ({
 		<Field label="Email" placeholder="john@example.com" type="email" />
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 		<Separator />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -132,7 +136,10 @@ const AddressTab = ({
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="billing-same" defaultChecked />
-			<Label htmlFor="billing-same" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="billing-same"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Billing address same as shipping
 			</Label>
 		</div>
@@ -198,12 +205,8 @@ const ConfirmationTab = () => (
 		<div className="p-4 rounded-xl bg-muted/30 border border-border text-left">
 			<h3 className="font-medium mb-3">Shipping To:</h3>
 			<p className="text-sm text-muted-foreground">John Doe</p>
-			<p className="text-sm text-muted-foreground">
-				123 Main Street, Apt 4B
-			</p>
-			<p className="text-sm text-muted-foreground">
-				San Francisco, CA 94102
-			</p>
+			<p className="text-sm text-muted-foreground">123 Main Street, Apt 4B</p>
+			<p className="text-sm text-muted-foreground">San Francisco, CA 94102</p>
 		</div>
 		<div className="p-4 rounded-xl bg-primary/5 border border-primary/10 text-left">
 			<h3 className="font-medium mb-2">Estimated Delivery</h3>

@@ -37,7 +37,7 @@ const FulfillmentOptions = ({
 	stores: StoreAvailability[];
 }) => {
 	const availableStore = stores.find((s) => s.inStock);
-	
+
 	return (
 		<div className="mt-3 space-y-2">
 			<RadioGroup defaultValue="delivery" className="gap-2">
@@ -48,7 +48,9 @@ const FulfillmentOptions = ({
 							<Truck className="size-4 text-muted-foreground" />
 							<div>
 								<p className="text-sm font-medium">Delivery</p>
-								<p className="text-xs text-muted-foreground">Get it by {deliveryDate}</p>
+								<p className="text-xs text-muted-foreground">
+									Get it by {deliveryDate}
+								</p>
 							</div>
 						</div>
 					</Label>
@@ -124,7 +126,9 @@ const WishlistGrid = ({ items }: WishlistGridProps) => (
 const LocationBanner = ({ location }: { location: string }) => (
 	<div className="flex items-center gap-2 p-3 rounded-lg bg-muted/50 mb-6 @md:mb-8">
 		<MapPin className="size-4 text-primary" />
-		<span className="text-sm">Showing availability for: <strong>{location}</strong></span>
+		<span className="text-sm">
+			Showing availability for: <strong>{location}</strong>
+		</span>
 		<Button variant="link" size="sm" className="ml-auto text-primary">
 			Change
 		</Button>
@@ -137,7 +141,8 @@ export default function Main() {
 			id: '1',
 			name: 'Sony WH-1000XM5 Wireless Headphones',
 			price: 349.99,
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
 			deliveryDate: 'Feb 5',
 			pickupAvailable: true,
 			stores: [
@@ -149,8 +154,9 @@ export default function Main() {
 		{
 			id: '2',
 			name: 'Apple AirPods Pro (2nd Gen)',
-			price: 249.00,
-			image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&h=400&fit=crop',
+			price: 249.0,
+			image:
+				'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&h=400&fit=crop',
 			deliveryDate: 'Feb 4',
 			pickupAvailable: true,
 			stores: [
@@ -163,7 +169,8 @@ export default function Main() {
 			id: '3',
 			name: 'Samsung Galaxy Tab S9 Ultra',
 			price: 1199.99,
-			image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop',
 			deliveryDate: 'Feb 7',
 			pickupAvailable: false,
 			stores: [
@@ -174,8 +181,9 @@ export default function Main() {
 		{
 			id: '4',
 			name: 'Bose SoundLink Flex Speaker',
-			price: 149.00,
-			image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop',
+			price: 149.0,
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop',
 			deliveryDate: 'Feb 5',
 			pickupAvailable: true,
 			stores: [

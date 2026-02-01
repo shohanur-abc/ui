@@ -52,9 +52,7 @@ const Title = ({ text }: { text: string }) => (
 );
 
 const Subtitle = ({ text }: { text: string }) => (
-	<p className="text-muted-foreground text-center">
-		{text}
-	</p>
+	<p className="text-muted-foreground text-center">{text}</p>
 );
 
 const OrderStatus = ({
@@ -98,11 +96,7 @@ const DeliveryOption = ({
 	</div>
 );
 
-const DeliveryCard = ({
-	options,
-}: {
-	options: DeliveryOptionProps[];
-}) => (
+const DeliveryCard = ({ options }: { options: DeliveryOptionProps[] }) => (
 	<Card className="w-full max-w-md">
 		<CardContent className="pt-6 space-y-3">
 			<h3 className="font-semibold text-sm text-muted-foreground mb-4">

@@ -15,10 +15,7 @@ import {
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -88,7 +85,9 @@ const TimeAgo = ({ date, label }: TimeAgoProps) => {
 	return (
 		<div className="flex items-center gap-1.5 text-xs text-muted-foreground">
 			<Clock className="size-3.5" />
-			<span>{label} {getTimeAgo(date)}</span>
+			<span>
+				{label} {getTimeAgo(date)}
+			</span>
 		</div>
 	);
 };
@@ -110,7 +109,12 @@ const QuickSellerBadge = ({ show, label }: QuickSellerBadgeProps) => {
 
 interface ProductCardProps {
 	product: Product;
-	actions: { label: string; icon: React.ElementType; onClick: (id: string) => void; variant?: 'destructive' }[];
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		onClick: (id: string) => void;
+		variant?: 'destructive';
+	}[];
 	labels: { quickSeller: string; addedPrefix: string };
 }
 
@@ -128,7 +132,10 @@ const ProductCard = ({ product, actions, labels }: ProductCardProps) => (
 					<Package className="size-16 text-muted-foreground" />
 				</div>
 			)}
-			<QuickSellerBadge show={product.isQuickSeller} label={labels.quickSeller} />
+			<QuickSellerBadge
+				show={product.isQuickSeller}
+				label={labels.quickSeller}
+			/>
 			<div className="absolute right-2 top-2">
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
@@ -146,7 +153,9 @@ const ProductCard = ({ product, actions, labels }: ProductCardProps) => (
 								{action.variant === 'destructive' && <DropdownMenuSeparator />}
 								<DropdownMenuItem
 									onClick={() => action.onClick(product.id)}
-									className={action.variant === 'destructive' ? 'text-destructive' : ''}
+									className={
+										action.variant === 'destructive' ? 'text-destructive' : ''
+									}
 								>
 									<action.icon className="mr-2 size-4" />
 									{action.label}
@@ -168,7 +177,9 @@ const ProductCard = ({ product, actions, labels }: ProductCardProps) => (
 				<Badge variant="outline" className="mb-2 text-xs">
 					{product.category}
 				</Badge>
-				<h3 className="line-clamp-2 font-semibold leading-tight">{product.name}</h3>
+				<h3 className="line-clamp-2 font-semibold leading-tight">
+					{product.name}
+				</h3>
 				<p className="text-xs text-muted-foreground">{product.sku}</p>
 			</div>
 			<RatingStars rating={product.rating} reviewCount={product.reviewCount} />
@@ -186,7 +197,8 @@ export default function Main() {
 			id: '1',
 			name: 'Premium Noise-Canceling Headphones',
 			sku: 'AUD-NC-001',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
 			price: 349.99,
 			rating: 4.8,
 			reviewCount: 1234,
@@ -198,7 +210,8 @@ export default function Main() {
 			id: '2',
 			name: 'Smart Home Speaker',
 			sku: 'SMH-SPK-002',
-			image: 'https://images.unsplash.com/photo-1589492477829-5e65395b66cc?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1589492477829-5e65395b66cc?w=400&h=400&fit=crop',
 			price: 129.99,
 			rating: 4.5,
 			reviewCount: 567,
@@ -210,7 +223,8 @@ export default function Main() {
 			id: '3',
 			name: 'Portable Laptop Stand',
 			sku: 'ACC-STD-003',
-			image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop',
 			price: 59.99,
 			rating: 4.6,
 			reviewCount: 289,
@@ -222,7 +236,8 @@ export default function Main() {
 			id: '4',
 			name: 'Ergonomic Wireless Mouse',
 			sku: 'PER-MOU-004',
-			image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop',
 			price: 79.99,
 			rating: 4.3,
 			reviewCount: 456,
@@ -234,7 +249,8 @@ export default function Main() {
 			id: '5',
 			name: 'USB-C Docking Station',
 			sku: 'ACC-DCK-005',
-			image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=400&h=400&fit=crop',
 			price: 189.99,
 			rating: 4.7,
 			reviewCount: 178,
@@ -246,7 +262,8 @@ export default function Main() {
 			id: '6',
 			name: 'Mechanical Gaming Keyboard',
 			sku: 'GAM-KEY-006',
-			image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400&h=400&fit=crop',
 			price: 149.99,
 			rating: 4.9,
 			reviewCount: 892,
@@ -257,9 +274,22 @@ export default function Main() {
 	];
 
 	const actions = [
-		{ label: 'View', icon: Eye, onClick: (id: string) => console.log('View', id) },
-		{ label: 'Edit', icon: Pencil, onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Delete', icon: Trash2, onClick: (id: string) => console.log('Delete', id), variant: 'destructive' as const },
+		{
+			label: 'View',
+			icon: Eye,
+			onClick: (id: string) => console.log('View', id),
+		},
+		{
+			label: 'Edit',
+			icon: Pencil,
+			onClick: (id: string) => console.log('Edit', id),
+		},
+		{
+			label: 'Delete',
+			icon: Trash2,
+			onClick: (id: string) => console.log('Delete', id),
+			variant: 'destructive' as const,
+		},
 	];
 
 	const labels = {

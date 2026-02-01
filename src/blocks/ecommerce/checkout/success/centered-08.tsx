@@ -41,9 +41,7 @@ const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 		<h1 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">
 			{text}
 		</h1>
-		{subtitle && (
-			<p className="text-lg text-muted-foreground">{subtitle}</p>
-		)}
+		{subtitle && <p className="text-lg text-muted-foreground">{subtitle}</p>}
 	</div>
 );
 
@@ -120,15 +118,9 @@ const SupportOption = ({
 	</Link>
 );
 
-const SupportSection = ({
-	options,
-}: {
-	options: SupportOptionProps[];
-}) => (
+const SupportSection = ({ options }: { options: SupportOptionProps[] }) => (
 	<div className="w-full max-w-md space-y-3">
-		<h3 className="text-sm font-medium text-muted-foreground">
-			Need Help?
-		</h3>
+		<h3 className="text-sm font-medium text-muted-foreground">Need Help?</h3>
 		<div className="space-y-2">
 			{options.map((option, i) => (
 				<SupportOption key={i} {...option} />

@@ -1,6 +1,11 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	Sparkles,
@@ -88,7 +93,10 @@ const BonusCard = ({
 					<p className="font-semibold">{title}</p>
 					<p className="text-sm opacity-80">{description}</p>
 				</div>
-				<Badge variant="secondary" className="bg-background/50 backdrop-blur-sm">
+				<Badge
+					variant="secondary"
+					className="bg-background/50 backdrop-blur-sm"
+				>
 					{value}
 				</Badge>
 			</div>
@@ -96,7 +104,13 @@ const BonusCard = ({
 	</Card>
 );
 
-const PromoCodeCard = ({ code, discount }: { code: string; discount: string }) => (
+const PromoCodeCard = ({
+	code,
+	discount,
+}: {
+	code: string;
+	discount: string;
+}) => (
 	<Card className="border-dashed">
 		<CardContent className="pt-6">
 			<div className="flex items-center justify-between">
@@ -104,7 +118,9 @@ const PromoCodeCard = ({ code, discount }: { code: string; discount: string }) =
 					<Gift className="size-6 text-primary" />
 					<div>
 						<p className="font-semibold">Your Next Order Discount</p>
-						<p className="text-sm text-muted-foreground">{discount} off your next purchase</p>
+						<p className="text-sm text-muted-foreground">
+							{discount} off your next purchase
+						</p>
 					</div>
 				</div>
 				<div className="flex items-center gap-2">
@@ -127,7 +143,9 @@ const SummaryCard = ({
 }) => (
 	<Card>
 		<CardHeader className="pb-2">
-			<p className="font-semibold text-sm text-muted-foreground">Order Summary</p>
+			<p className="font-semibold text-sm text-muted-foreground">
+				Order Summary
+			</p>
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{items.map((item, i) => (
@@ -166,14 +184,16 @@ export default function Main() {
 			title: 'Points Earned',
 			description: 'Added to your account',
 			value: '+350 pts',
-			color: 'bg-gradient-to-r from-violet-500/10 to-purple-500/10 text-violet-700 dark:text-violet-400',
+			color:
+				'bg-gradient-to-r from-violet-500/10 to-purple-500/10 text-violet-700 dark:text-violet-400',
 		},
 		{
 			icon: Star,
 			title: 'Level Progress',
 			description: 'Towards Gold status',
 			value: '+15%',
-			color: 'bg-gradient-to-r from-amber-500/10 to-yellow-500/10 text-amber-700 dark:text-amber-400',
+			color:
+				'bg-gradient-to-r from-amber-500/10 to-yellow-500/10 text-amber-700 dark:text-amber-400',
 		},
 	];
 

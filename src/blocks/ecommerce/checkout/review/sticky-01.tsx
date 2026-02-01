@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -26,7 +32,12 @@ interface Product {
 const StickyItem = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-4 py-3">
 		<div className="relative size-16 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="font-medium">{product.name}</p>
@@ -79,9 +90,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -115,7 +130,8 @@ export default function Main() {
 			variant: 'Black / Large',
 			price: 99.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -123,12 +139,16 @@ export default function Main() {
 			variant: 'Navy Blue',
 			price: 19.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden pb-24 @lg:pb-0" data-theme="neon">
+		<section
+			className="@container relative overflow-hidden pb-24 @lg:pb-0"
+			data-theme="neon"
+		>
 			<div className="mx-auto max-w-5xl px-4 py-12 @sm:px-6 @md:py-16">
 				<div className="mb-8">
 					<h1 className="text-2xl font-bold tracking-tight @md:text-3xl">

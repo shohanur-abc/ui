@@ -151,7 +151,12 @@ interface ProductRowProps {
 	actions: { label: string; onClick: (id: string) => void }[];
 }
 
-const ProductRow = ({ product, selected, onSelect, actions }: ProductRowProps) => (
+const ProductRow = ({
+	product,
+	selected,
+	onSelect,
+	actions,
+}: ProductRowProps) => (
 	<TableRow data-state={selected ? 'selected' : undefined}>
 		<TableCell>
 			<Checkbox
@@ -189,10 +194,18 @@ const ProductRow = ({ product, selected, onSelect, actions }: ProductRowProps) =
 			<MetricCell icon={Eye} value={product.views} trend={product.viewsTrend} />
 		</TableCell>
 		<TableCell>
-			<MetricCell icon={ShoppingCart} value={product.cartAdds} trend={product.cartTrend} />
+			<MetricCell
+				icon={ShoppingCart}
+				value={product.cartAdds}
+				trend={product.cartTrend}
+			/>
 		</TableCell>
 		<TableCell>
-			<MetricCell icon={Package} value={product.orders} trend={product.ordersTrend} />
+			<MetricCell
+				icon={Package}
+				value={product.orders}
+				trend={product.ordersTrend}
+			/>
 		</TableCell>
 		<TableCell>
 			<MetricCell
@@ -248,7 +261,10 @@ const Toolbar = ({
 		<div className="flex flex-col gap-3 @sm:flex-row @sm:items-center">
 			<div className="relative">
 				<Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-				<Input placeholder={searchPlaceholder} className="w-full pl-10 @sm:w-64" />
+				<Input
+					placeholder={searchPlaceholder}
+					className="w-full pl-10 @sm:w-64"
+				/>
 			</div>
 			<PeriodTabs
 				periods={periods}
@@ -268,7 +284,8 @@ export default function Main() {
 			id: '1',
 			name: 'Premium Wireless Earbuds',
 			sku: 'AUD-WE-001',
-			image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=100&h=100&fit=crop',
 			category: 'Audio',
 			views: 12450,
 			viewsTrend: 15,
@@ -284,7 +301,8 @@ export default function Main() {
 			id: '2',
 			name: 'Smart Fitness Tracker',
 			sku: 'FIT-TRK-002',
-			image: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=100&h=100&fit=crop',
 			category: 'Wearables',
 			views: 8920,
 			viewsTrend: -5,
@@ -294,13 +312,14 @@ export default function Main() {
 			ordersTrend: 3,
 			revenue: 46800,
 			revenueTrend: 5,
-			conversionRate: 3.50,
+			conversionRate: 3.5,
 		},
 		{
 			id: '3',
 			name: 'Portable Power Bank 20K',
 			sku: 'PWR-PB-003',
-			image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=100&h=100&fit=crop',
 			category: 'Accessories',
 			views: 15670,
 			viewsTrend: 25,
@@ -316,7 +335,8 @@ export default function Main() {
 			id: '4',
 			name: 'Mechanical Keyboard RGB',
 			sku: 'KEY-MEC-004',
-			image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=100&h=100&fit=crop',
 			category: 'Peripherals',
 			views: 6780,
 			viewsTrend: 0,
@@ -332,7 +352,8 @@ export default function Main() {
 			id: '5',
 			name: 'USB-C Docking Station',
 			sku: 'DOC-UC-005',
-			image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop',
 			category: 'Accessories',
 			views: 4560,
 			viewsTrend: 10,
@@ -354,10 +375,19 @@ export default function Main() {
 	];
 
 	const actions = [
-		{ label: 'View Analytics', onClick: (id: string) => console.log('Analytics', id) },
+		{
+			label: 'View Analytics',
+			onClick: (id: string) => console.log('Analytics', id),
+		},
 		{ label: 'Edit Product', onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Boost Product', onClick: (id: string) => console.log('Boost', id) },
-		{ label: 'Export Data', onClick: (id: string) => console.log('Export', id) },
+		{
+			label: 'Boost Product',
+			onClick: (id: string) => console.log('Boost', id),
+		},
+		{
+			label: 'Export Data',
+			onClick: (id: string) => console.log('Export', id),
+		},
 	];
 
 	const handleSelect = (id: string, checked: boolean) => {
@@ -367,7 +397,14 @@ export default function Main() {
 		setSelectedIds(newSet);
 	};
 
-	const columns = ['Product', 'Views', 'Cart Adds', 'Orders', 'Revenue', 'Conv. Rate'];
+	const columns = [
+		'Product',
+		'Views',
+		'Cart Adds',
+		'Orders',
+		'Revenue',
+		'Conv. Rate',
+	];
 
 	return (
 		<section className="@container" data-theme="dashboard">

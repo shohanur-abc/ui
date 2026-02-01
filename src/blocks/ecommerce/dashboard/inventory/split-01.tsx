@@ -38,7 +38,11 @@ type LocationListProps = {
 	onSelect: (id: string) => void;
 };
 
-const LocationList = ({ locations, selectedId, onSelect }: LocationListProps) => {
+const LocationList = ({
+	locations,
+	selectedId,
+	onSelect,
+}: LocationListProps) => {
 	const typeIcons = {
 		warehouse: Box,
 		store: MapPin,
@@ -60,8 +64,12 @@ const LocationList = ({ locations, selectedId, onSelect }: LocationListProps) =>
 						onClick={() => onSelect(location.id)}
 					>
 						<div className="flex items-center gap-3">
-							<div className={`rounded-lg p-2 ${isSelected ? 'bg-primary/10' : 'bg-muted'}`}>
-								<Icon className={`size-4 ${isSelected ? 'text-primary' : 'text-muted-foreground'}`} />
+							<div
+								className={`rounded-lg p-2 ${isSelected ? 'bg-primary/10' : 'bg-muted'}`}
+							>
+								<Icon
+									className={`size-4 ${isSelected ? 'text-primary' : 'text-muted-foreground'}`}
+								/>
 							</div>
 							<div className="min-w-0 flex-1">
 								<p className="truncate font-medium">{location.name}</p>
@@ -116,7 +124,10 @@ const ProductList = ({ products, locationName }: ProductListProps) => {
 									<p className="font-semibold tabular-nums">{product.stock}</p>
 									<p className="text-xs text-muted-foreground">units</p>
 								</div>
-								<div className={`size-2 rounded-full ${status.color}`} title={status.label} />
+								<div
+									className={`size-2 rounded-full ${status.color}`}
+									title={status.label}
+								/>
 							</div>
 						</div>
 					);
@@ -127,23 +138,84 @@ const ProductList = ({ products, locationName }: ProductListProps) => {
 };
 
 export default function Main() {
-	const [selectedLocation, setSelectedLocation] = React.useState<string>('loc-1');
+	const [selectedLocation, setSelectedLocation] =
+		React.useState<string>('loc-1');
 	const [sidebarOpen, setSidebarOpen] = React.useState(true);
 
 	const locations: Location[] = [
-		{ id: 'loc-1', name: 'Main Warehouse', code: 'WH-001', type: 'warehouse', itemCount: 1250 },
-		{ id: 'loc-2', name: 'East Distribution', code: 'WH-002', type: 'warehouse', itemCount: 890 },
-		{ id: 'loc-3', name: 'NYC Store', code: 'ST-NYC', type: 'store', itemCount: 145 },
-		{ id: 'loc-4', name: 'LA Store', code: 'ST-LA', type: 'store', itemCount: 120 },
-		{ id: 'loc-5', name: 'West Fulfillment', code: 'FC-001', type: 'fulfillment', itemCount: 680 },
+		{
+			id: 'loc-1',
+			name: 'Main Warehouse',
+			code: 'WH-001',
+			type: 'warehouse',
+			itemCount: 1250,
+		},
+		{
+			id: 'loc-2',
+			name: 'East Distribution',
+			code: 'WH-002',
+			type: 'warehouse',
+			itemCount: 890,
+		},
+		{
+			id: 'loc-3',
+			name: 'NYC Store',
+			code: 'ST-NYC',
+			type: 'store',
+			itemCount: 145,
+		},
+		{
+			id: 'loc-4',
+			name: 'LA Store',
+			code: 'ST-LA',
+			type: 'store',
+			itemCount: 120,
+		},
+		{
+			id: 'loc-5',
+			name: 'West Fulfillment',
+			code: 'FC-001',
+			type: 'fulfillment',
+			itemCount: 680,
+		},
 	];
 
 	const products: Product[] = [
-		{ id: '1', name: 'Wireless Headphones', sku: 'WH-001', stock: 245, status: 'in-stock' },
-		{ id: '2', name: 'Bluetooth Speaker', sku: 'BS-002', stock: 18, status: 'low-stock' },
-		{ id: '3', name: 'USB-C Cable', sku: 'USB-003', stock: 0, status: 'out-of-stock' },
-		{ id: '4', name: 'Power Bank', sku: 'PB-004', stock: 156, status: 'in-stock' },
-		{ id: '5', name: 'Phone Case', sku: 'PC-005', stock: 422, status: 'in-stock' },
+		{
+			id: '1',
+			name: 'Wireless Headphones',
+			sku: 'WH-001',
+			stock: 245,
+			status: 'in-stock',
+		},
+		{
+			id: '2',
+			name: 'Bluetooth Speaker',
+			sku: 'BS-002',
+			stock: 18,
+			status: 'low-stock',
+		},
+		{
+			id: '3',
+			name: 'USB-C Cable',
+			sku: 'USB-003',
+			stock: 0,
+			status: 'out-of-stock',
+		},
+		{
+			id: '4',
+			name: 'Power Bank',
+			sku: 'PB-004',
+			stock: 156,
+			status: 'in-stock',
+		},
+		{
+			id: '5',
+			name: 'Phone Case',
+			sku: 'PC-005',
+			stock: 422,
+			status: 'in-stock',
+		},
 	];
 
 	const selectedLocationData = locations.find((l) => l.id === selectedLocation);
@@ -178,7 +250,11 @@ export default function Main() {
 							className="my-auto -ml-3 rounded-full border bg-background shadow-sm"
 							onClick={() => setSidebarOpen(!sidebarOpen)}
 						>
-							{sidebarOpen ? <ChevronLeft className="size-4" /> : <ChevronRight className="size-4" />}
+							{sidebarOpen ? (
+								<ChevronLeft className="size-4" />
+							) : (
+								<ChevronRight className="size-4" />
+							)}
 						</Button>
 
 						{/* Main content */}

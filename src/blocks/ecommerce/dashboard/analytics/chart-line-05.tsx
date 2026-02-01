@@ -28,24 +28,50 @@ const TargetLineChart = ({ data }: { data: DataPoint[] }) => {
 		return `${acc} Q ${cpX} ${prev.y}, ${p.x} ${p.y}`;
 	}, '');
 
-	const targetPath = targetPoints.reduce((acc, p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `${acc} L ${p.x} ${p.y}`), '');
+	const targetPath = targetPoints.reduce(
+		(acc, p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `${acc} L ${p.x} ${p.y}`),
+		'',
+	);
 
 	return (
 		<div className="relative h-64 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
-				<path d={targetPath} fill="none" stroke="hsl(var(--muted-foreground))" strokeWidth="0.3" strokeDasharray="2,1" />
-				<path d={valuePath} fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
+				<path
+					d={targetPath}
+					fill="none"
+					stroke="hsl(var(--muted-foreground))"
+					strokeWidth="0.3"
+					strokeDasharray="2,1"
+				/>
+				<path
+					d={valuePath}
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="0.5"
+				/>
 				{valuePoints.map((p, i) => {
 					const isAbove = data[i].value >= data[i].target;
 					return (
-						<circle key={i} cx={p.x} cy={p.y} r="0.8" fill={isAbove ? '#22c55e' : '#ef4444'} />
+						<circle
+							key={i}
+							cx={p.x}
+							cy={p.y}
+							r="0.8"
+							fill={isAbove ? '#22c55e' : '#ef4444'}
+						/>
 					);
 				})}
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
-				{data.filter((_, i) => i % 2 === 0).map((d, i) => (
-					<span key={i}>{d.label}</span>
-				))}
+				{data
+					.filter((_, i) => i % 2 === 0)
+					.map((d, i) => (
+						<span key={i}>{d.label}</span>
+					))}
 			</div>
 		</div>
 	);
@@ -76,8 +102,12 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="flex flex-row items-start justify-between pb-2">
 						<div>
-							<CardTitle className="text-sm font-medium">Performance vs Target</CardTitle>
-							<p className="text-xs text-muted-foreground">Monthly revenue against goals</p>
+							<CardTitle className="text-sm font-medium">
+								Performance vs Target
+							</CardTitle>
+							<p className="text-xs text-muted-foreground">
+								Monthly revenue against goals
+							</p>
 						</div>
 						<div className="flex items-center gap-4">
 							<div className="flex items-center gap-2">
@@ -92,7 +122,10 @@ export default function Main() {
 					</CardHeader>
 					<CardContent>
 						<div className="flex items-center gap-4 mb-4">
-							<Badge variant="secondary" className="text-emerald-500 bg-emerald-500/10">
+							<Badge
+								variant="secondary"
+								className="text-emerald-500 bg-emerald-500/10"
+							>
 								{aboveTarget}/{totalMonths} months above target
 							</Badge>
 						</div>

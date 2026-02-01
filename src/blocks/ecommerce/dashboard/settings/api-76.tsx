@@ -67,13 +67,7 @@ type Endpoint = {
 	description: string;
 };
 
-const ApiKeyRow = ({
-	name,
-	key,
-	permissions,
-	lastUsed,
-	status,
-}: ApiKey) => (
+const ApiKeyRow = ({ name, key, permissions, lastUsed, status }: ApiKey) => (
 	<TableRow>
 		<TableCell>
 			<div>
@@ -164,16 +158,49 @@ const EndpointRow = ({ method, path, description }: Endpoint) => {
 
 export default function Main() {
 	const apiKeys: ApiKey[] = [
-		{ id: '1', name: 'Production Key', key: 'pk_live_example_key_123456', permissions: ['read', 'write', 'delete'], lastUsed: '2 min ago', status: 'active' },
-		{ id: '2', name: 'Mobile App', key: 'pk_live_example_key_789012', permissions: ['read'], lastUsed: '1 hour ago', status: 'active' },
-		{ id: '3', name: 'Test Key', key: 'pk_test_example_key_345678', permissions: ['read', 'write'], lastUsed: '5 days ago', status: 'revoked' },
+		{
+			id: '1',
+			name: 'Production Key',
+			key: 'pk_live_example_key_123456',
+			permissions: ['read', 'write', 'delete'],
+			lastUsed: '2 min ago',
+			status: 'active',
+		},
+		{
+			id: '2',
+			name: 'Mobile App',
+			key: 'pk_live_example_key_789012',
+			permissions: ['read'],
+			lastUsed: '1 hour ago',
+			status: 'active',
+		},
+		{
+			id: '3',
+			name: 'Test Key',
+			key: 'pk_test_example_key_345678',
+			permissions: ['read', 'write'],
+			lastUsed: '5 days ago',
+			status: 'revoked',
+		},
 	];
 
 	const endpoints: Endpoint[] = [
-		{ method: 'GET', path: '/api/v1/products', description: 'List all products' },
+		{
+			method: 'GET',
+			path: '/api/v1/products',
+			description: 'List all products',
+		},
 		{ method: 'POST', path: '/api/v1/orders', description: 'Create an order' },
-		{ method: 'PUT', path: '/api/v1/inventory/:id', description: 'Update inventory' },
-		{ method: 'DELETE', path: '/api/v1/products/:id', description: 'Delete a product' },
+		{
+			method: 'PUT',
+			path: '/api/v1/inventory/:id',
+			description: 'Update inventory',
+		},
+		{
+			method: 'DELETE',
+			path: '/api/v1/products/:id',
+			description: 'Delete a product',
+		},
 	];
 
 	return (
@@ -300,7 +327,11 @@ export default function Main() {
 										<p className="mt-1 text-sm text-muted-foreground">
 											Explore our comprehensive API docs with examples.
 										</p>
-										<Button variant="link" size="sm" className="mt-2 h-auto p-0 gap-2">
+										<Button
+											variant="link"
+											size="sm"
+											className="mt-2 h-auto p-0 gap-2"
+										>
 											View Docs
 											<ExternalLink className="size-3" />
 										</Button>

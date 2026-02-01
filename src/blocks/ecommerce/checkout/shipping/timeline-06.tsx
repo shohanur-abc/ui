@@ -1,4 +1,14 @@
-import { Package, Truck, Clock, Check, MapPin, Warehouse, Home, ArrowRight, Circle } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	Clock,
+	Check,
+	MapPin,
+	Warehouse,
+	Home,
+	ArrowRight,
+	Circle,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,7 +19,14 @@ import { Badge } from '@/components/ui/badge';
 const TrackingTimeline = ({
 	events,
 }: {
-	events: { icon: React.ComponentType<{ className?: string }>; title: string; location: string; time: string; completed: boolean; current?: boolean }[];
+	events: {
+		icon: React.ComponentType<{ className?: string }>;
+		title: string;
+		location: string;
+		time: string;
+		completed: boolean;
+		current?: boolean;
+	}[];
 }) => (
 	<div className="space-y-4">
 		{events.map((event, i) => {
@@ -28,10 +45,14 @@ const TrackingTimeline = ({
 							<Icon className="size-5" />
 						</div>
 						{i < events.length - 1 && (
-							<div className={`w-0.5 flex-1 min-h-[24px] ${event.completed ? 'bg-primary' : 'bg-muted'}`} />
+							<div
+								className={`w-0.5 flex-1 min-h-[24px] ${event.completed ? 'bg-primary' : 'bg-muted'}`}
+							/>
 						)}
 					</div>
-					<div className={event.current ? '' : event.completed ? '' : 'opacity-50'}>
+					<div
+						className={event.current ? '' : event.completed ? '' : 'opacity-50'}
+					>
 						<div className="flex items-center gap-2">
 							<h4 className="font-medium">{event.title}</h4>
 							{event.current && <Badge>Current</Badge>}
@@ -74,11 +95,42 @@ const SpeedOption = ({
 
 export default function Main() {
 	const trackingEvents = [
-		{ icon: Package, title: 'Order Placed', location: 'Online', time: 'Jan 14, 2:30 PM', completed: true },
-		{ icon: Warehouse, title: 'Processing at Warehouse', location: 'Distribution Center, NJ', time: 'Jan 14, 5:00 PM', completed: true },
-		{ icon: Truck, title: 'In Transit', location: 'On the way to your area', time: 'Jan 15, 9:00 AM', current: true, completed: false },
-		{ icon: MapPin, title: 'Out for Delivery', location: 'Local delivery hub', time: 'Expected Jan 17', completed: false },
-		{ icon: Home, title: 'Delivered', location: '123 Main St, New York', time: 'Expected Jan 17, 2-6 PM', completed: false },
+		{
+			icon: Package,
+			title: 'Order Placed',
+			location: 'Online',
+			time: 'Jan 14, 2:30 PM',
+			completed: true,
+		},
+		{
+			icon: Warehouse,
+			title: 'Processing at Warehouse',
+			location: 'Distribution Center, NJ',
+			time: 'Jan 14, 5:00 PM',
+			completed: true,
+		},
+		{
+			icon: Truck,
+			title: 'In Transit',
+			location: 'On the way to your area',
+			time: 'Jan 15, 9:00 AM',
+			current: true,
+			completed: false,
+		},
+		{
+			icon: MapPin,
+			title: 'Out for Delivery',
+			location: 'Local delivery hub',
+			time: 'Expected Jan 17',
+			completed: false,
+		},
+		{
+			icon: Home,
+			title: 'Delivered',
+			location: '123 Main St, New York',
+			time: 'Expected Jan 17, 2-6 PM',
+			completed: false,
+		},
 	];
 
 	return (
@@ -112,8 +164,18 @@ export default function Main() {
 									Want faster delivery? Upgrade your shipping now.
 								</p>
 								<RadioGroup defaultValue="standard" className="flex gap-3">
-									<SpeedOption value="standard" name="Standard" time="5-7 days" price="$0" />
-									<SpeedOption value="express" name="Express" time="2-3 days" price="+$7" />
+									<SpeedOption
+										value="standard"
+										name="Standard"
+										time="5-7 days"
+										price="$0"
+									/>
+									<SpeedOption
+										value="express"
+										name="Express"
+										time="2-3 days"
+										price="+$7"
+									/>
 								</RadioGroup>
 							</CardContent>
 						</Card>

@@ -8,7 +8,13 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 
@@ -63,7 +69,9 @@ const PhaseCard = ({ name, status, progress, steps }: PhaseItem) => (
 				<div key={i} className="flex items-start gap-3">
 					{getStatusIcon(step.status)}
 					<div className="flex-1">
-						<p className={`text-sm font-medium ${step.status === 'pending' ? 'text-muted-foreground' : ''}`}>
+						<p
+							className={`text-sm font-medium ${step.status === 'pending' ? 'text-muted-foreground' : ''}`}
+						>
 							{step.title}
 						</p>
 						<p className="text-xs text-muted-foreground">{step.description}</p>
@@ -81,9 +89,21 @@ export default function Main() {
 			status: 'completed',
 			progress: 100,
 			steps: [
-				{ title: 'Initial configuration', description: 'System setup and configuration', status: 'completed' },
-				{ title: 'Team onboarding', description: 'Training and documentation', status: 'completed' },
-				{ title: 'Integration testing', description: 'Connect external services', status: 'completed' },
+				{
+					title: 'Initial configuration',
+					description: 'System setup and configuration',
+					status: 'completed',
+				},
+				{
+					title: 'Team onboarding',
+					description: 'Training and documentation',
+					status: 'completed',
+				},
+				{
+					title: 'Integration testing',
+					description: 'Connect external services',
+					status: 'completed',
+				},
 			],
 		},
 		{
@@ -91,9 +111,21 @@ export default function Main() {
 			status: 'in-progress',
 			progress: 65,
 			steps: [
-				{ title: 'Core features', description: 'Build primary functionality', status: 'completed' },
-				{ title: 'User interface', description: 'Design and implement UI', status: 'in-progress' },
-				{ title: 'API development', description: 'Backend services and endpoints', status: 'pending' },
+				{
+					title: 'Core features',
+					description: 'Build primary functionality',
+					status: 'completed',
+				},
+				{
+					title: 'User interface',
+					description: 'Design and implement UI',
+					status: 'in-progress',
+				},
+				{
+					title: 'API development',
+					description: 'Backend services and endpoints',
+					status: 'pending',
+				},
 			],
 		},
 		{
@@ -101,19 +133,33 @@ export default function Main() {
 			status: 'pending',
 			progress: 0,
 			steps: [
-				{ title: 'Beta testing', description: 'Internal and external testing', status: 'pending' },
-				{ title: 'Marketing prep', description: 'Launch materials and campaigns', status: 'pending' },
-				{ title: 'Go live', description: 'Production deployment', status: 'pending' },
+				{
+					title: 'Beta testing',
+					description: 'Internal and external testing',
+					status: 'pending',
+				},
+				{
+					title: 'Marketing prep',
+					description: 'Launch materials and campaigns',
+					status: 'pending',
+				},
+				{
+					title: 'Go live',
+					description: 'Production deployment',
+					status: 'pending',
+				},
 			],
 		},
 	];
 
 	const overallProgress = Math.round(
-		phases.reduce((acc, phase) => acc + phase.progress, 0) / phases.length
+		phases.reduce((acc, phase) => acc + phase.progress, 0) / phases.length,
 	);
 
-	const completedSteps = phases.reduce((acc, phase) =>
-		acc + phase.steps.filter(s => s.status === 'completed').length, 0
+	const completedSteps = phases.reduce(
+		(acc, phase) =>
+			acc + phase.steps.filter((s) => s.status === 'completed').length,
+		0,
 	);
 
 	const totalSteps = phases.reduce((acc, phase) => acc + phase.steps.length, 0);
@@ -130,22 +176,36 @@ export default function Main() {
 								</div>
 								<div>
 									<p className="text-3xl font-bold">{overallProgress}%</p>
-									<p className="text-sm text-muted-foreground">Overall Progress</p>
+									<p className="text-sm text-muted-foreground">
+										Overall Progress
+									</p>
 								</div>
 							</div>
-							<Separator orientation="vertical" className="h-12 hidden @sm:block" />
+							<Separator
+								orientation="vertical"
+								className="h-12 hidden @sm:block"
+							/>
 							<div className="flex items-center gap-4">
 								<div className="rounded-xl bg-emerald-500/10 p-3">
 									<CheckCircle2 className="size-6 text-emerald-500" />
 								</div>
 								<div>
-									<p className="text-3xl font-bold">{completedSteps}/{totalSteps}</p>
-									<p className="text-sm text-muted-foreground">Steps Completed</p>
+									<p className="text-3xl font-bold">
+										{completedSteps}/{totalSteps}
+									</p>
+									<p className="text-sm text-muted-foreground">
+										Steps Completed
+									</p>
 								</div>
 							</div>
-							<Separator orientation="vertical" className="h-12 hidden @md:block" />
+							<Separator
+								orientation="vertical"
+								className="h-12 hidden @md:block"
+							/>
 							<div className="flex-1">
-								<p className="text-sm text-muted-foreground mb-2">Combined Progress</p>
+								<p className="text-sm text-muted-foreground mb-2">
+									Combined Progress
+								</p>
 								<Progress value={overallProgress} className="h-3" />
 							</div>
 						</CardContent>

@@ -14,7 +14,9 @@ const FunnelStat = ({ stage, value, percentage, dropoff }: FunnelStatProps) => (
 		<div className="flex items-center gap-4">
 			<div className="w-32 text-right">
 				<p className="text-sm font-medium">{stage}</p>
-				<p className="text-xs text-muted-foreground">{value.toLocaleString()}</p>
+				<p className="text-xs text-muted-foreground">
+					{value.toLocaleString()}
+				</p>
 			</div>
 			<div className="flex-1">
 				<div
@@ -24,9 +26,7 @@ const FunnelStat = ({ stage, value, percentage, dropoff }: FunnelStatProps) => (
 			</div>
 			<div className="w-20 text-right">
 				<span className="text-sm font-semibold">{percentage}%</span>
-				{dropoff && (
-					<p className="text-xs text-destructive">-{dropoff}%</p>
-				)}
+				{dropoff && <p className="text-xs text-destructive">-{dropoff}%</p>}
 			</div>
 		</div>
 	</div>

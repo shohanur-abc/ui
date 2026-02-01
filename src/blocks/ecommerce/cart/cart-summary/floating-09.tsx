@@ -72,7 +72,10 @@ const GiftOption = ({
 const Header = ({
 	title,
 	badge,
-}: { title: string; badge: { label: string; icon: LucideIcon } }) => (
+}: {
+	title: string;
+	badge: { label: string; icon: LucideIcon };
+}) => (
 	<CardHeader className="pb-3">
 		<CardTitle className="flex items-center gap-2 text-base">
 			{title}

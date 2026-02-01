@@ -46,12 +46,7 @@ type CustomPage = {
 	lastModified: string;
 };
 
-const PageRow = ({
-	name,
-	slug,
-	status,
-	lastModified,
-}: CustomPage) => (
+const PageRow = ({ name, slug, status, lastModified }: CustomPage) => (
 	<div className="flex items-center justify-between py-3">
 		<div>
 			<p className="font-medium">{name}</p>
@@ -77,11 +72,41 @@ const PageRow = ({
 
 export default function Main() {
 	const customPages: CustomPage[] = [
-		{ id: '1', name: 'About Us', slug: 'about', status: 'published', lastModified: '2 days ago' },
-		{ id: '2', name: 'Contact', slug: 'contact', status: 'published', lastModified: '5 days ago' },
-		{ id: '3', name: 'FAQ', slug: 'faq', status: 'published', lastModified: '1 week ago' },
-		{ id: '4', name: 'Terms of Service', slug: 'terms', status: 'draft', lastModified: '3 days ago' },
-		{ id: '5', name: 'Privacy Policy', slug: 'privacy', status: 'published', lastModified: '1 month ago' },
+		{
+			id: '1',
+			name: 'About Us',
+			slug: 'about',
+			status: 'published',
+			lastModified: '2 days ago',
+		},
+		{
+			id: '2',
+			name: 'Contact',
+			slug: 'contact',
+			status: 'published',
+			lastModified: '5 days ago',
+		},
+		{
+			id: '3',
+			name: 'FAQ',
+			slug: 'faq',
+			status: 'published',
+			lastModified: '1 week ago',
+		},
+		{
+			id: '4',
+			name: 'Terms of Service',
+			slug: 'terms',
+			status: 'draft',
+			lastModified: '3 days ago',
+		},
+		{
+			id: '5',
+			name: 'Privacy Policy',
+			slug: 'privacy',
+			status: 'published',
+			lastModified: '1 month ago',
+		},
 	];
 
 	return (
@@ -204,7 +229,9 @@ export default function Main() {
 								</Button>
 							</div>
 							<div className="aspect-video rounded-lg border bg-muted flex items-center justify-center">
-								<p className="text-muted-foreground">Preview will appear here</p>
+								<p className="text-muted-foreground">
+									Preview will appear here
+								</p>
 							</div>
 						</CardContent>
 					</Card>

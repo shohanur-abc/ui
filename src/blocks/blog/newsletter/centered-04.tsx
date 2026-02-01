@@ -45,7 +45,11 @@ const Eyebrow = ({ icon: Icon, text }: EyebrowProps) => (
 const Title = ({ text, highlight }: TitleProps) => (
 	<h2 className="text-3xl @sm:text-4xl @lg:text-5xl font-bold tracking-tight">
 		{text}{' '}
-		{highlight && <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">{highlight}</span>}
+		{highlight && (
+			<span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+				{highlight}
+			</span>
+		)}
 	</h2>
 );
 
@@ -57,11 +61,7 @@ const Description = ({ text }: DescriptionProps) => (
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 max-w-md mx-auto w-full">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="flex-1 h-12"
-		/>
+		<Input type="email" placeholder={placeholder} className="flex-1 h-12" />
 		<Button size="lg" className="gap-2 h-12 px-6">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}

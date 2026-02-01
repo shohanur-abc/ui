@@ -6,7 +6,13 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 ring-1 ring-primary/20">
 			<Icon className="size-5 text-primary" />
@@ -17,7 +23,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground text-sm">{subtitle}</p>}
 	</div>
 );
@@ -107,11 +115,24 @@ export default function Main() {
 			<div className="min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo name="ShopFlow" icon={Lock} />
-					<Title text="Welcome back" subtitle="Sign in to your account to continue shopping" />
+					<Title
+						text="Welcome back"
+						subtitle="Sign in to your account to continue shopping"
+					/>
 
 					<form className="space-y-6">
-						<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-						<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+						<FormField
+							label="Email"
+							type="email"
+							placeholder="you@example.com"
+							icon={Mail}
+						/>
+						<FormField
+							label="Password"
+							type="password"
+							placeholder="••••••••"
+							icon={Lock}
+						/>
 						<RememberForgot
 							rememberLabel="Remember me"
 							forgotLabel="Forgot password?"
@@ -121,7 +142,11 @@ export default function Main() {
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="Don't have an account?" linkText="Create one" href="/signup" />
+						<FooterLink
+							text="Don't have an account?"
+							linkText="Create one"
+							href="/signup"
+						/>
 					</div>
 				</div>
 			</div>

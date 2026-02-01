@@ -76,9 +76,7 @@ const PlatformCard = ({
 						)}
 					</div>
 					{trackingId && (
-						<code className="text-xs text-muted-foreground">
-							{trackingId}
-						</code>
+						<code className="text-xs text-muted-foreground">{trackingId}</code>
 					)}
 				</div>
 			</div>
@@ -93,12 +91,7 @@ const PlatformCard = ({
 	</div>
 );
 
-const StatCard = ({
-	label,
-	value,
-	change,
-	changeType,
-}: MetricCard) => (
+const StatCard = ({ label, value, change, changeType }: MetricCard) => (
 	<div className="rounded-lg border p-4">
 		<p className="text-sm text-muted-foreground">{label}</p>
 		<p className="text-2xl font-bold mt-1">{value}</p>
@@ -115,17 +108,50 @@ const StatCard = ({
 
 export default function Main() {
 	const platforms: AnalyticsPlatform[] = [
-		{ id: 'ga4', name: 'Google Analytics 4', icon: '📊', connected: true, trackingId: 'G-XXXXXXXXXX' },
-		{ id: 'fb', name: 'Facebook Pixel', icon: '📘', connected: true, trackingId: '1234567890' },
-		{ id: 'gtm', name: 'Google Tag Manager', icon: '🏷️', connected: true, trackingId: 'GTM-XXXXXX' },
+		{
+			id: 'ga4',
+			name: 'Google Analytics 4',
+			icon: '📊',
+			connected: true,
+			trackingId: 'G-XXXXXXXXXX',
+		},
+		{
+			id: 'fb',
+			name: 'Facebook Pixel',
+			icon: '📘',
+			connected: true,
+			trackingId: '1234567890',
+		},
+		{
+			id: 'gtm',
+			name: 'Google Tag Manager',
+			icon: '🏷️',
+			connected: true,
+			trackingId: 'GTM-XXXXXX',
+		},
 		{ id: 'hotjar', name: 'Hotjar', icon: '🔥', connected: false },
 		{ id: 'mixpanel', name: 'Mixpanel', icon: '📈', connected: false },
 	];
 
 	const metrics: MetricCard[] = [
-		{ label: 'Page Views', value: '124,892', change: '+12.5%', changeType: 'positive' },
-		{ label: 'Conversions', value: '1,234', change: '+8.2%', changeType: 'positive' },
-		{ label: 'Bounce Rate', value: '42.3%', change: '-5.1%', changeType: 'positive' },
+		{
+			label: 'Page Views',
+			value: '124,892',
+			change: '+12.5%',
+			changeType: 'positive',
+		},
+		{
+			label: 'Conversions',
+			value: '1,234',
+			change: '+8.2%',
+			changeType: 'positive',
+		},
+		{
+			label: 'Bounce Rate',
+			value: '42.3%',
+			change: '-5.1%',
+			changeType: 'positive',
+		},
 	];
 
 	return (

@@ -12,7 +12,14 @@ interface FooterNewsletterProps {
 	buttonIcon?: React.ElementType;
 }
 
-const FooterNewsletter = ({ icon: Icon, title, description, placeholder, buttonText, buttonIcon: ButtonIcon }: FooterNewsletterProps) => (
+const FooterNewsletter = ({
+	icon: Icon,
+	title,
+	description,
+	placeholder,
+	buttonText,
+	buttonIcon: ButtonIcon,
+}: FooterNewsletterProps) => (
 	<div className="flex flex-col gap-4">
 		<div className="flex items-center gap-2">
 			<Icon className="size-5 text-primary" />
@@ -20,11 +27,7 @@ const FooterNewsletter = ({ icon: Icon, title, description, placeholder, buttonT
 		</div>
 		<p className="text-sm text-muted-foreground">{description}</p>
 		<form className="flex gap-2">
-			<Input
-				type="email"
-				placeholder={placeholder}
-				className="flex-1 h-9"
-			/>
+			<Input type="email" placeholder={placeholder} className="flex-1 h-9" />
 			<Button size="sm" className="gap-1.5 h-9 shrink-0">
 				{buttonText}
 				{ButtonIcon && <ButtonIcon className="size-3.5" />}
@@ -44,7 +47,10 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => (
 		<ul className="space-y-2">
 			{links.map((link, i) => (
 				<li key={i}>
-					<a href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+					<a
+						href={link.href}
+						className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+					>
 						{link.label}
 					</a>
 				</li>

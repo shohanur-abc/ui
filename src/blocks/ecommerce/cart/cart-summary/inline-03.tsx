@@ -20,7 +20,13 @@ const PaymentIcons = ({ methods }: { methods: PaymentIconProps[] }) => (
 	</div>
 );
 
-const SecureBadge = ({ icon: Icon, text }: { icon: LucideIcon; text: string }) => (
+const SecureBadge = ({
+	icon: Icon,
+	text,
+}: {
+	icon: LucideIcon;
+	text: string;
+}) => (
 	<span className="flex items-center gap-1 text-xs text-muted-foreground">
 		<Icon className="size-3 text-green-500" />
 		{text}

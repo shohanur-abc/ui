@@ -10,7 +10,13 @@ import {
 	BarChart3,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 
@@ -30,21 +36,31 @@ const BarChart = ({ data, maxValue, showTrend }: BarChartProps) => (
 	<div className="space-y-3">
 		{data.map((item) => {
 			const percentage = (item.value / maxValue) * 100;
-			const previousPercentage = item.previousValue ? (item.previousValue / maxValue) * 100 : 0;
-			const trend = item.previousValue ? ((item.value - item.previousValue) / item.previousValue) * 100 : 0;
+			const previousPercentage = item.previousValue
+				? (item.previousValue / maxValue) * 100
+				: 0;
+			const trend = item.previousValue
+				? ((item.value - item.previousValue) / item.previousValue) * 100
+				: 0;
 
 			return (
 				<div key={item.label} className="space-y-1">
 					<div className="flex items-center justify-between">
 						<span className="text-sm font-medium">{item.label}</span>
 						<div className="flex items-center gap-2">
-							<span className="font-semibold tabular-nums">{item.value.toLocaleString()}</span>
+							<span className="font-semibold tabular-nums">
+								{item.value.toLocaleString()}
+							</span>
 							{showTrend && item.previousValue && (
 								<Badge
 									variant={trend >= 0 ? 'default' : 'destructive'}
 									className="gap-0.5 px-1 py-0 text-[10px]"
 								>
-									{trend >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+									{trend >= 0 ? (
+										<TrendingUp className="size-3" />
+									) : (
+										<TrendingDown className="size-3" />
+									)}
 									{Math.abs(trend).toFixed(0)}%
 								</Badge>
 							)}
@@ -121,10 +137,15 @@ const Legend = ({ items }: LegendProps) => (
 		{items.map((item) => (
 			<div key={item.label} className="flex items-center justify-between">
 				<div className="flex items-center gap-2">
-					<div className="size-3 rounded-full" style={{ backgroundColor: item.color }} />
+					<div
+						className="size-3 rounded-full"
+						style={{ backgroundColor: item.color }}
+					/>
 					<span className="text-sm">{item.label}</span>
 				</div>
-				<span className="font-medium tabular-nums">{item.value.toLocaleString()}</span>
+				<span className="font-medium tabular-nums">
+					{item.value.toLocaleString()}
+				</span>
 			</div>
 		))}
 	</div>
@@ -154,8 +175,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Inventory Overview</CardTitle>
-						<CardDescription>Stock distribution and status breakdown</CardDescription>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Inventory Overview
+						</CardTitle>
+						<CardDescription>
+							Stock distribution and status breakdown
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Tabs defaultValue="category" className="w-full">

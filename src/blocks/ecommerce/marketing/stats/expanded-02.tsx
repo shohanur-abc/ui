@@ -10,12 +10,19 @@ interface ExpandedStatProps {
 	breakdown: { label: string; value: string; percentage: number }[];
 }
 
-const ExpandedStat = ({ label, value, progress, breakdown }: ExpandedStatProps) => (
+const ExpandedStat = ({
+	label,
+	value,
+	progress,
+	breakdown,
+}: ExpandedStatProps) => (
 	<Card className="group overflow-hidden transition-all duration-300 hover:shadow-md">
 		<div className="p-6">
 			<div className="space-y-4">
 				<div className="flex items-center justify-between">
-					<span className="text-sm font-medium text-muted-foreground">{label}</span>
+					<span className="text-sm font-medium text-muted-foreground">
+						{label}
+					</span>
 					<Badge variant="secondary">{progress}%</Badge>
 				</div>
 				<p className="text-4xl font-bold tracking-tight">{value}</p>
@@ -29,7 +36,9 @@ const ExpandedStat = ({ label, value, progress, breakdown }: ExpandedStatProps) 
 					<span className="text-muted-foreground">{item.label}</span>
 					<div className="flex items-center gap-2">
 						<span className="font-medium">{item.value}</span>
-						<span className="text-xs text-muted-foreground">({item.percentage}%)</span>
+						<span className="text-xs text-muted-foreground">
+							({item.percentage}%)
+						</span>
 					</div>
 				</div>
 			))}

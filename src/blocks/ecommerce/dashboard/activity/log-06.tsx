@@ -64,11 +64,7 @@ const EntityIcon = ({ type }: { type: ChangeLog['entityType'] }) => {
 	);
 };
 
-const ChangeRow = ({
-	change,
-}: {
-	change: ChangeLog['changes'][0];
-}) => (
+const ChangeRow = ({ change }: { change: ChangeLog['changes'][0] }) => (
 	<div className="flex items-center gap-2 text-xs p-2 rounded bg-muted/30">
 		<span className="font-medium text-muted-foreground w-24 shrink-0 truncate">
 			{change.field}
@@ -91,12 +87,17 @@ const ChangeEntry = ({ log }: { log: ChangeLog }) => (
 				<div className="flex items-start justify-between gap-2 mb-2">
 					<div>
 						<div className="flex items-center gap-2 mb-1">
-							<span className="font-medium text-foreground">{log.entityName}</span>
+							<span className="font-medium text-foreground">
+								{log.entityName}
+							</span>
 							<Badge variant="outline" className="text-xs capitalize">
 								{log.entityType}
 							</Badge>
 							{log.version && (
-								<Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/30">
+								<Badge
+									variant="outline"
+									className="text-xs bg-primary/10 text-primary border-primary/30"
+								>
 									<GitBranch className="size-3 mr-1" />
 									{log.version}
 								</Badge>
@@ -131,7 +132,8 @@ const ChangeEntry = ({ log }: { log: ChangeLog }) => (
 						</AvatarFallback>
 					</Avatar>
 					<span className="text-xs text-muted-foreground">
-						Changed by <span className="text-foreground">{log.changedBy.name}</span>
+						Changed by{' '}
+						<span className="text-foreground">{log.changedBy.name}</span>
 					</span>
 				</div>
 			</div>

@@ -16,12 +16,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
-import {
-	User,
-	Briefcase,
-	Gift,
-	ArrowRight,
-} from 'lucide-react';
+import { User, Briefcase, Gift, ArrowRight } from 'lucide-react';
 
 interface FieldProps {
 	label: string;
@@ -73,7 +68,11 @@ const PersonalAddressForm = ({
 			<Field label="Last Name" placeholder="Doe" />
 		</div>
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -83,7 +82,10 @@ const PersonalAddressForm = ({
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="save-personal" />
-			<Label htmlFor="save-personal" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="save-personal"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Save as my default address
 			</Label>
 		</div>
@@ -104,7 +106,11 @@ const BusinessAddressForm = ({
 			<Field label="Tax ID / VAT" placeholder="XX-XXXXXXX" />
 		</div>
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="456 Corporate Blvd" />
 		<Field label="Suite / Floor" placeholder="Suite 500 (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -143,7 +149,11 @@ const GiftAddressForm = ({
 		</div>
 		<Field label="Recipient Name" placeholder="Jane Smith" />
 		<Field label="Recipient Phone" placeholder="+1 (555) 000-0000" type="tel" />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="789 Gift Lane" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -160,7 +170,10 @@ const GiftAddressForm = ({
 		</div>
 		<div className="flex items-center gap-2">
 			<Checkbox id="gift-receipt" defaultChecked />
-			<Label htmlFor="gift-receipt" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="gift-receipt"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Include gift receipt
 			</Label>
 		</div>

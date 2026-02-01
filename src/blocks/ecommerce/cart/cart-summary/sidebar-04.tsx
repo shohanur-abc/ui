@@ -23,7 +23,9 @@ const CartItem = ({ image, name, variant, price, quantity }: CartItemProps) => (
 		<div className="relative">
 			<Avatar className="size-14 rounded-lg">
 				<AvatarImage src={image} alt={name} className="object-cover" />
-				<AvatarFallback className="rounded-lg">{name.slice(0, 2)}</AvatarFallback>
+				<AvatarFallback className="rounded-lg">
+					{name.slice(0, 2)}
+				</AvatarFallback>
 			</Avatar>
 			<Badge className="absolute -right-1 -top-1 size-5 justify-center rounded-full p-0 text-xs">
 				{quantity}
@@ -47,14 +49,16 @@ const SummaryRow = ({ label, value }: SummaryRowProps) => (
 export default function Main() {
 	const cartItems: CartItemProps[] = [
 		{
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200',
 			name: 'Pro Headphones',
 			variant: 'Black / Wireless',
 			price: '$349.00',
 			quantity: 1,
 		},
 		{
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
 			name: 'Smart Watch',
 			variant: 'Silver / 44mm',
 			price: '$199.00',

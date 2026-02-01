@@ -11,7 +11,13 @@ interface StatItemProps {
 	period: string;
 }
 
-const StatItem = ({ icon: Icon, label, value, change, period }: StatItemProps) => {
+const StatItem = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	period,
+}: StatItemProps) => {
 	const isPositive = change >= 0;
 
 	return (
@@ -27,8 +33,15 @@ const StatItem = ({ icon: Icon, label, value, change, period }: StatItemProps) =
 			</div>
 			<div className="flex items-center gap-4">
 				<p className="text-xl font-bold">{value}</p>
-				<Badge variant={isPositive ? 'default' : 'destructive'} className="gap-0.5">
-					{isPositive ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
+				<Badge
+					variant={isPositive ? 'default' : 'destructive'}
+					className="gap-0.5"
+				>
+					{isPositive ? (
+						<ArrowUpRight className="size-3" />
+					) : (
+						<ArrowDownRight className="size-3" />
+					)}
 					{Math.abs(change)}%
 				</Badge>
 			</div>
@@ -38,10 +51,34 @@ const StatItem = ({ icon: Icon, label, value, change, period }: StatItemProps) =
 
 export default function Main() {
 	const stats: StatItemProps[] = [
-		{ icon: DollarSign, label: 'Total Revenue', value: '$284,847', change: 24.5, period: 'Last 30 days' },
-		{ icon: ShoppingBag, label: 'Total Orders', value: '12,847', change: 18.2, period: 'Last 30 days' },
-		{ icon: Users, label: 'New Customers', value: '4,284', change: -2.4, period: 'Last 30 days' },
-		{ icon: Repeat, label: 'Repeat Purchases', value: '68.4%', change: 8.7, period: 'Last 30 days' },
+		{
+			icon: DollarSign,
+			label: 'Total Revenue',
+			value: '$284,847',
+			change: 24.5,
+			period: 'Last 30 days',
+		},
+		{
+			icon: ShoppingBag,
+			label: 'Total Orders',
+			value: '12,847',
+			change: 18.2,
+			period: 'Last 30 days',
+		},
+		{
+			icon: Users,
+			label: 'New Customers',
+			value: '4,284',
+			change: -2.4,
+			period: 'Last 30 days',
+		},
+		{
+			icon: Repeat,
+			label: 'Repeat Purchases',
+			value: '68.4%',
+			change: 8.7,
+			period: 'Last 30 days',
+		},
 	];
 
 	return (

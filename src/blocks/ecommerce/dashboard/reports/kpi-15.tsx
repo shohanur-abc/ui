@@ -1,6 +1,15 @@
 'use client';
 
-import { Wallet, ArrowUpRight, ArrowDownRight, PiggyBank, CreditCard, Receipt, Banknote, Calculator } from 'lucide-react';
+import {
+	Wallet,
+	ArrowUpRight,
+	ArrowDownRight,
+	PiggyBank,
+	CreditCard,
+	Receipt,
+	Banknote,
+	Calculator,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 import {
@@ -21,7 +30,14 @@ type FinancialKPIProps = {
 	color: string;
 };
 
-const FinancialKPI = ({ icon: Icon, label, value, change, period, color }: FinancialKPIProps) => (
+const FinancialKPI = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	period,
+	color,
+}: FinancialKPIProps) => (
 	<div className="flex items-start gap-4 rounded-xl border border-border/30 bg-gradient-to-br from-muted/30 to-transparent p-4">
 		<div className={`rounded-lg p-2.5 ${color}`}>
 			<Icon className="size-5" />
@@ -35,8 +51,11 @@ const FinancialKPI = ({ icon: Icon, label, value, change, period, color }: Finan
 				) : (
 					<ArrowDownRight className="size-3.5 text-rose-500" />
 				)}
-				<span className={`text-xs ${change >= 0 ? 'text-emerald-500' : 'text-rose-500'}`}>
-					{change >= 0 ? '+' : ''}{change}%
+				<span
+					className={`text-xs ${change >= 0 ? 'text-emerald-500' : 'text-rose-500'}`}
+				>
+					{change >= 0 ? '+' : ''}
+					{change}%
 				</span>
 				<span className="text-xs text-muted-foreground">{period}</span>
 			</div>
@@ -59,24 +78,72 @@ const RatioCard = ({ label, value, target, unit }: RatioProps) => {
 		<div className="rounded-lg border border-border/30 bg-muted/20 p-4">
 			<div className="flex items-center justify-between">
 				<p className="text-sm font-medium">{label}</p>
-				<span className={`text-lg font-bold ${isGood ? 'text-emerald-500' : 'text-amber-500'}`}>
-					{value}{unit}
+				<span
+					className={`text-lg font-bold ${isGood ? 'text-emerald-500' : 'text-amber-500'}`}
+				>
+					{value}
+					{unit}
 				</span>
 			</div>
 			<Progress value={Math.min(percentage, 100)} className="mt-3 h-1.5" />
-			<p className="mt-2 text-xs text-muted-foreground">Target: {target}{unit}</p>
+			<p className="mt-2 text-xs text-muted-foreground">
+				Target: {target}
+				{unit}
+			</p>
 		</div>
 	);
 };
 
 export default function Main() {
 	const kpis: FinancialKPIProps[] = [
-		{ icon: Wallet, label: 'Gross Revenue', value: '$1.24M', change: 18.5, period: 'vs last month', color: 'bg-primary/10 text-primary' },
-		{ icon: PiggyBank, label: 'Net Profit', value: '$248K', change: 12.3, period: 'vs last month', color: 'bg-emerald-500/10 text-emerald-500' },
-		{ icon: CreditCard, label: 'Operating Expenses', value: '$425K', change: 8.2, period: 'vs last month', color: 'bg-amber-500/10 text-amber-500' },
-		{ icon: Receipt, label: 'Tax Obligations', value: '$62K', change: 15.4, period: 'vs last month', color: 'bg-rose-500/10 text-rose-500' },
-		{ icon: Banknote, label: 'Cash on Hand', value: '$892K', change: -2.1, period: 'vs last week', color: 'bg-cyan-500/10 text-cyan-500' },
-		{ icon: Calculator, label: 'Accounts Receivable', value: '$156K', change: -12.5, period: 'vs last month', color: 'bg-violet-500/10 text-violet-500' },
+		{
+			icon: Wallet,
+			label: 'Gross Revenue',
+			value: '$1.24M',
+			change: 18.5,
+			period: 'vs last month',
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			icon: PiggyBank,
+			label: 'Net Profit',
+			value: '$248K',
+			change: 12.3,
+			period: 'vs last month',
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			icon: CreditCard,
+			label: 'Operating Expenses',
+			value: '$425K',
+			change: 8.2,
+			period: 'vs last month',
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			icon: Receipt,
+			label: 'Tax Obligations',
+			value: '$62K',
+			change: 15.4,
+			period: 'vs last month',
+			color: 'bg-rose-500/10 text-rose-500',
+		},
+		{
+			icon: Banknote,
+			label: 'Cash on Hand',
+			value: '$892K',
+			change: -2.1,
+			period: 'vs last week',
+			color: 'bg-cyan-500/10 text-cyan-500',
+		},
+		{
+			icon: Calculator,
+			label: 'Accounts Receivable',
+			value: '$156K',
+			change: -12.5,
+			period: 'vs last month',
+			color: 'bg-violet-500/10 text-violet-500',
+		},
 	];
 
 	const ratios: RatioProps[] = [

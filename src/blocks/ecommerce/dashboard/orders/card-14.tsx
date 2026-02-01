@@ -1,4 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -59,19 +65,34 @@ const DiscountRow = ({ discount, copyLabel }: DiscountRowProps) => (
 		<div className="flex-1">
 			<div className="flex items-center gap-2">
 				<code className="text-sm font-mono font-semibold">{discount.code}</code>
-				<Button variant="ghost" size="icon-sm" className="size-6 hover:bg-accent/10">
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					className="size-6 hover:bg-accent/10"
+				>
 					<Copy className="size-3" />
 				</Button>
 			</div>
 			<p className="text-xs text-muted-foreground">{discount.value}</p>
 		</div>
-		<Badge variant="outline" className="text-accent border-accent/30 bg-accent/10">
+		<Badge
+			variant="outline"
+			className="text-accent border-accent/30 bg-accent/10"
+		>
 			-{discount.savings}
 		</Badge>
 	</div>
 );
 
-const GiftSection = ({ recipient, message, labels }: { recipient?: string; message?: string; labels: GiftOrderCardProps['labels'] }) => (
+const GiftSection = ({
+	recipient,
+	message,
+	labels,
+}: {
+	recipient?: string;
+	message?: string;
+	labels: GiftOrderCardProps['labels'];
+}) => (
 	<div className="p-4 rounded-lg bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20">
 		<div className="flex items-center gap-2 text-primary mb-3">
 			<Gift className="size-5" />
@@ -116,7 +137,11 @@ const GiftOrderCard = ({ order, labels }: GiftOrderCardProps) => (
 					<p className="text-sm font-medium mb-3">{labels.discounts}</p>
 					<div className="space-y-2">
 						{order.discounts.map((discount, i) => (
-							<DiscountRow key={i} discount={discount} copyLabel={labels.copyCode} />
+							<DiscountRow
+								key={i}
+								discount={discount}
+								copyLabel={labels.copyCode}
+							/>
 						))}
 					</div>
 				</div>
@@ -159,10 +184,23 @@ export default function Main() {
 		id: 'ORD-2024-001',
 		isGift: true,
 		giftRecipient: 'Emily Johnson',
-		giftMessage: 'Happy Birthday! Hope you enjoy these headphones. Wishing you all the best! - John',
+		giftMessage:
+			'Happy Birthday! Hope you enjoy these headphones. Wishing you all the best! - John',
 		discounts: [
-			{ code: 'BIRTHDAY20', type: 'percentage' as const, value: '20% off entire order', savings: '$59.80', applied: true },
-			{ code: 'FREESHIP', type: 'freeShipping' as const, value: 'Free standard shipping', savings: '$9.99', applied: true },
+			{
+				code: 'BIRTHDAY20',
+				type: 'percentage' as const,
+				value: '20% off entire order',
+				savings: '$59.80',
+				applied: true,
+			},
+			{
+				code: 'FREESHIP',
+				type: 'freeShipping' as const,
+				value: 'Free standard shipping',
+				savings: '$9.99',
+				applied: true,
+			},
 		],
 		subtotal: '$299.00',
 		totalSavings: '$69.79',

@@ -72,7 +72,9 @@ const IntegrationCard = ({
 					{status.charAt(0).toUpperCase() + status.slice(1)}
 				</Badge>
 			</div>
-			<p className="mt-1 text-sm text-muted-foreground line-clamp-1">{description}</p>
+			<p className="mt-1 text-sm text-muted-foreground line-clamp-1">
+				{description}
+			</p>
 			{status === 'connected' && (
 				<div className="mt-2 flex items-center gap-4 text-xs text-muted-foreground">
 					{lastSync && <span>Last sync: {lastSync}</span>}
@@ -180,9 +182,24 @@ export default function Main() {
 	];
 
 	const syncStatuses: SyncStatus[] = [
-		{ service: 'Products', status: 'synced', lastSynced: '5 mins ago', itemsSynced: 1234 },
-		{ service: 'Orders', status: 'syncing', lastSynced: 'In progress', itemsSynced: 567 },
-		{ service: 'Customers', status: 'synced', lastSynced: '1 hour ago', itemsSynced: 890 },
+		{
+			service: 'Products',
+			status: 'synced',
+			lastSynced: '5 mins ago',
+			itemsSynced: 1234,
+		},
+		{
+			service: 'Orders',
+			status: 'syncing',
+			lastSynced: 'In progress',
+			itemsSynced: 567,
+		},
+		{
+			service: 'Customers',
+			status: 'synced',
+			lastSynced: '1 hour ago',
+			itemsSynced: 890,
+		},
 		{ service: 'Inventory', status: 'error', lastSynced: 'Failed 30 mins ago' },
 	];
 
@@ -207,7 +224,9 @@ export default function Main() {
 						<Card>
 							<CardHeader>
 								<CardTitle className="text-base">Connected Services</CardTitle>
-								<CardDescription>Manage your active integrations</CardDescription>
+								<CardDescription>
+									Manage your active integrations
+								</CardDescription>
 							</CardHeader>
 							<CardContent className="space-y-3">
 								{integrations.map((integration) => (

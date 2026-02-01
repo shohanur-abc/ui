@@ -108,11 +108,7 @@ const NotificationOption = ({
 	</div>
 );
 
-const DeliveryEstimate = ({
-	items,
-}: {
-	items: EstimateItemProps[];
-}) => (
+const DeliveryEstimate = ({ items }: { items: EstimateItemProps[] }) => (
 	<Card className="w-full max-w-md">
 		<CardContent className="pt-6">
 			<div className="flex items-center gap-2 mb-4">

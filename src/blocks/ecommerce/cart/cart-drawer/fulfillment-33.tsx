@@ -11,7 +11,17 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Clock, Home, MapPin, Minus, Plus, ShoppingBag, Store, Truck, X } from 'lucide-react';
+import {
+	Clock,
+	Home,
+	MapPin,
+	Minus,
+	Plus,
+	ShoppingBag,
+	Store,
+	Truck,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -136,7 +146,9 @@ const FulfillmentSelector = ({
 								<div className="flex items-center justify-between">
 									<h4 className="font-medium">{option.label}</h4>
 									<span className="font-medium">
-										{option.price === 0 ? 'Free' : `$${option.price.toFixed(2)}`}
+										{option.price === 0
+											? 'Free'
+											: `$${option.price.toFixed(2)}`}
 									</span>
 								</div>
 								<p className="mt-0.5 text-sm text-muted-foreground">
@@ -184,12 +196,16 @@ const Summary = ({
 		</div>
 		<div className="flex justify-between text-sm">
 			<span className="text-muted-foreground">Fulfillment</span>
-			<span>{fulfillmentCost === 0 ? 'Free' : `$${fulfillmentCost.toFixed(2)}`}</span>
+			<span>
+				{fulfillmentCost === 0 ? 'Free' : `$${fulfillmentCost.toFixed(2)}`}
+			</span>
 		</div>
 		<Separator />
 		<div className="flex justify-between text-lg">
 			<span className="font-medium">Total</span>
-			<span className="font-bold">${(subtotal + fulfillmentCost).toFixed(2)}</span>
+			<span className="font-bold">
+				${(subtotal + fulfillmentCost).toFixed(2)}
+			</span>
 		</div>
 		<Button className="w-full" size="lg">
 			{checkoutLabel}
@@ -205,14 +221,16 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes',
 				price: 129.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Casual Sneakers',
 				price: 89.99,
 				quantity: 1,
@@ -258,7 +276,10 @@ export default function Main() {
 		(o) => o.id === cartData.selectedOption,
 	);
 	const fulfillmentCost = selectedFulfillment?.price || 0;
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

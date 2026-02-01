@@ -149,17 +149,10 @@ export default function Main() {
 							label="Street Address"
 							placeholder="Enter your street address"
 						/>
-						<Field
-							label="Apartment, Suite, etc."
-							placeholder="Optional"
-						/>
+						<Field label="Apartment, Suite, etc." placeholder="Optional" />
 						<div className="grid @sm:grid-cols-3 gap-4">
 							<Field label="City" placeholder="City" />
-							<SelectField
-								label="State"
-								placeholder="State"
-								options={states}
-							/>
+							<SelectField label="State" placeholder="State" options={states} />
 							<Field label="ZIP Code" placeholder="12345" />
 						</div>
 					</FormSection>

@@ -1,4 +1,13 @@
-import { Globe2, Truck, Plane, Ship, Clock, AlertCircle, Check, ChevronDown } from 'lucide-react';
+import {
+	Globe2,
+	Truck,
+	Plane,
+	Ship,
+	Clock,
+	AlertCircle,
+	Check,
+	ChevronDown,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,7 +15,13 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 
 const RegionBadge = ({
@@ -85,7 +100,9 @@ const CostBreakdown = ({
 						<span className="text-muted-foreground">{item.label}</span>
 						<div className="text-right">
 							<span>{item.value}</span>
-							{item.note && <p className="text-xs text-muted-foreground">{item.note}</p>}
+							{item.note && (
+								<p className="text-xs text-muted-foreground">{item.note}</p>
+							)}
 						</div>
 					</div>
 				))}
@@ -188,7 +205,8 @@ export default function Main() {
 					<AlertCircle className="size-4" />
 					<AlertTitle>Import Information</AlertTitle>
 					<AlertDescription>
-						Customs duties and taxes are collected upon delivery. Final amounts may vary based on local regulations.
+						Customs duties and taxes are collected upon delivery. Final amounts
+						may vary based on local regulations.
 					</AlertDescription>
 				</Alert>
 

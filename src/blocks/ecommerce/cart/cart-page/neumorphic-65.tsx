@@ -20,7 +20,9 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 			<div className="size-12 rounded-xl bg-gray-100 dark:bg-gray-800 shadow-[6px_6px_12px_rgba(0,0,0,0.15),-6px_-6px_12px_rgba(255,255,255,0.8)] dark:shadow-[6px_6px_12px_rgba(0,0,0,0.4),-6px_-6px_12px_rgba(50,50,50,0.2)] flex items-center justify-center">
 				<ShoppingBag className="size-6 text-gray-600 dark:text-gray-300" />
 			</div>
-			<h1 className="text-2xl font-bold @md:text-3xl text-gray-700 dark:text-gray-200">{title}</h1>
+			<h1 className="text-2xl font-bold @md:text-3xl text-gray-700 dark:text-gray-200">
+				{title}
+			</h1>
 		</div>
 		<Badge className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-0 shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.8)] dark:shadow-[3px_3px_6px_rgba(0,0,0,0.3),-3px_-3px_6px_rgba(50,50,50,0.2)] px-4 py-1">
 			{count} items
@@ -35,7 +37,9 @@ const NeumorphicCard = ({
 	children: React.ReactNode;
 	className?: string;
 }) => (
-	<div className={`rounded-2xl bg-gray-100 dark:bg-gray-800 p-6 shadow-[8px_8px_16px_rgba(0,0,0,0.15),-8px_-8px_16px_rgba(255,255,255,0.9)] dark:shadow-[8px_8px_16px_rgba(0,0,0,0.4),-8px_-8px_16px_rgba(50,50,50,0.2)] ${className}`}>
+	<div
+		className={`rounded-2xl bg-gray-100 dark:bg-gray-800 p-6 shadow-[8px_8px_16px_rgba(0,0,0,0.15),-8px_-8px_16px_rgba(255,255,255,0.9)] dark:shadow-[8px_8px_16px_rgba(0,0,0,0.4),-8px_-8px_16px_rgba(50,50,50,0.2)] ${className}`}
+	>
 		{children}
 	</div>
 );
@@ -47,7 +51,9 @@ const NeumorphicInset = ({
 	children: React.ReactNode;
 	className?: string;
 }) => (
-	<div className={`rounded-xl bg-gray-100 dark:bg-gray-800 p-4 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.1),inset_-4px_-4px_8px_rgba(255,255,255,0.9)] dark:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.3),inset_-4px_-4px_8px_rgba(50,50,50,0.2)] ${className}`}>
+	<div
+		className={`rounded-xl bg-gray-100 dark:bg-gray-800 p-4 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.1),inset_-4px_-4px_8px_rgba(255,255,255,0.9)] dark:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.3),inset_-4px_-4px_8px_rgba(50,50,50,0.2)] ${className}`}
+	>
 		{children}
 	</div>
 );
@@ -104,7 +110,9 @@ const NeumorphicItem = ({ item }: { item: CartItem }) => (
 			<div className="flex-1 min-w-0">
 				<div className="flex items-start justify-between gap-2">
 					<div>
-						<h3 className="font-semibold text-gray-700 dark:text-gray-200 line-clamp-1">{item.name}</h3>
+						<h3 className="font-semibold text-gray-700 dark:text-gray-200 line-clamp-1">
+							{item.name}
+						</h3>
 						<p className="text-sm text-gray-500">{item.variant}</p>
 					</div>
 					<NeumorphicButton size="icon" className="size-6 shrink-0">
@@ -113,7 +121,9 @@ const NeumorphicItem = ({ item }: { item: CartItem }) => (
 				</div>
 				<div className="flex items-center justify-between mt-3">
 					<QuantityControl quantity={item.quantity} />
-					<p className="font-bold text-lg text-gray-700 dark:text-gray-200">${(item.price * item.quantity).toFixed(2)}</p>
+					<p className="font-bold text-lg text-gray-700 dark:text-gray-200">
+						${(item.price * item.quantity).toFixed(2)}
+					</p>
 				</div>
 			</div>
 		</div>
@@ -129,7 +139,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold text-gray-700 dark:text-gray-200' : 'text-gray-500'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold text-gray-700 dark:text-gray-200' : 'text-gray-500'}`}
+	>
 		<span>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -139,7 +151,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Studio Headphones Pro',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -147,7 +160,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White • ANC',
 			price: 179.99,
@@ -155,7 +169,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -182,7 +197,9 @@ export default function Main() {
 				<div className="mt-8 grid gap-8 @lg:grid-cols-3">
 					<div className="@lg:col-span-2">
 						<NeumorphicCard>
-							<h2 className="font-semibold text-lg text-gray-700 dark:text-gray-200 mb-4">Cart Items</h2>
+							<h2 className="font-semibold text-lg text-gray-700 dark:text-gray-200 mb-4">
+								Cart Items
+							</h2>
 							{items.map((item) => (
 								<NeumorphicItem key={item.id} item={item} />
 							))}
@@ -191,13 +208,17 @@ export default function Main() {
 
 					<div>
 						<NeumorphicCard className="sticky top-4">
-							<h2 className="font-semibold text-lg text-gray-700 dark:text-gray-200 mb-4">Order Summary</h2>
+							<h2 className="font-semibold text-lg text-gray-700 dark:text-gray-200 mb-4">
+								Order Summary
+							</h2>
 
 							<NeumorphicInset className="mb-4">
 								<div className="space-y-3">
 									{summaryLines.map((line, i) => (
 										<div key={i}>
-											{line.bold && <Separator className="my-3 bg-gray-300 dark:bg-gray-600" />}
+											{line.bold && (
+												<Separator className="my-3 bg-gray-300 dark:bg-gray-600" />
+											)}
 											<SummaryLine {...line} />
 										</div>
 									))}

@@ -1,7 +1,13 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Package, Clock, Truck, CheckCircle, AlertTriangle } from 'lucide-react';
+import {
+	Package,
+	Clock,
+	Truck,
+	CheckCircle,
+	AlertTriangle,
+} from 'lucide-react';
 
 interface InventoryStatProps {
 	icon: React.ElementType;
@@ -11,7 +17,13 @@ interface InventoryStatProps {
 	details: string;
 }
 
-const InventoryStat = ({ icon: Icon, label, value, status, details }: InventoryStatProps) => {
+const InventoryStat = ({
+	icon: Icon,
+	label,
+	value,
+	status,
+	details,
+}: InventoryStatProps) => {
 	const statusConfig = {
 		healthy: { color: 'text-accent', badge: 'Healthy' },
 		warning: { color: 'text-yellow-500', badge: 'Warning' },
@@ -24,7 +36,10 @@ const InventoryStat = ({ icon: Icon, label, value, status, details }: InventoryS
 				<div className="rounded-lg bg-primary/10 p-2">
 					<Icon className={`size-4 ${statusConfig[status].color}`} />
 				</div>
-				<Badge variant="outline" className={`text-[10px] ${statusConfig[status].color}`}>
+				<Badge
+					variant="outline"
+					className={`text-[10px] ${statusConfig[status].color}`}
+				>
 					{statusConfig[status].badge}
 				</Badge>
 			</div>
@@ -40,11 +55,41 @@ const InventoryStat = ({ icon: Icon, label, value, status, details }: InventoryS
 
 export default function Main() {
 	const stats: InventoryStatProps[] = [
-		{ icon: Package, label: 'Total SKUs', value: '12,847', status: 'healthy', details: '284 new this month' },
-		{ icon: CheckCircle, label: 'In Stock', value: '11,294', status: 'healthy', details: '88% of total inventory' },
-		{ icon: AlertTriangle, label: 'Low Stock', value: '847', status: 'warning', details: 'Below reorder point' },
-		{ icon: Clock, label: 'Out of Stock', value: '428', status: 'critical', details: 'Restock needed' },
-		{ icon: Truck, label: 'On Order', value: '1,284', status: 'healthy', details: 'Expected within 7 days' },
+		{
+			icon: Package,
+			label: 'Total SKUs',
+			value: '12,847',
+			status: 'healthy',
+			details: '284 new this month',
+		},
+		{
+			icon: CheckCircle,
+			label: 'In Stock',
+			value: '11,294',
+			status: 'healthy',
+			details: '88% of total inventory',
+		},
+		{
+			icon: AlertTriangle,
+			label: 'Low Stock',
+			value: '847',
+			status: 'warning',
+			details: 'Below reorder point',
+		},
+		{
+			icon: Clock,
+			label: 'Out of Stock',
+			value: '428',
+			status: 'critical',
+			details: 'Restock needed',
+		},
+		{
+			icon: Truck,
+			label: 'On Order',
+			value: '1,284',
+			status: 'healthy',
+			details: 'Expected within 7 days',
+		},
 	];
 
 	return (

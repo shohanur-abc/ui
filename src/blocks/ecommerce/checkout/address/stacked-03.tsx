@@ -166,8 +166,16 @@ export default function Main() {
 							<Field label="First Name" placeholder="John" />
 							<Field label="Last Name" placeholder="Doe" />
 						</div>
-						<Field label="Email Address" placeholder="john@example.com" type="email" />
-						<Field label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
+						<Field
+							label="Email Address"
+							placeholder="john@example.com"
+							type="email"
+						/>
+						<Field
+							label="Phone Number"
+							placeholder="+1 (555) 000-0000"
+							type="tel"
+						/>
 					</FieldGroup>
 
 					<Separator />
@@ -180,8 +188,16 @@ export default function Main() {
 							<Field label="Postal Code" placeholder="94102" />
 						</div>
 						<div className="grid @sm:grid-cols-2 gap-4">
-							<SelectField label="State" placeholder="Select" options={states} />
-							<SelectField label="Country" placeholder="Select" options={countries} />
+							<SelectField
+								label="State"
+								placeholder="Select"
+								options={states}
+							/>
+							<SelectField
+								label="Country"
+								placeholder="Select"
+								options={countries}
+							/>
 						</div>
 					</FieldGroup>
 				</div>

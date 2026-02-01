@@ -57,7 +57,9 @@ const LoyaltyHeader = ({
 						<AvatarImage src={src} alt={name} />
 						<AvatarFallback className="text-2xl">{fallback}</AvatarFallback>
 					</Avatar>
-					<div className={`absolute -bottom-1 -right-1 p-2 rounded-full ${tierGradient}`}>
+					<div
+						className={`absolute -bottom-1 -right-1 p-2 rounded-full ${tierGradient}`}
+					>
 						<TierIcon className="size-4 text-white" />
 					</div>
 				</div>
@@ -69,7 +71,9 @@ const LoyaltyHeader = ({
 					<div className="mt-3 space-y-2">
 						<div className="flex items-center justify-between text-sm">
 							<span>{points.toLocaleString()} points</span>
-							<span className="text-muted-foreground">{nextTierPoints.toLocaleString()} to {nextTier}</span>
+							<span className="text-muted-foreground">
+								{nextTierPoints.toLocaleString()} to {nextTier}
+							</span>
 						</div>
 						<Progress value={(points / nextTierPoints) * 100} className="h-2" />
 					</div>
@@ -82,7 +86,13 @@ const LoyaltyHeader = ({
 const RewardsTab = ({
 	rewards,
 }: {
-	rewards: { icon: React.ElementType; title: string; description: string; points: number; available: boolean }[];
+	rewards: {
+		icon: React.ElementType;
+		title: string;
+		description: string;
+		points: number;
+		available: boolean;
+	}[];
 }) => (
 	<div className="grid @sm:grid-cols-2 @lg:grid-cols-3 gap-4">
 		{rewards.map((reward, i) => (
@@ -96,7 +106,9 @@ const RewardsTab = ({
 					</div>
 					<div>
 						<h4 className="font-semibold">{reward.title}</h4>
-						<p className="text-sm text-muted-foreground">{reward.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{reward.description}
+						</p>
 					</div>
 					<Button className="w-full" disabled={!reward.available}>
 						{reward.available ? 'Redeem Now' : 'Not Enough Points'}
@@ -110,21 +122,35 @@ const RewardsTab = ({
 const AchievementsTab = ({
 	achievements,
 }: {
-	achievements: { icon: React.ElementType; title: string; description: string; progress: number; earned: boolean }[];
+	achievements: {
+		icon: React.ElementType;
+		title: string;
+		description: string;
+		progress: number;
+		earned: boolean;
+	}[];
 }) => (
 	<div className="grid @md:grid-cols-2 gap-4">
 		{achievements.map((achievement, i) => (
 			<Card key={i} className={achievement.earned ? 'border-amber-500/50' : ''}>
 				<CardContent className="p-5 flex items-center gap-4">
-					<div className={`p-3 rounded-xl ${achievement.earned ? 'bg-amber-500/20' : 'bg-muted'}`}>
-						<achievement.icon className={`size-6 ${achievement.earned ? 'text-amber-500' : 'text-muted-foreground'}`} />
+					<div
+						className={`p-3 rounded-xl ${achievement.earned ? 'bg-amber-500/20' : 'bg-muted'}`}
+					>
+						<achievement.icon
+							className={`size-6 ${achievement.earned ? 'text-amber-500' : 'text-muted-foreground'}`}
+						/>
 					</div>
 					<div className="flex-1">
 						<div className="flex items-center justify-between">
 							<h4 className="font-semibold">{achievement.title}</h4>
-							{achievement.earned && <Badge className="bg-amber-500/20 text-amber-600">Earned</Badge>}
+							{achievement.earned && (
+								<Badge className="bg-amber-500/20 text-amber-600">Earned</Badge>
+							)}
 						</div>
-						<p className="text-sm text-muted-foreground">{achievement.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{achievement.description}
+						</p>
 						{!achievement.earned && (
 							<Progress value={achievement.progress} className="h-1.5 mt-2" />
 						)}
@@ -138,7 +164,12 @@ const AchievementsTab = ({
 const BenefitsTab = ({
 	benefits,
 }: {
-	benefits: { icon: React.ElementType; title: string; description: string; active: boolean }[];
+	benefits: {
+		icon: React.ElementType;
+		title: string;
+		description: string;
+		active: boolean;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -146,13 +177,22 @@ const BenefitsTab = ({
 		</CardHeader>
 		<CardContent className="space-y-4">
 			{benefits.map((benefit, i) => (
-				<div key={i} className="flex items-center gap-4 p-4 rounded-lg bg-muted/30">
-					<div className={`p-2.5 rounded-lg ${benefit.active ? 'bg-green-500/10' : 'bg-muted'}`}>
-						<benefit.icon className={`size-5 ${benefit.active ? 'text-green-500' : 'text-muted-foreground'}`} />
+				<div
+					key={i}
+					className="flex items-center gap-4 p-4 rounded-lg bg-muted/30"
+				>
+					<div
+						className={`p-2.5 rounded-lg ${benefit.active ? 'bg-green-500/10' : 'bg-muted'}`}
+					>
+						<benefit.icon
+							className={`size-5 ${benefit.active ? 'text-green-500' : 'text-muted-foreground'}`}
+						/>
 					</div>
 					<div className="flex-1">
 						<h4 className="font-medium">{benefit.title}</h4>
-						<p className="text-sm text-muted-foreground">{benefit.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{benefit.description}
+						</p>
 					</div>
 					{benefit.active ? (
 						<Badge className="bg-green-500/20 text-green-600">Active</Badge>
@@ -168,7 +208,12 @@ const BenefitsTab = ({
 const HistoryTab = ({
 	history,
 }: {
-	history: { action: string; points: number; date: string; type: 'earned' | 'spent' }[];
+	history: {
+		action: string;
+		points: number;
+		date: string;
+		type: 'earned' | 'spent';
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -176,13 +221,19 @@ const HistoryTab = ({
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{history.map((item, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50"
+				>
 					<div>
 						<p className="font-medium">{item.action}</p>
 						<p className="text-sm text-muted-foreground">{item.date}</p>
 					</div>
-					<span className={`font-semibold ${item.type === 'earned' ? 'text-green-500' : 'text-red-500'}`}>
-						{item.type === 'earned' ? '+' : '-'}{item.points} pts
+					<span
+						className={`font-semibold ${item.type === 'earned' ? 'text-green-500' : 'text-red-500'}`}
+					>
+						{item.type === 'earned' ? '+' : '-'}
+						{item.points} pts
 					</span>
 				</div>
 			))}
@@ -204,30 +255,130 @@ export default function Main() {
 			nextTier: 'Platinum',
 		},
 		rewards: [
-			{ icon: Gift, title: '$10 Off', description: 'On orders $50+', points: 1000, available: true },
-			{ icon: Sparkles, title: 'Free Shipping', description: 'One-time use', points: 500, available: true },
-			{ icon: Star, title: '25% Off', description: 'Selected items', points: 2500, available: true },
-			{ icon: Zap, title: 'VIP Access', description: 'Early sale access', points: 5000, available: true },
-			{ icon: Award, title: 'Exclusive Gift', description: 'Mystery reward', points: 10000, available: false },
-			{ icon: Crown, title: 'Double Points', description: 'For 30 days', points: 15000, available: false },
+			{
+				icon: Gift,
+				title: '$10 Off',
+				description: 'On orders $50+',
+				points: 1000,
+				available: true,
+			},
+			{
+				icon: Sparkles,
+				title: 'Free Shipping',
+				description: 'One-time use',
+				points: 500,
+				available: true,
+			},
+			{
+				icon: Star,
+				title: '25% Off',
+				description: 'Selected items',
+				points: 2500,
+				available: true,
+			},
+			{
+				icon: Zap,
+				title: 'VIP Access',
+				description: 'Early sale access',
+				points: 5000,
+				available: true,
+			},
+			{
+				icon: Award,
+				title: 'Exclusive Gift',
+				description: 'Mystery reward',
+				points: 10000,
+				available: false,
+			},
+			{
+				icon: Crown,
+				title: 'Double Points',
+				description: 'For 30 days',
+				points: 15000,
+				available: false,
+			},
 		],
 		achievements: [
-			{ icon: Star, title: 'First Purchase', description: 'Complete your first order', progress: 100, earned: true },
-			{ icon: Heart, title: 'Loyal Customer', description: 'Make 10 purchases', progress: 100, earned: true },
-			{ icon: Trophy, title: 'Big Spender', description: 'Spend $1,000 total', progress: 75, earned: false },
-			{ icon: Zap, title: 'Speed Shopper', description: '5 orders in one month', progress: 40, earned: false },
+			{
+				icon: Star,
+				title: 'First Purchase',
+				description: 'Complete your first order',
+				progress: 100,
+				earned: true,
+			},
+			{
+				icon: Heart,
+				title: 'Loyal Customer',
+				description: 'Make 10 purchases',
+				progress: 100,
+				earned: true,
+			},
+			{
+				icon: Trophy,
+				title: 'Big Spender',
+				description: 'Spend $1,000 total',
+				progress: 75,
+				earned: false,
+			},
+			{
+				icon: Zap,
+				title: 'Speed Shopper',
+				description: '5 orders in one month',
+				progress: 40,
+				earned: false,
+			},
 		],
 		benefits: [
-			{ icon: Gift, title: 'Birthday Reward', description: 'Get a special gift on your birthday', active: true },
-			{ icon: Zap, title: 'Early Access', description: 'Shop sales 24 hours early', active: true },
-			{ icon: Sparkles, title: 'Free Shipping', description: 'On all orders', active: true },
-			{ icon: Crown, title: 'Concierge Service', description: 'Personal shopping assistant', active: false },
+			{
+				icon: Gift,
+				title: 'Birthday Reward',
+				description: 'Get a special gift on your birthday',
+				active: true,
+			},
+			{
+				icon: Zap,
+				title: 'Early Access',
+				description: 'Shop sales 24 hours early',
+				active: true,
+			},
+			{
+				icon: Sparkles,
+				title: 'Free Shipping',
+				description: 'On all orders',
+				active: true,
+			},
+			{
+				icon: Crown,
+				title: 'Concierge Service',
+				description: 'Personal shopping assistant',
+				active: false,
+			},
 		],
 		history: [
-			{ action: 'Purchase - Order #48291', points: 156, date: 'Jan 28, 2024', type: 'earned' as const },
-			{ action: 'Redeemed - Free Shipping', points: 500, date: 'Jan 25, 2024', type: 'spent' as const },
-			{ action: 'Purchase - Order #48280', points: 234, date: 'Jan 20, 2024', type: 'earned' as const },
-			{ action: 'Review Bonus', points: 50, date: 'Jan 18, 2024', type: 'earned' as const },
+			{
+				action: 'Purchase - Order #48291',
+				points: 156,
+				date: 'Jan 28, 2024',
+				type: 'earned' as const,
+			},
+			{
+				action: 'Redeemed - Free Shipping',
+				points: 500,
+				date: 'Jan 25, 2024',
+				type: 'spent' as const,
+			},
+			{
+				action: 'Purchase - Order #48280',
+				points: 234,
+				date: 'Jan 20, 2024',
+				type: 'earned' as const,
+			},
+			{
+				action: 'Review Bonus',
+				points: 50,
+				date: 'Jan 18, 2024',
+				type: 'earned' as const,
+			},
 		],
 	};
 

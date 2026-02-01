@@ -14,7 +14,14 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import {
 	Table,
 	TableBody,
@@ -41,7 +48,12 @@ type UploadZoneProps = {
 	accept: string;
 };
 
-const UploadZone = ({ onUpload, title, description, accept }: UploadZoneProps) => (
+const UploadZone = ({
+	onUpload,
+	title,
+	description,
+	accept,
+}: UploadZoneProps) => (
 	<div
 		className="flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed p-12 text-center transition-colors hover:border-primary/50 hover:bg-muted/50"
 		onClick={onUpload}
@@ -61,7 +73,11 @@ type ProgressDisplayProps = {
 	statusLabels: Record<ImportStatus, string>;
 };
 
-const ProgressDisplay = ({ progress, status, statusLabels }: ProgressDisplayProps) => (
+const ProgressDisplay = ({
+	progress,
+	status,
+	statusLabels,
+}: ProgressDisplayProps) => (
 	<div className="space-y-4 p-8">
 		<div className="flex items-center gap-3">
 			<div className="animate-pulse rounded-full bg-primary/10 p-3">
@@ -115,7 +131,13 @@ const ResultsSummary = ({ results, labels }: ResultsSummaryProps) => {
 
 type ResultsTableProps = {
 	results: ImportResult[];
-	columns: { row: string; sku: string; name: string; status: string; message: string };
+	columns: {
+		row: string;
+		sku: string;
+		name: string;
+		status: string;
+		message: string;
+	};
 };
 
 const ResultsTable = ({ results, columns }: ResultsTableProps) => (
@@ -138,12 +160,20 @@ const ResultsTable = ({ results, columns }: ResultsTableProps) => (
 						<TableCell>{result.name}</TableCell>
 						<TableCell>
 							<Badge
-								variant={result.status === 'success' ? 'default' : result.status === 'error' ? 'destructive' : 'secondary'}
+								variant={
+									result.status === 'success'
+										? 'default'
+										: result.status === 'error'
+											? 'destructive'
+											: 'secondary'
+								}
 							>
 								{result.status}
 							</Badge>
 						</TableCell>
-						<TableCell className="text-muted-foreground">{result.message}</TableCell>
+						<TableCell className="text-muted-foreground">
+							{result.message}
+						</TableCell>
 					</TableRow>
 				))}
 			</TableBody>
@@ -156,11 +186,41 @@ export default function Main() {
 	const [progress, setProgress] = React.useState(0);
 
 	const importResults: ImportResult[] = [
-		{ row: 1, sku: 'SKU-001', name: 'Wireless Headphones', status: 'success', message: 'Imported successfully' },
-		{ row: 2, sku: 'SKU-002', name: 'Bluetooth Speaker', status: 'success', message: 'Imported successfully' },
-		{ row: 3, sku: 'SKU-003', name: 'USB-C Cable', status: 'warning', message: 'Duplicate SKU, merged with existing' },
-		{ row: 4, sku: 'SKU-004', name: 'Smart Watch', status: 'error', message: 'Invalid category specified' },
-		{ row: 5, sku: 'SKU-005', name: 'Phone Case', status: 'success', message: 'Imported successfully' },
+		{
+			row: 1,
+			sku: 'SKU-001',
+			name: 'Wireless Headphones',
+			status: 'success',
+			message: 'Imported successfully',
+		},
+		{
+			row: 2,
+			sku: 'SKU-002',
+			name: 'Bluetooth Speaker',
+			status: 'success',
+			message: 'Imported successfully',
+		},
+		{
+			row: 3,
+			sku: 'SKU-003',
+			name: 'USB-C Cable',
+			status: 'warning',
+			message: 'Duplicate SKU, merged with existing',
+		},
+		{
+			row: 4,
+			sku: 'SKU-004',
+			name: 'Smart Watch',
+			status: 'error',
+			message: 'Invalid category specified',
+		},
+		{
+			row: 5,
+			sku: 'SKU-005',
+			name: 'Phone Case',
+			status: 'success',
+			message: 'Imported successfully',
+		},
 	];
 
 	const handleUpload = () => {
@@ -184,7 +244,9 @@ export default function Main() {
 				<Card>
 					<CardHeader>
 						<CardTitle className="text-xl @lg:text-2xl">Bulk Import</CardTitle>
-						<CardDescription>Import products from CSV or Excel file</CardDescription>
+						<CardDescription>
+							Import products from CSV or Excel file
+						</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						{status === 'idle' && (
@@ -220,11 +282,21 @@ export default function Main() {
 							<>
 								<ResultsSummary
 									results={importResults}
-									labels={{ success: 'Imported', errors: 'Errors', warnings: 'Warnings' }}
+									labels={{
+										success: 'Imported',
+										errors: 'Errors',
+										warnings: 'Warnings',
+									}}
 								/>
 								<ResultsTable
 									results={importResults}
-									columns={{ row: 'Row', sku: 'SKU', name: 'Product Name', status: 'Status', message: 'Message' }}
+									columns={{
+										row: 'Row',
+										sku: 'SKU',
+										name: 'Product Name',
+										status: 'Status',
+										message: 'Message',
+									}}
 								/>
 							</>
 						)}

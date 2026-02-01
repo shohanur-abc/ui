@@ -47,11 +47,20 @@ const TypeIcon = ({ type }: { type: TransactionLog['type'] }) => {
 		TransactionLog['type'],
 		{ icon: LucideIcon; className: string }
 	> = {
-		payment: { icon: ArrowUpRight, className: 'bg-emerald-500/20 text-emerald-400' },
+		payment: {
+			icon: ArrowUpRight,
+			className: 'bg-emerald-500/20 text-emerald-400',
+		},
 		refund: { icon: ArrowDownRight, className: 'bg-rose-500/20 text-rose-400' },
 		payout: { icon: Building, className: 'bg-blue-500/20 text-blue-400' },
-		fee: { icon: CircleDollarSign, className: 'bg-amber-500/20 text-amber-400' },
-		transfer: { icon: RefreshCw, className: 'bg-purple-500/20 text-purple-400' },
+		fee: {
+			icon: CircleDollarSign,
+			className: 'bg-amber-500/20 text-amber-400',
+		},
+		transfer: {
+			icon: RefreshCw,
+			className: 'bg-purple-500/20 text-purple-400',
+		},
 		adjustment: { icon: Wallet, className: 'bg-muted text-muted-foreground' },
 	};
 
@@ -98,7 +107,11 @@ const AmountDisplay = ({
 			{isNegative && <TrendingDown className="size-4 text-rose-400" />}
 			<span
 				className={`font-mono font-semibold ${
-					isPositive ? 'text-emerald-400' : isNegative ? 'text-rose-400' : 'text-foreground'
+					isPositive
+						? 'text-emerald-400'
+						: isNegative
+							? 'text-rose-400'
+							: 'text-foreground'
 				}`}
 			>
 				{isNegative && '-'}

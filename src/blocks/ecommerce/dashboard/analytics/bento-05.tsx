@@ -22,7 +22,13 @@ type SourceCardProps = {
 	color: string;
 };
 
-const SourceCard = ({ icon: Icon, source, visitors, percentage, color }: SourceCardProps) => (
+const SourceCard = ({
+	icon: Icon,
+	source,
+	visitors,
+	percentage,
+	color,
+}: SourceCardProps) => (
 	<Card className="group border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<CardContent className="p-4">
 			<div className="flex items-center gap-3">
@@ -38,7 +44,10 @@ const SourceCard = ({ icon: Icon, source, visitors, percentage, color }: SourceC
 				</div>
 			</div>
 			<div className="mt-3 h-1.5 rounded-full bg-muted overflow-hidden">
-				<div className={`h-full rounded-full ${color.replace('text-', 'bg-').replace('/80', '')}`} style={{ width: `${percentage}%` }} />
+				<div
+					className={`h-full rounded-full ${color.replace('text-', 'bg-').replace('/80', '')}`}
+					style={{ width: `${percentage}%` }}
+				/>
 			</div>
 		</CardContent>
 	</Card>
@@ -71,10 +80,15 @@ const KeywordsCard = ({ keywords }: { keywords: KeywordRowProps[] }) => (
 			</div>
 			<div className="space-y-2 mt-2">
 				{keywords.map((kw, i) => (
-					<div key={i} className="grid grid-cols-5 gap-2 text-sm py-1.5 border-b border-border/20 last:border-0">
+					<div
+						key={i}
+						className="grid grid-cols-5 gap-2 text-sm py-1.5 border-b border-border/20 last:border-0"
+					>
 						<span className="font-medium truncate">{kw.keyword}</span>
 						<span className="text-right">{kw.clicks}</span>
-						<span className="text-right text-muted-foreground">{kw.impressions}</span>
+						<span className="text-right text-muted-foreground">
+							{kw.impressions}
+						</span>
 						<span className="text-right text-muted-foreground">{kw.ctr}</span>
 						<span className="text-right">{kw.position}</span>
 					</div>
@@ -103,10 +117,21 @@ const CampaignsCard = ({ campaigns }: { campaigns: CampaignRowProps[] }) => (
 		</CardHeader>
 		<CardContent className="space-y-4">
 			{campaigns.map((campaign, i) => (
-				<div key={i} className="p-3 rounded-lg bg-muted/30 border border-border/30 space-y-3">
+				<div
+					key={i}
+					className="p-3 rounded-lg bg-muted/30 border border-border/30 space-y-3"
+				>
 					<div className="flex items-center justify-between">
 						<span className="font-medium">{campaign.name}</span>
-						<Badge variant={campaign.status === 'active' ? 'default' : campaign.status === 'paused' ? 'secondary' : 'outline'}>
+						<Badge
+							variant={
+								campaign.status === 'active'
+									? 'default'
+									: campaign.status === 'paused'
+										? 'secondary'
+										: 'outline'
+							}
+						>
 							{campaign.status}
 						</Badge>
 					</div>
@@ -146,11 +171,16 @@ const ReferrersCard = ({ referrers }: { referrers: ReferrerRowProps[] }) => (
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{referrers.map((ref, i) => (
-				<div key={i} className="flex items-center justify-between py-1.5 border-b border-border/20 last:border-0">
+				<div
+					key={i}
+					className="flex items-center justify-between py-1.5 border-b border-border/20 last:border-0"
+				>
 					<span className="text-sm">{ref.referrer}</span>
 					<div className="flex items-center gap-3 text-sm">
 						<span className="font-semibold">{ref.sessions}</span>
-						<span className="text-xs text-muted-foreground">{ref.bounceRate}</span>
+						<span className="text-xs text-muted-foreground">
+							{ref.bounceRate}
+						</span>
 					</div>
 				</div>
 			))}
@@ -159,23 +189,89 @@ const ReferrersCard = ({ referrers }: { referrers: ReferrerRowProps[] }) => (
 );
 
 const sources: SourceCardProps[] = [
-	{ icon: Search, source: 'Organic Search', visitors: '8,456', percentage: 42, color: 'text-emerald-500/80 bg-emerald-500/10' },
-	{ icon: MousePointerClick, source: 'Direct', visitors: '5,234', percentage: 26, color: 'text-blue-500/80 bg-blue-500/10' },
-	{ icon: Share2, source: 'Social', visitors: '3,123', percentage: 16, color: 'text-purple-500/80 bg-purple-500/10' },
-	{ icon: Tag, source: 'Paid Ads', visitors: '2,456', percentage: 12, color: 'text-orange-500/80 bg-orange-500/10' },
+	{
+		icon: Search,
+		source: 'Organic Search',
+		visitors: '8,456',
+		percentage: 42,
+		color: 'text-emerald-500/80 bg-emerald-500/10',
+	},
+	{
+		icon: MousePointerClick,
+		source: 'Direct',
+		visitors: '5,234',
+		percentage: 26,
+		color: 'text-blue-500/80 bg-blue-500/10',
+	},
+	{
+		icon: Share2,
+		source: 'Social',
+		visitors: '3,123',
+		percentage: 16,
+		color: 'text-purple-500/80 bg-purple-500/10',
+	},
+	{
+		icon: Tag,
+		source: 'Paid Ads',
+		visitors: '2,456',
+		percentage: 12,
+		color: 'text-orange-500/80 bg-orange-500/10',
+	},
 ];
 
 const keywords: KeywordRowProps[] = [
-	{ keyword: 'wireless headphones', clicks: '2,345', impressions: '45,678', ctr: '5.1%', position: '2.3' },
-	{ keyword: 'bluetooth speaker', clicks: '1,890', impressions: '38,234', ctr: '4.9%', position: '3.1' },
-	{ keyword: 'usb hub', clicks: '1,456', impressions: '28,567', ctr: '5.1%', position: '1.8' },
-	{ keyword: 'laptop stand', clicks: '1,234', impressions: '25,432', ctr: '4.8%', position: '2.5' },
+	{
+		keyword: 'wireless headphones',
+		clicks: '2,345',
+		impressions: '45,678',
+		ctr: '5.1%',
+		position: '2.3',
+	},
+	{
+		keyword: 'bluetooth speaker',
+		clicks: '1,890',
+		impressions: '38,234',
+		ctr: '4.9%',
+		position: '3.1',
+	},
+	{
+		keyword: 'usb hub',
+		clicks: '1,456',
+		impressions: '28,567',
+		ctr: '5.1%',
+		position: '1.8',
+	},
+	{
+		keyword: 'laptop stand',
+		clicks: '1,234',
+		impressions: '25,432',
+		ctr: '4.8%',
+		position: '2.5',
+	},
 ];
 
 const campaigns: CampaignRowProps[] = [
-	{ name: 'Summer Sale 2024', status: 'active', spend: '$2,450', conversions: '234', roi: '+156%' },
-	{ name: 'New Product Launch', status: 'active', spend: '$1,890', conversions: '189', roi: '+142%' },
-	{ name: 'Brand Awareness', status: 'paused', spend: '$3,200', conversions: '456', roi: '+98%' },
+	{
+		name: 'Summer Sale 2024',
+		status: 'active',
+		spend: '$2,450',
+		conversions: '234',
+		roi: '+156%',
+	},
+	{
+		name: 'New Product Launch',
+		status: 'active',
+		spend: '$1,890',
+		conversions: '189',
+		roi: '+142%',
+	},
+	{
+		name: 'Brand Awareness',
+		status: 'paused',
+		spend: '$3,200',
+		conversions: '456',
+		roi: '+98%',
+	},
 ];
 
 const referrers: ReferrerRowProps[] = [
@@ -200,18 +296,26 @@ export default function Main() {
 				</div>
 				<div className="grid grid-cols-1 @lg:grid-cols-3 gap-4 @lg:gap-6 mt-4 @lg:mt-6">
 					<ReferrersCard referrers={referrers} />
-					<ReferrersCard referrers={[
-						{ referrer: 'youtube.com', sessions: '1,567', bounceRate: '41%' },
-						{ referrer: 'reddit.com', sessions: '987', bounceRate: '52%' },
-						{ referrer: 'medium.com', sessions: '654', bounceRate: '35%' },
-						{ referrer: 'pinterest.com', sessions: '432', bounceRate: '48%' },
-					]} />
-					<ReferrersCard referrers={[
-						{ referrer: 'bing.com', sessions: '876', bounceRate: '36%' },
-						{ referrer: 'duckduckgo.com', sessions: '543', bounceRate: '29%' },
-						{ referrer: 'yahoo.com', sessions: '321', bounceRate: '42%' },
-						{ referrer: 'baidu.com', sessions: '234', bounceRate: '55%' },
-					]} />
+					<ReferrersCard
+						referrers={[
+							{ referrer: 'youtube.com', sessions: '1,567', bounceRate: '41%' },
+							{ referrer: 'reddit.com', sessions: '987', bounceRate: '52%' },
+							{ referrer: 'medium.com', sessions: '654', bounceRate: '35%' },
+							{ referrer: 'pinterest.com', sessions: '432', bounceRate: '48%' },
+						]}
+					/>
+					<ReferrersCard
+						referrers={[
+							{ referrer: 'bing.com', sessions: '876', bounceRate: '36%' },
+							{
+								referrer: 'duckduckgo.com',
+								sessions: '543',
+								bounceRate: '29%',
+							},
+							{ referrer: 'yahoo.com', sessions: '321', bounceRate: '42%' },
+							{ referrer: 'baidu.com', sessions: '234', bounceRate: '55%' },
+						]}
+					/>
 				</div>
 			</div>
 		</section>

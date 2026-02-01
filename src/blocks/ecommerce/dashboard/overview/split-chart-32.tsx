@@ -52,7 +52,12 @@ const barConfig: ChartConfig = {
 
 export default function Main() {
 	const summaries: SummaryItem[] = [
-		{ title: 'Monthly Revenue', value: '$156,432', change: '+28%', icon: DollarSign },
+		{
+			title: 'Monthly Revenue',
+			value: '$156,432',
+			change: '+28%',
+			icon: DollarSign,
+		},
 		{ title: 'Growth Rate', value: '24.5%', change: '+4.2%', icon: TrendingUp },
 	];
 
@@ -88,7 +93,10 @@ export default function Main() {
 								<CardTitle className="text-base">Sales vs Orders</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={lineConfig} className="h-[200px] w-full">
+								<ChartContainer
+									config={lineConfig}
+									className="h-[200px] w-full"
+								>
 									<LineChart data={lineData}>
 										<XAxis dataKey="name" tickLine={false} axisLine={false} />
 										<ChartTooltip content={<ChartTooltipContent />} />
@@ -124,10 +132,25 @@ export default function Main() {
 						<CardContent>
 							<ChartContainer config={barConfig} className="h-[280px] w-full">
 								<BarChart data={barData} layout="vertical">
-									<XAxis type="number" tickLine={false} axisLine={false} tickFormatter={(v) => `$${v / 1000}k`} />
-									<YAxis dataKey="category" type="category" tickLine={false} axisLine={false} width={80} />
+									<XAxis
+										type="number"
+										tickLine={false}
+										axisLine={false}
+										tickFormatter={(v) => `$${v / 1000}k`}
+									/>
+									<YAxis
+										dataKey="category"
+										type="category"
+										tickLine={false}
+										axisLine={false}
+										width={80}
+									/>
 									<ChartTooltip content={<ChartTooltipContent hideLabel />} />
-									<Bar dataKey="revenue" fill="var(--color-revenue)" radius={[0, 4, 4, 0]} />
+									<Bar
+										dataKey="revenue"
+										fill="var(--color-revenue)"
+										radius={[0, 4, 4, 0]}
+									/>
 								</BarChart>
 							</ChartContainer>
 						</CardContent>

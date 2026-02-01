@@ -11,7 +11,13 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
 type TransactionItem = {
@@ -27,15 +33,35 @@ type TransactionItem = {
 const getTypeConfig = (type: TransactionItem['type']) => {
 	switch (type) {
 		case 'sale':
-			return { icon: ShoppingCart, color: 'bg-emerald-500/10 text-emerald-500', isPositive: true };
+			return {
+				icon: ShoppingCart,
+				color: 'bg-emerald-500/10 text-emerald-500',
+				isPositive: true,
+			};
 		case 'refund':
-			return { icon: RefreshCcw, color: 'bg-red-500/10 text-red-500', isPositive: false };
+			return {
+				icon: RefreshCcw,
+				color: 'bg-red-500/10 text-red-500',
+				isPositive: false,
+			};
 		case 'payout':
-			return { icon: Wallet, color: 'bg-blue-500/10 text-blue-500', isPositive: false };
+			return {
+				icon: Wallet,
+				color: 'bg-blue-500/10 text-blue-500',
+				isPositive: false,
+			};
 		case 'subscription':
-			return { icon: CreditCard, color: 'bg-violet-500/10 text-violet-500', isPositive: true };
+			return {
+				icon: CreditCard,
+				color: 'bg-violet-500/10 text-violet-500',
+				isPositive: true,
+			};
 		case 'fee':
-			return { icon: CircleDollarSign, color: 'bg-amber-500/10 text-amber-500', isPositive: false };
+			return {
+				icon: CircleDollarSign,
+				color: 'bg-amber-500/10 text-amber-500',
+				isPositive: false,
+			};
 	}
 };
 
@@ -50,7 +76,14 @@ const getStatusStyle = (status: TransactionItem['status']) => {
 	}
 };
 
-const TransactionRow = ({ type, description, amount, status, date, reference }: TransactionItem) => {
+const TransactionRow = ({
+	type,
+	description,
+	amount,
+	status,
+	date,
+	reference,
+}: TransactionItem) => {
 	const config = getTypeConfig(type);
 	const Icon = config.icon;
 
@@ -64,12 +97,18 @@ const TransactionRow = ({ type, description, amount, status, date, reference }: 
 				<p className="text-xs text-muted-foreground">{reference}</p>
 			</div>
 			<div className="text-right">
-				<p className={`font-medium ${config.isPositive ? 'text-emerald-500' : 'text-red-500'}`}>
-					{config.isPositive ? '+' : '-'}{amount}
+				<p
+					className={`font-medium ${config.isPositive ? 'text-emerald-500' : 'text-red-500'}`}
+				>
+					{config.isPositive ? '+' : '-'}
+					{amount}
 				</p>
 				<div className="flex items-center gap-2">
 					<span className="text-xs text-muted-foreground">{date}</span>
-					<Badge variant="secondary" className={`text-[10px] ${getStatusStyle(status)}`}>
+					<Badge
+						variant="secondary"
+						className={`text-[10px] ${getStatusStyle(status)}`}
+					>
 						{status}
 					</Badge>
 				</div>
@@ -80,18 +119,86 @@ const TransactionRow = ({ type, description, amount, status, date, reference }: 
 
 export default function Main() {
 	const transactions: TransactionItem[] = [
-		{ id: '1', type: 'sale', description: 'Order #ORD-4521', amount: '$234.50', status: 'completed', date: 'Dec 12', reference: 'TXN-78451236' },
-		{ id: '2', type: 'sale', description: 'Order #ORD-4520', amount: '$189.00', status: 'completed', date: 'Dec 12', reference: 'TXN-78451235' },
-		{ id: '3', type: 'refund', description: 'Refund for #ORD-4510', amount: '$45.00', status: 'completed', date: 'Dec 12', reference: 'TXN-78451234' },
-		{ id: '4', type: 'payout', description: 'Weekly payout', amount: '$2,450.00', status: 'pending', date: 'Dec 11', reference: 'TXN-78451233' },
-		{ id: '5', type: 'subscription', description: 'Premium Plan', amount: '$29.99', status: 'completed', date: 'Dec 11', reference: 'TXN-78451232' },
-		{ id: '6', type: 'fee', description: 'Transaction fee', amount: '$12.50', status: 'completed', date: 'Dec 11', reference: 'TXN-78451231' },
-		{ id: '7', type: 'sale', description: 'Order #ORD-4519', amount: '$456.20', status: 'completed', date: 'Dec 11', reference: 'TXN-78451230' },
-		{ id: '8', type: 'sale', description: 'Order #ORD-4518', amount: '$78.90', status: 'failed', date: 'Dec 10', reference: 'TXN-78451229' },
+		{
+			id: '1',
+			type: 'sale',
+			description: 'Order #ORD-4521',
+			amount: '$234.50',
+			status: 'completed',
+			date: 'Dec 12',
+			reference: 'TXN-78451236',
+		},
+		{
+			id: '2',
+			type: 'sale',
+			description: 'Order #ORD-4520',
+			amount: '$189.00',
+			status: 'completed',
+			date: 'Dec 12',
+			reference: 'TXN-78451235',
+		},
+		{
+			id: '3',
+			type: 'refund',
+			description: 'Refund for #ORD-4510',
+			amount: '$45.00',
+			status: 'completed',
+			date: 'Dec 12',
+			reference: 'TXN-78451234',
+		},
+		{
+			id: '4',
+			type: 'payout',
+			description: 'Weekly payout',
+			amount: '$2,450.00',
+			status: 'pending',
+			date: 'Dec 11',
+			reference: 'TXN-78451233',
+		},
+		{
+			id: '5',
+			type: 'subscription',
+			description: 'Premium Plan',
+			amount: '$29.99',
+			status: 'completed',
+			date: 'Dec 11',
+			reference: 'TXN-78451232',
+		},
+		{
+			id: '6',
+			type: 'fee',
+			description: 'Transaction fee',
+			amount: '$12.50',
+			status: 'completed',
+			date: 'Dec 11',
+			reference: 'TXN-78451231',
+		},
+		{
+			id: '7',
+			type: 'sale',
+			description: 'Order #ORD-4519',
+			amount: '$456.20',
+			status: 'completed',
+			date: 'Dec 11',
+			reference: 'TXN-78451230',
+		},
+		{
+			id: '8',
+			type: 'sale',
+			description: 'Order #ORD-4518',
+			amount: '$78.90',
+			status: 'failed',
+			date: 'Dec 10',
+			reference: 'TXN-78451229',
+		},
 	];
 
-	const totalIn = transactions.filter((t) => getTypeConfig(t.type).isPositive).length;
-	const totalOut = transactions.filter((t) => !getTypeConfig(t.type).isPositive).length;
+	const totalIn = transactions.filter(
+		(t) => getTypeConfig(t.type).isPositive,
+	).length;
+	const totalOut = transactions.filter(
+		(t) => !getTypeConfig(t.type).isPositive,
+	).length;
 
 	return (
 		<section className="@container" data-theme="dashboard">

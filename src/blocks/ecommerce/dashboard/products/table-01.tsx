@@ -80,7 +80,10 @@ const Header = ({
 		<div className="flex flex-col gap-2 @sm:flex-row @sm:items-center">
 			<div className="relative">
 				<Search className="absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-				<Input placeholder={searchPlaceholder} className="w-full pl-9 @sm:w-64" />
+				<Input
+					placeholder={searchPlaceholder}
+					className="w-full pl-9 @sm:w-64"
+				/>
 			</div>
 			<Button variant="outline" size="default">
 				<Filter className="size-4" />
@@ -95,7 +98,10 @@ const Header = ({
 );
 
 const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
-	const variants: Record<'active' | 'draft' | 'archived', 'default' | 'secondary' | 'outline'> = {
+	const variants: Record<
+		'active' | 'draft' | 'archived',
+		'default' | 'secondary' | 'outline'
+	> = {
 		active: 'default',
 		draft: 'secondary',
 		archived: 'outline',
@@ -104,7 +110,12 @@ const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
 	return <Badge variant={variants[status]}>{labels[status]}</Badge>;
 };
 
-const ProductRow = ({ product, actions, selected, onSelect }: ProductRowProps) => (
+const ProductRow = ({
+	product,
+	actions,
+	selected,
+	onSelect,
+}: ProductRowProps) => (
 	<TableRow data-state={selected ? 'selected' : undefined}>
 		<TableCell>
 			<Checkbox
@@ -204,7 +215,8 @@ export default function Main() {
 			id: '1',
 			name: 'Wireless Bluetooth Headphones',
 			sku: 'WBH-001',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
 			price: 149.99,
 			stock: 234,
 			status: 'active',
@@ -214,7 +226,8 @@ export default function Main() {
 			id: '2',
 			name: 'Premium Leather Wallet',
 			sku: 'PLW-002',
-			image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1627123424574-724758594e93?w=100&h=100&fit=crop',
 			price: 79.99,
 			stock: 156,
 			status: 'active',
@@ -224,7 +237,8 @@ export default function Main() {
 			id: '3',
 			name: 'Smart Fitness Watch',
 			sku: 'SFW-003',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
 			price: 299.99,
 			stock: 89,
 			status: 'draft',
@@ -234,7 +248,8 @@ export default function Main() {
 			id: '4',
 			name: 'Organic Cotton T-Shirt',
 			sku: 'OCT-004',
-			image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&h=100&fit=crop',
 			price: 34.99,
 			stock: 0,
 			status: 'archived',
@@ -244,7 +259,8 @@ export default function Main() {
 			id: '5',
 			name: 'Stainless Steel Water Bottle',
 			sku: 'SSW-005',
-			image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=100&h=100&fit=crop',
 			price: 24.99,
 			stock: 432,
 			status: 'active',
@@ -262,7 +278,10 @@ export default function Main() {
 
 	const actions = [
 		{ label: 'Edit', onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Duplicate', onClick: (id: string) => console.log('Duplicate', id) },
+		{
+			label: 'Duplicate',
+			onClick: (id: string) => console.log('Duplicate', id),
+		},
 		{ label: 'Archive', onClick: (id: string) => console.log('Archive', id) },
 		{ label: 'Delete', onClick: (id: string) => console.log('Delete', id) },
 	];

@@ -104,7 +104,8 @@ export default function Main() {
 			author: 'Victor Chen',
 			role: 'CEO',
 			company: 'TransformCo',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'VC',
 			rating: 5,
 		},
@@ -114,7 +115,8 @@ export default function Main() {
 			author: 'Wendy Park',
 			role: 'COO',
 			company: 'ServiceFirst',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'WP',
 			rating: 5,
 		},
@@ -124,7 +126,8 @@ export default function Main() {
 			author: 'Xavier Lee',
 			role: 'CFO',
 			company: 'ROIMasters',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'XL',
 			rating: 5,
 		},
@@ -134,7 +137,8 @@ export default function Main() {
 			author: 'Yara Kim',
 			role: 'CTO',
 			company: 'IntegratePro',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'YK',
 			rating: 5,
 		},
@@ -144,7 +148,8 @@ export default function Main() {
 			author: 'Zach Foster',
 			role: 'CISO',
 			company: 'SecureCorp',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'ZF',
 			rating: 5,
 		},
@@ -153,7 +158,10 @@ export default function Main() {
 	const doubledItems = [...testimonials, ...testimonials];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<style jsx>{`
 				@keyframes marquee {
 					0% {
@@ -187,7 +195,9 @@ export default function Main() {
 				onMouseEnter={() => setIsPaused(true)}
 				onMouseLeave={() => setIsPaused(false)}
 			>
-				<div className={`flex gap-6 marquee-track ${isPaused ? 'marquee-paused' : ''}`}>
+				<div
+					className={`flex gap-6 marquee-track ${isPaused ? 'marquee-paused' : ''}`}
+				>
 					{doubledItems.map((item, index) => (
 						<TestimonialCard key={index} item={item} />
 					))}

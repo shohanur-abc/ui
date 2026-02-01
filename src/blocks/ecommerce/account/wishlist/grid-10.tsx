@@ -65,7 +65,11 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 					</div>
 				)}
 				<div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-					<Button size="icon-sm" variant="destructive" className="rounded-full shadow-lg">
+					<Button
+						size="icon-sm"
+						variant="destructive"
+						className="rounded-full shadow-lg"
+					>
 						<Trash2 className="size-3.5" />
 					</Button>
 				</div>
@@ -110,11 +114,63 @@ const WishlistGrid = ({ items }: WishlistGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Wireless Bluetooth Earbuds Pro', price: 149.99, originalPrice: 199.99, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop', store: 'TechWorld', storeUrl: '/store/techworld', inStock: true, href: '/product/1' },
-		{ id: '2', name: 'Smart Home Speaker', price: 79.99, image: 'https://images.unsplash.com/photo-1543512214-318c7553f230?w=400&h=400&fit=crop', store: 'HomeHub', storeUrl: '/store/homehub', inStock: true, href: '/product/2' },
-		{ id: '3', name: 'Mechanical Keyboard RGB', price: 129.99, image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=400&fit=crop', store: 'GamersEdge', storeUrl: '/store/gamersedge', inStock: false, href: '/product/3' },
-		{ id: '4', name: 'USB-C Hub 7-in-1', price: 49.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=400&h=400&fit=crop', store: 'TechWorld', storeUrl: '/store/techworld', inStock: true, href: '/product/4' },
-		{ id: '5', name: 'Webcam 4K Ultra HD', price: 199.99, image: 'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=400&h=400&fit=crop', store: 'StreamPro', storeUrl: '/store/streampro', inStock: true, href: '/product/5' },
+		{
+			id: '1',
+			name: 'Wireless Bluetooth Earbuds Pro',
+			price: 149.99,
+			originalPrice: 199.99,
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop',
+			store: 'TechWorld',
+			storeUrl: '/store/techworld',
+			inStock: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Smart Home Speaker',
+			price: 79.99,
+			image:
+				'https://images.unsplash.com/photo-1543512214-318c7553f230?w=400&h=400&fit=crop',
+			store: 'HomeHub',
+			storeUrl: '/store/homehub',
+			inStock: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Mechanical Keyboard RGB',
+			price: 129.99,
+			image:
+				'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=400&fit=crop',
+			store: 'GamersEdge',
+			storeUrl: '/store/gamersedge',
+			inStock: false,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'USB-C Hub 7-in-1',
+			price: 49.99,
+			originalPrice: 69.99,
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=400&h=400&fit=crop',
+			store: 'TechWorld',
+			storeUrl: '/store/techworld',
+			inStock: true,
+			href: '/product/4',
+		},
+		{
+			id: '5',
+			name: 'Webcam 4K Ultra HD',
+			price: 199.99,
+			image:
+				'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=400&h=400&fit=crop',
+			store: 'StreamPro',
+			storeUrl: '/store/streampro',
+			inStock: true,
+			href: '/product/5',
+		},
 	];
 
 	return (

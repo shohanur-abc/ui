@@ -1,4 +1,12 @@
-import { Package, Truck, Zap, Star, Clock, Check, Sparkles } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	Zap,
+	Star,
+	Clock,
+	Check,
+	Sparkles,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -37,10 +45,16 @@ const TierRadio = ({
 			`}
 		>
 			<div className={`absolute inset-x-0 top-0 h-1.5 ${color}`} />
-			{popular && <Badge className="absolute top-4 right-4 gap-1"><Sparkles className="size-3" /> Popular</Badge>}
+			{popular && (
+				<Badge className="absolute top-4 right-4 gap-1">
+					<Sparkles className="size-3" /> Popular
+				</Badge>
+			)}
 			<div className="flex items-start gap-4 pt-2">
 				<RadioGroupItem value={value} id={value} className="mt-1" />
-				<div className={`flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${color.replace('bg-', 'from-')} to-transparent`}>
+				<div
+					className={`flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${color.replace('bg-', 'from-')} to-transparent`}
+				>
 					<Icon className="size-7 text-white" />
 				</div>
 				<div className="flex-1">
@@ -81,11 +95,15 @@ const FreeShippingProgress = ({
 		<div className="p-4 rounded-xl bg-gradient-to-r from-green-500/10 to-transparent border border-green-500/20 mb-8">
 			<div className="flex items-center justify-between mb-2">
 				<span className="font-medium">Free Shipping Progress</span>
-				<span className="text-sm text-muted-foreground">${current} / ${threshold}</span>
+				<span className="text-sm text-muted-foreground">
+					${current} / ${threshold}
+				</span>
 			</div>
 			<Progress value={progress} className="h-2 mb-2" />
 			{remaining > 0 ? (
-				<p className="text-sm text-muted-foreground">Add ${remaining.toFixed(2)} more for free shipping!</p>
+				<p className="text-sm text-muted-foreground">
+					Add ${remaining.toFixed(2)} more for free shipping!
+				</p>
 			) : (
 				<p className="text-sm text-green-600 dark:text-green-400 flex items-center gap-1">
 					<Check className="size-4" /> You've unlocked free shipping!
@@ -116,7 +134,12 @@ export default function Main() {
 			price: '$9.99',
 			color: 'bg-blue-500',
 			popular: true,
-			features: ['Real-time tracking', 'SMS notifications', 'Insurance up to $100', 'Priority handling'],
+			features: [
+				'Real-time tracking',
+				'SMS notifications',
+				'Insurance up to $100',
+				'Priority handling',
+			],
 		},
 		{
 			value: 'premium',
@@ -126,7 +149,12 @@ export default function Main() {
 			time: '1-2 business days',
 			price: '$19.99',
 			color: 'bg-amber-500',
-			features: ['Express handling', 'Full insurance', 'Signature delivery', 'Dedicated support'],
+			features: [
+				'Express handling',
+				'Full insurance',
+				'Signature delivery',
+				'Dedicated support',
+			],
 		},
 	];
 
@@ -134,8 +162,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Shipping Tiers</h1>
-					<p className="text-muted-foreground">Choose the shipping experience that's right for you</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Shipping Tiers
+					</h1>
+					<p className="text-muted-foreground">
+						Choose the shipping experience that's right for you
+					</p>
 				</div>
 
 				<FreeShippingProgress current={35} threshold={50} />
@@ -147,7 +179,9 @@ export default function Main() {
 				</RadioGroup>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

@@ -61,7 +61,9 @@ const EventTypeIcon = ({ type }: { type: DeploymentEvent['type'] }) => {
 
 const EnvironmentBadge = ({
 	environment,
-}: { environment: DeploymentEvent['environment'] }) => {
+}: {
+	environment: DeploymentEvent['environment'];
+}) => {
 	const config = {
 		production: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
 		staging: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
@@ -113,7 +115,10 @@ const DeploymentEventCard = ({ event }: { event: DeploymentEvent }) => (
 					<div className="flex items-center justify-between pt-2 border-t border-border/50">
 						<div className="flex items-center gap-2">
 							<Avatar className="size-6">
-								<AvatarImage src={event.author.avatar} alt={event.author.name} />
+								<AvatarImage
+									src={event.author.avatar}
+									alt={event.author.name}
+								/>
 								<AvatarFallback className="text-xs bg-secondary">
 									{event.author.initials}
 								</AvatarFallback>

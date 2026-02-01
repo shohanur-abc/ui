@@ -38,13 +38,21 @@ type ProfileCardProps = {
 	stats: { icon: LucideIcon; value: string; label: string }[];
 };
 
-const ProfileCard = ({ avatar, initials, name, role, stats }: ProfileCardProps) => (
+const ProfileCard = ({
+	avatar,
+	initials,
+	name,
+	role,
+	stats,
+}: ProfileCardProps) => (
 	<Card className="group border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<CardContent className="p-4 @sm:p-5 @lg:p-6">
 			<div className="flex items-start gap-4">
 				<Avatar className="size-12 @sm:size-14 ring-2 ring-primary/20 transition-all duration-300 group-hover:ring-primary/40">
 					<AvatarImage src={avatar} />
-					<AvatarFallback className="bg-primary/10 text-primary">{initials}</AvatarFallback>
+					<AvatarFallback className="bg-primary/10 text-primary">
+						{initials}
+					</AvatarFallback>
 				</Avatar>
 				<div className="flex-1 min-w-0">
 					<div className="flex items-center justify-between gap-2 mb-1">
@@ -65,7 +73,8 @@ const ProfileCard = ({ avatar, initials, name, role, stats }: ProfileCardProps) 
 
 const profiles: ProfileCardProps[] = [
 	{
-		avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 		initials: 'JD',
 		name: 'John Doe',
 		role: 'Top Seller',
@@ -76,7 +85,8 @@ const profiles: ProfileCardProps[] = [
 		],
 	},
 	{
-		avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 		initials: 'SM',
 		name: 'Sarah Miller',
 		role: 'Account Manager',
@@ -87,7 +97,8 @@ const profiles: ProfileCardProps[] = [
 		],
 	},
 	{
-		avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 		initials: 'MW',
 		name: 'Mike Wilson',
 		role: 'Sales Lead',
@@ -98,7 +109,8 @@ const profiles: ProfileCardProps[] = [
 		],
 	},
 	{
-		avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
 		initials: 'EJ',
 		name: 'Emily Johnson',
 		role: 'Support Lead',

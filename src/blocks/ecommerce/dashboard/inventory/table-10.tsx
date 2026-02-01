@@ -28,7 +28,13 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 
 type InventoryItem = {
 	id: string;
@@ -130,7 +136,11 @@ const InventoryRow = ({ item, actions }: InventoryRowProps) => (
 			<div className="flex items-center gap-3">
 				<div className="relative size-10 overflow-hidden rounded-lg border bg-muted">
 					{item.image ? (
-						<img src={item.image} alt={item.name} className="size-full object-cover" />
+						<img
+							src={item.image}
+							alt={item.name}
+							className="size-full object-cover"
+						/>
 					) : (
 						<div className="flex size-full items-center justify-center">
 							<Package className="size-5 text-muted-foreground" />
@@ -205,7 +215,13 @@ export default function Main() {
 			barcode: '8901234567890',
 			image: '',
 			quantity: 25,
-			serialNumbers: ['SN-2024-001', 'SN-2024-002', 'SN-2024-003', 'SN-2024-004', 'SN-2024-005'],
+			serialNumbers: [
+				'SN-2024-001',
+				'SN-2024-002',
+				'SN-2024-003',
+				'SN-2024-004',
+				'SN-2024-005',
+			],
 			lastScanned: '2024-01-18T14:30:00',
 			location: 'A-01-01',
 		},
@@ -247,7 +263,10 @@ export default function Main() {
 	const actions = [
 		{ label: 'View Details', onClick: (id: string) => console.log('View', id) },
 		{ label: 'Print Label', onClick: (id: string) => console.log('Print', id) },
-		{ label: 'Scan History', onClick: (id: string) => console.log('History', id) },
+		{
+			label: 'Scan History',
+			onClick: (id: string) => console.log('History', id),
+		},
 		{ label: 'Edit Serials', onClick: (id: string) => console.log('Edit', id) },
 	];
 
@@ -264,7 +283,11 @@ export default function Main() {
 					/>
 					<CardContent className="space-y-6">
 						<div className="grid gap-4 @sm:grid-cols-3">
-							<ScanStat icon={Barcode} label="Items with Barcodes" value="1,234" />
+							<ScanStat
+								icon={Barcode}
+								label="Items with Barcodes"
+								value="1,234"
+							/>
 							<ScanStat icon={QrCode} label="Serial Numbers" value="5,678" />
 							<ScanStat icon={ScanLine} label="Scans Today" value="156" />
 						</div>

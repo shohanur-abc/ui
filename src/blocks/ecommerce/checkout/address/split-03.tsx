@@ -143,8 +143,16 @@ export default function Main() {
 					<FormCard icon={User} title="Contact Information" badge="Required">
 						<div className="space-y-4">
 							<Field label="Full Name" placeholder="John Doe" />
-							<Field label="Email Address" placeholder="john@example.com" type="email" />
-							<Field label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
+							<Field
+								label="Email Address"
+								placeholder="john@example.com"
+								type="email"
+							/>
+							<Field
+								label="Phone Number"
+								placeholder="+1 (555) 000-0000"
+								type="tel"
+							/>
 						</div>
 					</FormCard>
 
@@ -165,7 +173,10 @@ export default function Main() {
 							<CardContent className="pt-6">
 								<div className="grid @md:grid-cols-2 gap-4">
 									<div className="@md:col-span-2">
-										<Field label="Street Address" placeholder="123 Main Street" />
+										<Field
+											label="Street Address"
+											placeholder="123 Main Street"
+										/>
 									</div>
 									<div className="@md:col-span-2">
 										<Field

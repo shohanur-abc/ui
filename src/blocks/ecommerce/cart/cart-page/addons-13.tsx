@@ -1,10 +1,25 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { Minus, Plus, X, Gift, Shield, Leaf, ArrowRight, Info } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	Gift,
+	Shield,
+	Leaf,
+	ArrowRight,
+	Info,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -60,12 +75,20 @@ const QtyControls = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const ItemAmount = ({ price, quantity }: { price: number; quantity: number }) => (
-	<p className="text-lg font-bold">${(price * quantity).toFixed(2)}</p>
-);
+const ItemAmount = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => <p className="text-lg font-bold">${(price * quantity).toFixed(2)}</p>;
 
 const DeleteBtn = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive hover:bg-destructive/10">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+	>
 		<X className="size-4" />
 	</Button>
 );
@@ -134,11 +157,17 @@ const TotalRow = ({
 	highlight?: boolean;
 	addon?: boolean;
 }) => (
-	<div className={`flex justify-between ${highlight ? 'text-xl font-bold' : ''}`}>
-		<span className={`${highlight ? '' : 'text-muted-foreground'} ${addon ? 'text-sm' : ''}`}>
+	<div
+		className={`flex justify-between ${highlight ? 'text-xl font-bold' : ''}`}
+	>
+		<span
+			className={`${highlight ? '' : 'text-muted-foreground'} ${addon ? 'text-sm' : ''}`}
+		>
 			{label}
 		</span>
-		<span className={highlight ? 'text-primary' : addon ? 'text-sm' : ''}>{value}</span>
+		<span className={highlight ? 'text-primary' : addon ? 'text-sm' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -150,7 +179,12 @@ const SummaryCard = ({
 	secureNote,
 }: {
 	title: string;
-	lines: { label: string; value: string; highlight?: boolean; addon?: boolean }[];
+	lines: {
+		label: string;
+		value: string;
+		highlight?: boolean;
+		addon?: boolean;
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
 	secureNote: string;
@@ -186,7 +220,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
 			name: 'Minimalist Analog Watch',
 			variant: 'Rose Gold / Leather Band',
 			price: 249.99,
@@ -194,7 +229,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1608667508764-33cf0726b13a?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608667508764-33cf0726b13a?w=300&h=300&fit=crop',
 			name: 'Wireless Charging Pad',
 			variant: 'Black / 15W Fast Charge',
 			price: 49.99,
@@ -230,14 +266,20 @@ export default function Main() {
 	];
 
 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
-	const addonsTotal = addons.filter((a) => a.enabled).reduce((sum, a) => sum + a.price, 0);
+	const addonsTotal = addons
+		.filter((a) => a.enabled)
+		.reduce((sum, a) => sum + a.price, 0);
 
 	const summaryLines = [
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
 		{ label: 'Extended Warranty', value: '+$29.99', addon: true },
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax', value: `$${((subtotal + addonsTotal) * 0.08).toFixed(2)}` },
-		{ label: 'Order Total', value: `$${((subtotal + addonsTotal) * 1.08).toFixed(2)}`, highlight: true },
+		{
+			label: 'Order Total',
+			value: `$${((subtotal + addonsTotal) * 1.08).toFixed(2)}`,
+			highlight: true,
+		},
 	];
 
 	return (

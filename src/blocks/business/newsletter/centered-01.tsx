@@ -63,7 +63,10 @@ const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 const Benefits = ({ items }: BenefitsProps) => (
 	<div className="flex flex-wrap justify-center gap-4 @md:gap-6">
 		{items.map((item, i) => (
-			<div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+			<div
+				key={i}
+				className="flex items-center gap-2 text-sm text-muted-foreground"
+			>
 				<Check className="size-4 text-primary" />
 				<span>{item}</span>
 			</div>
@@ -83,8 +86,18 @@ export default function Main() {
 					<Eyebrow icon={Mail} text="Business Newsletter" />
 					<Title text="Stay ahead of the" highlight="competition" />
 					<Description text="Join 15,000+ business leaders who receive our weekly insights on strategy, growth, and industry trends." />
-					<Form placeholder="Enter your work email" buttonText="Subscribe" buttonIcon={ArrowRight} />
-					<Benefits items={['Weekly insights', 'Expert analysis', 'Unsubscribe anytime']} />
+					<Form
+						placeholder="Enter your work email"
+						buttonText="Subscribe"
+						buttonIcon={ArrowRight}
+					/>
+					<Benefits
+						items={[
+							'Weekly insights',
+							'Expert analysis',
+							'Unsubscribe anytime',
+						]}
+					/>
 					<Disclaimer text="We respect your privacy. Your email is safe with us." />
 				</div>
 			</div>

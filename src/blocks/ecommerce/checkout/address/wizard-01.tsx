@@ -88,7 +88,9 @@ const Stepper = ({ currentStep }: { currentStep: number }) => {
 						active={i + 1 === currentStep}
 						completed={i + 1 < currentStep}
 					/>
-					{i < steps.length - 1 && <StepConnector completed={i + 1 < currentStep} />}
+					{i < steps.length - 1 && (
+						<StepConnector completed={i + 1 < currentStep} />
+					)}
 				</div>
 			))}
 		</div>

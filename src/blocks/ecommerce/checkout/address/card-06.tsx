@@ -133,9 +133,7 @@ export default function Main() {
 		<section className="@container" data-theme="neon">
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-8">
-					<h1 className="text-2xl @md:text-3xl font-bold">
-						Delivery Address
-					</h1>
+					<h1 className="text-2xl @md:text-3xl font-bold">Delivery Address</h1>
 					<p className="text-muted-foreground mt-1">
 						Choose or add your shipping address
 					</p>
@@ -156,7 +154,11 @@ export default function Main() {
 								<Field label="First Name" placeholder="John" />
 								<Field label="Last Name" placeholder="Doe" />
 							</div>
-							<Field label="Email" placeholder="john@example.com" type="email" />
+							<Field
+								label="Email"
+								placeholder="john@example.com"
+								type="email"
+							/>
 							<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 							<SelectField
 								label="Country"
@@ -167,12 +169,19 @@ export default function Main() {
 							<Field label="Apt / Suite" placeholder="Optional" />
 							<div className="grid grid-cols-3 gap-4">
 								<Field label="City" placeholder="City" />
-								<SelectField label="State" placeholder="State" options={states} />
+								<SelectField
+									label="State"
+									placeholder="State"
+									options={states}
+								/>
 								<Field label="ZIP" placeholder="12345" />
 							</div>
 							<div className="flex items-center gap-2 pt-2">
 								<Checkbox id="save-new" />
-								<Label htmlFor="save-new" className="text-sm font-normal cursor-pointer">
+								<Label
+									htmlFor="save-new"
+									className="text-sm font-normal cursor-pointer"
+								>
 									Save this address for future orders
 								</Label>
 							</div>

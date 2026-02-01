@@ -1,4 +1,13 @@
-import { Truck, Clock, MapPin, Package, Phone, AlertCircle, Check, ChevronRight } from 'lucide-react';
+import {
+	Truck,
+	Clock,
+	MapPin,
+	Package,
+	Phone,
+	AlertCircle,
+	Check,
+	ChevronRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -97,7 +106,9 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<h1 className="text-3xl font-bold mb-2">Shipping Details</h1>
-				<p className="text-muted-foreground mb-8">Enter your delivery information</p>
+				<p className="text-muted-foreground mb-8">
+					Enter your delivery information
+				</p>
 
 				{/* Contact Info */}
 				<Card className="mb-6">
@@ -112,8 +123,18 @@ export default function Main() {
 							<FormField label="First Name" placeholder="John" required />
 							<FormField label="Last Name" placeholder="Doe" required />
 						</div>
-						<FormField label="Email" placeholder="john@example.com" type="email" required />
-						<FormField label="Phone Number" placeholder="+1 (555) 123-4567" type="tel" required />
+						<FormField
+							label="Email"
+							placeholder="john@example.com"
+							type="email"
+							required
+						/>
+						<FormField
+							label="Phone Number"
+							placeholder="+1 (555) 123-4567"
+							type="tel"
+							required
+						/>
 					</CardContent>
 				</Card>
 
@@ -126,14 +147,25 @@ export default function Main() {
 						</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-4">
-						<FormField label="Street Address" placeholder="123 Main Street" required />
-						<FormField label="Apartment, Suite, etc." placeholder="Apt 4B (optional)" />
+						<FormField
+							label="Street Address"
+							placeholder="123 Main Street"
+							required
+						/>
+						<FormField
+							label="Apartment, Suite, etc."
+							placeholder="Apt 4B (optional)"
+						/>
 						<div className="grid @sm:grid-cols-2 gap-4">
 							<FormField label="City" placeholder="New York" required />
 							<FormField label="State / Province" placeholder="NY" required />
 						</div>
 						<div className="grid @sm:grid-cols-2 gap-4">
-							<FormField label="ZIP / Postal Code" placeholder="10001" required />
+							<FormField
+								label="ZIP / Postal Code"
+								placeholder="10001"
+								required
+							/>
 							<FormField label="Country" placeholder="United States" required />
 						</div>
 					</CardContent>

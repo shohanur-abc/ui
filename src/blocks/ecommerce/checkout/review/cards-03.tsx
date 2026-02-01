@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -84,9 +90,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -98,7 +108,8 @@ export default function Main() {
 			variant: 'Organic / 12-Pack',
 			price: 59.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1600493572977-6607a7d4b66a?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1600493572977-6607a7d4b66a?w=400&h=400&fit=crop',
 			rating: 5,
 		},
 		{
@@ -107,7 +118,8 @@ export default function Main() {
 			variant: 'Ultrasonic / Wood',
 			price: 44.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=400&fit=crop',
 			rating: 4,
 		},
 		{
@@ -116,7 +128,8 @@ export default function Main() {
 			variant: 'Buckwheat / Grey',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=400&fit=crop',
 			rating: 5,
 		},
 		{
@@ -125,7 +138,8 @@ export default function Main() {
 			variant: 'White Sage / 3-Pack',
 			price: 19.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=400&h=400&fit=crop',
 			rating: 5,
 		},
 	];
@@ -155,10 +169,25 @@ export default function Main() {
 						</div>
 
 						<div className="grid gap-3 @sm:grid-cols-2 @lg:grid-cols-4">
-							<InfoLine icon={MapPin} label="Ship to" value="Austin, TX" verified />
+							<InfoLine
+								icon={MapPin}
+								label="Ship to"
+								value="Austin, TX"
+								verified
+							/>
 							<InfoLine icon={MapPin} label="Billing" value="Same" verified />
-							<InfoLine icon={Truck} label="Delivery" value="Dec 22-24" verified />
-							<InfoLine icon={CreditCard} label="Payment" value="•••• 3456" verified />
+							<InfoLine
+								icon={Truck}
+								label="Delivery"
+								value="Dec 22-24"
+								verified
+							/>
+							<InfoLine
+								icon={CreditCard}
+								label="Payment"
+								value="•••• 3456"
+								verified
+							/>
 						</div>
 					</div>
 

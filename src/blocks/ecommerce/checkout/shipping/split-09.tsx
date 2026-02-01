@@ -110,14 +110,51 @@ const OrderProduct = ({
 
 export default function Main() {
 	const deliveryOptions = [
-		{ value: 'express', icon: Zap, name: 'Express', time: '1-2 days', price: '$14.99', badge: 'Fastest', badgeVariant: 'default' as const },
-		{ value: 'standard', icon: Truck, name: 'Standard', time: '3-5 days', price: '$7.99' },
-		{ value: 'eco', icon: Leaf, name: 'Eco-Friendly', time: '5-7 days', price: '$5.99', tagline: 'Carbon neutral', badge: 'Green', badgeVariant: 'secondary' as const },
+		{
+			value: 'express',
+			icon: Zap,
+			name: 'Express',
+			time: '1-2 days',
+			price: '$14.99',
+			badge: 'Fastest',
+			badgeVariant: 'default' as const,
+		},
+		{
+			value: 'standard',
+			icon: Truck,
+			name: 'Standard',
+			time: '3-5 days',
+			price: '$7.99',
+		},
+		{
+			value: 'eco',
+			icon: Leaf,
+			name: 'Eco-Friendly',
+			time: '5-7 days',
+			price: '$5.99',
+			tagline: 'Carbon neutral',
+			badge: 'Green',
+			badgeVariant: 'secondary' as const,
+		},
 	];
 
 	const products = [
-		{ image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100', name: 'Minimal Watch', variant: 'Silver / Medium', quantity: 1, price: '$189.00' },
-		{ image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100', name: 'Leather Wallet', variant: 'Brown', quantity: 2, price: '$98.00' },
+		{
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100',
+			name: 'Minimal Watch',
+			variant: 'Silver / Medium',
+			quantity: 1,
+			price: '$189.00',
+		},
+		{
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100',
+			name: 'Leather Wallet',
+			variant: 'Brown',
+			quantity: 2,
+			price: '$98.00',
+		},
 	];
 
 	return (
@@ -127,8 +164,12 @@ export default function Main() {
 				<div className="grid @xl:grid-cols-[1fr,400px] gap-8 @xl:gap-12">
 					<div className="space-y-8">
 						<div>
-							<h1 className="text-3xl font-bold tracking-tight mb-2">Shipping</h1>
-							<p className="text-muted-foreground">Complete your order details</p>
+							<h1 className="text-3xl font-bold tracking-tight mb-2">
+								Shipping
+							</h1>
+							<p className="text-muted-foreground">
+								Complete your order details
+							</p>
 						</div>
 
 						<div className="rounded-2xl border bg-card/80 backdrop-blur-sm p-6 shadow-xl">
@@ -138,8 +179,16 @@ export default function Main() {
 									<FormInput label="First Name" placeholder="John" />
 									<FormInput label="Last Name" placeholder="Doe" />
 								</div>
-								<FormInput label="Email" placeholder="john@example.com" type="email" />
-								<FormInput label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
+								<FormInput
+									label="Email"
+									placeholder="john@example.com"
+									type="email"
+								/>
+								<FormInput
+									label="Phone"
+									placeholder="+1 (555) 000-0000"
+									type="tel"
+								/>
 								<FormInput label="Address" placeholder="123 Main Street" />
 								<div className="grid @sm:grid-cols-3 gap-4">
 									<FormInput label="City" placeholder="New York" />
@@ -159,7 +208,9 @@ export default function Main() {
 						</div>
 
 						<div className="flex gap-3">
-							<Button variant="outline" className="flex-1">Back</Button>
+							<Button variant="outline" className="flex-1">
+								Back
+							</Button>
 							<Button className="flex-1 gap-2">
 								Continue
 								<ArrowRight className="size-4" />

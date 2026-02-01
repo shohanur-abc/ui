@@ -127,10 +127,22 @@ const TableFilters = ({
 
 const OrderStatusBadge = ({ status }: { status: CustomerOrder['status'] }) => {
 	const config = {
-		completed: { label: 'Completed', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		processing: { label: 'Processing', className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
-		refunded: { label: 'Refunded', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		pending: { label: 'Pending', className: 'bg-slate-500/10 text-slate-500 border-slate-500/20' },
+		completed: {
+			label: 'Completed',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		processing: {
+			label: 'Processing',
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
+		refunded: {
+			label: 'Refunded',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		pending: {
+			label: 'Pending',
+			className: 'bg-slate-500/10 text-slate-500 border-slate-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[status].className}>
@@ -248,7 +260,11 @@ export default function Main() {
 	const orders: CustomerOrder[] = [
 		{
 			id: '1',
-			customer: { name: 'Sarah Wilson', email: 'sarah.w@email.com', initials: 'SW' },
+			customer: {
+				name: 'Sarah Wilson',
+				email: 'sarah.w@email.com',
+				initials: 'SW',
+			},
 			orderId: '#ORD-2024-001',
 			date: 'Jan 15, 2024',
 			items: 3,
@@ -258,7 +274,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'Mike Johnson', email: 'mike.j@email.com', initials: 'MJ' },
+			customer: {
+				name: 'Mike Johnson',
+				email: 'mike.j@email.com',
+				initials: 'MJ',
+			},
 			orderId: '#ORD-2024-002',
 			date: 'Jan 14, 2024',
 			items: 1,
@@ -268,7 +288,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Emily Brown', email: 'emily.b@email.com', initials: 'EB' },
+			customer: {
+				name: 'Emily Brown',
+				email: 'emily.b@email.com',
+				initials: 'EB',
+			},
 			orderId: '#ORD-2024-003',
 			date: 'Jan 13, 2024',
 			items: 5,
@@ -278,7 +302,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'David Lee', email: 'david.l@email.com', initials: 'DL' },
+			customer: {
+				name: 'David Lee',
+				email: 'david.l@email.com',
+				initials: 'DL',
+			},
 			orderId: '#ORD-2024-004',
 			date: 'Jan 12, 2024',
 			items: 2,
@@ -288,7 +316,11 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Anna Smith', email: 'anna.s@email.com', initials: 'AS' },
+			customer: {
+				name: 'Anna Smith',
+				email: 'anna.s@email.com',
+				initials: 'AS',
+			},
 			orderId: '#ORD-2024-005',
 			date: 'Jan 11, 2024',
 			items: 4,
@@ -299,8 +331,14 @@ export default function Main() {
 	];
 
 	const filters = [
-		{ placeholder: 'Status', options: ['All', 'Completed', 'Processing', 'Refunded', 'Pending'] },
-		{ placeholder: 'Date Range', options: ['Today', 'Last 7 days', 'Last 30 days', 'Custom'] },
+		{
+			placeholder: 'Status',
+			options: ['All', 'Completed', 'Processing', 'Refunded', 'Pending'],
+		},
+		{
+			placeholder: 'Date Range',
+			options: ['Today', 'Last 7 days', 'Last 30 days', 'Custom'],
+		},
 	];
 
 	return (
@@ -316,7 +354,10 @@ export default function Main() {
 				<StatsGrid stats={stats} />
 
 				<div className="space-y-4">
-					<TableFilters searchPlaceholder="Search orders..." filters={filters} />
+					<TableFilters
+						searchPlaceholder="Search orders..."
+						filters={filters}
+					/>
 					<div className="overflow-hidden rounded-xl border bg-card">
 						<Table>
 							<TableHeader>
@@ -326,8 +367,12 @@ export default function Main() {
 									<TableHead className="hidden @lg:table-cell">Date</TableHead>
 									<TableHead className="hidden @xl:table-cell">Items</TableHead>
 									<TableHead>Total</TableHead>
-									<TableHead className="hidden @md:table-cell">Payment</TableHead>
-									<TableHead className="hidden @lg:table-cell">Status</TableHead>
+									<TableHead className="hidden @md:table-cell">
+										Payment
+									</TableHead>
+									<TableHead className="hidden @lg:table-cell">
+										Status
+									</TableHead>
 									<TableHead className="w-12" />
 								</TableRow>
 							</TableHeader>

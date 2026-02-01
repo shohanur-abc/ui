@@ -99,13 +99,7 @@ const SelectField = ({ label, placeholder, options }: SelectFieldProps) => (
 	</div>
 );
 
-const CheckboxWithLabel = ({
-	id,
-	label,
-}: {
-	id: string;
-	label: string;
-}) => (
+const CheckboxWithLabel = ({ id, label }: { id: string; label: string }) => (
 	<div className="flex items-center gap-2">
 		<Checkbox id={id} />
 		<Label htmlFor={id} className="text-sm font-normal cursor-pointer">
@@ -187,7 +181,10 @@ export default function Main() {
 							id="billing-same"
 							label="Billing address same as shipping"
 						/>
-						<CheckboxWithLabel id="save-info" label="Save this information for next time" />
+						<CheckboxWithLabel
+							id="save-info"
+							label="Save this information for next time"
+						/>
 					</div>
 				</div>
 

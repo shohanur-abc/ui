@@ -3,7 +3,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ShoppingCart, Tag, Truck, Shield, ArrowRight } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ShoppingCart,
+	Tag,
+	Truck,
+	Shield,
+	ArrowRight,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -51,7 +60,9 @@ const ProductMeta = ({
 	size: string;
 }) => (
 	<div className="space-y-1">
-		<p className="text-xs uppercase tracking-wide text-muted-foreground">{category}</p>
+		<p className="text-xs uppercase tracking-wide text-muted-foreground">
+			{category}
+		</p>
 		<h3 className="font-medium leading-tight">{name}</h3>
 		<div className="flex gap-2 text-sm text-muted-foreground">
 			<span>{color}</span>
@@ -73,7 +84,13 @@ const QuantityControl = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const PriceDisplay = ({ price, quantity }: { price: number; quantity: number }) => (
+const PriceDisplay = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => (
 	<div className="text-right">
 		<p className="text-lg font-bold">${(price * quantity).toFixed(2)}</p>
 		{quantity > 1 && (
@@ -113,7 +130,13 @@ const CartItemCard = ({ item }: { item: CartItem }) => (
 	</Card>
 );
 
-const PromoCodeInput = ({ placeholder, buttonLabel }: { placeholder: string; buttonLabel: string }) => (
+const PromoCodeInput = ({
+	placeholder,
+	buttonLabel,
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="flex gap-2">
 		<div className="relative flex-1">
 			<Tag className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -148,7 +171,9 @@ const PriceLine = ({
 }) => (
 	<div className={`flex justify-between ${isBold ? 'text-lg font-bold' : ''}`}>
 		<span className={isBold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={isDiscount ? 'text-green-500' : isBold ? 'text-primary' : ''}>
+		<span
+			className={isDiscount ? 'text-green-500' : isBold ? 'text-primary' : ''}
+		>
 			{value}
 		</span>
 	</div>
@@ -173,9 +198,9 @@ const CheckoutPanel = ({
 }) => (
 	<div className="space-y-6 rounded-2xl bg-muted/50 p-6">
 		<PromoCodeInput placeholder="Promo code" buttonLabel="Apply" />
-		
+
 		<Separator />
-		
+
 		<div className="space-y-3">
 			<PriceLine label="Subtotal" value={subtotal} />
 			<PriceLine label="Shipping" value={shipping} />
@@ -205,7 +230,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=300&h=300&fit=crop',
 			name: 'Leather Weekend Bag',
 			category: 'Accessories',
 			price: 245.0,
@@ -215,7 +241,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&h=300&fit=crop',
 			name: 'Performance Running Shoes',
 			category: 'Footwear',
 			price: 179.99,
@@ -225,7 +252,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&h=300&fit=crop',
 			name: 'Organic Cotton T-Shirt',
 			category: 'Apparel',
 			price: 49.99,
@@ -237,7 +265,11 @@ export default function Main() {
 
 	const features: Feature[] = [
 		{ icon: Truck, title: 'Free Shipping', description: 'On orders over $100' },
-		{ icon: Shield, title: 'Secure Checkout', description: '256-bit SSL encryption' },
+		{
+			icon: Shield,
+			title: 'Secure Checkout',
+			description: '256-bit SSL encryption',
+		},
 	];
 
 	return (

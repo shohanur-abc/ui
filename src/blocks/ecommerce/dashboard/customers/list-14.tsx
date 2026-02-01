@@ -49,12 +49,25 @@ interface B2BCustomer {
 	lastInteraction: string;
 }
 
-const AccountTypeBadge = ({ type }: { type: B2BCustomer['account']['type'] }) => {
+const AccountTypeBadge = ({
+	type,
+}: {
+	type: B2BCustomer['account']['type'];
+}) => {
 	const config: Record<string, { label: string; className: string }> = {
 		prospect: { label: 'Prospect', className: 'bg-blue-500/10 text-blue-500' },
-		customer: { label: 'Customer', className: 'bg-emerald-500/10 text-emerald-500' },
-		partner: { label: 'Partner', className: 'bg-violet-500/10 text-violet-500' },
-		enterprise: { label: 'Enterprise', className: 'bg-amber-500/10 text-amber-500' },
+		customer: {
+			label: 'Customer',
+			className: 'bg-emerald-500/10 text-emerald-500',
+		},
+		partner: {
+			label: 'Partner',
+			className: 'bg-violet-500/10 text-violet-500',
+		},
+		enterprise: {
+			label: 'Enterprise',
+			className: 'bg-amber-500/10 text-amber-500',
+		},
 	};
 	const { label, className } = config[type];
 	return (
@@ -64,7 +77,11 @@ const AccountTypeBadge = ({ type }: { type: B2BCustomer['account']['type'] }) =>
 	);
 };
 
-const StatusIndicator = ({ status }: { status: B2BCustomer['account']['status'] }) => {
+const StatusIndicator = ({
+	status,
+}: {
+	status: B2BCustomer['account']['status'];
+}) => {
 	const colors: Record<string, string> = {
 		active: 'bg-emerald-500',
 		inactive: 'bg-slate-400',
@@ -127,7 +144,9 @@ const B2BListItem = ({ customer }: { customer: B2BCustomer }) => (
 		<div className="flex-1 min-w-0">
 			<div className="flex items-center gap-2">
 				<p className="font-medium text-sm">{customer.contact.name}</p>
-				<span className="text-muted-foreground text-xs">({customer.contact.role})</span>
+				<span className="text-muted-foreground text-xs">
+					({customer.contact.role})
+				</span>
 			</div>
 			<div className="flex items-center gap-3 text-xs text-muted-foreground mt-0.5">
 				<span className="flex items-center gap-1">
@@ -146,7 +165,9 @@ const B2BListItem = ({ customer }: { customer: B2BCustomer }) => (
 					<FileText className="size-3" /> Contract
 				</p>
 				<p className="font-semibold">{customer.contract.value}</p>
-				<p className="text-muted-foreground text-xs">Renews {customer.contract.renewalDate}</p>
+				<p className="text-muted-foreground text-xs">
+					Renews {customer.contract.renewalDate}
+				</p>
 			</div>
 		)}
 		<div className="flex flex-wrap gap-1 max-w-[180px]">
@@ -185,8 +206,18 @@ export default function Main() {
 	const customers: B2BCustomer[] = [
 		{
 			id: '1',
-			company: { name: 'Acme Corporation', initials: 'AC', industry: 'Technology', size: '500-1000' },
-			contact: { name: 'John Smith', role: 'Procurement Manager', email: 'j.smith@acme.com', phone: '+1 555-0100' },
+			company: {
+				name: 'Acme Corporation',
+				initials: 'AC',
+				industry: 'Technology',
+				size: '500-1000',
+			},
+			contact: {
+				name: 'John Smith',
+				role: 'Procurement Manager',
+				email: 'j.smith@acme.com',
+				phone: '+1 555-0100',
+			},
 			account: { type: 'enterprise', status: 'active', since: 'Jan 2021' },
 			contract: { value: '$125,000/yr', renewalDate: 'Mar 2025' },
 			tags: ['Tech', 'Priority', 'Multi-location'],
@@ -194,8 +225,18 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			company: { name: 'Global Retail Inc.', initials: 'GR', industry: 'Retail', size: '1000+' },
-			contact: { name: 'Sarah Johnson', role: 'VP Operations', email: 's.johnson@globalretail.com', phone: '+1 555-0101' },
+			company: {
+				name: 'Global Retail Inc.',
+				initials: 'GR',
+				industry: 'Retail',
+				size: '1000+',
+			},
+			contact: {
+				name: 'Sarah Johnson',
+				role: 'VP Operations',
+				email: 's.johnson@globalretail.com',
+				phone: '+1 555-0101',
+			},
 			account: { type: 'enterprise', status: 'active', since: 'Mar 2020' },
 			contract: { value: '$280,000/yr', renewalDate: 'Jun 2024' },
 			tags: ['Retail', 'VIP', 'Fast-growth'],
@@ -203,8 +244,18 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			company: { name: 'StartupXYZ', initials: 'SX', industry: 'SaaS', size: '50-100' },
-			contact: { name: 'Mike Chen', role: 'CEO', email: 'm.chen@startupxyz.io', phone: '+1 555-0102' },
+			company: {
+				name: 'StartupXYZ',
+				initials: 'SX',
+				industry: 'SaaS',
+				size: '50-100',
+			},
+			contact: {
+				name: 'Mike Chen',
+				role: 'CEO',
+				email: 'm.chen@startupxyz.io',
+				phone: '+1 555-0102',
+			},
 			account: { type: 'customer', status: 'active', since: 'Aug 2023' },
 			contract: { value: '$24,000/yr', renewalDate: 'Aug 2024' },
 			tags: ['SaaS', 'Startup', 'Growth'],
@@ -212,16 +263,36 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			company: { name: 'HealthCare Partners', initials: 'HP', industry: 'Healthcare', size: '200-500' },
-			contact: { name: 'Dr. Emily Brown', role: 'Admin Director', email: 'e.brown@hcpartners.org', phone: '+1 555-0103' },
+			company: {
+				name: 'HealthCare Partners',
+				initials: 'HP',
+				industry: 'Healthcare',
+				size: '200-500',
+			},
+			contact: {
+				name: 'Dr. Emily Brown',
+				role: 'Admin Director',
+				email: 'e.brown@hcpartners.org',
+				phone: '+1 555-0103',
+			},
 			account: { type: 'prospect', status: 'pending', since: 'Dec 2023' },
 			tags: ['Healthcare', 'New Lead', 'High-value'],
 			lastInteraction: '3d ago',
 		},
 		{
 			id: '5',
-			company: { name: 'Manufacturing Co.', initials: 'MC', industry: 'Manufacturing', size: '500-1000' },
-			contact: { name: 'Robert Taylor', role: 'Supply Chain Director', email: 'r.taylor@manufco.com', phone: '+1 555-0104' },
+			company: {
+				name: 'Manufacturing Co.',
+				initials: 'MC',
+				industry: 'Manufacturing',
+				size: '500-1000',
+			},
+			contact: {
+				name: 'Robert Taylor',
+				role: 'Supply Chain Director',
+				email: 'r.taylor@manufco.com',
+				phone: '+1 555-0104',
+			},
 			account: { type: 'customer', status: 'inactive', since: 'Feb 2022' },
 			contract: { value: '$45,000/yr', renewalDate: 'Feb 2024' },
 			tags: ['Manufacturing', 'At-risk'],
@@ -229,8 +300,18 @@ export default function Main() {
 		},
 		{
 			id: '6',
-			company: { name: 'EduTech Solutions', initials: 'ET', industry: 'Education', size: '100-200' },
-			contact: { name: 'Lisa Wang', role: 'IT Director', email: 'l.wang@edutech.edu', phone: '+1 555-0105' },
+			company: {
+				name: 'EduTech Solutions',
+				initials: 'ET',
+				industry: 'Education',
+				size: '100-200',
+			},
+			contact: {
+				name: 'Lisa Wang',
+				role: 'IT Director',
+				email: 'l.wang@edutech.edu',
+				phone: '+1 555-0105',
+			},
 			account: { type: 'partner', status: 'active', since: 'Sep 2022' },
 			contract: { value: '$36,000/yr', renewalDate: 'Sep 2024' },
 			tags: ['Education', 'Partner', 'Referral'],
@@ -238,16 +319,36 @@ export default function Main() {
 		},
 		{
 			id: '7',
-			company: { name: 'Finance First Ltd.', initials: 'FF', industry: 'Finance', size: '200-500' },
-			contact: { name: 'David Park', role: 'CFO', email: 'd.park@financefirst.com', phone: '+1 555-0106' },
+			company: {
+				name: 'Finance First Ltd.',
+				initials: 'FF',
+				industry: 'Finance',
+				size: '200-500',
+			},
+			contact: {
+				name: 'David Park',
+				role: 'CFO',
+				email: 'd.park@financefirst.com',
+				phone: '+1 555-0106',
+			},
 			account: { type: 'prospect', status: 'pending', since: 'Jan 2024' },
 			tags: ['Finance', 'Enterprise Lead'],
 			lastInteraction: '1d ago',
 		},
 		{
 			id: '8',
-			company: { name: 'Green Energy Corp.', initials: 'GE', industry: 'Energy', size: '100-200' },
-			contact: { name: 'Anna Martinez', role: 'Operations Manager', email: 'a.martinez@greenenergy.com', phone: '+1 555-0107' },
+			company: {
+				name: 'Green Energy Corp.',
+				initials: 'GE',
+				industry: 'Energy',
+				size: '100-200',
+			},
+			contact: {
+				name: 'Anna Martinez',
+				role: 'Operations Manager',
+				email: 'a.martinez@greenenergy.com',
+				phone: '+1 555-0107',
+			},
 			account: { type: 'customer', status: 'active', since: 'May 2023' },
 			contract: { value: '$18,000/yr', renewalDate: 'May 2024' },
 			tags: ['Energy', 'Sustainability'],

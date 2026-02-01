@@ -1,9 +1,28 @@
-import { ChevronDown, CreditCard, Gift, HelpCircle, Lock, MessageCircle, Percent, Receipt, Tag } from 'lucide-react';
+import {
+	ChevronDown,
+	CreditCard,
+	Gift,
+	HelpCircle,
+	Lock,
+	MessageCircle,
+	Percent,
+	Receipt,
+	Tag,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
+import {
+	Collapsible,
+	CollapsibleContent,
+	CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -43,7 +62,11 @@ const CollapsibleSection = ({
 			<div className="flex items-center gap-3">
 				<Icon className="size-4 text-muted-foreground" />
 				<span className="font-medium text-sm">{title}</span>
-				{badge && <Badge variant="secondary" className="text-xs">{badge}</Badge>}
+				{badge && (
+					<Badge variant="secondary" className="text-xs">
+						{badge}
+					</Badge>
+				)}
 			</div>
 			<ChevronDown className="size-4 text-muted-foreground transition-transform [[data-state=open]_&]:rotate-180" />
 		</CollapsibleTrigger>
@@ -62,7 +85,9 @@ const AvailableDiscount = ({ code, description, discount }: DiscountProps) => (
 				<p className="text-xs text-muted-foreground">{description}</p>
 			</div>
 		</div>
-		<Button variant="outline" size="sm">{discount}</Button>
+		<Button variant="outline" size="sm">
+			{discount}
+		</Button>
 	</div>
 );
 
@@ -75,7 +100,9 @@ const OrderItem = ({ name, sku, price, originalPrice }: OrderItemProps) => (
 		<div className="text-right">
 			<p className="text-sm font-medium">{price}</p>
 			{originalPrice && (
-				<p className="text-xs text-muted-foreground line-through">{originalPrice}</p>
+				<p className="text-xs text-muted-foreground line-through">
+					{originalPrice}
+				</p>
 			)}
 		</div>
 	</div>
@@ -90,15 +117,31 @@ const OrderItems = ({ items }: { items: OrderItemProps[] }) => (
 );
 
 const SummaryLine = ({ label, value, type = 'normal' }: SummaryLineProps) => (
-	<div className={`flex justify-between ${type === 'total' ? 'text-lg font-semibold' : 'text-sm'}`}>
-		<span className={type === 'normal' ? 'text-muted-foreground' : type === 'discount' ? 'text-primary' : ''}>
+	<div
+		className={`flex justify-between ${type === 'total' ? 'text-lg font-semibold' : 'text-sm'}`}
+	>
+		<span
+			className={
+				type === 'normal'
+					? 'text-muted-foreground'
+					: type === 'discount'
+						? 'text-primary'
+						: ''
+			}
+		>
 			{label}
 		</span>
 		<span className={type === 'discount' ? 'text-primary' : ''}>{value}</span>
 	</div>
 );
 
-const PromoInput = ({ placeholder, buttonLabel }: { placeholder: string; buttonLabel: string }) => (
+const PromoInput = ({
+	placeholder,
+	buttonLabel,
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="flex gap-2">
 		<div className="relative flex-1">
 			<Percent className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
@@ -108,7 +151,13 @@ const PromoInput = ({ placeholder, buttonLabel }: { placeholder: string; buttonL
 	</div>
 );
 
-const GiftCardInput = ({ placeholder, buttonLabel }: { placeholder: string; buttonLabel: string }) => (
+const GiftCardInput = ({
+	placeholder,
+	buttonLabel,
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="flex gap-2">
 		<div className="relative flex-1">
 			<Gift className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
@@ -132,10 +181,19 @@ const PaymentField = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
@@ -163,11 +221,20 @@ const SupportLink = ({ text }: { text: string }) => (
 
 export default function Main() {
 	const discounts: DiscountProps[] = [
-		{ code: 'WELCOME20', description: 'First purchase discount', discount: 'Apply' },
+		{
+			code: 'WELCOME20',
+			description: 'First purchase discount',
+			discount: 'Apply',
+		},
 	];
 
 	const orderItems: OrderItemProps[] = [
-		{ name: 'Premium Widget', sku: 'SKU: WDG-001', price: '$89.00', originalPrice: '$99.00' },
+		{
+			name: 'Premium Widget',
+			sku: 'SKU: WDG-001',
+			price: '$89.00',
+			originalPrice: '$99.00',
+		},
 		{ name: 'Addon Pack', sku: 'SKU: ADD-002', price: '$29.00' },
 	];
 
@@ -187,7 +254,11 @@ export default function Main() {
 							<Receipt className="size-5" />
 							Order Details
 						</h2>
-						<CollapsibleSection title="Available Discounts" icon={Tag} badge="1 available">
+						<CollapsibleSection
+							title="Available Discounts"
+							icon={Tag}
+							badge="1 available"
+						>
 							<div className="space-y-3">
 								{discounts.map((discount, index) => (
 									<AvailableDiscount key={index} {...discount} />
@@ -201,7 +272,10 @@ export default function Main() {
 							<PromoInput placeholder="Enter promo code" buttonLabel="Apply" />
 						</CollapsibleSection>
 						<CollapsibleSection title="Add Gift Card" icon={Gift}>
-							<GiftCardInput placeholder="Enter gift card code" buttonLabel="Apply" />
+							<GiftCardInput
+								placeholder="Enter gift card code"
+								buttonLabel="Apply"
+							/>
 						</CollapsibleSection>
 						<Card className="border-border/50 bg-muted/30">
 							<CardContent className="pt-4 space-y-2">
@@ -222,11 +296,25 @@ export default function Main() {
 								</div>
 							</CardHeader>
 							<CardContent className="space-y-4">
-								<PaymentField id="card" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
-								<PaymentField id="name" label="Name on Card" placeholder="John Doe" />
+								<PaymentField
+									id="card"
+									label="Card Number"
+									placeholder="1234 5678 9012 3456"
+									icon={CreditCard}
+								/>
+								<PaymentField
+									id="name"
+									label="Name on Card"
+									placeholder="John Doe"
+								/>
 								<div className="grid grid-cols-2 gap-4">
 									<PaymentField id="exp" label="Expiry" placeholder="MM/YY" />
-									<PaymentField id="cvc" label="CVC" placeholder="123" type="password" />
+									<PaymentField
+										id="cvc"
+										label="CVC"
+										placeholder="123"
+										type="password"
+									/>
 								</div>
 							</CardContent>
 							<CardFooter className="flex-col gap-4">

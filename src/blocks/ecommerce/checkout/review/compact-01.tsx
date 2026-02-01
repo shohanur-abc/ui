@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -31,7 +37,9 @@ const CompactItem = ({ item }: { item: OrderItem }) => (
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="truncate text-sm font-medium">{item.name}</p>
-			<p className="text-xs text-muted-foreground">{item.variant} × {item.qty}</p>
+			<p className="text-xs text-muted-foreground">
+				{item.variant} × {item.qty}
+			</p>
 		</div>
 		<span className="text-sm font-semibold">${item.price.toFixed(2)}</span>
 	</div>
@@ -80,7 +88,9 @@ const SummaryRow = ({
 }) => (
 	<div className={`flex justify-between ${bold ? 'font-bold' : 'text-sm'}`}>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -92,7 +102,8 @@ export default function Main() {
 			variant: 'Black / Bifold',
 			price: 79.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -100,7 +111,8 @@ export default function Main() {
 			variant: 'Brown / Slim',
 			price: 34.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1606503825008-909a67e63c3d?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1606503825008-909a67e63c3d?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -132,26 +144,14 @@ export default function Main() {
 						<Separator />
 
 						<div className="grid grid-cols-2 gap-3">
-							<InfoRow
-								icon={MapPin}
-								label="Ship to"
-								value="Mike T., NYC"
-							/>
-							<InfoRow
-								icon={Truck}
-								label="Delivery"
-								value="Dec 22-23"
-							/>
+							<InfoRow icon={MapPin} label="Ship to" value="Mike T., NYC" />
+							<InfoRow icon={Truck} label="Delivery" value="Dec 22-23" />
 							<InfoRow
 								icon={CreditCard}
 								label="Payment"
 								value="Visa •••• 5555"
 							/>
-							<InfoRow
-								icon={Package}
-								label="Status"
-								value="Ready"
-							/>
+							<InfoRow icon={Package} label="Status" value="Ready" />
 						</div>
 
 						<Separator />

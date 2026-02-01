@@ -48,7 +48,9 @@ const SecurityOverview = ({
 		<div className="space-y-2">
 			<div className="flex justify-between text-sm">
 				<span>Security Score</span>
-				<span className={`font-medium ${securityScore >= 80 ? 'text-green-500' : securityScore >= 50 ? 'text-amber-500' : 'text-red-500'}`}>
+				<span
+					className={`font-medium ${securityScore >= 80 ? 'text-green-500' : securityScore >= 50 ? 'text-amber-500' : 'text-red-500'}`}
+				>
 					{securityScore}%
 				</span>
 			</div>
@@ -80,7 +82,12 @@ const SecurityItem = ({
 		disabled: 'bg-muted text-muted-foreground',
 		warning: 'bg-amber-500/20 text-amber-600',
 	};
-	const StatusIcon = status === 'enabled' ? CheckCircle : status === 'warning' ? AlertCircle : Lock;
+	const StatusIcon =
+		status === 'enabled'
+			? CheckCircle
+			: status === 'warning'
+				? AlertCircle
+				: Lock;
 
 	return (
 		<div className="flex items-start gap-4 p-4 rounded-lg hover:bg-muted/30 transition-colors">
@@ -164,10 +171,30 @@ export default function Main() {
 			},
 		],
 		notifications: [
-			{ icon: Mail, label: 'Email Notifications', description: 'Order updates and promotions', enabled: true },
-			{ icon: Bell, label: 'Push Notifications', description: 'Mobile app alerts', enabled: true },
-			{ icon: MessageSquare, label: 'SMS Alerts', description: 'Text message updates', enabled: false },
-			{ icon: Volume2, label: 'Marketing', description: 'New products and offers', enabled: false },
+			{
+				icon: Mail,
+				label: 'Email Notifications',
+				description: 'Order updates and promotions',
+				enabled: true,
+			},
+			{
+				icon: Bell,
+				label: 'Push Notifications',
+				description: 'Mobile app alerts',
+				enabled: true,
+			},
+			{
+				icon: MessageSquare,
+				label: 'SMS Alerts',
+				description: 'Text message updates',
+				enabled: false,
+			},
+			{
+				icon: Volume2,
+				label: 'Marketing',
+				description: 'New products and offers',
+				enabled: false,
+			},
 		],
 	};
 

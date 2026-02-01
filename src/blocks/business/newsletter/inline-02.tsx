@@ -34,7 +34,7 @@ const Title = ({ text }: TitleProps) => (
 );
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
-	<form className="flex flex-col @sm:flex-row gap-3 w-full @lg:w-auto @lg:min-w-[380px]">
+	<form className="flex flex-col @sm:flex-row gap-3 w-full @lg:w-auto @lg:min-w-95">
 		<Input type="email" placeholder={placeholder} className="flex-1 h-11" />
 		<Button className="gap-2 h-11 shrink-0">
 			{buttonText}
@@ -48,7 +48,10 @@ const TrustItems = ({ items }: TrustItemsProps) => (
 		{items.map((item, i) => {
 			const Icon = item.icon;
 			return (
-				<span key={i} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+				<span
+					key={i}
+					className="flex items-center gap-1.5 text-xs text-muted-foreground"
+				>
 					<Icon className="size-3.5 text-primary" />
 					{item.text}
 				</span>
@@ -67,7 +70,11 @@ export default function Main() {
 							<EyebrowBadge icon={Newspaper} text="Newsletter" />
 							<Title text="Join 20,000+ business professionals" />
 						</div>
-						<Form placeholder="your@company.com" buttonText="Subscribe" buttonIcon={Send} />
+						<Form
+							placeholder="your@company.com"
+							buttonText="Subscribe"
+							buttonIcon={Send}
+						/>
 					</div>
 					<TrustItems
 						items={[

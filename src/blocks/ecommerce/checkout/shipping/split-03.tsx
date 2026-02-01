@@ -28,7 +28,9 @@ const DeliveryOption = ({
 			<div className="flex items-center gap-2">
 				<span className="font-semibold">{name}</span>
 				{recommended && (
-					<Badge variant="secondary" className="text-xs">Recommended</Badge>
+					<Badge variant="secondary" className="text-xs">
+						Recommended
+					</Badge>
 				)}
 			</div>
 			<div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
@@ -75,7 +77,9 @@ const NavigationButtons = ({
 	nextIcon: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="flex gap-3 pt-6">
-		<Button variant="ghost" className="flex-1">{backLabel}</Button>
+		<Button variant="ghost" className="flex-1">
+			{backLabel}
+		</Button>
 		<Button className="flex-1 gap-2">
 			{nextLabel}
 			<NextIcon className="size-4" />
@@ -85,9 +89,25 @@ const NavigationButtons = ({
 
 export default function Main() {
 	const deliveryOptions = [
-		{ value: 'express', name: 'Express Delivery', time: '1-2 business days', price: '$12.99', recommended: true },
-		{ value: 'standard', name: 'Standard Delivery', time: '3-5 business days', price: '$5.99' },
-		{ value: 'free', name: 'Economy Delivery', time: '7-10 business days', price: 'Free' },
+		{
+			value: 'express',
+			name: 'Express Delivery',
+			time: '1-2 business days',
+			price: '$12.99',
+			recommended: true,
+		},
+		{
+			value: 'standard',
+			name: 'Standard Delivery',
+			time: '3-5 business days',
+			price: '$5.99',
+		},
+		{
+			value: 'free',
+			name: 'Economy Delivery',
+			time: '7-10 business days',
+			price: 'Free',
+		},
 	];
 
 	return (
@@ -97,7 +117,9 @@ export default function Main() {
 					<div className="space-y-6">
 						<div>
 							<h1 className="text-2xl font-bold mb-2">Delivery Address</h1>
-							<p className="text-muted-foreground">Where should we deliver your order?</p>
+							<p className="text-muted-foreground">
+								Where should we deliver your order?
+							</p>
 						</div>
 
 						<MapPreview address="123 Main Street, Apt 4B, New York, NY 10001" />
@@ -107,14 +129,21 @@ export default function Main() {
 								<InputField label="First Name" placeholder="John" />
 								<InputField label="Last Name" placeholder="Doe" />
 							</div>
-							<InputField label="Street Address" placeholder="123 Main Street" />
+							<InputField
+								label="Street Address"
+								placeholder="123 Main Street"
+							/>
 							<InputField label="Apt, Suite, Unit" placeholder="Apartment 4B" />
 							<div className="grid @sm:grid-cols-3 gap-4">
 								<InputField label="City" placeholder="New York" />
 								<InputField label="State" placeholder="NY" />
 								<InputField label="ZIP" placeholder="10001" />
 							</div>
-							<InputField label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
+							<InputField
+								label="Phone"
+								placeholder="+1 (555) 000-0000"
+								type="tel"
+							/>
 						</div>
 					</div>
 
@@ -123,7 +152,9 @@ export default function Main() {
 							<Truck className="size-6 text-primary" />
 							<div>
 								<h2 className="text-xl font-bold">Delivery Options</h2>
-								<p className="text-sm text-muted-foreground">Choose your preferred speed</p>
+								<p className="text-sm text-muted-foreground">
+									Choose your preferred speed
+								</p>
 							</div>
 						</div>
 
@@ -134,7 +165,9 @@ export default function Main() {
 						</RadioGroup>
 
 						<div className="p-4 rounded-xl bg-muted/50 border">
-							<h3 className="font-semibold mb-3">Delivery Instructions (Optional)</h3>
+							<h3 className="font-semibold mb-3">
+								Delivery Instructions (Optional)
+							</h3>
 							<textarea
 								placeholder="Special instructions for the courier..."
 								className="w-full min-h-[100px] p-3 rounded-lg border bg-background resize-none text-sm"

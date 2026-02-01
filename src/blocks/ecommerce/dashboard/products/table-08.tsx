@@ -141,7 +141,10 @@ interface WarehouseBreakdownProps {
 const WarehouseBreakdown = ({ warehouses }: WarehouseBreakdownProps) => (
 	<div className="space-y-2">
 		{warehouses.map((wh) => (
-			<div key={wh.warehouseId} className="flex items-center justify-between text-sm">
+			<div
+				key={wh.warehouseId}
+				className="flex items-center justify-between text-sm"
+			>
 				<div className="flex items-center gap-2">
 					<MapPin className="size-3.5 text-muted-foreground" />
 					<span className="text-muted-foreground">{wh.warehouseName}</span>
@@ -229,7 +232,9 @@ const ProductRow = ({
 				</TableCell>
 				<TableCell>
 					<div className="flex items-center gap-3">
-						<span className={`font-semibold ${isLowStock ? 'text-amber-500' : ''}`}>
+						<span
+							className={`font-semibold ${isLowStock ? 'text-amber-500' : ''}`}
+						>
 							{product.totalStock}
 						</span>
 						<StockLevelBar
@@ -244,7 +249,8 @@ const ProductRow = ({
 				</TableCell>
 				<TableCell>
 					<span className="text-sm text-muted-foreground">
-						{product.warehouses.length} location{product.warehouses.length !== 1 ? 's' : ''}
+						{product.warehouses.length} location
+						{product.warehouses.length !== 1 ? 's' : ''}
 					</span>
 				</TableCell>
 				<TableCell onClick={(e) => e.stopPropagation()}>
@@ -288,15 +294,28 @@ interface QuickActionsProps {
 	onClear: () => void;
 }
 
-const QuickActions = ({ selectedCount, actions, clearLabel, onClear }: QuickActionsProps) => (
+const QuickActions = ({
+	selectedCount,
+	actions,
+	clearLabel,
+	onClear,
+}: QuickActionsProps) => (
 	<div className="flex items-center justify-between border-t bg-muted/50 px-6 py-3">
-		<span className="text-sm text-muted-foreground">{selectedCount} selected</span>
+		<span className="text-sm text-muted-foreground">
+			{selectedCount} selected
+		</span>
 		<div className="flex items-center gap-2">
 			<Button variant="ghost" size="sm" onClick={onClear}>
 				{clearLabel}
 			</Button>
 			{actions.map((action) => (
-				<Button key={action.label} variant="outline" size="sm" onClick={action.onClick} className="gap-2">
+				<Button
+					key={action.label}
+					variant="outline"
+					size="sm"
+					onClick={action.onClick}
+					className="gap-2"
+				>
 					<action.icon className="size-4" />
 					{action.label}
 				</Button>
@@ -315,11 +334,33 @@ export default function Main() {
 			name: 'Classic Running Shoes',
 			sku: 'SHO-RUN-001',
 			barcode: '8901234567890',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
 			warehouses: [
-				{ warehouseId: 'w1', warehouseName: 'Main Warehouse', location: 'New York', stock: 120, reserved: 15, available: 105 },
-				{ warehouseId: 'w2', warehouseName: 'West Coast', location: 'Los Angeles', stock: 85, reserved: 8, available: 77 },
-				{ warehouseId: 'w3', warehouseName: 'Central Hub', location: 'Chicago', stock: 45, reserved: 0, available: 45 },
+				{
+					warehouseId: 'w1',
+					warehouseName: 'Main Warehouse',
+					location: 'New York',
+					stock: 120,
+					reserved: 15,
+					available: 105,
+				},
+				{
+					warehouseId: 'w2',
+					warehouseName: 'West Coast',
+					location: 'Los Angeles',
+					stock: 85,
+					reserved: 8,
+					available: 77,
+				},
+				{
+					warehouseId: 'w3',
+					warehouseName: 'Central Hub',
+					location: 'Chicago',
+					stock: 45,
+					reserved: 0,
+					available: 45,
+				},
 			],
 			totalStock: 250,
 			reorderPoint: 100,
@@ -330,10 +371,25 @@ export default function Main() {
 			name: 'Premium Yoga Mat',
 			sku: 'FIT-MAT-002',
 			barcode: '8901234567891',
-			image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=100&h=100&fit=crop',
 			warehouses: [
-				{ warehouseId: 'w1', warehouseName: 'Main Warehouse', location: 'New York', stock: 45, reserved: 12, available: 33 },
-				{ warehouseId: 'w2', warehouseName: 'West Coast', location: 'Los Angeles', stock: 23, reserved: 5, available: 18 },
+				{
+					warehouseId: 'w1',
+					warehouseName: 'Main Warehouse',
+					location: 'New York',
+					stock: 45,
+					reserved: 12,
+					available: 33,
+				},
+				{
+					warehouseId: 'w2',
+					warehouseName: 'West Coast',
+					location: 'Los Angeles',
+					stock: 23,
+					reserved: 5,
+					available: 18,
+				},
 			],
 			totalStock: 68,
 			reorderPoint: 80,
@@ -344,9 +400,17 @@ export default function Main() {
 			name: 'Adjustable Dumbbells Set',
 			sku: 'FIT-DUM-003',
 			barcode: '8901234567892',
-			image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=100&h=100&fit=crop',
 			warehouses: [
-				{ warehouseId: 'w1', warehouseName: 'Main Warehouse', location: 'New York', stock: 28, reserved: 3, available: 25 },
+				{
+					warehouseId: 'w1',
+					warehouseName: 'Main Warehouse',
+					location: 'New York',
+					stock: 28,
+					reserved: 3,
+					available: 25,
+				},
 			],
 			totalStock: 28,
 			reorderPoint: 50,
@@ -357,11 +421,33 @@ export default function Main() {
 			name: 'Resistance Bands Pack',
 			sku: 'FIT-BND-004',
 			barcode: '8901234567893',
-			image: 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=100&h=100&fit=crop',
 			warehouses: [
-				{ warehouseId: 'w1', warehouseName: 'Main Warehouse', location: 'New York', stock: 340, reserved: 45, available: 295 },
-				{ warehouseId: 'w2', warehouseName: 'West Coast', location: 'Los Angeles', stock: 210, reserved: 20, available: 190 },
-				{ warehouseId: 'w3', warehouseName: 'Central Hub', location: 'Chicago', stock: 150, reserved: 10, available: 140 },
+				{
+					warehouseId: 'w1',
+					warehouseName: 'Main Warehouse',
+					location: 'New York',
+					stock: 340,
+					reserved: 45,
+					available: 295,
+				},
+				{
+					warehouseId: 'w2',
+					warehouseName: 'West Coast',
+					location: 'Los Angeles',
+					stock: 210,
+					reserved: 20,
+					available: 190,
+				},
+				{
+					warehouseId: 'w3',
+					warehouseName: 'Central Hub',
+					location: 'Chicago',
+					stock: 150,
+					reserved: 10,
+					available: 140,
+				},
 			],
 			totalStock: 700,
 			reorderPoint: 200,
@@ -384,15 +470,32 @@ export default function Main() {
 	];
 
 	const actions = [
-		{ label: 'Adjust Stock', onClick: (id: string) => console.log('Adjust', id) },
+		{
+			label: 'Adjust Stock',
+			onClick: (id: string) => console.log('Adjust', id),
+		},
 		{ label: 'Transfer', onClick: (id: string) => console.log('Transfer', id) },
-		{ label: 'View History', onClick: (id: string) => console.log('History', id) },
-		{ label: 'Set Reorder Point', onClick: (id: string) => console.log('Reorder', id) },
+		{
+			label: 'View History',
+			onClick: (id: string) => console.log('History', id),
+		},
+		{
+			label: 'Set Reorder Point',
+			onClick: (id: string) => console.log('Reorder', id),
+		},
 	];
 
 	const bulkActions = [
-		{ label: 'Stock In', icon: ArrowDownToLine, onClick: () => console.log('Stock in') },
-		{ label: 'Stock Out', icon: ArrowUpFromLine, onClick: () => console.log('Stock out') },
+		{
+			label: 'Stock In',
+			icon: ArrowDownToLine,
+			onClick: () => console.log('Stock in'),
+		},
+		{
+			label: 'Stock Out',
+			icon: ArrowUpFromLine,
+			onClick: () => console.log('Stock out'),
+		},
 	];
 
 	const handleSelect = (id: string, checked: boolean) => {
@@ -406,7 +509,13 @@ export default function Main() {
 		setExpandedId(expandedId === id ? null : id);
 	};
 
-	const columns = ['Product', 'Barcode', 'Total Stock', 'Reorder At', 'Locations'];
+	const columns = [
+		'Product',
+		'Barcode',
+		'Total Stock',
+		'Reorder At',
+		'Locations',
+	];
 
 	return (
 		<section className="@container" data-theme="dashboard">

@@ -1,11 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowUpRight,
@@ -56,7 +52,14 @@ const ProfileIdentity = ({
 const RecentActivity = ({
 	items,
 }: {
-	items: { icon: React.ElementType; title: string; description: string; time: string; status?: string; statusColor?: string }[];
+	items: {
+		icon: React.ElementType;
+		title: string;
+		description: string;
+		time: string;
+		status?: string;
+		statusColor?: string;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
@@ -78,12 +81,17 @@ const RecentActivity = ({
 					</div>
 					<div className="flex-1 min-w-0">
 						<p className="text-sm font-medium truncate">{activity.title}</p>
-						<p className="text-xs text-muted-foreground">{activity.description}</p>
+						<p className="text-xs text-muted-foreground">
+							{activity.description}
+						</p>
 					</div>
 					<div className="text-right shrink-0">
 						<p className="text-xs text-muted-foreground">{activity.time}</p>
 						{activity.status && (
-							<Badge variant="secondary" className={`text-xs mt-1 ${activity.statusColor}`}>
+							<Badge
+								variant="secondary"
+								className={`text-xs mt-1 ${activity.statusColor}`}
+							>
 								{activity.status}
 							</Badge>
 						)}
@@ -97,7 +105,12 @@ const RecentActivity = ({
 const QuickLinks = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; value: string; href: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		href: string;
+	}[];
 }) => (
 	<div className="grid grid-cols-2 @sm:grid-cols-4 gap-3">
 		{items.map((link, i) => (

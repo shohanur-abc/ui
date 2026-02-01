@@ -11,7 +11,15 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { ArrowUp, Check, Minus, Plus, ShoppingBag, Sparkles, X } from 'lucide-react';
+import {
+	ArrowUp,
+	Check,
+	Minus,
+	Plus,
+	ShoppingBag,
+	Sparkles,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -91,7 +99,9 @@ const UpgradeCard = ({
 	<div className="rounded-xl border-2 border-dashed border-primary/50 bg-gradient-to-br from-primary/5 to-transparent p-4">
 		<div className="flex items-center gap-2 mb-3">
 			<ArrowUp className="size-4 text-primary" />
-			<span className="text-sm font-medium text-primary">Upgrade Available</span>
+			<span className="text-sm font-medium text-primary">
+				Upgrade Available
+			</span>
 		</div>
 		<div className="flex gap-3">
 			<div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-muted">
@@ -112,7 +122,10 @@ const UpgradeCard = ({
 				</p>
 				<ul className="mt-2 space-y-1">
 					{upgrade.benefits.map((benefit, index) => (
-						<li key={index} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+						<li
+							key={index}
+							className="flex items-center gap-1.5 text-xs text-muted-foreground"
+						>
 							<Check className="size-3 text-primary" />
 							{benefit}
 						</li>
@@ -162,7 +175,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 				name: 'Basic Headphones',
 				price: 79.99,
 				quantity: 1,
@@ -173,7 +187,8 @@ export default function Main() {
 				id: 'u1',
 				currentItem: 'Basic Headphones',
 				upgradeTo: 'Premium Noise-Cancelling',
-				upgradeImage: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=200&h=200&fit=crop',
+				upgradeImage:
+					'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=200&h=200&fit=crop',
 				priceDifference: 70.0,
 				benefits: [
 					'Active noise cancellation',
@@ -188,7 +203,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

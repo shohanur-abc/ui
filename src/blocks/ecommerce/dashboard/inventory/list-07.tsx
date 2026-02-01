@@ -10,7 +10,13 @@ import {
 	DollarSign,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -42,7 +48,10 @@ const ItemRow = ({ item, isSelected, onSelect }: ItemRowProps) => {
 
 	return (
 		<div className="flex items-center gap-4 border-b py-4 last:border-0">
-			<Checkbox checked={isSelected} onCheckedChange={() => onSelect(item.id)} />
+			<Checkbox
+				checked={isSelected}
+				onCheckedChange={() => onSelect(item.id)}
+			/>
 			<div className="flex size-10 items-center justify-center rounded-lg bg-destructive/10">
 				<TrendingDown className="size-5 text-destructive" />
 			</div>
@@ -66,7 +75,9 @@ const ItemRow = ({ item, isSelected, onSelect }: ItemRowProps) => {
 			</div>
 			<div className="text-right">
 				<p className="text-xs text-muted-foreground">Tied Capital</p>
-				<p className="font-semibold text-destructive">${item.value.toLocaleString()}</p>
+				<p className="font-semibold text-destructive">
+					${item.value.toLocaleString()}
+				</p>
 			</div>
 		</div>
 	);
@@ -90,7 +101,9 @@ const Summary = ({ totalItems, totalValue, avgDays }: SummaryProps) => (
 		<div className="flex items-center gap-3 rounded-lg border border-amber-500/30 bg-amber-500/5 p-4">
 			<DollarSign className="size-6 text-amber-500" />
 			<div>
-				<p className="text-2xl font-bold text-amber-500">${totalValue.toLocaleString()}</p>
+				<p className="text-2xl font-bold text-amber-500">
+					${totalValue.toLocaleString()}
+				</p>
 				<p className="text-sm text-muted-foreground">Capital tied up</p>
 			</div>
 		</div>
@@ -108,21 +121,68 @@ export default function Main() {
 	const [selectedIds, setSelectedIds] = React.useState<string[]>([]);
 
 	const items: DeadStockItem[] = [
-		{ id: '1', name: 'Legacy Bluetooth Adapter v1', sku: 'LBA-001', stock: 234, lastSold: '2023-06-15', daysSinceLastSale: 217, value: 4680, category: 'Electronics' },
-		{ id: '2', name: 'Phone Case - Discontinued Model', sku: 'PC-OLD-001', stock: 567, lastSold: '2023-08-22', daysSinceLastSale: 149, value: 5670, category: 'Accessories' },
-		{ id: '3', name: 'USB-A Hub (Old Standard)', sku: 'UAH-001', stock: 123, lastSold: '2023-05-10', daysSinceLastSale: 253, value: 2460, category: 'Electronics' },
-		{ id: '4', name: 'Wired Earphones Basic', sku: 'WEB-001', stock: 890, lastSold: '2023-09-30', daysSinceLastSale: 110, value: 4450, category: 'Audio' },
-		{ id: '5', name: 'Plastic Screen Protector', sku: 'PSP-001', stock: 1500, lastSold: '2023-07-18', daysSinceLastSale: 184, value: 3000, category: 'Accessories' },
+		{
+			id: '1',
+			name: 'Legacy Bluetooth Adapter v1',
+			sku: 'LBA-001',
+			stock: 234,
+			lastSold: '2023-06-15',
+			daysSinceLastSale: 217,
+			value: 4680,
+			category: 'Electronics',
+		},
+		{
+			id: '2',
+			name: 'Phone Case - Discontinued Model',
+			sku: 'PC-OLD-001',
+			stock: 567,
+			lastSold: '2023-08-22',
+			daysSinceLastSale: 149,
+			value: 5670,
+			category: 'Accessories',
+		},
+		{
+			id: '3',
+			name: 'USB-A Hub (Old Standard)',
+			sku: 'UAH-001',
+			stock: 123,
+			lastSold: '2023-05-10',
+			daysSinceLastSale: 253,
+			value: 2460,
+			category: 'Electronics',
+		},
+		{
+			id: '4',
+			name: 'Wired Earphones Basic',
+			sku: 'WEB-001',
+			stock: 890,
+			lastSold: '2023-09-30',
+			daysSinceLastSale: 110,
+			value: 4450,
+			category: 'Audio',
+		},
+		{
+			id: '5',
+			name: 'Plastic Screen Protector',
+			sku: 'PSP-001',
+			stock: 1500,
+			lastSold: '2023-07-18',
+			daysSinceLastSale: 184,
+			value: 3000,
+			category: 'Accessories',
+		},
 	];
 
 	const handleSelect = (id: string) => {
 		setSelectedIds((prev) =>
-			prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+			prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id],
 		);
 	};
 
 	const totalValue = items.reduce((sum, i) => sum + i.value, 0);
-	const avgDays = Math.round(items.reduce((sum, i) => sum + i.daysSinceLastSale, 0) / items.length);
+	const avgDays = Math.round(
+		items.reduce((sum, i) => sum + i.daysSinceLastSale, 0) / items.length,
+	);
 
 	return (
 		<section className="@container" data-theme="dashboard">
@@ -131,8 +191,12 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Dead Stock</CardTitle>
-								<CardDescription>Items with no sales in 90+ days</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Dead Stock
+								</CardTitle>
+								<CardDescription>
+									Items with no sales in 90+ days
+								</CardDescription>
 							</div>
 							<div className="flex gap-2">
 								{selectedIds.length > 0 && (
@@ -148,7 +212,11 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent className="space-y-6">
-						<Summary totalItems={items.length} totalValue={totalValue} avgDays={avgDays} />
+						<Summary
+							totalItems={items.length}
+							totalValue={totalValue}
+							avgDays={avgDays}
+						/>
 						<div>
 							{items.map((item) => (
 								<ItemRow

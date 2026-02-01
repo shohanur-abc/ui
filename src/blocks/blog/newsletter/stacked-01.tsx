@@ -46,18 +46,15 @@ const Description = ({ text }: DescriptionProps) => (
 	</p>
 );
 
-const Form = ({ emailPlaceholder, namePlaceholder, buttonText, buttonIcon: Icon }: FormProps) => (
+const Form = ({
+	emailPlaceholder,
+	namePlaceholder,
+	buttonText,
+	buttonIcon: Icon,
+}: FormProps) => (
 	<form className="flex flex-col gap-3 w-full">
-		<Input
-			type="text"
-			placeholder={namePlaceholder}
-			className="h-11"
-		/>
-		<Input
-			type="email"
-			placeholder={emailPlaceholder}
-			className="h-11"
-		/>
+		<Input type="text" placeholder={namePlaceholder} className="h-11" />
+		<Input type="email" placeholder={emailPlaceholder} className="h-11" />
 		<Button size="lg" className="gap-2 h-11 w-full">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}

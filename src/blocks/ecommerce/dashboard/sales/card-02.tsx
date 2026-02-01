@@ -1,6 +1,12 @@
 'use client';
 
-import { DollarSign, ShoppingCart, Users, CreditCard, type LucideIcon } from 'lucide-react';
+import {
+	DollarSign,
+	ShoppingCart,
+	Users,
+	CreditCard,
+	type LucideIcon,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 

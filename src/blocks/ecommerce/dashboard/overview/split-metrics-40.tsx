@@ -133,19 +133,85 @@ const barConfig: ChartConfig = {
 
 export default function Main() {
 	const metrics: MetricItem[] = [
-		{ title: 'Page Views', value: '284,521', change: '+24%', trend: 'up', icon: Eye, sparkData: [40, 55, 48, 62, 58, 72, 68] },
-		{ title: 'Visitors', value: '45,234', change: '+18%', trend: 'up', icon: Users, sparkData: [35, 42, 38, 52, 48, 58, 55] },
-		{ title: 'Bounce Rate', value: '32.4%', change: '-5%', trend: 'up', icon: Activity, sparkData: [45, 42, 38, 35, 32, 34, 32] },
-		{ title: 'Avg Session', value: '4m 32s', change: '+12%', trend: 'up', icon: Clock, sparkData: [180, 200, 195, 220, 240, 255, 272] },
-		{ title: 'Conversion', value: '3.24%', change: '+0.5%', trend: 'up', icon: MousePointerClick, sparkData: [2.5, 2.7, 2.8, 3.0, 3.1, 3.2, 3.24] },
-		{ title: 'Cart Rate', value: '45.2%', change: '-2%', trend: 'down', icon: ShoppingCart, sparkData: [48, 47, 46, 45, 44, 45, 45.2] },
+		{
+			title: 'Page Views',
+			value: '284,521',
+			change: '+24%',
+			trend: 'up',
+			icon: Eye,
+			sparkData: [40, 55, 48, 62, 58, 72, 68],
+		},
+		{
+			title: 'Visitors',
+			value: '45,234',
+			change: '+18%',
+			trend: 'up',
+			icon: Users,
+			sparkData: [35, 42, 38, 52, 48, 58, 55],
+		},
+		{
+			title: 'Bounce Rate',
+			value: '32.4%',
+			change: '-5%',
+			trend: 'up',
+			icon: Activity,
+			sparkData: [45, 42, 38, 35, 32, 34, 32],
+		},
+		{
+			title: 'Avg Session',
+			value: '4m 32s',
+			change: '+12%',
+			trend: 'up',
+			icon: Clock,
+			sparkData: [180, 200, 195, 220, 240, 255, 272],
+		},
+		{
+			title: 'Conversion',
+			value: '3.24%',
+			change: '+0.5%',
+			trend: 'up',
+			icon: MousePointerClick,
+			sparkData: [2.5, 2.7, 2.8, 3.0, 3.1, 3.2, 3.24],
+		},
+		{
+			title: 'Cart Rate',
+			value: '45.2%',
+			change: '-2%',
+			trend: 'down',
+			icon: ShoppingCart,
+			sparkData: [48, 47, 46, 45, 44, 45, 45.2],
+		},
 	];
 
 	const comparisons: ComparisonMetric[] = [
-		{ label: 'Revenue', current: '$89,432', previous: '$72,145', change: '+24%', trend: 'up' },
-		{ label: 'Orders', current: '2,847', previous: '2,412', change: '+18%', trend: 'up' },
-		{ label: 'Avg Order Value', current: '$31.40', previous: '$29.90', change: '+5%', trend: 'up' },
-		{ label: 'Refund Rate', current: '2.1%', previous: '2.8%', change: '-25%', trend: 'up' },
+		{
+			label: 'Revenue',
+			current: '$89,432',
+			previous: '$72,145',
+			change: '+24%',
+			trend: 'up',
+		},
+		{
+			label: 'Orders',
+			current: '2,847',
+			previous: '2,412',
+			change: '+18%',
+			trend: 'up',
+		},
+		{
+			label: 'Avg Order Value',
+			current: '$31.40',
+			previous: '$29.90',
+			change: '+5%',
+			trend: 'up',
+		},
+		{
+			label: 'Refund Rate',
+			current: '2.1%',
+			previous: '2.8%',
+			change: '-25%',
+			trend: 'up',
+		},
 	];
 
 	const trendData = [
@@ -184,7 +250,10 @@ export default function Main() {
 								<CardTitle className="text-base">Traffic Comparison</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={lineConfig} className="h-[180px] w-full">
+								<ChartContainer
+									config={lineConfig}
+									className="h-[180px] w-full"
+								>
 									<LineChart data={trendData}>
 										<XAxis dataKey="day" tickLine={false} axisLine={false} />
 										<ChartTooltip content={<ChartTooltipContent />} />
@@ -229,7 +298,12 @@ export default function Main() {
 							<CardContent>
 								<ChartContainer config={barConfig} className="h-[180px] w-full">
 									<BarChart data={conversionData}>
-										<XAxis dataKey="hour" tickLine={false} axisLine={false} fontSize={11} />
+										<XAxis
+											dataKey="hour"
+											tickLine={false}
+											axisLine={false}
+											fontSize={11}
+										/>
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 										<Bar
 											dataKey="conversions"

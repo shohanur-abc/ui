@@ -55,7 +55,9 @@ const ProfileHero = ({
 					<div className="mt-2 space-y-1">
 						<div className="flex justify-between text-sm">
 							<span>Level {level}</span>
-							<span className="text-muted-foreground">{xp.toLocaleString()}/{maxXp.toLocaleString()} XP</span>
+							<span className="text-muted-foreground">
+								{xp.toLocaleString()}/{maxXp.toLocaleString()} XP
+							</span>
 						</div>
 						<Progress value={(xp / maxXp) * 100} className="h-2" />
 					</div>
@@ -105,19 +107,21 @@ const AchievementsCard = ({
 					<Trophy className="size-5 text-amber-500" />
 					<span className="font-medium">Achievements</span>
 				</div>
-				<Badge variant="outline">{items.filter(a => a.unlocked).length}/{total}</Badge>
+				<Badge variant="outline">
+					{items.filter((a) => a.unlocked).length}/{total}
+				</Badge>
 			</div>
 			<div className="grid grid-cols-3 gap-2">
 				{items.map((achievement, i) => (
 					<div
 						key={i}
 						className={`p-2 rounded-lg text-center transition-all ${
-							achievement.unlocked
-								? 'bg-primary/10'
-								: 'bg-muted/30 opacity-50'
+							achievement.unlocked ? 'bg-primary/10' : 'bg-muted/30 opacity-50'
 						}`}
 					>
-						<achievement.icon className={`size-5 mx-auto mb-1 ${achievement.unlocked ? 'text-primary' : 'text-muted-foreground'}`} />
+						<achievement.icon
+							className={`size-5 mx-auto mb-1 ${achievement.unlocked ? 'text-primary' : 'text-muted-foreground'}`}
+						/>
 						<p className="text-xs truncate">{achievement.label}</p>
 					</div>
 				))}
@@ -132,7 +136,13 @@ const AchievementsCard = ({
 const StatsCard = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; value: string; change: string; positive: boolean }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		value: string;
+		change: string;
+		positive: boolean;
+	}[];
 }) => (
 	<Card className="col-span-full @lg:col-span-2">
 		<CardContent className="p-4">
@@ -146,8 +156,12 @@ const StatsCard = ({
 						<stat.icon className="size-5 mx-auto mb-1 text-muted-foreground" />
 						<p className="text-xl font-bold">{stat.value}</p>
 						<p className="text-xs text-muted-foreground">{stat.label}</p>
-						<div className={`flex items-center justify-center gap-1 text-xs mt-1 ${stat.positive ? 'text-green-500' : 'text-red-500'}`}>
-							<TrendingUp className={`size-3 ${!stat.positive && 'rotate-180'}`} />
+						<div
+							className={`flex items-center justify-center gap-1 text-xs mt-1 ${stat.positive ? 'text-green-500' : 'text-red-500'}`}
+						>
+							<TrendingUp
+								className={`size-3 ${!stat.positive && 'rotate-180'}`}
+							/>
 							{stat.change}
 						</div>
 					</div>
@@ -180,7 +194,9 @@ const ChallengeCard = ({
 				<p className="text-sm font-medium">{title}</p>
 				<div className="flex items-center gap-2 mt-2">
 					<Progress value={(progress / target) * 100} className="flex-1 h-2" />
-					<span className="text-xs font-medium">{progress}/{target}</span>
+					<span className="text-xs font-medium">
+						{progress}/{target}
+					</span>
 				</div>
 			</div>
 			<div className="flex items-center justify-between text-xs text-muted-foreground">
@@ -221,10 +237,34 @@ export default function Main() {
 			total: 24,
 		},
 		stats: [
-			{ icon: ShoppingBag, label: 'Orders', value: '8', change: '+2', positive: true },
-			{ icon: Star, label: 'Reviews', value: '5', change: '+3', positive: true },
-			{ icon: Heart, label: 'Wishlist', value: '12', change: '+4', positive: true },
-			{ icon: Zap, label: 'XP Earned', value: '2.4k', change: '+18%', positive: true },
+			{
+				icon: ShoppingBag,
+				label: 'Orders',
+				value: '8',
+				change: '+2',
+				positive: true,
+			},
+			{
+				icon: Star,
+				label: 'Reviews',
+				value: '5',
+				change: '+3',
+				positive: true,
+			},
+			{
+				icon: Heart,
+				label: 'Wishlist',
+				value: '12',
+				change: '+4',
+				positive: true,
+			},
+			{
+				icon: Zap,
+				label: 'XP Earned',
+				value: '2.4k',
+				change: '+18%',
+				positive: true,
+			},
 		],
 		challenge: {
 			title: 'Complete 5 reviews this week',

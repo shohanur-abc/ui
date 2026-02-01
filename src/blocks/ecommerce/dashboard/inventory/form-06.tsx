@@ -1,15 +1,16 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	Search,
-	MapPin,
-	ArrowRight,
-	Check,
-} from 'lucide-react';
+import { Package, Search, MapPin, ArrowRight, Check } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -55,7 +56,9 @@ const ItemRow = ({ item, onQuantityChange }: ItemRowProps) => (
 			<Input
 				type="number"
 				value={item.quantity}
-				onChange={(e) => onQuantityChange(item.id, parseInt(e.target.value) || 0)}
+				onChange={(e) =>
+					onQuantityChange(item.id, parseInt(e.target.value) || 0)
+				}
 				min={0}
 				max={item.available}
 			/>
@@ -70,7 +73,12 @@ type LocationSelectProps = {
 	locations: { id: string; name: string; code: string }[];
 };
 
-const LocationSelect = ({ label, value, onChange, locations }: LocationSelectProps) => (
+const LocationSelect = ({
+	label,
+	value,
+	onChange,
+	locations,
+}: LocationSelectProps) => (
 	<div className="space-y-2">
 		<Label>{label}</Label>
 		<Select value={value} onValueChange={onChange}>
@@ -93,9 +101,27 @@ export default function Main() {
 	const [fromLocation, setFromLocation] = React.useState('wh-001');
 	const [toLocation, setToLocation] = React.useState('');
 	const [items, setItems] = React.useState<TransferItem[]>([
-		{ id: '1', name: 'Wireless Earbuds Pro', sku: 'WEP-001', available: 245, quantity: 50 },
-		{ id: '2', name: 'USB-C Fast Charger', sku: 'UFC-001', available: 189, quantity: 30 },
-		{ id: '3', name: 'Phone Case Premium', sku: 'PCP-001', available: 567, quantity: 100 },
+		{
+			id: '1',
+			name: 'Wireless Earbuds Pro',
+			sku: 'WEP-001',
+			available: 245,
+			quantity: 50,
+		},
+		{
+			id: '2',
+			name: 'USB-C Fast Charger',
+			sku: 'UFC-001',
+			available: 189,
+			quantity: 30,
+		},
+		{
+			id: '3',
+			name: 'Phone Case Premium',
+			sku: 'PCP-001',
+			available: 567,
+			quantity: 100,
+		},
 	]);
 	const [priority, setPriority] = React.useState('normal');
 
@@ -107,7 +133,9 @@ export default function Main() {
 	];
 
 	const handleQuantityChange = (id: string, quantity: number) => {
-		setItems((prev) => prev.map((item) => (item.id === id ? { ...item, quantity } : item)));
+		setItems((prev) =>
+			prev.map((item) => (item.id === id ? { ...item, quantity } : item)),
+		);
 	};
 
 	const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
@@ -117,7 +145,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Create Transfer</CardTitle>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Create Transfer
+						</CardTitle>
 						<CardDescription>Move inventory between locations</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-6">
@@ -152,37 +182,58 @@ export default function Main() {
 								</Button>
 							</div>
 							{items.map((item) => (
-								<ItemRow key={item.id} item={item} onQuantityChange={handleQuantityChange} />
+								<ItemRow
+									key={item.id}
+									item={item}
+									onQuantityChange={handleQuantityChange}
+								/>
 							))}
 						</div>
 
 						<div className="grid gap-4 @lg:grid-cols-2">
 							<div className="space-y-2">
 								<Label>Priority</Label>
-								<RadioGroup value={priority} onValueChange={setPriority} className="flex gap-4">
+								<RadioGroup
+									value={priority}
+									onValueChange={setPriority}
+									className="flex gap-4"
+								>
 									<div className="flex items-center space-x-2">
 										<RadioGroupItem value="low" id="low" />
-										<Label htmlFor="low" className="font-normal">Low</Label>
+										<Label htmlFor="low" className="font-normal">
+											Low
+										</Label>
 									</div>
 									<div className="flex items-center space-x-2">
 										<RadioGroupItem value="normal" id="normal" />
-										<Label htmlFor="normal" className="font-normal">Normal</Label>
+										<Label htmlFor="normal" className="font-normal">
+											Normal
+										</Label>
 									</div>
 									<div className="flex items-center space-x-2">
 										<RadioGroupItem value="high" id="high" />
-										<Label htmlFor="high" className="font-normal">High</Label>
+										<Label htmlFor="high" className="font-normal">
+											High
+										</Label>
 									</div>
 								</RadioGroup>
 							</div>
 							<div className="space-y-2">
 								<Label htmlFor="notes">Notes</Label>
-								<Textarea id="notes" placeholder="Add transfer notes..." rows={2} />
+								<Textarea
+									id="notes"
+									placeholder="Add transfer notes..."
+									rows={2}
+								/>
 							</div>
 						</div>
 					</CardContent>
 					<CardFooter className="flex items-center justify-between border-t pt-6">
 						<div className="text-sm text-muted-foreground">
-							Total: <span className="font-semibold text-foreground">{totalItems} items</span>
+							Total:{' '}
+							<span className="font-semibold text-foreground">
+								{totalItems} items
+							</span>
 						</div>
 						<div className="flex gap-3">
 							<Button variant="outline">Save Draft</Button>

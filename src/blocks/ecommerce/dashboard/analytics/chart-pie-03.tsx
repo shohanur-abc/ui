@@ -4,7 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 type SemiCircleData = { label: string; value: number; color: string };
 
-const SemiCircleChart = ({ data, centerValue, centerLabel }: { data: SemiCircleData[]; centerValue: string; centerLabel: string }) => {
+const SemiCircleChart = ({
+	data,
+	centerValue,
+	centerLabel,
+}: {
+	data: SemiCircleData[];
+	centerValue: string;
+	centerLabel: string;
+}) => {
 	const total = data.reduce((a, b) => a + b.value, 0);
 	let currentAngle = 180;
 
@@ -34,7 +42,11 @@ const SemiCircleChart = ({ data, centerValue, centerLabel }: { data: SemiCircleD
 
 		const d = `M ${x1Outer} ${y1Outer} A ${outerR} ${outerR} 0 ${largeArc} 0 ${x2Outer} ${y2Outer} L ${x2Inner} ${y2Inner} A ${innerR} ${innerR} 0 ${largeArc} 1 ${x1Inner} ${y1Inner} Z`;
 
-		return { ...slice, d, percentage: ((slice.value / total) * 100).toFixed(1) };
+		return {
+			...slice,
+			d,
+			percentage: ((slice.value / total) * 100).toFixed(1),
+		};
 	});
 
 	return (
@@ -60,9 +72,14 @@ const SemiCircleChart = ({ data, centerValue, centerLabel }: { data: SemiCircleD
 			<div className="flex flex-wrap justify-center gap-4 mt-4">
 				{slices.map((slice, i) => (
 					<div key={i} className="flex items-center gap-2">
-						<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: slice.color }} />
+						<div
+							className="w-2.5 h-2.5 rounded-full"
+							style={{ backgroundColor: slice.color }}
+						/>
 						<span className="text-xs">{slice.label}</span>
-						<span className="text-xs text-muted-foreground">{slice.percentage}%</span>
+						<span className="text-xs text-muted-foreground">
+							{slice.percentage}%
+						</span>
 					</div>
 				))}
 			</div>
@@ -83,11 +100,19 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Customer Satisfaction</CardTitle>
-						<p className="text-xs text-muted-foreground">Survey response distribution</p>
+						<CardTitle className="text-sm font-medium">
+							Customer Satisfaction
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Survey response distribution
+						</p>
 					</CardHeader>
 					<CardContent>
-						<SemiCircleChart data={satisfactionData} centerValue="4.2" centerLabel="Avg. Rating" />
+						<SemiCircleChart
+							data={satisfactionData}
+							centerValue="4.2"
+							centerLabel="Avg. Rating"
+						/>
 					</CardContent>
 				</Card>
 			</div>

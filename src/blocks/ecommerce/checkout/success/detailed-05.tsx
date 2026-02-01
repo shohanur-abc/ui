@@ -76,13 +76,7 @@ const PageHeader = ({
 	</div>
 );
 
-const EventCard = ({
-	name,
-	date,
-	time,
-	venue,
-	address,
-}: EventDetailsProps) => (
+const EventCard = ({ name, date, time, venue, address }: EventDetailsProps) => (
 	<Card className="overflow-hidden">
 		<div className="h-48 bg-gradient-to-br from-violet-500 via-purple-500 to-pink-500 flex items-end p-6">
 			<div className="text-white">
@@ -128,9 +122,7 @@ const TicketQRCard = ({ ticketCode }: { ticketCode: string }) => (
 					<QrCode className="size-28 text-muted-foreground/50" />
 				</div>
 			</div>
-			<p className="font-mono text-xl font-bold tracking-wider">
-				{ticketCode}
-			</p>
+			<p className="font-mono text-xl font-bold tracking-wider">{ticketCode}</p>
 			<p className="text-sm text-muted-foreground mt-2">
 				Show this at the venue entrance
 			</p>
@@ -166,9 +158,7 @@ const TicketDetailsCard = ({
 								Seat: {ticket.seat}
 							</p>
 						)}
-						<p className="text-sm text-muted-foreground">
-							×{ticket.quantity}
-						</p>
+						<p className="text-sm text-muted-foreground">×{ticket.quantity}</p>
 					</div>
 					<p className="font-semibold">
 						{currency}
@@ -297,8 +287,8 @@ export default function Main() {
 					<div className="@lg:col-span-2 space-y-6">
 						<TicketDetailsCard
 							tickets={tickets}
-							fees={15.00}
-							total={215.00}
+							fees={15.0}
+							total={215.0}
 							currency="$"
 						/>
 						<ImportantInfoCard items={importantInfo} />
@@ -312,7 +302,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'Add to Calendar', href: '/calendar', icon: Calendar },
-						{ label: 'Get Directions', href: '/directions', variant: 'outline', icon: Navigation },
+						{
+							label: 'Get Directions',
+							href: '/directions',
+							variant: 'outline',
+							icon: Navigation,
+						},
 					]}
 				/>
 			</div>

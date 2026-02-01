@@ -77,11 +77,7 @@ const TabHeader = ({
 	</div>
 );
 
-const SearchHeader = ({
-	searchPlaceholder,
-}: {
-	searchPlaceholder: string;
-}) => (
+const SearchHeader = ({ searchPlaceholder }: { searchPlaceholder: string }) => (
 	<div className="flex items-center gap-3 border-b px-6 py-4">
 		<div className="relative flex-1">
 			<Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
@@ -105,10 +101,26 @@ const RatingStars = ({ rating }: { rating: number }) => (
 
 const StatusBadge = ({ status }: { status: CustomerReview['status'] }) => {
 	const config = {
-		pending: { label: 'Pending', icon: Clock, className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		approved: { label: 'Approved', icon: CheckCircle, className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		flagged: { label: 'Flagged', icon: Flag, className: 'bg-red-500/10 text-red-500 border-red-500/20' },
-		rejected: { label: 'Rejected', icon: Ban, className: 'bg-slate-500/10 text-slate-500 border-slate-500/20' },
+		pending: {
+			label: 'Pending',
+			icon: Clock,
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		approved: {
+			label: 'Approved',
+			icon: CheckCircle,
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		flagged: {
+			label: 'Flagged',
+			icon: Flag,
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
+		rejected: {
+			label: 'Rejected',
+			icon: Ban,
+			className: 'bg-slate-500/10 text-slate-500 border-slate-500/20',
+		},
 	};
 	const Icon = config[status].icon;
 	return (
@@ -144,7 +156,10 @@ const ReviewRow = ({ review }: { review: CustomerReview }) => (
 			<div className="flex items-center gap-3">
 				<div className="relative">
 					<Avatar className="size-9">
-						<AvatarImage src={review.customer.avatar} alt={review.customer.name} />
+						<AvatarImage
+							src={review.customer.avatar}
+							alt={review.customer.name}
+						/>
 						<AvatarFallback className="bg-primary/10 text-primary text-xs">
 							{review.customer.initials}
 						</AvatarFallback>
@@ -155,7 +170,9 @@ const ReviewRow = ({ review }: { review: CustomerReview }) => (
 				</div>
 				<div>
 					<p className="font-medium">{review.customer.name}</p>
-					<p className="text-muted-foreground text-xs">{review.customer.email}</p>
+					<p className="text-muted-foreground text-xs">
+						{review.customer.email}
+					</p>
 				</div>
 			</div>
 		</TableCell>
@@ -167,7 +184,9 @@ const ReviewRow = ({ review }: { review: CustomerReview }) => (
 		<TableCell>
 			<div className="space-y-1">
 				<RatingStars rating={review.rating} />
-				<p className="max-w-[200px] truncate text-sm font-medium">{review.title}</p>
+				<p className="max-w-[200px] truncate text-sm font-medium">
+					{review.title}
+				</p>
 			</div>
 		</TableCell>
 		<TableCell className="hidden @lg:table-cell">
@@ -234,7 +253,12 @@ export default function Main() {
 	const reviews: CustomerReview[] = [
 		{
 			id: '1',
-			customer: { name: 'Julia Roberts', email: 'julia.r@email.com', initials: 'JR', verified: true },
+			customer: {
+				name: 'Julia Roberts',
+				email: 'julia.r@email.com',
+				initials: 'JR',
+				verified: true,
+			},
 			product: 'Wireless Headphones Pro',
 			rating: 5,
 			title: 'Best headphones I have ever owned!',
@@ -246,7 +270,12 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'Mark Spencer', email: 'mark.s@email.com', initials: 'MS', verified: false },
+			customer: {
+				name: 'Mark Spencer',
+				email: 'mark.s@email.com',
+				initials: 'MS',
+				verified: false,
+			},
 			product: 'Smart Watch Series 5',
 			rating: 4,
 			title: 'Great watch, battery could be better',
@@ -258,7 +287,12 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Nancy Drew', email: 'nancy.d@email.com', initials: 'ND', verified: true },
+			customer: {
+				name: 'Nancy Drew',
+				email: 'nancy.d@email.com',
+				initials: 'ND',
+				verified: true,
+			},
 			product: 'Running Shoes Ultra',
 			rating: 2,
 			title: 'Quality issues after 2 weeks',
@@ -270,7 +304,12 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'Oscar Wilde', email: 'oscar.w@email.com', initials: 'OW', verified: false },
+			customer: {
+				name: 'Oscar Wilde',
+				email: 'oscar.w@email.com',
+				initials: 'OW',
+				verified: false,
+			},
 			product: 'Laptop Stand Adjustable',
 			rating: 5,
 			title: 'Perfect for my home office setup',
@@ -282,7 +321,12 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Penny Lane', email: 'penny.l@email.com', initials: 'PL', verified: true },
+			customer: {
+				name: 'Penny Lane',
+				email: 'penny.l@email.com',
+				initials: 'PL',
+				verified: true,
+			},
 			product: 'Bluetooth Speaker Mini',
 			rating: 1,
 			title: 'Does not work as advertised',
@@ -303,8 +347,12 @@ export default function Main() {
 							<MessageCircle className="size-5" />
 						</div>
 						<div>
-							<h1 className="text-2xl font-bold tracking-tight">Customer Reviews</h1>
-							<p className="text-muted-foreground text-sm">Moderate and respond to customer reviews</p>
+							<h1 className="text-2xl font-bold tracking-tight">
+								Customer Reviews
+							</h1>
+							<p className="text-muted-foreground text-sm">
+								Moderate and respond to customer reviews
+							</p>
 						</div>
 					</div>
 					<Button variant="outline" size="sm" className="gap-2">
@@ -322,11 +370,19 @@ export default function Main() {
 								<TableHeader>
 									<TableRow className="hover:bg-transparent">
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @md:table-cell">Product</TableHead>
+										<TableHead className="hidden @md:table-cell">
+											Product
+										</TableHead>
 										<TableHead>Review</TableHead>
-										<TableHead className="hidden @lg:table-cell">Status</TableHead>
-										<TableHead className="hidden @xl:table-cell">Helpful</TableHead>
-										<TableHead className="hidden @xl:table-cell">Date</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Status
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Helpful
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Date
+										</TableHead>
 										<TableHead className="w-12" />
 									</TableRow>
 								</TableHeader>
@@ -342,11 +398,19 @@ export default function Main() {
 								<TableHeader>
 									<TableRow className="hover:bg-transparent">
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @md:table-cell">Product</TableHead>
+										<TableHead className="hidden @md:table-cell">
+											Product
+										</TableHead>
 										<TableHead>Review</TableHead>
-										<TableHead className="hidden @lg:table-cell">Status</TableHead>
-										<TableHead className="hidden @xl:table-cell">Helpful</TableHead>
-										<TableHead className="hidden @xl:table-cell">Date</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Status
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Helpful
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Date
+										</TableHead>
 										<TableHead className="w-12" />
 									</TableRow>
 								</TableHeader>
@@ -364,11 +428,19 @@ export default function Main() {
 								<TableHeader>
 									<TableRow className="hover:bg-transparent">
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @md:table-cell">Product</TableHead>
+										<TableHead className="hidden @md:table-cell">
+											Product
+										</TableHead>
 										<TableHead>Review</TableHead>
-										<TableHead className="hidden @lg:table-cell">Status</TableHead>
-										<TableHead className="hidden @xl:table-cell">Helpful</TableHead>
-										<TableHead className="hidden @xl:table-cell">Date</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Status
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Helpful
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Date
+										</TableHead>
 										<TableHead className="w-12" />
 									</TableRow>
 								</TableHeader>

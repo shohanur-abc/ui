@@ -18,11 +18,7 @@ import {
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardFooter,
-} from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -58,7 +54,10 @@ const PromotionBadge = ({ type, labels }: PromotionBadgeProps) => {
 	const config = {
 		flash: { icon: Zap, className: 'bg-amber-500 hover:bg-amber-600' },
 		clearance: { icon: Tag, className: 'bg-red-500 hover:bg-red-600' },
-		seasonal: { icon: Calendar, className: 'bg-emerald-500 hover:bg-emerald-600' },
+		seasonal: {
+			icon: Calendar,
+			className: 'bg-emerald-500 hover:bg-emerald-600',
+		},
 		bundle: { icon: Package, className: 'bg-blue-500 hover:bg-blue-600' },
 	};
 
@@ -78,7 +77,11 @@ interface PriorityIndicatorProps {
 
 const PriorityIndicator = ({ priority }: PriorityIndicatorProps) => {
 	const config = {
-		high: { icon: Flame, className: 'text-red-500', bgClassName: 'bg-red-500/10' },
+		high: {
+			icon: Flame,
+			className: 'text-red-500',
+			bgClassName: 'bg-red-500/10',
+		},
 		medium: { className: 'text-amber-500', bgClassName: 'bg-amber-500/10' },
 		low: { className: 'text-muted-foreground', bgClassName: 'bg-muted' },
 	};
@@ -86,8 +89,14 @@ const PriorityIndicator = ({ priority }: PriorityIndicatorProps) => {
 	const { icon: Icon, className, bgClassName } = config[priority];
 
 	return (
-		<div className={`flex size-6 items-center justify-center rounded-full ${bgClassName}`}>
-			{Icon ? <Icon className={`size-3.5 ${className}`} /> : <span className={`size-2 rounded-full ${className} bg-current`} />}
+		<div
+			className={`flex size-6 items-center justify-center rounded-full ${bgClassName}`}
+		>
+			{Icon ? (
+				<Icon className={`size-3.5 ${className}`} />
+			) : (
+				<span className={`size-2 rounded-full ${className} bg-current`} />
+			)}
 		</div>
 	);
 };
@@ -97,12 +106,19 @@ interface DiscountDisplayProps {
 	salePrice: number;
 }
 
-const DiscountDisplay = ({ originalPrice, salePrice }: DiscountDisplayProps) => {
-	const discountPercent = Math.round(((originalPrice - salePrice) / originalPrice) * 100);
+const DiscountDisplay = ({
+	originalPrice,
+	salePrice,
+}: DiscountDisplayProps) => {
+	const discountPercent = Math.round(
+		((originalPrice - salePrice) / originalPrice) * 100,
+	);
 
 	return (
 		<div className="flex items-baseline gap-2">
-			<span className="text-lg font-bold text-primary">${salePrice.toFixed(2)}</span>
+			<span className="text-lg font-bold text-primary">
+				${salePrice.toFixed(2)}
+			</span>
 			<span className="text-sm text-muted-foreground line-through">
 				${originalPrice.toFixed(2)}
 			</span>
@@ -129,7 +145,9 @@ const DateRange = ({ startDate, endDate }: DateRangeProps) => {
 
 	const now = new Date();
 	const end = new Date(endDate);
-	const daysLeft = Math.ceil((end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+	const daysLeft = Math.ceil(
+		(end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24),
+	);
 	const isEnding = daysLeft <= 3 && daysLeft > 0;
 
 	return (
@@ -139,7 +157,10 @@ const DateRange = ({ startDate, endDate }: DateRangeProps) => {
 				{formatDate(startDate)} - {formatDate(endDate)}
 			</span>
 			{isEnding && (
-				<Badge variant="outline" className="gap-1 border-amber-500 text-amber-500">
+				<Badge
+					variant="outline"
+					className="gap-1 border-amber-500 text-amber-500"
+				>
 					<Clock className="size-3" />
 					{daysLeft}d left
 				</Badge>
@@ -177,16 +198,29 @@ const SalesProgress = ({ sold, target, labels }: SalesProgressProps) => {
 interface ProductCardProps {
 	product: PromotionProduct;
 	onToggleActive: (id: string, active: boolean) => void;
-	actions: { label: string; icon?: React.ElementType; onClick: (id: string) => void; variant?: 'destructive' }[];
+	actions: {
+		label: string;
+		icon?: React.ElementType;
+		onClick: (id: string) => void;
+		variant?: 'destructive';
+	}[];
 	labels: {
-		promotionTypes: Record<'flash' | 'clearance' | 'seasonal' | 'bundle', string>;
+		promotionTypes: Record<
+			'flash' | 'clearance' | 'seasonal' | 'bundle',
+			string
+		>;
 		sold: string;
 		target: string;
 		active: string;
 	};
 }
 
-const ProductCard = ({ product, onToggleActive, actions, labels }: ProductCardProps) => (
+const ProductCard = ({
+	product,
+	onToggleActive,
+	actions,
+	labels,
+}: ProductCardProps) => (
 	<Card className="overflow-hidden transition-all hover:shadow-lg">
 		<CardContent className="p-0">
 			<div className="relative aspect-[4/3] overflow-hidden bg-muted">
@@ -203,23 +237,34 @@ const ProductCard = ({ product, onToggleActive, actions, labels }: ProductCardPr
 				)}
 				<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 				<div className="absolute left-3 top-3 flex items-center gap-2">
-					<PromotionBadge type={product.promotionType} labels={labels.promotionTypes} />
+					<PromotionBadge
+						type={product.promotionType}
+						labels={labels.promotionTypes}
+					/>
 					<PriorityIndicator priority={product.priority} />
 				</div>
 				<div className="absolute right-3 top-3">
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
-							<Button variant="secondary" size="icon-sm" className="bg-background/80 backdrop-blur-sm">
+							<Button
+								variant="secondary"
+								size="icon-sm"
+								className="bg-background/80 backdrop-blur-sm"
+							>
 								<MoreHorizontal className="size-4" />
 							</Button>
 						</DropdownMenuTrigger>
 						<DropdownMenuContent align="end">
 							{actions.map((action) => (
 								<React.Fragment key={action.label}>
-									{action.variant === 'destructive' && <DropdownMenuSeparator />}
+									{action.variant === 'destructive' && (
+										<DropdownMenuSeparator />
+									)}
 									<DropdownMenuItem
 										onClick={() => action.onClick(product.id)}
-										className={action.variant === 'destructive' ? 'text-destructive' : ''}
+										className={
+											action.variant === 'destructive' ? 'text-destructive' : ''
+										}
 									>
 										{action.icon && <action.icon className="mr-2 size-4" />}
 										{action.label}
@@ -256,7 +301,11 @@ const ProductCard = ({ product, onToggleActive, actions, labels }: ProductCardPr
 				<span className="text-sm">{labels.active}</span>
 			</div>
 			<Button variant="ghost" size="icon-sm">
-				{product.isActive ? <Pause className="size-4" /> : <Play className="size-4" />}
+				{product.isActive ? (
+					<Pause className="size-4" />
+				) : (
+					<Play className="size-4" />
+				)}
 			</Button>
 		</CardFooter>
 	</Card>
@@ -268,7 +317,8 @@ export default function Main() {
 			id: '1',
 			name: 'Summer Collection Dress',
 			sku: 'DRS-SMR-001',
-			image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=300&fit=crop',
 			originalPrice: 129.99,
 			salePrice: 79.99,
 			promotionType: 'seasonal',
@@ -283,7 +333,8 @@ export default function Main() {
 			id: '2',
 			name: 'Wireless Headphones X1',
 			sku: 'AUD-WHP-002',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop',
 			originalPrice: 299.99,
 			salePrice: 149.99,
 			promotionType: 'flash',
@@ -298,7 +349,8 @@ export default function Main() {
 			id: '3',
 			name: 'Last Season Sneakers',
 			sku: 'SNK-LST-003',
-			image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop',
 			originalPrice: 159.99,
 			salePrice: 59.99,
 			promotionType: 'clearance',
@@ -313,7 +365,8 @@ export default function Main() {
 			id: '4',
 			name: 'Tech Starter Bundle',
 			sku: 'BND-TCH-004',
-			image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=300&fit=crop',
 			originalPrice: 499.99,
 			salePrice: 349.99,
 			promotionType: 'bundle',
@@ -328,7 +381,8 @@ export default function Main() {
 			id: '5',
 			name: 'Premium Watch Classic',
 			sku: 'WCH-PRM-005',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
 			originalPrice: 399.99,
 			salePrice: 299.99,
 			promotionType: 'flash',
@@ -343,7 +397,8 @@ export default function Main() {
 			id: '6',
 			name: 'Winter Jacket Outlet',
 			sku: 'JKT-WNT-006',
-			image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=300&fit=crop',
 			originalPrice: 249.99,
 			salePrice: 89.99,
 			promotionType: 'clearance',
@@ -358,15 +413,30 @@ export default function Main() {
 
 	const handleToggleActive = (id: string, active: boolean) => {
 		setProducts((prev) =>
-			prev.map((p) => (p.id === id ? { ...p, isActive: active } : p))
+			prev.map((p) => (p.id === id ? { ...p, isActive: active } : p)),
 		);
 	};
 
 	const actions = [
-		{ label: 'Edit Promotion', onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'View Analytics', onClick: (id: string) => console.log('Analytics', id) },
-		{ label: 'Duplicate', icon: Copy, onClick: (id: string) => console.log('Duplicate', id) },
-		{ label: 'Delete', icon: Trash2, onClick: (id: string) => console.log('Delete', id), variant: 'destructive' as const },
+		{
+			label: 'Edit Promotion',
+			onClick: (id: string) => console.log('Edit', id),
+		},
+		{
+			label: 'View Analytics',
+			onClick: (id: string) => console.log('Analytics', id),
+		},
+		{
+			label: 'Duplicate',
+			icon: Copy,
+			onClick: (id: string) => console.log('Duplicate', id),
+		},
+		{
+			label: 'Delete',
+			icon: Trash2,
+			onClick: (id: string) => console.log('Delete', id),
+			variant: 'destructive' as const,
+		},
 	];
 
 	const labels = {

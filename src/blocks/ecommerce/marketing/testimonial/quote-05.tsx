@@ -78,7 +78,8 @@ export default function Main() {
 			author: 'Grace Chen',
 			role: 'VP Product',
 			company: 'ProductFirst',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'GC',
 			rating: 5,
 		},
@@ -88,7 +89,8 @@ export default function Main() {
 			author: 'Henry Park',
 			role: 'CTO',
 			company: 'SecureScale',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'HP',
 			rating: 5,
 		},
@@ -98,14 +100,18 @@ export default function Main() {
 			author: 'Iris Lee',
 			role: 'Customer Success',
 			company: 'HappyClients',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'IL',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader badge="Bookmarked" title="Saved" highlight="Favorites" />
 

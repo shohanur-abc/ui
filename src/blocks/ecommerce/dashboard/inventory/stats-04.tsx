@@ -12,7 +12,13 @@ import {
 	ArrowDownRight,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 
@@ -32,9 +38,18 @@ type MetricCardProps = {
 
 const MetricCard = ({ metric }: MetricCardProps) => {
 	const statusConfig = {
-		good: { icon: <CheckCircle className="size-5 text-emerald-500" />, color: 'bg-emerald-500' },
-		warning: { icon: <AlertTriangle className="size-5 text-amber-500" />, color: 'bg-amber-500' },
-		critical: { icon: <XCircle className="size-5 text-destructive" />, color: 'bg-destructive' },
+		good: {
+			icon: <CheckCircle className="size-5 text-emerald-500" />,
+			color: 'bg-emerald-500',
+		},
+		warning: {
+			icon: <AlertTriangle className="size-5 text-amber-500" />,
+			color: 'bg-amber-500',
+		},
+		critical: {
+			icon: <XCircle className="size-5 text-destructive" />,
+			color: 'bg-destructive',
+		},
 	};
 
 	const { icon, color } = statusConfig[metric.status];
@@ -45,7 +60,10 @@ const MetricCard = ({ metric }: MetricCardProps) => {
 			<CardContent className="p-6">
 				<div className="flex items-start justify-between">
 					{icon}
-					<Badge variant={metric.change >= 0 ? 'default' : 'destructive'} className="flex items-center gap-1">
+					<Badge
+						variant={metric.change >= 0 ? 'default' : 'destructive'}
+						className="flex items-center gap-1"
+					>
 						{metric.change >= 0 ? (
 							<ArrowUpRight className="size-3" />
 						) : (
@@ -63,9 +81,15 @@ const MetricCard = ({ metric }: MetricCardProps) => {
 						<span className="text-muted-foreground">Progress to target</span>
 						<span className="font-medium">{metric.target}%</span>
 					</div>
-					<Progress value={progress} className="h-2" indicatorClassName={color} />
+					<Progress
+						value={progress}
+						className="h-2"
+						indicatorClassName={color}
+					/>
 				</div>
-				<p className="mt-3 text-xs text-muted-foreground">{metric.description}</p>
+				<p className="mt-3 text-xs text-muted-foreground">
+					{metric.description}
+				</p>
 			</CardContent>
 		</Card>
 	);
@@ -120,21 +144,59 @@ const OverallScore = ({ score }: OverallScoreProps) => {
 
 export default function Main() {
 	const metrics: HealthMetric[] = [
-		{ id: '1', name: 'Stock Accuracy', value: 94, target: 98, status: 'warning', change: 2.3, description: 'Physical vs system match rate' },
-		{ id: '2', name: 'Fill Rate', value: 87, target: 95, status: 'warning', change: -1.5, description: 'Orders fulfilled from stock' },
-		{ id: '3', name: 'Carrying Cost Ratio', value: 22, target: 25, status: 'good', change: 4.2, description: 'Inventory holding costs' },
-		{ id: '4', name: 'Stockout Rate', value: 3, target: 2, status: 'critical', change: -15, description: 'Percentage of stockouts' },
+		{
+			id: '1',
+			name: 'Stock Accuracy',
+			value: 94,
+			target: 98,
+			status: 'warning',
+			change: 2.3,
+			description: 'Physical vs system match rate',
+		},
+		{
+			id: '2',
+			name: 'Fill Rate',
+			value: 87,
+			target: 95,
+			status: 'warning',
+			change: -1.5,
+			description: 'Orders fulfilled from stock',
+		},
+		{
+			id: '3',
+			name: 'Carrying Cost Ratio',
+			value: 22,
+			target: 25,
+			status: 'good',
+			change: 4.2,
+			description: 'Inventory holding costs',
+		},
+		{
+			id: '4',
+			name: 'Stockout Rate',
+			value: 3,
+			target: 2,
+			status: 'critical',
+			change: -15,
+			description: 'Percentage of stockouts',
+		},
 	];
 
-	const overallScore = Math.round(metrics.reduce((sum, m) => sum + m.value, 0) / metrics.length);
+	const overallScore = Math.round(
+		metrics.reduce((sum, m) => sum + m.value, 0) / metrics.length,
+	);
 
 	return (
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Inventory Health</CardTitle>
-						<CardDescription>Performance metrics and health indicators</CardDescription>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Inventory Health
+						</CardTitle>
+						<CardDescription>
+							Performance metrics and health indicators
+						</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<div className="grid gap-6 @lg:grid-cols-5">

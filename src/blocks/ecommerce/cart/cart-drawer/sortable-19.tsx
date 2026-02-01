@@ -123,7 +123,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Minimalist Watch',
 				variant: 'Silver',
 				price: 199.99,
@@ -132,7 +133,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 				name: 'Leather Wallet',
 				variant: 'Brown',
 				price: 79.99,
@@ -141,7 +143,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 				name: 'Premium Headphones',
 				variant: 'Black',
 				price: 349.99,
@@ -150,7 +153,8 @@ export default function Main() {
 			},
 			{
 				id: '4',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds',
 				variant: 'White',
 				price: 149.99,
@@ -164,7 +168,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

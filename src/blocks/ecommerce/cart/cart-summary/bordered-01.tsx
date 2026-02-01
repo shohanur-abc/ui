@@ -12,7 +12,11 @@ const BorderedHeader = ({
 	icon: Icon,
 	title,
 	itemCount,
-}: { icon: LucideIcon; title: string; itemCount: number }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	itemCount: number;
+}) => (
 	<div className="flex items-center justify-between border-b-2 border-foreground pb-4">
 		<div className="flex items-center gap-2">
 			<Icon className="size-5" />

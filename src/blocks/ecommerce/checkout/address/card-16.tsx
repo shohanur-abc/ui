@@ -6,11 +6,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
-import {
-	MapPin,
-	Navigation,
-	Locate,
-} from 'lucide-react';
+import { MapPin, Navigation, Locate } from 'lucide-react';
 
 interface AddressProps {
 	id: string;
@@ -19,7 +15,13 @@ interface AddressProps {
 	distance?: string;
 }
 
-const PageTitle = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageTitle = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="mb-8">
 		<h1 className="text-2xl @md:text-3xl font-bold">{title}</h1>
 		<p className="text-muted-foreground mt-1">{subtitle}</p>
@@ -64,9 +66,7 @@ const AddressOption = ({ id, label, address, distance }: AddressProps) => (
 								</Badge>
 							)}
 						</div>
-						<p className="text-sm text-muted-foreground truncate">
-							{address}
-						</p>
+						<p className="text-sm text-muted-foreground truncate">{address}</p>
 					</div>
 					{distance && (
 						<span className="text-sm text-muted-foreground shrink-0">

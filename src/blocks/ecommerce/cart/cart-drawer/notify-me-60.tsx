@@ -96,11 +96,15 @@ const OutOfStockCard = ({
 				<Image src={item.image} alt={item.name} fill className="object-cover" />
 			</div>
 			<div className="flex flex-1 flex-col">
-				<h4 className="text-sm font-medium text-muted-foreground">{item.name}</h4>
+				<h4 className="text-sm font-medium text-muted-foreground">
+					{item.name}
+				</h4>
 				<p className="text-xs text-muted-foreground mt-1">
 					Expected: {item.expectedRestock}
 				</p>
-				<span className="text-sm font-medium mt-auto">${item.price.toFixed(2)}</span>
+				<span className="text-sm font-medium mt-auto">
+					${item.price.toFixed(2)}
+				</span>
 			</div>
 		</div>
 		{item.isNotifying ? (
@@ -180,7 +184,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes',
 				price: 129.99,
 				quantity: 1,
@@ -189,7 +194,8 @@ export default function Main() {
 		outOfStock: [
 			{
 				id: 'o1',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Ultra Boost',
 				price: 179.99,
 				expectedRestock: 'Dec 15',
@@ -197,7 +203,8 @@ export default function Main() {
 			},
 			{
 				id: 'o2',
-				image: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
 				name: 'Classic Leather',
 				price: 99.99,
 				expectedRestock: 'Dec 20',
@@ -210,7 +217,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

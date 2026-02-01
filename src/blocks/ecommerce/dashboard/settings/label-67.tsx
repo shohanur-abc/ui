@@ -122,15 +122,48 @@ const RecentLabelRow = ({
 
 export default function Main() {
 	const labelFormats: LabelFormat[] = [
-		{ id: 'thermal', name: 'Thermal Label', size: '4" x 6"', description: 'Standard thermal shipping label' },
-		{ id: 'letter', name: 'Letter Size', size: '8.5" x 11"', description: 'Print on regular paper and fold' },
-		{ id: 'half', name: 'Half Sheet', size: '8.5" x 5.5"', description: 'Two labels per letter sheet' },
+		{
+			id: 'thermal',
+			name: 'Thermal Label',
+			size: '4" x 6"',
+			description: 'Standard thermal shipping label',
+		},
+		{
+			id: 'letter',
+			name: 'Letter Size',
+			size: '8.5" x 11"',
+			description: 'Print on regular paper and fold',
+		},
+		{
+			id: 'half',
+			name: 'Half Sheet',
+			size: '8.5" x 5.5"',
+			description: 'Two labels per letter sheet',
+		},
 	];
 
 	const recentLabels: RecentLabel[] = [
-		{ id: '1', orderNumber: '12345', carrier: 'USPS', tracking: '94XXX...XXX123', createdAt: '2 hours ago' },
-		{ id: '2', orderNumber: '12344', carrier: 'UPS', tracking: '1ZXX...XX789', createdAt: '5 hours ago' },
-		{ id: '3', orderNumber: '12343', carrier: 'FedEx', tracking: '7XXX...XX456', createdAt: '1 day ago' },
+		{
+			id: '1',
+			orderNumber: '12345',
+			carrier: 'USPS',
+			tracking: '94XXX...XXX123',
+			createdAt: '2 hours ago',
+		},
+		{
+			id: '2',
+			orderNumber: '12344',
+			carrier: 'UPS',
+			tracking: '1ZXX...XX789',
+			createdAt: '5 hours ago',
+		},
+		{
+			id: '3',
+			orderNumber: '12343',
+			carrier: 'FedEx',
+			tracking: '7XXX...XX456',
+			createdAt: '1 day ago',
+		},
 	];
 
 	return (

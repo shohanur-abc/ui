@@ -120,13 +120,7 @@ const OrderItem = ({
 	</div>
 );
 
-const DeliveryEstimate = ({
-	date,
-	time,
-}: {
-	date: string;
-	time: string;
-}) => (
+const DeliveryEstimate = ({ date, time }: { date: string; time: string }) => (
 	<Card>
 		<CardContent className="pt-6">
 			<div className="flex items-center gap-4">
@@ -134,9 +128,7 @@ const DeliveryEstimate = ({
 					<Truck className="size-6 text-primary" />
 				</div>
 				<div className="flex-1">
-					<p className="text-sm text-muted-foreground">
-						Estimated Delivery
-					</p>
+					<p className="text-sm text-muted-foreground">Estimated Delivery</p>
 					<p className="font-semibold text-lg">{date}</p>
 				</div>
 				<Badge variant="secondary" className="gap-1">

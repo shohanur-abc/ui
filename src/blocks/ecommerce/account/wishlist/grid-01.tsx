@@ -47,7 +47,11 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 				</Badge>
 			)}
 			<div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 transition-opacity group-hover:opacity-100">
-				<Button size="icon-sm" variant="secondary" className="rounded-full shadow-md">
+				<Button
+					size="icon-sm"
+					variant="secondary"
+					className="rounded-full shadow-md"
+				>
 					<Trash2 className="size-4" />
 				</Button>
 			</div>
@@ -90,10 +94,48 @@ const WishlistGrid = ({ items }: WishlistGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Premium Leather Jacket', price: 199.99, originalPrice: 299.99, image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop', rating: 4.8, inStock: true, href: '/product/1' },
-		{ id: '2', name: 'Classic Denim Jeans', price: 89.99, image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop', rating: 4.5, inStock: true, href: '/product/2' },
-		{ id: '3', name: 'Wool Blend Sweater', price: 129.99, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop', rating: 4.7, inStock: false, href: '/product/3' },
-		{ id: '4', name: 'Minimalist Watch', price: 249.99, originalPrice: 349.99, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop', rating: 4.9, inStock: true, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Premium Leather Jacket',
+			price: 199.99,
+			originalPrice: 299.99,
+			image:
+				'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop',
+			rating: 4.8,
+			inStock: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Classic Denim Jeans',
+			price: 89.99,
+			image:
+				'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop',
+			rating: 4.5,
+			inStock: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Wool Blend Sweater',
+			price: 129.99,
+			image:
+				'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop',
+			rating: 4.7,
+			inStock: false,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Minimalist Watch',
+			price: 249.99,
+			originalPrice: 349.99,
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop',
+			rating: 4.9,
+			inStock: true,
+			href: '/product/4',
+		},
 	];
 
 	return (

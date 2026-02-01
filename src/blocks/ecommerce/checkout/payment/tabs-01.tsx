@@ -3,7 +3,12 @@
 import { Building2, CreditCard, Lock, Smartphone, Wallet } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -22,18 +27,34 @@ interface FormFieldProps {
 	icon?: React.ComponentType<{ className?: string }>;
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center space-y-2 mb-6">
 		<h1 className="text-2xl @md:text-3xl font-bold tracking-tight">{title}</h1>
 		<p className="text-muted-foreground">{subtitle}</p>
 	</div>
 );
 
-const PaymentTabs = ({ tabs, children }: { tabs: TabConfig[]; children: React.ReactNode }) => (
+const PaymentTabs = ({
+	tabs,
+	children,
+}: {
+	tabs: TabConfig[];
+	children: React.ReactNode;
+}) => (
 	<Tabs defaultValue={tabs[0]?.value} className="w-full">
 		<TabsList className="w-full grid grid-cols-4 h-12 mb-6">
 			{tabs.map((tab) => (
-				<TabsTrigger key={tab.value} value={tab.value} className="gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+				<TabsTrigger
+					key={tab.value}
+					value={tab.value}
+					className="gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+				>
 					<tab.icon className="size-4" />
 					<span className="hidden @sm:inline">{tab.label}</span>
 				</TabsTrigger>
@@ -43,19 +64,39 @@ const PaymentTabs = ({ tabs, children }: { tabs: TabConfig[]; children: React.Re
 	</Tabs>
 );
 
-const FormField = ({ id, label, placeholder, type = 'text', icon: Icon }: FormFieldProps) => (
+const FormField = ({
+	id,
+	label,
+	placeholder,
+	type = 'text',
+	icon: Icon,
+}: FormFieldProps) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
 
 const CardForm = () => (
 	<div className="space-y-4">
-		<FormField id="card-number" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
+		<FormField
+			id="card-number"
+			label="Card Number"
+			placeholder="1234 5678 9012 3456"
+			icon={CreditCard}
+		/>
 		<FormField id="card-name" label="Cardholder Name" placeholder="John Doe" />
 		<div className="grid grid-cols-2 gap-4">
 			<FormField id="card-exp" label="Expiry Date" placeholder="MM/YY" />
@@ -66,11 +107,17 @@ const CardForm = () => (
 
 const WalletOptions = () => (
 	<div className="space-y-4">
-		<Button variant="outline" className="w-full h-14 justify-center gap-3 text-base">
+		<Button
+			variant="outline"
+			className="w-full h-14 justify-center gap-3 text-base"
+		>
 			<Smartphone className="size-5" />
 			Pay with Apple Pay
 		</Button>
-		<Button variant="outline" className="w-full h-14 justify-center gap-3 text-base">
+		<Button
+			variant="outline"
+			className="w-full h-14 justify-center gap-3 text-base"
+		>
 			<Smartphone className="size-5" />
 			Pay with Google Pay
 		</Button>
@@ -82,8 +129,17 @@ const WalletOptions = () => (
 
 const BankForm = () => (
 	<div className="space-y-4">
-		<FormField id="bank-name" label="Bank Name" placeholder="Select your bank" icon={Building2} />
-		<FormField id="account-number" label="Account Number" placeholder="••••••••1234" />
+		<FormField
+			id="bank-name"
+			label="Bank Name"
+			placeholder="Select your bank"
+			icon={Building2}
+		/>
+		<FormField
+			id="account-number"
+			label="Account Number"
+			placeholder="••••••••1234"
+		/>
 		<FormField id="routing" label="Routing Number" placeholder="•••••1234" />
 		<p className="text-sm text-muted-foreground">
 			Transfer will be initiated within 1-2 business days
@@ -131,7 +187,10 @@ export default function Main() {
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-md px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<PageHeader title="Choose Payment" subtitle="Select your preferred payment method" />
+				<PageHeader
+					title="Choose Payment"
+					subtitle="Select your preferred payment method"
+				/>
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardContent className="pt-6">
 						<PaymentTabs tabs={tabs}>

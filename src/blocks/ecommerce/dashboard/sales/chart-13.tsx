@@ -15,7 +15,10 @@ type MiniSparklineGridCardProps = {
 	metrics: MiniChartData[];
 };
 
-const MiniSparklineGridCard = ({ title, metrics }: MiniSparklineGridCardProps) => (
+const MiniSparklineGridCard = ({
+	title,
+	metrics,
+}: MiniSparklineGridCardProps) => (
 	<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
 		<CardHeader className="flex flex-row items-center gap-3 pb-4">
 			<div className="p-2 rounded-lg bg-primary/10 text-primary">
@@ -67,12 +70,20 @@ const MiniSparklineGridCard = ({ title, metrics }: MiniSparklineGridCardProps) =
 									>
 										<stop
 											offset="0%"
-											stopColor={isPositive ? 'oklch(0.70 0.18 155)' : 'oklch(0.55 0.22 25)'}
+											stopColor={
+												isPositive
+													? 'oklch(0.70 0.18 155)'
+													: 'oklch(0.55 0.22 25)'
+											}
 											stopOpacity={0.4}
 										/>
 										<stop
 											offset="100%"
-											stopColor={isPositive ? 'oklch(0.70 0.18 155)' : 'oklch(0.55 0.22 25)'}
+											stopColor={
+												isPositive
+													? 'oklch(0.70 0.18 155)'
+													: 'oklch(0.55 0.22 25)'
+											}
 											stopOpacity={0}
 										/>
 									</linearGradient>
@@ -84,7 +95,9 @@ const MiniSparklineGridCard = ({ title, metrics }: MiniSparklineGridCardProps) =
 								<path
 									d={`M0,${40 - ((metric.sparkline[0] - min) / range) * 40} ${metric.sparkline.map((val, i) => `L${i},${40 - ((val - min) / range) * 40}`).join(' ')}`}
 									fill="none"
-									stroke={isPositive ? 'oklch(0.70 0.18 155)' : 'oklch(0.55 0.22 25)'}
+									stroke={
+										isPositive ? 'oklch(0.70 0.18 155)' : 'oklch(0.55 0.22 25)'
+									}
 									strokeWidth="2"
 								/>
 							</svg>

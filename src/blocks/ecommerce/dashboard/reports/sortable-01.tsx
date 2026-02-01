@@ -92,9 +92,7 @@ const CategoryRow = ({
 			${revenue.toLocaleString()}
 		</TableCell>
 		<TableCell className="text-right">
-			<span
-				className={growth >= 0 ? 'text-emerald-500' : 'text-rose-500'}
-			>
+			<span className={growth >= 0 ? 'text-emerald-500' : 'text-rose-500'}>
 				{growth >= 0 ? '+' : ''}
 				{growth}%
 			</span>
@@ -111,12 +109,60 @@ export default function Main() {
 	});
 
 	const categories: CategoryItem[] = [
-		{ id: 1, category: 'Electronics', products: 245, revenue: 128500, growth: 24.5, avgPrice: 524.49, conversionRate: 4.2 },
-		{ id: 2, category: 'Fashion', products: 512, revenue: 89200, growth: 12.3, avgPrice: 174.22, conversionRate: 3.8 },
-		{ id: 3, category: 'Home & Living', products: 189, revenue: 67800, growth: 8.7, avgPrice: 358.73, conversionRate: 5.1 },
-		{ id: 4, category: 'Sports', products: 156, revenue: 45600, growth: -2.4, avgPrice: 292.31, conversionRate: 3.2 },
-		{ id: 5, category: 'Beauty', products: 324, revenue: 52300, growth: 18.9, avgPrice: 161.42, conversionRate: 6.4 },
-		{ id: 6, category: 'Books', products: 892, revenue: 34100, growth: 5.2, avgPrice: 38.23, conversionRate: 2.8 },
+		{
+			id: 1,
+			category: 'Electronics',
+			products: 245,
+			revenue: 128500,
+			growth: 24.5,
+			avgPrice: 524.49,
+			conversionRate: 4.2,
+		},
+		{
+			id: 2,
+			category: 'Fashion',
+			products: 512,
+			revenue: 89200,
+			growth: 12.3,
+			avgPrice: 174.22,
+			conversionRate: 3.8,
+		},
+		{
+			id: 3,
+			category: 'Home & Living',
+			products: 189,
+			revenue: 67800,
+			growth: 8.7,
+			avgPrice: 358.73,
+			conversionRate: 5.1,
+		},
+		{
+			id: 4,
+			category: 'Sports',
+			products: 156,
+			revenue: 45600,
+			growth: -2.4,
+			avgPrice: 292.31,
+			conversionRate: 3.2,
+		},
+		{
+			id: 5,
+			category: 'Beauty',
+			products: 324,
+			revenue: 52300,
+			growth: 18.9,
+			avgPrice: 161.42,
+			conversionRate: 6.4,
+		},
+		{
+			id: 6,
+			category: 'Books',
+			products: 892,
+			revenue: 34100,
+			growth: 5.2,
+			avgPrice: 38.23,
+			conversionRate: 2.8,
+		},
 	];
 
 	const handleSort = (key: keyof CategoryItem) => {

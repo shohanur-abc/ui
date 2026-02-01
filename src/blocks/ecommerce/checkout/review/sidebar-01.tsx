@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -70,13 +76,7 @@ const ProductCard = ({ product }: { product: Product }) => (
 	</div>
 );
 
-const AddressCompact = ({
-	name,
-	lines,
-}: {
-	name: string;
-	lines: string[];
-}) => (
+const AddressCompact = ({ name, lines }: { name: string; lines: string[] }) => (
 	<div className="text-sm">
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
@@ -103,16 +103,12 @@ const DeliveryCompact = ({
 	</div>
 );
 
-const PaymentCompact = ({
-	brand,
-	last4,
-}: {
-	brand: string;
-	last4: string;
-}) => (
+const PaymentCompact = ({ brand, last4 }: { brand: string; last4: string }) => (
 	<div className="flex items-center gap-2 text-sm">
 		<CreditCard className="size-4 text-primary" />
-		<p className="font-medium">{brand} •••• {last4}</p>
+		<p className="font-medium">
+			{brand} •••• {last4}
+		</p>
 	</div>
 );
 
@@ -136,9 +132,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-base font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-base font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -150,7 +150,8 @@ export default function Main() {
 			variant: 'Dark Roast / 500g',
 			price: 24.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop',
 		},
 		{
 			id: '2',
@@ -158,7 +159,8 @@ export default function Main() {
 			variant: 'Ceramic / White',
 			price: 59.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop',
 		},
 		{
 			id: '3',
@@ -166,7 +168,8 @@ export default function Main() {
 			variant: 'Manual / Stainless',
 			price: 44.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=400&fit=crop',
 		},
 	];
 

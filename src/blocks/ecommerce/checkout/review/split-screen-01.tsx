@@ -1,12 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowLeft,
@@ -156,7 +151,8 @@ export default function Main() {
 			variant: 'Rose Gold / 38mm',
 			price: 249.0,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -164,7 +160,8 @@ export default function Main() {
 			variant: 'Tan',
 			price: 49.0,
 			quantity: 2,
-			image: 'https://images.unsplash.com/photo-1594534475808-b18fc33b045e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1594534475808-b18fc33b045e?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -172,7 +169,8 @@ export default function Main() {
 			variant: 'Travel Edition',
 			price: 79.0,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1608042314453-ae338d80c427?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608042314453-ae338d80c427?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -200,7 +198,10 @@ export default function Main() {
 	const steps = ['Cart', 'Shipping', 'Payment', 'Review'];
 
 	return (
-		<section className="@container relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/30" data-theme="neon">
+		<section
+			className="@container relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/30"
+			data-theme="neon"
+		>
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-12 @2xl:px-8">
 				<div className="mb-8">
 					<StepIndicator steps={steps} currentStep={3} />
@@ -222,7 +223,9 @@ export default function Main() {
 						<div className="grid gap-4 @md:grid-cols-2">
 							<InfoSection icon={MapPin} title="Shipping Address">
 								<p className="font-medium">{shipping.name}</p>
-								<p className="text-sm text-muted-foreground">{shipping.address}</p>
+								<p className="text-sm text-muted-foreground">
+									{shipping.address}
+								</p>
 							</InfoSection>
 
 							<InfoSection icon={Truck} title="Delivery Method">
@@ -287,9 +290,13 @@ export default function Main() {
 
 								<PriceLine label="Total" amount={pricing.total} highlight />
 
-								<Badge variant="outline" className="w-full justify-center gap-1.5 py-1.5">
+								<Badge
+									variant="outline"
+									className="w-full justify-center gap-1.5 py-1.5"
+								>
 									<Gift className="size-3.5" />
-									You&apos;re saving ${pricing.discount.toFixed(2)} on this order!
+									You&apos;re saving ${pricing.discount.toFixed(2)} on this
+									order!
 								</Badge>
 
 								<Button size="lg" className="w-full gap-2">

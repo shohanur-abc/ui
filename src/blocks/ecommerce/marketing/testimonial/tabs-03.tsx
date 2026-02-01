@@ -72,7 +72,9 @@ const RegionalCard = ({ item }: { item: TestimonialItem }) => (
 				<LocationBadge location={item.location} />
 			</div>
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed flex-1 mb-5">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed flex-1 mb-5">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -103,7 +105,8 @@ export default function Main() {
 					author: 'Patricia Garcia',
 					role: 'Regional Director',
 					company: 'AmericasFirst',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'PG',
 					rating: 5,
 					location: 'New York, USA',
@@ -113,7 +116,8 @@ export default function Main() {
 					author: 'Quentin Reyes',
 					role: 'Country Manager',
 					company: 'MexiCorp',
-					avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 					initials: 'QR',
 					rating: 5,
 					location: 'Mexico City',
@@ -123,7 +127,8 @@ export default function Main() {
 					author: 'Rosa Silva',
 					role: 'VP Expansion',
 					company: 'Brazil Tech',
-					avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 					initials: 'RS',
 					rating: 5,
 					location: 'São Paulo, Brazil',
@@ -140,17 +145,20 @@ export default function Main() {
 					author: 'Stefan Mueller',
 					role: 'Data Officer',
 					company: 'Deutsche Tech',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'SM',
 					rating: 5,
 					location: 'Berlin, Germany',
 				},
 				{
-					quote: 'Multi-language support made adoption easy across our EU offices.',
+					quote:
+						'Multi-language support made adoption easy across our EU offices.',
 					author: 'Theresa Martin',
 					role: 'EU Director',
 					company: 'EuroConnect',
-					avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 					initials: 'TM',
 					rating: 5,
 					location: 'Paris, France',
@@ -160,7 +168,8 @@ export default function Main() {
 					author: 'Ulrich Wright',
 					role: 'COO',
 					company: 'LondonBridge',
-					avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 					initials: 'UW',
 					rating: 5,
 					location: 'London, UK',
@@ -177,7 +186,8 @@ export default function Main() {
 					author: 'Vivian Chen',
 					role: 'APAC Lead',
 					company: 'SingaporeTech',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'VC',
 					rating: 5,
 					location: 'Singapore',
@@ -187,7 +197,8 @@ export default function Main() {
 					author: 'William Tanaka',
 					role: 'Japan Director',
 					company: 'TokyoSoft',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'WT',
 					rating: 5,
 					location: 'Tokyo, Japan',
@@ -197,7 +208,8 @@ export default function Main() {
 					author: 'Xena Roberts',
 					role: 'ANZ Manager',
 					company: 'AustraliaTech',
-					avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 					initials: 'XR',
 					rating: 5,
 					location: 'Sydney, Australia',
@@ -207,7 +219,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Global Impact"

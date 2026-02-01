@@ -60,7 +60,12 @@ interface CustomerRFM {
 const SegmentSummary = ({
 	segments,
 }: {
-	segments: { name: string; count: number; percentage: number; color: string }[];
+	segments: {
+		name: string;
+		count: number;
+		percentage: number;
+		color: string;
+	}[];
 }) => (
 	<div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-3 @xl:grid-cols-6">
 		{segments.map((segment, i) => (
@@ -68,7 +73,9 @@ const SegmentSummary = ({
 				<CardContent className="px-4">
 					<div className="flex items-center justify-between mb-2">
 						<div className={`size-3 rounded-full ${segment.color}`} />
-						<span className="text-muted-foreground text-xs">{segment.percentage}%</span>
+						<span className="text-muted-foreground text-xs">
+							{segment.percentage}%
+						</span>
 					</div>
 					<p className="text-2xl font-bold">{segment.count}</p>
 					<p className="text-muted-foreground text-xs">{segment.name}</p>
@@ -120,12 +127,30 @@ const SearchAndFilter = ({
 
 const SegmentBadge = ({ segment }: { segment: CustomerRFM['segment'] }) => {
 	const config = {
-		champions: { label: 'Champions', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		loyal: { label: 'Loyal', className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
-		potential: { label: 'Potential', className: 'bg-violet-500/10 text-violet-500 border-violet-500/20' },
-		new: { label: 'New', className: 'bg-cyan-500/10 text-cyan-500 border-cyan-500/20' },
-		'at-risk': { label: 'At Risk', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		lost: { label: 'Lost', className: 'bg-red-500/10 text-red-500 border-red-500/20' },
+		champions: {
+			label: 'Champions',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		loyal: {
+			label: 'Loyal',
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
+		potential: {
+			label: 'Potential',
+			className: 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+		},
+		new: {
+			label: 'New',
+			className: 'bg-cyan-500/10 text-cyan-500 border-cyan-500/20',
+		},
+		'at-risk': {
+			label: 'At Risk',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		lost: {
+			label: 'Lost',
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[segment].className}>
@@ -155,14 +180,19 @@ const CustomerRow = ({ customer }: { customer: CustomerRFM }) => (
 		<TableCell>
 			<div className="flex items-center gap-3">
 				<Avatar className="size-9">
-					<AvatarImage src={customer.customer.avatar} alt={customer.customer.name} />
+					<AvatarImage
+						src={customer.customer.avatar}
+						alt={customer.customer.name}
+					/>
 					<AvatarFallback className="bg-primary/10 text-primary text-xs">
 						{customer.customer.initials}
 					</AvatarFallback>
 				</Avatar>
 				<div>
 					<p className="font-medium">{customer.customer.name}</p>
-					<p className="text-muted-foreground text-xs">{customer.customer.email}</p>
+					<p className="text-muted-foreground text-xs">
+						{customer.customer.email}
+					</p>
 				</div>
 			</div>
 		</TableCell>
@@ -234,7 +264,11 @@ export default function Main() {
 	const customers: CustomerRFM[] = [
 		{
 			id: '1',
-			customer: { name: 'Sophie Turner', email: 'sophie.t@email.com', initials: 'ST' },
+			customer: {
+				name: 'Sophie Turner',
+				email: 'sophie.t@email.com',
+				initials: 'ST',
+			},
 			recencyDays: 3,
 			frequency: 24,
 			monetary: '$4,567',
@@ -245,7 +279,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'James Miller', email: 'james.m@email.com', initials: 'JM' },
+			customer: {
+				name: 'James Miller',
+				email: 'james.m@email.com',
+				initials: 'JM',
+			},
 			recencyDays: 12,
 			frequency: 15,
 			monetary: '$2,890',
@@ -256,7 +294,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Emma Wilson', email: 'emma.w@email.com', initials: 'EW' },
+			customer: {
+				name: 'Emma Wilson',
+				email: 'emma.w@email.com',
+				initials: 'EW',
+			},
 			recencyDays: 8,
 			frequency: 6,
 			monetary: '$890',
@@ -267,7 +309,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'Lucas Brown', email: 'lucas.b@email.com', initials: 'LB' },
+			customer: {
+				name: 'Lucas Brown',
+				email: 'lucas.b@email.com',
+				initials: 'LB',
+			},
 			recencyDays: 45,
 			frequency: 12,
 			monetary: '$1,890',
@@ -278,7 +324,11 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Olivia Davis', email: 'olivia.d@email.com', initials: 'OD' },
+			customer: {
+				name: 'Olivia Davis',
+				email: 'olivia.d@email.com',
+				initials: 'OD',
+			},
 			recencyDays: 120,
 			frequency: 5,
 			monetary: '$560',
@@ -325,9 +375,13 @@ export default function Main() {
 										<span>Monetary</span>
 									</div>
 								</TableHead>
-								<TableHead className="hidden @lg:table-cell">RFM Score</TableHead>
+								<TableHead className="hidden @lg:table-cell">
+									RFM Score
+								</TableHead>
 								<TableHead>Segment</TableHead>
-								<TableHead className="hidden @xl:table-cell">Last Order</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Last Order
+								</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>

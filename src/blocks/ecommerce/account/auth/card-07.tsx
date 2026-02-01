@@ -4,10 +4,23 @@ import { Mail, Lock, User, ArrowRight, Gem, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500">
 			<Icon className="size-5 text-white" />
@@ -17,7 +30,10 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 );
 
 const PremiumBadge = ({ label }: { label: string }) => (
-	<Badge variant="secondary" className="gap-1 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 text-amber-600 border-amber-500/30">
+	<Badge
+		variant="secondary"
+		className="gap-1 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 text-amber-600 border-amber-500/30"
+	>
 		<Gem className="size-3" />
 		{label}
 	</Badge>
@@ -69,7 +85,11 @@ const SubmitButton = ({
 	label: string;
 	icon?: React.ElementType;
 }) => (
-	<Button type="submit" size="lg" className="w-full gap-2 group bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600">
+	<Button
+		type="submit"
+		size="lg"
+		className="w-full gap-2 group bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600"
+	>
 		{label}
 		{Icon && (
 			<Icon className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -118,15 +138,34 @@ export default function Main() {
 					</CardHeader>
 					<CardContent>
 						<form className="space-y-4">
-							<FormField label="Full Name" type="text" placeholder="John Doe" icon={User} />
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Full Name"
+								type="text"
+								placeholder="John Doe"
+								icon={User}
+							/>
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<BenefitsList benefits={benefits} />
 							<SubmitButton label="Start Premium Trial" icon={ArrowRight} />
 						</form>
 					</CardContent>
 					<CardFooter>
-						<FooterLink text="Already premium?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already premium?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</CardFooter>
 				</Card>
 			</div>

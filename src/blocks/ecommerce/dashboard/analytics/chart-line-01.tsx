@@ -24,19 +24,45 @@ const SimpleLineChart = ({ data }: { data: LineData[] }) => {
 
 	return (
 		<div className="relative h-64 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				{[0, 25, 50, 75, 100].map((y) => (
-					<line key={y} x1="0" y1={y} x2="100" y2={y} stroke="hsl(var(--border))" strokeWidth="0.1" />
+					<line
+						key={y}
+						x1="0"
+						y1={y}
+						x2="100"
+						y2={y}
+						stroke="hsl(var(--border))"
+						strokeWidth="0.1"
+					/>
 				))}
-				<path d={pathD} fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" strokeLinecap="round" />
+				<path
+					d={pathD}
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="0.5"
+					strokeLinecap="round"
+				/>
 				{points.map((p, i) => (
-					<circle key={i} cx={p.x} cy={p.y} r="0.8" fill="hsl(var(--primary))" />
+					<circle
+						key={i}
+						cx={p.x}
+						cy={p.y}
+						r="0.8"
+						fill="hsl(var(--primary))"
+					/>
 				))}
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
-				{data.filter((_, i) => i % 3 === 0).map((d, i) => (
-					<span key={i}>{d.label}</span>
-				))}
+				{data
+					.filter((_, i) => i % 3 === 0)
+					.map((d, i) => (
+						<span key={i}>{d.label}</span>
+					))}
 			</div>
 		</div>
 	);
@@ -63,8 +89,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Annual Revenue Trend</CardTitle>
-						<p className="text-xs text-muted-foreground">Monthly revenue over the year</p>
+						<CardTitle className="text-sm font-medium">
+							Annual Revenue Trend
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Monthly revenue over the year
+						</p>
 					</CardHeader>
 					<CardContent>
 						<SimpleLineChart data={revenueData} />

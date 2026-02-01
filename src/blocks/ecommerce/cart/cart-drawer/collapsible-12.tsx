@@ -136,7 +136,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Smart Watch',
 				variant: 'Black / 44mm',
 				price: 299.99,
@@ -145,7 +146,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds',
 				variant: 'White',
 				price: 149.99,
@@ -154,7 +156,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes',
 				variant: 'US 10 / Red',
 				price: 129.99,
@@ -163,7 +166,8 @@ export default function Main() {
 			},
 			{
 				id: '4',
-				image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 				name: 'Leather Wallet',
 				variant: 'Brown',
 				price: 79.99,
@@ -188,7 +192,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">
@@ -204,7 +211,11 @@ export default function Main() {
 						<ScrollArea className="flex-1 -mx-6 px-6">
 							<div className="space-y-4 py-2">
 								{Object.entries(groupedItems).map(([category, items]) => (
-									<CategoryGroup key={category} category={category} items={items} />
+									<CategoryGroup
+										key={category}
+										category={category}
+										items={items}
+									/>
 								))}
 							</div>
 						</ScrollArea>

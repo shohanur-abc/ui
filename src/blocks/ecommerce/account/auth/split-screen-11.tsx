@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Lock, User, ArrowRight, Building2, Briefcase } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	ArrowRight,
+	Building2,
+	Briefcase,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,14 +34,18 @@ const B2BPanel = ({
 			<h2 className="text-3xl @xl:text-4xl font-bold mb-4">{headline}</h2>
 			<p className="text-muted-foreground text-lg mb-12">{subheadline}</p>
 			<div>
-				<p className="text-sm text-muted-foreground mb-4">Trusted by leading companies</p>
+				<p className="text-sm text-muted-foreground mb-4">
+					Trusted by leading companies
+				</p>
 				<div className="grid grid-cols-4 gap-4">
 					{logos.map((logo, i) => (
 						<div
 							key={i}
 							className="aspect-video rounded-lg bg-muted/50 border border-border/50 flex items-center justify-center"
 						>
-							<span className="text-xs font-medium text-muted-foreground">{logo}</span>
+							<span className="text-xs font-medium text-muted-foreground">
+								{logo}
+							</span>
 						</div>
 					))}
 				</div>
@@ -43,7 +54,13 @@ const B2BPanel = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -54,7 +71,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -105,7 +124,10 @@ const SelectField = ({
 			</SelectTrigger>
 			<SelectContent>
 				{options.map((option) => (
-					<SelectItem key={option} value={option.toLowerCase().replace(/\s/g, '-')}>
+					<SelectItem
+						key={option}
+						value={option.toLowerCase().replace(/\s/g, '-')}
+					>
 						{option}
 					</SelectItem>
 				))}
@@ -147,8 +169,23 @@ const FooterLink = ({
 );
 
 export default function Main() {
-	const logos = ['Logo 1', 'Logo 2', 'Logo 3', 'Logo 4', 'Logo 5', 'Logo 6', 'Logo 7', 'Logo 8'];
-	const companySizes = ['1-10 employees', '11-50 employees', '51-200 employees', '201-500 employees', '500+ employees'];
+	const logos = [
+		'Logo 1',
+		'Logo 2',
+		'Logo 3',
+		'Logo 4',
+		'Logo 5',
+		'Logo 6',
+		'Logo 7',
+		'Logo 8',
+	];
+	const companySizes = [
+		'1-10 employees',
+		'11-50 employees',
+		'51-200 employees',
+		'201-500 employees',
+		'500+ employees',
+	];
 
 	return (
 		<section className="@container relative overflow-hidden" data-theme="auth">
@@ -161,26 +198,61 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0">
 						<Logo name="B2B Supplies" icon={Building2} />
-						<Title text="Create business account" subtitle="Unlock wholesale pricing today" />
+						<Title
+							text="Create business account"
+							subtitle="Unlock wholesale pricing today"
+						/>
 
 						<form className="space-y-5">
 							<FormRow>
-								<FormField label="First Name" type="text" placeholder="John" icon={User} />
-								<FormField label="Last Name" type="text" placeholder="Doe" icon={User} />
+								<FormField
+									label="First Name"
+									type="text"
+									placeholder="John"
+									icon={User}
+								/>
+								<FormField
+									label="Last Name"
+									type="text"
+									placeholder="Doe"
+									icon={User}
+								/>
 							</FormRow>
-							<FormField label="Company Name" type="text" placeholder="Acme Inc." icon={Building2} />
-							<FormField label="Work Email" type="email" placeholder="you@company.com" icon={Mail} />
+							<FormField
+								label="Company Name"
+								type="text"
+								placeholder="Acme Inc."
+								icon={Building2}
+							/>
+							<FormField
+								label="Work Email"
+								type="email"
+								placeholder="you@company.com"
+								icon={Mail}
+							/>
 							<SelectField
 								label="Company Size"
 								placeholder="Select size"
 								options={companySizes}
 							/>
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
-							<SubmitButton label="Apply for Business Account" icon={ArrowRight} />
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
+							<SubmitButton
+								label="Apply for Business Account"
+								icon={ArrowRight}
+							/>
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="Already have an account?" linkText="Sign in" href="/login" />
+							<FooterLink
+								text="Already have an account?"
+								linkText="Sign in"
+								href="/login"
+							/>
 						</div>
 					</div>
 				</div>

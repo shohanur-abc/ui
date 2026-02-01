@@ -25,11 +25,18 @@ interface ArticleProps {
 	content: { type: 'paragraph' | 'quote'; text: string }[];
 }
 
-const Breadcrumbs = ({ items }: { items: { label: string; href: string }[] }) => (
+const Breadcrumbs = ({
+	items,
+}: {
+	items: { label: string; href: string }[];
+}) => (
 	<nav className="flex items-center gap-1 text-sm text-muted-foreground">
 		{items.map((item, index) => (
 			<div key={index} className="flex items-center gap-1">
-				<Link href={item.href} className="hover:text-foreground transition-colors">
+				<Link
+					href={item.href}
+					className="hover:text-foreground transition-colors"
+				>
 					{item.label}
 				</Link>
 				{index < items.length - 1 && <ChevronRight className="size-3" />}
@@ -75,7 +82,9 @@ const AuthorCard = ({
 			</Avatar>
 			<div className="flex-1 min-w-0">
 				<p className="font-semibold truncate">{author.name}</p>
-				<p className="text-sm text-muted-foreground line-clamp-1">{author.bio}</p>
+				<p className="text-sm text-muted-foreground line-clamp-1">
+					{author.bio}
+				</p>
 				<div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
 					<span>{publishDate}</span>
 					<span>·</span>
@@ -112,7 +121,11 @@ const HeroImage = ({ src, alt }: { src: string; alt: string }) => (
 	</div>
 );
 
-const ContentBlock = ({ blocks }: { blocks: { type: 'paragraph' | 'quote'; text: string }[] }) => (
+const ContentBlock = ({
+	blocks,
+}: {
+	blocks: { type: 'paragraph' | 'quote'; text: string }[];
+}) => (
 	<div className="space-y-8">
 		{blocks.map((block, index) =>
 			block.type === 'quote' ? (
@@ -129,7 +142,7 @@ const ContentBlock = ({ blocks }: { blocks: { type: 'paragraph' | 'quote'; text:
 				>
 					{block.text}
 				</p>
-			)
+			),
 		)}
 	</div>
 );
@@ -146,7 +159,8 @@ export default function Main() {
 		lead: 'Quantum computing represents a fundamental shift in how we process information. This guide breaks down the core concepts without requiring a physics degree.',
 		author: {
 			name: 'Dr. Maya Patel',
-			avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop',
 			initials: 'MP',
 			bio: 'Quantum Computing Researcher at MIT',
 		},
@@ -156,10 +170,22 @@ export default function Main() {
 			'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1600&h=900&fit=crop',
 		heroAlt: 'Quantum computing visualization',
 		content: [
-			{ type: 'paragraph', text: 'Classical computers have served us remarkably well for decades, but we\'re approaching the limits of what silicon-based transistors can achieve. Quantum computing offers a radically different approach—one that harnesses the strange properties of quantum mechanics to solve problems that would take classical computers millennia.' },
-			{ type: 'quote', text: 'Quantum computing isn\'t just faster—it\'s a fundamentally different way of processing information.' },
-			{ type: 'paragraph', text: 'At the heart of quantum computing are qubits, the quantum equivalent of classical bits. Unlike bits, which exist as either 0 or 1, qubits can exist in a superposition of both states simultaneously. This property, combined with entanglement, gives quantum computers their extraordinary potential.' },
-			{ type: 'paragraph', text: 'The applications are vast: drug discovery, cryptography, optimization problems, and climate modeling are just the beginning. As quantum hardware matures and error correction improves, we\'ll see these theoretical advantages translate into practical solutions.' },
+			{
+				type: 'paragraph',
+				text: "Classical computers have served us remarkably well for decades, but we're approaching the limits of what silicon-based transistors can achieve. Quantum computing offers a radically different approach—one that harnesses the strange properties of quantum mechanics to solve problems that would take classical computers millennia.",
+			},
+			{
+				type: 'quote',
+				text: "Quantum computing isn't just faster—it's a fundamentally different way of processing information.",
+			},
+			{
+				type: 'paragraph',
+				text: 'At the heart of quantum computing are qubits, the quantum equivalent of classical bits. Unlike bits, which exist as either 0 or 1, qubits can exist in a superposition of both states simultaneously. This property, combined with entanglement, gives quantum computers their extraordinary potential.',
+			},
+			{
+				type: 'paragraph',
+				text: "The applications are vast: drug discovery, cryptography, optimization problems, and climate modeling are just the beginning. As quantum hardware matures and error correction improves, we'll see these theoretical advantages translate into practical solutions.",
+			},
 		],
 	};
 

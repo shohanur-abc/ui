@@ -81,10 +81,42 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const stats: StatItem[] = [
-		{ title: 'Revenue', value: '$84,232', change: '+24%', trend: 'up', icon: DollarSign, progress: 78, target: '$100k' },
-		{ title: 'Orders', value: '2,847', change: '+18%', trend: 'up', icon: ShoppingCart, progress: 85, target: '3,500' },
-		{ title: 'Customers', value: '1,234', change: '+12%', trend: 'up', icon: Users, progress: 62, target: '2,000' },
-		{ title: 'Avg Order', value: '$29.60', change: '-3%', trend: 'down', icon: CreditCard, progress: 88, target: '$35' },
+		{
+			title: 'Revenue',
+			value: '$84,232',
+			change: '+24%',
+			trend: 'up',
+			icon: DollarSign,
+			progress: 78,
+			target: '$100k',
+		},
+		{
+			title: 'Orders',
+			value: '2,847',
+			change: '+18%',
+			trend: 'up',
+			icon: ShoppingCart,
+			progress: 85,
+			target: '3,500',
+		},
+		{
+			title: 'Customers',
+			value: '1,234',
+			change: '+12%',
+			trend: 'up',
+			icon: Users,
+			progress: 62,
+			target: '2,000',
+		},
+		{
+			title: 'Avg Order',
+			value: '$29.60',
+			change: '-3%',
+			trend: 'down',
+			icon: CreditCard,
+			progress: 88,
+			target: '$35',
+		},
 	];
 
 	const chartData = [
@@ -111,20 +143,40 @@ export default function Main() {
 						<CardHeader className="pb-2">
 							<div className="flex items-center justify-between">
 								<CardTitle className="text-base">Revenue Trend</CardTitle>
-								<span className="text-xs text-muted-foreground">Last 8 months</span>
+								<span className="text-xs text-muted-foreground">
+									Last 8 months
+								</span>
 							</div>
 						</CardHeader>
 						<CardContent>
 							<ChartContainer config={chartConfig} className="h-[300px] w-full">
 								<AreaChart data={chartData}>
 									<defs>
-										<linearGradient id="split31fill" x1="0" y1="0" x2="0" y2="1">
-											<stop offset="5%" stopColor="var(--color-revenue)" stopOpacity={0.3} />
-											<stop offset="95%" stopColor="var(--color-revenue)" stopOpacity={0} />
+										<linearGradient
+											id="split31fill"
+											x1="0"
+											y1="0"
+											x2="0"
+											y2="1"
+										>
+											<stop
+												offset="5%"
+												stopColor="var(--color-revenue)"
+												stopOpacity={0.3}
+											/>
+											<stop
+												offset="95%"
+												stopColor="var(--color-revenue)"
+												stopOpacity={0}
+											/>
 										</linearGradient>
 									</defs>
 									<XAxis dataKey="month" tickLine={false} axisLine={false} />
-									<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v / 1000}k`} />
+									<YAxis
+										tickLine={false}
+										axisLine={false}
+										tickFormatter={(v) => `$${v / 1000}k`}
+									/>
 									<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 									<Area
 										type="monotone"

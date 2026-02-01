@@ -19,7 +19,11 @@ const HeaderCard = ({
 	icon: Icon,
 	title,
 	subtitle,
-}: { icon: LucideIcon; title: string; subtitle: string }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	subtitle: string;
+}) => (
 	<Card className="mb-4 bg-primary/5">
 		<CardContent className="flex items-center gap-3 py-4">
 			<div className="flex size-12 items-center justify-center rounded-xl bg-primary/10">
@@ -36,7 +40,10 @@ const HeaderCard = ({
 const SummaryCard = ({
 	items,
 	total,
-}: { items: SummaryRowProps[]; total: { label: string; value: string } }) => (
+}: {
+	items: SummaryRowProps[];
+	total: { label: string; value: string };
+}) => (
 	<Card>
 		<CardContent className="space-y-3 pt-6">
 			{items.map((item, i) => (

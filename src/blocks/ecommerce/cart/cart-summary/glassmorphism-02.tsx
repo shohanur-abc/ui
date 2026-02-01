@@ -23,7 +23,11 @@ const VIPHeader = ({
 	icon: Icon,
 	title,
 	badge,
-}: { icon: LucideIcon; title: string; badge: string }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	badge: string;
+}) => (
 	<div className="mb-4 flex items-center justify-between">
 		<span className="text-lg font-semibold">{title}</span>
 		<Badge className="gap-1 bg-white/20 text-foreground backdrop-blur hover:bg-white/30">
@@ -64,11 +68,7 @@ export default function Main() {
 			<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-purple-500/20" />
 			<div className="relative mx-auto max-w-md px-4 py-16 @sm:px-6 @md:py-20 @xl:py-24">
 				<FrostedContainer>
-					<VIPHeader
-						icon={Sparkles}
-						title="VIP Order"
-						badge="Elite Member"
-					/>
+					<VIPHeader icon={Sparkles} title="VIP Order" badge="Elite Member" />
 					<div className="space-y-3">
 						{summaryItems.map((item, i) => (
 							<SummaryRow key={i} {...item} />

@@ -54,7 +54,10 @@ const TotalRow = ({ label, value }: { label: string; value: string }) => (
 const Header = ({
 	title,
 	badge,
-}: { title: string; badge?: { label: string; icon: LucideIcon } }) => (
+}: {
+	title: string;
+	badge?: { label: string; icon: LucideIcon };
+}) => (
 	<CardHeader className="border-b">
 		<CardTitle className="flex items-center gap-2">
 			{title}

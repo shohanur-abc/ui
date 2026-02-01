@@ -13,14 +13,7 @@ import {
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import {
-	MapPin,
-	User,
-	Truck,
-	CreditCard,
-	Check,
-	Circle,
-} from 'lucide-react';
+import { MapPin, User, Truck, CreditCard, Check, Circle } from 'lucide-react';
 import { useState } from 'react';
 
 interface FieldProps {
@@ -133,7 +126,9 @@ const TimelineSidebar = ({ currentStep }: { currentStep: number }) => {
 const MobileProgress = ({ step, total }: { step: number; total: number }) => (
 	<div className="@lg:hidden mb-6">
 		<div className="flex items-center justify-between mb-2">
-			<Badge variant="outline">Step {step} of {total}</Badge>
+			<Badge variant="outline">
+				Step {step} of {total}
+			</Badge>
 			<span className="text-sm text-muted-foreground">
 				{Math.round((step / total) * 100)}%
 			</span>
@@ -213,7 +208,11 @@ export default function Main() {
 					<div className="flex-1">
 						<Card>
 							<CardContent className="pt-6">
-								<StepContent step={step} countries={countries} states={states} />
+								<StepContent
+									step={step}
+									countries={countries}
+									states={states}
+								/>
 							</CardContent>
 						</Card>
 

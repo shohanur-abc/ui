@@ -17,13 +17,7 @@ import {
 	CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import { Checkbox } from '@/components/ui/checkbox';
-import {
-	ChevronDown,
-	ChevronUp,
-	MapPin,
-	Plus,
-	ArrowRight,
-} from 'lucide-react';
+import { ChevronDown, ChevronUp, MapPin, Plus, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 
 interface FieldProps {
@@ -116,7 +110,11 @@ const AddressForm = ({
 			</div>
 			<Field label="Email" placeholder="john@example.com" type="email" />
 			<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
-			<SelectField label="Country" placeholder="Select country" options={countries} />
+			<SelectField
+				label="Country"
+				placeholder="Select country"
+				options={countries}
+			/>
 			<Field label="Street Address" placeholder="123 Main Street" />
 			<div className="grid @sm:grid-cols-3 gap-4">
 				<Field label="City" placeholder="City" />
@@ -148,13 +146,19 @@ const SaveAddressOptions = () => (
 		</div>
 		<div className="flex items-center gap-2">
 			<Checkbox id="default-addr" />
-			<Label htmlFor="default-addr" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="default-addr"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Set as my default shipping address
 			</Label>
 		</div>
 		<div className="flex items-center gap-2">
 			<Checkbox id="billing-same" defaultChecked />
-			<Label htmlFor="billing-same" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="billing-same"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Billing address same as shipping
 			</Label>
 		</div>
@@ -191,7 +195,11 @@ export default function Main() {
 						<OptionalAddressFields />
 					</CollapsibleSection>
 
-					<CollapsibleSection title="Save Address Options" icon={MapPin} defaultOpen>
+					<CollapsibleSection
+						title="Save Address Options"
+						icon={MapPin}
+						defaultOpen
+					>
 						<SaveAddressOptions />
 					</CollapsibleSection>
 				</div>

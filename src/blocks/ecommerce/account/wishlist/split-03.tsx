@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, MapPin, Truck, Clock, Star, ChevronRight } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	MapPin,
+	Truck,
+	Clock,
+	Star,
+	ChevronRight,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -29,7 +37,11 @@ interface SplitProps {
 const ProductPanel = ({ item }: { item: WishlistItem }) => (
 	<div className="h-full flex flex-col">
 		<div className="aspect-square rounded-xl overflow-hidden bg-muted">
-			<img src={item.image} alt={item.name} className="size-full object-cover" />
+			<img
+				src={item.image}
+				alt={item.name}
+				className="size-full object-cover"
+			/>
 		</div>
 		<h2 className="text-xl font-bold mt-4">{item.name}</h2>
 		<div className="flex items-center gap-2 mt-1">
@@ -39,7 +51,9 @@ const ProductPanel = ({ item }: { item: WishlistItem }) => (
 			</div>
 		</div>
 		<div className="mt-auto pt-4">
-			<p className="text-sm text-muted-foreground">Available at {item.stores.length} stores</p>
+			<p className="text-sm text-muted-foreground">
+				Available at {item.stores.length} stores
+			</p>
 			<div className="flex gap-2 mt-2">
 				{item.stores.slice(0, 3).map((store) => (
 					<Badge key={store.id} variant="outline" className="text-xs">
@@ -52,7 +66,9 @@ const ProductPanel = ({ item }: { item: WishlistItem }) => (
 );
 
 const StoreCard = ({ store }: { store: Store }) => (
-	<div className={`p-4 rounded-xl border ${store.inStock ? 'hover:border-primary' : 'opacity-60'} transition-colors`}>
+	<div
+		className={`p-4 rounded-xl border ${store.inStock ? 'hover:border-primary' : 'opacity-60'} transition-colors`}
+	>
 		<div className="flex items-start justify-between">
 			<div>
 				<h4 className="font-semibold">{store.name}</h4>
@@ -60,17 +76,23 @@ const StoreCard = ({ store }: { store: Store }) => (
 					<MapPin className="size-3" />
 					{store.location}
 				</div>
-				<Badge variant="outline" className="mt-2 text-xs">{store.distance}</Badge>
+				<Badge variant="outline" className="mt-2 text-xs">
+					{store.distance}
+				</Badge>
 			</div>
 			<div className="text-right">
 				<p className="text-lg font-bold">${store.price.toFixed(2)}</p>
 				{store.inStock ? (
 					<div className="flex items-center gap-1 text-xs text-green-600 mt-1">
 						<Truck className="size-3" />
-						{store.deliveryDays === 0 ? 'Pickup Today' : `${store.deliveryDays} day delivery`}
+						{store.deliveryDays === 0
+							? 'Pickup Today'
+							: `${store.deliveryDays} day delivery`}
 					</div>
 				) : (
-					<Badge variant="secondary" className="text-xs mt-1">Out of Stock</Badge>
+					<Badge variant="secondary" className="text-xs mt-1">
+						Out of Stock
+					</Badge>
 				)}
 			</div>
 		</div>
@@ -104,14 +126,55 @@ export default function Main() {
 	const wishlistItem: WishlistItem = {
 		id: '1',
 		name: 'Sony PlayStation 5',
-		image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop',
+		image:
+			'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop',
 		rating: 4.9,
 		stores: [
-			{ id: '1', name: 'Best Buy', location: 'Downtown', distance: '2.3 mi', price: 499.99, inStock: true, deliveryDays: 0 },
-			{ id: '2', name: 'Amazon', location: 'Warehouse', distance: 'Online', price: 479.99, inStock: true, deliveryDays: 2 },
-			{ id: '3', name: 'Walmart', location: 'Mall District', distance: '4.1 mi', price: 499.99, inStock: true, deliveryDays: 1 },
-			{ id: '4', name: 'Target', location: 'Eastside', distance: '5.8 mi', price: 489.99, inStock: false, deliveryDays: 0 },
-			{ id: '5', name: 'GameStop', location: 'Plaza', distance: '1.2 mi', price: 529.99, inStock: true, deliveryDays: 0 },
+			{
+				id: '1',
+				name: 'Best Buy',
+				location: 'Downtown',
+				distance: '2.3 mi',
+				price: 499.99,
+				inStock: true,
+				deliveryDays: 0,
+			},
+			{
+				id: '2',
+				name: 'Amazon',
+				location: 'Warehouse',
+				distance: 'Online',
+				price: 479.99,
+				inStock: true,
+				deliveryDays: 2,
+			},
+			{
+				id: '3',
+				name: 'Walmart',
+				location: 'Mall District',
+				distance: '4.1 mi',
+				price: 499.99,
+				inStock: true,
+				deliveryDays: 1,
+			},
+			{
+				id: '4',
+				name: 'Target',
+				location: 'Eastside',
+				distance: '5.8 mi',
+				price: 489.99,
+				inStock: false,
+				deliveryDays: 0,
+			},
+			{
+				id: '5',
+				name: 'GameStop',
+				location: 'Plaza',
+				distance: '1.2 mi',
+				price: 529.99,
+				inStock: true,
+				deliveryDays: 0,
+			},
 		],
 		href: '/product/1',
 	};

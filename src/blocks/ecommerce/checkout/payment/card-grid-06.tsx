@@ -1,10 +1,27 @@
 'use client';
 
-import { ArrowRight, Check, Clock, CreditCard, Lock, RefreshCcw, Shield, Smartphone, Star, Wallet, Zap } from 'lucide-react';
+import {
+	ArrowRight,
+	Check,
+	Clock,
+	CreditCard,
+	Lock,
+	RefreshCcw,
+	Shield,
+	Smartphone,
+	Star,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -25,13 +42,25 @@ interface PaymentMethod {
 	description: string;
 }
 
-const PlanCard = ({ id, name, price, period, features, popular, selected, onSelect }: SubscriptionPlan & { selected: boolean; onSelect: (id: string) => void }) => (
+const PlanCard = ({
+	id,
+	name,
+	price,
+	period,
+	features,
+	popular,
+	selected,
+	onSelect,
+}: SubscriptionPlan & {
+	selected: boolean;
+	onSelect: (id: string) => void;
+}) => (
 	<button
 		type="button"
 		onClick={() => onSelect(id)}
 		className={`relative flex-1 p-4 rounded-xl border-2 transition-all text-left ${
-			selected 
-				? 'border-primary bg-primary/5' 
+			selected
+				? 'border-primary bg-primary/5'
 				: 'border-border/50 hover:border-primary/30'
 		}`}
 	>
@@ -50,7 +79,10 @@ const PlanCard = ({ id, name, price, period, features, popular, selected, onSele
 		</div>
 		<div className="space-y-1.5">
 			{features.map((feature, index) => (
-				<div key={index} className="flex items-center gap-2 text-xs text-muted-foreground">
+				<div
+					key={index}
+					className="flex items-center gap-2 text-xs text-muted-foreground"
+				>
 					<Check className="size-3 text-primary shrink-0" />
 					<span>{feature}</span>
 				</div>
@@ -64,21 +96,41 @@ const PlanCard = ({ id, name, price, period, features, popular, selected, onSele
 	</button>
 );
 
-const PlanSelector = ({ plans, selected, onSelect }: { plans: SubscriptionPlan[]; selected: string; onSelect: (id: string) => void }) => (
+const PlanSelector = ({
+	plans,
+	selected,
+	onSelect,
+}: {
+	plans: SubscriptionPlan[];
+	selected: string;
+	onSelect: (id: string) => void;
+}) => (
 	<div className="flex gap-3">
 		{plans.map((plan) => (
-			<PlanCard key={plan.id} {...plan} selected={selected === plan.id} onSelect={onSelect} />
+			<PlanCard
+				key={plan.id}
+				{...plan}
+				selected={selected === plan.id}
+				onSelect={onSelect}
+			/>
 		))}
 	</div>
 );
 
-const PaymentMethodRow = ({ id, name, icon: Icon, description, selected, onSelect }: PaymentMethod & { selected: boolean; onSelect: (id: string) => void }) => (
+const PaymentMethodRow = ({
+	id,
+	name,
+	icon: Icon,
+	description,
+	selected,
+	onSelect,
+}: PaymentMethod & { selected: boolean; onSelect: (id: string) => void }) => (
 	<button
 		type="button"
 		onClick={() => onSelect(id)}
 		className={`w-full flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
-			selected 
-				? 'border-primary bg-primary/5' 
+			selected
+				? 'border-primary bg-primary/5'
 				: 'border-border/50 hover:border-primary/30'
 		}`}
 	>
@@ -97,12 +149,25 @@ const PaymentMethodRow = ({ id, name, icon: Icon, description, selected, onSelec
 	</button>
 );
 
-const PaymentMethodSelector = ({ methods, selected, onSelect }: { methods: PaymentMethod[]; selected: string; onSelect: (id: string) => void }) => (
+const PaymentMethodSelector = ({
+	methods,
+	selected,
+	onSelect,
+}: {
+	methods: PaymentMethod[];
+	selected: string;
+	onSelect: (id: string) => void;
+}) => (
 	<div className="space-y-2">
 		<h3 className="text-sm font-medium">Payment Method</h3>
 		<div className="space-y-2">
 			{methods.map((method) => (
-				<PaymentMethodRow key={method.id} {...method} selected={selected === method.id} onSelect={onSelect} />
+				<PaymentMethodRow
+					key={method.id}
+					{...method}
+					selected={selected === method.id}
+					onSelect={onSelect}
+				/>
 			))}
 		</div>
 	</div>
@@ -130,7 +195,11 @@ const CardForm = () => (
 	</div>
 );
 
-const Benefits = ({ items }: { items: { icon: React.ComponentType<{ className?: string }>; label: string }[] }) => (
+const Benefits = ({
+	items,
+}: {
+	items: { icon: React.ComponentType<{ className?: string }>; label: string }[];
+}) => (
 	<div className="flex items-center justify-center gap-4 flex-wrap text-xs text-muted-foreground">
 		{items.map((item, index) => (
 			<div key={index} className="flex items-center gap-1">
@@ -141,7 +210,15 @@ const Benefits = ({ items }: { items: { icon: React.ComponentType<{ className?: 
 	</div>
 );
 
-const TotalDisplay = ({ label, amount, frequency }: { label: string; amount: string; frequency: string }) => (
+const TotalDisplay = ({
+	label,
+	amount,
+	frequency,
+}: {
+	label: string;
+	amount: string;
+	frequency: string;
+}) => (
 	<div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
 		<div className="flex items-center justify-between">
 			<div>
@@ -180,8 +257,18 @@ export default function Main() {
 	];
 
 	const paymentMethods: PaymentMethod[] = [
-		{ id: 'card', name: 'Credit Card', icon: CreditCard, description: 'Visa, Mastercard, Amex' },
-		{ id: 'wallet', name: 'Digital Wallet', icon: Wallet, description: 'Apple Pay, Google Pay' },
+		{
+			id: 'card',
+			name: 'Credit Card',
+			icon: CreditCard,
+			description: 'Visa, Mastercard, Amex',
+		},
+		{
+			id: 'wallet',
+			name: 'Digital Wallet',
+			icon: Wallet,
+			description: 'Apple Pay, Google Pay',
+		},
 	];
 
 	const benefits = [
@@ -196,16 +283,26 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardHeader className="text-center">
 						<h2 className="text-xl font-semibold">Subscribe to Pro</h2>
-						<p className="text-sm text-muted-foreground">Unlock all features and priority support</p>
+						<p className="text-sm text-muted-foreground">
+							Unlock all features and priority support
+						</p>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<PlanSelector plans={plans} selected="yearly" onSelect={() => {}} />
 						<Separator />
-						<PaymentMethodSelector methods={paymentMethods} selected="card" onSelect={() => {}} />
+						<PaymentMethodSelector
+							methods={paymentMethods}
+							selected="card"
+							onSelect={() => {}}
+						/>
 						<CardForm />
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
-						<TotalDisplay label="Total today" amount="$180/yr" frequency="Billed annually" />
+						<TotalDisplay
+							label="Total today"
+							amount="$180/yr"
+							frequency="Billed annually"
+						/>
 						<SubscribeButton label="Start Subscription" />
 						<Benefits items={benefits} />
 					</CardFooter>

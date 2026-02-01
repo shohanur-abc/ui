@@ -99,9 +99,7 @@ const PaymentCard = ({
 							•••• •••• •••• {lastFour}
 						</p>
 					)}
-					{email && (
-						<p className="text-sm text-muted-foreground">{email}</p>
-					)}
+					{email && <p className="text-sm text-muted-foreground">{email}</p>}
 					{expiryDate && (
 						<p className="text-xs text-muted-foreground">
 							Expires: {expiryDate}
@@ -137,11 +135,7 @@ const PaymentCard = ({
 	</div>
 );
 
-const BillingToggle = ({
-	title,
-	description,
-	enabled,
-}: BillingPreference) => (
+const BillingToggle = ({ title, description, enabled }: BillingPreference) => (
 	<div className="flex items-center justify-between py-3">
 		<div>
 			<h4 className="font-medium">{title}</h4>
@@ -248,8 +242,8 @@ export default function Main() {
 							<div>
 								<h4 className="font-semibold">Secure Payments</h4>
 								<p className="mt-1 text-sm text-muted-foreground">
-									All payment information is encrypted and securely stored. We never
-									store your full card number.
+									All payment information is encrypted and securely stored. We
+									never store your full card number.
 								</p>
 							</div>
 						</CardContent>

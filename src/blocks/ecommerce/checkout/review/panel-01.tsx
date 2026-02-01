@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowLeft,
@@ -95,7 +101,9 @@ const AddressDisplay = ({
 	phone: string;
 }) => (
 	<div className="rounded-xl bg-muted/30 p-4">
-		<p className="mb-2 text-xs font-medium uppercase text-muted-foreground">{type}</p>
+		<p className="mb-2 text-xs font-medium uppercase text-muted-foreground">
+			{type}
+		</p>
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
 			<p key={i} className="text-sm text-muted-foreground">
@@ -141,7 +149,9 @@ const PaymentDisplay = ({
 			<CreditCard className="size-7 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -158,9 +168,13 @@ const TotalRow = ({
 	bold?: boolean;
 	discount?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={discount ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={discount ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -168,8 +182,12 @@ const ConfirmBanner = () => (
 	<div className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 p-4">
 		<CheckCircle className="size-6 text-green-600 dark:text-green-400" />
 		<div>
-			<p className="font-medium text-green-600 dark:text-green-400">Ready to confirm</p>
-			<p className="text-sm text-muted-foreground">All details have been verified</p>
+			<p className="font-medium text-green-600 dark:text-green-400">
+				Ready to confirm
+			</p>
+			<p className="text-sm text-muted-foreground">
+				All details have been verified
+			</p>
 		</div>
 	</div>
 );
@@ -182,7 +200,8 @@ export default function Main() {
 			variant: 'Large / Earth Tones',
 			price: 89.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=200&h=200&fit=crop',
 			rating: 5,
 			favorite: true,
 		},
@@ -192,7 +211,8 @@ export default function Main() {
 			variant: 'Mixed Bouquet',
 			price: 45.99,
 			quantity: 2,
-			image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=200&h=200&fit=crop',
 			rating: 4,
 		},
 	];

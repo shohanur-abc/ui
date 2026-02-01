@@ -131,7 +131,10 @@ const WelcomeBonus = ({
 		</h2>
 		<div className="space-y-3">
 			{bonuses.map((bonus, i) => (
-				<div key={i} className="p-4 rounded-xl bg-amber-500/10 border border-amber-200 dark:border-amber-800/30">
+				<div
+					key={i}
+					className="p-4 rounded-xl bg-amber-500/10 border border-amber-200 dark:border-amber-800/30"
+				>
 					<div className="flex items-start gap-3">
 						<Package className="size-5 text-amber-500 mt-0.5" />
 						<div>
@@ -215,12 +218,7 @@ export default function Main() {
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 space-y-8">
 				<SubscriptionHeader plan="Pro Plan" />
 
-				<PlanCard
-					plan="Pro Plan"
-					price={29}
-					currency="$"
-					interval="month"
-				/>
+				<PlanCard plan="Pro Plan" price={29} currency="$" interval="month" />
 
 				<Separator />
 

@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Heart, ArrowRight, Tag, Percent, Truck, ShieldCheck } from 'lucide-react';
+import {
+	Heart,
+	ArrowRight,
+	Tag,
+	Percent,
+	Truck,
+	ShieldCheck,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -16,7 +23,9 @@ const FeatureCard = ({ feature }: { feature: Feature }) => (
 		</div>
 		<div>
 			<h3 className="font-medium">{feature.title}</h3>
-			<p className="text-sm text-muted-foreground mt-0.5">{feature.description}</p>
+			<p className="text-sm text-muted-foreground mt-0.5">
+				{feature.description}
+			</p>
 		</div>
 	</div>
 );

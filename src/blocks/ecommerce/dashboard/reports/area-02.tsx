@@ -62,9 +62,24 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const regions: RegionStatProps[] = [
-		{ region: 'Americas', visitors: '45.2K', peak: '2:00 PM EST', color: 'bg-[oklch(0.7_0.2_280)]' },
-		{ region: 'Europe', visitors: '32.8K', peak: '10:00 AM CET', color: 'bg-[oklch(0.7_0.18_160)]' },
-		{ region: 'Asia Pacific', visitors: '28.4K', peak: '8:00 PM JST', color: 'bg-[oklch(0.72_0.16_200)]' },
+		{
+			region: 'Americas',
+			visitors: '45.2K',
+			peak: '2:00 PM EST',
+			color: 'bg-[oklch(0.7_0.2_280)]',
+		},
+		{
+			region: 'Europe',
+			visitors: '32.8K',
+			peak: '10:00 AM CET',
+			color: 'bg-[oklch(0.7_0.18_160)]',
+		},
+		{
+			region: 'Asia Pacific',
+			visitors: '28.4K',
+			peak: '8:00 PM JST',
+			color: 'bg-[oklch(0.72_0.16_200)]',
+		},
 	];
 
 	const chartData: TrafficData[] = [
@@ -115,19 +130,47 @@ export default function Main() {
 							))}
 						</div>
 						<ChartContainer config={chartConfig} className="h-[320px] w-full">
-							<AreaChart data={chartData} margin={{ left: 12, right: 12 }} stackOffset="expand">
+							<AreaChart
+								data={chartData}
+								margin={{ left: 12, right: 12 }}
+								stackOffset="expand"
+							>
 								<defs>
 									<linearGradient id="americasGrad" x1="0" y1="0" x2="0" y2="1">
-										<stop offset="5%" stopColor="var(--color-americas)" stopOpacity={0.5} />
-										<stop offset="95%" stopColor="var(--color-americas)" stopOpacity={0.1} />
+										<stop
+											offset="5%"
+											stopColor="var(--color-americas)"
+											stopOpacity={0.5}
+										/>
+										<stop
+											offset="95%"
+											stopColor="var(--color-americas)"
+											stopOpacity={0.1}
+										/>
 									</linearGradient>
 									<linearGradient id="europeGrad" x1="0" y1="0" x2="0" y2="1">
-										<stop offset="5%" stopColor="var(--color-europe)" stopOpacity={0.5} />
-										<stop offset="95%" stopColor="var(--color-europe)" stopOpacity={0.1} />
+										<stop
+											offset="5%"
+											stopColor="var(--color-europe)"
+											stopOpacity={0.5}
+										/>
+										<stop
+											offset="95%"
+											stopColor="var(--color-europe)"
+											stopOpacity={0.1}
+										/>
 									</linearGradient>
 									<linearGradient id="asiaGrad" x1="0" y1="0" x2="0" y2="1">
-										<stop offset="5%" stopColor="var(--color-asia)" stopOpacity={0.5} />
-										<stop offset="95%" stopColor="var(--color-asia)" stopOpacity={0.1} />
+										<stop
+											offset="5%"
+											stopColor="var(--color-asia)"
+											stopOpacity={0.5}
+										/>
+										<stop
+											offset="95%"
+											stopColor="var(--color-asia)"
+											stopOpacity={0.1}
+										/>
 									</linearGradient>
 								</defs>
 								<CartesianGrid strokeDasharray="3 3" vertical={false} />

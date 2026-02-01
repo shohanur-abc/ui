@@ -45,7 +45,13 @@ type TransactionRow = {
 	method: string;
 };
 
-const FinanceKpiCard = ({ title, value, change, trend, icon: Icon }: FinanceKpi) => (
+const FinanceKpiCard = ({
+	title,
+	value,
+	change,
+	trend,
+	icon: Icon,
+}: FinanceKpi) => (
 	<Card>
 		<CardContent className="p-4">
 			<div className="flex items-center gap-2 text-muted-foreground">
@@ -97,19 +103,109 @@ const getStatusStyle = (status: TransactionRow['status']) => {
 
 export default function Main() {
 	const kpis: FinanceKpi[] = [
-		{ title: 'Total Revenue', value: '$248,632', change: '+28%', trend: 'up', icon: DollarSign },
-		{ title: 'Net Profit', value: '$67,842', change: '+22%', trend: 'up', icon: TrendingUp },
-		{ title: 'Processing Fees', value: '$7,459', change: '+15%', trend: 'down', icon: CreditCard },
-		{ title: 'Pending Payouts', value: '$12,340', change: '-8%', trend: 'up', icon: Wallet },
+		{
+			title: 'Total Revenue',
+			value: '$248,632',
+			change: '+28%',
+			trend: 'up',
+			icon: DollarSign,
+		},
+		{
+			title: 'Net Profit',
+			value: '$67,842',
+			change: '+22%',
+			trend: 'up',
+			icon: TrendingUp,
+		},
+		{
+			title: 'Processing Fees',
+			value: '$7,459',
+			change: '+15%',
+			trend: 'down',
+			icon: CreditCard,
+		},
+		{
+			title: 'Pending Payouts',
+			value: '$12,340',
+			change: '-8%',
+			trend: 'up',
+			icon: Wallet,
+		},
 	];
 
 	const transactions: TransactionRow[] = [
-		{ id: 'TXN-001', type: 'payment', description: 'Order payment', orderId: 'ORD-4521', amount: '$234.50', fee: '$6.80', net: '$227.70', date: 'Dec 12, 2024 14:32', status: 'completed', method: 'Visa •••• 4242' },
-		{ id: 'TXN-002', type: 'payment', description: 'Order payment', orderId: 'ORD-4520', amount: '$189.00', fee: '$5.48', net: '$183.52', date: 'Dec 12, 2024 13:15', status: 'completed', method: 'Mastercard •••• 8888' },
-		{ id: 'TXN-003', type: 'refund', description: 'Order refund', orderId: 'ORD-4516', amount: '-$145.50', fee: '$0.00', net: '-$145.50', date: 'Dec 12, 2024 11:42', status: 'completed', method: 'Original method' },
-		{ id: 'TXN-004', type: 'payout', description: 'Weekly payout', orderId: '-', amount: '-$5,000.00', fee: '$0.00', net: '-$5,000.00', date: 'Dec 11, 2024 00:00', status: 'completed', method: 'Bank •••• 1234' },
-		{ id: 'TXN-005', type: 'payment', description: 'Order payment', orderId: 'ORD-4519', amount: '$456.20', fee: '$13.23', net: '$442.97', date: 'Dec 11, 2024 16:45', status: 'pending', method: 'PayPal' },
-		{ id: 'TXN-006', type: 'payment', description: 'Order payment', orderId: 'ORD-4518', amount: '$78.90', fee: '$2.29', net: '$76.61', date: 'Dec 11, 2024 15:20', status: 'completed', method: 'Apple Pay' },
+		{
+			id: 'TXN-001',
+			type: 'payment',
+			description: 'Order payment',
+			orderId: 'ORD-4521',
+			amount: '$234.50',
+			fee: '$6.80',
+			net: '$227.70',
+			date: 'Dec 12, 2024 14:32',
+			status: 'completed',
+			method: 'Visa •••• 4242',
+		},
+		{
+			id: 'TXN-002',
+			type: 'payment',
+			description: 'Order payment',
+			orderId: 'ORD-4520',
+			amount: '$189.00',
+			fee: '$5.48',
+			net: '$183.52',
+			date: 'Dec 12, 2024 13:15',
+			status: 'completed',
+			method: 'Mastercard •••• 8888',
+		},
+		{
+			id: 'TXN-003',
+			type: 'refund',
+			description: 'Order refund',
+			orderId: 'ORD-4516',
+			amount: '-$145.50',
+			fee: '$0.00',
+			net: '-$145.50',
+			date: 'Dec 12, 2024 11:42',
+			status: 'completed',
+			method: 'Original method',
+		},
+		{
+			id: 'TXN-004',
+			type: 'payout',
+			description: 'Weekly payout',
+			orderId: '-',
+			amount: '-$5,000.00',
+			fee: '$0.00',
+			net: '-$5,000.00',
+			date: 'Dec 11, 2024 00:00',
+			status: 'completed',
+			method: 'Bank •••• 1234',
+		},
+		{
+			id: 'TXN-005',
+			type: 'payment',
+			description: 'Order payment',
+			orderId: 'ORD-4519',
+			amount: '$456.20',
+			fee: '$13.23',
+			net: '$442.97',
+			date: 'Dec 11, 2024 16:45',
+			status: 'pending',
+			method: 'PayPal',
+		},
+		{
+			id: 'TXN-006',
+			type: 'payment',
+			description: 'Order payment',
+			orderId: 'ORD-4518',
+			amount: '$78.90',
+			fee: '$2.29',
+			net: '$76.61',
+			date: 'Dec 11, 2024 15:20',
+			status: 'completed',
+			method: 'Apple Pay',
+		},
 	];
 
 	return (
@@ -136,11 +232,15 @@ export default function Main() {
 								<TableHeader>
 									<TableRow>
 										<TableHead>Transaction</TableHead>
-										<TableHead className="hidden @lg:table-cell">Order</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Order
+										</TableHead>
 										<TableHead>Amount</TableHead>
 										<TableHead className="hidden @xl:table-cell">Fee</TableHead>
 										<TableHead className="hidden @lg:table-cell">Net</TableHead>
-										<TableHead className="hidden @xl:table-cell">Date</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Date
+										</TableHead>
 										<TableHead>Status</TableHead>
 										<TableHead className="w-10"></TableHead>
 									</TableRow>
@@ -155,17 +255,36 @@ export default function Main() {
 													</div>
 													<div>
 														<p className="font-medium">{txn.description}</p>
-														<p className="text-xs text-muted-foreground">{txn.method}</p>
+														<p className="text-xs text-muted-foreground">
+															{txn.method}
+														</p>
 													</div>
 												</div>
 											</TableCell>
-											<TableCell className="hidden @lg:table-cell text-muted-foreground">{txn.orderId}</TableCell>
-											<TableCell className={`font-medium ${txn.amount.startsWith('-') ? 'text-red-500' : ''}`}>{txn.amount}</TableCell>
-											<TableCell className="hidden @xl:table-cell text-muted-foreground">{txn.fee}</TableCell>
-											<TableCell className={`hidden @lg:table-cell font-medium ${txn.net.startsWith('-') ? 'text-red-500' : ''}`}>{txn.net}</TableCell>
-											<TableCell className="hidden @xl:table-cell text-muted-foreground">{txn.date}</TableCell>
+											<TableCell className="hidden @lg:table-cell text-muted-foreground">
+												{txn.orderId}
+											</TableCell>
+											<TableCell
+												className={`font-medium ${txn.amount.startsWith('-') ? 'text-red-500' : ''}`}
+											>
+												{txn.amount}
+											</TableCell>
+											<TableCell className="hidden @xl:table-cell text-muted-foreground">
+												{txn.fee}
+											</TableCell>
+											<TableCell
+												className={`hidden @lg:table-cell font-medium ${txn.net.startsWith('-') ? 'text-red-500' : ''}`}
+											>
+												{txn.net}
+											</TableCell>
+											<TableCell className="hidden @xl:table-cell text-muted-foreground">
+												{txn.date}
+											</TableCell>
 											<TableCell>
-												<Badge variant="secondary" className={getStatusStyle(txn.status)}>
+												<Badge
+													variant="secondary"
+													className={getStatusStyle(txn.status)}
+												>
 													{txn.status}
 												</Badge>
 											</TableCell>

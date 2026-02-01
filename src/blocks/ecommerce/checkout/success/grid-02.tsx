@@ -75,7 +75,13 @@ const TimelineCard = ({ steps }: { steps: TimelineStepProps[] }) => (
 							{step.status === 'completed' ? '✓' : i + 1}
 						</div>
 						<div className="flex-1">
-							<p className={step.status === 'upcoming' ? 'text-muted-foreground' : 'font-medium'}>
+							<p
+								className={
+									step.status === 'upcoming'
+										? 'text-muted-foreground'
+										: 'font-medium'
+								}
+							>
 								{step.label}
 							</p>
 						</div>
@@ -158,7 +164,12 @@ const ShippingCard = ({
 			<div>
 				<p className="text-sm text-muted-foreground mb-1">Deliver to</p>
 				{address.map((line, i) => (
-					<p key={i} className={i === 0 ? 'font-medium' : 'text-sm text-muted-foreground'}>
+					<p
+						key={i}
+						className={
+							i === 0 ? 'font-medium' : 'text-sm text-muted-foreground'
+						}
+					>
 						{line}
 					</p>
 				))}
@@ -174,7 +185,13 @@ const ShippingCard = ({
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3">
 		{items.map(({ label, href, variant }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="flex-1" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="flex-1"
+				asChild
+			>
 				<Link href={href}>{label}</Link>
 			</Button>
 		))}

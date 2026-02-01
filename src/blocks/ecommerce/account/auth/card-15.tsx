@@ -1,14 +1,36 @@
 import Link from 'next/link';
-import { Mail, Lock, User, ArrowRight, Zap, Clock, Truck, RotateCcw } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	ArrowRight,
+	Zap,
+	Clock,
+	Truck,
+	RotateCcw,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -80,14 +102,29 @@ const FormField = ({
 	</div>
 );
 
-const TermsCheckbox = ({ label, termsHref, privacyHref }: { label: string; termsHref: string; privacyHref: string }) => (
+const TermsCheckbox = ({
+	label,
+	termsHref,
+	privacyHref,
+}: {
+	label: string;
+	termsHref: string;
+	privacyHref: string;
+}) => (
 	<div className="flex items-start gap-2">
 		<Checkbox id="terms" className="mt-0.5" />
-		<Label htmlFor="terms" className="text-sm font-normal cursor-pointer leading-relaxed">
+		<Label
+			htmlFor="terms"
+			className="text-sm font-normal cursor-pointer leading-relaxed"
+		>
 			{label}{' '}
-			<Link href={termsHref} className="text-primary hover:underline">Terms</Link>
-			{' '}and{' '}
-			<Link href={privacyHref} className="text-primary hover:underline">Privacy</Link>
+			<Link href={termsHref} className="text-primary hover:underline">
+				Terms
+			</Link>{' '}
+			and{' '}
+			<Link href={privacyHref} className="text-primary hover:underline">
+				Privacy
+			</Link>
 		</Label>
 	</div>
 );
@@ -161,22 +198,47 @@ export default function Main() {
 							<Logo name="FastMart" icon={Zap} />
 						</div>
 						<CardTitle className="text-2xl">Create account</CardTitle>
-						<CardDescription>Join FastMart for express shopping</CardDescription>
+						<CardDescription>
+							Join FastMart for express shopping
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<FeatureRow features={features} />
 						<SocialButton icon={GoogleIcon} label="Sign up with Google" />
 						<DividerText text="or" />
 						<form className="space-y-4">
-							<FormField label="Full Name" type="text" placeholder="John Doe" icon={User} />
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
-							<TermsCheckbox label="I agree to the" termsHref="/terms" privacyHref="/privacy" />
+							<FormField
+								label="Full Name"
+								type="text"
+								placeholder="John Doe"
+								icon={User}
+							/>
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
+							<TermsCheckbox
+								label="I agree to the"
+								termsHref="/terms"
+								privacyHref="/privacy"
+							/>
 							<SubmitButton label="Create Account" icon={ArrowRight} />
 						</form>
 					</CardContent>
 					<CardFooter>
-						<FooterLink text="Already have an account?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already have an account?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</CardFooter>
 				</Card>
 			</div>

@@ -259,7 +259,8 @@ export default function Main() {
 									<div>
 										<p className="text-2xl font-bold text-primary">
 											{(
-												warehouses.reduce((a, b) => a + b.inventoryCount, 0) / 1000
+												warehouses.reduce((a, b) => a + b.inventoryCount, 0) /
+												1000
 											).toFixed(0)}
 											K
 										</p>

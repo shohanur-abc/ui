@@ -1,10 +1,24 @@
 'use client';
 
-import { ArrowRight, Building2, CreditCard, Globe, Lock, QrCode, Shield, Smartphone } from 'lucide-react';
+import {
+	ArrowRight,
+	Building2,
+	CreditCard,
+	Globe,
+	Lock,
+	QrCode,
+	Shield,
+	Smartphone,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -31,8 +45,18 @@ const SecureBadge = () => (
 	</Badge>
 );
 
-const VerticalTabs = ({ tabs, children }: { tabs: TabItemProps[]; children: React.ReactNode }) => (
-	<Tabs defaultValue={tabs[0]?.value} className="flex gap-6" orientation="vertical">
+const VerticalTabs = ({
+	tabs,
+	children,
+}: {
+	tabs: TabItemProps[];
+	children: React.ReactNode;
+}) => (
+	<Tabs
+		defaultValue={tabs[0]?.value}
+		className="flex gap-6"
+		orientation="vertical"
+	>
 		<TabsList className="flex-col h-auto bg-transparent gap-1 w-48 shrink-0">
 			{tabs.map((tab) => (
 				<TabsTrigger
@@ -41,7 +65,11 @@ const VerticalTabs = ({ tabs, children }: { tabs: TabItemProps[]; children: Reac
 					className="w-full justify-start gap-2 px-4 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg"
 				>
 					{tab.label}
-					{tab.badge && <Badge variant="secondary" className="ml-auto text-xs">{tab.badge}</Badge>}
+					{tab.badge && (
+						<Badge variant="secondary" className="ml-auto text-xs">
+							{tab.badge}
+						</Badge>
+					)}
 				</TabsTrigger>
 			))}
 		</TabsList>
@@ -49,9 +77,17 @@ const VerticalTabs = ({ tabs, children }: { tabs: TabItemProps[]; children: Reac
 	</Tabs>
 );
 
-const FormInput = ({ id, label, placeholder, type = 'text', colSpan }: FormInputProps) => (
+const FormInput = ({
+	id,
+	label,
+	placeholder,
+	type = 'text',
+	colSpan,
+}: FormInputProps) => (
 	<div className={`space-y-2 ${colSpan === 2 ? 'col-span-2' : ''}`}>
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<Input id={id} type={type} placeholder={placeholder} />
 	</div>
 );
@@ -61,8 +97,18 @@ const CardPaymentContent = () => (
 		<h3 className="font-semibold">Credit or Debit Card</h3>
 		<p className="text-sm text-muted-foreground">Pay securely with your card</p>
 		<div className="grid gap-4 grid-cols-2">
-			<FormInput id="card-num" label="Card Number" placeholder="1234 5678 9012 3456" colSpan={2} />
-			<FormInput id="holder" label="Cardholder" placeholder="John Doe" colSpan={2} />
+			<FormInput
+				id="card-num"
+				label="Card Number"
+				placeholder="1234 5678 9012 3456"
+				colSpan={2}
+			/>
+			<FormInput
+				id="holder"
+				label="Cardholder"
+				placeholder="John Doe"
+				colSpan={2}
+			/>
 			<FormInput id="exp" label="Expiry" placeholder="MM/YY" />
 			<FormInput id="cvv" label="CVV" placeholder="123" type="password" />
 		</div>
@@ -72,7 +118,9 @@ const CardPaymentContent = () => (
 const WalletPaymentContent = () => (
 	<div className="space-y-4">
 		<h3 className="font-semibold">Digital Wallet</h3>
-		<p className="text-sm text-muted-foreground">Quick checkout with your wallet</p>
+		<p className="text-sm text-muted-foreground">
+			Quick checkout with your wallet
+		</p>
 		<div className="space-y-3">
 			<Button variant="outline" className="w-full h-14 gap-3">
 				<Smartphone className="size-5" />
@@ -93,10 +141,16 @@ const WalletPaymentContent = () => (
 const BankPaymentContent = () => (
 	<div className="space-y-4">
 		<h3 className="font-semibold">Bank Transfer</h3>
-		<p className="text-sm text-muted-foreground">Pay directly from your bank account</p>
+		<p className="text-sm text-muted-foreground">
+			Pay directly from your bank account
+		</p>
 		<div className="grid gap-4">
 			<FormInput id="bank" label="Bank Name" placeholder="Select your bank" />
-			<FormInput id="acc" label="Account Number" placeholder="Your account number" />
+			<FormInput
+				id="acc"
+				label="Account Number"
+				placeholder="Your account number"
+			/>
 		</div>
 		<div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-sm text-amber-600 dark:text-amber-400">
 			Bank transfers may take 1-3 business days to process
@@ -119,7 +173,15 @@ const QRPaymentContent = () => (
 	</div>
 );
 
-const PriceSummary = ({ subtotal, fee, total }: { subtotal: string; fee: string; total: string }) => (
+const PriceSummary = ({
+	subtotal,
+	fee,
+	total,
+}: {
+	subtotal: string;
+	fee: string;
+	total: string;
+}) => (
 	<div className="space-y-2 p-4 rounded-xl bg-muted/50">
 		<div className="flex justify-between text-sm">
 			<span className="text-muted-foreground">Subtotal</span>

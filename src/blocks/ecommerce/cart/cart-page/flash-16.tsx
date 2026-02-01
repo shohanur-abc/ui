@@ -1,8 +1,22 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, Trash2, Timer, Flame, Zap, ArrowRight } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Trash2,
+	Timer,
+	Flame,
+	Zap,
+	ArrowRight,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -42,7 +56,15 @@ const CountdownTimer = ({ minutes }: { minutes: number }) => {
 	);
 };
 
-const ProductImage = ({ src, alt, expires }: { src: string; alt: string; expires?: boolean }) => (
+const ProductImage = ({
+	src,
+	alt,
+	expires,
+}: {
+	src: string;
+	alt: string;
+	expires?: boolean;
+}) => (
 	<div className="relative aspect-square w-24 shrink-0 overflow-hidden rounded-xl bg-muted @sm:w-28">
 		<Image src={src} alt={alt} fill className="object-cover" />
 		{expires && (
@@ -73,10 +95,14 @@ const ProductDetails = ({
 		<h3 className="font-semibold line-clamp-1">{name}</h3>
 		<p className="text-sm text-muted-foreground">{variant}</p>
 		<div className="mt-2 flex items-center gap-2">
-			<span className="text-lg font-bold text-primary">${price.toFixed(2)}</span>
+			<span className="text-lg font-bold text-primary">
+				${price.toFixed(2)}
+			</span>
 			{originalPrice && (
 				<>
-					<span className="text-sm text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
+					<span className="text-sm text-muted-foreground line-through">
+						${originalPrice.toFixed(2)}
+					</span>
 					<Badge variant="destructive" className="text-xs">
 						-{Math.round(((originalPrice - price) / originalPrice) * 100)}%
 					</Badge>
@@ -98,21 +124,35 @@ const QuantitySelector = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const SubtotalDisplay = ({ price, quantity }: { price: number; quantity: number }) => (
-	<p className="text-lg font-bold">${(price * quantity).toFixed(2)}</p>
-);
+const SubtotalDisplay = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => <p className="text-lg font-bold">${(price * quantity).toFixed(2)}</p>;
 
 const RemoveBtn = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<Trash2 className="size-4" />
 	</Button>
 );
 
 const CartItemRow = ({ item }: { item: CartItem }) => (
-	<Card className={`transition-all ${item.expiresIn ? 'border-orange-500/50 bg-orange-500/5' : ''}`}>
+	<Card
+		className={`transition-all ${item.expiresIn ? 'border-orange-500/50 bg-orange-500/5' : ''}`}
+	>
 		<CardContent className="flex gap-4 p-4 relative">
 			<div className="relative">
-				<ProductImage src={item.image} alt={item.name} expires={!!item.expiresIn} />
+				<ProductImage
+					src={item.image}
+					alt={item.name}
+					expires={!!item.expiresIn}
+				/>
 				{item.expiresIn && <ItemExpiry minutes={item.expiresIn} />}
 			</div>
 			<div className="flex min-w-0 flex-1 flex-col gap-3">
@@ -134,7 +174,13 @@ const CartItemRow = ({ item }: { item: CartItem }) => (
 	</Card>
 );
 
-const UrgencyBanner = ({ icon: Icon, text }: { icon: React.ComponentType<{ className?: string }>; text: string }) => (
+const UrgencyBanner = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	text: string;
+}) => (
 	<div className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 p-4 text-white">
 		<Icon className="size-5 shrink-0" />
 		<p className="text-sm font-medium">{text}</p>
@@ -150,8 +196,12 @@ const PriceLine = ({
 	value: string;
 	variant?: 'default' | 'savings' | 'total';
 }) => (
-	<div className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}>
-		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>{label}</span>
+	<div
+		className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}
+	>
+		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span
 			className={
 				variant === 'total'
@@ -174,7 +224,11 @@ const SummaryCard = ({
 	countdown,
 }: {
 	title: string;
-	lines: { label: string; value: string; variant?: 'default' | 'savings' | 'total' }[];
+	lines: {
+		label: string;
+		value: string;
+		variant?: 'default' | 'savings' | 'total';
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
 	countdown: number;
@@ -195,7 +249,11 @@ const SummaryCard = ({
 			))}
 		</CardContent>
 		<CardFooter className="flex-col gap-4">
-			<Button className="w-full gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600" size="lg" asChild>
+			<Button
+				className="w-full gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+				size="lg"
+				asChild
+			>
 				<Link href={checkoutHref}>
 					<Zap className="size-4" />
 					{checkoutLabel}
@@ -213,7 +271,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop',
 			name: 'Performance Running Shoes Pro',
 			variant: 'Red/Black • Size 10',
 			price: 119.99,
@@ -223,7 +282,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
 			name: 'Premium Wireless Headphones',
 			variant: 'Matte Black',
 			price: 249.99,
@@ -232,7 +292,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
 			name: 'Classic Minimalist Watch',
 			variant: 'Silver • Leather Band',
 			price: 189.99,
@@ -241,16 +302,30 @@ export default function Main() {
 		},
 	];
 
-	const subtotal = items.reduce((sum, i) => sum + (i.originalPrice || i.price) * i.quantity, 0);
-	const discountedTotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, i) => sum + (i.originalPrice || i.price) * i.quantity,
+		0,
+	);
+	const discountedTotal = items.reduce(
+		(sum, i) => sum + i.price * i.quantity,
+		0,
+	);
 	const savings = subtotal - discountedTotal;
 
 	const summaryLines = [
 		{ label: 'Original Price', value: `$${subtotal.toFixed(2)}` },
-		{ label: 'Flash Savings', value: `-$${savings.toFixed(2)}`, variant: 'savings' as const },
+		{
+			label: 'Flash Savings',
+			value: `-$${savings.toFixed(2)}`,
+			variant: 'savings' as const,
+		},
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax', value: `$${(discountedTotal * 0.08).toFixed(2)}` },
-		{ label: 'Total', value: `$${(discountedTotal * 1.08).toFixed(2)}`, variant: 'total' as const },
+		{
+			label: 'Total',
+			value: `$${(discountedTotal * 1.08).toFixed(2)}`,
+			variant: 'total' as const,
+		},
 	];
 
 	return (

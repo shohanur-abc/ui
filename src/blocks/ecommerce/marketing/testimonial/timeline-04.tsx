@@ -116,7 +116,9 @@ const PhaseCard = ({
 							</AvatarFallback>
 						</Avatar>
 						<div>
-							<p className="font-semibold text-sm text-foreground">{item.author}</p>
+							<p className="font-semibold text-sm text-foreground">
+								{item.author}
+							</p>
 							<p className="text-xs text-muted-foreground">
 								{item.role} · {item.company}
 							</p>
@@ -136,7 +138,8 @@ export default function Main() {
 			author: 'Yolanda Martin',
 			role: 'Director',
 			company: 'DiscoveryCo',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'YM',
 			rating: 5,
 			phase: 'Discovery',
@@ -148,7 +151,8 @@ export default function Main() {
 			author: 'Zachary Kim',
 			role: 'CTO',
 			company: 'ImplementPro',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'ZK',
 			rating: 5,
 			phase: 'Implementation',
@@ -160,7 +164,8 @@ export default function Main() {
 			author: 'Amanda Chen',
 			role: 'HR Manager',
 			company: 'TrainFirst',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'AC',
 			rating: 5,
 			phase: 'Training',
@@ -172,7 +177,8 @@ export default function Main() {
 			author: 'Brian Foster',
 			role: 'Operations VP',
 			company: 'AdoptCorp',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'BF',
 			rating: 5,
 			phase: 'Adoption',
@@ -181,7 +187,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Implementation"

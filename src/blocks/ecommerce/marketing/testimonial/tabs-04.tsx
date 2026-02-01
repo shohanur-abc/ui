@@ -64,7 +64,13 @@ const StarRating = ({ rating }: { rating: number }) => (
 	</div>
 );
 
-const MetricHighlight = ({ value, label }: { value: string; label: string }) => (
+const MetricHighlight = ({
+	value,
+	label,
+}: {
+	value: string;
+	label: string;
+}) => (
 	<div className="text-center p-6 bg-primary/5 rounded-xl border border-primary/10">
 		<p className="text-4xl @md:text-5xl font-bold text-primary mb-1">{value}</p>
 		<p className="text-sm text-muted-foreground">{label}</p>
@@ -128,7 +134,8 @@ export default function Main() {
 				author: 'Yolanda Martinez',
 				role: 'Engineering Lead',
 				company: 'SpeedFirst',
-				avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+				avatar:
+					'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 				initials: 'YM',
 				rating: 5,
 				metric: {
@@ -148,7 +155,8 @@ export default function Main() {
 				author: 'Zach Williams',
 				role: 'CEO',
 				company: 'GrowthMasters',
-				avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+				avatar:
+					'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 				initials: 'ZW',
 				rating: 5,
 				metric: {
@@ -168,7 +176,8 @@ export default function Main() {
 				author: 'Adam Chen',
 				role: 'CTO',
 				company: 'ScaleUp',
-				avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+				avatar:
+					'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 				initials: 'AC',
 				rating: 5,
 				metric: {
@@ -180,7 +189,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="By Feature"

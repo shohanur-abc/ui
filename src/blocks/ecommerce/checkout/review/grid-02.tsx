@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -95,7 +101,9 @@ const AddressBlock = ({
 	lines: string[];
 }) => (
 	<div className="rounded-lg bg-muted/50 p-3">
-		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">{label}</p>
+		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">
+			{label}
+		</p>
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
 			<p key={i} className="text-sm text-muted-foreground">
@@ -140,25 +148,23 @@ const PaymentInfo = ({
 			<CreditCard className="size-6 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
 );
 
-const PromoLine = ({
-	code,
-	discount,
-}: {
-	code: string;
-	discount: string;
-}) => (
+const PromoLine = ({ code, discount }: { code: string; discount: string }) => (
 	<div className="flex items-center justify-between rounded-lg bg-green-500/10 px-3 py-2">
 		<div className="flex items-center gap-2">
 			<Percent className="size-4 text-green-600 dark:text-green-400" />
 			<span className="font-mono text-sm">{code}</span>
 		</div>
-		<span className="font-medium text-green-600 dark:text-green-400">{discount}</span>
+		<span className="font-medium text-green-600 dark:text-green-400">
+			{discount}
+		</span>
 	</div>
 );
 
@@ -183,14 +189,21 @@ const SummaryRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
 const VerifiedBadge = () => (
-	<Badge variant="outline" className="gap-1 border-green-500/30 text-green-600 dark:text-green-400">
+	<Badge
+		variant="outline"
+		className="gap-1 border-green-500/30 text-green-600 dark:text-green-400"
+	>
 		<CheckCircle2 className="size-3" />
 		All Verified
 	</Badge>
@@ -204,7 +217,8 @@ export default function Main() {
 			variant: 'Polaroid Style',
 			price: 179.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -212,7 +226,8 @@ export default function Main() {
 			variant: '20 Shots / Color',
 			price: 24.99,
 			quantity: 3,
-			image: 'https://images.unsplash.com/photo-1495121553079-4c61bcce1894?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1495121553079-4c61bcce1894?w=200&h=200&fit=crop',
 		},
 	];
 

@@ -60,7 +60,12 @@ interface ToolbarProps {
 	sortLabel: string;
 }
 
-const Toolbar = ({ searchPlaceholder, viewMode, onViewChange, sortLabel }: ToolbarProps) => (
+const Toolbar = ({
+	searchPlaceholder,
+	viewMode,
+	onViewChange,
+	sortLabel,
+}: ToolbarProps) => (
 	<div className="flex items-center justify-between gap-4 border-b px-6 py-4">
 		<div className="relative flex-1 max-w-md">
 			<Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -105,7 +110,11 @@ const ImageGallery = ({ images, productName }: ImageGalleryProps) => (
 				className="relative size-10 overflow-hidden rounded-md border bg-muted"
 				style={{ marginLeft: idx > 0 ? '-8px' : 0, zIndex: 3 - idx }}
 			>
-				<img src={img} alt={`${productName} ${idx + 1}`} className="size-full object-cover" />
+				<img
+					src={img}
+					alt={`${productName} ${idx + 1}`}
+					className="size-full object-cover"
+				/>
 			</div>
 		))}
 		{images.length > 3 && (
@@ -270,8 +279,12 @@ const ProductRow = ({
 							<TableBody>
 								{product.variants.map((variant) => (
 									<TableRow key={variant.id}>
-										<TableCell className="font-medium">{variant.name}</TableCell>
-										<TableCell className="text-muted-foreground">{variant.sku}</TableCell>
+										<TableCell className="font-medium">
+											{variant.name}
+										</TableCell>
+										<TableCell className="text-muted-foreground">
+											{variant.sku}
+										</TableCell>
 										<TableCell>${variant.price.toFixed(2)}</TableCell>
 										<TableCell>{variant.stock}</TableCell>
 									</TableRow>
@@ -304,11 +317,41 @@ export default function Main() {
 			basePrice: 29.99,
 			totalStock: 450,
 			variants: [
-				{ id: 'v1', name: 'Small / White', sku: 'APP-TS-001-SW', price: 29.99, stock: 120 },
-				{ id: 'v2', name: 'Medium / White', sku: 'APP-TS-001-MW', price: 29.99, stock: 85 },
-				{ id: 'v3', name: 'Large / White', sku: 'APP-TS-001-LW', price: 29.99, stock: 95 },
-				{ id: 'v4', name: 'Small / Black', sku: 'APP-TS-001-SB', price: 29.99, stock: 75 },
-				{ id: 'v5', name: 'Medium / Black', sku: 'APP-TS-001-MB', price: 29.99, stock: 75 },
+				{
+					id: 'v1',
+					name: 'Small / White',
+					sku: 'APP-TS-001-SW',
+					price: 29.99,
+					stock: 120,
+				},
+				{
+					id: 'v2',
+					name: 'Medium / White',
+					sku: 'APP-TS-001-MW',
+					price: 29.99,
+					stock: 85,
+				},
+				{
+					id: 'v3',
+					name: 'Large / White',
+					sku: 'APP-TS-001-LW',
+					price: 29.99,
+					stock: 95,
+				},
+				{
+					id: 'v4',
+					name: 'Small / Black',
+					sku: 'APP-TS-001-SB',
+					price: 29.99,
+					stock: 75,
+				},
+				{
+					id: 'v5',
+					name: 'Medium / Black',
+					sku: 'APP-TS-001-MB',
+					price: 29.99,
+					stock: 75,
+				},
 			],
 			tags: ['cotton', 'casual', 'bestseller'],
 			collections: ['Summer 2024', 'Essentials'],
@@ -324,9 +367,27 @@ export default function Main() {
 			basePrice: 79.99,
 			totalStock: 234,
 			variants: [
-				{ id: 'v1', name: '30 / Regular', sku: 'APP-DJ-002-30R', price: 79.99, stock: 56 },
-				{ id: 'v2', name: '32 / Regular', sku: 'APP-DJ-002-32R', price: 79.99, stock: 78 },
-				{ id: 'v3', name: '34 / Regular', sku: 'APP-DJ-002-34R', price: 79.99, stock: 100 },
+				{
+					id: 'v1',
+					name: '30 / Regular',
+					sku: 'APP-DJ-002-30R',
+					price: 79.99,
+					stock: 56,
+				},
+				{
+					id: 'v2',
+					name: '32 / Regular',
+					sku: 'APP-DJ-002-32R',
+					price: 79.99,
+					stock: 78,
+				},
+				{
+					id: 'v3',
+					name: '34 / Regular',
+					sku: 'APP-DJ-002-34R',
+					price: 79.99,
+					stock: 100,
+				},
 			],
 			tags: ['denim', 'classic'],
 			collections: ['Autumn Collection'],
@@ -348,7 +409,10 @@ export default function Main() {
 
 	const actions = [
 		{ label: 'Edit', onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Duplicate', onClick: (id: string) => console.log('Duplicate', id) },
+		{
+			label: 'Duplicate',
+			onClick: (id: string) => console.log('Duplicate', id),
+		},
 		{ label: 'Archive', onClick: (id: string) => console.log('Archive', id) },
 		{ label: 'Delete', onClick: (id: string) => console.log('Delete', id) },
 	];
@@ -364,7 +428,15 @@ export default function Main() {
 		setExpandedId(expandedId === id ? null : id);
 	};
 
-	const columns = ['Images', 'Product', 'Tags', 'Collections', 'Variants', 'Price', 'Stock'];
+	const columns = [
+		'Images',
+		'Product',
+		'Tags',
+		'Collections',
+		'Variants',
+		'Price',
+		'Stock',
+	];
 
 	return (
 		<section className="@container" data-theme="dashboard">

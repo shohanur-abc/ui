@@ -395,9 +395,9 @@ export default function Main() {
 	];
 
 	const orderItems = [
-		{ name: 'Organic Cotton T-Shirt', price: 45.00 },
-		{ name: 'Recycled Denim Jeans', price: 89.00 },
-		{ name: 'Sustainable Sneakers', price: 120.00 },
+		{ name: 'Organic Cotton T-Shirt', price: 45.0 },
+		{ name: 'Recycled Denim Jeans', price: 89.0 },
+		{ name: 'Sustainable Sneakers', price: 120.0 },
 	];
 
 	return (
@@ -428,8 +428,8 @@ export default function Main() {
 						/>
 						<OrderSummaryCard
 							items={orderItems}
-							total={256.00}
-							donation={2.00}
+							total={256.0}
+							donation={2.0}
 							currency="$"
 						/>
 					</div>
@@ -437,7 +437,11 @@ export default function Main() {
 
 				<CTA
 					items={[
-						{ label: 'View Impact Dashboard', href: '/impact', icon: ArrowRight },
+						{
+							label: 'View Impact Dashboard',
+							href: '/impact',
+							icon: ArrowRight,
+						},
 						{ label: 'Shop Eco Collection', href: '/eco', variant: 'outline' },
 					]}
 				/>

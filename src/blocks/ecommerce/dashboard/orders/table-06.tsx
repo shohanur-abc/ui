@@ -9,7 +9,14 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Package, Clock, Truck, CheckCircle, XCircle, RotateCcw } from 'lucide-react';
+import {
+	Package,
+	Clock,
+	Truck,
+	CheckCircle,
+	XCircle,
+	RotateCcw,
+} from 'lucide-react';
 
 interface Order {
 	id: string;
@@ -61,7 +68,13 @@ const StatusTabs = ({ tabs, children }: StatusTabsProps) => (
 	</Tabs>
 );
 
-const OrderTable = ({ orders, headers, showEta, actionLabel, actionVariant = 'outline' }: OrderTableProps) => (
+const OrderTable = ({
+	orders,
+	headers,
+	showEta,
+	actionLabel,
+	actionVariant = 'outline',
+}: OrderTableProps) => (
 	<Table>
 		<TableHeader>
 			<TableRow className="hover:bg-transparent border-border/50">
@@ -72,17 +85,24 @@ const OrderTable = ({ orders, headers, showEta, actionLabel, actionVariant = 'ou
 		</TableHeader>
 		<TableBody>
 			{orders.map((order) => (
-				<TableRow key={order.id} className="hover:bg-muted/30 transition-colors">
+				<TableRow
+					key={order.id}
+					className="hover:bg-muted/30 transition-colors"
+				>
 					<TableCell className="font-mono text-sm">{order.id}</TableCell>
 					<TableCell className="font-medium">{order.customer}</TableCell>
 					<TableCell className="text-muted-foreground">{order.items}</TableCell>
 					<TableCell className="font-semibold">{order.total}</TableCell>
 					<TableCell className="text-muted-foreground">{order.date}</TableCell>
 					{showEta && (
-						<TableCell className="text-muted-foreground">{order.eta || '—'}</TableCell>
+						<TableCell className="text-muted-foreground">
+							{order.eta || '—'}
+						</TableCell>
 					)}
 					<TableCell>
-						<Button variant={actionVariant} size="sm">{actionLabel}</Button>
+						<Button variant={actionVariant} size="sm">
+							{actionLabel}
+						</Button>
 					</TableCell>
 				</TableRow>
 			))}
@@ -101,18 +121,58 @@ export default function Main() {
 	];
 
 	const allOrders: Order[] = [
-		{ id: 'ORD-9001', customer: 'James Wilson', items: '3 items', total: '$245.00', date: 'Jan 28' },
-		{ id: 'ORD-9002', customer: 'Maria Garcia', items: '1 item', total: '$89.99', date: 'Jan 28' },
-		{ id: 'ORD-9003', customer: 'Robert Chen', items: '5 items', total: '$567.50', date: 'Jan 27' },
+		{
+			id: 'ORD-9001',
+			customer: 'James Wilson',
+			items: '3 items',
+			total: '$245.00',
+			date: 'Jan 28',
+		},
+		{
+			id: 'ORD-9002',
+			customer: 'Maria Garcia',
+			items: '1 item',
+			total: '$89.99',
+			date: 'Jan 28',
+		},
+		{
+			id: 'ORD-9003',
+			customer: 'Robert Chen',
+			items: '5 items',
+			total: '$567.50',
+			date: 'Jan 27',
+		},
 	];
 
 	const shippedOrders: Order[] = [
-		{ id: 'ORD-8901', customer: 'Lisa Anderson', items: '2 items', total: '$199.00', date: 'Jan 26', eta: 'Jan 30' },
-		{ id: 'ORD-8902', customer: 'Kevin Park', items: '4 items', total: '$412.00', date: 'Jan 25', eta: 'Jan 29' },
+		{
+			id: 'ORD-8901',
+			customer: 'Lisa Anderson',
+			items: '2 items',
+			total: '$199.00',
+			date: 'Jan 26',
+			eta: 'Jan 30',
+		},
+		{
+			id: 'ORD-8902',
+			customer: 'Kevin Park',
+			items: '4 items',
+			total: '$412.00',
+			date: 'Jan 25',
+			eta: 'Jan 29',
+		},
 	];
 
 	const headers = ['Order', 'Customer', 'Items', 'Total', 'Date', 'Action'];
-	const headersWithEta = ['Order', 'Customer', 'Items', 'Total', 'Shipped', 'ETA', 'Action'];
+	const headersWithEta = [
+		'Order',
+		'Customer',
+		'Items',
+		'Total',
+		'Shipped',
+		'ETA',
+		'Action',
+	];
 
 	return (
 		<section className="@container" data-theme="orders">
@@ -120,32 +180,59 @@ export default function Main() {
 				<StatusTabs tabs={tabs}>
 					<TabsContent value="all" className="mt-4">
 						<div className="rounded-lg border border-border/50 overflow-hidden bg-card/30">
-							<OrderTable orders={allOrders} headers={headers} actionLabel="View" />
+							<OrderTable
+								orders={allOrders}
+								headers={headers}
+								actionLabel="View"
+							/>
 						</div>
 					</TabsContent>
 					<TabsContent value="pending" className="mt-4">
 						<div className="rounded-lg border border-border/50 overflow-hidden bg-card/30">
-							<OrderTable orders={allOrders.slice(0, 2)} headers={headers} actionLabel="Process" actionVariant="default" />
+							<OrderTable
+								orders={allOrders.slice(0, 2)}
+								headers={headers}
+								actionLabel="Process"
+								actionVariant="default"
+							/>
 						</div>
 					</TabsContent>
 					<TabsContent value="shipped" className="mt-4">
 						<div className="rounded-lg border border-border/50 overflow-hidden bg-card/30">
-							<OrderTable orders={shippedOrders} headers={headersWithEta} showEta actionLabel="Track" />
+							<OrderTable
+								orders={shippedOrders}
+								headers={headersWithEta}
+								showEta
+								actionLabel="Track"
+							/>
 						</div>
 					</TabsContent>
 					<TabsContent value="delivered" className="mt-4">
 						<div className="rounded-lg border border-border/50 overflow-hidden bg-card/30">
-							<OrderTable orders={allOrders} headers={headers} actionLabel="Details" />
+							<OrderTable
+								orders={allOrders}
+								headers={headers}
+								actionLabel="Details"
+							/>
 						</div>
 					</TabsContent>
 					<TabsContent value="cancelled" className="mt-4">
 						<div className="rounded-lg border border-border/50 overflow-hidden bg-card/30">
-							<OrderTable orders={allOrders.slice(0, 1)} headers={headers} actionLabel="Review" />
+							<OrderTable
+								orders={allOrders.slice(0, 1)}
+								headers={headers}
+								actionLabel="Review"
+							/>
 						</div>
 					</TabsContent>
 					<TabsContent value="returns" className="mt-4">
 						<div className="rounded-lg border border-border/50 overflow-hidden bg-card/30">
-							<OrderTable orders={allOrders.slice(0, 1)} headers={headers} actionLabel="Process" actionVariant="default" />
+							<OrderTable
+								orders={allOrders.slice(0, 1)}
+								headers={headers}
+								actionLabel="Process"
+								actionVariant="default"
+							/>
 						</div>
 					</TabsContent>
 				</StatusTabs>

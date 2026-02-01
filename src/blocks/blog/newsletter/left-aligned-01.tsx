@@ -23,7 +23,10 @@ interface MetricsProps {
 }
 
 const Eyebrow = ({ icon: Icon, text }: EyebrowProps) => (
-	<Badge variant="secondary" className="gap-1.5 text-xs uppercase tracking-wide">
+	<Badge
+		variant="secondary"
+		className="gap-1.5 text-xs uppercase tracking-wide"
+	>
 		<Icon className="size-3" />
 		{text}
 	</Badge>
@@ -54,7 +57,10 @@ const Metrics = ({ items }: MetricsProps) => (
 		{items.map((item, i) => {
 			const Icon = item.icon;
 			return (
-				<div key={i} className="flex flex-col @md:flex-row @md:items-center gap-2 @md:gap-3">
+				<div
+					key={i}
+					className="flex flex-col @md:flex-row @md:items-center gap-2 @md:gap-3"
+				>
 					<Icon className="size-5 text-primary" />
 					<div>
 						<div className="text-xl @md:text-2xl font-bold">{item.value}</div>

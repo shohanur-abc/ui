@@ -1,4 +1,15 @@
-import { Truck, Package, Clock, Check, Zap, Shield, Leaf, Gift, Star, ArrowRight } from 'lucide-react';
+import {
+	Truck,
+	Package,
+	Clock,
+	Check,
+	Zap,
+	Shield,
+	Leaf,
+	Gift,
+	Star,
+	ArrowRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -32,10 +43,16 @@ const SpeedCard = ({
 				${popular ? 'ring-2 ring-primary/30' : ''}
 			`}
 		>
-			{popular && <Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">Most Popular</Badge>}
+			{popular && (
+				<Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+					Most Popular
+				</Badge>
+			)}
 			<CardContent className="p-4 text-center">
 				<RadioGroupItem value={value} id={value} className="sr-only" />
-				<div className={`flex size-12 mx-auto mb-3 items-center justify-center rounded-xl bg-gradient-to-br ${color} text-white`}>
+				<div
+					className={`flex size-12 mx-auto mb-3 items-center justify-center rounded-xl bg-gradient-to-br ${color} text-white`}
+				>
 					<Icon className="size-6" />
 				</div>
 				<h3 className="font-bold">{name}</h3>
@@ -75,11 +92,19 @@ const FeatureCard = ({
 						<Check className="size-3" />
 					</div>
 				) : (
-					<input type="checkbox" id={id} className="size-5 rounded border-input" />
+					<input
+						type="checkbox"
+						id={id}
+						className="size-5 rounded border-input"
+					/>
 				)}
 				<Icon className="size-4 text-muted-foreground" />
 				<span className="flex-1 text-sm font-medium">{name}</span>
-				<span className={`text-sm font-medium ${included ? 'text-green-600 dark:text-green-400' : 'text-primary'}`}>{price}</span>
+				<span
+					className={`text-sm font-medium ${included ? 'text-green-600 dark:text-green-400' : 'text-primary'}`}
+				>
+					{price}
+				</span>
 			</CardContent>
 		</Card>
 	</Label>
@@ -87,25 +112,65 @@ const FeatureCard = ({
 
 export default function Main() {
 	const speeds = [
-		{ value: 'standard', icon: Package, name: 'Standard', time: '5-7 days', price: '$4.99', color: 'from-slate-500 to-slate-600' },
-		{ value: 'express', icon: Truck, name: 'Express', time: '2-3 days', price: '$9.99', color: 'from-blue-500 to-blue-600', popular: true },
-		{ value: 'overnight', icon: Zap, name: 'Overnight', time: '1 day', price: '$19.99', color: 'from-amber-500 to-amber-600' },
+		{
+			value: 'standard',
+			icon: Package,
+			name: 'Standard',
+			time: '5-7 days',
+			price: '$4.99',
+			color: 'from-slate-500 to-slate-600',
+		},
+		{
+			value: 'express',
+			icon: Truck,
+			name: 'Express',
+			time: '2-3 days',
+			price: '$9.99',
+			color: 'from-blue-500 to-blue-600',
+			popular: true,
+		},
+		{
+			value: 'overnight',
+			icon: Zap,
+			name: 'Overnight',
+			time: '1 day',
+			price: '$19.99',
+			color: 'from-amber-500 to-amber-600',
+		},
 	];
 
 	const features = [
-		{ id: 'tracking', icon: Package, name: 'Real-time Tracking', price: 'Included', included: true },
-		{ id: 'insurance', icon: Shield, name: 'Shipping Insurance', price: '+$2.99' },
+		{
+			id: 'tracking',
+			icon: Package,
+			name: 'Real-time Tracking',
+			price: 'Included',
+			included: true,
+		},
+		{
+			id: 'insurance',
+			icon: Shield,
+			name: 'Shipping Insurance',
+			price: '+$2.99',
+		},
 		{ id: 'carbon', icon: Leaf, name: 'Carbon Neutral', price: '+$0.99' },
 		{ id: 'gift', icon: Gift, name: 'Gift Wrapping', price: '+$4.99' },
 		{ id: 'priority', icon: Star, name: 'Priority Handling', price: '+$1.99' },
-		{ id: 'signature', icon: Check, name: 'Signature Required', price: '+$1.49' },
+		{
+			id: 'signature',
+			icon: Check,
+			name: 'Signature Required',
+			price: '+$1.49',
+		},
 	];
 
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Customize Shipping</h1>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Customize Shipping
+					</h1>
 					<p className="text-muted-foreground">Choose speed and add extras</p>
 				</div>
 
@@ -114,7 +179,10 @@ export default function Main() {
 						<CardTitle>Delivery Speed</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<RadioGroup defaultValue="express" className="grid grid-cols-3 gap-4">
+						<RadioGroup
+							defaultValue="express"
+							className="grid grid-cols-3 gap-4"
+						>
 							{speeds.map((speed) => (
 								<SpeedCard key={speed.value} {...speed} />
 							))}

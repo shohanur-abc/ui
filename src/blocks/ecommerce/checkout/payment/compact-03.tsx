@@ -16,7 +16,13 @@ interface SavedCard {
 	isDefault?: boolean;
 }
 
-const SavedCardOption = ({ card, selected }: { card: SavedCard; selected: boolean }) => (
+const SavedCardOption = ({
+	card,
+	selected,
+}: {
+	card: SavedCard;
+	selected: boolean;
+}) => (
 	<Label
 		htmlFor={card.id}
 		className={`flex items-center gap-3 p-2.5 rounded-lg border cursor-pointer transition-all ${
@@ -25,16 +31,32 @@ const SavedCardOption = ({ card, selected }: { card: SavedCard; selected: boolea
 	>
 		<RadioGroupItem value={card.id} id={card.id} className="size-3.5" />
 		<CreditCard className="size-4 text-muted-foreground" />
-		<span className="text-sm font-medium flex-1">{card.brand} •••• {card.last4}</span>
-		{card.isDefault && <Badge variant="secondary" className="text-[10px] py-0 h-4">Default</Badge>}
+		<span className="text-sm font-medium flex-1">
+			{card.brand} •••• {card.last4}
+		</span>
+		{card.isDefault && (
+			<Badge variant="secondary" className="text-[10px] py-0 h-4">
+				Default
+			</Badge>
+		)}
 		{selected && <Check className="size-4 text-primary" />}
 	</Label>
 );
 
 const CvvInput = () => (
 	<div className="flex items-center gap-3 p-2.5 rounded-lg bg-muted/30">
-		<Label htmlFor="cvv" className="text-xs text-muted-foreground whitespace-nowrap">Enter CVV:</Label>
-		<Input id="cvv" type="password" placeholder="•••" className="h-7 w-16 text-sm" />
+		<Label
+			htmlFor="cvv"
+			className="text-xs text-muted-foreground whitespace-nowrap"
+		>
+			Enter CVV:
+		</Label>
+		<Input
+			id="cvv"
+			type="password"
+			placeholder="•••"
+			className="h-7 w-16 text-sm"
+		/>
 	</div>
 );
 
@@ -58,7 +80,11 @@ export default function Main() {
 					<CardContent className="p-4 space-y-3">
 						<RadioGroup defaultValue="visa" className="space-y-2">
 							{savedCards.map((card) => (
-								<SavedCardOption key={card.id} card={card} selected={card.id === 'visa'} />
+								<SavedCardOption
+									key={card.id}
+									card={card}
+									selected={card.id === 'visa'}
+								/>
 							))}
 						</RadioGroup>
 						<CvvInput />

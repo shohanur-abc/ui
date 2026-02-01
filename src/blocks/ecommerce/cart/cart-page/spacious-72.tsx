@@ -1,8 +1,21 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, ShoppingBag, Sparkles } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	ShoppingBag,
+	Sparkles,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,7 +36,9 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 		</div>
 		<div>
 			<h1 className="text-4xl font-bold @md:text-5xl">{title}</h1>
-			<p className="text-lg text-muted-foreground mt-2">You have {count} amazing items waiting</p>
+			<p className="text-lg text-muted-foreground mt-2">
+				You have {count} amazing items waiting
+			</p>
 		</div>
 	</div>
 );
@@ -54,7 +69,9 @@ const SpaciousItem = ({ item }: { item: CartItem }) => (
 			</div>
 			<div className="p-8 flex flex-col justify-center space-y-6">
 				<div className="space-y-2">
-					<Badge variant="secondary" className="mb-2">Premium</Badge>
+					<Badge variant="secondary" className="mb-2">
+						Premium
+					</Badge>
 					<h3 className="text-3xl font-bold">{item.name}</h3>
 					<p className="text-lg text-muted-foreground">{item.variant}</p>
 					<p className="text-muted-foreground mt-4">{item.description}</p>
@@ -62,10 +79,16 @@ const SpaciousItem = ({ item }: { item: CartItem }) => (
 
 				<div className="flex items-center justify-between py-6 border-y">
 					<QuantityControl quantity={item.quantity} />
-					<p className="text-4xl font-bold text-primary">${(item.price * item.quantity).toFixed(2)}</p>
+					<p className="text-4xl font-bold text-primary">
+						${(item.price * item.quantity).toFixed(2)}
+					</p>
 				</div>
 
-				<Button variant="ghost" size="lg" className="w-fit text-muted-foreground hover:text-destructive gap-2">
+				<Button
+					variant="ghost"
+					size="lg"
+					className="w-fit text-muted-foreground hover:text-destructive gap-2"
+				>
 					<X className="size-5" />
 					Remove from cart
 				</Button>
@@ -84,8 +107,18 @@ const PromoBanner = () => (
 	</div>
 );
 
-const SummaryLine = ({ label, value, bold }: { label: string; value: string; bold?: boolean }) => (
-	<div className={`flex justify-between ${bold ? 'text-2xl font-bold' : 'text-lg text-muted-foreground'}`}>
+const SummaryLine = ({
+	label,
+	value,
+	bold,
+}: {
+	label: string;
+	value: string;
+	bold?: boolean;
+}) => (
+	<div
+		className={`flex justify-between ${bold ? 'text-2xl font-bold' : 'text-lg text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -95,21 +128,25 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop',
 			name: 'Studio Headphones Pro',
 			variant: 'Black • Wireless',
 			price: 299.99,
 			quantity: 1,
-			description: 'Premium over-ear headphones with active noise cancellation and 30-hour battery life.',
+			description:
+				'Premium over-ear headphones with active noise cancellation and 30-hour battery life.',
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop',
 			name: 'Classic Timepiece',
 			variant: 'Silver • Leather Band',
 			price: 449.99,
 			quantity: 1,
-			description: 'Swiss-made automatic movement with sapphire crystal glass and water resistance to 100m.',
+			description:
+				'Swiss-made automatic movement with sapphire crystal glass and water resistance to 100m.',
 		},
 	];
 
@@ -148,7 +185,11 @@ export default function Main() {
 								<ArrowRight className="size-6" />
 							</Link>
 						</Button>
-						<Button variant="outline" className="w-full h-14 text-lg rounded-xl" asChild>
+						<Button
+							variant="outline"
+							className="w-full h-14 text-lg rounded-xl"
+							asChild
+						>
 							<Link href="/shop">Continue Shopping</Link>
 						</Button>
 					</CardFooter>

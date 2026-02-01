@@ -42,13 +42,16 @@ interface TestimonialProps {
 
 const GlowDecorative = () => (
 	<div className="absolute inset-0 overflow-hidden pointer-events-none">
-		<div className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-bl from-primary/30 via-primary/10 to-transparent rounded-full blur-3xl" />
-		<div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-accent/20 via-transparent to-transparent rounded-full blur-3xl" />
+		<div className="absolute -top-1/2 -right-1/2 w-full h-full bg-linear-to-bl from-primary/30 via-primary/10 to-transparent rounded-full blur-3xl" />
+		<div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-linear-to-tr from-accent/20 via-transparent to-transparent rounded-full blur-3xl" />
 	</div>
 );
 
 const Eyebrow = ({ icon: Icon, text }: EyebrowProps) => (
-	<Badge variant="outline" className="gap-1.5 px-3 py-1.5 border-primary/30 bg-primary/5">
+	<Badge
+		variant="outline"
+		className="gap-1.5 px-3 py-1.5 border-primary/30 bg-primary/5"
+	>
 		<Icon className="size-3.5 text-primary" />
 		{text}
 	</Badge>
@@ -61,7 +64,9 @@ const Title = ({ text, highlight }: TitleProps) => (
 );
 
 const Description = ({ text }: DescriptionProps) => (
-	<p className="text-muted-foreground text-sm @md:text-base leading-relaxed">{text}</p>
+	<p className="text-muted-foreground text-sm @md:text-base leading-relaxed">
+		{text}
+	</p>
 );
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
@@ -77,7 +82,10 @@ const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 const Benefits = ({ items }: BenefitsProps) => (
 	<div className="flex flex-col gap-2">
 		{items.map((item, i) => (
-			<div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+			<div
+				key={i}
+				className="flex items-center gap-2 text-sm text-muted-foreground"
+			>
 				<CheckCircle2 className="size-4 text-primary shrink-0" />
 				<span>{item}</span>
 			</div>
@@ -106,7 +114,9 @@ const Testimonial = ({ quote, author, role, avatar }: TestimonialProps) => (
 				<Star key={i} className="size-4 fill-primary text-primary" />
 			))}
 		</div>
-		<blockquote className="text-sm @md:text-base italic leading-relaxed">&ldquo;{quote}&rdquo;</blockquote>
+		<blockquote className="text-sm @md:text-base italic leading-relaxed">
+			&ldquo;{quote}&rdquo;
+		</blockquote>
 		<div className="flex items-center gap-3">
 			<Avatar className="size-10">
 				<AvatarImage src={avatar.src} />
@@ -128,9 +138,16 @@ export default function Main() {
 				<div className="grid @lg:grid-cols-2 gap-8 @xl:gap-16 items-center">
 					<div className="flex flex-col gap-6">
 						<Eyebrow icon={Mail} text="Join the Community" />
-						<Title text="Transform your business with" highlight="expert insights" />
+						<Title
+							text="Transform your business with"
+							highlight="expert insights"
+						/>
 						<Description text="Our newsletter delivers cutting-edge strategies, market analysis, and actionable tips that help business leaders stay ahead of the curve." />
-						<Form placeholder="Enter your work email" buttonText="Get Started" buttonIcon={Send} />
+						<Form
+							placeholder="Enter your work email"
+							buttonText="Get Started"
+							buttonIcon={Send}
+						/>
 						<Benefits
 							items={[
 								'Weekly curated insights from industry experts',

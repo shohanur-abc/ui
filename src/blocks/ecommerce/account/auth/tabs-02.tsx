@@ -4,11 +4,23 @@ import { Mail, Lock, User, Phone, ArrowRight, Store } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -110,8 +122,20 @@ const EmailSignIn = () => (
 		<SocialButton icon={GoogleIcon} label="Continue with Google" />
 		<DividerText text="or" />
 		<form className="space-y-4">
-			<FormField id="email-signin" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-			<FormField id="email-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+			<FormField
+				id="email-signin"
+				label="Email"
+				type="email"
+				placeholder="you@example.com"
+				icon={Mail}
+			/>
+			<FormField
+				id="email-password"
+				label="Password"
+				type="password"
+				placeholder="••••••••"
+				icon={Lock}
+			/>
 			<ForgotLink href="/forgot-password" label="Forgot password?" />
 			<SubmitButton label="Sign in with Email" icon={ArrowRight} />
 		</form>
@@ -120,7 +144,13 @@ const EmailSignIn = () => (
 
 const PhoneSignIn = () => (
 	<form className="space-y-4">
-		<FormField id="phone-number" label="Phone Number" type="tel" placeholder="+1 (555) 123-4567" icon={Phone} />
+		<FormField
+			id="phone-number"
+			label="Phone Number"
+			type="tel"
+			placeholder="+1 (555) 123-4567"
+			icon={Phone}
+		/>
 		<p className="text-sm text-muted-foreground">
 			We&apos;ll send you a verification code via SMS
 		</p>
@@ -138,7 +168,9 @@ export default function Main() {
 							<Logo name="MarketPlace" icon={Store} />
 						</div>
 						<CardTitle className="text-2xl">Sign in</CardTitle>
-						<CardDescription>Choose your preferred sign in method</CardDescription>
+						<CardDescription>
+							Choose your preferred sign in method
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Tabs defaultValue="email" className="w-full">

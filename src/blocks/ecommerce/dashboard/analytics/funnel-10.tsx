@@ -26,8 +26,12 @@ export default function Main() {
 					<CardHeader className="pb-2">
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-sm font-medium">Target vs Actual Funnel</CardTitle>
-								<p className="text-xs text-muted-foreground">Performance against goals</p>
+								<CardTitle className="text-sm font-medium">
+									Target vs Actual Funnel
+								</CardTitle>
+								<p className="text-xs text-muted-foreground">
+									Performance against goals
+								</p>
 							</div>
 							<div className="flex items-center gap-4 text-xs">
 								<div className="flex items-center gap-2">
@@ -48,17 +52,20 @@ export default function Main() {
 								const targetWidth = (step.target / maxValue) * 100;
 								const achieved = (step.value / step.target) * 100;
 								const isAbove = step.value >= step.target;
-								
+
 								return (
 									<div key={i}>
 										<div className="flex items-center justify-between mb-1 text-sm">
 											<span className="font-medium">{step.label}</span>
 											<div className="flex items-center gap-3">
-												<span className={`text-xs ${isAbove ? 'text-emerald-500' : 'text-rose-500'}`}>
+												<span
+													className={`text-xs ${isAbove ? 'text-emerald-500' : 'text-rose-500'}`}
+												>
 													{achieved.toFixed(0)}% of target
 												</span>
 												<span className="text-muted-foreground">
-													{step.value.toLocaleString()} / {step.target.toLocaleString()}
+													{step.value.toLocaleString()} /{' '}
+													{step.target.toLocaleString()}
 												</span>
 											</div>
 										</div>
@@ -80,18 +87,23 @@ export default function Main() {
 								);
 							})}
 						</div>
-						
+
 						<div className="mt-6 pt-4 border-t border-border/50">
 							<div className="grid grid-cols-2 @md:grid-cols-5 gap-4">
 								{steps.map((step, i) => {
 									const achieved = (step.value / step.target) * 100;
 									const isAbove = achieved >= 100;
-									
+
 									return (
 										<div key={i} className="text-center">
-											<p className="text-xs text-muted-foreground truncate">{step.label}</p>
-											<p className={`text-sm font-semibold ${isAbove ? 'text-emerald-500' : 'text-rose-500'}`}>
-												{isAbove ? '+' : ''}{(achieved - 100).toFixed(1)}%
+											<p className="text-xs text-muted-foreground truncate">
+												{step.label}
+											</p>
+											<p
+												className={`text-sm font-semibold ${isAbove ? 'text-emerald-500' : 'text-rose-500'}`}
+											>
+												{isAbove ? '+' : ''}
+												{(achieved - 100).toFixed(1)}%
 											</p>
 										</div>
 									);

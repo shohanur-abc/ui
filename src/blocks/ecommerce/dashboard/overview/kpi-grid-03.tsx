@@ -32,7 +32,10 @@ const MiniSparkline = ({ data }: { data: number[] }) => {
 				<div
 					key={i}
 					className="w-1.5 rounded-t bg-primary/60 transition-all hover:bg-primary"
-					style={{ height: `${((val - min) / range) * 100}%`, minHeight: '4px' }}
+					style={{
+						height: `${((val - min) / range) * 100}%`,
+						minHeight: '4px',
+					}}
 				/>
 			))}
 		</div>

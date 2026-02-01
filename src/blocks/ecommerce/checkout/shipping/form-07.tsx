@@ -114,7 +114,9 @@ export default function Main() {
 					</div>
 					<div>
 						<h1 className="text-xl font-bold">Select Shipping Address</h1>
-						<p className="text-sm text-muted-foreground">Choose from saved addresses or add new</p>
+						<p className="text-sm text-muted-foreground">
+							Choose from saved addresses or add new
+						</p>
 					</div>
 				</div>
 
@@ -145,7 +147,10 @@ export default function Main() {
 							</div>
 						</div>
 
-						<FooterActions cancelLabel="Cancel" submitLabel="Use This Address" />
+						<FooterActions
+							cancelLabel="Cancel"
+							submitLabel="Use This Address"
+						/>
 					</CardContent>
 				</Card>
 			</div>

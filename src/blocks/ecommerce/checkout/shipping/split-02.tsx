@@ -67,7 +67,13 @@ const InputField = ({
 	</div>
 );
 
-const PromoCode = ({ placeholder, buttonLabel }: { placeholder: string; buttonLabel: string }) => (
+const PromoCode = ({
+	placeholder,
+	buttonLabel,
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="flex gap-2">
 		<Input placeholder={placeholder} className="h-11" />
 		<Button variant="outline" className="h-11 shrink-0">
@@ -78,15 +84,39 @@ const PromoCode = ({ placeholder, buttonLabel }: { placeholder: string; buttonLa
 
 export default function Main() {
 	const trustBadges = [
-		{ icon: ShieldCheck, title: 'Secure Checkout', description: '256-bit SSL encryption' },
-		{ icon: RotateCcw, title: '30-Day Returns', description: 'Hassle-free returns' },
-		{ icon: Headphones, title: '24/7 Support', description: 'Always here to help' },
-		{ icon: CreditCard, title: 'Safe Payment', description: 'All cards accepted' },
+		{
+			icon: ShieldCheck,
+			title: 'Secure Checkout',
+			description: '256-bit SSL encryption',
+		},
+		{
+			icon: RotateCcw,
+			title: '30-Day Returns',
+			description: 'Hassle-free returns',
+		},
+		{
+			icon: Headphones,
+			title: '24/7 Support',
+			description: 'Always here to help',
+		},
+		{
+			icon: CreditCard,
+			title: 'Safe Payment',
+			description: 'All cards accepted',
+		},
 	];
 
 	const addressTypes = [
-		{ value: 'home', label: 'Home Address', description: 'Residential delivery' },
-		{ value: 'office', label: 'Office Address', description: 'Business hours delivery' },
+		{
+			value: 'home',
+			label: 'Home Address',
+			description: 'Residential delivery',
+		},
+		{
+			value: 'office',
+			label: 'Office Address',
+			description: 'Business hours delivery',
+		},
 	];
 
 	return (
@@ -95,12 +125,17 @@ export default function Main() {
 				<div className="grid @xl:grid-cols-2 gap-8 @xl:gap-16">
 					<div>
 						<h1 className="text-3xl font-bold mb-2">Shipping Details</h1>
-						<p className="text-muted-foreground mb-8">Enter your delivery information</p>
+						<p className="text-muted-foreground mb-8">
+							Enter your delivery information
+						</p>
 
 						<Card className="mb-6">
 							<CardContent className="p-6">
 								<h3 className="font-semibold mb-4">Address Type</h3>
-								<RadioGroup defaultValue="home" className="grid @sm:grid-cols-2 gap-4">
+								<RadioGroup
+									defaultValue="home"
+									className="grid @sm:grid-cols-2 gap-4"
+								>
 									{addressTypes.map((type) => (
 										<AddressTypeOption key={type.value} {...type} />
 									))}
@@ -114,10 +149,27 @@ export default function Main() {
 									<InputField label="First Name" placeholder="John" required />
 									<InputField label="Last Name" placeholder="Doe" required />
 								</div>
-								<InputField label="Email" placeholder="john@example.com" type="email" required />
-								<InputField label="Phone" placeholder="+1 (555) 000-0000" type="tel" required />
-								<InputField label="Street Address" placeholder="123 Main St" required />
-								<InputField label="Apt / Suite / Unit" placeholder="Apartment 4B" />
+								<InputField
+									label="Email"
+									placeholder="john@example.com"
+									type="email"
+									required
+								/>
+								<InputField
+									label="Phone"
+									placeholder="+1 (555) 000-0000"
+									type="tel"
+									required
+								/>
+								<InputField
+									label="Street Address"
+									placeholder="123 Main St"
+									required
+								/>
+								<InputField
+									label="Apt / Suite / Unit"
+									placeholder="Apartment 4B"
+								/>
 								<div className="grid @sm:grid-cols-3 gap-4">
 									<InputField label="City" placeholder="City" required />
 									<InputField label="State" placeholder="State" required />
@@ -125,7 +177,9 @@ export default function Main() {
 								</div>
 
 								<div className="flex flex-col @sm:flex-row gap-3 pt-4">
-									<Button variant="outline" className="flex-1">Back</Button>
+									<Button variant="outline" className="flex-1">
+										Back
+									</Button>
 									<Button className="flex-1">Continue</Button>
 								</div>
 							</CardContent>

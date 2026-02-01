@@ -54,13 +54,15 @@ const SubscriptionHeader = ({
 		</div>
 		<div>
 			<h1 className="text-xl font-bold">{name}</h1>
-			<Badge className={`mt-2 ${
-				status === 'active' 
-					? 'bg-green-500/20 text-green-600' 
-					: status === 'paused'
-					? 'bg-amber-500/20 text-amber-600'
-					: 'bg-red-500/20 text-red-600'
-			}`}>
+			<Badge
+				className={`mt-2 ${
+					status === 'active'
+						? 'bg-green-500/20 text-green-600'
+						: status === 'paused'
+							? 'bg-amber-500/20 text-amber-600'
+							: 'bg-red-500/20 text-red-600'
+				}`}
+			>
 				{status === 'active' && <Check className="size-3 mr-1" />}
 				{status === 'paused' && <Pause className="size-3 mr-1" />}
 				{status === 'expiring' && <AlertTriangle className="size-3 mr-1" />}
@@ -107,10 +109,18 @@ const PlanDetails = ({
 const BenefitsUsage = ({
 	benefits,
 }: {
-	benefits: { icon: React.ElementType; label: string; used: number; limit: number; unit: string }[];
+	benefits: {
+		icon: React.ElementType;
+		label: string;
+		used: number;
+		limit: number;
+		unit: string;
+	}[];
 }) => (
 	<div className="space-y-4">
-		<h3 className="text-sm font-semibold text-center">Benefits Usage This Month</h3>
+		<h3 className="text-sm font-semibold text-center">
+			Benefits Usage This Month
+		</h3>
 		<div className="space-y-3">
 			{benefits.map((benefit, i) => (
 				<div key={i} className="space-y-2">
@@ -123,7 +133,10 @@ const BenefitsUsage = ({
 							{benefit.used}/{benefit.limit} {benefit.unit}
 						</span>
 					</div>
-					<Progress value={(benefit.used / benefit.limit) * 100} className="h-2" />
+					<Progress
+						value={(benefit.used / benefit.limit) * 100}
+						className="h-2"
+					/>
 				</div>
 			))}
 		</div>
@@ -191,9 +204,21 @@ export default function Main() {
 			savedAmount: '$89.94',
 		},
 		benefits: [
-			{ icon: Gift, label: 'Free Shipping', used: 8, limit: 10, unit: 'orders' },
+			{
+				icon: Gift,
+				label: 'Free Shipping',
+				used: 8,
+				limit: 10,
+				unit: 'orders',
+			},
 			{ icon: Zap, label: 'Express Delivery', used: 3, limit: 5, unit: 'uses' },
-			{ icon: Star, label: 'Exclusive Access', used: 2, limit: 3, unit: 'events' },
+			{
+				icon: Star,
+				label: 'Exclusive Access',
+				used: 2,
+				limit: 3,
+				unit: 'events',
+			},
 		],
 		quickActions: [
 			{ icon: CreditCard, label: 'Payment', href: '/subscription/payment' },

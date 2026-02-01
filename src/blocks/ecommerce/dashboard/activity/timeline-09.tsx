@@ -104,7 +104,11 @@ const AmountDisplay = ({
 }) => {
 	const isIncoming = type === 'payment';
 	const colorClass = isIncoming ? 'text-emerald-400' : 'text-foreground';
-	const prefix = isIncoming ? '+' : type === 'payout' || type === 'refund' ? '-' : '';
+	const prefix = isIncoming
+		? '+'
+		: type === 'payout' || type === 'refund'
+			? '-'
+			: '';
 
 	return (
 		<span className={`font-semibold tabular-nums ${colorClass}`}>

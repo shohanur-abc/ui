@@ -30,10 +30,16 @@ interface WishlistItem {
 const ProductPanel = ({ item }: { item: WishlistItem }) => (
 	<div className="sticky top-4">
 		<div className="aspect-square rounded-xl overflow-hidden bg-muted mb-4">
-			<img src={item.image} alt={item.name} className="size-full object-cover" />
+			<img
+				src={item.image}
+				alt={item.name}
+				className="size-full object-cover"
+			/>
 		</div>
 		<h2 className="text-xl font-bold">{item.name}</h2>
-		<p className="text-2xl font-bold text-primary mt-2">${item.price.toFixed(2)}</p>
+		<p className="text-2xl font-bold text-primary mt-2">
+			${item.price.toFixed(2)}
+		</p>
 		<div className="mt-4 p-4 rounded-xl bg-muted">
 			<div className="flex items-center gap-2">
 				<span className="text-3xl font-bold">{item.rating}</span>
@@ -46,7 +52,9 @@ const ProductPanel = ({ item }: { item: WishlistItem }) => (
 							/>
 						))}
 					</div>
-					<p className="text-xs text-muted-foreground mt-0.5">{item.reviews.length} reviews</p>
+					<p className="text-xs text-muted-foreground mt-0.5">
+						{item.reviews.length} reviews
+					</p>
 				</div>
 			</div>
 			<div className="mt-3 space-y-1">
@@ -55,7 +63,9 @@ const ProductPanel = ({ item }: { item: WishlistItem }) => (
 						<span className="w-3">{rb.stars}</span>
 						<Star className="size-3 fill-amber-400 text-amber-400" />
 						<Progress value={rb.percent} className="flex-1 h-1.5" />
-						<span className="w-8 text-right text-muted-foreground">{rb.percent}%</span>
+						<span className="w-8 text-right text-muted-foreground">
+							{rb.percent}%
+						</span>
 					</div>
 				))}
 			</div>
@@ -77,7 +87,11 @@ const ReviewCard = ({ review }: { review: Review }) => (
 			<div className="flex-1">
 				<div className="flex items-center gap-2">
 					<span className="font-medium">{review.author}</span>
-					{review.verified && <Badge variant="secondary" className="text-[10px]">Verified</Badge>}
+					{review.verified && (
+						<Badge variant="secondary" className="text-[10px]">
+							Verified
+						</Badge>
+					)}
 				</div>
 				<div className="flex items-center gap-2 mt-0.5">
 					<div className="flex">
@@ -104,7 +118,9 @@ const ReviewsPanel = ({ reviews }: { reviews: Review[] }) => (
 	<div className="space-y-4">
 		<div className="flex items-center justify-between">
 			<h3 className="font-bold">Customer Reviews</h3>
-			<Button variant="outline" size="sm">Write Review</Button>
+			<Button variant="outline" size="sm">
+				Write Review
+			</Button>
 		</div>
 		{reviews.map((review) => (
 			<ReviewCard key={review.id} review={review} />
@@ -116,8 +132,9 @@ export default function Main() {
 	const wishlistItem: WishlistItem = {
 		id: '1',
 		name: 'Ergonomic Office Chair',
-		price: 549.00,
-		image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=400&fit=crop',
+		price: 549.0,
+		image:
+			'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=400&fit=crop',
 		rating: 4.7,
 		ratingBreakdown: [
 			{ stars: 5, percent: 68 },
@@ -127,9 +144,39 @@ export default function Main() {
 			{ stars: 1, percent: 1 },
 		],
 		reviews: [
-			{ id: '1', author: 'Sarah M.', avatar: 'https://i.pravatar.cc/100?img=1', rating: 5, date: '2 days ago', content: 'Best chair I\'ve ever owned! The lumbar support is incredible and it\'s very comfortable for long work sessions.', helpful: 24, verified: true },
-			{ id: '2', author: 'John D.', avatar: 'https://i.pravatar.cc/100?img=2', rating: 4, date: '1 week ago', content: 'Great quality and build. Assembly was straightforward. Only wish it came in more colors.', helpful: 12, verified: true },
-			{ id: '3', author: 'Emily R.', avatar: 'https://i.pravatar.cc/100?img=3', rating: 5, date: '2 weeks ago', content: 'Worth every penny. My back pain has significantly reduced since switching to this chair.', helpful: 45, verified: false },
+			{
+				id: '1',
+				author: 'Sarah M.',
+				avatar: 'https://i.pravatar.cc/100?img=1',
+				rating: 5,
+				date: '2 days ago',
+				content:
+					"Best chair I've ever owned! The lumbar support is incredible and it's very comfortable for long work sessions.",
+				helpful: 24,
+				verified: true,
+			},
+			{
+				id: '2',
+				author: 'John D.',
+				avatar: 'https://i.pravatar.cc/100?img=2',
+				rating: 4,
+				date: '1 week ago',
+				content:
+					'Great quality and build. Assembly was straightforward. Only wish it came in more colors.',
+				helpful: 12,
+				verified: true,
+			},
+			{
+				id: '3',
+				author: 'Emily R.',
+				avatar: 'https://i.pravatar.cc/100?img=3',
+				rating: 5,
+				date: '2 weeks ago',
+				content:
+					'Worth every penny. My back pain has significantly reduced since switching to this chair.',
+				helpful: 45,
+				verified: false,
+			},
 		],
 		href: '/product/1',
 	};

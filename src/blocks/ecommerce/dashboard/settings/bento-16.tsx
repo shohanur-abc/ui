@@ -47,7 +47,10 @@ type ConnectedAccount = {
 const CompletionProgress = ({
 	items,
 	percentage,
-}: { items: ProfileCompletionItem[]; percentage: number }) => (
+}: {
+	items: ProfileCompletionItem[];
+	percentage: number;
+}) => (
 	<div className="space-y-4">
 		<div className="flex items-center justify-between">
 			<span className="text-sm font-medium">Profile Completion</span>
@@ -56,7 +59,10 @@ const CompletionProgress = ({
 		<Progress value={percentage} className="h-2" />
 		<div className="space-y-2">
 			{items.map((item) => (
-				<div key={item.label} className="flex items-center justify-between text-sm">
+				<div
+					key={item.label}
+					className="flex items-center justify-between text-sm"
+				>
 					<div className="flex items-center gap-2">
 						<div
 							className={`flex size-5 items-center justify-center rounded-full ${
@@ -72,7 +78,11 @@ const CompletionProgress = ({
 						</span>
 					</div>
 					{!item.completed && item.action && (
-						<Button variant="ghost" size="sm" className="h-auto p-0 text-primary">
+						<Button
+							variant="ghost"
+							size="sm"
+							className="h-auto p-0 text-primary"
+						>
 							{item.action}
 						</Button>
 					)}
@@ -94,7 +104,12 @@ const QuickActionButton = ({ icon: Icon, label, href }: QuickAction) => (
 	</a>
 );
 
-const ConnectedAccountRow = ({ name, icon, connected, email }: ConnectedAccount) => (
+const ConnectedAccountRow = ({
+	name,
+	icon,
+	connected,
+	email,
+}: ConnectedAccount) => (
 	<div className="flex items-center justify-between py-3">
 		<div className="flex items-center gap-3">
 			<div className="flex size-8 items-center justify-center rounded-lg bg-muted text-lg">
@@ -161,7 +176,9 @@ export default function Main() {
 									<p className="text-muted-foreground">{profile.email}</p>
 									<div className="mt-3 flex gap-2">
 										<Button size="sm">Edit Profile</Button>
-										<Button size="sm" variant="outline">View Public Profile</Button>
+										<Button size="sm" variant="outline">
+											View Public Profile
+										</Button>
 									</div>
 								</div>
 							</CardContent>
@@ -184,7 +201,9 @@ export default function Main() {
 						<Card>
 							<CardHeader>
 								<CardTitle className="text-base">Connected Accounts</CardTitle>
-								<CardDescription>Manage your connected services</CardDescription>
+								<CardDescription>
+									Manage your connected services
+								</CardDescription>
 							</CardHeader>
 							<CardContent className="divide-y">
 								{connectedAccounts.map((account) => (
@@ -197,7 +216,9 @@ export default function Main() {
 					<div className="space-y-6">
 						<Card>
 							<CardHeader>
-								<CardTitle className="text-base">Complete Your Profile</CardTitle>
+								<CardTitle className="text-base">
+									Complete Your Profile
+								</CardTitle>
 								<CardDescription>Unlock all features</CardDescription>
 							</CardHeader>
 							<CardContent>

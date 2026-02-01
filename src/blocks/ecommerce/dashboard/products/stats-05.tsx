@@ -12,12 +12,7 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 interface PricingTier {
@@ -102,7 +97,13 @@ interface ProfitBreakdownProps {
 	labels: { revenue: string; cost: string; profit: string };
 }
 
-const ProfitBreakdown = ({ title, revenue, cost, profit, labels }: ProfitBreakdownProps) => (
+const ProfitBreakdown = ({
+	title,
+	revenue,
+	cost,
+	profit,
+	labels,
+}: ProfitBreakdownProps) => (
 	<Card>
 		<CardHeader>
 			<CardTitle className="text-base">{title}</CardTitle>
@@ -121,7 +122,9 @@ const ProfitBreakdown = ({ title, revenue, cost, profit, labels }: ProfitBreakdo
 						<div className="size-3 rounded-full bg-red-500" />
 						<span className="text-sm">{labels.cost}</span>
 					</div>
-					<span className="font-bold text-red-500">-${cost.toLocaleString()}</span>
+					<span className="font-bold text-red-500">
+						-${cost.toLocaleString()}
+					</span>
 				</div>
 				<div className="border-t pt-4">
 					<div className="flex items-center justify-between">
@@ -129,7 +132,9 @@ const ProfitBreakdown = ({ title, revenue, cost, profit, labels }: ProfitBreakdo
 							<div className="size-3 rounded-full bg-emerald-500" />
 							<span className="font-medium">{labels.profit}</span>
 						</div>
-						<span className="text-xl font-bold text-emerald-500">${profit.toLocaleString()}</span>
+						<span className="text-xl font-bold text-emerald-500">
+							${profit.toLocaleString()}
+						</span>
 					</div>
 				</div>
 			</div>
@@ -192,13 +197,20 @@ const PricingTiersCard = ({ title, tiers }: PricingTiersCardProps) => (
 		<CardContent>
 			<div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-4">
 				{tiers.map((tier) => (
-					<div key={tier.name} className="rounded-lg border bg-muted/30 p-4 text-center">
+					<div
+						key={tier.name}
+						className="rounded-lg border bg-muted/30 p-4 text-center"
+					>
 						<p className="font-medium">{tier.name}</p>
 						<p className="mt-1 text-2xl font-bold">{tier.count}</p>
 						<p className="text-xs text-muted-foreground">products</p>
 						<div className="mt-2 border-t pt-2">
-							<p className="text-sm font-medium text-primary">{tier.avgMargin.toFixed(1)}% margin</p>
-							<p className="text-xs text-muted-foreground">${tier.revenue.toLocaleString()} revenue</p>
+							<p className="text-sm font-medium text-primary">
+								{tier.avgMargin.toFixed(1)}% margin
+							</p>
+							<p className="text-xs text-muted-foreground">
+								${tier.revenue.toLocaleString()} revenue
+							</p>
 						</div>
 					</div>
 				))}
@@ -214,7 +226,12 @@ interface MarginAlertCardProps {
 	labels: { description: string };
 }
 
-const MarginAlertCard = ({ title, count, target, labels }: MarginAlertCardProps) => (
+const MarginAlertCard = ({
+	title,
+	count,
+	target,
+	labels,
+}: MarginAlertCardProps) => (
 	<Card className="border-amber-500/20 bg-amber-500/5">
 		<CardContent className="flex items-center gap-4 p-4">
 			<div className="flex size-12 items-center justify-center rounded-full bg-amber-500/10">
@@ -223,7 +240,9 @@ const MarginAlertCard = ({ title, count, target, labels }: MarginAlertCardProps)
 			<div className="flex-1">
 				<p className="font-medium">{title}</p>
 				<p className="text-sm text-muted-foreground">
-					{labels.description.replace('{count}', count.toString()).replace('{target}', target.toString())}
+					{labels.description
+						.replace('{count}', count.toString())
+						.replace('{target}', target.toString())}
 				</p>
 			</div>
 			<div className="text-right">
@@ -272,14 +291,25 @@ export default function Main() {
 						revenue={stats.totalRevenue}
 						cost={stats.totalCost}
 						profit={stats.totalProfit}
-						labels={{ revenue: 'Total Revenue', cost: 'Total Cost', profit: 'Net Profit' }}
+						labels={{
+							revenue: 'Total Revenue',
+							cost: 'Total Cost',
+							profit: 'Net Profit',
+						}}
 					/>
 					<Card>
 						<CardContent className="flex h-full flex-col items-center justify-center p-6 text-center">
-							<div className={`flex items-center gap-2 ${stats.marginTrend >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
-								{stats.marginTrend >= 0 ? <TrendingUp className="size-8" /> : <TrendingDown className="size-8" />}
+							<div
+								className={`flex items-center gap-2 ${stats.marginTrend >= 0 ? 'text-emerald-500' : 'text-red-500'}`}
+							>
+								{stats.marginTrend >= 0 ? (
+									<TrendingUp className="size-8" />
+								) : (
+									<TrendingDown className="size-8" />
+								)}
 								<span className="text-4xl font-bold">
-									{stats.marginTrend >= 0 ? '+' : ''}{stats.marginTrend}%
+									{stats.marginTrend >= 0 ? '+' : ''}
+									{stats.marginTrend}%
 								</span>
 							</div>
 							<p className="mt-2 text-muted-foreground">Margin Trend</p>
@@ -292,7 +322,10 @@ export default function Main() {
 					title="Products Below Target Margin"
 					count={stats.belowTargetCount}
 					target={stats.targetMargin}
-					labels={{ description: '{count} products are below the {target}% target margin' }}
+					labels={{
+						description:
+							'{count} products are below the {target}% target margin',
+					}}
 				/>
 
 				<div className="grid gap-6 @lg:grid-cols-2">

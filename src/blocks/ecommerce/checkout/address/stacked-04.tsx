@@ -49,12 +49,7 @@ const SectionTitle = ({ number, title, subtitle }: SectionTitleProps) => (
 	</div>
 );
 
-const Field = ({
-	label,
-	placeholder,
-	type = 'text',
-	optional,
-}: FieldProps) => (
+const Field = ({ label, placeholder, type = 'text', optional }: FieldProps) => (
 	<div className="space-y-2">
 		<Label className="text-sm">
 			{label}
@@ -160,7 +155,10 @@ export default function Main() {
 							options={countries}
 						/>
 
-						<Field label="Street Address" placeholder="House number and street name" />
+						<Field
+							label="Street Address"
+							placeholder="House number and street name"
+						/>
 
 						<Field
 							label="Apartment / Suite"

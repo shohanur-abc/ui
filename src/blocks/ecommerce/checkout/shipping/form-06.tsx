@@ -63,8 +63,12 @@ const CheckOption = ({
 	<div className="flex items-start space-x-3 p-4 rounded-lg border hover:bg-accent/50 transition-colors">
 		<Checkbox id={id} className="mt-0.5" />
 		<div>
-			<Label htmlFor={id} className="font-medium cursor-pointer">{label}</Label>
-			{description && <p className="text-sm text-muted-foreground">{description}</p>}
+			<Label htmlFor={id} className="font-medium cursor-pointer">
+				{label}
+			</Label>
+			{description && (
+				<p className="text-sm text-muted-foreground">{description}</p>
+			)}
 		</div>
 	</div>
 );

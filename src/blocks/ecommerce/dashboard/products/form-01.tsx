@@ -56,9 +56,15 @@ const FormStep = ({
 			<div
 				className={`flex size-10 items-center justify-center rounded-full border-2 transition-colors ${isActive ? 'border-primary bg-primary text-primary-foreground' : isCompleted ? 'border-emerald-500 bg-emerald-500 text-white' : 'border-muted bg-background'}`}
 			>
-				{isCompleted ? <Check className="size-5" /> : <Icon className="size-5" />}
+				{isCompleted ? (
+					<Check className="size-5" />
+				) : (
+					<Icon className="size-5" />
+				)}
 			</div>
-			<span className={`hidden font-medium @sm:block ${isActive ? 'text-foreground' : 'text-muted-foreground'}`}>
+			<span
+				className={`hidden font-medium @sm:block ${isActive ? 'text-foreground' : 'text-muted-foreground'}`}
+			>
 				{title}
 			</span>
 		</div>
@@ -107,7 +113,11 @@ const BasicInfoStep = ({ labels }: BasicInfoStepProps) => (
 		</div>
 		<div className="space-y-2">
 			<Label htmlFor="description">{labels.description}</Label>
-			<Textarea id="description" rows={4} placeholder="Describe your product..." />
+			<Textarea
+				id="description"
+				rows={4}
+				placeholder="Describe your product..."
+			/>
 		</div>
 		<div className="grid gap-6 @sm:grid-cols-2">
 			<div className="space-y-2">
@@ -147,21 +157,32 @@ const PricingStep = ({ labels }: PricingStepProps) => (
 			<div className="space-y-2">
 				<Label htmlFor="price">{labels.price} *</Label>
 				<div className="relative">
-					<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+					<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+						$
+					</span>
 					<Input id="price" type="number" placeholder="0.00" className="pl-7" />
 				</div>
 			</div>
 			<div className="space-y-2">
 				<Label htmlFor="compare-price">{labels.comparePrice}</Label>
 				<div className="relative">
-					<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
-					<Input id="compare-price" type="number" placeholder="0.00" className="pl-7" />
+					<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+						$
+					</span>
+					<Input
+						id="compare-price"
+						type="number"
+						placeholder="0.00"
+						className="pl-7"
+					/>
 				</div>
 			</div>
 			<div className="space-y-2">
 				<Label htmlFor="cost">{labels.cost}</Label>
 				<div className="relative">
-					<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+					<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+						$
+					</span>
 					<Input id="cost" type="number" placeholder="0.00" className="pl-7" />
 				</div>
 			</div>
@@ -224,7 +245,9 @@ const InventoryStep = ({ labels }: InventoryStepProps) => (
 			</div>
 			<div className="flex items-center gap-3">
 				<Switch id="continue-selling" />
-				<Label htmlFor="continue-selling">Continue selling when out of stock</Label>
+				<Label htmlFor="continue-selling">
+					Continue selling when out of stock
+				</Label>
 			</div>
 		</div>
 	</div>
@@ -239,14 +262,19 @@ const MediaStep = ({ labels }: MediaStepProps) => (
 		<div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-8">
 			<Upload className="mb-4 size-12 text-muted-foreground" />
 			<p className="text-center font-medium">{labels.drag}</p>
-			<p className="text-center text-sm text-muted-foreground">PNG, JPG, GIF up to 10MB</p>
+			<p className="text-center text-sm text-muted-foreground">
+				PNG, JPG, GIF up to 10MB
+			</p>
 			<Button variant="outline" className="mt-4">
 				{labels.upload}
 			</Button>
 		</div>
 		<div className="grid gap-4 @sm:grid-cols-4">
 			{[1, 2, 3].map((i) => (
-				<div key={i} className="group relative aspect-square overflow-hidden rounded-lg border bg-muted">
+				<div
+					key={i}
+					className="group relative aspect-square overflow-hidden rounded-lg border bg-muted"
+				>
 					<div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:bg-black/50 group-hover:opacity-100">
 						<Button variant="destructive" size="icon-sm">
 							<Trash2 className="size-4" />

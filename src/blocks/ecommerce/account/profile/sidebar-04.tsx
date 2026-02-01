@@ -64,7 +64,12 @@ const SellerNav = ({
 	items,
 	activeHref,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; badge?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+	}[];
 	activeHref: string;
 }) => (
 	<nav className="space-y-1">
@@ -105,8 +110,14 @@ const RevenueCard = ({
 				<div>
 					<p className="text-sm text-muted-foreground">Total Revenue</p>
 					<p className="text-3xl font-bold mt-1">{amount}</p>
-					<div className={`flex items-center gap-1 mt-2 ${positive ? 'text-green-500' : 'text-red-500'}`}>
-						{positive ? <ArrowUp className="size-4" /> : <ArrowDown className="size-4" />}
+					<div
+						className={`flex items-center gap-1 mt-2 ${positive ? 'text-green-500' : 'text-red-500'}`}
+					>
+						{positive ? (
+							<ArrowUp className="size-4" />
+						) : (
+							<ArrowDown className="size-4" />
+						)}
 						<span className="text-sm font-medium">{change} this month</span>
 					</div>
 				</div>
@@ -121,7 +132,13 @@ const RevenueCard = ({
 const StatsRow = ({
 	items,
 }: {
-	items: { icon: React.ElementType; value: string; label: string; change: string; positive: boolean }[];
+	items: {
+		icon: React.ElementType;
+		value: string;
+		label: string;
+		change: string;
+		positive: boolean;
+	}[];
 }) => (
 	<div className="grid grid-cols-2 @lg:grid-cols-4 gap-4">
 		{items.map((stat, i) => (
@@ -132,8 +149,14 @@ const StatsRow = ({
 						<span className="text-sm text-muted-foreground">{stat.label}</span>
 					</div>
 					<p className="text-2xl font-bold">{stat.value}</p>
-					<div className={`flex items-center gap-1 mt-1 text-xs ${stat.positive ? 'text-green-500' : 'text-red-500'}`}>
-						{stat.positive ? <TrendingUp className="size-3" /> : <TrendingUp className="size-3 rotate-180" />}
+					<div
+						className={`flex items-center gap-1 mt-1 text-xs ${stat.positive ? 'text-green-500' : 'text-red-500'}`}
+					>
+						{stat.positive ? (
+							<TrendingUp className="size-3" />
+						) : (
+							<TrendingUp className="size-3 rotate-180" />
+						)}
 						{stat.change}
 					</div>
 				</CardContent>
@@ -145,7 +168,14 @@ const StatsRow = ({
 const RecentOrdersTable = ({
 	orders,
 }: {
-	orders: { id: string; customer: string; items: number; total: string; status: string; statusColor: string }[];
+	orders: {
+		id: string;
+		customer: string;
+		items: number;
+		total: string;
+		status: string;
+		statusColor: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -159,14 +189,19 @@ const RecentOrdersTable = ({
 		<CardContent>
 			<div className="space-y-3">
 				{orders.map((order, i) => (
-					<div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors">
+					<div
+						key={i}
+						className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors"
+					>
 						<div className="flex items-center gap-3">
 							<div className="p-2 rounded-lg bg-muted">
 								<Package className="size-4" />
 							</div>
 							<div>
 								<p className="font-medium">#{order.id}</p>
-								<p className="text-sm text-muted-foreground">{order.customer} • {order.items} items</p>
+								<p className="text-sm text-muted-foreground">
+									{order.customer} • {order.items} items
+								</p>
 							</div>
 						</div>
 						<div className="text-right">
@@ -195,7 +230,12 @@ export default function Main() {
 			{ icon: BarChart3, label: 'Dashboard', href: '/seller/dashboard' },
 			{ icon: Package, label: 'Orders', href: '/seller/orders', badge: '12' },
 			{ icon: Box, label: 'Products', href: '/seller/products', badge: '156' },
-			{ icon: MessageSquare, label: 'Messages', href: '/seller/messages', badge: '5' },
+			{
+				icon: MessageSquare,
+				label: 'Messages',
+				href: '/seller/messages',
+				badge: '5',
+			},
 			{ icon: Users, label: 'Customers', href: '/seller/customers' },
 			{ icon: Settings, label: 'Settings', href: '/seller/settings' },
 		],
@@ -205,15 +245,60 @@ export default function Main() {
 			positive: true,
 		},
 		stats: [
-			{ icon: ShoppingCart, value: '156', label: 'Orders', change: '+8%', positive: true },
-			{ icon: Eye, value: '24.5K', label: 'Views', change: '+18%', positive: true },
-			{ icon: Users, value: '892', label: 'Customers', change: '+12%', positive: true },
-			{ icon: Star, value: '4.9', label: 'Rating', change: '+0.1', positive: true },
+			{
+				icon: ShoppingCart,
+				value: '156',
+				label: 'Orders',
+				change: '+8%',
+				positive: true,
+			},
+			{
+				icon: Eye,
+				value: '24.5K',
+				label: 'Views',
+				change: '+18%',
+				positive: true,
+			},
+			{
+				icon: Users,
+				value: '892',
+				label: 'Customers',
+				change: '+12%',
+				positive: true,
+			},
+			{
+				icon: Star,
+				value: '4.9',
+				label: 'Rating',
+				change: '+0.1',
+				positive: true,
+			},
 		],
 		orders: [
-			{ id: '48291', customer: 'John D.', items: 3, total: '$156.00', status: 'Processing', statusColor: 'bg-blue-500/20 text-blue-600' },
-			{ id: '48290', customer: 'Sarah M.', items: 1, total: '$89.50', status: 'Shipped', statusColor: 'bg-green-500/20 text-green-600' },
-			{ id: '48289', customer: 'Mike R.', items: 2, total: '$234.00', status: 'Pending', statusColor: 'bg-amber-500/20 text-amber-600' },
+			{
+				id: '48291',
+				customer: 'John D.',
+				items: 3,
+				total: '$156.00',
+				status: 'Processing',
+				statusColor: 'bg-blue-500/20 text-blue-600',
+			},
+			{
+				id: '48290',
+				customer: 'Sarah M.',
+				items: 1,
+				total: '$89.50',
+				status: 'Shipped',
+				statusColor: 'bg-green-500/20 text-green-600',
+			},
+			{
+				id: '48289',
+				customer: 'Mike R.',
+				items: 2,
+				total: '$234.00',
+				status: 'Pending',
+				statusColor: 'bg-amber-500/20 text-amber-600',
+			},
 		],
 	};
 
@@ -226,9 +311,15 @@ export default function Main() {
 							<CardContent className="p-6 space-y-6">
 								<SellerSidebar {...profileData.sidebar} />
 								<Separator />
-								<SellerNav items={profileData.nav} activeHref="/seller/dashboard" />
+								<SellerNav
+									items={profileData.nav}
+									activeHref="/seller/dashboard"
+								/>
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>

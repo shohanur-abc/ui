@@ -36,8 +36,14 @@ interface GoalTrackerProps {
 	overallProgress: number;
 }
 
-const TypeConfig: Record<Goal['type'], { icon: LucideIcon; className: string }> = {
-	revenue: { icon: DollarSign, className: 'bg-emerald-500/20 text-emerald-400' },
+const TypeConfig: Record<
+	Goal['type'],
+	{ icon: LucideIcon; className: string }
+> = {
+	revenue: {
+		icon: DollarSign,
+		className: 'bg-emerald-500/20 text-emerald-400',
+	},
 	orders: { icon: ShoppingCart, className: 'bg-blue-500/20 text-blue-400' },
 	customers: { icon: Users, className: 'bg-purple-500/20 text-purple-400' },
 	products: { icon: Package, className: 'bg-orange-500/20 text-orange-400' },
@@ -78,7 +84,8 @@ const GoalCard = ({ goal }: { goal: Goal }) => {
 								: `${goal.current.toLocaleString()}${goal.unit}`}
 						</span>
 						<span className="text-muted-foreground">
-							/ {goal.unit === '$'
+							/{' '}
+							{goal.unit === '$'
 								? `${goal.unit}${goal.target.toLocaleString()}`
 								: `${goal.target.toLocaleString()}${goal.unit}`}
 						</span>
@@ -252,11 +259,7 @@ export default function Main() {
 	return (
 		<section className="@container" data-theme="activity">
 			<div className="mx-auto max-w-xl px-4 py-8 @sm:px-6 @sm:py-12 @2xl:px-8 @2xl:py-16">
-				<GoalTracker
-					title="Goal Tracker"
-					goals={goals}
-					overallProgress={72}
-				/>
+				<GoalTracker title="Goal Tracker" goals={goals} overallProgress={72} />
 			</div>
 		</section>
 	);

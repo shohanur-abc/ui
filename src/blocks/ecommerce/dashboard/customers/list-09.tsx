@@ -80,7 +80,9 @@ const WishlistListItem = ({ customer }: { customer: WishlistCustomer }) => (
 			</Avatar>
 			<div className="min-w-0">
 				<p className="font-semibold truncate">{customer.name}</p>
-				<p className="text-muted-foreground text-sm truncate">{customer.email}</p>
+				<p className="text-muted-foreground text-sm truncate">
+					{customer.email}
+				</p>
 			</div>
 		</div>
 		<div className="flex-1 grid grid-cols-2 @md:grid-cols-4 gap-4">
@@ -89,7 +91,9 @@ const WishlistListItem = ({ customer }: { customer: WishlistCustomer }) => (
 					<Heart className="size-3" /> Wishlist
 				</p>
 				<p className="font-semibold">{customer.wishlist.totalItems} items</p>
-				<p className="text-muted-foreground text-xs">{customer.wishlist.totalValue} value</p>
+				<p className="text-muted-foreground text-xs">
+					{customer.wishlist.totalValue} value
+				</p>
 			</div>
 			<div>
 				<p className="text-muted-foreground text-xs flex items-center gap-1">
@@ -147,7 +151,12 @@ export default function Main() {
 			name: 'Hannah Moore',
 			email: 'hannah.m@email.com',
 			initials: 'HM',
-			wishlist: { totalItems: 24, totalValue: '$1,890', oldestItem: '3 months ago', newestItem: '1 day ago' },
+			wishlist: {
+				totalItems: 24,
+				totalValue: '$1,890',
+				oldestItem: '3 months ago',
+				newestItem: '1 day ago',
+			},
 			topCategories: ['Fashion', 'Accessories', 'Beauty'],
 			conversionRate: 58,
 			itemsInCart: 3,
@@ -159,7 +168,12 @@ export default function Main() {
 			name: 'Ian Foster',
 			email: 'ian.f@email.com',
 			initials: 'IF',
-			wishlist: { totalItems: 12, totalValue: '$2,450', oldestItem: '6 months ago', newestItem: '1 week ago' },
+			wishlist: {
+				totalItems: 12,
+				totalValue: '$2,450',
+				oldestItem: '6 months ago',
+				newestItem: '1 week ago',
+			},
 			topCategories: ['Electronics', 'Gaming'],
 			conversionRate: 33,
 			itemsInCart: 1,
@@ -171,7 +185,12 @@ export default function Main() {
 			name: 'Julia Bennett',
 			email: 'julia.b@email.com',
 			initials: 'JB',
-			wishlist: { totalItems: 45, totalValue: '$3,200', oldestItem: '1 year ago', newestItem: 'Today' },
+			wishlist: {
+				totalItems: 45,
+				totalValue: '$3,200',
+				oldestItem: '1 year ago',
+				newestItem: 'Today',
+			},
 			topCategories: ['Home', 'Kitchen', 'Decor'],
 			conversionRate: 72,
 			itemsInCart: 8,
@@ -183,7 +202,12 @@ export default function Main() {
 			name: 'Kevin Nguyen',
 			email: 'kevin.n@email.com',
 			initials: 'KN',
-			wishlist: { totalItems: 8, totalValue: '$560', oldestItem: '2 weeks ago', newestItem: '3 days ago' },
+			wishlist: {
+				totalItems: 8,
+				totalValue: '$560',
+				oldestItem: '2 weeks ago',
+				newestItem: '3 days ago',
+			},
 			topCategories: ['Sports', 'Fitness'],
 			conversionRate: 12,
 			itemsInCart: 0,
@@ -195,7 +219,12 @@ export default function Main() {
 			name: 'Laura Mitchell',
 			email: 'laura.m@email.com',
 			initials: 'LM',
-			wishlist: { totalItems: 32, totalValue: '$4,100', oldestItem: '8 months ago', newestItem: 'Today' },
+			wishlist: {
+				totalItems: 32,
+				totalValue: '$4,100',
+				oldestItem: '8 months ago',
+				newestItem: 'Today',
+			},
 			topCategories: ['Jewelry', 'Luxury', 'Fashion'],
 			conversionRate: 45,
 			itemsInCart: 5,
@@ -207,7 +236,12 @@ export default function Main() {
 			name: 'Marcus Reed',
 			email: 'marcus.r@email.com',
 			initials: 'MR',
-			wishlist: { totalItems: 18, totalValue: '$1,200', oldestItem: '4 months ago', newestItem: '2 days ago' },
+			wishlist: {
+				totalItems: 18,
+				totalValue: '$1,200',
+				oldestItem: '4 months ago',
+				newestItem: '2 days ago',
+			},
 			topCategories: ['Tech', 'Gadgets', 'Audio'],
 			conversionRate: 28,
 			itemsInCart: 2,
@@ -219,7 +253,12 @@ export default function Main() {
 			name: 'Natalie Brooks',
 			email: 'natalie.b@email.com',
 			initials: 'NB',
-			wishlist: { totalItems: 56, totalValue: '$5,800', oldestItem: '1 year ago', newestItem: 'Today' },
+			wishlist: {
+				totalItems: 56,
+				totalValue: '$5,800',
+				oldestItem: '1 year ago',
+				newestItem: 'Today',
+			},
 			topCategories: ['Fashion', 'Shoes', 'Bags'],
 			conversionRate: 65,
 			itemsInCart: 7,
@@ -231,7 +270,12 @@ export default function Main() {
 			name: 'Oscar Grant',
 			email: 'oscar.g@email.com',
 			initials: 'OG',
-			wishlist: { totalItems: 5, totalValue: '$890', oldestItem: '1 month ago', newestItem: '1 week ago' },
+			wishlist: {
+				totalItems: 5,
+				totalValue: '$890',
+				oldestItem: '1 month ago',
+				newestItem: '1 week ago',
+			},
 			topCategories: ['Outdoor', 'Camping'],
 			conversionRate: 80,
 			itemsInCart: 4,

@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Minus, Plus, X, ArrowRight, Zap, Info } from 'lucide-react';
@@ -22,18 +28,29 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 			<Zap className="size-6 text-primary" />
 			<div>
 				<h1 className="text-2xl font-bold @md:text-3xl">{title}</h1>
-				<p className="text-sm text-muted-foreground">Optimized for large carts</p>
+				<p className="text-sm text-muted-foreground">
+					Optimized for large carts
+				</p>
 			</div>
 		</div>
-		<Badge variant="secondary" className="px-3 py-1">{count} items</Badge>
+		<Badge variant="secondary" className="px-3 py-1">
+			{count} items
+		</Badge>
 	</div>
 );
 
-const VirtualInfo = ({ visible, total }: { visible: number; total: number }) => (
+const VirtualInfo = ({
+	visible,
+	total,
+}: {
+	visible: number;
+	total: number;
+}) => (
 	<div className="flex items-center gap-2 p-3 bg-blue-500/10 rounded-lg text-sm">
 		<Info className="size-4 text-blue-500" />
 		<span>
-			Rendering <strong>{visible}</strong> of <strong>{total}</strong> items for optimal performance
+			Rendering <strong>{visible}</strong> of <strong>{total}</strong> items for
+			optimal performance
 		</span>
 	</div>
 );
@@ -71,8 +88,14 @@ const VirtualizedRow = ({ item, index }: { item: CartItem; index: number }) => (
 		</div>
 		<div className="flex items-center gap-3">
 			<QuantityControl quantity={item.quantity} />
-			<p className="font-semibold text-sm w-20 text-right">${(item.price * item.quantity).toFixed(2)}</p>
-			<Button size="icon-sm" variant="ghost" className="size-6 text-muted-foreground hover:text-destructive">
+			<p className="font-semibold text-sm w-20 text-right">
+				${(item.price * item.quantity).toFixed(2)}
+			</p>
+			<Button
+				size="icon-sm"
+				variant="ghost"
+				className="size-6 text-muted-foreground hover:text-destructive"
+			>
 				<X className="size-3" />
 			</Button>
 		</div>
@@ -90,7 +113,13 @@ const ListHeader = () => (
 	</div>
 );
 
-const PerformanceStats = ({ itemCount, renderTime }: { itemCount: number; renderTime: number }) => (
+const PerformanceStats = ({
+	itemCount,
+	renderTime,
+}: {
+	itemCount: number;
+	renderTime: number;
+}) => (
 	<div className="grid grid-cols-3 gap-3 text-center">
 		<div className="p-2 bg-muted/50 rounded-lg">
 			<p className="text-lg font-bold">{itemCount}</p>
@@ -116,7 +145,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between text-sm ${bold ? 'font-bold text-base' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between text-sm ${bold ? 'font-bold text-base' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -126,11 +157,41 @@ export default function Main() {
 	// Large dataset for virtualization demo
 	const generateItems = (count: number): CartItem[] => {
 		const products = [
-			{ image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop', name: 'Studio Headphones', variant: 'Black', price: 299.99 },
-			{ image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop', name: 'Wireless Earbuds', variant: 'White', price: 179.99 },
-			{ image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop', name: 'Running Shoes', variant: 'Red', price: 149.99 },
-			{ image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop', name: 'Classic Watch', variant: 'Silver', price: 249.99 },
-			{ image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop', name: 'Silk Scarf', variant: 'Navy', price: 89.99 },
+			{
+				image:
+					'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
+				name: 'Studio Headphones',
+				variant: 'Black',
+				price: 299.99,
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop',
+				name: 'Wireless Earbuds',
+				variant: 'White',
+				price: 179.99,
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
+				name: 'Running Shoes',
+				variant: 'Red',
+				price: 149.99,
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
+				name: 'Classic Watch',
+				variant: 'Silver',
+				price: 249.99,
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop',
+				name: 'Silk Scarf',
+				variant: 'Navy',
+				price: 89.99,
+			},
 		];
 
 		return Array.from({ length: count }, (_, i) => ({

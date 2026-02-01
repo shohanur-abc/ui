@@ -76,7 +76,10 @@ const ReviewCard = ({ review }: { review: Review }) => (
 			<div className="flex items-start justify-between gap-3">
 				<div className="flex items-center gap-3">
 					<Avatar className="size-10">
-						<AvatarImage src={review.customer.avatar} alt={review.customer.name} />
+						<AvatarImage
+							src={review.customer.avatar}
+							alt={review.customer.name}
+						/>
 						<AvatarFallback className="bg-primary/20 text-primary">
 							{review.customer.initials}
 						</AvatarFallback>
@@ -222,7 +225,7 @@ export default function Main() {
 			rating: 5,
 			title: 'Exceeded all expectations!',
 			content:
-				'This is hands down the best purchase I\'ve made this year. The build quality is exceptional, and the features work exactly as advertised. Highly recommend to anyone considering it.',
+				"This is hands down the best purchase I've made this year. The build quality is exceptional, and the features work exactly as advertised. Highly recommend to anyone considering it.",
 			product: {
 				name: 'Premium Wireless Headphones',
 				sku: 'SKU-WH-2847',
@@ -241,7 +244,7 @@ export default function Main() {
 			rating: 4,
 			title: 'Great product, minor issues',
 			content:
-				'Overall very satisfied with the purchase. The only reason I\'m not giving 5 stars is the slightly longer shipping time than expected. Product itself is fantastic.',
+				"Overall very satisfied with the purchase. The only reason I'm not giving 5 stars is the slightly longer shipping time than expected. Product itself is fantastic.",
 			product: {
 				name: 'Smart Watch Pro',
 				sku: 'SKU-SW-1293',

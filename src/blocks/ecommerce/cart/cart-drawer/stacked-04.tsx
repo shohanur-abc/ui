@@ -11,7 +11,14 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Heart, Minus, Package, Plus, ShoppingCart, Trash2 } from 'lucide-react';
+import {
+	Heart,
+	Minus,
+	Package,
+	Plus,
+	ShoppingCart,
+	Trash2,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -68,7 +75,11 @@ const ShippingProgress = ({
 		<div className="space-y-2 rounded-lg bg-muted/50 p-3">
 			{remaining > 0 ? (
 				<p className="text-xs text-muted-foreground">
-					Add <span className="font-semibold text-primary">${remaining.toFixed(2)}</span> more for free shipping
+					Add{' '}
+					<span className="font-semibold text-primary">
+						${remaining.toFixed(2)}
+					</span>{' '}
+					more for free shipping
 				</p>
 			) : (
 				<p className="text-xs font-medium text-primary">{message}</p>
@@ -153,7 +164,10 @@ const OrderTotal = ({
 	items: CartItem[];
 	checkoutLabel: string;
 }) => {
-	const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 	const savings = items.reduce((sum, item) => {
 		if (item.originalPrice) {
 			return sum + (item.originalPrice - item.price) * item.quantity;
@@ -191,7 +205,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Air Max 270 React',
 				brand: 'Nike',
 				price: 149.99,
@@ -201,7 +216,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=200&h=200&fit=crop',
 				name: 'Ultraboost 22',
 				brand: 'Adidas',
 				price: 179.99,
@@ -210,7 +226,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
 				name: 'Classic Leather',
 				brand: 'Reebok',
 				price: 89.99,

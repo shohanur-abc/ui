@@ -76,7 +76,9 @@ const PerformanceStats = ({
 			<div key={i} className="p-4 rounded-xl bg-muted/30 text-center">
 				<p className="text-2xl font-bold">{stat.value}</p>
 				<p className="text-xs text-muted-foreground mb-1">{stat.label}</p>
-				<div className={`text-xs flex items-center justify-center gap-1 ${stat.positive ? 'text-green-500' : 'text-red-500'}`}>
+				<div
+					className={`text-xs flex items-center justify-center gap-1 ${stat.positive ? 'text-green-500' : 'text-red-500'}`}
+				>
 					<TrendingUp className={`size-3 ${!stat.positive && 'rotate-180'}`} />
 					{stat.change}
 				</div>
@@ -110,7 +112,12 @@ const QuickActions = ({
 }) => (
 	<div className="grid grid-cols-2 gap-2">
 		{items.map((action, i) => (
-			<Button key={i} variant="outline" className="justify-start gap-2 h-11" asChild>
+			<Button
+				key={i}
+				variant="outline"
+				className="justify-start gap-2 h-11"
+				asChild
+			>
 				<Link href={action.href}>
 					<action.icon className="size-4" />
 					{action.label}
@@ -123,7 +130,13 @@ const QuickActions = ({
 const RecentOrders = ({
 	orders,
 }: {
-	orders: { id: string; customer: string; total: string; status: string; statusColor: string }[];
+	orders: {
+		id: string;
+		customer: string;
+		total: string;
+		status: string;
+		statusColor: string;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
@@ -134,7 +147,10 @@ const RecentOrders = ({
 		</div>
 		<div className="space-y-2">
 			{orders.map((order, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+				>
 					<div>
 						<p className="text-sm font-medium">#{order.id}</p>
 						<p className="text-xs text-muted-foreground">{order.customer}</p>
@@ -162,7 +178,12 @@ export default function Main() {
 			verified: true,
 		},
 		performance: [
-			{ label: 'Total Sales', value: '$124.5K', change: '+12.5%', positive: true },
+			{
+				label: 'Total Sales',
+				value: '$124.5K',
+				change: '+12.5%',
+				positive: true,
+			},
 			{ label: 'Orders', value: '2,847', change: '+8.3%', positive: true },
 			{ label: 'Products', value: '156', change: '+5', positive: true },
 			{ label: 'Return Rate', value: '1.2%', change: '-0.3%', positive: true },
@@ -180,9 +201,27 @@ export default function Main() {
 			{ icon: Download, label: 'Reports', href: '/seller/reports' },
 		],
 		recentOrders: [
-			{ id: '89421', customer: 'John Smith', total: '$459.00', status: 'Processing', statusColor: 'bg-amber-500/20 text-amber-600' },
-			{ id: '89420', customer: 'Sarah Lee', total: '$129.99', status: 'Shipped', statusColor: 'bg-blue-500/20 text-blue-600' },
-			{ id: '89419', customer: 'Mike Davis', total: '$89.00', status: 'Delivered', statusColor: 'bg-green-500/20 text-green-600' },
+			{
+				id: '89421',
+				customer: 'John Smith',
+				total: '$459.00',
+				status: 'Processing',
+				statusColor: 'bg-amber-500/20 text-amber-600',
+			},
+			{
+				id: '89420',
+				customer: 'Sarah Lee',
+				total: '$129.99',
+				status: 'Shipped',
+				statusColor: 'bg-blue-500/20 text-blue-600',
+			},
+			{
+				id: '89419',
+				customer: 'Mike Davis',
+				total: '$89.00',
+				status: 'Delivered',
+				statusColor: 'bg-green-500/20 text-green-600',
+			},
 		],
 	};
 

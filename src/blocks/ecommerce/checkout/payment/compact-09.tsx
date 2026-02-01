@@ -9,11 +9,19 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Slider } from '@/components/ui/slider';
 
-const PointsBalance = ({ balance, value }: { balance: number; value: string }) => (
+const PointsBalance = ({
+	balance,
+	value,
+}: {
+	balance: number;
+	value: string;
+}) => (
 	<div className="flex items-center justify-between p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/20">
 		<div className="flex items-center gap-2">
 			<Award className="size-4 text-amber-500" />
-			<span className="text-sm font-medium">{balance.toLocaleString()} pts</span>
+			<span className="text-sm font-medium">
+				{balance.toLocaleString()} pts
+			</span>
 		</div>
 		<span className="text-sm text-muted-foreground">Worth {value}</span>
 	</div>
@@ -42,7 +50,17 @@ const CompactCardForm = () => (
 	</div>
 );
 
-const PricingSummary = ({ original, discount, total, pointsEarned }: { original: string; discount: string; total: string; pointsEarned: number }) => (
+const PricingSummary = ({
+	original,
+	discount,
+	total,
+	pointsEarned,
+}: {
+	original: string;
+	discount: string;
+	total: string;
+	pointsEarned: number;
+}) => (
 	<div className="space-y-1.5">
 		<div className="flex justify-between text-xs">
 			<span className="text-muted-foreground">Subtotal</span>
@@ -74,7 +92,12 @@ export default function Main() {
 						<PointsSlider max={5000} value={2000} />
 						<Separator />
 						<CompactCardForm />
-						<PricingSummary original="$100.00" discount="$20.00" total="$80.00" pointsEarned={80} />
+						<PricingSummary
+							original="$100.00"
+							discount="$20.00"
+							total="$80.00"
+							pointsEarned={80}
+						/>
 						<Button className="w-full h-9 text-sm gap-2">
 							<Lock className="size-3.5" />
 							Pay $80.00

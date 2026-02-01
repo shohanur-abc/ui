@@ -88,7 +88,9 @@ const MarqueeRow = ({
 		<div className="overflow-hidden relative">
 			<div
 				className={`flex gap-6 ${
-					direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'
+					direction === 'left'
+						? 'animate-marquee-left'
+						: 'animate-marquee-right'
 				}`}
 				style={{
 					animationDuration: `${duration}s`,
@@ -110,7 +112,8 @@ export default function Main() {
 			author: 'George Chen',
 			role: 'CEO',
 			company: 'TransformCo',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'GC',
 			rating: 5,
 		},
@@ -120,7 +123,8 @@ export default function Main() {
 			author: 'Hannah Park',
 			role: 'CFO',
 			company: 'InvestSmart',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'HP',
 			rating: 5,
 		},
@@ -130,7 +134,8 @@ export default function Main() {
 			author: 'Ivan Foster',
 			role: 'Operations',
 			company: 'SupportFirst',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'IF',
 			rating: 5,
 		},
@@ -140,7 +145,8 @@ export default function Main() {
 			author: 'Julia Lee',
 			role: 'CTO',
 			company: 'IntegratePro',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'JL',
 			rating: 5,
 		},
@@ -150,7 +156,8 @@ export default function Main() {
 			author: 'Kevin Kim',
 			role: 'CISO',
 			company: 'SecureCorp',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'KK',
 			rating: 5,
 		},
@@ -160,14 +167,18 @@ export default function Main() {
 			author: 'Laura Davis',
 			role: 'VP Engineering',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'LD',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<style jsx>{`
 				@keyframes marquee-left {
 					0% {

@@ -1,6 +1,15 @@
 'use client';
 
-import { TrendingUp, TrendingDown, Globe, Smartphone, Monitor, Tablet, ShoppingCart, CreditCard } from 'lucide-react';
+import {
+	TrendingUp,
+	TrendingDown,
+	Globe,
+	Smartphone,
+	Monitor,
+	Tablet,
+	ShoppingCart,
+	CreditCard,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
@@ -58,13 +67,24 @@ const RegionCard = ({ regions }: { regions: RegionMetric[] }) => (
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{regions.map((region, idx) => (
-				<div key={idx} className="flex items-center justify-between py-2 border-b border-border/50 last:border-0">
+				<div
+					key={idx}
+					className="flex items-center justify-between py-2 border-b border-border/50 last:border-0"
+				>
 					<div>
 						<p className="font-medium">{region.name}</p>
-						<p className="text-xs text-muted-foreground">${region.revenue.toLocaleString()}</p>
+						<p className="text-xs text-muted-foreground">
+							${region.revenue.toLocaleString()}
+						</p>
 					</div>
-					<div className={`flex items-center gap-1 text-sm ${region.change >= 0 ? 'text-primary' : 'text-destructive'}`}>
-						{region.change >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+					<div
+						className={`flex items-center gap-1 text-sm ${region.change >= 0 ? 'text-primary' : 'text-destructive'}`}
+					>
+						{region.change >= 0 ? (
+							<TrendingUp className="size-3" />
+						) : (
+							<TrendingDown className="size-3" />
+						)}
 						{Math.abs(region.change)}%
 					</div>
 				</div>
@@ -73,7 +93,11 @@ const RegionCard = ({ regions }: { regions: RegionMetric[] }) => (
 	</Card>
 );
 
-const PaymentCard = ({ paymentMethods }: { paymentMethods: { name: string; percentage: number; color: string }[] }) => (
+const PaymentCard = ({
+	paymentMethods,
+}: {
+	paymentMethods: { name: string; percentage: number; color: string }[];
+}) => (
 	<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
 		<CardHeader className="pb-2">
 			<div className="flex items-center gap-2">
@@ -105,7 +129,10 @@ const PaymentCard = ({ paymentMethods }: { paymentMethods: { name: string; perce
 				<div className="flex-1 space-y-2">
 					{paymentMethods.map((method, idx) => (
 						<div key={idx} className="flex items-center gap-2 text-sm">
-							<div className="size-2 rounded-full" style={{ backgroundColor: method.color }} />
+							<div
+								className="size-2 rounded-full"
+								style={{ backgroundColor: method.color }}
+							/>
 							<span className="flex-1">{method.name}</span>
 							<span className="font-medium">{method.percentage}%</span>
 						</div>
@@ -116,7 +143,11 @@ const PaymentCard = ({ paymentMethods }: { paymentMethods: { name: string; perce
 	</Card>
 );
 
-const BentoLayout3 = ({ devices, regions, paymentMethods }: BentoLayout3Props) => (
+const BentoLayout3 = ({
+	devices,
+	regions,
+	paymentMethods,
+}: BentoLayout3Props) => (
 	<div className="grid grid-cols-1 @md:grid-cols-2 @xl:grid-cols-3 gap-4">
 		<DeviceCard devices={devices} />
 		<RegionCard regions={regions} />
@@ -126,9 +157,27 @@ const BentoLayout3 = ({ devices, regions, paymentMethods }: BentoLayout3Props) =
 
 export default function Main() {
 	const devices: DeviceMetric[] = [
-		{ name: 'Desktop', value: 58420, percentage: 45, color: 'oklch(0.70 0.18 155)', icon: <Monitor className="size-4" /> },
-		{ name: 'Mobile', value: 48250, percentage: 38, color: 'oklch(0.65 0.16 200)', icon: <Smartphone className="size-4" /> },
-		{ name: 'Tablet', value: 22180, percentage: 17, color: 'oklch(0.60 0.14 250)', icon: <Tablet className="size-4" /> },
+		{
+			name: 'Desktop',
+			value: 58420,
+			percentage: 45,
+			color: 'oklch(0.70 0.18 155)',
+			icon: <Monitor className="size-4" />,
+		},
+		{
+			name: 'Mobile',
+			value: 48250,
+			percentage: 38,
+			color: 'oklch(0.65 0.16 200)',
+			icon: <Smartphone className="size-4" />,
+		},
+		{
+			name: 'Tablet',
+			value: 22180,
+			percentage: 17,
+			color: 'oklch(0.60 0.14 250)',
+			icon: <Tablet className="size-4" />,
+		},
 	];
 
 	const regions: RegionMetric[] = [
@@ -148,7 +197,11 @@ export default function Main() {
 	return (
 		<section className="@container" data-theme="sales">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12">
-				<BentoLayout3 devices={devices} regions={regions} paymentMethods={paymentMethods} />
+				<BentoLayout3
+					devices={devices}
+					regions={regions}
+					paymentMethods={paymentMethods}
+				/>
 			</div>
 		</section>
 	);

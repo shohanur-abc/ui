@@ -79,7 +79,11 @@ const ProductKPI = ({
 							}
 						>
 							{trend === 'up' && <TrendingUp className="mr-1 size-3" />}
-							{trend === 'up' ? 'Rising' : trend === 'down' ? 'Falling' : 'Stable'}
+							{trend === 'up'
+								? 'Rising'
+								: trend === 'down'
+									? 'Falling'
+									: 'Stable'}
 						</Badge>
 					</div>
 					<div className="mt-3 grid grid-cols-4 gap-2">

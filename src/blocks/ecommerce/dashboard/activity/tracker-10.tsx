@@ -20,7 +20,12 @@ interface Dispute {
 	id: string;
 	orderId: string;
 	customer: string;
-	reason: 'product_quality' | 'not_received' | 'wrong_item' | 'unauthorized' | 'other';
+	reason:
+		| 'product_quality'
+		| 'not_received'
+		| 'wrong_item'
+		| 'unauthorized'
+		| 'other';
 	amount: string;
 	status: 'open' | 'under_review' | 'won' | 'lost' | 'closed';
 	priority: 'low' | 'medium' | 'high';

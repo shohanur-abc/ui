@@ -54,13 +54,7 @@ type ImportExportOption = {
 	icon: React.ComponentType<{ className?: string }>;
 };
 
-const BackupRow = ({
-	name,
-	date,
-	size,
-	type,
-	status,
-}: BackupItem) => {
+const BackupRow = ({ name, date, size, type, status }: BackupItem) => {
 	const statusStyles = {
 		completed: 'bg-emerald-500/10 text-emerald-500',
 		'in-progress': 'bg-primary/10 text-primary',
@@ -136,22 +130,80 @@ const ImportExportCard = ({
 
 export default function Main() {
 	const backups: BackupItem[] = [
-		{ id: '1', name: 'Full Backup', date: 'Jan 20, 2026 - 3:00 AM', size: '2.4 GB', type: 'auto', status: 'completed' },
-		{ id: '2', name: 'Full Backup', date: 'Jan 19, 2026 - 3:00 AM', size: '2.3 GB', type: 'auto', status: 'completed' },
-		{ id: '3', name: 'Pre-update Backup', date: 'Jan 18, 2026 - 11:45 AM', size: '2.3 GB', type: 'manual', status: 'completed' },
-		{ id: '4', name: 'Full Backup', date: 'Jan 18, 2026 - 3:00 AM', size: '2.2 GB', type: 'auto', status: 'failed' },
+		{
+			id: '1',
+			name: 'Full Backup',
+			date: 'Jan 20, 2026 - 3:00 AM',
+			size: '2.4 GB',
+			type: 'auto',
+			status: 'completed',
+		},
+		{
+			id: '2',
+			name: 'Full Backup',
+			date: 'Jan 19, 2026 - 3:00 AM',
+			size: '2.3 GB',
+			type: 'auto',
+			status: 'completed',
+		},
+		{
+			id: '3',
+			name: 'Pre-update Backup',
+			date: 'Jan 18, 2026 - 11:45 AM',
+			size: '2.3 GB',
+			type: 'manual',
+			status: 'completed',
+		},
+		{
+			id: '4',
+			name: 'Full Backup',
+			date: 'Jan 18, 2026 - 3:00 AM',
+			size: '2.2 GB',
+			type: 'auto',
+			status: 'failed',
+		},
 	];
 
 	const importOptions: ImportExportOption[] = [
-		{ id: 'products', name: 'Products', description: 'Import from CSV or Excel', icon: FileSpreadsheet },
-		{ id: 'customers', name: 'Customers', description: 'Import customer data', icon: Database },
-		{ id: 'orders', name: 'Orders', description: 'Import historical orders', icon: FileSpreadsheet },
+		{
+			id: 'products',
+			name: 'Products',
+			description: 'Import from CSV or Excel',
+			icon: FileSpreadsheet,
+		},
+		{
+			id: 'customers',
+			name: 'Customers',
+			description: 'Import customer data',
+			icon: Database,
+		},
+		{
+			id: 'orders',
+			name: 'Orders',
+			description: 'Import historical orders',
+			icon: FileSpreadsheet,
+		},
 	];
 
 	const exportOptions: ImportExportOption[] = [
-		{ id: 'products', name: 'Products', description: 'Export all products', icon: FileSpreadsheet },
-		{ id: 'customers', name: 'Customers', description: 'Export customer list', icon: Database },
-		{ id: 'orders', name: 'Orders', description: 'Export order history', icon: FileSpreadsheet },
+		{
+			id: 'products',
+			name: 'Products',
+			description: 'Export all products',
+			icon: FileSpreadsheet,
+		},
+		{
+			id: 'customers',
+			name: 'Customers',
+			description: 'Export customer list',
+			icon: Database,
+		},
+		{
+			id: 'orders',
+			name: 'Orders',
+			description: 'Export order history',
+			icon: FileSpreadsheet,
+		},
 	];
 
 	return (
@@ -286,7 +338,8 @@ export default function Main() {
 							<CardContent className="pt-6 text-center">
 								<HardDrive className="mx-auto size-8 text-primary" />
 								<h4 className="mt-2 font-semibold">
-									{backups.filter((b) => b.status === 'completed').length} Backups
+									{backups.filter((b) => b.status === 'completed').length}{' '}
+									Backups
 								</h4>
 								<p className="mt-1 text-sm text-muted-foreground">
 									Last backup: {backups[0].date}

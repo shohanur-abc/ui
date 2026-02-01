@@ -49,7 +49,11 @@ const ProfileHeaderCard = ({
 							{fallback}
 						</AvatarFallback>
 					</Avatar>
-					<Button size="icon" variant="secondary" className="absolute -bottom-1 -right-1 size-8 rounded-full">
+					<Button
+						size="icon"
+						variant="secondary"
+						className="absolute -bottom-1 -right-1 size-8 rounded-full"
+					>
 						<Camera className="size-4" />
 					</Button>
 				</div>
@@ -96,15 +100,24 @@ const SocialStatsCard = ({
 	<Card>
 		<CardContent className="p-4">
 			<div className="grid grid-cols-3 gap-2 text-center">
-				<Link href="/followers" className="p-2 rounded-lg hover:bg-muted/50 transition-colors">
+				<Link
+					href="/followers"
+					className="p-2 rounded-lg hover:bg-muted/50 transition-colors"
+				>
 					<p className="text-xl font-bold">{followers}</p>
 					<p className="text-xs text-muted-foreground">Followers</p>
 				</Link>
-				<Link href="/following" className="p-2 rounded-lg hover:bg-muted/50 transition-colors">
+				<Link
+					href="/following"
+					className="p-2 rounded-lg hover:bg-muted/50 transition-colors"
+				>
 					<p className="text-xl font-bold">{following}</p>
 					<p className="text-xs text-muted-foreground">Following</p>
 				</Link>
-				<Link href="/reviews" className="p-2 rounded-lg hover:bg-muted/50 transition-colors">
+				<Link
+					href="/reviews"
+					className="p-2 rounded-lg hover:bg-muted/50 transition-colors"
+				>
 					<p className="text-xl font-bold">{reviews}</p>
 					<p className="text-xs text-muted-foreground">Reviews</p>
 				</Link>
@@ -129,9 +142,14 @@ const ProfileCompletionCard = ({
 			<Progress value={percentage} className="h-2" />
 			{missing.length > 0 && (
 				<div className="space-y-2 mt-3">
-					<p className="text-xs text-muted-foreground">Complete to earn 500 pts:</p>
+					<p className="text-xs text-muted-foreground">
+						Complete to earn 500 pts:
+					</p>
 					{missing.map((item, i) => (
-						<div key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+						<div
+							key={i}
+							className="flex items-center gap-2 text-xs text-muted-foreground"
+						>
 							<item.icon className="size-3" />
 							<span>{item.label}</span>
 						</div>
@@ -193,9 +211,13 @@ const ContactInfoCard = ({
 						<p className="text-sm font-medium truncate">{email}</p>
 					</div>
 					{emailVerified ? (
-						<Badge className="bg-green-500/20 text-green-600 shrink-0">Verified</Badge>
+						<Badge className="bg-green-500/20 text-green-600 shrink-0">
+							Verified
+						</Badge>
 					) : (
-						<Button variant="ghost" size="sm" className="shrink-0 text-xs">Verify</Button>
+						<Button variant="ghost" size="sm" className="shrink-0 text-xs">
+							Verify
+						</Button>
 					)}
 				</div>
 				<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
@@ -205,9 +227,13 @@ const ContactInfoCard = ({
 						<p className="text-sm font-medium truncate">{phone}</p>
 					</div>
 					{phoneVerified ? (
-						<Badge className="bg-green-500/20 text-green-600 shrink-0">Verified</Badge>
+						<Badge className="bg-green-500/20 text-green-600 shrink-0">
+							Verified
+						</Badge>
 					) : (
-						<Button variant="ghost" size="sm" className="shrink-0 text-xs">Verify</Button>
+						<Button variant="ghost" size="sm" className="shrink-0 text-xs">
+							Verify
+						</Button>
 					)}
 				</div>
 			</div>
@@ -215,11 +241,7 @@ const ContactInfoCard = ({
 	</Card>
 );
 
-const NotificationsCard = ({
-	unread,
-}: {
-	unread: number;
-}) => (
+const NotificationsCard = ({ unread }: { unread: number }) => (
 	<Link href="/notifications">
 		<Card className="h-full hover:bg-muted/50 transition-colors">
 			<CardContent className="p-4 h-full flex items-center gap-4">
@@ -233,7 +255,9 @@ const NotificationsCard = ({
 				</div>
 				<div className="flex-1">
 					<p className="font-medium">Notifications</p>
-					<p className="text-xs text-muted-foreground">{unread} unread messages</p>
+					<p className="text-xs text-muted-foreground">
+						{unread} unread messages
+					</p>
 				</div>
 				<ChevronRight className="size-5 text-muted-foreground" />
 			</CardContent>

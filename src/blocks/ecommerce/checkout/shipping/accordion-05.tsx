@@ -1,12 +1,32 @@
-import { Globe2, Plane, Ship, AlertCircle, Clock, Check, FileText, DollarSign } from 'lucide-react';
+import {
+	Globe2,
+	Plane,
+	Ship,
+	AlertCircle,
+	Clock,
+	Check,
+	FileText,
+	DollarSign,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 
 const ShippingMethodRadio = ({
@@ -43,7 +63,9 @@ const ShippingMethodRadio = ({
 			</div>
 			<div className="flex flex-wrap gap-1">
 				{features.map((f, i) => (
-					<Badge key={i} variant="secondary" className="text-xs font-normal">{f}</Badge>
+					<Badge key={i} variant="secondary" className="text-xs font-normal">
+						{f}
+					</Badge>
 				))}
 			</div>
 		</div>
@@ -52,9 +74,30 @@ const ShippingMethodRadio = ({
 
 export default function Main() {
 	const shippingMethods = [
-		{ value: 'economy', icon: Ship, name: 'Economy Sea Freight', time: '30-45 days', price: '$29.99', features: ['Tracking', 'Insurance'] },
-		{ value: 'standard', icon: Globe2, name: 'Standard Air', time: '14-21 days', price: '$49.99', features: ['Full tracking', 'Insurance included'] },
-		{ value: 'express', icon: Plane, name: 'Express Air', time: '5-7 days', price: '$79.99', features: ['Priority handling', 'Customs cleared'] },
+		{
+			value: 'economy',
+			icon: Ship,
+			name: 'Economy Sea Freight',
+			time: '30-45 days',
+			price: '$29.99',
+			features: ['Tracking', 'Insurance'],
+		},
+		{
+			value: 'standard',
+			icon: Globe2,
+			name: 'Standard Air',
+			time: '14-21 days',
+			price: '$49.99',
+			features: ['Full tracking', 'Insurance included'],
+		},
+		{
+			value: 'express',
+			icon: Plane,
+			name: 'Express Air',
+			time: '5-7 days',
+			price: '$79.99',
+			features: ['Priority handling', 'Customs cleared'],
+		},
 	];
 
 	return (
@@ -68,14 +111,20 @@ export default function Main() {
 					</div>
 				</div>
 
-				<Accordion type="multiple" defaultValue={['country', 'method']} className="space-y-4">
+				<Accordion
+					type="multiple"
+					defaultValue={['country', 'method']}
+					className="space-y-4"
+				>
 					<AccordionItem value="country" className="border rounded-xl px-4">
 						<AccordionTrigger className="hover:no-underline py-4">
 							<div className="flex items-center gap-3">
 								<span className="text-2xl">🇬🇧</span>
 								<div className="text-left">
 									<span className="font-semibold">Destination Country</span>
-									<p className="text-sm text-muted-foreground">United Kingdom</p>
+									<p className="text-sm text-muted-foreground">
+										United Kingdom
+									</p>
 								</div>
 							</div>
 						</AccordionTrigger>
@@ -118,7 +167,9 @@ export default function Main() {
 								<FileText className="size-5 text-primary" />
 								<div className="text-left">
 									<span className="font-semibold">Customs & Duties</span>
-									<Badge variant="secondary" className="ml-2">Important</Badge>
+									<Badge variant="secondary" className="ml-2">
+										Important
+									</Badge>
 								</div>
 							</div>
 						</AccordionTrigger>
@@ -126,12 +177,15 @@ export default function Main() {
 							<Alert>
 								<AlertCircle className="size-4" />
 								<AlertDescription>
-									Import duties and taxes may apply and are the responsibility of the recipient.
+									Import duties and taxes may apply and are the responsibility
+									of the recipient.
 								</AlertDescription>
 							</Alert>
 							<div className="space-y-3 text-sm">
 								<div className="flex items-center justify-between">
-									<span className="text-muted-foreground">Estimated Duties</span>
+									<span className="text-muted-foreground">
+										Estimated Duties
+									</span>
 									<span className="font-medium">$12.50 - $25.00</span>
 								</div>
 								<div className="flex items-center justify-between">
@@ -147,7 +201,10 @@ export default function Main() {
 						</AccordionContent>
 					</AccordionItem>
 
-					<AccordionItem value="restrictions" className="border rounded-xl px-4">
+					<AccordionItem
+						value="restrictions"
+						className="border rounded-xl px-4"
+					>
 						<AccordionTrigger className="hover:no-underline py-4">
 							<div className="flex items-center gap-3">
 								<AlertCircle className="size-5 text-primary" />
@@ -174,7 +231,9 @@ export default function Main() {
 				</Accordion>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

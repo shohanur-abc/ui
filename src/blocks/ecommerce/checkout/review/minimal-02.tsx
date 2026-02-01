@@ -25,13 +25,20 @@ interface Product {
 const MinimalItem = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-4">
 		<div className="relative size-14 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1">
 			<p className="font-medium">{product.name}</p>
 			<p className="text-sm text-muted-foreground">{product.variant}</p>
 		</div>
-		<span className="font-semibold">${(product.price * product.qty).toFixed(2)}</span>
+		<span className="font-semibold">
+			${(product.price * product.qty).toFixed(2)}
+		</span>
 	</div>
 );
 
@@ -59,14 +66,21 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
 const VerifyBadge = ({ label }: { label: string }) => (
-	<Badge variant="secondary" className="gap-1 text-green-600 dark:text-green-400">
+	<Badge
+		variant="secondary"
+		className="gap-1 text-green-600 dark:text-green-400"
+	>
 		<Check className="size-3" />
 		{label}
 	</Badge>
@@ -80,7 +94,8 @@ export default function Main() {
 			variant: 'Leather / A5',
 			price: 29.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -88,7 +103,8 @@ export default function Main() {
 			variant: 'Black / Fine',
 			price: 89.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=200&h=200&fit=crop',
 		},
 	];
 

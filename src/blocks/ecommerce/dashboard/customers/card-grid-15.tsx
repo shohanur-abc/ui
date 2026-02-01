@@ -20,7 +20,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import {
 	DropdownMenu,
@@ -160,11 +165,15 @@ const PreferencesCard = ({ customer }: { customer: PreferencesCustomer }) => (
 		<CardContent className="space-y-4">
 			<div className="flex items-center gap-2 text-sm text-muted-foreground">
 				<MapPin className="size-3.5" />
-				<span>{customer.location.city}, {customer.location.country}</span>
+				<span>
+					{customer.location.city}, {customer.location.country}
+				</span>
 				<span className="ml-auto text-xs">{customer.location.timezone}</span>
 			</div>
 			<div className="space-y-2">
-				<p className="text-muted-foreground text-xs font-medium">Marketing Preferences</p>
+				<p className="text-muted-foreground text-xs font-medium">
+					Marketing Preferences
+				</p>
 				<div className="rounded-lg border bg-muted/20 p-3 space-y-2">
 					<PreferenceToggle
 						label="Email Marketing"
@@ -184,11 +193,17 @@ const PreferencesCard = ({ customer }: { customer: PreferencesCustomer }) => (
 				</div>
 			</div>
 			<div className="space-y-2">
-				<p className="text-muted-foreground text-xs font-medium">Communication</p>
+				<p className="text-muted-foreground text-xs font-medium">
+					Communication
+				</p>
 				<div className="grid grid-cols-2 gap-2 text-sm">
 					<div className="flex items-center gap-2 rounded-lg bg-muted/50 px-2.5 py-2">
-						<ChannelIcon channel={customer.preferences.communication.preferredChannel} />
-						<span className="capitalize">{customer.preferences.communication.preferredChannel}</span>
+						<ChannelIcon
+							channel={customer.preferences.communication.preferredChannel}
+						/>
+						<span className="capitalize">
+							{customer.preferences.communication.preferredChannel}
+						</span>
 					</div>
 					<div className="flex items-center gap-2 rounded-lg bg-muted/50 px-2.5 py-2">
 						<Clock className="size-4 text-muted-foreground" />
@@ -201,7 +216,9 @@ const PreferencesCard = ({ customer }: { customer: PreferencesCustomer }) => (
 				</div>
 			</div>
 			<div className="space-y-2">
-				<p className="text-muted-foreground text-xs font-medium">Privacy Settings</p>
+				<p className="text-muted-foreground text-xs font-medium">
+					Privacy Settings
+				</p>
 				<div className="rounded-lg border bg-muted/20 p-3 space-y-2">
 					<PreferenceToggle
 						label="Data Sharing"
@@ -221,7 +238,9 @@ const PreferencesCard = ({ customer }: { customer: PreferencesCustomer }) => (
 				</div>
 			</div>
 			<div className="space-y-2">
-				<p className="text-muted-foreground text-xs font-medium">Active Devices</p>
+				<p className="text-muted-foreground text-xs font-medium">
+					Active Devices
+				</p>
 				<div className="grid gap-2">
 					{customer.devices.slice(0, 2).map((device, index) => (
 						<DeviceItem key={index} device={device} />
@@ -253,7 +272,11 @@ export default function Main() {
 			initials: 'LH',
 			preferences: {
 				marketing: { email: true, sms: false, push: true },
-				communication: { preferredChannel: 'email', preferredTime: '9AM-5PM', language: 'English (US)' },
+				communication: {
+					preferredChannel: 'email',
+					preferredTime: '9AM-5PM',
+					language: 'English (US)',
+				},
 				privacy: { dataSharing: false, analytics: true, personalization: true },
 			},
 			devices: [
@@ -271,7 +294,11 @@ export default function Main() {
 			initials: 'MT',
 			preferences: {
 				marketing: { email: true, sms: true, push: true },
-				communication: { preferredChannel: 'sms', preferredTime: '12PM-8PM', language: 'English (UK)' },
+				communication: {
+					preferredChannel: 'sms',
+					preferredTime: '12PM-8PM',
+					language: 'English (UK)',
+				},
 				privacy: { dataSharing: true, analytics: true, personalization: true },
 			},
 			devices: [
@@ -289,12 +316,18 @@ export default function Main() {
 			initials: 'NB',
 			preferences: {
 				marketing: { email: false, sms: false, push: false },
-				communication: { preferredChannel: 'phone', preferredTime: '10AM-6PM', language: 'English (US)' },
-				privacy: { dataSharing: false, analytics: false, personalization: false },
+				communication: {
+					preferredChannel: 'phone',
+					preferredTime: '10AM-6PM',
+					language: 'English (US)',
+				},
+				privacy: {
+					dataSharing: false,
+					analytics: false,
+					personalization: false,
+				},
 			},
-			devices: [
-				{ type: 'desktop', name: 'Windows PC', lastActive: '5h ago' },
-			],
+			devices: [{ type: 'desktop', name: 'Windows PC', lastActive: '5h ago' }],
 			location: { city: 'New York', country: 'USA', timezone: 'EST' },
 			lastUpdated: 'Jan 15, 2024',
 		},
@@ -306,7 +339,11 @@ export default function Main() {
 			initials: 'OC',
 			preferences: {
 				marketing: { email: true, sms: false, push: true },
-				communication: { preferredChannel: 'app', preferredTime: 'Anytime', language: 'Mandarin' },
+				communication: {
+					preferredChannel: 'app',
+					preferredTime: 'Anytime',
+					language: 'Mandarin',
+				},
 				privacy: { dataSharing: true, analytics: true, personalization: true },
 			},
 			devices: [
@@ -324,12 +361,14 @@ export default function Main() {
 			initials: 'PM',
 			preferences: {
 				marketing: { email: true, sms: true, push: false },
-				communication: { preferredChannel: 'email', preferredTime: '8AM-4PM', language: 'Spanish' },
+				communication: {
+					preferredChannel: 'email',
+					preferredTime: '8AM-4PM',
+					language: 'Spanish',
+				},
 				privacy: { dataSharing: false, analytics: true, personalization: true },
 			},
-			devices: [
-				{ type: 'mobile', name: 'Pixel 8', lastActive: 'Now' },
-			],
+			devices: [{ type: 'mobile', name: 'Pixel 8', lastActive: 'Now' }],
 			location: { city: 'Miami', country: 'USA', timezone: 'EST' },
 			lastUpdated: 'Jan 19, 2024',
 		},
@@ -341,7 +380,11 @@ export default function Main() {
 			initials: 'RK',
 			preferences: {
 				marketing: { email: true, sms: false, push: true },
-				communication: { preferredChannel: 'email', preferredTime: '6PM-10PM', language: 'Korean' },
+				communication: {
+					preferredChannel: 'email',
+					preferredTime: '6PM-10PM',
+					language: 'Korean',
+				},
 				privacy: { dataSharing: true, analytics: true, personalization: false },
 			},
 			devices: [
@@ -361,8 +404,12 @@ export default function Main() {
 						<Settings className="size-5" />
 					</div>
 					<div>
-						<h1 className="text-2xl font-bold tracking-tight">Customer Preferences</h1>
-						<p className="text-muted-foreground text-sm">Communication and privacy settings overview</p>
+						<h1 className="text-2xl font-bold tracking-tight">
+							Customer Preferences
+						</h1>
+						<p className="text-muted-foreground text-sm">
+							Communication and privacy settings overview
+						</p>
 					</div>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-3">

@@ -21,10 +21,19 @@ interface FormProps {
 
 const DecorativePattern = () => (
 	<div className="absolute inset-0 opacity-10">
-		<svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+		<svg
+			className="w-full h-full"
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+		>
 			<defs>
 				<pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-					<path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
+					<path
+						d="M 10 0 L 0 0 0 10"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="0.5"
+					/>
 				</pattern>
 			</defs>
 			<rect width="100" height="100" fill="url(#grid)" />
@@ -38,7 +47,9 @@ const Content = ({ badge, title, description }: ContentProps) => (
 			<Bookmark className="size-3" />
 			{badge}
 		</Badge>
-		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">{title}</h2>
+		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">
+			{title}
+		</h2>
 		<p className="text-muted-foreground">{description}</p>
 	</div>
 );
@@ -59,11 +70,7 @@ const Topics = ({ items }: TopicsProps) => (
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 w-full">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="flex-1 h-11"
-		/>
+		<Input type="email" placeholder={placeholder} className="flex-1 h-11" />
 		<Button size="lg" className="gap-2 h-11">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}
@@ -93,7 +100,9 @@ export default function Main() {
 					<div className="relative p-6 @md:p-8 rounded-2xl border bg-card overflow-hidden">
 						<DecorativePattern />
 						<div className="relative flex flex-col gap-4">
-							<h3 className="text-lg font-semibold">Subscribe to the newsletter</h3>
+							<h3 className="text-lg font-semibold">
+								Subscribe to the newsletter
+							</h3>
 							<Form
 								placeholder="you@example.com"
 								buttonText="Subscribe"

@@ -9,7 +9,13 @@ import {
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
@@ -78,11 +84,61 @@ const ProductRow = (product: ProductItem) => (
 
 export default function Main() {
 	const allProducts: ProductItem[] = [
-		{ id: 'PRD-001', name: 'Wireless Headphones Pro', category: 'Electronics', price: '$129.99', stock: 45, sold: 432, revenue: '$56,157', rating: 4.8, status: 'active' },
-		{ id: 'PRD-002', name: 'Smart Watch Ultra', category: 'Electronics', price: '$299.99', stock: 12, sold: 324, revenue: '$97,197', rating: 4.7, status: 'low-stock' },
-		{ id: 'PRD-003', name: 'Ergonomic Laptop Stand', category: 'Accessories', price: '$79.99', stock: 78, sold: 287, revenue: '$22,957', rating: 4.9, status: 'active' },
-		{ id: 'PRD-004', name: 'Mechanical Keyboard', category: 'Electronics', price: '$159.99', stock: 0, sold: 156, revenue: '$24,958', rating: 4.6, status: 'out-of-stock' },
-		{ id: 'PRD-005', name: 'USB-C Hub 7-in-1', category: 'Accessories', price: '$49.99', stock: 234, sold: 512, revenue: '$25,595', rating: 4.5, status: 'active' },
+		{
+			id: 'PRD-001',
+			name: 'Wireless Headphones Pro',
+			category: 'Electronics',
+			price: '$129.99',
+			stock: 45,
+			sold: 432,
+			revenue: '$56,157',
+			rating: 4.8,
+			status: 'active',
+		},
+		{
+			id: 'PRD-002',
+			name: 'Smart Watch Ultra',
+			category: 'Electronics',
+			price: '$299.99',
+			stock: 12,
+			sold: 324,
+			revenue: '$97,197',
+			rating: 4.7,
+			status: 'low-stock',
+		},
+		{
+			id: 'PRD-003',
+			name: 'Ergonomic Laptop Stand',
+			category: 'Accessories',
+			price: '$79.99',
+			stock: 78,
+			sold: 287,
+			revenue: '$22,957',
+			rating: 4.9,
+			status: 'active',
+		},
+		{
+			id: 'PRD-004',
+			name: 'Mechanical Keyboard',
+			category: 'Electronics',
+			price: '$159.99',
+			stock: 0,
+			sold: 156,
+			revenue: '$24,958',
+			rating: 4.6,
+			status: 'out-of-stock',
+		},
+		{
+			id: 'PRD-005',
+			name: 'USB-C Hub 7-in-1',
+			category: 'Accessories',
+			price: '$49.99',
+			stock: 234,
+			sold: 512,
+			revenue: '$25,595',
+			rating: 4.5,
+			status: 'active',
+		},
 	];
 
 	const electronics = allProducts.filter((p) => p.category === 'Electronics');
@@ -102,21 +158,35 @@ export default function Main() {
 					<CardContent>
 						<Tabs defaultValue="all" className="w-full">
 							<TabsList className="mb-4">
-								<TabsTrigger value="all">All Products ({allProducts.length})</TabsTrigger>
-								<TabsTrigger value="electronics">Electronics ({electronics.length})</TabsTrigger>
-								<TabsTrigger value="accessories">Accessories ({accessories.length})</TabsTrigger>
+								<TabsTrigger value="all">
+									All Products ({allProducts.length})
+								</TabsTrigger>
+								<TabsTrigger value="electronics">
+									Electronics ({electronics.length})
+								</TabsTrigger>
+								<TabsTrigger value="accessories">
+									Accessories ({accessories.length})
+								</TabsTrigger>
 							</TabsList>
 							<TabsContent value="all">
 								<Table>
 									<TableHeader>
 										<TableRow>
 											<TableHead>Product</TableHead>
-											<TableHead className="hidden @lg:table-cell">Category</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Category
+											</TableHead>
 											<TableHead>Price</TableHead>
-											<TableHead className="hidden @xl:table-cell">Stock</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Stock
+											</TableHead>
 											<TableHead>Sold</TableHead>
-											<TableHead className="hidden @lg:table-cell">Revenue</TableHead>
-											<TableHead className="hidden @xl:table-cell">Rating</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Revenue
+											</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Rating
+											</TableHead>
 											<TableHead>Status</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -133,12 +203,20 @@ export default function Main() {
 									<TableHeader>
 										<TableRow>
 											<TableHead>Product</TableHead>
-											<TableHead className="hidden @lg:table-cell">Category</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Category
+											</TableHead>
 											<TableHead>Price</TableHead>
-											<TableHead className="hidden @xl:table-cell">Stock</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Stock
+											</TableHead>
 											<TableHead>Sold</TableHead>
-											<TableHead className="hidden @lg:table-cell">Revenue</TableHead>
-											<TableHead className="hidden @xl:table-cell">Rating</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Revenue
+											</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Rating
+											</TableHead>
 											<TableHead>Status</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>
@@ -155,12 +233,20 @@ export default function Main() {
 									<TableHeader>
 										<TableRow>
 											<TableHead>Product</TableHead>
-											<TableHead className="hidden @lg:table-cell">Category</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Category
+											</TableHead>
 											<TableHead>Price</TableHead>
-											<TableHead className="hidden @xl:table-cell">Stock</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Stock
+											</TableHead>
 											<TableHead>Sold</TableHead>
-											<TableHead className="hidden @lg:table-cell">Revenue</TableHead>
-											<TableHead className="hidden @xl:table-cell">Rating</TableHead>
+											<TableHead className="hidden @lg:table-cell">
+												Revenue
+											</TableHead>
+											<TableHead className="hidden @xl:table-cell">
+												Rating
+											</TableHead>
 											<TableHead>Status</TableHead>
 											<TableHead className="w-10"></TableHead>
 										</TableRow>

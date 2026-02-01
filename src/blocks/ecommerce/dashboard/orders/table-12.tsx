@@ -48,7 +48,14 @@ const RatingStars = ({ rating, maxRating = 5 }: RatingStarsProps) => (
 );
 
 const SentimentBadge = ({ sentiment }: SentimentBadgeProps) => {
-	const config: Record<Order['sentiment'], { icon: typeof ThumbsUp; variant: 'default' | 'secondary' | 'destructive'; label: string }> = {
+	const config: Record<
+		Order['sentiment'],
+		{
+			icon: typeof ThumbsUp;
+			variant: 'default' | 'secondary' | 'destructive';
+			label: string;
+		}
+	> = {
 		positive: { icon: ThumbsUp, variant: 'default', label: 'Positive' },
 		neutral: { icon: MessageSquare, variant: 'secondary', label: 'Neutral' },
 		negative: { icon: ThumbsDown, variant: 'destructive', label: 'Negative' },
@@ -79,7 +86,9 @@ const ReviewCell = ({ review }: { review?: string }) => (
 		{review ? (
 			<p className="text-sm text-muted-foreground line-clamp-2">{review}</p>
 		) : (
-			<span className="text-sm text-muted-foreground/50 italic">No review provided</span>
+			<span className="text-sm text-muted-foreground/50 italic">
+				No review provided
+			</span>
 		)}
 	</div>
 );
@@ -102,7 +111,11 @@ const OrderRow = ({ order }: { order: Order }) => (
 		</TableCell>
 		<TableCell className="text-muted-foreground">{order.date}</TableCell>
 		<TableCell>
-			<Button variant="ghost" size="icon-sm" className="hover:bg-destructive/10 hover:text-destructive">
+			<Button
+				variant="ghost"
+				size="icon-sm"
+				className="hover:bg-destructive/10 hover:text-destructive"
+			>
 				<Flag className="size-4" />
 			</Button>
 		</TableCell>
@@ -116,7 +129,8 @@ export default function Main() {
 			customer: { name: 'Amanda Foster', avatar: '', initials: 'AF' },
 			product: 'Wireless Headphones Pro',
 			rating: 5,
-			review: 'Absolutely love these headphones! The sound quality is incredible and the battery life exceeds expectations.',
+			review:
+				'Absolutely love these headphones! The sound quality is incredible and the battery life exceeds expectations.',
 			sentiment: 'positive',
 			date: 'Jan 28',
 		},
@@ -125,7 +139,8 @@ export default function Main() {
 			customer: { name: 'Brian Murphy', avatar: '', initials: 'BM' },
 			product: 'Smart Watch Ultra',
 			rating: 4,
-			review: 'Great watch overall. The fitness tracking is accurate but the app could use some improvements.',
+			review:
+				'Great watch overall. The fitness tracking is accurate but the app could use some improvements.',
 			sentiment: 'positive',
 			date: 'Jan 28',
 		},
@@ -143,7 +158,8 @@ export default function Main() {
 			customer: { name: 'Daniel Kim', avatar: '', initials: 'DK' },
 			product: 'Laptop Stand',
 			rating: 2,
-			review: 'Disappointed with the build quality. Started wobbling after a week of use.',
+			review:
+				'Disappointed with the build quality. Started wobbling after a week of use.',
 			sentiment: 'negative',
 			date: 'Jan 27',
 		},
@@ -157,7 +173,16 @@ export default function Main() {
 		},
 	];
 
-	const headers = ['Order', 'Customer', 'Product', 'Rating', 'Review', 'Sentiment', 'Date', ''];
+	const headers = [
+		'Order',
+		'Customer',
+		'Product',
+		'Rating',
+		'Review',
+		'Sentiment',
+		'Date',
+		'',
+	];
 
 	return (
 		<section className="@container" data-theme="orders">
@@ -165,7 +190,9 @@ export default function Main() {
 				<div className="rounded-xl border border-border/50 overflow-hidden bg-card/50 backdrop-blur-sm">
 					<div className="p-4 border-b border-border/50">
 						<h2 className="text-lg font-semibold">Order Reviews</h2>
-						<p className="text-sm text-muted-foreground">Customer feedback for completed orders</p>
+						<p className="text-sm text-muted-foreground">
+							Customer feedback for completed orders
+						</p>
 					</div>
 					<Table>
 						<TableHeader>

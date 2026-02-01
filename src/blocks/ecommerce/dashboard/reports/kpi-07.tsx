@@ -40,7 +40,8 @@ const KPIValue = ({ value, change }: KPIValueProps) => (
 			) : (
 				<TrendingDown className="mr-1 size-3" />
 			)}
-			{change >= 0 ? '+' : ''}{change}%
+			{change >= 0 ? '+' : ''}
+			{change}%
 		</Badge>
 	</div>
 );
@@ -115,8 +116,13 @@ export default function Main() {
 									{kpis.map((kpi, i) => (
 										<Card key={i} className="border-border/30 bg-muted/20">
 											<CardContent className="p-4">
-												<p className="mb-2 text-sm text-muted-foreground">{kpi.metric}</p>
-												<KPIValue value={kpi.daily.value} change={kpi.daily.change} />
+												<p className="mb-2 text-sm text-muted-foreground">
+													{kpi.metric}
+												</p>
+												<KPIValue
+													value={kpi.daily.value}
+													change={kpi.daily.change}
+												/>
 											</CardContent>
 										</Card>
 									))}
@@ -127,8 +133,13 @@ export default function Main() {
 									{kpis.map((kpi, i) => (
 										<Card key={i} className="border-border/30 bg-muted/20">
 											<CardContent className="p-4">
-												<p className="mb-2 text-sm text-muted-foreground">{kpi.metric}</p>
-												<KPIValue value={kpi.weekly.value} change={kpi.weekly.change} />
+												<p className="mb-2 text-sm text-muted-foreground">
+													{kpi.metric}
+												</p>
+												<KPIValue
+													value={kpi.weekly.value}
+													change={kpi.weekly.change}
+												/>
 											</CardContent>
 										</Card>
 									))}
@@ -139,8 +150,13 @@ export default function Main() {
 									{kpis.map((kpi, i) => (
 										<Card key={i} className="border-border/30 bg-muted/20">
 											<CardContent className="p-4">
-												<p className="mb-2 text-sm text-muted-foreground">{kpi.metric}</p>
-												<KPIValue value={kpi.monthly.value} change={kpi.monthly.change} />
+												<p className="mb-2 text-sm text-muted-foreground">
+													{kpi.metric}
+												</p>
+												<KPIValue
+													value={kpi.monthly.value}
+													change={kpi.monthly.change}
+												/>
 											</CardContent>
 										</Card>
 									))}

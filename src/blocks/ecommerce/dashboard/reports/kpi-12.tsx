@@ -1,6 +1,13 @@
 'use client';
 
-import { Megaphone, Eye, MousePointer, ShoppingCart, DollarSign, BarChart } from 'lucide-react';
+import {
+	Megaphone,
+	Eye,
+	MousePointer,
+	ShoppingCart,
+	DollarSign,
+	BarChart,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 import {
@@ -20,11 +27,26 @@ type CampaignMetricProps = {
 	status: 'above' | 'below' | 'at';
 };
 
-const CampaignMetric = ({ icon: Icon, label, value, benchmark, status }: CampaignMetricProps) => {
+const CampaignMetric = ({
+	icon: Icon,
+	label,
+	value,
+	benchmark,
+	status,
+}: CampaignMetricProps) => {
 	const statusConfig = {
-		above: { badge: 'Above', class: 'border-emerald-500/20 bg-emerald-500/10 text-emerald-500' },
-		below: { badge: 'Below', class: 'border-rose-500/20 bg-rose-500/10 text-rose-500' },
-		at: { badge: 'At Target', class: 'border-amber-500/20 bg-amber-500/10 text-amber-500' },
+		above: {
+			badge: 'Above',
+			class: 'border-emerald-500/20 bg-emerald-500/10 text-emerald-500',
+		},
+		below: {
+			badge: 'Below',
+			class: 'border-rose-500/20 bg-rose-500/10 text-rose-500',
+		},
+		at: {
+			badge: 'At Target',
+			class: 'border-amber-500/20 bg-amber-500/10 text-amber-500',
+		},
 	};
 
 	return (
@@ -52,7 +74,13 @@ type CampaignSummaryProps = {
 	status: 'active' | 'paused' | 'completed';
 };
 
-const CampaignSummary = ({ campaign, spend, revenue, roas, status }: CampaignSummaryProps) => (
+const CampaignSummary = ({
+	campaign,
+	spend,
+	revenue,
+	roas,
+	status,
+}: CampaignSummaryProps) => (
 	<div className="flex items-center justify-between border-b border-border/30 py-3 last:border-0">
 		<div className="flex items-center gap-3">
 			<div
@@ -76,17 +104,65 @@ const CampaignSummary = ({ campaign, spend, revenue, roas, status }: CampaignSum
 
 export default function Main() {
 	const metrics: CampaignMetricProps[] = [
-		{ icon: Eye, label: 'Impressions', value: '2.4M', benchmark: '2.0M', status: 'above' },
-		{ icon: MousePointer, label: 'Click Rate', value: '2.8%', benchmark: '3.0%', status: 'below' },
-		{ icon: ShoppingCart, label: 'Conversions', value: '4,280', benchmark: '4,000', status: 'above' },
-		{ icon: DollarSign, label: 'Cost per Conv.', value: '$24.50', benchmark: '$25.00', status: 'at' },
+		{
+			icon: Eye,
+			label: 'Impressions',
+			value: '2.4M',
+			benchmark: '2.0M',
+			status: 'above',
+		},
+		{
+			icon: MousePointer,
+			label: 'Click Rate',
+			value: '2.8%',
+			benchmark: '3.0%',
+			status: 'below',
+		},
+		{
+			icon: ShoppingCart,
+			label: 'Conversions',
+			value: '4,280',
+			benchmark: '4,000',
+			status: 'above',
+		},
+		{
+			icon: DollarSign,
+			label: 'Cost per Conv.',
+			value: '$24.50',
+			benchmark: '$25.00',
+			status: 'at',
+		},
 	];
 
 	const campaigns: CampaignSummaryProps[] = [
-		{ campaign: 'Summer Sale 2024', spend: '$12,500', revenue: '$68,420', roas: '5.47x', status: 'active' },
-		{ campaign: 'New Arrivals', spend: '$8,200', revenue: '$42,180', roas: '5.14x', status: 'active' },
-		{ campaign: 'Flash Sale', spend: '$5,800', revenue: '$28,940', roas: '4.99x', status: 'completed' },
-		{ campaign: 'Brand Awareness', spend: '$15,000', revenue: '$52,500', roas: '3.50x', status: 'paused' },
+		{
+			campaign: 'Summer Sale 2024',
+			spend: '$12,500',
+			revenue: '$68,420',
+			roas: '5.47x',
+			status: 'active',
+		},
+		{
+			campaign: 'New Arrivals',
+			spend: '$8,200',
+			revenue: '$42,180',
+			roas: '5.14x',
+			status: 'active',
+		},
+		{
+			campaign: 'Flash Sale',
+			spend: '$5,800',
+			revenue: '$28,940',
+			roas: '4.99x',
+			status: 'completed',
+		},
+		{
+			campaign: 'Brand Awareness',
+			spend: '$15,000',
+			revenue: '$52,500',
+			roas: '3.50x',
+			status: 'paused',
+		},
 	];
 
 	return (

@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, Leaf, Recycle, Droplets, Award } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	Leaf,
+	Recycle,
+	Droplets,
+	Award,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -26,21 +34,37 @@ interface ListProps {
 }
 
 const EcoScore = ({ score }: { score: number }) => {
-	const color = score >= 80 ? 'text-green-600' : score >= 60 ? 'text-amber-600' : 'text-red-600';
-	const bgColor = score >= 80 ? 'bg-green-100' : score >= 60 ? 'bg-amber-100' : 'bg-red-100';
+	const color =
+		score >= 80
+			? 'text-green-600'
+			: score >= 60
+				? 'text-amber-600'
+				: 'text-red-600';
+	const bgColor =
+		score >= 80 ? 'bg-green-100' : score >= 60 ? 'bg-amber-100' : 'bg-red-100';
 
 	return (
-		<div className={`flex items-center gap-2 px-3 py-1.5 rounded-full ${bgColor}`}>
+		<div
+			className={`flex items-center gap-2 px-3 py-1.5 rounded-full ${bgColor}`}
+		>
 			<Leaf className={`size-4 ${color}`} />
 			<span className={`font-bold ${color}`}>{score}/100</span>
 		</div>
 	);
 };
 
-const EcoCertifications = ({ certifications }: { certifications: string[] }) => (
+const EcoCertifications = ({
+	certifications,
+}: {
+	certifications: string[];
+}) => (
 	<div className="flex flex-wrap gap-1 mt-2">
 		{certifications.map((cert, i) => (
-			<Badge key={i} variant="outline" className="text-xs gap-1 bg-green-50 text-green-700 border-green-200">
+			<Badge
+				key={i}
+				variant="outline"
+				className="text-xs gap-1 bg-green-50 text-green-700 border-green-200"
+			>
 				<Award className="size-3" />
 				{cert}
 			</Badge>
@@ -59,7 +83,11 @@ const ListItem = ({ item }: { item: WishlistItem }) => (
 	<Card className="p-4">
 		<div className="flex gap-4">
 			<div className="relative size-24 flex-shrink-0 rounded-lg overflow-hidden bg-muted">
-				<img src={item.image} alt={item.name} className="size-full object-cover" />
+				<img
+					src={item.image}
+					alt={item.name}
+					className="size-full object-cover"
+				/>
 				{item.ecoRating.score >= 80 && (
 					<Badge className="absolute top-1 left-1 gap-0.5 bg-green-500 text-white text-[10px] px-1.5">
 						<Leaf className="size-2.5" />
@@ -72,7 +100,9 @@ const ListItem = ({ item }: { item: WishlistItem }) => (
 					<div className="flex-1">
 						<div className="flex items-center gap-2 flex-wrap">
 							<Link href={item.href}>
-								<h3 className="font-semibold hover:text-primary transition-colors">{item.name}</h3>
+								<h3 className="font-semibold hover:text-primary transition-colors">
+									{item.name}
+								</h3>
 							</Link>
 							<EcoScore score={item.ecoRating.score} />
 						</div>
@@ -110,7 +140,9 @@ const WishlistList = ({ items }: ListProps) => (
 );
 
 const EcoSummary = ({ items }: { items: WishlistItem[] }) => {
-	const avgScore = Math.round(items.reduce((sum, item) => sum + item.ecoRating.score, 0) / items.length);
+	const avgScore = Math.round(
+		items.reduce((sum, item) => sum + item.ecoRating.score, 0) / items.length,
+	);
 
 	return (
 		<div className="p-4 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 mb-6">
@@ -132,9 +164,48 @@ const EcoSummary = ({ items }: { items: WishlistItem[] }) => {
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Organic Cotton T-Shirt', price: 45.00, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop', ecoRating: { score: 92, carbonOffset: '2.3 kg CO₂ saved', materials: ['100% Organic Cotton', 'Natural Dyes'], certifications: ['GOTS', 'Fair Trade'] }, href: '/product/1' },
-		{ id: '2', name: 'Recycled Polyester Jacket', price: 189.00, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&h=200&fit=crop', ecoRating: { score: 78, carbonOffset: '5.1 kg CO₂ saved', materials: ['Recycled Polyester', 'Recycled Nylon'], certifications: ['bluesign', 'GRS'] }, href: '/product/2' },
-		{ id: '3', name: 'Bamboo Sunglasses', price: 79.00, image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&h=200&fit=crop', ecoRating: { score: 88, carbonOffset: '1.5 kg CO₂ saved', materials: ['Bamboo', 'Bio-acetate'], certifications: ['FSC'] }, href: '/product/3' },
+		{
+			id: '1',
+			name: 'Organic Cotton T-Shirt',
+			price: 45.0,
+			image:
+				'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop',
+			ecoRating: {
+				score: 92,
+				carbonOffset: '2.3 kg CO₂ saved',
+				materials: ['100% Organic Cotton', 'Natural Dyes'],
+				certifications: ['GOTS', 'Fair Trade'],
+			},
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Recycled Polyester Jacket',
+			price: 189.0,
+			image:
+				'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&h=200&fit=crop',
+			ecoRating: {
+				score: 78,
+				carbonOffset: '5.1 kg CO₂ saved',
+				materials: ['Recycled Polyester', 'Recycled Nylon'],
+				certifications: ['bluesign', 'GRS'],
+			},
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Bamboo Sunglasses',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&h=200&fit=crop',
+			ecoRating: {
+				score: 88,
+				carbonOffset: '1.5 kg CO₂ saved',
+				materials: ['Bamboo', 'Bio-acetate'],
+				certifications: ['FSC'],
+			},
+			href: '/product/3',
+		},
 	];
 
 	return (
@@ -142,7 +213,9 @@ export default function Main() {
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<div className="flex items-center gap-2 mb-6">
 					<Leaf className="size-7 text-green-600" />
-					<h1 className="text-2xl @md:text-3xl font-bold">Eco-Friendly Wishlist</h1>
+					<h1 className="text-2xl @md:text-3xl font-bold">
+						Eco-Friendly Wishlist
+					</h1>
 				</div>
 				<EcoSummary items={wishlistItems} />
 				<WishlistList items={wishlistItems} />

@@ -21,7 +21,11 @@ const MemberHeader = ({
 	icon: Icon,
 	tier,
 	discount,
-}: { icon: LucideIcon; tier: string; discount: string }) => (
+}: {
+	icon: LucideIcon;
+	tier: string;
+	discount: string;
+}) => (
 	<div className="mb-4 flex items-center gap-3">
 		<div className="flex size-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500">
 			<Icon className="size-5 text-white" />
@@ -48,7 +52,11 @@ const TotalRow = ({
 	label,
 	value,
 	points,
-}: { label: string; value: string; points: number }) => (
+}: {
+	label: string;
+	value: string;
+	points: number;
+}) => (
 	<div className="space-y-1">
 		<div className="flex items-center justify-between">
 			<span className="font-semibold">{label}</span>

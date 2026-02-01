@@ -22,10 +22,7 @@ const TotalRow = ({ label, value }: { label: string; value: string }) => (
 	</div>
 );
 
-const CheckoutLink = ({
-	label,
-	href,
-}: { label: string; href: string }) => (
+const CheckoutLink = ({ label, href }: { label: string; href: string }) => (
 	<Button variant="link" className="h-auto gap-1 p-0" asChild>
 		<Link href={href}>
 			{label}

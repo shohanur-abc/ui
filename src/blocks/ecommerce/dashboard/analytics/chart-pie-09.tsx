@@ -47,21 +47,36 @@ const RoseChart = ({ data }: { data: RoseData[] }) => {
 							className="transition-all duration-300 hover:fill-opacity-100"
 						/>
 					))}
-					<circle cx="50" cy="50" r="5" fill="hsl(var(--background))" stroke="hsl(var(--border))" strokeWidth="0.5" />
+					<circle
+						cx="50"
+						cy="50"
+						r="5"
+						fill="hsl(var(--background))"
+						stroke="hsl(var(--border))"
+						strokeWidth="0.5"
+					/>
 				</svg>
 			</div>
 			<div className="flex flex-col gap-2">
 				{data.map((item, i) => (
 					<div key={i} className="flex items-center gap-3">
-						<div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
+						<div
+							className="w-3 h-3 rounded-full"
+							style={{ backgroundColor: item.color }}
+						/>
 						<span className="text-sm w-20">{item.label}</span>
 						<div className="w-24 h-1.5 bg-muted rounded-full overflow-hidden">
 							<div
 								className="h-full rounded-full transition-all duration-500"
-								style={{ width: `${(item.value / maxValue) * 100}%`, backgroundColor: item.color }}
+								style={{
+									width: `${(item.value / maxValue) * 100}%`,
+									backgroundColor: item.color,
+								}}
 							/>
 						</div>
-						<span className="text-sm font-medium w-12 text-right">{item.value}</span>
+						<span className="text-sm font-medium w-12 text-right">
+							{item.value}
+						</span>
 					</div>
 				))}
 			</div>
@@ -82,8 +97,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Quarterly Revenue</CardTitle>
-						<p className="text-xs text-muted-foreground">Rose chart showing seasonal patterns</p>
+						<CardTitle className="text-sm font-medium">
+							Quarterly Revenue
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Rose chart showing seasonal patterns
+						</p>
 					</CardHeader>
 					<CardContent>
 						<RoseChart data={seasonalData} />

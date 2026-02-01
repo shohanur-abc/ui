@@ -185,7 +185,13 @@ const QuickActionsCard = () => (
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 justify-center">
 		{items.map(({ label, href, variant, icon: Icon }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="gap-2" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="gap-2"
+				asChild
+			>
 				<Link href={href}>
 					{label}
 					{Icon && <Icon className="size-4" />}
@@ -258,7 +264,11 @@ export default function Main() {
 
 				<CTA
 					items={[
-						{ label: 'Manage Subscription', href: '/subscription', icon: ArrowRight },
+						{
+							label: 'Manage Subscription',
+							href: '/subscription',
+							icon: ArrowRight,
+						},
 						{ label: 'Shop Add-ons', href: '/shop', variant: 'outline' },
 					]}
 				/>

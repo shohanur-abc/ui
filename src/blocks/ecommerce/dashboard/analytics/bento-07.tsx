@@ -44,10 +44,14 @@ const OrderStatusCard = ({ statuses }: { statuses: OrderStatusProps[] }) => (
 					<div key={i} className="space-y-1">
 						<div className="flex items-center gap-2">
 							<div className={`size-2 rounded-full ${status.color}`} />
-							<span className="text-xs text-muted-foreground">{status.status}</span>
+							<span className="text-xs text-muted-foreground">
+								{status.status}
+							</span>
 						</div>
 						<p className="text-lg font-bold">{status.count}</p>
-						<p className="text-xs text-muted-foreground">{status.percentage}%</p>
+						<p className="text-xs text-muted-foreground">
+							{status.percentage}%
+						</p>
 					</div>
 				))}
 			</div>
@@ -63,7 +67,13 @@ type TimeMetricProps = {
 	trend: string;
 };
 
-const TimeMetricCard = ({ icon: Icon, label, value, unit, trend }: TimeMetricProps) => (
+const TimeMetricCard = ({
+	icon: Icon,
+	label,
+	value,
+	unit,
+	trend,
+}: TimeMetricProps) => (
 	<Card className="group border-border/50 bg-card/80 transition-all duration-300 hover:border-primary/30">
 		<CardContent className="p-4">
 			<div className="flex items-center gap-3 mb-3">
@@ -89,10 +99,16 @@ type FulfillmentRowProps = {
 	delivered: number;
 };
 
-const FulfillmentCard = ({ warehouses }: { warehouses: FulfillmentRowProps[] }) => (
+const FulfillmentCard = ({
+	warehouses,
+}: {
+	warehouses: FulfillmentRowProps[];
+}) => (
 	<Card className="border-border/50 bg-card/80 col-span-2">
 		<CardHeader className="pb-2">
-			<CardTitle className="text-sm font-medium">Fulfillment by Warehouse</CardTitle>
+			<CardTitle className="text-sm font-medium">
+				Fulfillment by Warehouse
+			</CardTitle>
 		</CardHeader>
 		<CardContent>
 			<div className="grid grid-cols-5 gap-2 text-xs text-muted-foreground pb-2 border-b border-border/30">
@@ -163,7 +179,9 @@ const HourlyCard = ({ data }: { data: HourlyDataProps[] }) => (
 							className="w-full bg-gradient-to-t from-primary/30 to-primary rounded-t"
 							style={{ height: `${(item.orders / 50) * 100}%` }}
 						/>
-						<span className="text-[10px] text-muted-foreground">{item.hour}</span>
+						<span className="text-[10px] text-muted-foreground">
+							{item.hour}
+						</span>
 					</div>
 				))}
 			</div>
@@ -179,16 +197,58 @@ const orderStatuses: OrderStatusProps[] = [
 ];
 
 const timeMetrics: TimeMetricProps[] = [
-	{ icon: Clock, label: 'Avg Processing', value: '2.4', unit: 'hours', trend: '-15% faster' },
-	{ icon: Truck, label: 'Avg Delivery', value: '3.2', unit: 'days', trend: '-0.5 days' },
-	{ icon: Package, label: 'Pick & Pack', value: '45', unit: 'mins', trend: '-8 mins' },
-	{ icon: Calendar, label: 'Lead Time', value: '4.1', unit: 'days', trend: '-0.3 days' },
+	{
+		icon: Clock,
+		label: 'Avg Processing',
+		value: '2.4',
+		unit: 'hours',
+		trend: '-15% faster',
+	},
+	{
+		icon: Truck,
+		label: 'Avg Delivery',
+		value: '3.2',
+		unit: 'days',
+		trend: '-0.5 days',
+	},
+	{
+		icon: Package,
+		label: 'Pick & Pack',
+		value: '45',
+		unit: 'mins',
+		trend: '-8 mins',
+	},
+	{
+		icon: Calendar,
+		label: 'Lead Time',
+		value: '4.1',
+		unit: 'days',
+		trend: '-0.3 days',
+	},
 ];
 
 const warehouses: FulfillmentRowProps[] = [
-	{ warehouse: 'East Coast', pending: 12, processing: 28, shipped: 45, delivered: 89 },
-	{ warehouse: 'West Coast', pending: 8, processing: 22, shipped: 38, delivered: 76 },
-	{ warehouse: 'Central', pending: 15, processing: 18, shipped: 29, delivered: 54 },
+	{
+		warehouse: 'East Coast',
+		pending: 12,
+		processing: 28,
+		shipped: 45,
+		delivered: 89,
+	},
+	{
+		warehouse: 'West Coast',
+		pending: 8,
+		processing: 22,
+		shipped: 38,
+		delivered: 76,
+	},
+	{
+		warehouse: 'Central',
+		pending: 15,
+		processing: 18,
+		shipped: 29,
+		delivered: 54,
+	},
 ];
 
 const returns: ReturnsItemProps[] = [

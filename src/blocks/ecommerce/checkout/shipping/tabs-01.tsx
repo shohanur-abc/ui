@@ -21,9 +21,7 @@ const SpeedOption = ({
 	features: string[];
 }) => (
 	<Label htmlFor={value} className="cursor-pointer block">
-		<Card
-			className="transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
-		>
+		<Card className="transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
 			<CardContent className="p-5">
 				<div className="flex items-start gap-4">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
@@ -88,14 +86,22 @@ export default function Main() {
 			name: 'Express',
 			time: '2-3 business days',
 			price: '$14.99',
-			features: ['Priority handling', 'Real-time tracking', 'Insurance included'],
+			features: [
+				'Priority handling',
+				'Real-time tracking',
+				'Insurance included',
+			],
 		},
 		{
 			value: 'priority',
 			name: 'Priority Express',
 			time: '1-2 business days',
 			price: '$19.99',
-			features: ['Fastest ground option', 'Premium packaging', 'Signature delivery'],
+			features: [
+				'Fastest ground option',
+				'Premium packaging',
+				'Signature delivery',
+			],
 		},
 	];
 
@@ -105,7 +111,11 @@ export default function Main() {
 			name: 'Overnight',
 			time: 'Next business day',
 			price: '$29.99',
-			features: ['Next-day guarantee', 'Premium protection', 'Priority support'],
+			features: [
+				'Next-day guarantee',
+				'Premium protection',
+				'Priority support',
+			],
 		},
 	];
 
@@ -113,8 +123,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Select Shipping Speed</h1>
-					<p className="text-muted-foreground">Choose the delivery option that works best for you</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Select Shipping Speed
+					</h1>
+					<p className="text-muted-foreground">
+						Choose the delivery option that works best for you
+					</p>
 				</div>
 
 				<Tabs defaultValue="express" className="w-full">
@@ -156,7 +170,9 @@ export default function Main() {
 				</Tabs>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

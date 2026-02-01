@@ -17,7 +17,14 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import { Search, SlidersHorizontal, X, Calendar, MapPin, CreditCard } from 'lucide-react';
+import {
+	Search,
+	SlidersHorizontal,
+	X,
+	Calendar,
+	MapPin,
+	CreditCard,
+} from 'lucide-react';
 
 interface Order {
 	id: string;
@@ -42,7 +49,11 @@ interface ActiveFiltersProps {
 
 interface FilterBarProps {
 	searchPlaceholder: string;
-	filters: { icon: React.ComponentType<{ className?: string }>; placeholder: string; options: { value: string; label: string }[] }[];
+	filters: {
+		icon: React.ComponentType<{ className?: string }>;
+		placeholder: string;
+		options: { value: string; label: string }[];
+	}[];
 }
 
 const FilterChip = ({ label, value, onRemove }: FilterChipProps) => (
@@ -61,9 +72,18 @@ const FilterChip = ({ label, value, onRemove }: FilterChipProps) => (
 const ActiveFilters = ({ filters, clearLabel }: ActiveFiltersProps) => (
 	<div className="flex items-center gap-2 flex-wrap">
 		{filters.map((filter, i) => (
-			<FilterChip key={i} label={filter.label} value={filter.value} onRemove={() => {}} />
+			<FilterChip
+				key={i}
+				label={filter.label}
+				value={filter.value}
+				onRemove={() => {}}
+			/>
 		))}
-		<Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+		<Button
+			variant="ghost"
+			size="sm"
+			className="text-muted-foreground hover:text-foreground"
+		>
 			{clearLabel}
 		</Button>
 	</div>
@@ -84,7 +104,9 @@ const FilterBar = ({ searchPlaceholder, filters }: FilterBarProps) => (
 					</SelectTrigger>
 					<SelectContent>
 						{filter.options.map((option) => (
-							<SelectItem key={option.value} value={option.value}>{option.label}</SelectItem>
+							<SelectItem key={option.value} value={option.value}>
+								{option.label}
+							</SelectItem>
 						))}
 					</SelectContent>
 				</Select>
@@ -97,14 +119,26 @@ const FilterBar = ({ searchPlaceholder, filters }: FilterBarProps) => (
 );
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
-	const config: Record<Order['status'], { variant: 'default' | 'secondary' | 'destructive' | 'outline'; className?: string }> = {
-		completed: { variant: 'default', className: 'bg-accent text-accent-foreground' },
+	const config: Record<
+		Order['status'],
+		{
+			variant: 'default' | 'secondary' | 'destructive' | 'outline';
+			className?: string;
+		}
+	> = {
+		completed: {
+			variant: 'default',
+			className: 'bg-accent text-accent-foreground',
+		},
 		processing: { variant: 'secondary' },
 		failed: { variant: 'destructive' },
 		refunded: { variant: 'outline' },
 	};
 	return (
-		<Badge variant={config[status].variant} className={`capitalize ${config[status].className || ''}`}>
+		<Badge
+			variant={config[status].variant}
+			className={`capitalize ${config[status].className || ''}`}
+		>
 			{status}
 		</Badge>
 	);
@@ -165,20 +199,71 @@ export default function Main() {
 	];
 
 	const orders: Order[] = [
-		{ id: 'TXN-001234', customer: 'Jennifer Adams', location: 'New York, US', payment: 'Visa •••• 4242', amount: '$1,250.00', status: 'completed', date: 'Jan 28, 2026' },
-		{ id: 'TXN-001235', customer: 'Marcus Chen', location: 'London, UK', payment: 'PayPal', amount: '$890.50', status: 'processing', date: 'Jan 28, 2026' },
-		{ id: 'TXN-001236', customer: 'Sophia Rodriguez', location: 'Tokyo, JP', payment: 'Mastercard •••• 5555', amount: '$2,340.00', status: 'completed', date: 'Jan 27, 2026' },
-		{ id: 'TXN-001237', customer: 'Alexander Kim', location: 'Seoul, KR', payment: 'Crypto (BTC)', amount: '$567.00', status: 'failed', date: 'Jan 27, 2026' },
-		{ id: 'TXN-001238', customer: 'Emma Wilson', location: 'Sydney, AU', payment: 'Visa •••• 1234', amount: '$445.00', status: 'refunded', date: 'Jan 26, 2026' },
+		{
+			id: 'TXN-001234',
+			customer: 'Jennifer Adams',
+			location: 'New York, US',
+			payment: 'Visa •••• 4242',
+			amount: '$1,250.00',
+			status: 'completed',
+			date: 'Jan 28, 2026',
+		},
+		{
+			id: 'TXN-001235',
+			customer: 'Marcus Chen',
+			location: 'London, UK',
+			payment: 'PayPal',
+			amount: '$890.50',
+			status: 'processing',
+			date: 'Jan 28, 2026',
+		},
+		{
+			id: 'TXN-001236',
+			customer: 'Sophia Rodriguez',
+			location: 'Tokyo, JP',
+			payment: 'Mastercard •••• 5555',
+			amount: '$2,340.00',
+			status: 'completed',
+			date: 'Jan 27, 2026',
+		},
+		{
+			id: 'TXN-001237',
+			customer: 'Alexander Kim',
+			location: 'Seoul, KR',
+			payment: 'Crypto (BTC)',
+			amount: '$567.00',
+			status: 'failed',
+			date: 'Jan 27, 2026',
+		},
+		{
+			id: 'TXN-001238',
+			customer: 'Emma Wilson',
+			location: 'Sydney, AU',
+			payment: 'Visa •••• 1234',
+			amount: '$445.00',
+			status: 'refunded',
+			date: 'Jan 26, 2026',
+		},
 	];
 
-	const headers = ['Transaction', 'Customer', 'Location', 'Payment', 'Amount', 'Status', 'Date'];
+	const headers = [
+		'Transaction',
+		'Customer',
+		'Location',
+		'Payment',
+		'Amount',
+		'Status',
+		'Date',
+	];
 
 	return (
 		<section className="@container" data-theme="orders">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-10 @xl:py-12">
 				<div className="rounded-xl border border-border/50 overflow-hidden bg-card/50 backdrop-blur-sm">
-					<FilterBar searchPlaceholder="Search transactions..." filters={filterConfig} />
+					<FilterBar
+						searchPlaceholder="Search transactions..."
+						filters={filterConfig}
+					/>
 					<div className="px-4 py-3 border-b border-border/50 bg-muted/10">
 						<ActiveFilters filters={activeFilters} clearLabel="Clear all" />
 					</div>

@@ -77,12 +77,7 @@ const OrderBadge = ({
 	</div>
 );
 
-const ProductCard = ({
-	name,
-	price,
-	quantity,
-	currency,
-}: ProductCardProps) => (
+const ProductCard = ({ name, price, quantity, currency }: ProductCardProps) => (
 	<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 		<div className="size-12 rounded-lg bg-muted flex items-center justify-center">
 			<Package className="size-6 text-muted-foreground" />
@@ -122,7 +117,9 @@ const TimelineEvent = ({
 			<Icon className="size-4" />
 		</div>
 		<div className="flex-1">
-			<p className={`text-sm ${active ? 'font-medium' : 'text-muted-foreground'}`}>
+			<p
+				className={`text-sm ${active ? 'font-medium' : 'text-muted-foreground'}`}
+			>
 				{title}
 			</p>
 		</div>
@@ -143,13 +140,7 @@ const Timeline = ({ events }: { events: TimelineEventProps[] }) => (
 	</Card>
 );
 
-const DeliveryInfo = ({
-	address,
-	date,
-}: {
-	address: string;
-	date: string;
-}) => (
+const DeliveryInfo = ({ address, date }: { address: string; date: string }) => (
 	<div className="grid grid-cols-2 gap-4">
 		<div className="p-4 rounded-xl bg-muted/50">
 			<div className="flex items-center gap-2 mb-2">

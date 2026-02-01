@@ -1,6 +1,18 @@
 'use client';
 
-import { ArrowRight, Bitcoin, Building2, CreditCard, Gift, Lock, Percent, Shield, Smartphone, Wallet, Zap } from 'lucide-react';
+import {
+	ArrowRight,
+	Bitcoin,
+	Building2,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	Shield,
+	Smartphone,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -16,7 +28,13 @@ interface PaymentMethod {
 	color: string;
 }
 
-const PaymentMethodsCell = ({ methods, selected }: { methods: PaymentMethod[]; selected: string }) => (
+const PaymentMethodsCell = ({
+	methods,
+	selected,
+}: {
+	methods: PaymentMethod[];
+	selected: string;
+}) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm row-span-2">
 		<CardHeader className="pb-2">
 			<span className="font-semibold text-sm">Payment Method</span>
@@ -30,7 +48,9 @@ const PaymentMethodsCell = ({ methods, selected }: { methods: PaymentMethod[]; s
 						className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
 					>
 						<RadioGroupItem value={method.id} id={method.id} />
-						<div className={`size-8 rounded-lg flex items-center justify-center ${method.color}`}>
+						<div
+							className={`size-8 rounded-lg flex items-center justify-center ${method.color}`}
+						>
 							<method.icon className="size-4" />
 						</div>
 						<span className="text-sm font-medium">{method.name}</span>
@@ -73,7 +93,9 @@ const PromoCodeCell = () => (
 		<CardContent>
 			<div className="flex gap-2">
 				<Input placeholder="Enter code" className="h-9 text-sm" />
-				<Button variant="outline" size="sm">Apply</Button>
+				<Button variant="outline" size="sm">
+					Apply
+				</Button>
 			</div>
 		</CardContent>
 	</Card>
@@ -118,10 +140,30 @@ const TotalAndPayCell = ({ total }: { total: string }) => (
 
 export default function Main() {
 	const methods: PaymentMethod[] = [
-		{ id: 'card', name: 'Credit Card', icon: CreditCard, color: 'bg-blue-500/10 text-blue-500' },
-		{ id: 'paypal', name: 'PayPal', icon: Wallet, color: 'bg-indigo-500/10 text-indigo-500' },
-		{ id: 'bank', name: 'Bank Transfer', icon: Building2, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ id: 'crypto', name: 'Cryptocurrency', icon: Bitcoin, color: 'bg-orange-500/10 text-orange-500' },
+		{
+			id: 'card',
+			name: 'Credit Card',
+			icon: CreditCard,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
+		{
+			id: 'paypal',
+			name: 'PayPal',
+			icon: Wallet,
+			color: 'bg-indigo-500/10 text-indigo-500',
+		},
+		{
+			id: 'bank',
+			name: 'Bank Transfer',
+			icon: Building2,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			id: 'crypto',
+			name: 'Cryptocurrency',
+			icon: Bitcoin,
+			color: 'bg-orange-500/10 text-orange-500',
+		},
 	];
 
 	return (

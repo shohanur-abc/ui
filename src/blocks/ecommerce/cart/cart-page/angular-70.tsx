@@ -21,9 +21,13 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 				<Hexagon className="size-12 text-primary fill-primary/10" />
 				<ShoppingBag className="size-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary" />
 			</div>
-			<h1 className="text-2xl font-bold @md:text-3xl tracking-tight">{title}</h1>
+			<h1 className="text-2xl font-bold @md:text-3xl tracking-tight">
+				{title}
+			</h1>
 		</div>
-		<Badge className="bg-primary clip-path-angular px-4 py-1.5">{count} items</Badge>
+		<Badge className="bg-primary clip-path-angular px-4 py-1.5">
+			{count} items
+		</Badge>
 	</div>
 );
 
@@ -37,7 +41,8 @@ const AngularCard = ({
 	<div
 		className={`bg-background border relative ${className}`}
 		style={{
-			clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
+			clipPath:
+				'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
 		}}
 	>
 		{children}
@@ -48,7 +53,8 @@ const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 	<div
 		className="relative size-20 shrink-0 overflow-hidden bg-muted"
 		style={{
-			clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))',
+			clipPath:
+				'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))',
 		}}
 	>
 		<Image src={src} alt={alt} fill className="object-cover" />
@@ -56,12 +62,25 @@ const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 );
 
 const QuantityControl = ({ quantity }: { quantity: number }) => (
-	<div className="flex items-center bg-muted" style={{ clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)' }}>
-		<Button size="icon-sm" variant="ghost" className="size-8 rounded-none hover:bg-muted-foreground/20">
+	<div
+		className="flex items-center bg-muted"
+		style={{
+			clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)',
+		}}
+	>
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 rounded-none hover:bg-muted-foreground/20"
+		>
 			<Minus className="size-3" />
 		</Button>
 		<span className="w-6 text-center text-sm font-medium">{quantity}</span>
-		<Button size="icon-sm" variant="ghost" className="size-8 rounded-none hover:bg-muted-foreground/20">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 rounded-none hover:bg-muted-foreground/20"
+		>
 			<Plus className="size-3" />
 		</Button>
 	</div>
@@ -86,7 +105,9 @@ const AngularItem = ({ item }: { item: CartItem }) => (
 			</div>
 			<div className="flex items-center justify-between mt-3">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-bold text-lg">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-bold text-lg">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -116,7 +137,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span className={bold ? 'text-foreground' : ''}>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -150,7 +173,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Studio Headphones Pro',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -158,7 +182,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White • ANC',
 			price: 179.99,
@@ -166,7 +191,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -232,7 +258,11 @@ export default function Main() {
 									Checkout
 									<ArrowRight className="size-4" />
 								</AngularButton>
-								<AngularButton href="/shop" variant="outline" className="w-full">
+								<AngularButton
+									href="/shop"
+									variant="outline"
+									className="w-full"
+								>
 									Continue Shopping
 								</AngularButton>
 							</div>

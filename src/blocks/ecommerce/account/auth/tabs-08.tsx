@@ -1,11 +1,26 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Headphones, MessageCircle, Phone, HelpCircle, User } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Headphones,
+	MessageCircle,
+	Phone,
+	HelpCircle,
+	User,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
 	Select,
@@ -15,7 +30,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -78,7 +99,10 @@ const SelectField = ({
 			</SelectTrigger>
 			<SelectContent>
 				{options.map((option) => (
-					<SelectItem key={option} value={option.toLowerCase().replace(/\s/g, '-')}>
+					<SelectItem
+						key={option}
+						value={option.toLowerCase().replace(/\s/g, '-')}
+					>
 						{option}
 					</SelectItem>
 				))}
@@ -104,8 +128,20 @@ const SubmitButton = ({
 
 const SignInSupport = () => (
 	<form className="space-y-4">
-		<FormField id="support-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField id="support-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			id="support-email"
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="support-password"
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<SubmitButton label="Sign in" icon={ArrowRight} />
 		<p className="text-sm text-muted-foreground text-center">
 			Sign in to view your support tickets
@@ -125,9 +161,23 @@ const GuestSupport = () => {
 
 	return (
 		<form className="space-y-4">
-			<FormField id="guest-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-			<SelectField label="Issue Type" placeholder="Select issue type" options={issueTypes} />
-			<TextareaField id="guest-message" label="Message" placeholder="Describe your issue..." />
+			<FormField
+				id="guest-email"
+				label="Email"
+				type="email"
+				placeholder="you@example.com"
+				icon={Mail}
+			/>
+			<SelectField
+				label="Issue Type"
+				placeholder="Select issue type"
+				options={issueTypes}
+			/>
+			<TextareaField
+				id="guest-message"
+				label="Message"
+				placeholder="Describe your issue..."
+			/>
 			<SubmitButton label="Submit Request" icon={MessageCircle} />
 		</form>
 	);
@@ -143,7 +193,9 @@ export default function Main() {
 							<Logo name="HelpDesk" icon={Headphones} />
 						</div>
 						<CardTitle className="text-2xl">Customer Support</CardTitle>
-						<CardDescription>Sign in or submit a support request</CardDescription>
+						<CardDescription>
+							Sign in or submit a support request
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Tabs defaultValue="signin" className="w-full">

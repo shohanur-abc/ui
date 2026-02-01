@@ -17,7 +17,10 @@ const DashedBorderBox = ({ children }: { children: React.ReactNode }) => (
 const SectionHeader = ({
 	icon: Icon,
 	title,
-}: { icon: LucideIcon; title: string }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+}) => (
 	<div className="mb-4 flex items-center gap-2 border-b border-dashed border-muted-foreground/50 pb-4">
 		<Icon className="size-5 text-muted-foreground" />
 		<span className="text-lg font-medium">{title}</span>

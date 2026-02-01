@@ -19,7 +19,13 @@ const GradientDecorative = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-8">
 		<div className="flex size-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-6 text-primary-foreground" />
@@ -30,7 +36,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -134,7 +142,11 @@ export default function Main() {
 					</div>
 
 					<div className="mt-8">
-						<FooterLink text="Prefer email?" linkText="Sign in with email" href="/login" />
+						<FooterLink
+							text="Prefer email?"
+							linkText="Sign in with email"
+							href="/login"
+						/>
 					</div>
 				</div>
 			</div>

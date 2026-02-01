@@ -1,10 +1,26 @@
 'use client';
 
-import { Banknote, Building2, Check, CreditCard, Gift, Lock, Percent, Shield, Star, Wallet } from 'lucide-react';
+import {
+	Banknote,
+	Building2,
+	Check,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	Shield,
+	Star,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -31,7 +47,13 @@ const OrderItemRow = ({ name, quantity, price, image }: OrderItem) => (
 	</div>
 );
 
-const OrderSummaryCard = ({ items, total }: { items: OrderItem[]; total: string }) => (
+const OrderSummaryCard = ({
+	items,
+	total,
+}: {
+	items: OrderItem[];
+	total: string;
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-4">
 		<div className="flex items-center justify-between">
 			<h3 className="font-medium">Order Summary</h3>
@@ -50,31 +72,45 @@ const OrderSummaryCard = ({ items, total }: { items: OrderItem[]; total: string 
 	</div>
 );
 
-const FormField = ({ 
-	id, 
-	label, 
-	placeholder, 
+const FormField = ({
+	id,
+	label,
+	placeholder,
 	type = 'text',
-	icon: Icon 
-}: { 
-	id: string; 
-	label: string; 
-	placeholder: string; 
+	icon: Icon,
+}: {
+	id: string;
+	label: string;
+	placeholder: string;
 	type?: string;
-	icon?: React.ComponentType<{ className?: string }>
+	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
 
 const CreditCardTab = () => (
 	<div className="space-y-4">
-		<FormField id="cc-number" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
+		<FormField
+			id="cc-number"
+			label="Card Number"
+			placeholder="1234 5678 9012 3456"
+			icon={CreditCard}
+		/>
 		<FormField id="cc-name" label="Cardholder Name" placeholder="JOHN DOE" />
 		<div className="grid grid-cols-2 gap-4">
 			<FormField id="cc-exp" label="Expiry" placeholder="MM/YY" />
@@ -82,14 +118,21 @@ const CreditCardTab = () => (
 		</div>
 		<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 			<Checkbox id="save-card" />
-			<Label htmlFor="save-card" className="text-sm cursor-pointer">Save for future purchases</Label>
+			<Label htmlFor="save-card" className="text-sm cursor-pointer">
+				Save for future purchases
+			</Label>
 		</div>
 	</div>
 );
 
 const DebitCardTab = () => (
 	<div className="space-y-4">
-		<FormField id="dc-number" label="Debit Card Number" placeholder="1234 5678 9012 3456" icon={Banknote} />
+		<FormField
+			id="dc-number"
+			label="Debit Card Number"
+			placeholder="1234 5678 9012 3456"
+			icon={Banknote}
+		/>
 		<FormField id="dc-name" label="Name on Card" placeholder="JOHN DOE" />
 		<div className="grid grid-cols-2 gap-4">
 			<FormField id="dc-exp" label="Valid Thru" placeholder="MM/YY" />
@@ -132,13 +175,22 @@ const NetBankingTab = () => (
 		<Label className="text-sm font-medium">Popular Banks</Label>
 		<div className="grid grid-cols-2 gap-2">
 			{['HDFC Bank', 'ICICI Bank', 'SBI', 'Axis Bank'].map((bank) => (
-				<Button key={bank} variant="outline" className="h-12 text-sm justify-start gap-2">
+				<Button
+					key={bank}
+					variant="outline"
+					className="h-12 text-sm justify-start gap-2"
+				>
 					<Building2 className="size-4" />
 					{bank}
 				</Button>
 			))}
 		</div>
-		<FormField id="other-bank" label="Other Banks" placeholder="Search bank..." icon={Building2} />
+		<FormField
+			id="other-bank"
+			label="Other Banks"
+			placeholder="Search bank..."
+			icon={Building2}
+		/>
 	</div>
 );
 
@@ -186,7 +238,12 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const orderItems: OrderItem[] = [
-		{ name: 'Wireless Headphones Pro', quantity: 1, price: '$199.00', image: '🎧' },
+		{
+			name: 'Wireless Headphones Pro',
+			quantity: 1,
+			price: '$199.00',
+			image: '🎧',
+		},
 		{ name: 'USB-C Charging Cable', quantity: 2, price: '$29.00', image: '🔌' },
 	];
 

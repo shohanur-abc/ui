@@ -112,12 +112,60 @@ export default function Main() {
 	};
 
 	const regions: RegionReportItem[] = [
-		{ region: 'North America', country: 'United States', revenue: '$124,500', orders: 4521, growth: 18.5, marketShare: 42, trend: 'up' },
-		{ region: 'Western Europe', country: 'Germany', revenue: '$89,200', orders: 3245, growth: 12.3, marketShare: 30, trend: 'up' },
-		{ region: 'Asia Pacific', country: 'Japan', revenue: '$67,800', orders: 2876, growth: 24.7, marketShare: 23, trend: 'up' },
-		{ region: 'Latin America', country: 'Brazil', revenue: '$34,500', orders: 1234, growth: -5.2, marketShare: 12, trend: 'down' },
-		{ region: 'Middle East', country: 'UAE', revenue: '$28,900', orders: 987, growth: 8.9, marketShare: 10, trend: 'up' },
-		{ region: 'Oceania', country: 'Australia', revenue: '$22,100', orders: 756, growth: -2.1, marketShare: 8, trend: 'down' },
+		{
+			region: 'North America',
+			country: 'United States',
+			revenue: '$124,500',
+			orders: 4521,
+			growth: 18.5,
+			marketShare: 42,
+			trend: 'up',
+		},
+		{
+			region: 'Western Europe',
+			country: 'Germany',
+			revenue: '$89,200',
+			orders: 3245,
+			growth: 12.3,
+			marketShare: 30,
+			trend: 'up',
+		},
+		{
+			region: 'Asia Pacific',
+			country: 'Japan',
+			revenue: '$67,800',
+			orders: 2876,
+			growth: 24.7,
+			marketShare: 23,
+			trend: 'up',
+		},
+		{
+			region: 'Latin America',
+			country: 'Brazil',
+			revenue: '$34,500',
+			orders: 1234,
+			growth: -5.2,
+			marketShare: 12,
+			trend: 'down',
+		},
+		{
+			region: 'Middle East',
+			country: 'UAE',
+			revenue: '$28,900',
+			orders: 987,
+			growth: 8.9,
+			marketShare: 10,
+			trend: 'up',
+		},
+		{
+			region: 'Oceania',
+			country: 'Australia',
+			revenue: '$22,100',
+			orders: 756,
+			growth: -2.1,
+			marketShare: 8,
+			trend: 'down',
+		},
 	];
 
 	return (

@@ -70,27 +70,49 @@ interface ReferralProfile {
 const TierConfig = {
 	starter: { label: 'Starter', color: 'text-slate-400', bg: 'bg-slate-400/10' },
 	advocate: { label: 'Advocate', color: 'text-blue-500', bg: 'bg-blue-500/10' },
-	champion: { label: 'Champion', color: 'text-amber-500', bg: 'bg-amber-500/10' },
-	ambassador: { label: 'Ambassador', color: 'text-violet-500', bg: 'bg-violet-500/10' },
+	champion: {
+		label: 'Champion',
+		color: 'text-amber-500',
+		bg: 'bg-amber-500/10',
+	},
+	ambassador: {
+		label: 'Ambassador',
+		color: 'text-violet-500',
+		bg: 'bg-violet-500/10',
+	},
 };
 
 const TierBadge = ({ tier }: { tier: ReferralProfile['tier'] }) => {
 	const config = TierConfig[tier];
 	return (
-		<Badge variant="outline" className={`${config.color} border-current/30 gap-1`}>
+		<Badge
+			variant="outline"
+			className={`${config.color} border-current/30 gap-1`}
+		>
 			<Trophy className="size-3" />
 			{config.label}
 		</Badge>
 	);
 };
 
-const ReferralStatusBadge = ({ status }: { status: 'active' | 'pending' | 'churned' }) => {
+const ReferralStatusBadge = ({
+	status,
+}: {
+	status: 'active' | 'pending' | 'churned';
+}) => {
 	const config = {
-		active: { label: 'Active', className: 'bg-emerald-500/10 text-emerald-500' },
+		active: {
+			label: 'Active',
+			className: 'bg-emerald-500/10 text-emerald-500',
+		},
 		pending: { label: 'Pending', className: 'bg-amber-500/10 text-amber-500' },
 		churned: { label: 'Churned', className: 'bg-red-500/10 text-red-500' },
 	};
-	return <Badge variant="outline" className={config[status].className}>{config[status].label}</Badge>;
+	return (
+		<Badge variant="outline" className={config[status].className}>
+			{config[status].label}
+		</Badge>
+	);
 };
 
 const StatCard = ({
@@ -111,7 +133,11 @@ const StatCard = ({
 	</div>
 );
 
-const ReferralCard = ({ referral }: { referral: ReferralProfile['topReferrals'][0] }) => (
+const ReferralCard = ({
+	referral,
+}: {
+	referral: ReferralProfile['topReferrals'][0];
+}) => (
 	<div className="flex items-center gap-3 rounded-lg border p-3">
 		<Avatar className="size-10">
 			<AvatarImage src={referral.avatar} alt={referral.name} />
@@ -124,7 +150,9 @@ const ReferralCard = ({ referral }: { referral: ReferralProfile['topReferrals'][
 				<p className="font-medium text-sm truncate">{referral.name}</p>
 				<ReferralStatusBadge status={referral.status} />
 			</div>
-			<p className="text-xs text-muted-foreground">Joined {referral.joinedDate}</p>
+			<p className="text-xs text-muted-foreground">
+				Joined {referral.joinedDate}
+			</p>
 		</div>
 		<div className="text-right">
 			<p className="font-semibold text-sm">{referral.totalSpent}</p>
@@ -147,7 +175,7 @@ const ProfileHeader = ({ profile }: { profile: ReferralProfile }) => (
 				<TierBadge tier={profile.tier} />
 			</div>
 			<p className="text-muted-foreground text-sm mb-3">{profile.email}</p>
-			
+
 			<div className="flex flex-col @sm:flex-row gap-3">
 				<div className="flex items-center gap-2 rounded-lg border bg-muted/30 px-3 py-2">
 					<code className="font-mono font-bold">{profile.referralCode}</code>
@@ -164,7 +192,11 @@ const ProfileHeader = ({ profile }: { profile: ReferralProfile }) => (
 	</div>
 );
 
-const TierProgress = ({ progress }: { progress: ReferralProfile['tierProgress'] }) => (
+const TierProgress = ({
+	progress,
+}: {
+	progress: ReferralProfile['tierProgress'];
+}) => (
 	<Card>
 		<CardHeader className="pb-2">
 			<CardTitle className="text-base flex items-center gap-2">
@@ -175,9 +207,14 @@ const TierProgress = ({ progress }: { progress: ReferralProfile['tierProgress'] 
 		<CardContent>
 			<div className="flex items-center justify-between mb-2 text-sm">
 				<span>Progress to {progress.nextTier}</span>
-				<span className="font-medium">{progress.current} / {progress.required}</span>
+				<span className="font-medium">
+					{progress.current} / {progress.required}
+				</span>
 			</div>
-			<Progress value={(progress.current / progress.required) * 100} className="h-2" />
+			<Progress
+				value={(progress.current / progress.required) * 100}
+				className="h-2"
+			/>
 			<p className="text-xs text-muted-foreground mt-2">
 				{progress.required - progress.current} more successful referrals needed
 			</p>
@@ -207,10 +244,38 @@ export default function Main() {
 			nextPayout: 'Feb 1, 2024',
 		},
 		topReferrals: [
-			{ id: '1', name: 'Sarah Johnson', initials: 'SJ', status: 'active', totalSpent: '$2,450', joinedDate: 'Dec 2023' },
-			{ id: '2', name: 'Mike Wilson', initials: 'MW', status: 'active', totalSpent: '$1,890', joinedDate: 'Nov 2023' },
-			{ id: '3', name: 'Emma Davis', initials: 'ED', status: 'pending', totalSpent: '$0', joinedDate: 'Jan 2024' },
-			{ id: '4', name: 'Chris Lee', initials: 'CL', status: 'active', totalSpent: '$956', joinedDate: 'Oct 2023' },
+			{
+				id: '1',
+				name: 'Sarah Johnson',
+				initials: 'SJ',
+				status: 'active',
+				totalSpent: '$2,450',
+				joinedDate: 'Dec 2023',
+			},
+			{
+				id: '2',
+				name: 'Mike Wilson',
+				initials: 'MW',
+				status: 'active',
+				totalSpent: '$1,890',
+				joinedDate: 'Nov 2023',
+			},
+			{
+				id: '3',
+				name: 'Emma Davis',
+				initials: 'ED',
+				status: 'pending',
+				totalSpent: '$0',
+				joinedDate: 'Jan 2024',
+			},
+			{
+				id: '4',
+				name: 'Chris Lee',
+				initials: 'CL',
+				status: 'active',
+				totalSpent: '$956',
+				joinedDate: 'Oct 2023',
+			},
 		],
 		achievements: [
 			{ id: '1', name: 'First Referral', icon: '🎉', earned: true },
@@ -231,10 +296,24 @@ export default function Main() {
 				<ProfileHeader profile={profile} />
 
 				<div className="grid grid-cols-2 @lg:grid-cols-4 gap-4">
-					<StatCard label="Total Referrals" value={profile.stats.totalReferrals} />
-					<StatCard label="Successful" value={profile.stats.successfulReferrals} className="text-emerald-500" />
-					<StatCard label="Pending" value={profile.stats.pendingReferrals} className="text-amber-500" />
-					<StatCard label="Conversion Rate" value={`${profile.stats.conversionRate}%`} />
+					<StatCard
+						label="Total Referrals"
+						value={profile.stats.totalReferrals}
+					/>
+					<StatCard
+						label="Successful"
+						value={profile.stats.successfulReferrals}
+						className="text-emerald-500"
+					/>
+					<StatCard
+						label="Pending"
+						value={profile.stats.pendingReferrals}
+						className="text-amber-500"
+					/>
+					<StatCard
+						label="Conversion Rate"
+						value={`${profile.stats.conversionRate}%`}
+					/>
 				</div>
 
 				<div className="grid @lg:grid-cols-3 gap-6">
@@ -248,21 +327,29 @@ export default function Main() {
 						<CardContent>
 							<div className="grid grid-cols-3 gap-4 mb-6">
 								<div className="text-center p-4 rounded-lg bg-emerald-500/10">
-									<p className="text-2xl font-bold text-emerald-500">{profile.earnings.total}</p>
+									<p className="text-2xl font-bold text-emerald-500">
+										{profile.earnings.total}
+									</p>
 									<p className="text-sm text-muted-foreground">Total Earned</p>
 								</div>
 								<div className="text-center p-4 rounded-lg bg-amber-500/10">
-									<p className="text-2xl font-bold text-amber-500">{profile.earnings.pending}</p>
+									<p className="text-2xl font-bold text-amber-500">
+										{profile.earnings.pending}
+									</p>
 									<p className="text-sm text-muted-foreground">Pending</p>
 								</div>
 								<div className="text-center p-4 rounded-lg bg-blue-500/10">
-									<p className="text-2xl font-bold text-blue-500">{profile.earnings.paid}</p>
+									<p className="text-2xl font-bold text-blue-500">
+										{profile.earnings.paid}
+									</p>
 									<p className="text-sm text-muted-foreground">Paid Out</p>
 								</div>
 							</div>
 							<div className="flex items-center justify-between p-3 rounded-lg border bg-muted/30">
 								<span className="text-sm">Next payout</span>
-								<span className="font-medium">{profile.earnings.nextPayout}</span>
+								<span className="font-medium">
+									{profile.earnings.nextPayout}
+								</span>
 							</div>
 						</CardContent>
 					</Card>

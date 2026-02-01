@@ -3,7 +3,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, Percent, Gift, ArrowRight, RefreshCw, Heart } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	Percent,
+	Gift,
+	ArrowRight,
+	RefreshCw,
+	Heart,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -18,14 +27,25 @@ interface CartItem {
 	savedForLater?: boolean;
 }
 
-const HeaderSection = ({ title, itemCount, totalSaved }: { title: string; itemCount: number; totalSaved: number }) => (
+const HeaderSection = ({
+	title,
+	itemCount,
+	totalSaved,
+}: {
+	title: string;
+	itemCount: number;
+	totalSaved: number;
+}) => (
 	<div className="flex flex-col gap-2 @sm:flex-row @sm:items-center @sm:justify-between">
 		<div>
 			<h1 className="text-2xl font-bold @md:text-3xl">{title}</h1>
 			<p className="text-muted-foreground">{itemCount} items in your cart</p>
 		</div>
 		{totalSaved > 0 && (
-			<Badge variant="secondary" className="w-fit gap-1 text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400">
+			<Badge
+				variant="secondary"
+				className="w-fit gap-1 text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400"
+			>
 				<Percent className="size-3" />
 				You're saving ${totalSaved.toFixed(2)}!
 			</Badge>
@@ -33,11 +53,21 @@ const HeaderSection = ({ title, itemCount, totalSaved }: { title: string; itemCo
 	</div>
 );
 
-const ProductThumbnail = ({ src, alt, discount }: { src: string; alt: string; discount?: number }) => (
+const ProductThumbnail = ({
+	src,
+	alt,
+	discount,
+}: {
+	src: string;
+	alt: string;
+	discount?: number;
+}) => (
 	<div className="relative aspect-square w-24 shrink-0 overflow-hidden rounded-xl bg-muted @sm:w-28">
 		<Image src={src} alt={alt} fill className="object-cover" />
 		{discount && (
-			<Badge className="absolute left-2 top-2 bg-red-500 text-xs">-{discount}%</Badge>
+			<Badge className="absolute left-2 top-2 bg-red-500 text-xs">
+				-{discount}%
+			</Badge>
 		)}
 	</div>
 );
@@ -54,12 +84,16 @@ const ProductInfo = ({
 	originalPrice?: number;
 }) => (
 	<div className="min-w-0 flex-1">
-		<p className="text-xs font-semibold uppercase tracking-wider text-primary">{brand}</p>
+		<p className="text-xs font-semibold uppercase tracking-wider text-primary">
+			{brand}
+		</p>
 		<h3 className="mt-1 font-medium leading-tight line-clamp-2">{name}</h3>
 		<div className="mt-2 flex items-center gap-2">
 			<span className="text-lg font-bold">${price.toFixed(2)}</span>
 			{originalPrice && (
-				<span className="text-sm text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
+				<span className="text-sm text-muted-foreground line-through">
+					${originalPrice.toFixed(2)}
+				</span>
 			)}
 		</div>
 	</div>
@@ -77,13 +111,27 @@ const QuantitySelector = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const ItemActions = ({ onSave, onRemove }: { onSave: string; onRemove: string }) => (
+const ItemActions = ({
+	onSave,
+	onRemove,
+}: {
+	onSave: string;
+	onRemove: string;
+}) => (
 	<div className="flex gap-2 text-sm">
-		<Button variant="ghost" size="sm" className="h-auto p-1 text-muted-foreground hover:text-primary gap-1">
+		<Button
+			variant="ghost"
+			size="sm"
+			className="h-auto p-1 text-muted-foreground hover:text-primary gap-1"
+		>
 			<Heart className="size-3" />
 			{onSave}
 		</Button>
-		<Button variant="ghost" size="sm" className="h-auto p-1 text-muted-foreground hover:text-destructive gap-1">
+		<Button
+			variant="ghost"
+			size="sm"
+			className="h-auto p-1 text-muted-foreground hover:text-destructive gap-1"
+		>
 			<X className="size-3" />
 			{onRemove}
 		</Button>
@@ -98,7 +146,11 @@ const CartCard = ({ item }: { item: CartItem }) => {
 	return (
 		<Card className="overflow-hidden transition-shadow hover:shadow-md">
 			<CardContent className="flex gap-4 p-4">
-				<ProductThumbnail src={item.image} alt={item.name} discount={discount} />
+				<ProductThumbnail
+					src={item.image}
+					alt={item.name}
+					discount={discount}
+				/>
 				<div className="flex min-w-0 flex-1 flex-col justify-between">
 					<ProductInfo
 						brand={item.brand}
@@ -146,8 +198,12 @@ const SummaryRow = ({
 	value: string;
 	variant?: 'default' | 'discount' | 'total';
 }) => (
-	<div className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}>
-		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>{label}</span>
+	<div
+		className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}
+	>
+		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span
 			className={
 				variant === 'total'
@@ -176,7 +232,11 @@ const SummaryPanel = ({
 	checkoutHref,
 	updateLabel,
 }: {
-	lines: { label: string; value: string; variant?: 'default' | 'discount' | 'total' }[];
+	lines: {
+		label: string;
+		value: string;
+		variant?: 'default' | 'discount' | 'total';
+	}[];
 	promoConfig: { placeholder: string; applyLabel: string; giftMessage: string };
 	checkoutLabel: string;
 	checkoutHref: string;
@@ -215,7 +275,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=300&h=300&fit=crop',
 			name: 'Premium Leather Weekender Bag',
 			brand: 'Artisan Goods',
 			price: 189.99,
@@ -224,7 +285,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&h=300&fit=crop',
 			name: 'Ultra Comfort Running Shoes',
 			brand: 'SportMax',
 			price: 149.99,
@@ -232,7 +294,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&h=300&fit=crop',
 			name: 'Classic Denim Jacket Vintage Wash',
 			brand: 'Urban Style',
 			price: 129.99,
@@ -259,7 +322,11 @@ export default function Main() {
 	return (
 		<section className="@container">
 			<div className="mx-auto max-w-6xl px-4 py-8 @md:py-12 @xl:py-16">
-				<HeaderSection title="Shopping Cart" itemCount={items.length} totalSaved={totalSaved} />
+				<HeaderSection
+					title="Shopping Cart"
+					itemCount={items.length}
+					totalSaved={totalSaved}
+				/>
 
 				<div className="mt-8 grid gap-8 @xl:grid-cols-5">
 					<div className="space-y-4 @xl:col-span-3">

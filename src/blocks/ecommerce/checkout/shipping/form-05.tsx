@@ -26,7 +26,9 @@ const ProgressStep = ({
 		>
 			{completed ? <Check className="size-4" /> : step}
 		</div>
-		<span className={`text-sm hidden @md:block ${active ? 'font-medium' : 'text-muted-foreground'}`}>
+		<span
+			className={`text-sm hidden @md:block ${active ? 'font-medium' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</span>
 	</div>
@@ -39,7 +41,12 @@ const StepConnector = () => (
 const ProgressBar = ({
 	steps,
 }: {
-	steps: { step: number; label: string; active?: boolean; completed?: boolean }[];
+	steps: {
+		step: number;
+		label: string;
+		active?: boolean;
+		completed?: boolean;
+	}[];
 }) => (
 	<div className="flex items-center justify-center gap-2 @sm:gap-4 mb-10">
 		{steps.map((s, i) => (
@@ -85,9 +92,7 @@ const ActionBar = ({
 		<Button variant="ghost" className="w-full @sm:w-auto">
 			{backLabel}
 		</Button>
-		<Button className="w-full @sm:w-auto min-w-[200px]">
-			{nextLabel}
-		</Button>
+		<Button className="w-full @sm:w-auto min-w-[200px]">{nextLabel}</Button>
 	</div>
 );
 
@@ -106,7 +111,9 @@ export default function Main() {
 
 				<div className="bg-card rounded-xl border p-6 @md:p-8 shadow-sm">
 					<h2 className="text-2xl font-bold mb-2">Shipping Address</h2>
-					<p className="text-muted-foreground mb-8">Fill in your delivery details</p>
+					<p className="text-muted-foreground mb-8">
+						Fill in your delivery details
+					</p>
 
 					<div className="space-y-6">
 						<FormGrid>
@@ -114,10 +121,21 @@ export default function Main() {
 							<InputWithLabel label="Last Name" placeholder="Doe" />
 						</FormGrid>
 
-						<InputWithLabel label="Email Address" placeholder="john@example.com" type="email" />
-						<InputWithLabel label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
+						<InputWithLabel
+							label="Email Address"
+							placeholder="john@example.com"
+							type="email"
+						/>
+						<InputWithLabel
+							label="Phone Number"
+							placeholder="+1 (555) 000-0000"
+							type="tel"
+						/>
 
-						<InputWithLabel label="Street Address" placeholder="123 Example Street" />
+						<InputWithLabel
+							label="Street Address"
+							placeholder="123 Example Street"
+						/>
 
 						<FormGrid>
 							<InputWithLabel label="Apartment / Suite" placeholder="Apt 4B" />
@@ -129,7 +147,10 @@ export default function Main() {
 							<InputWithLabel label="ZIP / Postal Code" placeholder="10001" />
 						</FormGrid>
 
-						<ActionBar backLabel="← Back to Cart" nextLabel="Continue to Payment" />
+						<ActionBar
+							backLabel="← Back to Cart"
+							nextLabel="Continue to Payment"
+						/>
 					</div>
 				</div>
 			</div>

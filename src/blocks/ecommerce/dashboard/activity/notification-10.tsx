@@ -104,11 +104,7 @@ const PreferenceItem = ({
 	);
 };
 
-const RecentItem = ({
-	notification,
-}: {
-	notification: RecentNotification;
-}) => (
+const RecentItem = ({ notification }: { notification: RecentNotification }) => (
 	<div
 		className={`flex items-start gap-3 p-3 rounded-lg transition-all hover:bg-muted/50 ${
 			!notification.isRead ? 'bg-primary/5' : ''

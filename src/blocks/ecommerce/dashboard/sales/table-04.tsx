@@ -74,18 +74,26 @@ const CustomerTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{customers.map((customer) => (
-							<TableRow key={customer.id} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={customer.id}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell>
 									<div className="flex items-center gap-3">
 										<Avatar className="size-10">
 											<AvatarImage src={customer.avatar} alt={customer.name} />
 											<AvatarFallback>
-												{customer.name.split(' ').map(n => n[0]).join('')}
+												{customer.name
+													.split(' ')
+													.map((n) => n[0])
+													.join('')}
 											</AvatarFallback>
 										</Avatar>
 										<div>
 											<p className="font-medium">{customer.name}</p>
-											<p className="text-xs text-muted-foreground">{customer.email}</p>
+											<p className="text-xs text-muted-foreground">
+												{customer.email}
+											</p>
 										</div>
 									</div>
 								</TableCell>
@@ -121,11 +129,61 @@ const CustomerTableCard = ({
 
 export default function Main() {
 	const customers: Customer[] = [
-		{ id: 'CUS-001', name: 'Alexandra Chen', avatar: '/placeholder.svg', email: 'alex.chen@example.com', totalSpent: 12580, ordersCount: 42, avgOrderValue: 299, tier: 'platinum', lastPurchase: 'Today' },
-		{ id: 'CUS-002', name: 'Marcus Johnson', avatar: '/placeholder.svg', email: 'm.johnson@example.com', totalSpent: 8920, ordersCount: 28, avgOrderValue: 318, tier: 'gold', lastPurchase: '2 days ago' },
-		{ id: 'CUS-003', name: 'Sofia Rodriguez', avatar: '/placeholder.svg', email: 'sofia.r@example.com', totalSpent: 5640, ordersCount: 19, avgOrderValue: 297, tier: 'silver', lastPurchase: '5 days ago' },
-		{ id: 'CUS-004', name: 'James Williams', avatar: '/placeholder.svg', email: 'j.williams@example.com', totalSpent: 3280, ordersCount: 12, avgOrderValue: 273, tier: 'bronze', lastPurchase: '1 week ago' },
-		{ id: 'CUS-005', name: 'Emily Davis', avatar: '/placeholder.svg', email: 'e.davis@example.com', totalSpent: 9850, ordersCount: 35, avgOrderValue: 281, tier: 'gold', lastPurchase: 'Yesterday' },
+		{
+			id: 'CUS-001',
+			name: 'Alexandra Chen',
+			avatar: '/placeholder.svg',
+			email: 'alex.chen@example.com',
+			totalSpent: 12580,
+			ordersCount: 42,
+			avgOrderValue: 299,
+			tier: 'platinum',
+			lastPurchase: 'Today',
+		},
+		{
+			id: 'CUS-002',
+			name: 'Marcus Johnson',
+			avatar: '/placeholder.svg',
+			email: 'm.johnson@example.com',
+			totalSpent: 8920,
+			ordersCount: 28,
+			avgOrderValue: 318,
+			tier: 'gold',
+			lastPurchase: '2 days ago',
+		},
+		{
+			id: 'CUS-003',
+			name: 'Sofia Rodriguez',
+			avatar: '/placeholder.svg',
+			email: 'sofia.r@example.com',
+			totalSpent: 5640,
+			ordersCount: 19,
+			avgOrderValue: 297,
+			tier: 'silver',
+			lastPurchase: '5 days ago',
+		},
+		{
+			id: 'CUS-004',
+			name: 'James Williams',
+			avatar: '/placeholder.svg',
+			email: 'j.williams@example.com',
+			totalSpent: 3280,
+			ordersCount: 12,
+			avgOrderValue: 273,
+			tier: 'bronze',
+			lastPurchase: '1 week ago',
+		},
+		{
+			id: 'CUS-005',
+			name: 'Emily Davis',
+			avatar: '/placeholder.svg',
+			email: 'e.davis@example.com',
+			totalSpent: 9850,
+			ordersCount: 35,
+			avgOrderValue: 281,
+			tier: 'gold',
+			lastPurchase: 'Yesterday',
+		},
 	];
 
 	return (

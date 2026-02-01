@@ -190,7 +190,11 @@ const NewAddressTab = ({
 			<Field label="Last Name" placeholder="Doe" />
 		</div>
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">

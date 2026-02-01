@@ -52,7 +52,9 @@ const ProfileHeader = ({
 		</div>
 		<div>
 			<h1 className="text-2xl font-bold">{name}</h1>
-			<p className="text-muted-foreground">{points.toLocaleString()} loyalty points</p>
+			<p className="text-muted-foreground">
+				{points.toLocaleString()} loyalty points
+			</p>
 		</div>
 		<div className="max-w-xs mx-auto space-y-2">
 			<div className="flex justify-between text-sm">
@@ -82,7 +84,9 @@ const BenefitsList = ({
 					</div>
 					<div className="flex-1">
 						<p className="font-medium">{benefit.title}</p>
-						<p className="text-sm text-muted-foreground">{benefit.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{benefit.description}
+						</p>
 					</div>
 					<ChevronRight className="size-5 text-muted-foreground" />
 				</div>
@@ -137,9 +141,21 @@ export default function Main() {
 			nextTier: 'Platinum',
 		},
 		benefits: [
-			{ icon: Truck, title: 'Free Shipping', description: 'On all orders over $25' },
-			{ icon: Sparkles, title: '10% Discount', description: 'On all purchases' },
-			{ icon: Gift, title: 'Birthday Gift', description: '2x points in your birthday month' },
+			{
+				icon: Truck,
+				title: 'Free Shipping',
+				description: 'On all orders over $25',
+			},
+			{
+				icon: Sparkles,
+				title: '10% Discount',
+				description: 'On all purchases',
+			},
+			{
+				icon: Gift,
+				title: 'Birthday Gift',
+				description: '2x points in your birthday month',
+			},
 		],
 		stats: [
 			{ icon: Package, value: '89', label: 'Orders' },

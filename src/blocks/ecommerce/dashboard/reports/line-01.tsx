@@ -54,8 +54,18 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const metrics: MetricProps[] = [
-		{ label: 'Total Revenue', value: '$1.24M', change: '+18.5% vs last year', positive: true },
-		{ label: 'Avg Monthly', value: '$103.3K', change: '+15.2% growth', positive: true },
+		{
+			label: 'Total Revenue',
+			value: '$1.24M',
+			change: '+18.5% vs last year',
+			positive: true,
+		},
+		{
+			label: 'Avg Monthly',
+			value: '$103.3K',
+			change: '+15.2% growth',
+			positive: true,
+		},
 	];
 
 	const chartData: RevenueData[] = [

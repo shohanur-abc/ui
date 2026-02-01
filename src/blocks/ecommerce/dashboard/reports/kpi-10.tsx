@@ -1,6 +1,13 @@
 'use client';
 
-import { Users, UserPlus, UserMinus, RefreshCw, Heart, Award } from 'lucide-react';
+import {
+	Users,
+	UserPlus,
+	UserMinus,
+	RefreshCw,
+	Heart,
+	Award,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 import {

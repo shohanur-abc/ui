@@ -43,7 +43,10 @@ const BusinessHeader = ({
 			<div className="flex items-center gap-2">
 				<h2 className="text-lg font-semibold">{companyName}</h2>
 				{verified && (
-					<Badge variant="secondary" className="text-xs bg-blue-500/20 text-blue-600">
+					<Badge
+						variant="secondary"
+						className="text-xs bg-blue-500/20 text-blue-600"
+					>
 						Verified
 					</Badge>
 				)}
@@ -63,7 +66,9 @@ const CompanyDetails = ({
 			<div key={i} className="flex items-center gap-3 text-sm">
 				<item.icon className="size-4 text-muted-foreground shrink-0" />
 				<span className="text-muted-foreground">{item.label}</span>
-				<span className="flex-1 text-right font-medium truncate">{item.value}</span>
+				<span className="flex-1 text-right font-medium truncate">
+					{item.value}
+				</span>
 			</div>
 		))}
 	</div>
@@ -86,7 +91,9 @@ const TeamMembers = ({
 				{members.map((member, i) => (
 					<Avatar key={i} className="size-8 ring-2 ring-background">
 						<AvatarImage src={member.src} alt={member.name} />
-						<AvatarFallback className="text-xs">{member.name[0]}</AvatarFallback>
+						<AvatarFallback className="text-xs">
+							{member.name[0]}
+						</AvatarFallback>
 					</Avatar>
 				))}
 				{total > members.length && (
@@ -164,10 +171,22 @@ export default function Main() {
 		],
 		team: {
 			members: [
-				{ src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100', name: 'John' },
-				{ src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100', name: 'Sarah' },
-				{ src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100', name: 'Mike' },
-				{ src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100', name: 'Lisa' },
+				{
+					src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100',
+					name: 'John',
+				},
+				{
+					src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
+					name: 'Sarah',
+				},
+				{
+					src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
+					name: 'Mike',
+				},
+				{
+					src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100',
+					name: 'Lisa',
+				},
 			],
 			total: 12,
 		},

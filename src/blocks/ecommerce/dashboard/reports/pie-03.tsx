@@ -32,7 +32,13 @@ type SegmentCardProps = {
 	color: string;
 };
 
-const SegmentCard = ({ segment, count, revenue, avgOrder, color }: SegmentCardProps) => (
+const SegmentCard = ({
+	segment,
+	count,
+	revenue,
+	avgOrder,
+	color,
+}: SegmentCardProps) => (
 	<Card className="border-border/30 bg-muted/20">
 		<CardContent className="p-4">
 			<div className="flex items-center gap-2">
@@ -90,11 +96,41 @@ export default function Main() {
 	];
 
 	const segments: SegmentCardProps[] = [
-		{ segment: 'VIP Customers', count: '2.45K', revenue: '$580K', avgOrder: '$425', color: 'bg-[oklch(0.75_0.15_55)]' },
-		{ segment: 'Loyal Customers', count: '8.2K', revenue: '$420K', avgOrder: '$185', color: 'bg-[oklch(0.7_0.2_280)]' },
-		{ segment: 'Regular Customers', count: '15.4K', revenue: '$310K', avgOrder: '$95', color: 'bg-[oklch(0.7_0.18_160)]' },
-		{ segment: 'Occasional Buyers', count: '12.8K', revenue: '$145K', avgOrder: '$65', color: 'bg-[oklch(0.72_0.16_200)]' },
-		{ segment: 'New Customers', count: '6.15K', revenue: '$85K', avgOrder: '$55', color: 'bg-[oklch(0.65_0.2_320)]' },
+		{
+			segment: 'VIP Customers',
+			count: '2.45K',
+			revenue: '$580K',
+			avgOrder: '$425',
+			color: 'bg-[oklch(0.75_0.15_55)]',
+		},
+		{
+			segment: 'Loyal Customers',
+			count: '8.2K',
+			revenue: '$420K',
+			avgOrder: '$185',
+			color: 'bg-[oklch(0.7_0.2_280)]',
+		},
+		{
+			segment: 'Regular Customers',
+			count: '15.4K',
+			revenue: '$310K',
+			avgOrder: '$95',
+			color: 'bg-[oklch(0.7_0.18_160)]',
+		},
+		{
+			segment: 'Occasional Buyers',
+			count: '12.8K',
+			revenue: '$145K',
+			avgOrder: '$65',
+			color: 'bg-[oklch(0.72_0.16_200)]',
+		},
+		{
+			segment: 'New Customers',
+			count: '6.15K',
+			revenue: '$85K',
+			avgOrder: '$55',
+			color: 'bg-[oklch(0.65_0.2_320)]',
+		},
 	];
 
 	const totalCustomers = chartData.reduce((sum, item) => sum + item.count, 0);
@@ -118,7 +154,10 @@ export default function Main() {
 					</CardHeader>
 					<CardContent>
 						<div className="grid gap-8 @lg:grid-cols-[280px,1fr]">
-							<ChartContainer config={chartConfig} className="mx-auto aspect-square h-[280px]">
+							<ChartContainer
+								config={chartConfig}
+								className="mx-auto aspect-square h-[280px]"
+							>
 								<PieChart>
 									<ChartTooltip content={<ChartTooltipContent />} />
 									<Pie

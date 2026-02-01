@@ -10,13 +10,22 @@ interface ShippingStatProps {
 	positive: boolean;
 }
 
-const ShippingStat = ({ icon: Icon, label, value, change, positive }: ShippingStatProps) => (
+const ShippingStat = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	positive,
+}: ShippingStatProps) => (
 	<Card className="group p-5 transition-all duration-300 hover:shadow-md">
 		<div className="flex items-start justify-between">
 			<div className="rounded-lg bg-primary/10 p-2.5">
 				<Icon className="size-5 text-primary" />
 			</div>
-			<Badge variant={positive ? 'default' : 'destructive'} className="text-[10px]">
+			<Badge
+				variant={positive ? 'default' : 'destructive'}
+				className="text-[10px]"
+			>
 				{change}
 			</Badge>
 		</div>
@@ -29,11 +38,41 @@ const ShippingStat = ({ icon: Icon, label, value, change, positive }: ShippingSt
 
 export default function Main() {
 	const stats: ShippingStatProps[] = [
-		{ icon: Package, label: 'Orders Shipped', value: '12,847', change: '+18%', positive: true },
-		{ icon: Truck, label: 'In Transit', value: '2,847', change: '+12%', positive: true },
-		{ icon: CheckCircle, label: 'Delivered', value: '9,284', change: '+24%', positive: true },
-		{ icon: Clock, label: 'Avg. Delivery', value: '2.4 days', change: '-0.3d', positive: true },
-		{ icon: MapPin, label: 'Zones Covered', value: '142', change: '+8', positive: true },
+		{
+			icon: Package,
+			label: 'Orders Shipped',
+			value: '12,847',
+			change: '+18%',
+			positive: true,
+		},
+		{
+			icon: Truck,
+			label: 'In Transit',
+			value: '2,847',
+			change: '+12%',
+			positive: true,
+		},
+		{
+			icon: CheckCircle,
+			label: 'Delivered',
+			value: '9,284',
+			change: '+24%',
+			positive: true,
+		},
+		{
+			icon: Clock,
+			label: 'Avg. Delivery',
+			value: '2.4 days',
+			change: '-0.3d',
+			positive: true,
+		},
+		{
+			icon: MapPin,
+			label: 'Zones Covered',
+			value: '142',
+			change: '+8',
+			positive: true,
+		},
 	];
 
 	return (

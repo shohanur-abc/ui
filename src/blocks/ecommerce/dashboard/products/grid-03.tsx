@@ -22,10 +22,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import {
-	Card,
-	CardContent,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import {
 	Tooltip,
 	TooltipContent,
@@ -80,7 +77,9 @@ const VariantPreview = ({ variants, maxVisible = 4 }: VariantPreviewProps) => {
 					<TooltipContent>
 						<div className="text-xs">
 							<div className="font-medium">{variant.name}</div>
-							<div className="text-muted-foreground">${variant.price.toFixed(2)}</div>
+							<div className="text-muted-foreground">
+								${variant.price.toFixed(2)}
+							</div>
 						</div>
 					</TooltipContent>
 				</Tooltip>
@@ -99,7 +98,10 @@ interface CollectionTagsProps {
 	maxVisible?: number;
 }
 
-const CollectionTags = ({ collections, maxVisible = 2 }: CollectionTagsProps) => (
+const CollectionTags = ({
+	collections,
+	maxVisible = 2,
+}: CollectionTagsProps) => (
 	<div className="flex flex-wrap items-center gap-1">
 		<Layers className="size-3.5 text-muted-foreground" />
 		{collections.slice(0, maxVisible).map((collection) => (
@@ -129,7 +131,9 @@ const ProductTags = ({ tags, maxVisible = 3 }: ProductTagsProps) => (
 			</Badge>
 		))}
 		{tags.length > maxVisible && (
-			<span className="text-xs text-muted-foreground">+{tags.length - maxVisible}</span>
+			<span className="text-xs text-muted-foreground">
+				+{tags.length - maxVisible}
+			</span>
 		)}
 	</div>
 );
@@ -175,11 +179,23 @@ interface ProductCardProps {
 	product: Product;
 	selected: boolean;
 	onSelect: (id: string, checked: boolean) => void;
-	actions: { label: string; icon: React.ElementType; onClick: (id: string) => void; variant?: 'destructive' }[];
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		onClick: (id: string) => void;
+		variant?: 'destructive';
+	}[];
 }
 
-const ProductCard = ({ product, selected, onSelect, actions }: ProductCardProps) => (
-	<Card className={`group overflow-hidden transition-all ${selected ? 'ring-2 ring-primary' : 'hover:shadow-lg'}`}>
+const ProductCard = ({
+	product,
+	selected,
+	onSelect,
+	actions,
+}: ProductCardProps) => (
+	<Card
+		className={`group overflow-hidden transition-all ${selected ? 'ring-2 ring-primary' : 'hover:shadow-lg'}`}
+	>
 		<div className="relative aspect-[4/3] overflow-hidden bg-muted">
 			{product.image ? (
 				<img
@@ -218,7 +234,9 @@ const ProductCard = ({ product, selected, onSelect, actions }: ProductCardProps)
 								{action.variant === 'destructive' && <DropdownMenuSeparator />}
 								<DropdownMenuItem
 									onClick={() => action.onClick(product.id)}
-									className={action.variant === 'destructive' ? 'text-destructive' : ''}
+									className={
+										action.variant === 'destructive' ? 'text-destructive' : ''
+									}
 								>
 									<action.icon className="mr-2 size-4" />
 									{action.label}
@@ -263,15 +281,51 @@ export default function Main() {
 			id: '1',
 			name: 'Classic White Sneakers',
 			sku: 'SNK-WHT-001',
-			image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop',
 			price: 129.99,
 			priceRange: { min: 129.99, max: 149.99 },
 			variants: [
-				{ id: 'v1', name: 'Size 8', image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=100&h=100&fit=crop', price: 129.99, stock: 12 },
-				{ id: 'v2', name: 'Size 9', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop', price: 129.99, stock: 18 },
-				{ id: 'v3', name: 'Size 10', image: 'https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=100&h=100&fit=crop', price: 149.99, stock: 8 },
-				{ id: 'v4', name: 'Size 11', image: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=100&h=100&fit=crop', price: 149.99, stock: 5 },
-				{ id: 'v5', name: 'Size 12', image: 'https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=100&h=100&fit=crop', price: 149.99, stock: 3 },
+				{
+					id: 'v1',
+					name: 'Size 8',
+					image:
+						'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=100&h=100&fit=crop',
+					price: 129.99,
+					stock: 12,
+				},
+				{
+					id: 'v2',
+					name: 'Size 9',
+					image:
+						'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
+					price: 129.99,
+					stock: 18,
+				},
+				{
+					id: 'v3',
+					name: 'Size 10',
+					image:
+						'https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=100&h=100&fit=crop',
+					price: 149.99,
+					stock: 8,
+				},
+				{
+					id: 'v4',
+					name: 'Size 11',
+					image:
+						'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=100&h=100&fit=crop',
+					price: 149.99,
+					stock: 5,
+				},
+				{
+					id: 'v5',
+					name: 'Size 12',
+					image:
+						'https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=100&h=100&fit=crop',
+					price: 149.99,
+					stock: 3,
+				},
 			],
 			collections: ['Summer 2024', 'Bestsellers', 'Essentials'],
 			tags: ['casual', 'unisex', 'leather'],
@@ -281,12 +335,34 @@ export default function Main() {
 			id: '2',
 			name: 'Premium Denim Jacket',
 			sku: 'JKT-DNM-002',
-			image: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=400&h=300&fit=crop',
 			price: 189.99,
 			variants: [
-				{ id: 'v1', name: 'S', image: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=100&h=100&fit=crop', price: 189.99, stock: 15 },
-				{ id: 'v2', name: 'M', image: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=100&h=100&fit=crop', price: 189.99, stock: 22 },
-				{ id: 'v3', name: 'L', image: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=100&h=100&fit=crop', price: 189.99, stock: 18 },
+				{
+					id: 'v1',
+					name: 'S',
+					image:
+						'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=100&h=100&fit=crop',
+					price: 189.99,
+					stock: 15,
+				},
+				{
+					id: 'v2',
+					name: 'M',
+					image:
+						'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=100&h=100&fit=crop',
+					price: 189.99,
+					stock: 22,
+				},
+				{
+					id: 'v3',
+					name: 'L',
+					image:
+						'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=100&h=100&fit=crop',
+					price: 189.99,
+					stock: 18,
+				},
 			],
 			collections: ['Fall Collection'],
 			tags: ['outerwear', 'denim'],
@@ -296,7 +372,8 @@ export default function Main() {
 			id: '3',
 			name: 'Minimalist Watch',
 			sku: 'WCH-MIN-003',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
 			price: 249.99,
 			variants: [],
 			collections: ['Premium', 'Gift Guide'],
@@ -307,12 +384,27 @@ export default function Main() {
 			id: '4',
 			name: 'Organic Cotton Hoodie',
 			sku: 'HDY-ORG-004',
-			image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=300&fit=crop',
 			price: 79.99,
 			priceRange: { min: 79.99, max: 89.99 },
 			variants: [
-				{ id: 'v1', name: 'S / Black', image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=100&h=100&fit=crop', price: 79.99, stock: 34 },
-				{ id: 'v2', name: 'M / Black', image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=100&h=100&fit=crop', price: 79.99, stock: 45 },
+				{
+					id: 'v1',
+					name: 'S / Black',
+					image:
+						'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=100&h=100&fit=crop',
+					price: 79.99,
+					stock: 34,
+				},
+				{
+					id: 'v2',
+					name: 'M / Black',
+					image:
+						'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=100&h=100&fit=crop',
+					price: 79.99,
+					stock: 45,
+				},
 			],
 			collections: ['Essentials', 'Sustainable'],
 			tags: ['organic', 'casual', 'sustainable'],
@@ -322,7 +414,8 @@ export default function Main() {
 			id: '5',
 			name: 'Leather Messenger Bag',
 			sku: 'BAG-MSG-005',
-			image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=300&fit=crop',
 			price: 199.99,
 			variants: [],
 			collections: ['Premium'],
@@ -333,11 +426,26 @@ export default function Main() {
 			id: '6',
 			name: 'Wool Blend Scarf',
 			sku: 'SCF-WOL-006',
-			image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=400&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=400&h=300&fit=crop',
 			price: 59.99,
 			variants: [
-				{ id: 'v1', name: 'Navy', image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=100&h=100&fit=crop', price: 59.99, stock: 28 },
-				{ id: 'v2', name: 'Grey', image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=100&h=100&fit=crop', price: 59.99, stock: 35 },
+				{
+					id: 'v1',
+					name: 'Navy',
+					image:
+						'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=100&h=100&fit=crop',
+					price: 59.99,
+					stock: 28,
+				},
+				{
+					id: 'v2',
+					name: 'Grey',
+					image:
+						'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=100&h=100&fit=crop',
+					price: 59.99,
+					stock: 35,
+				},
 			],
 			collections: ['Fall Collection', 'Gift Guide'],
 			tags: ['accessories', 'winter'],
@@ -346,10 +454,27 @@ export default function Main() {
 	];
 
 	const actions = [
-		{ label: 'View', icon: Eye, onClick: (id: string) => console.log('View', id) },
-		{ label: 'Edit', icon: Pencil, onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Archive', icon: Archive, onClick: (id: string) => console.log('Archive', id) },
-		{ label: 'Delete', icon: Trash2, onClick: (id: string) => console.log('Delete', id), variant: 'destructive' as const },
+		{
+			label: 'View',
+			icon: Eye,
+			onClick: (id: string) => console.log('View', id),
+		},
+		{
+			label: 'Edit',
+			icon: Pencil,
+			onClick: (id: string) => console.log('Edit', id),
+		},
+		{
+			label: 'Archive',
+			icon: Archive,
+			onClick: (id: string) => console.log('Archive', id),
+		},
+		{
+			label: 'Delete',
+			icon: Trash2,
+			onClick: (id: string) => console.log('Delete', id),
+			variant: 'destructive' as const,
+		},
 	];
 
 	const handleSelect = (id: string, checked: boolean) => {

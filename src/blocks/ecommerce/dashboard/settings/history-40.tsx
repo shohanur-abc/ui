@@ -95,7 +95,10 @@ const NotificationLogRow = ({
 		<Avatar className="size-10">
 			<AvatarImage src={recipient.avatar} />
 			<AvatarFallback>
-				{recipient.name.split(' ').map((n) => n[0]).join('')}
+				{recipient.name
+					.split(' ')
+					.map((n) => n[0])
+					.join('')}
 			</AvatarFallback>
 		</Avatar>
 		<div className="min-w-0 flex-1">
@@ -143,7 +146,11 @@ export default function Main() {
 	const logs: NotificationLog[] = [
 		{
 			id: '1',
-			recipient: { name: 'John Doe', email: 'john@example.com', avatar: 'https://avatars.githubusercontent.com/u/252440198?v=4' },
+			recipient: {
+				name: 'John Doe',
+				email: 'john@example.com',
+				avatar: 'https://avatars.githubusercontent.com/u/252440198?v=4',
+			},
 			subject: 'Your order #12345 has been shipped',
 			channel: 'email',
 			status: 'delivered',
@@ -199,7 +206,9 @@ export default function Main() {
 						{stats.map((stat) => (
 							<Card key={stat.label}>
 								<CardContent className="pt-6 text-center">
-									<p className={`text-2xl font-bold ${stat.color}`}>{stat.value}</p>
+									<p className={`text-2xl font-bold ${stat.color}`}>
+										{stat.value}
+									</p>
 									<p className="text-sm text-muted-foreground">{stat.label}</p>
 								</CardContent>
 							</Card>
@@ -258,7 +267,9 @@ export default function Main() {
 					</Card>
 
 					<div className="flex items-center justify-between">
-						<p className="text-sm text-muted-foreground">Showing 5 of 1,247 notifications</p>
+						<p className="text-sm text-muted-foreground">
+							Showing 5 of 1,247 notifications
+						</p>
 						<div className="flex gap-2">
 							<Button variant="outline" size="sm" disabled>
 								Previous

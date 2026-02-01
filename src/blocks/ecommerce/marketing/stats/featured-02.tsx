@@ -18,16 +18,27 @@ interface SupportStatProps {
 	change: string;
 }
 
-const MainStat = ({ icon: Icon, badge, value, label, progress, target }: MainStatProps) => (
+const MainStat = ({
+	icon: Icon,
+	badge,
+	value,
+	label,
+	progress,
+	target,
+}: MainStatProps) => (
 	<Card className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 p-8 text-primary-foreground @md:col-span-2 @md:p-10">
 		<div className="absolute -right-10 -top-10 size-40 rounded-full bg-white/10 blur-3xl" />
 		<div className="relative space-y-6">
 			<div className="flex items-center justify-between">
-				<Badge className="bg-white/20 text-white hover:bg-white/30">{badge}</Badge>
+				<Badge className="bg-white/20 text-white hover:bg-white/30">
+					{badge}
+				</Badge>
 				<Icon className="size-8 opacity-50" />
 			</div>
 			<div>
-				<p className="text-5xl font-bold tracking-tighter @sm:text-6xl">{value}</p>
+				<p className="text-5xl font-bold tracking-tighter @sm:text-6xl">
+					{value}
+				</p>
 				<p className="mt-2 text-lg opacity-80">{label}</p>
 			</div>
 			<div className="space-y-2">
@@ -56,7 +67,7 @@ export default function Main() {
 		icon: Crown,
 		badge: 'Record Breaking',
 		value: '$4.2M',
-		label: 'This Month\'s Revenue',
+		label: "This Month's Revenue",
 		progress: 87,
 		target: '87% of monthly target reached',
 	};

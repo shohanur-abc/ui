@@ -58,7 +58,9 @@ const GoalCard = ({ title, current, target, icon: Icon, color }: GoalItem) => {
 					<div className="flex-1">
 						<p className="text-sm font-medium">{title}</p>
 						<div className="flex items-baseline gap-1">
-							<span className="text-xl font-bold">{current.toLocaleString()}</span>
+							<span className="text-xl font-bold">
+								{current.toLocaleString()}
+							</span>
 							<span className="text-xs text-muted-foreground">
 								/ {target.toLocaleString()}
 							</span>
@@ -119,17 +121,61 @@ const pieConfig: ChartConfig = {
 
 export default function Main() {
 	const goals: GoalItem[] = [
-		{ title: 'Monthly Revenue', current: 78432, target: 100000, icon: DollarSign, color: 'bg-primary/10 text-primary' },
-		{ title: 'New Customers', current: 234, target: 300, icon: Users, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'Total Orders', current: 1847, target: 2000, icon: ShoppingCart, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Products Sold', current: 3456, target: 4000, icon: Package, color: 'bg-blue-500/10 text-blue-500' },
+		{
+			title: 'Monthly Revenue',
+			current: 78432,
+			target: 100000,
+			icon: DollarSign,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'New Customers',
+			current: 234,
+			target: 300,
+			icon: Users,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'Total Orders',
+			current: 1847,
+			target: 2000,
+			icon: ShoppingCart,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Products Sold',
+			current: 3456,
+			target: 4000,
+			icon: Package,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
 	];
 
 	const milestones: MilestoneItem[] = [
-		{ title: 'Q1 Revenue Target', progress: 92, deadline: 'Mar 31, 2024', status: 'on-track' },
-		{ title: 'New Product Launch', progress: 78, deadline: 'Apr 15, 2024', status: 'on-track' },
-		{ title: 'Customer Acquisition Goal', progress: 45, deadline: 'Apr 30, 2024', status: 'at-risk' },
-		{ title: '1000 5-Star Reviews', progress: 100, deadline: 'Completed', status: 'completed' },
+		{
+			title: 'Q1 Revenue Target',
+			progress: 92,
+			deadline: 'Mar 31, 2024',
+			status: 'on-track',
+		},
+		{
+			title: 'New Product Launch',
+			progress: 78,
+			deadline: 'Apr 15, 2024',
+			status: 'on-track',
+		},
+		{
+			title: 'Customer Acquisition Goal',
+			progress: 45,
+			deadline: 'Apr 30, 2024',
+			status: 'at-risk',
+		},
+		{
+			title: '1000 5-Star Reviews',
+			progress: 100,
+			deadline: 'Completed',
+			status: 'completed',
+		},
 	];
 
 	const radialData: RadialDataItem[] = [
@@ -162,7 +208,10 @@ export default function Main() {
 								</div>
 							</CardHeader>
 							<CardContent className="flex items-center gap-6">
-								<ChartContainer config={pieConfig} className="h-[140px] w-[140px]">
+								<ChartContainer
+									config={pieConfig}
+									className="h-[140px] w-[140px]"
+								>
 									<PieChart>
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 										<Pie

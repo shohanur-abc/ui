@@ -3,7 +3,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from '@/components/ui/table';
 
 type Customer = {
 	name: string;
@@ -20,7 +27,10 @@ const CustomerRow = ({ customer }: { customer: Customer }) => (
 			<div className="flex items-center gap-3">
 				<Avatar className="size-8">
 					<AvatarFallback className="text-xs bg-primary/10 text-primary">
-						{customer.name.split(' ').map((n) => n[0]).join('')}
+						{customer.name
+							.split(' ')
+							.map((n) => n[0])
+							.join('')}
 					</AvatarFallback>
 				</Avatar>
 				<div>
@@ -50,12 +60,54 @@ const CustomerRow = ({ customer }: { customer: Customer }) => (
 );
 
 const customers: Customer[] = [
-	{ name: 'Sarah Johnson', email: 'sarah@example.com', orders: 28, spent: 4520, lastOrder: '2 hours ago', status: 'active' },
-	{ name: 'Michael Chen', email: 'michael@example.com', orders: 42, spent: 8920, lastOrder: '1 day ago', status: 'active' },
-	{ name: 'Emily Davis', email: 'emily@example.com', orders: 15, spent: 2340, lastOrder: '3 days ago', status: 'active' },
-	{ name: 'James Wilson', email: 'james@example.com', orders: 3, spent: 450, lastOrder: '1 week ago', status: 'new' },
-	{ name: 'Lisa Brown', email: 'lisa@example.com', orders: 8, spent: 1280, lastOrder: '2 weeks ago', status: 'inactive' },
-	{ name: 'David Lee', email: 'david@example.com', orders: 56, spent: 12450, lastOrder: '5 hours ago', status: 'active' },
+	{
+		name: 'Sarah Johnson',
+		email: 'sarah@example.com',
+		orders: 28,
+		spent: 4520,
+		lastOrder: '2 hours ago',
+		status: 'active',
+	},
+	{
+		name: 'Michael Chen',
+		email: 'michael@example.com',
+		orders: 42,
+		spent: 8920,
+		lastOrder: '1 day ago',
+		status: 'active',
+	},
+	{
+		name: 'Emily Davis',
+		email: 'emily@example.com',
+		orders: 15,
+		spent: 2340,
+		lastOrder: '3 days ago',
+		status: 'active',
+	},
+	{
+		name: 'James Wilson',
+		email: 'james@example.com',
+		orders: 3,
+		spent: 450,
+		lastOrder: '1 week ago',
+		status: 'new',
+	},
+	{
+		name: 'Lisa Brown',
+		email: 'lisa@example.com',
+		orders: 8,
+		spent: 1280,
+		lastOrder: '2 weeks ago',
+		status: 'inactive',
+	},
+	{
+		name: 'David Lee',
+		email: 'david@example.com',
+		orders: 56,
+		spent: 12450,
+		lastOrder: '5 hours ago',
+		status: 'active',
+	},
 ];
 
 export default function Main() {
@@ -65,7 +117,9 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm font-medium">Top Customers</CardTitle>
-						<p className="text-xs text-muted-foreground">Customer engagement and spending</p>
+						<p className="text-xs text-muted-foreground">
+							Customer engagement and spending
+						</p>
 					</CardHeader>
 					<CardContent>
 						<div className="overflow-x-auto">

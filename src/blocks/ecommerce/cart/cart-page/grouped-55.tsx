@@ -1,8 +1,23 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, Layers, Package, Truck, Star } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	Layers,
+	Package,
+	Truck,
+	Star,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -30,7 +45,9 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 			<Layers className="size-6 text-primary" />
 			<h1 className="text-2xl font-bold @md:text-3xl">{title}</h1>
 		</div>
-		<Badge variant="secondary" className="px-3 py-1">{count} items</Badge>
+		<Badge variant="secondary" className="px-3 py-1">
+			{count} items
+		</Badge>
 	</div>
 );
 
@@ -60,10 +77,16 @@ const GroupedItem = ({ item }: { item: CartItem }) => (
 			<p className="text-xs text-muted-foreground">{item.variant}</p>
 			<div className="flex items-center justify-between mt-2">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-semibold text-sm">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-semibold text-sm">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
-		<Button size="icon-sm" variant="ghost" className="size-6 text-muted-foreground hover:text-destructive shrink-0">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-6 text-muted-foreground hover:text-destructive shrink-0"
+		>
 			<X className="size-3" />
 		</Button>
 	</div>
@@ -89,7 +112,10 @@ const SellerHeader = ({
 		</div>
 		<div className="flex items-center gap-2">
 			{freeShipping && (
-				<Badge variant="outline" className="text-xs bg-green-500/10 border-green-500/30 text-green-600">
+				<Badge
+					variant="outline"
+					className="text-xs bg-green-500/10 border-green-500/30 text-green-600"
+				>
 					<Truck className="size-3 mr-1" />
 					Free Shipping
 				</Badge>
@@ -131,7 +157,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -141,7 +169,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
 			name: 'Studio Headphones Pro',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -151,7 +180,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&h=150&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White',
 			price: 179.99,
@@ -161,7 +191,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -171,7 +202,8 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver',
 			price: 249.99,
@@ -181,7 +213,8 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=150&h=150&fit=crop',
 			name: 'Silk Scarf',
 			variant: 'Navy',
 			price: 89.99,
@@ -198,12 +231,14 @@ export default function Main() {
 		sellerMap.set(item.seller, [...existing, item]);
 	});
 
-	const sellerGroups: SellerGroup[] = Array.from(sellerMap.entries()).map(([seller, items]) => ({
-		seller,
-		items,
-		subtotal: items.reduce((sum, i) => sum + i.price * i.quantity, 0),
-		freeShipping: items.every((i) => i.freeShipping),
-	}));
+	const sellerGroups: SellerGroup[] = Array.from(sellerMap.entries()).map(
+		([seller, items]) => ({
+			seller,
+			items,
+			subtotal: items.reduce((sum, i) => sum + i.price * i.quantity, 0),
+			freeShipping: items.every((i) => i.freeShipping),
+		}),
+	);
 
 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 	const shipping = sellerGroups.filter((g) => !g.freeShipping).length * 7.99;
@@ -212,7 +247,10 @@ export default function Main() {
 
 	const summaryLines = [
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
-		{ label: `Shipping (${sellerGroups.length} sellers)`, value: shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}` },
+		{
+			label: `Shipping (${sellerGroups.length} sellers)`,
+			value: shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`,
+		},
 		{ label: 'Tax', value: `$${tax.toFixed(2)}` },
 		{ label: 'Total', value: `$${total.toFixed(2)}`, bold: true },
 	];
@@ -240,9 +278,12 @@ export default function Main() {
 							</CardHeader>
 							<CardContent className="space-y-3">
 								<div className="p-3 bg-muted/50 rounded-lg">
-									<p className="text-sm font-medium">Shipping from {sellerGroups.length} sellers</p>
+									<p className="text-sm font-medium">
+										Shipping from {sellerGroups.length} sellers
+									</p>
 									<p className="text-xs text-muted-foreground mt-1">
-										{sellerGroups.filter((g) => g.freeShipping).length} with free shipping
+										{sellerGroups.filter((g) => g.freeShipping).length} with
+										free shipping
 									</p>
 								</div>
 

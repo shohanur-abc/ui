@@ -12,12 +12,7 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 interface InventoryStatus {
@@ -70,15 +65,26 @@ const StatusCard = ({ metric }: StatusCardProps) => {
 				<div className="flex items-center justify-between">
 					<div>
 						<p className="text-sm text-muted-foreground">{metric.label}</p>
-						<p className="text-2xl font-bold">{metric.value.toLocaleString()}</p>
+						<p className="text-2xl font-bold">
+							{metric.value.toLocaleString()}
+						</p>
 					</div>
-					<div className={`flex size-10 items-center justify-center rounded-full ${variantStyles[metric.variant]}`}>
+					<div
+						className={`flex size-10 items-center justify-center rounded-full ${variantStyles[metric.variant]}`}
+					>
 						<Icon className={`size-5 ${iconStyles[metric.variant]}`} />
 					</div>
 				</div>
-				<div className={`mt-2 flex items-center gap-1 text-xs ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}>
-					{isPositive ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
-					{isPositive ? '+' : ''}{metric.change}% from last week
+				<div
+					className={`mt-2 flex items-center gap-1 text-xs ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}
+				>
+					{isPositive ? (
+						<TrendingUp className="size-3" />
+					) : (
+						<TrendingDown className="size-3" />
+					)}
+					{isPositive ? '+' : ''}
+					{metric.change}% from last week
 				</div>
 			</CardContent>
 		</Card>
@@ -88,15 +94,44 @@ const StatusCard = ({ metric }: StatusCardProps) => {
 interface StockDistributionProps {
 	title: string;
 	status: InventoryStatus;
-	labels: { inStock: string; lowStock: string; outOfStock: string; backorder: string };
+	labels: {
+		inStock: string;
+		lowStock: string;
+		outOfStock: string;
+		backorder: string;
+	};
 }
 
-const StockDistribution = ({ title, status, labels }: StockDistributionProps) => {
+const StockDistribution = ({
+	title,
+	status,
+	labels,
+}: StockDistributionProps) => {
 	const data = [
-		{ label: labels.inStock, value: status.inStock, color: 'bg-emerald-500', textColor: 'text-emerald-500' },
-		{ label: labels.lowStock, value: status.lowStock, color: 'bg-amber-500', textColor: 'text-amber-500' },
-		{ label: labels.outOfStock, value: status.outOfStock, color: 'bg-red-500', textColor: 'text-red-500' },
-		{ label: labels.backorder, value: status.backorder, color: 'bg-blue-500', textColor: 'text-blue-500' },
+		{
+			label: labels.inStock,
+			value: status.inStock,
+			color: 'bg-emerald-500',
+			textColor: 'text-emerald-500',
+		},
+		{
+			label: labels.lowStock,
+			value: status.lowStock,
+			color: 'bg-amber-500',
+			textColor: 'text-amber-500',
+		},
+		{
+			label: labels.outOfStock,
+			value: status.outOfStock,
+			color: 'bg-red-500',
+			textColor: 'text-red-500',
+		},
+		{
+			label: labels.backorder,
+			value: status.backorder,
+			color: 'bg-blue-500',
+			textColor: 'text-blue-500',
+		},
 	];
 
 	return (
@@ -152,7 +187,9 @@ const StockAlertRow = ({ product, level }: StockAlertRowProps) => {
 				<span className="text-sm font-medium">{product.name}</span>
 			</div>
 			<div className="flex items-center gap-2">
-				<span className="text-sm text-muted-foreground">{product.quantity} units</span>
+				<span className="text-sm text-muted-foreground">
+					{product.quantity} units
+				</span>
 				<Badge className={config[level].badge}>{config[level].text}</Badge>
 			</div>
 		</div>
@@ -165,7 +202,11 @@ interface StockAlertsCardProps {
 	maxShow?: number;
 }
 
-const StockAlertsCard = ({ title, levels, maxShow = 5 }: StockAlertsCardProps) => {
+const StockAlertsCard = ({
+	title,
+	levels,
+	maxShow = 5,
+}: StockAlertsCardProps) => {
 	const alertItems = levels
 		.filter((l) => l.level === 'low' || l.level === 'out')
 		.flatMap((l) => l.products.map((p) => ({ ...p, level: l.level })))
@@ -195,7 +236,12 @@ interface TurnoverRateCardProps {
 	breakdown: { name: string; rate: number }[];
 }
 
-const TurnoverRateCard = ({ title, rate, trend, breakdown }: TurnoverRateCardProps) => (
+const TurnoverRateCard = ({
+	title,
+	rate,
+	trend,
+	breakdown,
+}: TurnoverRateCardProps) => (
 	<Card>
 		<CardHeader>
 			<CardTitle className="text-base">{title}</CardTitle>
@@ -203,9 +249,16 @@ const TurnoverRateCard = ({ title, rate, trend, breakdown }: TurnoverRateCardPro
 		<CardContent>
 			<div className="mb-4 flex items-end gap-2">
 				<span className="text-4xl font-bold">{rate.toFixed(1)}x</span>
-				<span className={`mb-1 flex items-center gap-1 text-sm ${trend >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
-					{trend >= 0 ? <TrendingUp className="size-4" /> : <TrendingDown className="size-4" />}
-					{trend >= 0 ? '+' : ''}{trend}%
+				<span
+					className={`mb-1 flex items-center gap-1 text-sm ${trend >= 0 ? 'text-emerald-500' : 'text-red-500'}`}
+				>
+					{trend >= 0 ? (
+						<TrendingUp className="size-4" />
+					) : (
+						<TrendingDown className="size-4" />
+					)}
+					{trend >= 0 ? '+' : ''}
+					{trend}%
 				</span>
 			</div>
 			<div className="space-y-3">
@@ -225,10 +278,34 @@ const TurnoverRateCard = ({ title, rate, trend, breakdown }: TurnoverRateCardPro
 
 export default function Main() {
 	const metrics: InventoryMetric[] = [
-		{ label: 'In Stock', value: 8456, change: 5, icon: CheckCircle2, variant: 'success' },
-		{ label: 'Low Stock', value: 234, change: 12, icon: AlertCircle, variant: 'warning' },
-		{ label: 'Out of Stock', value: 45, change: -8, icon: XCircle, variant: 'danger' },
-		{ label: 'On Backorder', value: 89, change: 3, icon: Clock, variant: 'default' },
+		{
+			label: 'In Stock',
+			value: 8456,
+			change: 5,
+			icon: CheckCircle2,
+			variant: 'success',
+		},
+		{
+			label: 'Low Stock',
+			value: 234,
+			change: 12,
+			icon: AlertCircle,
+			variant: 'warning',
+		},
+		{
+			label: 'Out of Stock',
+			value: 45,
+			change: -8,
+			icon: XCircle,
+			variant: 'danger',
+		},
+		{
+			label: 'On Backorder',
+			value: 89,
+			change: 3,
+			icon: Clock,
+			variant: 'default',
+		},
 	];
 
 	const inventoryStatus: InventoryStatus = {
@@ -240,15 +317,23 @@ export default function Main() {
 	};
 
 	const stockLevels: StockLevel[] = [
-		{ level: 'low', count: 12, products: [
-			{ name: 'Wireless Mouse Pro', quantity: 15 },
-			{ name: 'USB-C Cable 2m', quantity: 8 },
-			{ name: 'Webcam HD 1080p', quantity: 5 },
-		]},
-		{ level: 'out', count: 5, products: [
-			{ name: 'Gaming Keyboard RGB', quantity: 0 },
-			{ name: 'Monitor Arm Dual', quantity: 0 },
-		]},
+		{
+			level: 'low',
+			count: 12,
+			products: [
+				{ name: 'Wireless Mouse Pro', quantity: 15 },
+				{ name: 'USB-C Cable 2m', quantity: 8 },
+				{ name: 'Webcam HD 1080p', quantity: 5 },
+			],
+		},
+		{
+			level: 'out',
+			count: 5,
+			products: [
+				{ name: 'Gaming Keyboard RGB', quantity: 0 },
+				{ name: 'Monitor Arm Dual', quantity: 0 },
+			],
+		},
 	];
 
 	const turnoverBreakdown = [
@@ -270,14 +355,16 @@ export default function Main() {
 				<StockDistribution
 					title="Stock Distribution"
 					status={inventoryStatus}
-					labels={{ inStock: 'In Stock', lowStock: 'Low Stock', outOfStock: 'Out of Stock', backorder: 'Backorder' }}
+					labels={{
+						inStock: 'In Stock',
+						lowStock: 'Low Stock',
+						outOfStock: 'Out of Stock',
+						backorder: 'Backorder',
+					}}
 				/>
 
 				<div className="grid gap-6 @lg:grid-cols-2">
-					<StockAlertsCard
-						title="Stock Alerts"
-						levels={stockLevels}
-					/>
+					<StockAlertsCard title="Stock Alerts" levels={stockLevels} />
 					<TurnoverRateCard
 						title="Inventory Turnover"
 						rate={8.4}

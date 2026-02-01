@@ -40,7 +40,13 @@ interface TeamFeedProps {
 	totalMembers: number;
 }
 
-const ActivityIcon = ({ type, isAlert }: { type: TeamActivity['type']; isAlert?: boolean }) => {
+const ActivityIcon = ({
+	type,
+	isAlert,
+}: {
+	type: TeamActivity['type'];
+	isAlert?: boolean;
+}) => {
 	if (isAlert) {
 		return (
 			<div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-rose-500/20">
@@ -83,7 +89,10 @@ const RoleBadge = ({ role }: { role: string }) => {
 	return (
 		<Badge
 			variant="outline"
-			className={config[role.toLowerCase()] || 'bg-muted text-muted-foreground border-border'}
+			className={
+				config[role.toLowerCase()] ||
+				'bg-muted text-muted-foreground border-border'
+			}
 		>
 			{role}
 		</Badge>
@@ -104,7 +113,10 @@ const ActivityCard = ({ activity }: { activity: TeamActivity }) => (
 				<div className="flex items-start justify-between gap-2 mb-2">
 					<div className="flex items-center gap-2">
 						<Avatar className="size-6">
-							<AvatarImage src={activity.user.avatar} alt={activity.user.name} />
+							<AvatarImage
+								src={activity.user.avatar}
+								alt={activity.user.name}
+							/>
 							<AvatarFallback className="text-[10px] bg-secondary">
 								{activity.user.initials}
 							</AvatarFallback>
@@ -121,7 +133,10 @@ const ActivityCard = ({ activity }: { activity: TeamActivity }) => (
 				<p className="text-sm text-muted-foreground">
 					{activity.action}
 					{activity.target && (
-						<span className="text-foreground font-medium"> {activity.target}</span>
+						<span className="text-foreground font-medium">
+							{' '}
+							{activity.target}
+						</span>
 					)}
 				</p>
 				{(activity.location || activity.device) && (

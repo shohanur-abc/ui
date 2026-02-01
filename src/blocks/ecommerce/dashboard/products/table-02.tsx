@@ -72,7 +72,10 @@ const Toolbar = ({
 		<div className="flex flex-col gap-2 @sm:flex-row @sm:items-center">
 			<div className="relative">
 				<Search className="absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-				<Input placeholder={searchPlaceholder} className="w-full pl-9 @sm:w-72" />
+				<Input
+					placeholder={searchPlaceholder}
+					className="w-full pl-9 @sm:w-72"
+				/>
 			</div>
 			<Select>
 				<SelectTrigger className="w-full @sm:w-40">
@@ -106,7 +109,10 @@ interface StatusBadgeProps {
 }
 
 const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
-	const variants: Record<'published' | 'pending' | 'out-of-stock', 'default' | 'secondary' | 'destructive'> = {
+	const variants: Record<
+		'published' | 'pending' | 'out-of-stock',
+		'default' | 'secondary' | 'destructive'
+	> = {
 		published: 'default',
 		pending: 'secondary',
 		'out-of-stock': 'destructive',
@@ -155,12 +161,21 @@ const StockProgress = ({ stock, maxStock }: StockProgressProps) => {
 
 interface ProductRowProps {
 	product: Product;
-	actions: { label: string; onClick: (id: string) => void; separator?: boolean }[];
+	actions: {
+		label: string;
+		onClick: (id: string) => void;
+		separator?: boolean;
+	}[];
 	selected: boolean;
 	onSelect: (id: string, checked: boolean) => void;
 }
 
-const ProductRow = ({ product, actions, selected, onSelect }: ProductRowProps) => (
+const ProductRow = ({
+	product,
+	actions,
+	selected,
+	onSelect,
+}: ProductRowProps) => (
 	<TableRow data-state={selected ? 'selected' : undefined}>
 		<TableCell>
 			<Checkbox
@@ -244,7 +259,12 @@ interface BulkActionsProps {
 	onClear: () => void;
 }
 
-const BulkActions = ({ selectedCount, actions, clearLabel, onClear }: BulkActionsProps) => (
+const BulkActions = ({
+	selectedCount,
+	actions,
+	clearLabel,
+	onClear,
+}: BulkActionsProps) => (
 	<div className="flex items-center justify-between border-t bg-muted/50 px-4 py-3">
 		<span className="text-sm text-muted-foreground">
 			{selectedCount} selected
@@ -254,7 +274,12 @@ const BulkActions = ({ selectedCount, actions, clearLabel, onClear }: BulkAction
 				{clearLabel}
 			</Button>
 			{actions.map((action) => (
-				<Button key={action.label} variant="outline" size="sm" onClick={action.onClick}>
+				<Button
+					key={action.label}
+					variant="outline"
+					size="sm"
+					onClick={action.onClick}
+				>
 					{action.label}
 				</Button>
 			))}
@@ -270,7 +295,8 @@ export default function Main() {
 			id: '1',
 			name: 'Ultra HD 4K Monitor 32"',
 			sku: 'MON-4K-32',
-			image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=100&h=100&fit=crop',
 			price: 599.99,
 			comparePrice: 749.99,
 			stock: 45,
@@ -282,7 +308,8 @@ export default function Main() {
 			id: '2',
 			name: 'Mechanical Gaming Keyboard',
 			sku: 'KEY-MEC-01',
-			image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=100&h=100&fit=crop',
 			price: 179.99,
 			stock: 234,
 			sold: 89,
@@ -293,7 +320,8 @@ export default function Main() {
 			id: '3',
 			name: 'Ergonomic Office Chair',
 			sku: 'CHR-ERG-05',
-			image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=100&h=100&fit=crop',
 			price: 449.99,
 			comparePrice: 549.99,
 			stock: 12,
@@ -305,7 +333,8 @@ export default function Main() {
 			id: '4',
 			name: 'Wireless Gaming Mouse',
 			sku: 'MOU-WIR-03',
-			image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=100&h=100&fit=crop',
 			price: 89.99,
 			stock: 0,
 			sold: 342,
@@ -316,7 +345,8 @@ export default function Main() {
 			id: '5',
 			name: 'USB-C Docking Station',
 			sku: 'DOC-USB-12',
-			image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop',
 			price: 199.99,
 			stock: 78,
 			sold: 167,
@@ -335,8 +365,15 @@ export default function Main() {
 	const actions = [
 		{ label: 'View Details', onClick: (id: string) => console.log('View', id) },
 		{ label: 'Edit Product', onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Duplicate', onClick: (id: string) => console.log('Duplicate', id) },
-		{ label: 'Delete', onClick: (id: string) => console.log('Delete', id), separator: true },
+		{
+			label: 'Duplicate',
+			onClick: (id: string) => console.log('Duplicate', id),
+		},
+		{
+			label: 'Delete',
+			onClick: (id: string) => console.log('Delete', id),
+			separator: true,
+		},
 	];
 
 	const bulkActions = [

@@ -22,13 +22,36 @@ const StepLineChart = ({ data }: { data: DataPoint[] }) => {
 
 	return (
 		<div className="relative h-64 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				{[0, 25, 50, 75, 100].map((y) => (
-					<line key={y} x1="0" y1={y} x2="100" y2={y} stroke="hsl(var(--border))" strokeWidth="0.1" />
+					<line
+						key={y}
+						x1="0"
+						y1={y}
+						x2="100"
+						y2={y}
+						stroke="hsl(var(--border))"
+						strokeWidth="0.1"
+					/>
 				))}
-				<path d={pathD} fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+				<path
+					d={pathD}
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="0.5"
+				/>
 				{points.map((p, i) => (
-					<circle key={i} cx={p.x} cy={p.y} r="0.8" fill="hsl(var(--primary))" />
+					<circle
+						key={i}
+						cx={p.x}
+						cy={p.y}
+						r="0.8"
+						fill="hsl(var(--primary))"
+					/>
 				))}
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
@@ -57,13 +80,19 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Pricing History</CardTitle>
-						<p className="text-xs text-muted-foreground">Step chart showing price changes over time</p>
+						<CardTitle className="text-sm font-medium">
+							Pricing History
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Step chart showing price changes over time
+						</p>
 					</CardHeader>
 					<CardContent>
 						<div className="flex items-baseline gap-2 mb-4">
 							<span className="text-3xl font-bold">$49</span>
-							<span className="text-sm text-muted-foreground">current price</span>
+							<span className="text-sm text-muted-foreground">
+								current price
+							</span>
 						</div>
 						<StepLineChart data={pricingData} />
 					</CardContent>

@@ -10,7 +10,14 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { ArrowDown, Minus, Plus, ShoppingBag, TrendingDown, X } from 'lucide-react';
+import {
+	ArrowDown,
+	Minus,
+	Plus,
+	ShoppingBag,
+	TrendingDown,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -61,7 +68,9 @@ const PriceDropBanner = ({
 					Save ${item.priceDrop.toFixed(2)}
 				</span>
 			</div>
-			<span className="text-[10px] text-muted-foreground">{item.droppedAt}</span>
+			<span className="text-[10px] text-muted-foreground">
+				{item.droppedAt}
+			</span>
 		</div>
 	);
 };
@@ -158,7 +167,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes',
 				variant: 'Red / Size 10',
 				originalPrice: 149.99,
@@ -169,7 +179,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Ultra Boost',
 				variant: 'White / Size 11',
 				originalPrice: 179.99,
@@ -189,7 +200,10 @@ export default function Main() {
 		(sum, item) => sum + item.priceDrop * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

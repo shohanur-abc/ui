@@ -1,9 +1,21 @@
-import { Building2, CircleDollarSign, CreditCard, Lock, Smartphone, Star } from 'lucide-react';
+import {
+	Building2,
+	CircleDollarSign,
+	CreditCard,
+	Lock,
+	Smartphone,
+	Star,
+} from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -32,12 +44,21 @@ interface PaymentOptionProps {
 	detail: string;
 }
 
-const ProductDisplay = ({ name, price, image, initials, rating, reviews }: ProductProps) => (
+const ProductDisplay = ({
+	name,
+	price,
+	image,
+	initials,
+	rating,
+	reviews,
+}: ProductProps) => (
 	<div className="space-y-4">
 		<div className="aspect-square rounded-2xl bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center overflow-hidden">
 			<Avatar className="size-32">
 				<AvatarImage src={image} alt={name} />
-				<AvatarFallback className="text-4xl bg-primary/10">{initials}</AvatarFallback>
+				<AvatarFallback className="text-4xl bg-primary/10">
+					{initials}
+				</AvatarFallback>
 			</Avatar>
 		</div>
 		<div className="space-y-2">
@@ -51,7 +72,9 @@ const ProductDisplay = ({ name, price, image, initials, rating, reviews }: Produ
 						/>
 					))}
 				</div>
-				<span className="text-sm text-muted-foreground">({reviews} reviews)</span>
+				<span className="text-sm text-muted-foreground">
+					({reviews} reviews)
+				</span>
 			</div>
 			<p className="text-3xl font-bold">{price}</p>
 		</div>
@@ -67,7 +90,11 @@ const SellerInfo = ({ name, avatar, initials, verified }: SellerProps) => (
 		<div className="flex-1">
 			<div className="flex items-center gap-2">
 				<span className="font-medium text-sm">{name}</span>
-				{verified && <Badge variant="secondary" className="text-xs">Verified</Badge>}
+				{verified && (
+					<Badge variant="secondary" className="text-xs">
+						Verified
+					</Badge>
+				)}
 			</div>
 			<p className="text-xs text-muted-foreground">Seller</p>
 		</div>
@@ -77,7 +104,10 @@ const SellerInfo = ({ name, avatar, initials, verified }: SellerProps) => (
 const Guarantee = ({ items }: { items: string[] }) => (
 	<div className="space-y-2">
 		{items.map((item, index) => (
-			<div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
+			<div
+				key={index}
+				className="flex items-center gap-2 text-sm text-muted-foreground"
+			>
 				<div className="size-1.5 rounded-full bg-primary" />
 				<span>{item}</span>
 			</div>
@@ -85,7 +115,12 @@ const Guarantee = ({ items }: { items: string[] }) => (
 	</div>
 );
 
-const PaymentOption = ({ id, icon: Icon, label, detail }: PaymentOptionProps) => (
+const PaymentOption = ({
+	id,
+	icon: Icon,
+	label,
+	detail,
+}: PaymentOptionProps) => (
 	<Label
 		htmlFor={id}
 		className="flex items-center gap-3 p-3 rounded-lg border border-border/50 cursor-pointer transition-all hover:border-primary/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
@@ -121,10 +156,19 @@ const CardInput = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
@@ -181,17 +225,33 @@ export default function Main() {
 						<Card className="border-border/50 bg-card/50 backdrop-blur-sm @lg:sticky @lg:top-8">
 							<CardHeader className="pb-4">
 								<h3 className="font-semibold">Complete Purchase</h3>
-								<p className="text-sm text-muted-foreground">Select payment method</p>
+								<p className="text-sm text-muted-foreground">
+									Select payment method
+								</p>
 							</CardHeader>
 							<CardContent className="space-y-6">
 								<PaymentOptions options={paymentOptions} />
 								<Separator />
 								<div className="space-y-4">
-									<CardInput id="card" label="Card Number" placeholder="4242 4242 4242 4242" icon={CreditCard} />
-									<CardInput id="name" label="Name on Card" placeholder="John Doe" />
+									<CardInput
+										id="card"
+										label="Card Number"
+										placeholder="4242 4242 4242 4242"
+										icon={CreditCard}
+									/>
+									<CardInput
+										id="name"
+										label="Name on Card"
+										placeholder="John Doe"
+									/>
 									<div className="grid grid-cols-2 gap-4">
 										<CardInput id="exp" label="Expiry" placeholder="MM/YY" />
-										<CardInput id="cvc" label="CVV" placeholder="123" type="password" />
+										<CardInput
+											id="cvc"
+											label="CVV"
+											placeholder="123"
+											type="password"
+										/>
 									</div>
 								</div>
 							</CardContent>

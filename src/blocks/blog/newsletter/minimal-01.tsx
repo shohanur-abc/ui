@@ -17,11 +17,7 @@ const Title = ({ text }: TitleProps) => (
 
 const Form = ({ placeholder, buttonIcon: Icon }: FormProps) => (
 	<form className="flex gap-2 w-full max-w-sm">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="flex-1"
-		/>
+		<Input type="email" placeholder={placeholder} className="flex-1" />
 		<Button size="icon" className="shrink-0">
 			<Icon className="size-4" />
 		</Button>

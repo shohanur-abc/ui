@@ -29,7 +29,12 @@ import {
 	TableRow,
 } from '@/components/ui/table';
 
-type OrderStatus = 'completed' | 'processing' | 'shipped' | 'cancelled' | 'pending';
+type OrderStatus =
+	| 'completed'
+	| 'processing'
+	| 'shipped'
+	| 'cancelled'
+	| 'pending';
 
 type OrderReportItem = {
 	id: string;
@@ -119,12 +124,54 @@ export default function Main() {
 	};
 
 	const orders: OrderReportItem[] = [
-		{ id: 'ORD-7821', customer: 'Emma Wilson', product: 'Wireless Bluetooth Speaker Pro', amount: '$129.99', status: 'completed', date: 'Jan 28, 2026' },
-		{ id: 'ORD-7820', customer: 'James Brown', product: 'Ergonomic Gaming Chair', amount: '$349.00', status: 'shipped', date: 'Jan 28, 2026' },
-		{ id: 'ORD-7819', customer: 'Sofia Garcia', product: 'Smart Home Security Camera', amount: '$89.99', status: 'processing', date: 'Jan 27, 2026' },
-		{ id: 'ORD-7818', customer: 'Oliver Martinez', product: 'Premium Noise-Canceling Headphones', amount: '$249.99', status: 'pending', date: 'Jan 27, 2026' },
-		{ id: 'ORD-7817', customer: 'Ava Thompson', product: 'Portable External SSD 1TB', amount: '$159.00', status: 'cancelled', date: 'Jan 26, 2026' },
-		{ id: 'ORD-7816', customer: 'Liam Anderson', product: 'Mechanical Keyboard RGB', amount: '$189.99', status: 'completed', date: 'Jan 26, 2026' },
+		{
+			id: 'ORD-7821',
+			customer: 'Emma Wilson',
+			product: 'Wireless Bluetooth Speaker Pro',
+			amount: '$129.99',
+			status: 'completed',
+			date: 'Jan 28, 2026',
+		},
+		{
+			id: 'ORD-7820',
+			customer: 'James Brown',
+			product: 'Ergonomic Gaming Chair',
+			amount: '$349.00',
+			status: 'shipped',
+			date: 'Jan 28, 2026',
+		},
+		{
+			id: 'ORD-7819',
+			customer: 'Sofia Garcia',
+			product: 'Smart Home Security Camera',
+			amount: '$89.99',
+			status: 'processing',
+			date: 'Jan 27, 2026',
+		},
+		{
+			id: 'ORD-7818',
+			customer: 'Oliver Martinez',
+			product: 'Premium Noise-Canceling Headphones',
+			amount: '$249.99',
+			status: 'pending',
+			date: 'Jan 27, 2026',
+		},
+		{
+			id: 'ORD-7817',
+			customer: 'Ava Thompson',
+			product: 'Portable External SSD 1TB',
+			amount: '$159.00',
+			status: 'cancelled',
+			date: 'Jan 26, 2026',
+		},
+		{
+			id: 'ORD-7816',
+			customer: 'Liam Anderson',
+			product: 'Mechanical Keyboard RGB',
+			amount: '$189.99',
+			status: 'completed',
+			date: 'Jan 26, 2026',
+		},
 	];
 
 	return (

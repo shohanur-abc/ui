@@ -45,9 +45,15 @@ interface RevenueStreamProps {
 
 const TransactionIcon = ({ type }: { type: Transaction['type'] }) => {
 	const config = {
-		sale: { icon: ArrowUpRight, className: 'bg-emerald-500/20 text-emerald-400' },
+		sale: {
+			icon: ArrowUpRight,
+			className: 'bg-emerald-500/20 text-emerald-400',
+		},
 		refund: { icon: TrendingDown, className: 'bg-rose-500/20 text-rose-400' },
-		subscription: { icon: CreditCard, className: 'bg-purple-500/20 text-purple-400' },
+		subscription: {
+			icon: CreditCard,
+			className: 'bg-purple-500/20 text-purple-400',
+		},
 		payout: { icon: Building, className: 'bg-blue-500/20 text-blue-400' },
 	};
 
@@ -144,12 +150,18 @@ const TransactionItem = ({ transaction }: { transaction: Transaction }) => (
 				type={transaction.type}
 				currency={transaction.currency}
 			/>
-			<span className="text-xs text-muted-foreground">{transaction.timestamp}</span>
+			<span className="text-xs text-muted-foreground">
+				{transaction.timestamp}
+			</span>
 		</div>
 	</div>
 );
 
-const RevenueSummary = ({ summary }: { summary: RevenueStreamProps['summary'] }) => (
+const RevenueSummary = ({
+	summary,
+}: {
+	summary: RevenueStreamProps['summary'];
+}) => (
 	<div className="grid grid-cols-3 gap-3">
 		<div className="col-span-2 p-4 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20">
 			<div className="flex items-center justify-between mb-2">
@@ -172,7 +184,9 @@ const RevenueSummary = ({ summary }: { summary: RevenueStreamProps['summary'] })
 		</div>
 		<div className="p-4 rounded-lg bg-muted/30 border border-border/50">
 			<Wallet className="size-5 text-amber-400 mb-2" />
-			<p className="text-lg font-bold text-foreground">{summary.pendingAmount}</p>
+			<p className="text-lg font-bold text-foreground">
+				{summary.pendingAmount}
+			</p>
 			<p className="text-xs text-muted-foreground">Pending</p>
 		</div>
 	</div>

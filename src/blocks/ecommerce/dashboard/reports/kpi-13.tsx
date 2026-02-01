@@ -1,6 +1,13 @@
 'use client';
 
-import { Boxes, AlertTriangle, TrendingDown, RefreshCw, Truck, Package } from 'lucide-react';
+import {
+	Boxes,
+	AlertTriangle,
+	TrendingDown,
+	RefreshCw,
+	Truck,
+	Package,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 import {
@@ -22,7 +29,14 @@ type InventoryMetricProps = {
 	progress?: number;
 };
 
-const InventoryMetric = ({ icon: Icon, label, value, subLabel, status, progress }: InventoryMetricProps) => {
+const InventoryMetric = ({
+	icon: Icon,
+	label,
+	value,
+	subLabel,
+	status,
+	progress,
+}: InventoryMetricProps) => {
 	const statusColors = {
 		good: 'text-emerald-500',
 		warning: 'text-amber-500',
@@ -43,7 +57,9 @@ const InventoryMetric = ({ icon: Icon, label, value, subLabel, status, progress 
 					</div>
 					<div>
 						<p className="text-sm text-muted-foreground">{label}</p>
-						<p className={`text-2xl font-bold ${statusColors[status]}`}>{value}</p>
+						<p className={`text-2xl font-bold ${statusColors[status]}`}>
+							{value}
+						</p>
 						<p className="text-xs text-muted-foreground">{subLabel}</p>
 					</div>
 				</div>
@@ -77,19 +93,72 @@ const AlertItem = ({ product, sku, stock, reorderPoint }: AlertItemProps) => (
 
 export default function Main() {
 	const metrics: InventoryMetricProps[] = [
-		{ icon: Boxes, label: 'Total SKUs', value: '2,458', subLabel: 'Active products', status: 'good', progress: 85 },
-		{ icon: AlertTriangle, label: 'Low Stock', value: '42', subLabel: 'Need reorder', status: 'warning', progress: 8 },
-		{ icon: TrendingDown, label: 'Out of Stock', value: '8', subLabel: 'Lost sales risk', status: 'critical' },
-		{ icon: RefreshCw, label: 'Turn Rate', value: '4.2x', subLabel: 'Monthly avg', status: 'good' },
-		{ icon: Truck, label: 'Pending Orders', value: '156', subLabel: 'To suppliers', status: 'good' },
-		{ icon: Package, label: 'Dead Stock', value: '24', subLabel: '90+ days idle', status: 'warning' },
+		{
+			icon: Boxes,
+			label: 'Total SKUs',
+			value: '2,458',
+			subLabel: 'Active products',
+			status: 'good',
+			progress: 85,
+		},
+		{
+			icon: AlertTriangle,
+			label: 'Low Stock',
+			value: '42',
+			subLabel: 'Need reorder',
+			status: 'warning',
+			progress: 8,
+		},
+		{
+			icon: TrendingDown,
+			label: 'Out of Stock',
+			value: '8',
+			subLabel: 'Lost sales risk',
+			status: 'critical',
+		},
+		{
+			icon: RefreshCw,
+			label: 'Turn Rate',
+			value: '4.2x',
+			subLabel: 'Monthly avg',
+			status: 'good',
+		},
+		{
+			icon: Truck,
+			label: 'Pending Orders',
+			value: '156',
+			subLabel: 'To suppliers',
+			status: 'good',
+		},
+		{
+			icon: Package,
+			label: 'Dead Stock',
+			value: '24',
+			subLabel: '90+ days idle',
+			status: 'warning',
+		},
 	];
 
 	const alerts: AlertItemProps[] = [
-		{ product: 'Wireless Earbuds Pro', sku: 'WEP-001', stock: 12, reorderPoint: 50 },
+		{
+			product: 'Wireless Earbuds Pro',
+			sku: 'WEP-001',
+			stock: 12,
+			reorderPoint: 50,
+		},
 		{ product: 'USB-C Hub 7-Port', sku: 'UCH-007', stock: 8, reorderPoint: 30 },
-		{ product: 'Leather Wallet Classic', sku: 'LWC-023', stock: 5, reorderPoint: 25 },
-		{ product: 'Sports Water Bottle', sku: 'SWB-045', stock: 15, reorderPoint: 100 },
+		{
+			product: 'Leather Wallet Classic',
+			sku: 'LWC-023',
+			stock: 5,
+			reorderPoint: 25,
+		},
+		{
+			product: 'Sports Water Bottle',
+			sku: 'SWB-045',
+			stock: 15,
+			reorderPoint: 100,
+		},
 	];
 
 	return (
@@ -105,7 +174,10 @@ export default function Main() {
 								Stock levels and inventory health metrics
 							</CardDescription>
 						</div>
-						<Badge variant="outline" className="w-fit border-amber-500/20 bg-amber-500/10 text-amber-500">
+						<Badge
+							variant="outline"
+							className="w-fit border-amber-500/20 bg-amber-500/10 text-amber-500"
+						>
 							<AlertTriangle className="mr-1 size-3" />
 							42 Items Need Attention
 						</Badge>

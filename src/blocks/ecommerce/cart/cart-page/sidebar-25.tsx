@@ -1,9 +1,22 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Minus, Plus, X, ArrowRight, ShoppingBag, ChevronLeft } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	ShoppingBag,
+	ChevronLeft,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -31,7 +44,12 @@ const SidebarHeader = ({
 			<h2 className="font-semibold text-lg">{title}</h2>
 			<Badge variant="secondary">{count}</Badge>
 		</div>
-		<Button variant="ghost" size="sm" className="gap-1 text-muted-foreground" asChild>
+		<Button
+			variant="ghost"
+			size="sm"
+			className="gap-1 text-muted-foreground"
+			asChild
+		>
 			<Link href="/shop">
 				<ChevronLeft className="size-4" />
 				{closeLabel}
@@ -65,7 +83,13 @@ const QuantityControl = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const ItemPrice = ({ price, quantity }: { price: number; quantity: number }) => (
+const ItemPrice = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => (
 	<div className="text-right">
 		<p className="font-semibold">${(price * quantity).toFixed(2)}</p>
 		{quantity > 1 && (
@@ -75,7 +99,11 @@ const ItemPrice = ({ price, quantity }: { price: number; quantity: number }) => 
 );
 
 const RemoveItem = () => (
-	<Button size="icon-sm" variant="ghost" className="absolute -top-1 -right-1 size-5 rounded-full bg-muted hover:bg-destructive hover:text-destructive-foreground">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="absolute -top-1 -right-1 size-5 rounded-full bg-muted hover:bg-destructive hover:text-destructive-foreground"
+	>
 		<X className="size-3" />
 	</Button>
 );
@@ -94,7 +122,15 @@ const CartItem = ({ item }: { item: CartItem }) => (
 	</div>
 );
 
-const EmptyCart = ({ message, actionLabel, actionHref }: { message: string; actionLabel: string; actionHref: string }) => (
+const EmptyCart = ({
+	message,
+	actionLabel,
+	actionHref,
+}: {
+	message: string;
+	actionLabel: string;
+	actionHref: string;
+}) => (
 	<div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
 		<ShoppingBag className="size-12 text-muted-foreground/50 mb-4" />
 		<p className="text-muted-foreground mb-4">{message}</p>
@@ -104,8 +140,18 @@ const EmptyCart = ({ message, actionLabel, actionHref }: { message: string; acti
 	</div>
 );
 
-const SummaryLine = ({ label, value, bold }: { label: string; value: string; bold?: boolean }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm text-muted-foreground'}`}>
+const SummaryLine = ({
+	label,
+	value,
+	bold,
+}: {
+	label: string;
+	value: string;
+	bold?: boolean;
+}) => (
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -139,7 +185,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
 			name: 'Air Max Runners',
 			variant: 'Black • US 10',
 			price: 179.99,
@@ -147,7 +194,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White',
 			price: 149.99,
@@ -155,7 +203,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
 			name: 'Classic Timepiece',
 			variant: 'Silver',
 			price: 299.99,
@@ -163,7 +212,8 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop',
 			name: 'Leather Belt',
 			variant: 'Brown • 32"',
 			price: 59.99,
@@ -185,7 +235,11 @@ export default function Main() {
 	return (
 		<section className="@container">
 			<div className="mx-auto max-w-md h-screen flex flex-col bg-background border-x shadow-xl">
-				<SidebarHeader title="Cart" count={items.length} closeLabel="Continue" />
+				<SidebarHeader
+					title="Cart"
+					count={items.length}
+					closeLabel="Continue"
+				/>
 
 				<ScrollArea className="flex-1">
 					<div className="divide-y">

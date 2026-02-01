@@ -14,7 +14,14 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import {
 	Select,
 	SelectContent,
@@ -54,13 +61,19 @@ const AdjustmentTypeCard = ({
 }: AdjustmentTypeCardProps) => (
 	<div
 		className={`cursor-pointer rounded-lg border-2 p-4 transition-all ${
-			selected === type ? 'border-primary bg-primary/5' : 'hover:border-primary/50'
+			selected === type
+				? 'border-primary bg-primary/5'
+				: 'hover:border-primary/50'
 		}`}
 		onClick={() => onSelect(type)}
 	>
 		<div className="flex items-center gap-3">
-			<div className={`rounded-lg p-2 ${selected === type ? 'bg-primary/10' : 'bg-muted'}`}>
-				<Icon className={`size-5 ${selected === type ? 'text-primary' : 'text-muted-foreground'}`} />
+			<div
+				className={`rounded-lg p-2 ${selected === type ? 'bg-primary/10' : 'bg-muted'}`}
+			>
+				<Icon
+					className={`size-5 ${selected === type ? 'text-primary' : 'text-muted-foreground'}`}
+				/>
 			</div>
 			<div>
 				<p className="font-medium">{label}</p>
@@ -77,7 +90,12 @@ type ProductSelectProps = {
 	label: string;
 };
 
-const ProductSelect = ({ product, onSelect, products, label }: ProductSelectProps) => (
+const ProductSelect = ({
+	product,
+	onSelect,
+	products,
+	label,
+}: ProductSelectProps) => (
 	<div className="space-y-2">
 		<Label>{label}</Label>
 		<Select
@@ -106,7 +124,9 @@ const ProductSelect = ({ product, onSelect, products, label }: ProductSelectProp
 				<Package className="size-4 text-muted-foreground" />
 				<span className="text-sm">Current Stock:</span>
 				<Badge variant="secondary">{product.currentStock} units</Badge>
-				<span className="text-sm text-muted-foreground">at {product.location}</span>
+				<span className="text-sm text-muted-foreground">
+					at {product.location}
+				</span>
 			</div>
 		)}
 	</div>
@@ -135,11 +155,7 @@ const QuantityInput = ({ value, onChange, label }: QuantityInputProps) => (
 				onChange={(e) => onChange(parseInt(e.target.value) || 0)}
 				className="w-24 text-center"
 			/>
-			<Button
-				variant="outline"
-				size="icon"
-				onClick={() => onChange(value + 1)}
-			>
+			<Button variant="outline" size="icon" onClick={() => onChange(value + 1)}>
 				<Plus className="size-4" />
 			</Button>
 		</div>
@@ -147,16 +163,37 @@ const QuantityInput = ({ value, onChange, label }: QuantityInputProps) => (
 );
 
 export default function Main() {
-	const [adjustmentType, setAdjustmentType] = React.useState<AdjustmentType>('add');
-	const [selectedProduct, setSelectedProduct] = React.useState<Product | null>(null);
+	const [adjustmentType, setAdjustmentType] =
+		React.useState<AdjustmentType>('add');
+	const [selectedProduct, setSelectedProduct] = React.useState<Product | null>(
+		null,
+	);
 	const [quantity, setQuantity] = React.useState(0);
 	const [reason, setReason] = React.useState('');
 	const [destinationLocation, setDestinationLocation] = React.useState('');
 
 	const products: Product[] = [
-		{ id: '1', name: 'Wireless Headphones', sku: 'WH-001', currentStock: 245, location: 'Warehouse A' },
-		{ id: '2', name: 'Bluetooth Speaker', sku: 'BS-002', currentStock: 189, location: 'Warehouse A' },
-		{ id: '3', name: 'USB-C Cable', sku: 'USB-003', currentStock: 542, location: 'Warehouse B' },
+		{
+			id: '1',
+			name: 'Wireless Headphones',
+			sku: 'WH-001',
+			currentStock: 245,
+			location: 'Warehouse A',
+		},
+		{
+			id: '2',
+			name: 'Bluetooth Speaker',
+			sku: 'BS-002',
+			currentStock: 189,
+			location: 'Warehouse A',
+		},
+		{
+			id: '3',
+			name: 'USB-C Cable',
+			sku: 'USB-003',
+			currentStock: 542,
+			location: 'Warehouse B',
+		},
 	];
 
 	const locations = [
@@ -185,8 +222,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Stock Adjustment</CardTitle>
-						<CardDescription>Add, remove, or transfer inventory</CardDescription>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Stock Adjustment
+						</CardTitle>
+						<CardDescription>
+							Add, remove, or transfer inventory
+						</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<div className="grid gap-3 @sm:grid-cols-3">
@@ -232,7 +273,10 @@ export default function Main() {
 							{adjustmentType === 'transfer' && (
 								<div className="space-y-2">
 									<Label>Destination Location</Label>
-									<Select value={destinationLocation} onValueChange={setDestinationLocation}>
+									<Select
+										value={destinationLocation}
+										onValueChange={setDestinationLocation}
+									>
 										<SelectTrigger>
 											<SelectValue placeholder="Select location" />
 										</SelectTrigger>
@@ -272,13 +316,17 @@ export default function Main() {
 						{selectedProduct && quantity > 0 && (
 							<div className="rounded-lg bg-muted p-4">
 								<div className="flex items-center justify-between">
-									<span className="text-muted-foreground">Stock after adjustment:</span>
+									<span className="text-muted-foreground">
+										Stock after adjustment:
+									</span>
 									<div className="flex items-center gap-2">
 										<span className="text-muted-foreground line-through">
 											{selectedProduct.currentStock}
 										</span>
 										<span className="text-lg font-bold">→</span>
-										<span className={`text-lg font-bold ${newStock < 0 ? 'text-destructive' : 'text-emerald-500'}`}>
+										<span
+											className={`text-lg font-bold ${newStock < 0 ? 'text-destructive' : 'text-emerald-500'}`}
+										>
 											{newStock}
 										</span>
 										<span className="text-sm text-muted-foreground">units</span>

@@ -1,6 +1,12 @@
 'use client';
 
-import { ArrowUpRight, DollarSign, type LucideIcon, ShoppingCart, Users } from 'lucide-react';
+import {
+	ArrowUpRight,
+	DollarSign,
+	type LucideIcon,
+	ShoppingCart,
+	Users,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 type SparkAreaProps = {
@@ -31,7 +37,11 @@ const SparkAreaChart = ({ data, color }: { data: number[]; color: string }) => {
 	const areaD = `${pathD} L 100 100 L 0 100 Z`;
 
 	return (
-		<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-16">
+		<svg
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+			className="w-full h-16"
+		>
 			<defs>
 				<linearGradient id={`spark-${color}`} x1="0%" y1="0%" x2="0%" y2="100%">
 					<stop offset="0%" stopColor={color} stopOpacity="0.3" />
@@ -44,15 +54,27 @@ const SparkAreaChart = ({ data, color }: { data: number[]; color: string }) => {
 	);
 };
 
-const SparkCard = ({ icon: Icon, label, value, change, trend, data, color }: SparkAreaProps) => (
+const SparkCard = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	trend,
+	data,
+	color,
+}: SparkAreaProps) => (
 	<Card className="group border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<CardContent className="p-4 @sm:p-5">
 			<div className="flex items-start justify-between mb-3">
 				<div className="rounded-lg bg-primary/10 p-2 ring-1 ring-primary/20 group-hover:bg-primary/20 transition-colors">
 					<Icon className="size-4 text-primary" />
 				</div>
-				<span className={`flex items-center gap-0.5 text-xs font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}>
-					<ArrowUpRight className={`size-3 ${trend === 'down' ? 'rotate-90' : ''}`} />
+				<span
+					className={`flex items-center gap-0.5 text-xs font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}
+				>
+					<ArrowUpRight
+						className={`size-3 ${trend === 'down' ? 'rotate-90' : ''}`}
+					/>
 					{change}
 				</span>
 			</div>

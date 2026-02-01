@@ -21,7 +21,13 @@ interface WishlistGridProps {
 	items: WishlistItem[];
 }
 
-const StatsBar = ({ itemCount, totalValue }: { itemCount: number; totalValue: number }) => (
+const StatsBar = ({
+	itemCount,
+	totalValue,
+}: {
+	itemCount: number;
+	totalValue: number;
+}) => (
 	<div className="flex flex-wrap items-center gap-4 @md:gap-8 mb-6 @md:mb-8 p-4 rounded-lg bg-muted/50">
 		<div>
 			<p className="text-sm text-muted-foreground">Total Items</p>
@@ -33,7 +39,9 @@ const StatsBar = ({ itemCount, totalValue }: { itemCount: number; totalValue: nu
 			<p className="text-2xl font-bold">${totalValue.toFixed(2)}</p>
 		</div>
 		<div className="ml-auto flex gap-2">
-			<Button variant="outline" size="sm">Clear All</Button>
+			<Button variant="outline" size="sm">
+				Clear All
+			</Button>
 			<Button size="sm" className="gap-2">
 				<ShoppingCart className="size-4" />
 				Add All to Cart
@@ -47,13 +55,22 @@ const StockIndicator = ({ level }: { level: number }) => {
 	return (
 		<div className="mt-3">
 			<div className="flex items-center justify-between text-xs mb-1">
-				<span className={isLow ? 'text-destructive flex items-center gap-1' : 'text-muted-foreground'}>
+				<span
+					className={
+						isLow
+							? 'text-destructive flex items-center gap-1'
+							: 'text-muted-foreground'
+					}
+				>
 					{isLow && <AlertCircle className="size-3" />}
 					{isLow ? 'Low stock' : 'In stock'}
 				</span>
 				<span className="text-muted-foreground">{level}%</span>
 			</div>
-			<Progress value={level} className={`h-1 ${isLow ? '[&>div]:bg-destructive' : ''}`} />
+			<Progress
+				value={level}
+				className={`h-1 ${isLow ? '[&>div]:bg-destructive' : ''}`}
+			/>
 		</div>
 	);
 };
@@ -94,7 +111,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 						/>
 					))}
 				</div>
-				<span className="text-xs text-muted-foreground">({item.reviewCount})</span>
+				<span className="text-xs text-muted-foreground">
+					({item.reviewCount})
+				</span>
 			</div>
 			<div className="mt-2 flex items-baseline gap-2">
 				<span className="text-lg font-bold">${item.price.toFixed(2)}</span>
@@ -125,10 +144,52 @@ const WishlistGrid = ({ items }: WishlistGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Wireless Noise-Canceling Headphones', price: 279.99, originalPrice: 349.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', rating: 4.8, reviewCount: 2431, stockLevel: 65, href: '/product/1' },
-		{ id: '2', name: 'Smart Fitness Watch', price: 199.00, image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop', rating: 4.5, reviewCount: 1829, stockLevel: 12, href: '/product/2' },
-		{ id: '3', name: 'Premium Yoga Mat', price: 89.99, originalPrice: 119.99, image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400&h=400&fit=crop', rating: 4.7, reviewCount: 892, stockLevel: 45, href: '/product/3' },
-		{ id: '4', name: 'Stainless Steel Water Bottle', price: 34.99, image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop', rating: 4.6, reviewCount: 3102, stockLevel: 78, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Wireless Noise-Canceling Headphones',
+			price: 279.99,
+			originalPrice: 349.99,
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+			rating: 4.8,
+			reviewCount: 2431,
+			stockLevel: 65,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Smart Fitness Watch',
+			price: 199.0,
+			image:
+				'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop',
+			rating: 4.5,
+			reviewCount: 1829,
+			stockLevel: 12,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Premium Yoga Mat',
+			price: 89.99,
+			originalPrice: 119.99,
+			image:
+				'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400&h=400&fit=crop',
+			rating: 4.7,
+			reviewCount: 892,
+			stockLevel: 45,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Stainless Steel Water Bottle',
+			price: 34.99,
+			image:
+				'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop',
+			rating: 4.6,
+			reviewCount: 3102,
+			stockLevel: 78,
+			href: '/product/4',
+		},
 	];
 
 	const totalValue = wishlistItems.reduce((sum, item) => sum + item.price, 0);

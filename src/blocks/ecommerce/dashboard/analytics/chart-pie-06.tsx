@@ -16,7 +16,14 @@ const RadialProgress = ({ label, value, max, color }: RadialData) => {
 		<div className="flex flex-col items-center">
 			<div className="relative w-24 h-24">
 				<svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-					<circle cx="50" cy="50" r={radius} fill="none" stroke="hsl(var(--muted))" strokeWidth={strokeWidth} />
+					<circle
+						cx="50"
+						cy="50"
+						r={radius}
+						fill="none"
+						stroke="hsl(var(--muted))"
+						strokeWidth={strokeWidth}
+					/>
 					<circle
 						cx="50"
 						cy="50"
@@ -56,7 +63,9 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm font-medium">Goal Progress</CardTitle>
-						<p className="text-xs text-muted-foreground">Monthly targets achievement</p>
+						<p className="text-xs text-muted-foreground">
+							Monthly targets achievement
+						</p>
 					</CardHeader>
 					<CardContent>
 						<div className="grid grid-cols-2 @md:grid-cols-4 gap-8">

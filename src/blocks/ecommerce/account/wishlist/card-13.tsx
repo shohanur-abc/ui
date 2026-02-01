@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, Sparkles, TrendingUp, Eye } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	Sparkles,
+	TrendingUp,
+	Eye,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -92,17 +99,59 @@ const TrendingHeader = ({ count }: { count: number }) => (
 		</div>
 		<div>
 			<h2 className="font-bold text-lg">Trending Items</h2>
-			<p className="text-sm text-muted-foreground">{count} items in your wishlist are trending now</p>
+			<p className="text-sm text-muted-foreground">
+				{count} items in your wishlist are trending now
+			</p>
 		</div>
 	</div>
 );
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Vintage Polaroid Camera', price: 129.00, image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop', popularity: 92, viewsToday: 1234, isTrending: true, href: '/product/1' },
-		{ id: '2', name: 'Retro Vinyl Record Player', price: 249.00, image: 'https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&h=400&fit=crop', popularity: 88, viewsToday: 892, isTrending: true, href: '/product/2' },
-		{ id: '3', name: 'Neon LED Sign', price: 79.00, image: 'https://images.unsplash.com/photo-1563991655280-cb95c90ca2fb?w=400&h=400&fit=crop', popularity: 75, viewsToday: 567, isTrending: false, href: '/product/3' },
-		{ id: '4', name: 'Minimalist Wall Clock', price: 55.00, image: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=400&h=400&fit=crop', popularity: 82, viewsToday: 723, isTrending: true, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Vintage Polaroid Camera',
+			price: 129.0,
+			image:
+				'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop',
+			popularity: 92,
+			viewsToday: 1234,
+			isTrending: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Retro Vinyl Record Player',
+			price: 249.0,
+			image:
+				'https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&h=400&fit=crop',
+			popularity: 88,
+			viewsToday: 892,
+			isTrending: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Neon LED Sign',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1563991655280-cb95c90ca2fb?w=400&h=400&fit=crop',
+			popularity: 75,
+			viewsToday: 567,
+			isTrending: false,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Minimalist Wall Clock',
+			price: 55.0,
+			image:
+				'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=400&h=400&fit=crop',
+			popularity: 82,
+			viewsToday: 723,
+			isTrending: true,
+			href: '/product/4',
+		},
 	];
 
 	const trendingCount = wishlistItems.filter((item) => item.isTrending).length;

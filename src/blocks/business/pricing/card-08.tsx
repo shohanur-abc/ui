@@ -30,7 +30,9 @@ const Header = ({ title, subtitle }: { title: string; subtitle: string }) => (
 const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 	const Icon = plan.icon;
 	return (
-		<Card className={`relative flex flex-col transition-all duration-300 hover:shadow-lg ${plan.popular ? 'border-primary shadow-lg' : ''}`}>
+		<Card
+			className={`relative flex flex-col transition-all duration-300 hover:shadow-lg ${plan.popular ? 'border-primary shadow-lg' : ''}`}
+		>
 			{plan.popular && (
 				<Badge className="absolute -top-3 right-6">Recommended</Badge>
 			)}
@@ -54,7 +56,9 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 					{plan.metrics.map((metric, i) => (
 						<div key={i} className="bg-muted/50 rounded-lg p-3">
 							<div className="text-lg font-bold">{metric.value}</div>
-							<div className="text-xs text-muted-foreground">{metric.label}</div>
+							<div className="text-xs text-muted-foreground">
+								{metric.label}
+							</div>
 						</div>
 					))}
 				</div>
@@ -81,7 +85,8 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 
 export default function Main() {
 	const title = 'Plans for Every Stage';
-	const subtitle = 'Scale seamlessly from startup to enterprise with our flexible pricing';
+	const subtitle =
+		'Scale seamlessly from startup to enterprise with our flexible pricing';
 	const plans: PricingPlan[] = [
 		{
 			name: 'Starter',

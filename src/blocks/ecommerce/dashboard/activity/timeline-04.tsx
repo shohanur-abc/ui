@@ -46,10 +46,7 @@ const CategoryIcon = ({
 		);
 	}
 
-	const config: Record<
-		string,
-		{ icon: LucideIcon; className: string }
-	> = {
+	const config: Record<string, { icon: LucideIcon; className: string }> = {
 		orders: {
 			icon: Package,
 			className: 'bg-blue-500/20 text-blue-400',
@@ -86,7 +83,10 @@ const CategoryIcon = ({
 const TrendIndicator = ({
 	trend,
 	value,
-}: { trend?: 'up' | 'down'; value?: string }) => {
+}: {
+	trend?: 'up' | 'down';
+	value?: string;
+}) => {
 	if (!trend || !value) return null;
 
 	const isUp = trend === 'up';
@@ -240,10 +240,7 @@ export default function Main() {
 	return (
 		<section className="@container" data-theme="activity">
 			<div className="mx-auto max-w-2xl px-4 py-8 @sm:px-6 @sm:py-12 @2xl:px-8 @2xl:py-16">
-				<GroupedTimeline
-					title="Activity Timeline"
-					groups={activityGroups}
-				/>
+				<GroupedTimeline title="Activity Timeline" groups={activityGroups} />
 			</div>
 		</section>
 	);

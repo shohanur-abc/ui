@@ -1,22 +1,57 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardFooter,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Progress } from '@/components/ui/progress';
-import { RotateCcw, Package, Calendar, DollarSign, Camera, Clock, CheckCircle, XCircle, AlertTriangle, MessageSquare, Truck } from 'lucide-react';
+import {
+	RotateCcw,
+	Package,
+	Calendar,
+	DollarSign,
+	Camera,
+	Clock,
+	CheckCircle,
+	XCircle,
+	AlertTriangle,
+	MessageSquare,
+	Truck,
+} from 'lucide-react';
 
 interface ReturnDetailProps {
 	returnRequest: {
 		id: string;
 		orderId: string;
-		status: 'pending' | 'approved' | 'shipped' | 'received' | 'refunded' | 'rejected';
+		status:
+			| 'pending'
+			| 'approved'
+			| 'shipped'
+			| 'received'
+			| 'refunded'
+			| 'rejected';
 		progress: number;
 		reason: string;
 		description: string;
-		items: { name: string; sku: string; quantity: number; condition: string; price: string }[];
+		items: {
+			name: string;
+			sku: string;
+			quantity: number;
+			condition: string;
+			price: string;
+		}[];
 		refundAmount: string;
 		refundMethod: string;
-		dates: { requested: string; approved?: string; received?: string; refunded?: string };
+		dates: {
+			requested: string;
+			approved?: string;
+			received?: string;
+			refunded?: string;
+		};
 		returnLabel?: { carrier: string; tracking: string };
 		photos?: number;
 	};
@@ -34,28 +69,82 @@ interface ReturnDetailProps {
 }
 
 const StatusConfig = {
-	pending: { icon: Clock, className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30', label: 'Pending Review' },
-	approved: { icon: CheckCircle, className: 'bg-blue-500/10 text-blue-500 border-blue-500/30', label: 'Approved' },
-	shipped: { icon: Truck, className: 'bg-primary/10 text-primary border-primary/30', label: 'Return Shipped' },
-	received: { icon: Package, className: 'bg-accent/10 text-accent border-accent/30', label: 'Item Received' },
-	refunded: { icon: DollarSign, className: 'bg-accent/10 text-accent border-accent/30', label: 'Refunded' },
-	rejected: { icon: XCircle, className: 'bg-destructive/10 text-destructive border-destructive/30', label: 'Rejected' },
+	pending: {
+		icon: Clock,
+		className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30',
+		label: 'Pending Review',
+	},
+	approved: {
+		icon: CheckCircle,
+		className: 'bg-blue-500/10 text-blue-500 border-blue-500/30',
+		label: 'Approved',
+	},
+	shipped: {
+		icon: Truck,
+		className: 'bg-primary/10 text-primary border-primary/30',
+		label: 'Return Shipped',
+	},
+	received: {
+		icon: Package,
+		className: 'bg-accent/10 text-accent border-accent/30',
+		label: 'Item Received',
+	},
+	refunded: {
+		icon: DollarSign,
+		className: 'bg-accent/10 text-accent border-accent/30',
+		label: 'Refunded',
+	},
+	rejected: {
+		icon: XCircle,
+		className: 'bg-destructive/10 text-destructive border-destructive/30',
+		label: 'Rejected',
+	},
 };
 
-const TimelineStep = ({ step, date, active, completed }: { step: string; date?: string; active?: boolean; completed?: boolean }) => (
+const TimelineStep = ({
+	step,
+	date,
+	active,
+	completed,
+}: {
+	step: string;
+	date?: string;
+	active?: boolean;
+	completed?: boolean;
+}) => (
 	<div className="flex-1 text-center">
-		<div className={`size-8 rounded-full mx-auto mb-2 flex items-center justify-center ${completed ? 'bg-accent text-white' : active ? 'bg-primary text-white' : 'bg-muted text-muted-foreground'}`}>
-			{completed ? <CheckCircle className="size-4" /> : <div className="size-2 rounded-full bg-current" />}
+		<div
+			className={`size-8 rounded-full mx-auto mb-2 flex items-center justify-center ${completed ? 'bg-accent text-white' : active ? 'bg-primary text-white' : 'bg-muted text-muted-foreground'}`}
+		>
+			{completed ? (
+				<CheckCircle className="size-4" />
+			) : (
+				<div className="size-2 rounded-full bg-current" />
+			)}
 		</div>
-		<p className={`text-xs font-medium ${active || completed ? 'text-foreground' : 'text-muted-foreground'}`}>{step}</p>
+		<p
+			className={`text-xs font-medium ${active || completed ? 'text-foreground' : 'text-muted-foreground'}`}
+		>
+			{step}
+		</p>
 		{date && <p className="text-xs text-muted-foreground mt-0.5">{date}</p>}
 	</div>
 );
 
 const ReturnDetail = ({ returnRequest, labels }: ReturnDetailProps) => {
-	const { icon: StatusIcon, className: statusClassName, label: statusLabel } = StatusConfig[returnRequest.status];
+	const {
+		icon: StatusIcon,
+		className: statusClassName,
+		label: statusLabel,
+	} = StatusConfig[returnRequest.status];
 	const steps = ['Requested', 'Approved', 'Shipped', 'Received', 'Refunded'];
-	const currentStep = ['pending', 'approved', 'shipped', 'received', 'refunded'].indexOf(returnRequest.status);
+	const currentStep = [
+		'pending',
+		'approved',
+		'shipped',
+		'received',
+		'refunded',
+	].indexOf(returnRequest.status);
 
 	return (
 		<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
@@ -67,7 +156,9 @@ const ReturnDetail = ({ returnRequest, labels }: ReturnDetailProps) => {
 						</div>
 						<div>
 							<CardTitle className="text-lg">{returnRequest.id}</CardTitle>
-							<p className="text-sm text-muted-foreground">Order {returnRequest.orderId}</p>
+							<p className="text-sm text-muted-foreground">
+								Order {returnRequest.orderId}
+							</p>
 						</div>
 					</div>
 					<Badge variant="outline" className={`gap-1 ${statusClassName}`}>
@@ -82,7 +173,19 @@ const ReturnDetail = ({ returnRequest, labels }: ReturnDetailProps) => {
 					<div className="p-4 rounded-xl bg-muted/20">
 						<div className="flex items-center justify-between mb-4">
 							{steps.map((step, i) => (
-								<TimelineStep key={step} step={step} completed={i < currentStep} active={i === currentStep} date={i === 0 ? returnRequest.dates.requested : i === currentStep ? 'Now' : undefined} />
+								<TimelineStep
+									key={step}
+									step={step}
+									completed={i < currentStep}
+									active={i === currentStep}
+									date={
+										i === 0
+											? returnRequest.dates.requested
+											: i === currentStep
+												? 'Now'
+												: undefined
+									}
+								/>
 							))}
 						</div>
 						<Progress value={returnRequest.progress} className="h-1" />
@@ -94,8 +197,12 @@ const ReturnDetail = ({ returnRequest, labels }: ReturnDetailProps) => {
 						<AlertTriangle className="size-4 text-primary" />
 						<p className="font-semibold">{labels.reason}</p>
 					</div>
-					<Badge variant="secondary" className="mb-2">{returnRequest.reason}</Badge>
-					<p className="text-sm text-muted-foreground">{returnRequest.description}</p>
+					<Badge variant="secondary" className="mb-2">
+						{returnRequest.reason}
+					</Badge>
+					<p className="text-sm text-muted-foreground">
+						{returnRequest.description}
+					</p>
 					{returnRequest.photos && (
 						<Button variant="link" className="text-xs p-0 h-auto mt-2 gap-1">
 							<Camera className="size-3" />
@@ -105,18 +212,27 @@ const ReturnDetail = ({ returnRequest, labels }: ReturnDetailProps) => {
 				</div>
 
 				<div>
-					<p className="text-sm font-semibold text-muted-foreground mb-3">{labels.items}</p>
+					<p className="text-sm font-semibold text-muted-foreground mb-3">
+						{labels.items}
+					</p>
 					<div className="space-y-3">
 						{returnRequest.items.map((item, i) => (
-							<div key={i} className="flex items-center gap-4 p-3 rounded-lg bg-muted/30">
+							<div
+								key={i}
+								className="flex items-center gap-4 p-3 rounded-lg bg-muted/30"
+							>
 								<Package className="size-8 text-muted-foreground" />
 								<div className="flex-1">
 									<p className="font-medium">{item.name}</p>
-									<p className="text-xs text-muted-foreground">SKU: {item.sku} • Qty: {item.quantity}</p>
+									<p className="text-xs text-muted-foreground">
+										SKU: {item.sku} • Qty: {item.quantity}
+									</p>
 								</div>
 								<div className="text-right">
 									<p className="font-semibold">{item.price}</p>
-									<Badge variant="outline" className="text-xs">{item.condition}</Badge>
+									<Badge variant="outline" className="text-xs">
+										{item.condition}
+									</Badge>
 								</div>
 							</div>
 						))}
@@ -127,16 +243,26 @@ const ReturnDetail = ({ returnRequest, labels }: ReturnDetailProps) => {
 
 				<div className="grid grid-cols-2 gap-4">
 					<div className="p-4 rounded-xl bg-accent/5 border border-accent/20">
-						<p className="text-sm text-muted-foreground mb-1">{labels.refund}</p>
-						<p className="text-2xl font-bold text-accent">{returnRequest.refundAmount}</p>
-						<p className="text-xs text-muted-foreground">{returnRequest.refundMethod}</p>
+						<p className="text-sm text-muted-foreground mb-1">
+							{labels.refund}
+						</p>
+						<p className="text-2xl font-bold text-accent">
+							{returnRequest.refundAmount}
+						</p>
+						<p className="text-xs text-muted-foreground">
+							{returnRequest.refundMethod}
+						</p>
 					</div>
 
 					{returnRequest.returnLabel && (
 						<div className="p-4 rounded-xl bg-muted/20 border border-border/50">
-							<p className="text-sm text-muted-foreground mb-1">{labels.returnLabel}</p>
+							<p className="text-sm text-muted-foreground mb-1">
+								{labels.returnLabel}
+							</p>
 							<p className="font-medium">{returnRequest.returnLabel.carrier}</p>
-							<code className="text-xs text-muted-foreground">{returnRequest.returnLabel.tracking}</code>
+							<code className="text-xs text-muted-foreground">
+								{returnRequest.returnLabel.tracking}
+							</code>
 						</div>
 					)}
 				</div>
@@ -183,9 +309,16 @@ export default function Main() {
 		status: 'approved' as const,
 		progress: 40,
 		reason: 'Item Not as Described',
-		description: 'The color shown in the photos does not match the actual product. Expected navy blue but received a lighter shade.',
+		description:
+			'The color shown in the photos does not match the actual product. Expected navy blue but received a lighter shade.',
 		items: [
-			{ name: 'Wireless Bluetooth Headphones', sku: 'SKU-WBH-001', quantity: 1, condition: 'Good', price: '$159.00' },
+			{
+				name: 'Wireless Bluetooth Headphones',
+				sku: 'SKU-WBH-001',
+				quantity: 1,
+				condition: 'Good',
+				price: '$159.00',
+			},
 		],
 		refundAmount: '$159.00',
 		refundMethod: 'Original payment method (Visa •••• 4242)',

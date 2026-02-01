@@ -1,10 +1,25 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowLeft, Store, Check, Upload, FileText, Shield, CreditCard } from 'lucide-react';
+import {
+	ArrowRight,
+	ArrowLeft,
+	Store,
+	Check,
+	Upload,
+	FileText,
+	Shield,
+	CreditCard,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	Select,
 	SelectContent,
@@ -13,7 +28,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -45,7 +66,9 @@ const StepCircle = ({
 		>
 			{isCompleted ? <Check className="size-5" /> : step}
 		</div>
-		<span className={`text-xs mt-2 ${isActive || isCompleted ? 'text-primary' : 'text-muted-foreground'}`}>
+		<span
+			className={`text-xs mt-2 ${isActive || isCompleted ? 'text-primary' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</span>
 	</div>
@@ -93,7 +116,9 @@ const FileUpload = ({
 		<div className="border-2 border-dashed border-border/50 rounded-lg p-6 text-center hover:border-primary/50 transition-colors cursor-pointer">
 			<Upload className="size-8 text-muted-foreground mx-auto mb-2" />
 			<p className="text-sm font-medium">{description}</p>
-			<p className="text-xs text-muted-foreground mt-1">PDF, PNG, JPG up to 5MB</p>
+			<p className="text-xs text-muted-foreground mt-1">
+				PDF, PNG, JPG up to 5MB
+			</p>
 			<Input id={id} type="file" className="hidden" />
 		</div>
 	</div>
@@ -116,7 +141,10 @@ const SelectField = ({
 			</SelectTrigger>
 			<SelectContent>
 				{options.map((option) => (
-					<SelectItem key={option} value={option.toLowerCase().replace(/\s/g, '-')}>
+					<SelectItem
+						key={option}
+						value={option.toLowerCase().replace(/\s/g, '-')}
+					>
 						{option}
 					</SelectItem>
 				))}
@@ -147,7 +175,12 @@ const NavigationButtons = ({
 );
 
 const VerificationStep = () => {
-	const idTypes = ['Passport', 'Driver License', 'National ID', 'Business License'];
+	const idTypes = [
+		'Passport',
+		'Driver License',
+		'National ID',
+		'Business License',
+	];
 
 	return (
 		<form className="space-y-4">
@@ -157,14 +190,27 @@ const VerificationStep = () => {
 					<div>
 						<p className="font-medium text-sm">Identity Verification</p>
 						<p className="text-xs text-muted-foreground">
-							We need to verify your identity to ensure a safe marketplace for everyone.
+							We need to verify your identity to ensure a safe marketplace for
+							everyone.
 						</p>
 					</div>
 				</div>
 			</div>
-			<SelectField label="ID Type" placeholder="Select ID type" options={idTypes} />
-			<FileUpload id="id-front" label="Front of ID" description="Upload front side of your ID" />
-			<FileUpload id="id-back" label="Back of ID" description="Upload back side of your ID" />
+			<SelectField
+				label="ID Type"
+				placeholder="Select ID type"
+				options={idTypes}
+			/>
+			<FileUpload
+				id="id-front"
+				label="Front of ID"
+				description="Upload front side of your ID"
+			/>
+			<FileUpload
+				id="id-back"
+				label="Back of ID"
+				description="Upload back side of your ID"
+			/>
 			<NavigationButtons showBack={true} nextLabel="Continue" />
 		</form>
 	);
@@ -182,7 +228,9 @@ export default function Main() {
 							<Logo name="SellerHub" icon={Store} />
 						</div>
 						<CardTitle className="text-2xl">Verify Your Identity</CardTitle>
-						<CardDescription>Upload documents to verify your account</CardDescription>
+						<CardDescription>
+							Upload documents to verify your account
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<StepProgress steps={steps} currentStep={2} />

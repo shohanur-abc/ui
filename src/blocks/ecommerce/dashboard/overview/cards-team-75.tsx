@@ -44,15 +44,22 @@ const TeamMemberCard = (member: TeamMember) => (
 			<div className="flex items-start justify-between">
 				<div className="flex items-center gap-3">
 					<Avatar className="size-12">
-						<AvatarFallback className="text-sm font-medium">{member.initials}</AvatarFallback>
+						<AvatarFallback className="text-sm font-medium">
+							{member.initials}
+						</AvatarFallback>
 					</Avatar>
 					<div>
 						<p className="font-medium">{member.name}</p>
 						<p className="text-xs text-muted-foreground">{member.role}</p>
 					</div>
 				</div>
-				<Badge variant="secondary" className={getPerformanceStyle(member.performance)}>
-					{member.performance === 'excellent' && <Award className="mr-1 size-3" />}
+				<Badge
+					variant="secondary"
+					className={getPerformanceStyle(member.performance)}
+				>
+					{member.performance === 'excellent' && (
+						<Award className="mr-1 size-3" />
+					)}
 					{member.performance}
 				</Badge>
 			</div>
@@ -73,7 +80,9 @@ const TeamMemberCard = (member: TeamMember) => (
 			<div className="mt-4 space-y-2">
 				<div className="flex items-center justify-between text-sm">
 					<span className="text-muted-foreground">Target Progress</span>
-					<span className="font-medium">{member.sales} / {member.target}</span>
+					<span className="font-medium">
+						{member.sales} / {member.target}
+					</span>
 				</div>
 				<Progress value={member.progress} className="h-2" />
 			</div>
@@ -93,12 +102,78 @@ const TeamMemberCard = (member: TeamMember) => (
 
 export default function Main() {
 	const teamMembers: TeamMember[] = [
-		{ id: 'TM-001', name: 'Sarah Wilson', role: 'Sales Manager', email: 'sarah@example.com', initials: 'SW', sales: '$142K', target: '$150K', progress: 95, deals: 45, performance: 'excellent' },
-		{ id: 'TM-002', name: 'Michael Chen', role: 'Account Executive', email: 'michael@example.com', initials: 'MC', sales: '$98K', target: '$120K', progress: 82, deals: 38, performance: 'good' },
-		{ id: 'TM-003', name: 'Emma Johnson', role: 'Sales Rep', email: 'emma@example.com', initials: 'EJ', sales: '$76K', target: '$100K', progress: 76, deals: 28, performance: 'good' },
-		{ id: 'TM-004', name: 'James Brown', role: 'Sales Rep', email: 'james@example.com', initials: 'JB', sales: '$54K', target: '$90K', progress: 60, deals: 22, performance: 'average' },
-		{ id: 'TM-005', name: 'Lisa Davis', role: 'Account Executive', email: 'lisa@example.com', initials: 'LD', sales: '$112K', target: '$120K', progress: 93, deals: 42, performance: 'excellent' },
-		{ id: 'TM-006', name: 'Robert Miller', role: 'Sales Rep', email: 'robert@example.com', initials: 'RM', sales: '$68K', target: '$90K', progress: 76, deals: 25, performance: 'good' },
+		{
+			id: 'TM-001',
+			name: 'Sarah Wilson',
+			role: 'Sales Manager',
+			email: 'sarah@example.com',
+			initials: 'SW',
+			sales: '$142K',
+			target: '$150K',
+			progress: 95,
+			deals: 45,
+			performance: 'excellent',
+		},
+		{
+			id: 'TM-002',
+			name: 'Michael Chen',
+			role: 'Account Executive',
+			email: 'michael@example.com',
+			initials: 'MC',
+			sales: '$98K',
+			target: '$120K',
+			progress: 82,
+			deals: 38,
+			performance: 'good',
+		},
+		{
+			id: 'TM-003',
+			name: 'Emma Johnson',
+			role: 'Sales Rep',
+			email: 'emma@example.com',
+			initials: 'EJ',
+			sales: '$76K',
+			target: '$100K',
+			progress: 76,
+			deals: 28,
+			performance: 'good',
+		},
+		{
+			id: 'TM-004',
+			name: 'James Brown',
+			role: 'Sales Rep',
+			email: 'james@example.com',
+			initials: 'JB',
+			sales: '$54K',
+			target: '$90K',
+			progress: 60,
+			deals: 22,
+			performance: 'average',
+		},
+		{
+			id: 'TM-005',
+			name: 'Lisa Davis',
+			role: 'Account Executive',
+			email: 'lisa@example.com',
+			initials: 'LD',
+			sales: '$112K',
+			target: '$120K',
+			progress: 93,
+			deals: 42,
+			performance: 'excellent',
+		},
+		{
+			id: 'TM-006',
+			name: 'Robert Miller',
+			role: 'Sales Rep',
+			email: 'robert@example.com',
+			initials: 'RM',
+			sales: '$68K',
+			target: '$90K',
+			progress: 76,
+			deals: 25,
+			performance: 'good',
+		},
 	];
 
 	return (

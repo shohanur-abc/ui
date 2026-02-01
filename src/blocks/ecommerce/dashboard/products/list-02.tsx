@@ -44,7 +44,12 @@ interface DragHandleProps {
 	canMoveDown: boolean;
 }
 
-const DragHandle = ({ onMoveUp, onMoveDown, canMoveUp, canMoveDown }: DragHandleProps) => (
+const DragHandle = ({
+	onMoveUp,
+	onMoveDown,
+	canMoveUp,
+	canMoveDown,
+}: DragHandleProps) => (
 	<div className="flex flex-col items-center gap-0.5">
 		<Button
 			variant="ghost"
@@ -118,7 +123,12 @@ interface ProductRowProps {
 	onToggleVisibility: (id: string, visible: boolean) => void;
 	onMoveUp: (id: string) => void;
 	onMoveDown: (id: string) => void;
-	actions: { label: string; icon: React.ElementType; onClick: (id: string) => void; variant?: 'destructive' }[];
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		onClick: (id: string) => void;
+		variant?: 'destructive';
+	}[];
 	labels: { salesRank: string };
 }
 
@@ -146,7 +156,11 @@ const ProductRow = ({
 		<PositionBadge position={product.position} />
 		<div className="size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
 			{product.image ? (
-				<img src={product.image} alt={product.name} className="size-full object-cover" />
+				<img
+					src={product.image}
+					alt={product.name}
+					className="size-full object-cover"
+				/>
 			) : (
 				<div className="flex size-full items-center justify-center">
 					<Package className="size-8 text-muted-foreground" />
@@ -187,7 +201,9 @@ const ProductRow = ({
 						{action.variant === 'destructive' && <DropdownMenuSeparator />}
 						<DropdownMenuItem
 							onClick={() => action.onClick(product.id)}
-							className={action.variant === 'destructive' ? 'text-destructive' : ''}
+							className={
+								action.variant === 'destructive' ? 'text-destructive' : ''
+							}
 						>
 							<action.icon className="mr-2 size-4" />
 							{action.label}
@@ -205,7 +221,8 @@ export default function Main() {
 			id: '1',
 			name: 'Premium Wireless Earbuds',
 			sku: 'PWE-001',
-			image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=100&h=100&fit=crop',
 			price: 179.99,
 			stock: 89,
 			isVisible: true,
@@ -216,7 +233,8 @@ export default function Main() {
 			id: '2',
 			name: 'Smart Home Hub',
 			sku: 'SHH-002',
-			image: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=100&h=100&fit=crop',
 			price: 149.99,
 			stock: 45,
 			isVisible: true,
@@ -227,7 +245,8 @@ export default function Main() {
 			id: '3',
 			name: 'Portable Charger 20000mAh',
 			sku: 'PC-003',
-			image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=100&h=100&fit=crop',
 			price: 49.99,
 			stock: 156,
 			isVisible: true,
@@ -238,7 +257,8 @@ export default function Main() {
 			id: '4',
 			name: 'Mechanical Gaming Keyboard',
 			sku: 'MGK-004',
-			image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=100&h=100&fit=crop',
 			price: 159.99,
 			stock: 8,
 			isVisible: false,
@@ -249,7 +269,8 @@ export default function Main() {
 			id: '5',
 			name: 'Ultra-Wide Monitor 34"',
 			sku: 'UWM-005',
-			image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=100&h=100&fit=crop',
 			price: 599.99,
 			stock: 23,
 			isVisible: true,
@@ -260,7 +281,7 @@ export default function Main() {
 
 	const handleToggleVisibility = (id: string, visible: boolean) => {
 		setProducts((prev) =>
-			prev.map((p) => (p.id === id ? { ...p, isVisible: visible } : p))
+			prev.map((p) => (p.id === id ? { ...p, isVisible: visible } : p)),
 		);
 	};
 
@@ -270,7 +291,10 @@ export default function Main() {
 			if (index <= 0) return prev;
 
 			const newProducts = [...prev];
-			[newProducts[index - 1], newProducts[index]] = [newProducts[index], newProducts[index - 1]];
+			[newProducts[index - 1], newProducts[index]] = [
+				newProducts[index],
+				newProducts[index - 1],
+			];
 			return newProducts.map((p, i) => ({ ...p, position: i + 1 }));
 		});
 	};
@@ -281,15 +305,31 @@ export default function Main() {
 			if (index < 0 || index >= prev.length - 1) return prev;
 
 			const newProducts = [...prev];
-			[newProducts[index], newProducts[index + 1]] = [newProducts[index + 1], newProducts[index]];
+			[newProducts[index], newProducts[index + 1]] = [
+				newProducts[index + 1],
+				newProducts[index],
+			];
 			return newProducts.map((p, i) => ({ ...p, position: i + 1 }));
 		});
 	};
 
 	const actions = [
-		{ label: 'Edit', icon: Pencil, onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Duplicate', icon: Copy, onClick: (id: string) => console.log('Duplicate', id) },
-		{ label: 'Delete', icon: Trash2, onClick: (id: string) => console.log('Delete', id), variant: 'destructive' as const },
+		{
+			label: 'Edit',
+			icon: Pencil,
+			onClick: (id: string) => console.log('Edit', id),
+		},
+		{
+			label: 'Duplicate',
+			icon: Copy,
+			onClick: (id: string) => console.log('Duplicate', id),
+		},
+		{
+			label: 'Delete',
+			icon: Trash2,
+			onClick: (id: string) => console.log('Delete', id),
+			variant: 'destructive' as const,
+		},
 	];
 
 	const labels = {

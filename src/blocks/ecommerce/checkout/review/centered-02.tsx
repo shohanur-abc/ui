@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -71,9 +77,13 @@ const SummaryRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -85,7 +95,8 @@ export default function Main() {
 			variant: 'Lavender / 3-Pack',
 			price: 44.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -93,7 +104,8 @@ export default function Main() {
 			variant: 'Ceramic / White',
 			price: 59.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -101,7 +113,8 @@ export default function Main() {
 			variant: 'Starter Kit / 6-Pack',
 			price: 34.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1600493572977-6607a7d4b66a?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1600493572977-6607a7d4b66a?w=200&h=200&fit=crop',
 		},
 	];
 

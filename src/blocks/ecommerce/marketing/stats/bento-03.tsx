@@ -1,6 +1,13 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { TrendingUp, TrendingDown, Clock, DollarSign, Package, Percent } from 'lucide-react';
+import {
+	TrendingUp,
+	TrendingDown,
+	Clock,
+	DollarSign,
+	Package,
+	Percent,
+} from 'lucide-react';
 
 interface StatProps {
 	icon: React.ElementType;
@@ -11,21 +18,49 @@ interface StatProps {
 	size?: 'sm' | 'lg';
 }
 
-const StatCard = ({ icon: Icon, label, value, change, trend, size = 'sm' }: StatProps) => (
-	<Card className={`group relative overflow-hidden transition-all duration-300 hover:shadow-lg ${size === 'lg' ? 'p-8' : 'p-5'}`}>
+const StatCard = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	trend,
+	size = 'sm',
+}: StatProps) => (
+	<Card
+		className={`group relative overflow-hidden transition-all duration-300 hover:shadow-lg ${size === 'lg' ? 'p-8' : 'p-5'}`}
+	>
 		<div className="flex flex-col gap-4">
 			<div className="flex items-center justify-between">
-				<div className={`rounded-xl bg-primary/10 ${size === 'lg' ? 'p-4' : 'p-2.5'}`}>
-					<Icon className={`text-primary ${size === 'lg' ? 'size-6' : 'size-4'}`} />
+				<div
+					className={`rounded-xl bg-primary/10 ${size === 'lg' ? 'p-4' : 'p-2.5'}`}
+				>
+					<Icon
+						className={`text-primary ${size === 'lg' ? 'size-6' : 'size-4'}`}
+					/>
 				</div>
-				<Badge variant={trend === 'up' ? 'default' : 'destructive'} className="gap-1">
-					{trend === 'up' ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+				<Badge
+					variant={trend === 'up' ? 'default' : 'destructive'}
+					className="gap-1"
+				>
+					{trend === 'up' ? (
+						<TrendingUp className="size-3" />
+					) : (
+						<TrendingDown className="size-3" />
+					)}
 					{change}
 				</Badge>
 			</div>
 			<div className="space-y-1">
-				<p className={`font-bold tracking-tight ${size === 'lg' ? 'text-5xl' : 'text-2xl'}`}>{value}</p>
-				<p className={`text-muted-foreground ${size === 'lg' ? 'text-sm' : 'text-xs'}`}>{label}</p>
+				<p
+					className={`font-bold tracking-tight ${size === 'lg' ? 'text-5xl' : 'text-2xl'}`}
+				>
+					{value}
+				</p>
+				<p
+					className={`text-muted-foreground ${size === 'lg' ? 'text-sm' : 'text-xs'}`}
+				>
+					{label}
+				</p>
 			</div>
 		</div>
 	</Card>
@@ -33,10 +68,35 @@ const StatCard = ({ icon: Icon, label, value, change, trend, size = 'sm' }: Stat
 
 export default function Main() {
 	const stats: StatProps[] = [
-		{ icon: DollarSign, label: 'Gross Merchandise Value', value: '$4.8M', change: '+32%', trend: 'up', size: 'lg' },
-		{ icon: Package, label: 'Units Sold', value: '124K', change: '+18%', trend: 'up' },
-		{ icon: Percent, label: 'Profit Margin', value: '28.4%', change: '+2.1%', trend: 'up' },
-		{ icon: Clock, label: 'Avg. Fulfillment', value: '1.8 days', change: '-0.4', trend: 'up' },
+		{
+			icon: DollarSign,
+			label: 'Gross Merchandise Value',
+			value: '$4.8M',
+			change: '+32%',
+			trend: 'up',
+			size: 'lg',
+		},
+		{
+			icon: Package,
+			label: 'Units Sold',
+			value: '124K',
+			change: '+18%',
+			trend: 'up',
+		},
+		{
+			icon: Percent,
+			label: 'Profit Margin',
+			value: '28.4%',
+			change: '+2.1%',
+			trend: 'up',
+		},
+		{
+			icon: Clock,
+			label: 'Avg. Fulfillment',
+			value: '1.8 days',
+			change: '-0.4',
+			trend: 'up',
+		},
 	];
 
 	return (

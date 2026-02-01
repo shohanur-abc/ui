@@ -158,8 +158,18 @@ export default function Main() {
 	];
 
 	const formFields: AddressField[] = [
-		{ id: 'fullName', label: 'Full Name', placeholder: 'Enter full name', colSpan: 2 },
-		{ id: 'street', label: 'Street Address', placeholder: 'Enter street address', colSpan: 2 },
+		{
+			id: 'fullName',
+			label: 'Full Name',
+			placeholder: 'Enter full name',
+			colSpan: 2,
+		},
+		{
+			id: 'street',
+			label: 'Street Address',
+			placeholder: 'Enter street address',
+			colSpan: 2,
+		},
 		{ id: 'city', label: 'City', placeholder: 'Enter city' },
 		{ id: 'state', label: 'State / Province', placeholder: 'Enter state' },
 		{ id: 'zip', label: 'Postal Code', placeholder: 'Enter postal code' },
@@ -190,7 +200,9 @@ export default function Main() {
 									</div>
 									<div>
 										<CardTitle>Shipping Addresses</CardTitle>
-										<CardDescription>Manage your shipping addresses</CardDescription>
+										<CardDescription>
+											Manage your shipping addresses
+										</CardDescription>
 									</div>
 								</div>
 								<Button size="sm" className="gap-2">
@@ -200,7 +212,10 @@ export default function Main() {
 							</div>
 						</CardHeader>
 						<CardContent className="pt-6">
-							<RadioGroup defaultValue="home" className="grid gap-4 @md:grid-cols-3">
+							<RadioGroup
+								defaultValue="home"
+								className="grid gap-4 @md:grid-cols-3"
+							>
 								{addresses.map((address) => (
 									<AddressCard key={address.id} {...address} />
 								))}
@@ -211,7 +226,9 @@ export default function Main() {
 					<Card>
 						<CardHeader className="border-b">
 							<CardTitle>Add New Address</CardTitle>
-							<CardDescription>Enter the details for a new shipping address</CardDescription>
+							<CardDescription>
+								Enter the details for a new shipping address
+							</CardDescription>
 						</CardHeader>
 						<CardContent className="pt-6">
 							<div className="grid gap-4 @sm:grid-cols-2">

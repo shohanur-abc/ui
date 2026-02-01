@@ -14,11 +14,14 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
-	ChartConfig,
-	ChartContainer,
-} from '@/components/ui/chart';
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
+import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 
@@ -46,7 +49,11 @@ const OKRCard = ({ objective, keyResults, overallProgress }: OKRItem) => (
 				<CardTitle className="text-base">{objective}</CardTitle>
 				<Badge
 					variant="secondary"
-					className={overallProgress >= 70 ? 'bg-emerald-500/10 text-emerald-500' : 'bg-amber-500/10 text-amber-500'}
+					className={
+						overallProgress >= 70
+							? 'bg-emerald-500/10 text-emerald-500'
+							: 'bg-amber-500/10 text-amber-500'
+					}
 				>
 					{overallProgress}%
 				</Badge>
@@ -115,10 +122,30 @@ export default function Main() {
 	];
 
 	const summaryKpis: SummaryKpi[] = [
-		{ title: 'OKRs On Track', value: '8/9', icon: Target, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'Avg Completion', value: '83%', icon: Percent, color: 'bg-primary/10 text-primary' },
-		{ title: 'Days Remaining', value: '21', icon: Timer, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Team Velocity', value: '+15%', icon: TrendingUp, color: 'bg-blue-500/10 text-blue-500' },
+		{
+			title: 'OKRs On Track',
+			value: '8/9',
+			icon: Target,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'Avg Completion',
+			value: '83%',
+			icon: Percent,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'Days Remaining',
+			value: '21',
+			icon: Timer,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Team Velocity',
+			value: '+15%',
+			icon: TrendingUp,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
 	];
 
 	const pieData = okrs.map((okr, i) => ({
@@ -148,7 +175,10 @@ export default function Main() {
 								<CardDescription>Progress by objective</CardDescription>
 							</CardHeader>
 							<CardContent className="flex flex-col items-center">
-								<ChartContainer config={chartConfig} className="h-[200px] w-[200px]">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[200px] w-[200px]"
+								>
 									<PieChart>
 										<Pie
 											data={pieData}
@@ -165,15 +195,22 @@ export default function Main() {
 								</ChartContainer>
 								<div className="mt-6 w-full space-y-3">
 									{okrs.map((okr, i) => (
-										<div key={i} className="flex items-center justify-between text-sm">
+										<div
+											key={i}
+											className="flex items-center justify-between text-sm"
+										>
 											<div className="flex items-center gap-2">
 												<div
 													className="size-3 rounded-full"
 													style={{ backgroundColor: `var(--chart-${i + 1})` }}
 												/>
-												<span className="truncate max-w-[140px]">{okr.objective}</span>
+												<span className="truncate max-w-[140px]">
+													{okr.objective}
+												</span>
 											</div>
-											<span className="font-medium">{okr.overallProgress}%</span>
+											<span className="font-medium">
+												{okr.overallProgress}%
+											</span>
 										</div>
 									))}
 								</div>

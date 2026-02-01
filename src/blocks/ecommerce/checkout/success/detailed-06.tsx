@@ -92,11 +92,15 @@ const PointsBalanceCard = ({
 				</div>
 				<div className="p-4 rounded-xl bg-white/10">
 					<p className="text-sm opacity-80">Pending</p>
-					<p className="text-3xl font-bold">+{pendingPoints.toLocaleString()}</p>
+					<p className="text-3xl font-bold">
+						+{pendingPoints.toLocaleString()}
+					</p>
 				</div>
 				<div className="p-4 rounded-xl bg-white/10">
 					<p className="text-sm opacity-80">Lifetime</p>
-					<p className="text-3xl font-bold">{lifetimePoints.toLocaleString()}</p>
+					<p className="text-3xl font-bold">
+						{lifetimePoints.toLocaleString()}
+					</p>
 				</div>
 			</div>
 		</CardContent>
@@ -165,7 +169,9 @@ const TierProgressCard = ({
 		</CardHeader>
 		<CardContent className="space-y-4">
 			<div className="flex items-center gap-4">
-				<div className={`size-16 rounded-2xl ${color} flex items-center justify-center`}>
+				<div
+					className={`size-16 rounded-2xl ${color} flex items-center justify-center`}
+				>
 					<Icon className="size-8 text-white" />
 				</div>
 				<div>
@@ -241,7 +247,9 @@ const RecentActivityCard = ({
 						<p className="font-medium">{activity.action}</p>
 						<p className="text-xs text-muted-foreground">{activity.date}</p>
 					</div>
-					<span className="text-emerald-600 font-medium">+{activity.points}</span>
+					<span className="text-emerald-600 font-medium">
+						+{activity.points}
+					</span>
 				</div>
 			))}
 		</CardContent>

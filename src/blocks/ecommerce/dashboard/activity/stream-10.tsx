@@ -56,10 +56,16 @@ const AlertIcon = ({ type }: { type: AlertItem['type'] }) => {
 		{ icon: LucideIcon; className: string }
 	> = {
 		order: { icon: ShoppingCart, className: 'bg-blue-500/20 text-blue-400' },
-		payment: { icon: CreditCard, className: 'bg-emerald-500/20 text-emerald-400' },
+		payment: {
+			icon: CreditCard,
+			className: 'bg-emerald-500/20 text-emerald-400',
+		},
 		shipping: { icon: Package, className: 'bg-purple-500/20 text-purple-400' },
 		review: { icon: Star, className: 'bg-amber-500/20 text-amber-400' },
-		stock: { icon: AlertTriangle, className: 'bg-orange-500/20 text-orange-400' },
+		stock: {
+			icon: AlertTriangle,
+			className: 'bg-orange-500/20 text-orange-400',
+		},
 		system: { icon: Bell, className: 'bg-muted text-muted-foreground' },
 	};
 
@@ -74,7 +80,11 @@ const AlertIcon = ({ type }: { type: AlertItem['type'] }) => {
 	);
 };
 
-const PriorityIndicator = ({ priority }: { priority: AlertItem['priority'] }) => {
+const PriorityIndicator = ({
+	priority,
+}: {
+	priority: AlertItem['priority'];
+}) => {
 	const config = {
 		critical: 'bg-rose-400',
 		warning: 'bg-amber-400',
@@ -182,7 +192,9 @@ const AlertStats = ({ stats }: { stats: AlertStreamProps['stats'] }) => (
 		<div className="flex items-center gap-3 p-3 rounded-lg bg-rose-500/10 border border-rose-500/20">
 			<AlertTriangle className="size-5 text-rose-400" />
 			<div>
-				<span className="text-xl font-bold text-rose-400">{stats.critical}</span>
+				<span className="text-xl font-bold text-rose-400">
+					{stats.critical}
+				</span>
 				<span className="text-xs text-muted-foreground block">Critical</span>
 			</div>
 		</div>
@@ -237,7 +249,8 @@ export default function Main() {
 			type: 'payment',
 			priority: 'critical',
 			title: 'Payment Failed',
-			message: 'A high-value order payment was declined by the payment processor.',
+			message:
+				'A high-value order payment was declined by the payment processor.',
 			data: {
 				orderId: 'ORD-2024-0892',
 				amount: '$1,299.00',
@@ -252,7 +265,8 @@ export default function Main() {
 			type: 'stock',
 			priority: 'warning',
 			title: 'Low Stock Alert',
-			message: 'Premium Wireless Headphones is running low on stock (5 remaining).',
+			message:
+				'Premium Wireless Headphones is running low on stock (5 remaining).',
 			data: { productName: 'Premium Wireless Headphones' },
 			actions: { primary: 'Reorder', secondary: 'Dismiss' },
 			timestamp: '15 min ago',
@@ -292,7 +306,8 @@ export default function Main() {
 			type: 'shipping',
 			priority: 'warning',
 			title: 'Delivery Exception',
-			message: 'A shipment has been marked as undeliverable and is being returned.',
+			message:
+				'A shipment has been marked as undeliverable and is being returned.',
 			data: { orderId: 'ORD-2024-0845' },
 			actions: { primary: 'Track Package', secondary: 'Contact Carrier' },
 			timestamp: '2 hours ago',

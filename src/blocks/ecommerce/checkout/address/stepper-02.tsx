@@ -120,9 +120,7 @@ const ContactStep = () => (
 			</div>
 			<div>
 				<h2 className="text-xl font-bold">Contact Details</h2>
-				<p className="text-sm text-muted-foreground">
-					How can we reach you?
-				</p>
+				<p className="text-sm text-muted-foreground">How can we reach you?</p>
 			</div>
 		</div>
 		<div className="grid @sm:grid-cols-2 gap-4">
@@ -188,9 +186,7 @@ const ConfirmStep = () => (
 			</div>
 			<div>
 				<h2 className="text-xl font-bold">Confirm Details</h2>
-				<p className="text-sm text-muted-foreground">
-					Review your information
-				</p>
+				<p className="text-sm text-muted-foreground">Review your information</p>
 			</div>
 		</div>
 		<Card className="bg-muted/30">
@@ -239,7 +235,9 @@ export default function Main() {
 				<Card>
 					<CardContent className="pt-6">
 						{step === 1 && <ContactStep />}
-						{step === 2 && <AddressStep countries={countries} states={states} />}
+						{step === 2 && (
+							<AddressStep countries={countries} states={states} />
+						)}
 						{step === 3 && <ConfirmStep />}
 					</CardContent>
 				</Card>

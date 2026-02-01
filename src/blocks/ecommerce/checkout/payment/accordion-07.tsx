@@ -1,11 +1,32 @@
 'use client';
 
-import { ArrowRight, Clock, CreditCard, Gift, Lock, Percent, RefreshCcw, Shield, Star, Zap } from 'lucide-react';
+import {
+	ArrowRight,
+	Clock,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	RefreshCcw,
+	Shield,
+	Star,
+	Zap,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -24,7 +45,10 @@ interface SubscriptionPlan {
 
 const SubscriptionPlansContent = ({ plans }: { plans: SubscriptionPlan[] }) => (
 	<div className="space-y-3 pt-4">
-		<RadioGroup defaultValue={plans.find(p => p.popular)?.id || plans[0].id} className="space-y-3">
+		<RadioGroup
+			defaultValue={plans.find((p) => p.popular)?.id || plans[0].id}
+			className="space-y-3"
+		>
 			{plans.map((plan) => (
 				<Label
 					key={plan.id}
@@ -43,9 +67,15 @@ const SubscriptionPlansContent = ({ plans }: { plans: SubscriptionPlan[] }) => (
 					<div className="flex-1">
 						<div className="flex items-center gap-2">
 							<span className="font-medium">{plan.name}</span>
-							{plan.savings && <Badge variant="secondary" className="text-xs text-emerald-600">{plan.savings}</Badge>}
+							{plan.savings && (
+								<Badge variant="secondary" className="text-xs text-emerald-600">
+									{plan.savings}
+								</Badge>
+							)}
 						</div>
-						<p className="text-xs text-muted-foreground">Billed {plan.interval}</p>
+						<p className="text-xs text-muted-foreground">
+							Billed {plan.interval}
+						</p>
 					</div>
 					<div className="text-right">
 						<span className="font-bold">{plan.price}</span>
@@ -57,10 +87,20 @@ const SubscriptionPlansContent = ({ plans }: { plans: SubscriptionPlan[] }) => (
 	</div>
 );
 
-const BenefitsContent = ({ benefits }: { benefits: { icon: React.ComponentType<{ className?: string }>; text: string }[] }) => (
+const BenefitsContent = ({
+	benefits,
+}: {
+	benefits: {
+		icon: React.ComponentType<{ className?: string }>;
+		text: string;
+	}[];
+}) => (
 	<div className="space-y-3 pt-4">
 		{benefits.map((benefit, index) => (
-			<div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
+			<div
+				key={index}
+				className="flex items-center gap-3 p-3 rounded-lg bg-muted/30"
+			>
 				<div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
 					<benefit.icon className="size-4 text-primary" />
 				</div>
@@ -95,7 +135,9 @@ const PaymentMethodContent = () => (
 		</div>
 		<div className="p-3 rounded-lg bg-muted/30 flex items-center gap-2">
 			<RefreshCcw className="size-4 text-muted-foreground" />
-			<span className="text-sm text-muted-foreground">Card will be charged automatically each billing period</span>
+			<span className="text-sm text-muted-foreground">
+				Card will be charged automatically each billing period
+			</span>
 		</div>
 	</div>
 );
@@ -124,7 +166,9 @@ const TrialContent = () => (
 		</div>
 		<div className="flex items-center gap-3">
 			<Checkbox id="remind" defaultChecked />
-			<Label htmlFor="remind" className="text-sm cursor-pointer">Remind me 2 days before trial ends</Label>
+			<Label htmlFor="remind" className="text-sm cursor-pointer">
+				Remind me 2 days before trial ends
+			</Label>
 		</div>
 	</div>
 );
@@ -163,13 +207,28 @@ const TermsContent = () => (
 		<div className="flex items-start gap-3">
 			<Checkbox id="terms" className="mt-0.5" />
 			<Label htmlFor="terms" className="text-sm cursor-pointer">
-				I agree to the <a href="#" className="text-primary underline">Terms of Service</a> and <a href="#" className="text-primary underline">Privacy Policy</a>
+				I agree to the{' '}
+				<a href="#" className="text-primary underline">
+					Terms of Service
+				</a>{' '}
+				and{' '}
+				<a href="#" className="text-primary underline">
+					Privacy Policy
+				</a>
 			</Label>
 		</div>
 	</div>
 );
 
-const SubscriptionSummary = ({ plan, firstCharge, nextCharge }: { plan: string; firstCharge: string; nextCharge: string }) => (
+const SubscriptionSummary = ({
+	plan,
+	firstCharge,
+	nextCharge,
+}: {
+	plan: string;
+	firstCharge: string;
+	nextCharge: string;
+}) => (
 	<div className="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-3">
 		<div className="flex items-center justify-between">
 			<span className="font-medium">{plan}</span>
@@ -205,9 +264,29 @@ const SubscribeButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const plans: SubscriptionPlan[] = [
-		{ id: 'monthly', name: 'Monthly', interval: 'every month', price: '$14.99', perMonth: '$14.99' },
-		{ id: 'yearly', name: 'Yearly', interval: 'every 12 months', price: '$119.99', perMonth: '$9.99', savings: 'Save 33%', popular: true },
-		{ id: 'lifetime', name: 'Lifetime', interval: 'one-time payment', price: '$299.99', perMonth: 'Forever' },
+		{
+			id: 'monthly',
+			name: 'Monthly',
+			interval: 'every month',
+			price: '$14.99',
+			perMonth: '$14.99',
+		},
+		{
+			id: 'yearly',
+			name: 'Yearly',
+			interval: 'every 12 months',
+			price: '$119.99',
+			perMonth: '$9.99',
+			savings: 'Save 33%',
+			popular: true,
+		},
+		{
+			id: 'lifetime',
+			name: 'Lifetime',
+			interval: 'one-time payment',
+			price: '$299.99',
+			perMonth: 'Forever',
+		},
 	];
 
 	const benefits = [
@@ -231,7 +310,11 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Accordion type="multiple" defaultValue={['plans', 'benefits']} className="w-full">
+						<Accordion
+							type="multiple"
+							defaultValue={['plans', 'benefits']}
+							className="w-full"
+						>
 							<AccordionItem value="plans">
 								<AccordionTrigger className="hover:no-underline">
 									<div className="flex items-center gap-2">
@@ -270,7 +353,9 @@ export default function Main() {
 									<div className="flex items-center gap-2">
 										<Zap className="size-4" />
 										<span className="font-medium">Free Trial</span>
-										<Badge variant="secondary" className="text-xs">7 Days</Badge>
+										<Badge variant="secondary" className="text-xs">
+											7 Days
+										</Badge>
 									</div>
 								</AccordionTrigger>
 								<AccordionContent>
@@ -302,7 +387,11 @@ export default function Main() {
 						</Accordion>
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
-						<SubscriptionSummary plan="Yearly Plan" firstCharge="$119.99/year" nextCharge="Jan 15, 2026" />
+						<SubscriptionSummary
+							plan="Yearly Plan"
+							firstCharge="$119.99/year"
+							nextCharge="Jan 15, 2026"
+						/>
 						<SubscribeButton label="Start Free Trial" />
 					</CardFooter>
 				</Card>

@@ -56,10 +56,7 @@ const TotalRow = ({ label, value }: { label: string; value: string }) => (
 	</div>
 );
 
-const Header = ({
-	title,
-	itemCount,
-}: { title: string; itemCount: number }) => (
+const Header = ({ title, itemCount }: { title: string; itemCount: number }) => (
 	<CardHeader className="border-b">
 		<CardTitle className="flex items-center justify-between">
 			{title}
@@ -94,7 +91,11 @@ const CheckoutButton = ({
 	label,
 	href,
 	sublabel,
-}: { label: string; href: string; sublabel: string }) => (
+}: {
+	label: string;
+	href: string;
+	sublabel: string;
+}) => (
 	<div className="space-y-2">
 		<Button className="w-full" size="lg" asChild>
 			<Link href={href}>{label}</Link>

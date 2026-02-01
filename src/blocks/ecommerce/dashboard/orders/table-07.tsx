@@ -55,19 +55,26 @@ interface ItemRowProps {
 }
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
-	const variants: Record<Order['status'], 'default' | 'secondary' | 'outline'> = {
-		processing: 'secondary',
-		shipped: 'default',
-		delivered: 'default',
-	};
-	return <Badge variant={variants[status]} className="capitalize">{status}</Badge>;
+	const variants: Record<Order['status'], 'default' | 'secondary' | 'outline'> =
+		{
+			processing: 'secondary',
+			shipped: 'default',
+			delivered: 'default',
+		};
+	return (
+		<Badge variant={variants[status]} className="capitalize">
+			{status}
+		</Badge>
+	);
 };
 
 const ItemRow = ({ item }: ItemRowProps) => (
 	<div className="flex items-center gap-4 py-3">
 		<Avatar className="size-12 rounded-lg">
 			<AvatarImage src={item.image} alt={item.name} />
-			<AvatarFallback className="rounded-lg bg-muted text-xs">{item.name.substring(0, 2)}</AvatarFallback>
+			<AvatarFallback className="rounded-lg bg-muted text-xs">
+				{item.name.substring(0, 2)}
+			</AvatarFallback>
 		</Avatar>
 		<div className="flex-1 min-w-0">
 			<p className="font-medium truncate">{item.name}</p>
@@ -96,11 +103,15 @@ const ExpandedDetails = ({ order, labels }: ExpandedDetailsProps) => (
 				<Separator className="my-3" />
 				<div className="space-y-1.5 text-sm">
 					<div className="flex justify-between">
-						<span className="text-muted-foreground">{labels.subtotalLabel}</span>
+						<span className="text-muted-foreground">
+							{labels.subtotalLabel}
+						</span>
 						<span>{order.subtotal}</span>
 					</div>
 					<div className="flex justify-between">
-						<span className="text-muted-foreground">{labels.shippingLabel}</span>
+						<span className="text-muted-foreground">
+							{labels.shippingLabel}
+						</span>
 						<span>{order.shipping}</span>
 					</div>
 					<div className="flex justify-between font-semibold pt-1.5 border-t border-border/50">
@@ -116,7 +127,9 @@ const ExpandedDetails = ({ order, labels }: ExpandedDetailsProps) => (
 				</h4>
 				<div className="space-y-2 text-sm">
 					<p className="font-medium">{order.customer.name}</p>
-					<p className="text-muted-foreground whitespace-pre-line">{order.address}</p>
+					<p className="text-muted-foreground whitespace-pre-line">
+						{order.address}
+					</p>
 					<p className="flex items-center gap-2 text-muted-foreground">
 						<Phone className="size-3.5" />
 						{order.customer.phone}
@@ -130,7 +143,10 @@ const ExpandedDetails = ({ order, labels }: ExpandedDetailsProps) => (
 				</h4>
 				<div className="space-y-2 text-sm">
 					<p className="text-muted-foreground">{order.paymentMethod}</p>
-					<Badge variant="outline" className="bg-accent/10 text-accent border-accent/20">
+					<Badge
+						variant="outline"
+						className="bg-accent/10 text-accent border-accent/20"
+					>
 						Paid
 					</Badge>
 				</div>
@@ -139,20 +155,32 @@ const ExpandedDetails = ({ order, labels }: ExpandedDetailsProps) => (
 	</div>
 );
 
-const ExpandableOrderRow = ({ order, labels }: { order: Order; labels: ExpandedDetailsProps['labels'] }) => (
+const ExpandableOrderRow = ({
+	order,
+	labels,
+}: {
+	order: Order;
+	labels: ExpandedDetailsProps['labels'];
+}) => (
 	<Collapsible asChild>
 		<>
 			<TableRow className="hover:bg-muted/30 transition-colors">
 				<TableCell>
 					<CollapsibleTrigger asChild>
-						<Button variant="ghost" size="icon-sm" className="hover:bg-muted data-[state=open]:rotate-180 transition-transform">
+						<Button
+							variant="ghost"
+							size="icon-sm"
+							className="hover:bg-muted data-[state=open]:rotate-180 transition-transform"
+						>
 							<ChevronDown className="size-4" />
 						</Button>
 					</CollapsibleTrigger>
 				</TableCell>
 				<TableCell className="font-mono text-sm">{order.id}</TableCell>
 				<TableCell className="font-medium">{order.customer.name}</TableCell>
-				<TableCell className="text-muted-foreground">{order.customer.email}</TableCell>
+				<TableCell className="text-muted-foreground">
+					{order.customer.email}
+				</TableCell>
 				<TableCell className="font-semibold">{order.total}</TableCell>
 				<TableCell>
 					<StatusBadge status={order.status} />
@@ -183,10 +211,27 @@ export default function Main() {
 	const orders: Order[] = [
 		{
 			id: 'ORD-5001',
-			customer: { name: 'Alex Johnson', email: 'alex@example.com', phone: '+1 (555) 123-4567', initials: 'AJ' },
+			customer: {
+				name: 'Alex Johnson',
+				email: 'alex@example.com',
+				phone: '+1 (555) 123-4567',
+				initials: 'AJ',
+			},
 			items: [
-				{ name: 'Wireless Mouse Pro', sku: 'WMP-001', quantity: 1, price: '$79.99', image: '' },
-				{ name: 'USB-C Cable 2m', sku: 'USC-002', quantity: 2, price: '$29.98', image: '' },
+				{
+					name: 'Wireless Mouse Pro',
+					sku: 'WMP-001',
+					quantity: 1,
+					price: '$79.99',
+					image: '',
+				},
+				{
+					name: 'USB-C Cable 2m',
+					sku: 'USC-002',
+					quantity: 2,
+					price: '$29.98',
+					image: '',
+				},
 			],
 			subtotal: '$109.97',
 			shipping: '$9.99',
@@ -198,9 +243,20 @@ export default function Main() {
 		},
 		{
 			id: 'ORD-5002',
-			customer: { name: 'Sarah Miller', email: 'sarah@example.com', phone: '+1 (555) 987-6543', initials: 'SM' },
+			customer: {
+				name: 'Sarah Miller',
+				email: 'sarah@example.com',
+				phone: '+1 (555) 987-6543',
+				initials: 'SM',
+			},
 			items: [
-				{ name: 'Mechanical Keyboard', sku: 'MKB-003', quantity: 1, price: '$149.00', image: '' },
+				{
+					name: 'Mechanical Keyboard',
+					sku: 'MKB-003',
+					quantity: 1,
+					price: '$149.00',
+					image: '',
+				},
 			],
 			subtotal: '$149.00',
 			shipping: '$0.00',
@@ -212,11 +268,34 @@ export default function Main() {
 		},
 		{
 			id: 'ORD-5003',
-			customer: { name: 'Mike Davis', email: 'mike@example.com', phone: '+1 (555) 456-7890', initials: 'MD' },
+			customer: {
+				name: 'Mike Davis',
+				email: 'mike@example.com',
+				phone: '+1 (555) 456-7890',
+				initials: 'MD',
+			},
 			items: [
-				{ name: 'Monitor Stand', sku: 'MST-004', quantity: 1, price: '$89.00', image: '' },
-				{ name: 'Desk Lamp LED', sku: 'DLL-005', quantity: 1, price: '$45.00', image: '' },
-				{ name: 'Mouse Pad XL', sku: 'MPX-006', quantity: 1, price: '$25.00', image: '' },
+				{
+					name: 'Monitor Stand',
+					sku: 'MST-004',
+					quantity: 1,
+					price: '$89.00',
+					image: '',
+				},
+				{
+					name: 'Desk Lamp LED',
+					sku: 'DLL-005',
+					quantity: 1,
+					price: '$45.00',
+					image: '',
+				},
+				{
+					name: 'Mouse Pad XL',
+					sku: 'MPX-006',
+					quantity: 1,
+					price: '$25.00',
+					image: '',
+				},
 			],
 			subtotal: '$159.00',
 			shipping: '$12.99',
@@ -244,7 +323,11 @@ export default function Main() {
 						</TableHeader>
 						<TableBody>
 							{orders.map((order) => (
-								<ExpandableOrderRow key={order.id} order={order} labels={labels} />
+								<ExpandableOrderRow
+									key={order.id}
+									order={order}
+									labels={labels}
+								/>
 							))}
 						</TableBody>
 					</Table>

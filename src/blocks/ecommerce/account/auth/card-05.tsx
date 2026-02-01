@@ -2,7 +2,14 @@ import Link from 'next/link';
 import { ArrowRight, Package, RefreshCw } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	InputOTP,
 	InputOTPGroup,
@@ -10,7 +17,13 @@ import {
 	InputOTPSeparator,
 } from '@/components/ui/input-otp';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -37,8 +50,19 @@ const OTPInput = () => (
 	</div>
 );
 
-const ResendButton = ({ label, countdown }: { label: string; countdown?: number }) => (
-	<Button type="button" variant="ghost" className="gap-2" disabled={!!countdown}>
+const ResendButton = ({
+	label,
+	countdown,
+}: {
+	label: string;
+	countdown?: number;
+}) => (
+	<Button
+		type="button"
+		variant="ghost"
+		className="gap-2"
+		disabled={!!countdown}
+	>
 		<RefreshCw className="size-4" />
 		{countdown ? `Resend in ${countdown}s` : label}
 	</Button>
@@ -71,7 +95,9 @@ export default function Main() {
 						<CardTitle className="text-2xl">Verify your email</CardTitle>
 						<CardDescription>
 							We&apos;ve sent a 6-digit code to{' '}
-							<span className="font-medium text-foreground">john@example.com</span>
+							<span className="font-medium text-foreground">
+								john@example.com
+							</span>
 						</CardDescription>
 					</CardHeader>
 					<CardContent>

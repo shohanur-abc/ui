@@ -10,11 +10,14 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
-	ChartConfig,
-	ChartContainer,
-} from '@/components/ui/chart';
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
+import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 import { Progress } from '@/components/ui/progress';
 
 type TaskStat = {
@@ -76,10 +79,30 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const stats: TaskStat[] = [
-		{ title: 'Total Tasks', value: 156, icon: ListTodo, color: 'bg-primary/10 text-primary' },
-		{ title: 'Completed', value: 98, icon: CheckCircle2, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'In Progress', value: 42, icon: Clock, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Scheduled', value: 16, icon: Calendar, color: 'bg-blue-500/10 text-blue-500' },
+		{
+			title: 'Total Tasks',
+			value: 156,
+			icon: ListTodo,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'Completed',
+			value: 98,
+			icon: CheckCircle2,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'In Progress',
+			value: 42,
+			icon: Clock,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Scheduled',
+			value: 16,
+			icon: Calendar,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
 	];
 
 	const categories: TaskCategory[] = [
@@ -134,11 +157,16 @@ export default function Main() {
 								<div className="flex-1 space-y-4">
 									<div>
 										<p className="text-4xl font-bold">{completionRate}%</p>
-										<p className="text-sm text-muted-foreground">Completion Rate</p>
+										<p className="text-sm text-muted-foreground">
+											Completion Rate
+										</p>
 									</div>
 									<div className="space-y-2">
 										{pieData.map((item, i) => (
-											<div key={i} className="flex items-center justify-between text-sm">
+											<div
+												key={i}
+												className="flex items-center justify-between text-sm"
+											>
 												<div className="flex items-center gap-2">
 													<div
 														className="size-2.5 rounded-full"

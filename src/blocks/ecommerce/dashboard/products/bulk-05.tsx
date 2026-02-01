@@ -17,12 +17,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
-} from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
 	Table,
 	TableBody,
@@ -149,8 +144,16 @@ interface ImportProgressProps {
 const ImportProgress = ({ progress, status, labels }: ImportProgressProps) => {
 	const config = {
 		idle: { icon: Upload, color: 'text-muted-foreground', label: '' },
-		processing: { icon: Loader2, color: 'text-primary animate-spin', label: labels.processing },
-		complete: { icon: CheckCircle2, color: 'text-emerald-500', label: labels.complete },
+		processing: {
+			icon: Loader2,
+			color: 'text-primary animate-spin',
+			label: labels.processing,
+		},
+		complete: {
+			icon: CheckCircle2,
+			color: 'text-emerald-500',
+			label: labels.complete,
+		},
 		error: { icon: XCircle, color: 'text-red-500', label: labels.error },
 	};
 
@@ -211,7 +214,9 @@ const ImportResults = ({ result, labels }: ImportResultsProps) => (
 								<TableRow key={idx}>
 									<TableCell className="font-medium">{error.row}</TableCell>
 									<TableCell>{error.field}</TableCell>
-									<TableCell className="text-red-500">{error.message}</TableCell>
+									<TableCell className="text-red-500">
+										{error.message}
+									</TableCell>
 								</TableRow>
 							))}
 						</TableBody>
@@ -224,21 +229,39 @@ const ImportResults = ({ result, labels }: ImportResultsProps) => (
 
 interface ExportOptionsProps {
 	onExport: (format: 'csv' | 'xlsx' | 'json') => void;
-	labels: { csv: string; xlsx: string; json: string; allProducts: string; selectedOnly: string };
+	labels: {
+		csv: string;
+		xlsx: string;
+		json: string;
+		allProducts: string;
+		selectedOnly: string;
+	};
 }
 
 const ExportOptions = ({ onExport, labels }: ExportOptionsProps) => (
 	<div className="space-y-4">
 		<div className="grid gap-3 @sm:grid-cols-3">
-			<Button variant="outline" className="gap-2" onClick={() => onExport('csv')}>
+			<Button
+				variant="outline"
+				className="gap-2"
+				onClick={() => onExport('csv')}
+			>
 				<FileSpreadsheet className="size-4" />
 				{labels.csv}
 			</Button>
-			<Button variant="outline" className="gap-2" onClick={() => onExport('xlsx')}>
+			<Button
+				variant="outline"
+				className="gap-2"
+				onClick={() => onExport('xlsx')}
+			>
 				<File className="size-4" />
 				{labels.xlsx}
 			</Button>
-			<Button variant="outline" className="gap-2" onClick={() => onExport('json')}>
+			<Button
+				variant="outline"
+				className="gap-2"
+				onClick={() => onExport('json')}
+			>
 				<File className="size-4" />
 				{labels.json}
 			</Button>
@@ -259,7 +282,9 @@ const ExportOptions = ({ onExport, labels }: ExportOptionsProps) => (
 export default function Main() {
 	const [activeTab, setActiveTab] = React.useState('import');
 	const [selectedFile, setSelectedFile] = React.useState<FileInfo | null>(null);
-	const [importStatus, setImportStatus] = React.useState<'idle' | 'processing' | 'complete' | 'error'>('idle');
+	const [importStatus, setImportStatus] = React.useState<
+		'idle' | 'processing' | 'complete' | 'error'
+	>('idle');
 	const [progress, setProgress] = React.useState(0);
 	const [result, setResult] = React.useState<ImportResult | null>(null);
 
@@ -288,7 +313,11 @@ export default function Main() {
 						errors: [
 							{ row: 23, field: 'price', message: 'Invalid price format' },
 							{ row: 45, field: 'sku', message: 'Duplicate SKU' },
-							{ row: 67, field: 'stock', message: 'Negative stock not allowed' },
+							{
+								row: 67,
+								field: 'stock',
+								message: 'Negative stock not allowed',
+							},
 						],
 					});
 					return 100;
@@ -353,7 +382,11 @@ export default function Main() {
 								{result && (
 									<ImportResults
 										result={result}
-										labels={{ total: 'Total Rows', success: 'Imported', failed: 'Failed' }}
+										labels={{
+											total: 'Total Rows',
+											success: 'Imported',
+											failed: 'Failed',
+										}}
 									/>
 								)}
 

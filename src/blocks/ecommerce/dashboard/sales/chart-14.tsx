@@ -49,8 +49,15 @@ const ComposedChartCard = ({
 		</CardHeader>
 		<CardContent>
 			<ChartContainer config={config} className="h-[300px] w-full">
-				<ComposedChart data={data} margin={{ top: 20, right: 30, bottom: 20, left: 20 }}>
-					<CartesianGrid strokeDasharray="3 3" className="stroke-border/50" vertical={false} />
+				<ComposedChart
+					data={data}
+					margin={{ top: 20, right: 30, bottom: 20, left: 20 }}
+				>
+					<CartesianGrid
+						strokeDasharray="3 3"
+						className="stroke-border/50"
+						vertical={false}
+					/>
 					<XAxis
 						dataKey="month"
 						tickLine={false}

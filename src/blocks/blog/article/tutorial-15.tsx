@@ -48,9 +48,7 @@ const Title = ({ text }: { text: string }) => (
 );
 
 const Description = ({ text }: { text: string }) => (
-	<p className="text-lg text-muted-foreground leading-relaxed">
-		{text}
-	</p>
+	<p className="text-lg text-muted-foreground leading-relaxed">{text}</p>
 );
 
 const AuthorMeta = ({
@@ -164,7 +162,8 @@ export default function Main() {
 			'A step-by-step guide to creating a RESTful API from scratch, covering setup, routing, middleware, and best practices.',
 		author: {
 			name: 'Kevin Zhang',
-			avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&h=100&fit=crop',
 			initials: 'KZ',
 		},
 		publishDate: 'January 24, 2026',
@@ -182,22 +181,26 @@ export default function Main() {
 			{
 				number: 1,
 				title: 'Project Setup and Dependencies',
-				content: 'Start by creating a new directory for your project and initializing it with npm. We\'ll install Express as our web framework, along with a few utility packages that will make development easier. Setting up proper project structure from the beginning will save you headaches as your API grows.',
+				content:
+					"Start by creating a new directory for your project and initializing it with npm. We'll install Express as our web framework, along with a few utility packages that will make development easier. Setting up proper project structure from the beginning will save you headaches as your API grows.",
 			},
 			{
 				number: 2,
 				title: 'Creating Your First Route',
-				content: 'Routes define how your API responds to client requests at specific endpoints. We\'ll create a basic GET route that returns a JSON response, then expand to include POST, PUT, and DELETE operations. Understanding the request-response cycle is fundamental to API development.',
+				content:
+					"Routes define how your API responds to client requests at specific endpoints. We'll create a basic GET route that returns a JSON response, then expand to include POST, PUT, and DELETE operations. Understanding the request-response cycle is fundamental to API development.",
 			},
 			{
 				number: 3,
 				title: 'Adding Middleware',
-				content: 'Middleware functions have access to the request and response objects and can execute code, modify the request/response, or end the request-response cycle. We\'ll implement common middleware for logging, parsing JSON bodies, and handling errors gracefully.',
+				content:
+					"Middleware functions have access to the request and response objects and can execute code, modify the request/response, or end the request-response cycle. We'll implement common middleware for logging, parsing JSON bodies, and handling errors gracefully.",
 			},
 			{
 				number: 4,
 				title: 'Structuring for Scale',
-				content: 'As your API grows, keeping all code in a single file becomes unmanageable. We\'ll refactor into a modular structure with separate files for routes, controllers, and utilities. This pattern makes your code more maintainable and testable.',
+				content:
+					"As your API grows, keeping all code in a single file becomes unmanageable. We'll refactor into a modular structure with separate files for routes, controllers, and utilities. This pattern makes your code more maintainable and testable.",
 			},
 		],
 	};
@@ -207,7 +210,10 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="grid @lg:grid-cols-[1fr_280px] gap-8 @xl:gap-12">
 					<div className="flex flex-col gap-6 @md:gap-8">
-						<TutorialBadge text={articleData.category} href={articleData.categoryHref} />
+						<TutorialBadge
+							text={articleData.category}
+							href={articleData.categoryHref}
+						/>
 						<Title text={articleData.title} />
 						<Description text={articleData.description} />
 						<AuthorMeta

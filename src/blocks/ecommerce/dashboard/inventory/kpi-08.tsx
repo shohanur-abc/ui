@@ -10,7 +10,13 @@ import {
 	Minus,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 type ComparisonKPIProps = {
@@ -22,14 +28,22 @@ type ComparisonKPIProps = {
 	trend: number[];
 };
 
-const ComparisonKPI = ({ title, current, previous, change, status, trend }: ComparisonKPIProps) => {
+const ComparisonKPI = ({
+	title,
+	current,
+	previous,
+	change,
+	status,
+	trend,
+}: ComparisonKPIProps) => {
 	const statusColors = {
 		up: 'text-emerald-500',
 		down: 'text-destructive',
 		neutral: 'text-muted-foreground',
 	};
 
-	const StatusIcon = status === 'up' ? ArrowUp : status === 'down' ? ArrowDown : Minus;
+	const StatusIcon =
+		status === 'up' ? ArrowUp : status === 'down' ? ArrowDown : Minus;
 
 	const maxTrend = Math.max(...trend);
 	const minTrend = Math.min(...trend);
@@ -46,7 +60,9 @@ const ComparisonKPI = ({ title, current, previous, change, status, trend }: Comp
 					</div>
 					<div>
 						<p className="text-xs text-muted-foreground">{previous.period}</p>
-						<p className="mt-1 text-2xl font-bold text-muted-foreground">{previous.value}</p>
+						<p className="mt-1 text-2xl font-bold text-muted-foreground">
+							{previous.value}
+						</p>
 					</div>
 				</div>
 				<div className="mt-4 flex items-center gap-2">
@@ -61,7 +77,10 @@ const ComparisonKPI = ({ title, current, previous, change, status, trend }: Comp
 						<div
 							key={index}
 							className="flex-1 rounded-t bg-primary/30"
-							style={{ height: `${((value - minTrend) / range) * 100}%`, minHeight: '10%' }}
+							style={{
+								height: `${((value - minTrend) / range) * 100}%`,
+								minHeight: '10%',
+							}}
 						/>
 					))}
 				</div>
@@ -110,8 +129,12 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<div className="mb-6">
-					<h2 className="text-xl font-semibold @lg:text-2xl">Period Comparison</h2>
-					<p className="text-sm text-muted-foreground">Compare KPIs across time periods</p>
+					<h2 className="text-xl font-semibold @lg:text-2xl">
+						Period Comparison
+					</h2>
+					<p className="text-sm text-muted-foreground">
+						Compare KPIs across time periods
+					</p>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 					{kpis.map((kpi) => (

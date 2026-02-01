@@ -28,7 +28,7 @@ const Content = ({ icon: Icon, title, description }: ContentProps) => (
 );
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
-	<form className="w-full @lg:w-auto @lg:min-w-[340px]">
+	<form className="w-full @lg:w-auto @lg:min-w-85">
 		<InputGroup className="h-12">
 			<Input
 				type="email"
@@ -55,7 +55,11 @@ export default function Main() {
 						title="Subscribe to business updates"
 						description="Get the latest insights and strategies delivered to your inbox."
 					/>
-					<Form placeholder="Enter your work email" buttonText="Subscribe" buttonIcon={ArrowRight} />
+					<Form
+						placeholder="Enter your work email"
+						buttonText="Subscribe"
+						buttonIcon={ArrowRight}
+					/>
 				</div>
 			</div>
 		</section>

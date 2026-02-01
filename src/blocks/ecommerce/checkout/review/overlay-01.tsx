@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowLeft,
@@ -27,7 +33,12 @@ interface OrderProduct {
 const OverlayItem = ({ product }: { product: OrderProduct }) => (
 	<div className="flex gap-4 rounded-xl bg-card p-4 shadow-sm">
 		<div className="relative size-20 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex flex-1 flex-col justify-between">
 			<div>
@@ -72,9 +83,13 @@ const PriceLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -86,7 +101,8 @@ export default function Main() {
 			variant: 'WiFi / White',
 			price: 129.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -94,12 +110,16 @@ export default function Main() {
 			variant: 'Pack of 3',
 			price: 49.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=200&h=200&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative min-h-screen overflow-hidden" data-theme="neon">
+		<section
+			className="@container relative min-h-screen overflow-hidden"
+			data-theme="neon"
+		>
 			<div className="absolute inset-0">
 				<Image
 					src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop"
@@ -141,10 +161,26 @@ export default function Main() {
 
 					<Card className="bg-card/80 backdrop-blur-sm">
 						<CardContent className="space-y-3 pt-6">
-							<InfoLine icon={MapPin} label="Shipping" value="Rachel K., Boston, MA 02101" />
-							<InfoLine icon={MapPin} label="Billing" value="Rachel K., Boston, MA 02101" />
-							<InfoLine icon={Truck} label="Delivery" value="Standard · Dec 23-26, 2025" />
-							<InfoLine icon={CreditCard} label="Payment" value="Visa •••• 3456" />
+							<InfoLine
+								icon={MapPin}
+								label="Shipping"
+								value="Rachel K., Boston, MA 02101"
+							/>
+							<InfoLine
+								icon={MapPin}
+								label="Billing"
+								value="Rachel K., Boston, MA 02101"
+							/>
+							<InfoLine
+								icon={Truck}
+								label="Delivery"
+								value="Standard · Dec 23-26, 2025"
+							/>
+							<InfoLine
+								icon={CreditCard}
+								label="Payment"
+								value="Visa •••• 3456"
+							/>
 						</CardContent>
 					</Card>
 

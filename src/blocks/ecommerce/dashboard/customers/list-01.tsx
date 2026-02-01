@@ -36,9 +36,18 @@ interface Customer {
 
 const StatusBadge = ({ status }: { status: Customer['status'] }) => {
 	const config = {
-		active: { label: 'Active', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		inactive: { label: 'Inactive', className: 'bg-slate-500/10 text-slate-400 border-slate-500/20' },
-		pending: { label: 'Pending', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
+		active: {
+			label: 'Active',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		inactive: {
+			label: 'Inactive',
+			className: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
+		},
+		pending: {
+			label: 'Pending',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[status].className}>
@@ -71,7 +80,10 @@ const PageHeader = ({
 		</div>
 		<div className="relative">
 			<Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
-			<Input placeholder="Search customers..." className="w-full pl-9 @lg:w-64" />
+			<Input
+				placeholder="Search customers..."
+				className="w-full pl-9 @lg:w-64"
+			/>
 		</div>
 	</div>
 );

@@ -95,11 +95,7 @@ const AppointmentSlot = ({ date, time, duration }: AppointmentSlotProps) => (
 	</Card>
 );
 
-const ServiceProvider = ({
-	name,
-	role,
-	rating,
-}: ServiceProviderProps) => (
+const ServiceProvider = ({ name, role, rating }: ServiceProviderProps) => (
 	<div className="p-4 rounded-xl bg-muted/50 border">
 		<div className="flex items-center gap-3">
 			<div className="size-12 rounded-full bg-muted flex items-center justify-center">
@@ -119,13 +115,7 @@ const ServiceProvider = ({
 	</div>
 );
 
-const LocationInfo = ({
-	name,
-	address,
-}: {
-	name: string;
-	address: string;
-}) => (
+const LocationInfo = ({ name, address }: { name: string; address: string }) => (
 	<div className="p-4 rounded-xl bg-muted/50 border">
 		<div className="flex items-start gap-3">
 			<MapPin className="size-5 text-muted-foreground shrink-0" />

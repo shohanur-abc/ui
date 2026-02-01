@@ -35,7 +35,12 @@ type DeviceBreakdownProps = {
 	sessions: string;
 };
 
-const DeviceBreakdown = ({ icon: Icon, device, percentage, sessions }: DeviceBreakdownProps) => (
+const DeviceBreakdown = ({
+	icon: Icon,
+	device,
+	percentage,
+	sessions,
+}: DeviceBreakdownProps) => (
 	<div className="space-y-2">
 		<div className="flex items-center justify-between">
 			<div className="flex items-center gap-2">
@@ -99,16 +104,46 @@ export default function Main() {
 								<AreaChart data={chartData} margin={{ left: 12, right: 12 }}>
 									<defs>
 										<linearGradient id="mobileGrad" x1="0" y1="0" x2="0" y2="1">
-											<stop offset="5%" stopColor="var(--color-mobile)" stopOpacity={0.5} />
-											<stop offset="95%" stopColor="var(--color-mobile)" stopOpacity={0} />
+											<stop
+												offset="5%"
+												stopColor="var(--color-mobile)"
+												stopOpacity={0.5}
+											/>
+											<stop
+												offset="95%"
+												stopColor="var(--color-mobile)"
+												stopOpacity={0}
+											/>
 										</linearGradient>
-										<linearGradient id="desktopGrad" x1="0" y1="0" x2="0" y2="1">
-											<stop offset="5%" stopColor="var(--color-desktop)" stopOpacity={0.5} />
-											<stop offset="95%" stopColor="var(--color-desktop)" stopOpacity={0} />
+										<linearGradient
+											id="desktopGrad"
+											x1="0"
+											y1="0"
+											x2="0"
+											y2="1"
+										>
+											<stop
+												offset="5%"
+												stopColor="var(--color-desktop)"
+												stopOpacity={0.5}
+											/>
+											<stop
+												offset="95%"
+												stopColor="var(--color-desktop)"
+												stopOpacity={0}
+											/>
 										</linearGradient>
 										<linearGradient id="tabletGrad" x1="0" y1="0" x2="0" y2="1">
-											<stop offset="5%" stopColor="var(--color-tablet)" stopOpacity={0.5} />
-											<stop offset="95%" stopColor="var(--color-tablet)" stopOpacity={0} />
+											<stop
+												offset="5%"
+												stopColor="var(--color-tablet)"
+												stopOpacity={0.5}
+											/>
+											<stop
+												offset="95%"
+												stopColor="var(--color-tablet)"
+												stopOpacity={0}
+											/>
 										</linearGradient>
 									</defs>
 									<CartesianGrid strokeDasharray="3 3" vertical={false} />

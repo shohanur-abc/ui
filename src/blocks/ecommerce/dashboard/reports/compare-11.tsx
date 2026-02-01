@@ -1,6 +1,13 @@
 'use client';
 
-import { ArrowUpRight, ArrowDownRight, DollarSign, Target, TrendingUp, ShoppingBag } from 'lucide-react';
+import {
+	ArrowUpRight,
+	ArrowDownRight,
+	DollarSign,
+	Target,
+	TrendingUp,
+	ShoppingBag,
+} from 'lucide-react';
 
 import {
 	Card,
@@ -19,7 +26,13 @@ type PlanMetricProps = {
 	status: 'on-track' | 'ahead' | 'behind';
 };
 
-const PlanMetric = ({ metric, actual, planned, variance, status }: PlanMetricProps) => (
+const PlanMetric = ({
+	metric,
+	actual,
+	planned,
+	variance,
+	status,
+}: PlanMetricProps) => (
 	<div className="flex items-center justify-between rounded-lg border border-border/30 bg-muted/20 p-4">
 		<div>
 			<p className="text-sm text-muted-foreground">{metric}</p>
@@ -39,10 +52,17 @@ const PlanMetric = ({ metric, actual, planned, variance, status }: PlanMetricPro
 							: 'border-amber-500/20 bg-amber-500/10 text-amber-500'
 				}
 			>
-				{status === 'ahead' ? <ArrowUpRight className="mr-1 size-3" /> : status === 'behind' ? <ArrowDownRight className="mr-1 size-3" /> : null}
-				{variance >= 0 ? '+' : ''}{variance}%
+				{status === 'ahead' ? (
+					<ArrowUpRight className="mr-1 size-3" />
+				) : status === 'behind' ? (
+					<ArrowDownRight className="mr-1 size-3" />
+				) : null}
+				{variance >= 0 ? '+' : ''}
+				{variance}%
 			</Badge>
-			<p className="mt-1 text-xs text-muted-foreground capitalize">{status.replace('-', ' ')}</p>
+			<p className="mt-1 text-xs text-muted-foreground capitalize">
+				{status.replace('-', ' ')}
+			</p>
 		</div>
 	</div>
 );
@@ -56,7 +76,14 @@ type GoalCardProps = {
 	daysLeft: number;
 };
 
-const GoalCard = ({ title, icon: Icon, progress, current, target, daysLeft }: GoalCardProps) => (
+const GoalCard = ({
+	title,
+	icon: Icon,
+	progress,
+	current,
+	target,
+	daysLeft,
+}: GoalCardProps) => (
 	<Card className="border-border/30 bg-card/60">
 		<CardContent className="p-5">
 			<div className="flex items-center gap-3">
@@ -81,7 +108,9 @@ const GoalCard = ({ title, icon: Icon, progress, current, target, daysLeft }: Go
 				<Badge variant="outline" className="text-xs">
 					{progress}% complete
 				</Badge>
-				<span className="text-xs text-muted-foreground">{daysLeft} days left</span>
+				<span className="text-xs text-muted-foreground">
+					{daysLeft} days left
+				</span>
 			</div>
 		</CardContent>
 	</Card>
@@ -89,17 +118,69 @@ const GoalCard = ({ title, icon: Icon, progress, current, target, daysLeft }: Go
 
 export default function Main() {
 	const metrics: PlanMetricProps[] = [
-		{ metric: 'Monthly Revenue', actual: '$1.24M', planned: '$1.15M', variance: 7.8, status: 'ahead' },
-		{ metric: 'New Customers', actual: '2,845', planned: '3,000', variance: -5.2, status: 'behind' },
-		{ metric: 'Conversion Rate', actual: '4.2%', planned: '4.0%', variance: 5.0, status: 'ahead' },
-		{ metric: 'Customer Retention', actual: '78%', planned: '80%', variance: -2.5, status: 'on-track' },
+		{
+			metric: 'Monthly Revenue',
+			actual: '$1.24M',
+			planned: '$1.15M',
+			variance: 7.8,
+			status: 'ahead',
+		},
+		{
+			metric: 'New Customers',
+			actual: '2,845',
+			planned: '3,000',
+			variance: -5.2,
+			status: 'behind',
+		},
+		{
+			metric: 'Conversion Rate',
+			actual: '4.2%',
+			planned: '4.0%',
+			variance: 5.0,
+			status: 'ahead',
+		},
+		{
+			metric: 'Customer Retention',
+			actual: '78%',
+			planned: '80%',
+			variance: -2.5,
+			status: 'on-track',
+		},
 	];
 
 	const goals: GoalCardProps[] = [
-		{ title: 'Annual Revenue Goal', icon: DollarSign, progress: 78, current: '$11.7M', target: '$15M', daysLeft: 82 },
-		{ title: 'Customer Acquisition', icon: Target, progress: 65, current: '32.5K', target: '50K', daysLeft: 82 },
-		{ title: 'Market Expansion', icon: TrendingUp, progress: 40, current: '4 markets', target: '10 markets', daysLeft: 82 },
-		{ title: 'Product Launches', icon: ShoppingBag, progress: 83, current: '5 launched', target: '6 planned', daysLeft: 82 },
+		{
+			title: 'Annual Revenue Goal',
+			icon: DollarSign,
+			progress: 78,
+			current: '$11.7M',
+			target: '$15M',
+			daysLeft: 82,
+		},
+		{
+			title: 'Customer Acquisition',
+			icon: Target,
+			progress: 65,
+			current: '32.5K',
+			target: '50K',
+			daysLeft: 82,
+		},
+		{
+			title: 'Market Expansion',
+			icon: TrendingUp,
+			progress: 40,
+			current: '4 markets',
+			target: '10 markets',
+			daysLeft: 82,
+		},
+		{
+			title: 'Product Launches',
+			icon: ShoppingBag,
+			progress: 83,
+			current: '5 launched',
+			target: '6 planned',
+			daysLeft: 82,
+		},
 	];
 
 	return (

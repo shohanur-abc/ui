@@ -57,7 +57,10 @@ const FilterChip = ({ label, value, onRemove }: FilterChipProps) => (
 	<Badge variant="secondary" className="gap-1 pr-1">
 		<span className="text-xs font-normal text-muted-foreground">{label}:</span>
 		{value}
-		<button onClick={onRemove} className="ml-1 rounded-full p-0.5 hover:bg-muted">
+		<button
+			onClick={onRemove}
+			className="ml-1 rounded-full p-0.5 hover:bg-muted"
+		>
 			<X className="size-3" />
 		</button>
 	</Badge>
@@ -70,7 +73,12 @@ interface QuickFilterButtonProps {
 	onClick: () => void;
 }
 
-const QuickFilterButton = ({ label, icon: Icon, isActive, onClick }: QuickFilterButtonProps) => (
+const QuickFilterButton = ({
+	label,
+	icon: Icon,
+	isActive,
+	onClick,
+}: QuickFilterButtonProps) => (
 	<Button
 		variant={isActive ? 'default' : 'outline'}
 		size="sm"
@@ -89,14 +97,22 @@ interface CategoryDropdownProps {
 	label: string;
 }
 
-const CategoryDropdown = ({ categories, selected, onChange, label }: CategoryDropdownProps) => (
+const CategoryDropdown = ({
+	categories,
+	selected,
+	onChange,
+	label,
+}: CategoryDropdownProps) => (
 	<DropdownMenu>
 		<DropdownMenuTrigger asChild>
 			<Button variant="outline" size="sm" className="gap-1.5">
 				<Tag className="size-3.5" />
 				{label}
 				{selected.length > 0 && (
-					<Badge variant="secondary" className="ml-1 size-5 justify-center p-0 text-xs">
+					<Badge
+						variant="secondary"
+						className="ml-1 size-5 justify-center p-0 text-xs"
+					>
 						{selected.length}
 					</Badge>
 				)}
@@ -132,7 +148,12 @@ interface PriceRangePopoverProps {
 	label: string;
 }
 
-const PriceRangePopover = ({ range, onChange, max, label }: PriceRangePopoverProps) => (
+const PriceRangePopover = ({
+	range,
+	onChange,
+	max,
+	label,
+}: PriceRangePopoverProps) => (
 	<Popover>
 		<PopoverTrigger asChild>
 			<Button variant="outline" size="sm" className="gap-1.5">
@@ -210,14 +231,22 @@ interface StatusDropdownProps {
 	label: string;
 }
 
-const StatusDropdown = ({ statuses, selected, onChange, label }: StatusDropdownProps) => (
+const StatusDropdown = ({
+	statuses,
+	selected,
+	onChange,
+	label,
+}: StatusDropdownProps) => (
 	<DropdownMenu>
 		<DropdownMenuTrigger asChild>
 			<Button variant="outline" size="sm" className="gap-1.5">
 				<Package className="size-3.5" />
 				{label}
 				{selected.length > 0 && (
-					<Badge variant="secondary" className="ml-1 size-5 justify-center p-0 text-xs">
+					<Badge
+						variant="secondary"
+						className="ml-1 size-5 justify-center p-0 text-xs"
+					>
 						{selected.length}
 					</Badge>
 				)}
@@ -301,7 +330,9 @@ export default function Main() {
 						<Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
 						<Input
 							value={filters.search}
-							onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+							onChange={(e) =>
+								setFilters({ ...filters, search: e.target.value })
+							}
 							placeholder="Search products by name, SKU, or description..."
 							className="pl-9"
 						/>
@@ -344,19 +375,28 @@ export default function Main() {
 						label="Free Shipping"
 						icon={Truck}
 						isActive={filters.freeShipping === true}
-						onClick={() => setFilters({ ...filters, freeShipping: !filters.freeShipping })}
+						onClick={() =>
+							setFilters({ ...filters, freeShipping: !filters.freeShipping })
+						}
 					/>
 					<QuickFilterButton
 						label="Has Variants"
 						icon={Package}
 						isActive={filters.hasVariants === true}
-						onClick={() => setFilters({ ...filters, hasVariants: !filters.hasVariants })}
+						onClick={() =>
+							setFilters({ ...filters, hasVariants: !filters.hasVariants })
+						}
 					/>
 					<QuickFilterButton
 						label="Top Rated"
 						icon={Star}
 						isActive={filters.rating === 4}
-						onClick={() => setFilters({ ...filters, rating: filters.rating === 4 ? null : 4 })}
+						onClick={() =>
+							setFilters({
+								...filters,
+								rating: filters.rating === 4 ? null : 4,
+							})
+						}
 					/>
 				</div>
 
@@ -364,7 +404,9 @@ export default function Main() {
 					<>
 						<Separator />
 						<div className="flex flex-wrap items-center gap-2">
-							<span className="text-sm font-medium">{activeFilterCount} active filters:</span>
+							<span className="text-sm font-medium">
+								{activeFilterCount} active filters:
+							</span>
 							{filters.categories.map((cat) => (
 								<FilterChip
 									key={cat}
@@ -402,14 +444,18 @@ export default function Main() {
 								<FilterChip
 									label="Price"
 									value={`$${filters.priceRange[0]}-$${filters.priceRange[1]}`}
-									onRemove={() => setFilters({ ...filters, priceRange: [0, 500] })}
+									onRemove={() =>
+										setFilters({ ...filters, priceRange: [0, 500] })
+									}
 								/>
 							)}
 							{filters.freeShipping && (
 								<FilterChip
 									label="Shipping"
 									value="Free"
-									onRemove={() => setFilters({ ...filters, freeShipping: null })}
+									onRemove={() =>
+										setFilters({ ...filters, freeShipping: null })
+									}
 								/>
 							)}
 							{filters.hasVariants && (

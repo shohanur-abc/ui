@@ -65,7 +65,13 @@ const SettingsGroup = ({
 	settings,
 }: {
 	title: string;
-	settings: { icon: React.ElementType; label: string; description?: string; enabled?: boolean; value?: string }[];
+	settings: {
+		icon: React.ElementType;
+		label: string;
+		description?: string;
+		enabled?: boolean;
+		value?: string;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
@@ -82,7 +88,9 @@ const SettingsGroup = ({
 						<div>
 							<p className="text-sm font-medium">{setting.label}</p>
 							{setting.description && (
-								<p className="text-xs text-muted-foreground">{setting.description}</p>
+								<p className="text-xs text-muted-foreground">
+									{setting.description}
+								</p>
 							)}
 						</div>
 					</div>
@@ -100,7 +108,11 @@ const SettingsGroup = ({
 const SecurityStatus = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; status: 'enabled' | 'disabled' | 'warning' }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		status: 'enabled' | 'disabled' | 'warning';
+	}[];
 }) => (
 	<div className="space-y-3">
 		<h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
@@ -114,8 +126,8 @@ const SecurityStatus = ({
 						item.status === 'enabled'
 							? 'bg-green-500/10 border border-green-500/20'
 							: item.status === 'warning'
-							? 'bg-amber-500/10 border border-amber-500/20'
-							: 'bg-muted/30 border border-muted'
+								? 'bg-amber-500/10 border border-amber-500/20'
+								: 'bg-muted/30 border border-muted'
 					}`}
 				>
 					<item.icon
@@ -123,8 +135,8 @@ const SecurityStatus = ({
 							item.status === 'enabled'
 								? 'text-green-500'
 								: item.status === 'warning'
-								? 'text-amber-500'
-								: 'text-muted-foreground'
+									? 'text-amber-500'
+									: 'text-muted-foreground'
 						}`}
 					/>
 					<p className="text-xs font-medium">{item.label}</p>
@@ -134,11 +146,15 @@ const SecurityStatus = ({
 							item.status === 'enabled'
 								? 'border-green-500/30 text-green-600'
 								: item.status === 'warning'
-								? 'border-amber-500/30 text-amber-600'
-								: 'text-muted-foreground'
+									? 'border-amber-500/30 text-amber-600'
+									: 'text-muted-foreground'
 						}`}
 					>
-						{item.status === 'enabled' ? 'Enabled' : item.status === 'warning' ? 'Action Needed' : 'Disabled'}
+						{item.status === 'enabled'
+							? 'Enabled'
+							: item.status === 'warning'
+								? 'Action Needed'
+								: 'Disabled'}
 					</Badge>
 				</div>
 			))}
@@ -168,9 +184,24 @@ export default function Main() {
 			phone: '+1 (555) 987-6543',
 		},
 		preferences: [
-			{ icon: Bell, label: 'Push Notifications', description: 'Order updates & promotions', enabled: true },
-			{ icon: Mail, label: 'Email Newsletter', description: 'Weekly deals & new arrivals', enabled: true },
-			{ icon: Moon, label: 'Dark Mode', description: 'Use dark theme', enabled: false },
+			{
+				icon: Bell,
+				label: 'Push Notifications',
+				description: 'Order updates & promotions',
+				enabled: true,
+			},
+			{
+				icon: Mail,
+				label: 'Email Newsletter',
+				description: 'Weekly deals & new arrivals',
+				enabled: true,
+			},
+			{
+				icon: Moon,
+				label: 'Dark Mode',
+				description: 'Use dark theme',
+				enabled: false,
+			},
 		],
 		regional: [
 			{ icon: Globe, label: 'Language', value: 'English' },
@@ -191,7 +222,10 @@ export default function Main() {
 					<CardContent className="p-6 space-y-6">
 						<ProfileSummary {...profileData.summary} />
 						<Separator />
-						<SettingsGroup title="Notifications" settings={profileData.preferences} />
+						<SettingsGroup
+							title="Notifications"
+							settings={profileData.preferences}
+						/>
 						<SettingsGroup title="Regional" settings={profileData.regional} />
 						<Separator />
 						<SecurityStatus items={profileData.security} />

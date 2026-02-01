@@ -69,7 +69,9 @@ const GiftCardPreview = ({
 		</div>
 		<CardContent className="pt-6">
 			<div className="p-4 rounded-lg bg-muted/30 text-center">
-				<p className="text-sm text-muted-foreground italic">&ldquo;{message}&rdquo;</p>
+				<p className="text-sm text-muted-foreground italic">
+					&ldquo;{message}&rdquo;
+				</p>
 			</div>
 		</CardContent>
 	</Card>
@@ -164,7 +166,13 @@ const RecipientCard = ({
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 justify-center">
 		{items.map(({ label, href, variant, icon: Icon }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="gap-2" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="gap-2"
+				asChild
+			>
 				<Link href={href}>
 					{Icon && <Icon className="size-4" />}
 					{label}
@@ -246,7 +254,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'Preview Email', href: '/preview', icon: Eye },
-						{ label: 'Send Another', href: '/gifts', variant: 'outline', icon: Gift },
+						{
+							label: 'Send Another',
+							href: '/gifts',
+							variant: 'outline',
+							icon: Gift,
+						},
 					]}
 				/>
 			</div>

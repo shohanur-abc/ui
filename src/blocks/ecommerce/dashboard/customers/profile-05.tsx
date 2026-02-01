@@ -82,16 +82,34 @@ interface B2BProfile {
 	tags: string[];
 }
 
-const AccountTypeBadge = ({ type }: { type: B2BProfile['account']['type'] }) => {
+const AccountTypeBadge = ({
+	type,
+}: {
+	type: B2BProfile['account']['type'];
+}) => {
 	const config: Record<string, { label: string; className: string }> = {
-		enterprise: { label: 'Enterprise', className: 'bg-violet-500/10 text-violet-400' },
+		enterprise: {
+			label: 'Enterprise',
+			className: 'bg-violet-500/10 text-violet-400',
+		},
 		business: { label: 'Business', className: 'bg-blue-500/10 text-blue-400' },
-		startup: { label: 'Startup', className: 'bg-emerald-500/10 text-emerald-400' },
+		startup: {
+			label: 'Startup',
+			className: 'bg-emerald-500/10 text-emerald-400',
+		},
 	};
-	return <Badge variant="outline" className={config[type].className}>{config[type].label}</Badge>;
+	return (
+		<Badge variant="outline" className={config[type].className}>
+			{config[type].label}
+		</Badge>
+	);
 };
 
-const StatusIndicator = ({ status }: { status: B2BProfile['account']['status'] }) => {
+const StatusIndicator = ({
+	status,
+}: {
+	status: B2BProfile['account']['status'];
+}) => {
 	const config: Record<string, { label: string; color: string }> = {
 		active: { label: 'Active', color: 'bg-emerald-500' },
 		pending: { label: 'Pending', color: 'bg-amber-500' },
@@ -109,7 +127,9 @@ const CreditUsageBar = ({ used, limit }: { used: number; limit: string }) => (
 	<div>
 		<div className="flex items-center justify-between mb-2 text-sm">
 			<span className="text-muted-foreground">Credit Usage</span>
-			<span className="font-medium">{used}% of {limit}</span>
+			<span className="font-medium">
+				{used}% of {limit}
+			</span>
 		</div>
 		<Progress
 			value={used}
@@ -135,7 +155,9 @@ const StatCard = ({
 );
 
 const ContactCard = ({ contact }: { contact: B2BProfile['contacts'][0] }) => (
-	<div className={`flex items-center gap-3 rounded-lg border p-3 ${contact.isPrimary ? 'border-primary bg-primary/5' : ''}`}>
+	<div
+		className={`flex items-center gap-3 rounded-lg border p-3 ${contact.isPrimary ? 'border-primary bg-primary/5' : ''}`}
+	>
 		<Avatar className="size-10">
 			<AvatarImage src={contact.avatar} alt={contact.name} />
 			<AvatarFallback className="bg-primary/10 text-primary text-sm">
@@ -145,7 +167,11 @@ const ContactCard = ({ contact }: { contact: B2BProfile['contacts'][0] }) => (
 		<div className="flex-1 min-w-0">
 			<div className="flex items-center gap-2">
 				<p className="font-medium text-sm truncate">{contact.name}</p>
-				{contact.isPrimary && <Badge variant="outline" className="text-xs text-primary">Primary</Badge>}
+				{contact.isPrimary && (
+					<Badge variant="outline" className="text-xs text-primary">
+						Primary
+					</Badge>
+				)}
 			</div>
 			<p className="text-xs text-muted-foreground">{contact.role}</p>
 		</div>
@@ -226,7 +252,9 @@ const ProfileHeader = ({ profile }: { profile: B2BProfile }) => (
 							<DropdownMenuItem>View invoices</DropdownMenuItem>
 							<DropdownMenuItem>Download report</DropdownMenuItem>
 							<DropdownMenuSeparator />
-							<DropdownMenuItem className="text-red-500">Suspend account</DropdownMenuItem>
+							<DropdownMenuItem className="text-red-500">
+								Suspend account
+							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
 				</div>
@@ -265,9 +293,33 @@ export default function Main() {
 			outstandingBalance: '$12,450',
 		},
 		contacts: [
-			{ id: '1', name: 'John Anderson', role: 'VP of Procurement', email: 'j.anderson@techcorp.com', phone: '+1 555-0100', isPrimary: true, initials: 'JA' },
-			{ id: '2', name: 'Lisa Chen', role: 'Finance Director', email: 'l.chen@techcorp.com', phone: '+1 555-0101', isPrimary: false, initials: 'LC' },
-			{ id: '3', name: 'Mike Wilson', role: 'IT Manager', email: 'm.wilson@techcorp.com', phone: '+1 555-0102', isPrimary: false, initials: 'MW' },
+			{
+				id: '1',
+				name: 'John Anderson',
+				role: 'VP of Procurement',
+				email: 'j.anderson@techcorp.com',
+				phone: '+1 555-0100',
+				isPrimary: true,
+				initials: 'JA',
+			},
+			{
+				id: '2',
+				name: 'Lisa Chen',
+				role: 'Finance Director',
+				email: 'l.chen@techcorp.com',
+				phone: '+1 555-0101',
+				isPrimary: false,
+				initials: 'LC',
+			},
+			{
+				id: '3',
+				name: 'Mike Wilson',
+				role: 'IT Manager',
+				email: 'm.wilson@techcorp.com',
+				phone: '+1 555-0102',
+				isPrimary: false,
+				initials: 'MW',
+			},
 		],
 		metrics: {
 			totalOrders: 156,
@@ -284,10 +336,21 @@ export default function Main() {
 				<ProfileHeader profile={profile} />
 
 				<div className="grid grid-cols-2 @lg:grid-cols-4 gap-4">
-					<StatCard label="Total Orders" value={profile.metrics.totalOrders.toString()} subtext={`Last: ${profile.metrics.lastOrder}`} />
+					<StatCard
+						label="Total Orders"
+						value={profile.metrics.totalOrders.toString()}
+						subtext={`Last: ${profile.metrics.lastOrder}`}
+					/>
 					<StatCard label="Total Spent" value={profile.metrics.totalSpent} />
-					<StatCard label="Avg Order Value" value={profile.metrics.avgOrderValue} />
-					<StatCard label="Outstanding" value={profile.billing.outstandingBalance} subtext={profile.billing.paymentTerms} />
+					<StatCard
+						label="Avg Order Value"
+						value={profile.metrics.avgOrderValue}
+					/>
+					<StatCard
+						label="Outstanding"
+						value={profile.billing.outstandingBalance}
+						subtext={profile.billing.paymentTerms}
+					/>
 				</div>
 
 				<div className="grid @lg:grid-cols-3 gap-6">
@@ -320,7 +383,9 @@ export default function Main() {
 							<CardContent className="space-y-3 text-sm">
 								<div className="flex items-center justify-between">
 									<span className="text-muted-foreground">Value</span>
-									<span className="font-semibold">{profile.contract.value}</span>
+									<span className="font-semibold">
+										{profile.contract.value}
+									</span>
 								</div>
 								<div className="flex items-center justify-between">
 									<span className="text-muted-foreground">Type</span>
@@ -332,7 +397,12 @@ export default function Main() {
 								</div>
 								<div className="flex items-center justify-between">
 									<span className="text-muted-foreground">Auto-renew</span>
-									<Badge variant="outline" className={profile.contract.autoRenew ? 'text-emerald-500' : ''}>
+									<Badge
+										variant="outline"
+										className={
+											profile.contract.autoRenew ? 'text-emerald-500' : ''
+										}
+									>
 										{profile.contract.autoRenew ? 'Enabled' : 'Disabled'}
 									</Badge>
 								</div>
@@ -347,7 +417,10 @@ export default function Main() {
 								</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<CreditUsageBar used={profile.billing.creditUsed} limit={profile.billing.creditLimit} />
+								<CreditUsageBar
+									used={profile.billing.creditUsed}
+									limit={profile.billing.creditLimit}
+								/>
 								<div className="mt-4 flex items-center justify-between text-sm">
 									<span className="text-muted-foreground">Account Manager</span>
 									<span className="font-medium">{profile.account.manager}</span>

@@ -1,4 +1,12 @@
-import { MapPin, Truck, Package, Clock, Check, Shield, ChevronDown } from 'lucide-react';
+import {
+	MapPin,
+	Truck,
+	Package,
+	Clock,
+	Check,
+	Shield,
+	ChevronDown,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -23,7 +31,9 @@ const AddressDisplay = ({
 	<div className="p-4 rounded-xl bg-muted/50">
 		<div className="flex items-center justify-between mb-2">
 			<Badge variant="secondary">{type}</Badge>
-			<Button variant="ghost" size="sm">Change</Button>
+			<Button variant="ghost" size="sm">
+				Change
+			</Button>
 		</div>
 		<p className="font-medium">{name}</p>
 		<p className="text-sm text-muted-foreground">{address}</p>
@@ -95,7 +105,9 @@ const AddonItem = ({
 	<div className="flex items-start gap-3">
 		<Checkbox id={id} className="mt-0.5" />
 		<div className="flex-1">
-			<Label htmlFor={id} className="cursor-pointer font-medium">{label}</Label>
+			<Label htmlFor={id} className="cursor-pointer font-medium">
+				{label}
+			</Label>
 			<p className="text-sm text-muted-foreground">{description}</p>
 		</div>
 		<span className="text-sm font-medium">{price}</span>
@@ -116,7 +128,11 @@ export default function Main() {
 			name: 'Express',
 			time: '2-3 business days',
 			price: '$12.99',
-			features: ['Priority handling', 'Real-time tracking', 'Insurance included'],
+			features: [
+				'Priority handling',
+				'Real-time tracking',
+				'Insurance included',
+			],
 			best: true,
 		},
 		{
@@ -124,20 +140,36 @@ export default function Main() {
 			name: 'Overnight',
 			time: 'Next business day',
 			price: '$24.99',
-			features: ['Guaranteed delivery', 'Premium protection', 'Signature required'],
+			features: [
+				'Guaranteed delivery',
+				'Premium protection',
+				'Signature required',
+			],
 		},
 	];
 
 	const addons = [
-		{ id: 'insurance', label: 'Shipping Insurance', description: 'Full coverage for lost or damaged items', price: '+$3.99' },
-		{ id: 'gift', label: 'Gift Wrapping', description: 'Premium gift wrap with ribbon', price: '+$5.99' },
+		{
+			id: 'insurance',
+			label: 'Shipping Insurance',
+			description: 'Full coverage for lost or damaged items',
+			price: '+$3.99',
+		},
+		{
+			id: 'gift',
+			label: 'Gift Wrapping',
+			description: 'Premium gift wrap with ribbon',
+			price: '+$5.99',
+		},
 	];
 
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<h1 className="text-3xl font-bold mb-2">Shipping</h1>
-				<p className="text-muted-foreground mb-8">Choose your delivery options</p>
+				<p className="text-muted-foreground mb-8">
+					Choose your delivery options
+				</p>
 
 				{/* Shipping Address */}
 				<div className="mb-6">

@@ -77,7 +77,8 @@ export default function Main() {
 	const alerts: AlertData[] = [
 		{
 			title: 'Cart Abandonment Spike',
-			description: 'Cart abandonment rate increased significantly in the last 24 hours',
+			description:
+				'Cart abandonment rate increased significantly in the last 24 hours',
 			severity: 'high',
 			metric: '+15.2%',
 			action: 'View Analytics',

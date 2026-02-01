@@ -1,5 +1,15 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, Truck, Shield, RotateCcw, Clock, MapPin, Check, Package } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	Truck,
+	Shield,
+	RotateCcw,
+	Clock,
+	MapPin,
+	Check,
+	Package,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -28,22 +38,36 @@ interface SplitProps {
 }
 
 const CartSummary = ({ items }: { items: WishlistItem[] }) => {
-	const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 
 	return (
 		<div className="h-full flex flex-col">
 			<h2 className="font-bold mb-4">Your Cart</h2>
 			<div className="flex-1 space-y-3 overflow-y-auto">
 				{items.map((item) => (
-					<div key={item.id} className="flex items-center gap-3 p-3 rounded-lg bg-muted">
+					<div
+						key={item.id}
+						className="flex items-center gap-3 p-3 rounded-lg bg-muted"
+					>
 						<div className="size-16 rounded-lg overflow-hidden bg-muted">
-							<img src={item.image} alt={item.name} className="size-full object-cover" />
+							<img
+								src={item.image}
+								alt={item.name}
+								className="size-full object-cover"
+							/>
 						</div>
 						<div className="flex-1 min-w-0">
 							<p className="font-medium text-sm truncate">{item.name}</p>
-							<p className="text-xs text-muted-foreground">Qty: {item.quantity}</p>
+							<p className="text-xs text-muted-foreground">
+								Qty: {item.quantity}
+							</p>
 						</div>
-						<p className="font-bold">${(item.price * item.quantity).toFixed(2)}</p>
+						<p className="font-bold">
+							${(item.price * item.quantity).toFixed(2)}
+						</p>
 					</div>
 				))}
 			</div>
@@ -65,12 +89,18 @@ const CartSummary = ({ items }: { items: WishlistItem[] }) => {
 const ShippingOptions = ({ options }: { options: DeliveryOption[] }) => (
 	<div className="h-full flex flex-col">
 		<h2 className="font-bold mb-2">Delivery Options</h2>
-		<p className="text-sm text-muted-foreground mb-4">Choose your preferred shipping method</p>
+		<p className="text-sm text-muted-foreground mb-4">
+			Choose your preferred shipping method
+		</p>
 
 		<RadioGroup defaultValue={options[0].id} className="space-y-3">
 			{options.map((option) => (
 				<div key={option.id}>
-					<RadioGroupItem value={option.id} id={option.id} className="peer sr-only" />
+					<RadioGroupItem
+						value={option.id}
+						id={option.id}
+						className="peer sr-only"
+					/>
 					<Label
 						htmlFor={option.id}
 						className="flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5"
@@ -82,7 +112,9 @@ const ShippingOptions = ({ options }: { options: DeliveryOption[] }) => (
 							<p className="font-medium">{option.name}</p>
 							<p className="text-sm text-muted-foreground">{option.days}</p>
 						</div>
-						<p className="font-bold">{option.price === 0 ? 'FREE' : `$${option.price.toFixed(2)}`}</p>
+						<p className="font-bold">
+							{option.price === 0 ? 'FREE' : `$${option.price.toFixed(2)}`}
+						</p>
 					</Label>
 				</div>
 			))}
@@ -95,7 +127,9 @@ const ShippingOptions = ({ options }: { options: DeliveryOption[] }) => (
 			</div>
 			<p className="text-sm text-muted-foreground">123 Main St, Apt 4B</p>
 			<p className="text-sm text-muted-foreground">New York, NY 10001</p>
-			<Button variant="link" size="sm" className="px-0 mt-1">Change Address</Button>
+			<Button variant="link" size="sm" className="px-0 mt-1">
+				Change Address
+			</Button>
 		</div>
 
 		<div className="mt-auto pt-6">
@@ -128,14 +162,48 @@ const ShippingOptions = ({ options }: { options: DeliveryOption[] }) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Wireless Noise-Canceling Headphones', price: 299, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', quantity: 1, href: '/product/1' },
-		{ id: '2', name: 'Smart Fitness Watch', price: 249, image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop', quantity: 1, href: '/product/2' },
+		{
+			id: '1',
+			name: 'Wireless Noise-Canceling Headphones',
+			price: 299,
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+			quantity: 1,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Smart Fitness Watch',
+			price: 249,
+			image:
+				'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop',
+			quantity: 1,
+			href: '/product/2',
+		},
 	];
 
 	const deliveryOptions: DeliveryOption[] = [
-		{ id: 'standard', name: 'Standard Shipping', price: 0, days: '5-7 business days', icon: <Truck className="size-5" /> },
-		{ id: 'express', name: 'Express Shipping', price: 9.99, days: '2-3 business days', icon: <Package className="size-5" /> },
-		{ id: 'overnight', name: 'Overnight', price: 24.99, days: 'Next business day', icon: <Clock className="size-5" /> },
+		{
+			id: 'standard',
+			name: 'Standard Shipping',
+			price: 0,
+			days: '5-7 business days',
+			icon: <Truck className="size-5" />,
+		},
+		{
+			id: 'express',
+			name: 'Express Shipping',
+			price: 9.99,
+			days: '2-3 business days',
+			icon: <Package className="size-5" />,
+		},
+		{
+			id: 'overnight',
+			name: 'Overnight',
+			price: 24.99,
+			days: 'Next business day',
+			icon: <Clock className="size-5" />,
+		},
 	];
 
 	return (

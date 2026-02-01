@@ -36,13 +36,7 @@ interface CTAProps {
 	}[];
 }
 
-const RewardsBanner = ({
-	points,
-	tier,
-}: {
-	points: number;
-	tier: string;
-}) => (
+const RewardsBanner = ({ points, tier }: { points: number; tier: string }) => (
 	<div className="relative h-full min-h-[350px] @lg:min-h-0 bg-gradient-to-br from-amber-500 via-amber-600 to-orange-600 flex items-center justify-center overflow-hidden">
 		<div className="absolute inset-0">
 			<div className="absolute top-1/4 left-1/4 size-32 rounded-full bg-white/10 blur-3xl" />
@@ -93,8 +87,7 @@ const OrderSummary = ({
 		<div className="flex justify-between items-center">
 			<span className="text-sm font-medium">Points Earned</span>
 			<Badge className="bg-amber-500/10 text-amber-600 border-0 gap-1">
-				<Star className="size-3 fill-current" />
-				+{pointsEarned}
+				<Star className="size-3 fill-current" />+{pointsEarned}
 			</Badge>
 		</div>
 	</div>
@@ -207,16 +200,48 @@ const CTA = ({ items }: CTAProps) => (
 
 export default function Main() {
 	const rewardTiers: RewardTierProps[] = [
-		{ name: 'Bronze', icon: Star, pointsRequired: 0, achieved: true, current: false },
-		{ name: 'Silver', icon: Star, pointsRequired: 500, achieved: true, current: false },
-		{ name: 'Gold', icon: Crown, pointsRequired: 1000, achieved: true, current: true },
-		{ name: 'Platinum', icon: Trophy, pointsRequired: 2500, achieved: false, current: false },
+		{
+			name: 'Bronze',
+			icon: Star,
+			pointsRequired: 0,
+			achieved: true,
+			current: false,
+		},
+		{
+			name: 'Silver',
+			icon: Star,
+			pointsRequired: 500,
+			achieved: true,
+			current: false,
+		},
+		{
+			name: 'Gold',
+			icon: Crown,
+			pointsRequired: 1000,
+			achieved: true,
+			current: true,
+		},
+		{
+			name: 'Platinum',
+			icon: Trophy,
+			pointsRequired: 2500,
+			achieved: false,
+			current: false,
+		},
 	];
 
 	const benefits: BenefitProps[] = [
-		{ icon: Gift, title: 'Birthday Bonus', description: 'Double points on your birthday' },
+		{
+			icon: Gift,
+			title: 'Birthday Bonus',
+			description: 'Double points on your birthday',
+		},
 		{ icon: Zap, title: 'Early Access', description: 'Shop sales 24h early' },
-		{ icon: Star, title: 'Free Shipping', description: 'On all orders over $50' },
+		{
+			icon: Star,
+			title: 'Free Shipping',
+			description: 'On all orders over $50',
+		},
 	];
 
 	return (

@@ -1,9 +1,23 @@
-import { AlertTriangle, CheckCircle2, CreditCard, Gift, Lock, RotateCcw, Shield, Tag } from 'lucide-react';
+import {
+	AlertTriangle,
+	CheckCircle2,
+	CreditCard,
+	Gift,
+	Lock,
+	RotateCcw,
+	Shield,
+	Tag,
+} from 'lucide-react';
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -26,14 +40,26 @@ interface OrderLineProps {
 	type?: 'discount' | 'total';
 }
 
-const SectionHeader = ({ title, subtitle }: { title: string; subtitle?: string }) => (
+const SectionHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle?: string;
+}) => (
 	<div>
 		<h2 className="text-lg font-semibold">{title}</h2>
 		{subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
 	</div>
 );
 
-const GiftCardInput = ({ placeholder, buttonText }: { placeholder: string; buttonText: string }) => (
+const GiftCardInput = ({
+	placeholder,
+	buttonText,
+}: {
+	placeholder: string;
+	buttonText: string;
+}) => (
 	<div className="flex gap-2">
 		<div className="relative flex-1">
 			<Gift className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
@@ -72,7 +98,11 @@ const RewardsSection = ({ points, value, applied }: RewardProps) => (
 		<p className="text-sm text-muted-foreground mb-3">
 			Use your points for a {value} discount
 		</p>
-		<Button variant={applied ? 'secondary' : 'outline'} size="sm" className="w-full gap-2">
+		<Button
+			variant={applied ? 'secondary' : 'outline'}
+			size="sm"
+			className="w-full gap-2"
+		>
 			{applied ? (
 				<>
 					<CheckCircle2 className="size-4" />
@@ -92,7 +122,13 @@ const BalanceWarning = ({ message }: { message: string }) => (
 	</Alert>
 );
 
-const RemainingPayment = ({ label, amount }: { label: string; amount: string }) => (
+const RemainingPayment = ({
+	label,
+	amount,
+}: {
+	label: string;
+	amount: string;
+}) => (
 	<div className="p-4 rounded-xl bg-muted/50">
 		<div className="flex justify-between items-center mb-2">
 			<span className="text-sm text-muted-foreground">{label}</span>
@@ -115,17 +151,36 @@ const CardInput = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
 
 const OrderSummaryLine = ({ label, value, type }: OrderLineProps) => (
-	<div className={`flex justify-between ${type === 'total' ? 'font-semibold text-lg pt-2' : 'text-sm'}`}>
-		<span className={type === 'discount' ? 'text-primary' : type === 'total' ? '' : 'text-muted-foreground'}>
+	<div
+		className={`flex justify-between ${type === 'total' ? 'font-semibold text-lg pt-2' : 'text-sm'}`}
+	>
+		<span
+			className={
+				type === 'discount'
+					? 'text-primary'
+					: type === 'total'
+						? ''
+						: 'text-muted-foreground'
+			}
+		>
 			{label}
 		</span>
 		<span className={type === 'discount' ? 'text-primary' : ''}>{value}</span>
@@ -189,12 +244,18 @@ export default function Main() {
 			<div className="mx-auto max-w-lg px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardHeader className="pb-4">
-						<SectionHeader title="Apply Discounts" subtitle="Use gift cards and rewards for savings" />
+						<SectionHeader
+							title="Apply Discounts"
+							subtitle="Use gift cards and rewards for savings"
+						/>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<div className="space-y-3">
 							<Label className="text-sm font-medium">Gift Card</Label>
-							<GiftCardInput placeholder="Enter gift card code" buttonText="Apply" />
+							<GiftCardInput
+								placeholder="Enter gift card code"
+								buttonText="Apply"
+							/>
 							<AppliedGiftCard {...giftCard} />
 						</div>
 						<RewardsSection {...rewards} />
@@ -202,10 +263,20 @@ export default function Main() {
 						<OrderSummary lines={orderLines} />
 						<RemainingPayment label="Pay with card" amount="$241.92" />
 						<div className="space-y-4">
-							<CardInput id="card" label="Card Number" placeholder="4242 4242 4242 4242" icon={CreditCard} />
+							<CardInput
+								id="card"
+								label="Card Number"
+								placeholder="4242 4242 4242 4242"
+								icon={CreditCard}
+							/>
 							<div className="grid grid-cols-2 gap-4">
 								<CardInput id="exp" label="Expiry" placeholder="MM/YY" />
-								<CardInput id="cvc" label="CVC" placeholder="123" type="password" />
+								<CardInput
+									id="cvc"
+									label="CVC"
+									placeholder="123"
+									type="password"
+								/>
 							</div>
 						</div>
 					</CardContent>

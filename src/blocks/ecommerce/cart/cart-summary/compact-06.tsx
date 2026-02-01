@@ -22,7 +22,10 @@ const UrgencyBanner = ({ icon: Icon, message, time }: UrgencyBannerProps) => (
 const PriceWithSavings = ({
 	total,
 	savings,
-}: { total: string; savings: string }) => (
+}: {
+	total: string;
+	savings: string;
+}) => (
 	<div className="flex items-center gap-2">
 		<span className="text-xl font-bold">{total}</span>
 		<Badge className="bg-green-500/10 text-green-600 hover:bg-green-500/20 dark:text-green-400">

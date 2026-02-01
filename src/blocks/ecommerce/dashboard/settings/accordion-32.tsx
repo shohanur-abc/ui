@@ -60,11 +60,15 @@ const NotificationGroupAccordion = ({
 					</div>
 					<div>
 						<h4 className="font-medium">{name}</h4>
-						<p className="text-sm text-muted-foreground">{count} notifications</p>
+						<p className="text-sm text-muted-foreground">
+							{count} notifications
+						</p>
 					</div>
 				</div>
 				<div className="flex items-center gap-3">
-					<Badge variant="secondary">{items.filter(i => i.enabled).length} active</Badge>
+					<Badge variant="secondary">
+						{items.filter((i) => i.enabled).length} active
+					</Badge>
 					<ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
 				</div>
 			</div>
@@ -72,10 +76,15 @@ const NotificationGroupAccordion = ({
 		<CollapsibleContent>
 			<div className="divide-y rounded-b-lg border border-t-0 bg-muted/10">
 				{items.map((item) => (
-					<div key={item.id} className="flex items-center justify-between px-4 py-3">
+					<div
+						key={item.id}
+						className="flex items-center justify-between px-4 py-3"
+					>
 						<div className="pl-13">
 							<p className="text-sm font-medium">{item.title}</p>
-							<p className="text-xs text-muted-foreground">{item.description}</p>
+							<p className="text-xs text-muted-foreground">
+								{item.description}
+							</p>
 						</div>
 						<Switch defaultChecked={item.enabled} />
 					</div>
@@ -93,11 +102,36 @@ export default function Main() {
 			icon: Package,
 			count: 5,
 			items: [
-				{ id: '1', title: 'New order received', description: 'When a customer places an order', enabled: true },
-				{ id: '2', title: 'Order shipped', description: 'When an order is shipped', enabled: true },
-				{ id: '3', title: 'Order delivered', description: 'When delivery is confirmed', enabled: true },
-				{ id: '4', title: 'Order cancelled', description: 'When an order is cancelled', enabled: true },
-				{ id: '5', title: 'Order refunded', description: 'When a refund is processed', enabled: false },
+				{
+					id: '1',
+					title: 'New order received',
+					description: 'When a customer places an order',
+					enabled: true,
+				},
+				{
+					id: '2',
+					title: 'Order shipped',
+					description: 'When an order is shipped',
+					enabled: true,
+				},
+				{
+					id: '3',
+					title: 'Order delivered',
+					description: 'When delivery is confirmed',
+					enabled: true,
+				},
+				{
+					id: '4',
+					title: 'Order cancelled',
+					description: 'When an order is cancelled',
+					enabled: true,
+				},
+				{
+					id: '5',
+					title: 'Order refunded',
+					description: 'When a refund is processed',
+					enabled: false,
+				},
 			],
 		},
 		{
@@ -106,10 +140,30 @@ export default function Main() {
 			icon: Users,
 			count: 4,
 			items: [
-				{ id: '1', title: 'New customer signup', description: 'When a new customer registers', enabled: true },
-				{ id: '2', title: 'Customer inquiry', description: 'Contact form submissions', enabled: true },
-				{ id: '3', title: 'Cart abandonment', description: 'When customers leave items in cart', enabled: false },
-				{ id: '4', title: 'Wishlist activity', description: 'Product added to wishlist', enabled: false },
+				{
+					id: '1',
+					title: 'New customer signup',
+					description: 'When a new customer registers',
+					enabled: true,
+				},
+				{
+					id: '2',
+					title: 'Customer inquiry',
+					description: 'Contact form submissions',
+					enabled: true,
+				},
+				{
+					id: '3',
+					title: 'Cart abandonment',
+					description: 'When customers leave items in cart',
+					enabled: false,
+				},
+				{
+					id: '4',
+					title: 'Wishlist activity',
+					description: 'Product added to wishlist',
+					enabled: false,
+				},
 			],
 		},
 		{
@@ -118,9 +172,24 @@ export default function Main() {
 			icon: Star,
 			count: 3,
 			items: [
-				{ id: '1', title: 'New review submitted', description: 'When a customer leaves a review', enabled: true },
-				{ id: '2', title: 'Low rating alert', description: 'Reviews with 2 stars or less', enabled: true },
-				{ id: '3', title: 'Review replies', description: 'When someone replies to reviews', enabled: false },
+				{
+					id: '1',
+					title: 'New review submitted',
+					description: 'When a customer leaves a review',
+					enabled: true,
+				},
+				{
+					id: '2',
+					title: 'Low rating alert',
+					description: 'Reviews with 2 stars or less',
+					enabled: true,
+				},
+				{
+					id: '3',
+					title: 'Review replies',
+					description: 'When someone replies to reviews',
+					enabled: false,
+				},
 			],
 		},
 		{
@@ -129,9 +198,24 @@ export default function Main() {
 			icon: CreditCard,
 			count: 3,
 			items: [
-				{ id: '1', title: 'Payment received', description: 'Successful payment confirmations', enabled: true },
-				{ id: '2', title: 'Payment failed', description: 'Failed payment attempts', enabled: true },
-				{ id: '3', title: 'Subscription renewal', description: 'Upcoming subscription charges', enabled: true },
+				{
+					id: '1',
+					title: 'Payment received',
+					description: 'Successful payment confirmations',
+					enabled: true,
+				},
+				{
+					id: '2',
+					title: 'Payment failed',
+					description: 'Failed payment attempts',
+					enabled: true,
+				},
+				{
+					id: '3',
+					title: 'Subscription renewal',
+					description: 'Upcoming subscription charges',
+					enabled: true,
+				},
 			],
 		},
 		{
@@ -140,10 +224,30 @@ export default function Main() {
 			icon: Shield,
 			count: 4,
 			items: [
-				{ id: '1', title: 'Login from new device', description: 'Sign in from unrecognized device', enabled: true },
-				{ id: '2', title: 'Password changed', description: 'Password update confirmation', enabled: true },
-				{ id: '3', title: 'Suspicious activity', description: 'Unusual account behavior', enabled: true },
-				{ id: '4', title: '2FA enabled/disabled', description: 'Two-factor auth changes', enabled: true },
+				{
+					id: '1',
+					title: 'Login from new device',
+					description: 'Sign in from unrecognized device',
+					enabled: true,
+				},
+				{
+					id: '2',
+					title: 'Password changed',
+					description: 'Password update confirmation',
+					enabled: true,
+				},
+				{
+					id: '3',
+					title: 'Suspicious activity',
+					description: 'Unusual account behavior',
+					enabled: true,
+				},
+				{
+					id: '4',
+					title: '2FA enabled/disabled',
+					description: 'Two-factor auth changes',
+					enabled: true,
+				},
 			],
 		},
 	];

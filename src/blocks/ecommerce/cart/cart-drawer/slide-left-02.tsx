@@ -88,9 +88,7 @@ const PriceDisplay = ({
 			${(price * quantity).toFixed(2)}
 		</p>
 		{quantity > 1 && (
-			<p className="text-xs text-muted-foreground">
-				${price.toFixed(2)} each
-			</p>
+			<p className="text-xs text-muted-foreground">${price.toFixed(2)} each</p>
 		)}
 	</div>
 );
@@ -171,7 +169,10 @@ const OrderSummary = ({
 	items: CartItem[];
 	checkoutLabel: string;
 }) => {
-	const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 	const shipping = subtotal > 100 ? 0 : 9.99;
 	const total = subtotal + shipping;
 
@@ -210,13 +211,14 @@ export default function Main() {
 		triggerLabel: 'View Cart',
 		title: 'Your Cart',
 		emptyTitle: 'Your cart is empty',
-		emptyDescription: 'Looks like you haven\'t added anything yet.',
+		emptyDescription: "Looks like you haven't added anything yet.",
 		continueShoppingLabel: 'Continue Shopping',
 		checkoutLabel: 'Checkout',
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&h=200&fit=crop',
 				name: 'Running Sneakers Pro',
 				color: 'Ocean Blue',
 				size: 'US 10',
@@ -225,7 +227,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Classic Canvas',
 				color: 'Off White',
 				size: 'US 9',
@@ -245,7 +248,10 @@ export default function Main() {
 							count={cartData.items.length}
 						/>
 					</SheetTrigger>
-					<SheetContent side="left" className="flex w-full flex-col sm:max-w-lg">
+					<SheetContent
+						side="left"
+						className="flex w-full flex-col sm:max-w-lg"
+					>
 						<SheetHeader>
 							<SheetTitle className="text-xl">{cartData.title}</SheetTitle>
 						</SheetHeader>

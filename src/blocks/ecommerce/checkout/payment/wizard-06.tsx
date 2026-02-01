@@ -1,10 +1,27 @@
 'use client';
 
-import { ArrowLeft, ArrowRight, Check, Clock, CreditCard, Gift, Lock, Percent, Shield, Star, Zap } from 'lucide-react';
+import {
+	ArrowLeft,
+	ArrowRight,
+	Check,
+	Clock,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	Shield,
+	Star,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -20,7 +37,13 @@ interface InstallmentPlan {
 	recommended?: boolean;
 }
 
-const NumberedSteps = ({ steps, current }: { steps: string[]; current: number }) => (
+const NumberedSteps = ({
+	steps,
+	current,
+}: {
+	steps: string[];
+	current: number;
+}) => (
 	<div className="flex items-center justify-center gap-3 mb-6">
 		{steps.map((step, index) => (
 			<div key={index} className="flex items-center gap-2">
@@ -36,7 +59,9 @@ const NumberedSteps = ({ steps, current }: { steps: string[]; current: number })
 					{index < current ? <Check className="size-4" /> : index + 1}
 				</div>
 				{index < steps.length - 1 && (
-					<div className={`w-8 h-0.5 ${index < current ? 'bg-primary' : 'bg-muted'}`} />
+					<div
+						className={`w-8 h-0.5 ${index < current ? 'bg-primary' : 'bg-muted'}`}
+					/>
 				)}
 			</div>
 		))}
@@ -48,9 +73,13 @@ const EligibilityCheck = () => (
 		<div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
 			<div className="flex items-center gap-2 mb-2">
 				<Check className="size-5 text-emerald-500" />
-				<span className="font-medium text-emerald-700 dark:text-emerald-400">You're pre-approved!</span>
+				<span className="font-medium text-emerald-700 dark:text-emerald-400">
+					You're pre-approved!
+				</span>
 			</div>
-			<p className="text-sm text-muted-foreground">Based on your account history, you qualify for installment payments.</p>
+			<p className="text-sm text-muted-foreground">
+				Based on your account history, you qualify for installment payments.
+			</p>
 		</div>
 		<div className="grid grid-cols-3 gap-3 text-center">
 			<div className="p-3 rounded-xl bg-muted/30">
@@ -71,7 +100,10 @@ const EligibilityCheck = () => (
 
 const PlanSelectionStep = ({ plans }: { plans: InstallmentPlan[] }) => (
 	<div className="space-y-3">
-		<RadioGroup defaultValue={plans.find(p => p.recommended)?.id || plans[0].id} className="space-y-3">
+		<RadioGroup
+			defaultValue={plans.find((p) => p.recommended)?.id || plans[0].id}
+			className="space-y-3"
+		>
 			{plans.map((plan) => (
 				<Label
 					key={plan.id}
@@ -89,9 +121,13 @@ const PlanSelectionStep = ({ plans }: { plans: InstallmentPlan[] }) => (
 					<RadioGroupItem value={plan.id} id={plan.id} />
 					<div className="flex-1">
 						<div className="flex items-center gap-2">
-							<span className="font-medium">{plan.months}x of {plan.monthly}</span>
+							<span className="font-medium">
+								{plan.months}x of {plan.monthly}
+							</span>
 						</div>
-						<p className="text-xs text-muted-foreground">Total: {plan.total} • {plan.interest}</p>
+						<p className="text-xs text-muted-foreground">
+							Total: {plan.total} • {plan.interest}
+						</p>
 					</div>
 					<div className="size-10 rounded-lg bg-muted flex items-center justify-center font-bold">
 						{plan.months}
@@ -102,19 +138,38 @@ const PlanSelectionStep = ({ plans }: { plans: InstallmentPlan[] }) => (
 	</div>
 );
 
-const PaymentSchedule = ({ payments }: { payments: { date: string; amount: string; status: 'paid' | 'upcoming' | 'scheduled' }[] }) => (
+const PaymentSchedule = ({
+	payments,
+}: {
+	payments: {
+		date: string;
+		amount: string;
+		status: 'paid' | 'upcoming' | 'scheduled';
+	}[];
+}) => (
 	<div className="space-y-3">
 		{payments.map((payment, index) => (
-			<div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
-				<div className={`size-8 rounded-full flex items-center justify-center text-xs font-medium ${
-					payment.status === 'paid' ? 'bg-primary text-primary-foreground' : payment.status === 'upcoming' ? 'bg-amber-500/20 text-amber-600' : 'bg-muted'
-				}`}>
+			<div
+				key={index}
+				className="flex items-center gap-3 p-3 rounded-lg bg-muted/30"
+			>
+				<div
+					className={`size-8 rounded-full flex items-center justify-center text-xs font-medium ${
+						payment.status === 'paid'
+							? 'bg-primary text-primary-foreground'
+							: payment.status === 'upcoming'
+								? 'bg-amber-500/20 text-amber-600'
+								: 'bg-muted'
+					}`}
+				>
 					{payment.status === 'paid' ? <Check className="size-4" /> : index + 1}
 				</div>
 				<div className="flex-1">
 					<span className="text-sm font-medium">{payment.date}</span>
 					{payment.status === 'upcoming' && (
-						<Badge variant="secondary" className="ml-2 text-xs">Next</Badge>
+						<Badge variant="secondary" className="ml-2 text-xs">
+							Next
+						</Badge>
 					)}
 				</div>
 				<span className="font-medium">{payment.amount}</span>
@@ -169,7 +224,8 @@ const AgreementStep = () => (
 			<div className="flex items-start gap-3">
 				<Checkbox id="terms" className="mt-0.5" />
 				<Label htmlFor="terms" className="text-sm cursor-pointer">
-					I agree to the installment payment terms and authorize automatic monthly charges
+					I agree to the installment payment terms and authorize automatic
+					monthly charges
 				</Label>
 			</div>
 			<div className="flex items-start gap-3">
@@ -182,7 +238,15 @@ const AgreementStep = () => (
 	</div>
 );
 
-const InstallmentSummary = ({ firstPayment, monthly, total }: { firstPayment: string; monthly: string; total: string }) => (
+const InstallmentSummary = ({
+	firstPayment,
+	monthly,
+	total,
+}: {
+	firstPayment: string;
+	monthly: string;
+	total: string;
+}) => (
 	<div className="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-3">
 		<div className="flex items-center justify-between">
 			<div>
@@ -206,7 +270,17 @@ const InstallmentSummary = ({ firstPayment, monthly, total }: { firstPayment: st
 	</div>
 );
 
-const NavigationButtons = ({ step, totalSteps, onPrev, onNext }: { step: number; totalSteps: number; onPrev: () => void; onNext: () => void }) => (
+const NavigationButtons = ({
+	step,
+	totalSteps,
+	onPrev,
+	onNext,
+}: {
+	step: number;
+	totalSteps: number;
+	onPrev: () => void;
+	onNext: () => void;
+}) => (
 	<div className="flex gap-3">
 		{step > 0 && (
 			<Button variant="outline" onClick={onPrev} className="gap-2">
@@ -234,9 +308,28 @@ export default function Main() {
 	const steps = ['Eligibility', 'Plan', 'Payment', 'Confirm'];
 
 	const plans: InstallmentPlan[] = [
-		{ id: '3', months: 3, monthly: '$166.67', total: '$500.00', interest: '0% interest' },
-		{ id: '6', months: 6, monthly: '$83.33', total: '$500.00', interest: '0% interest', recommended: true },
-		{ id: '12', months: 12, monthly: '$45.83', total: '$550.00', interest: '10% APR' },
+		{
+			id: '3',
+			months: 3,
+			monthly: '$166.67',
+			total: '$500.00',
+			interest: '0% interest',
+		},
+		{
+			id: '6',
+			months: 6,
+			monthly: '$83.33',
+			total: '$500.00',
+			interest: '0% interest',
+			recommended: true,
+		},
+		{
+			id: '12',
+			months: 12,
+			monthly: '$45.83',
+			total: '$550.00',
+			interest: '10% APR',
+		},
 	];
 
 	return (
@@ -247,15 +340,26 @@ export default function Main() {
 						<NumberedSteps steps={steps} current={currentStep} />
 						<div className="text-center">
 							<h2 className="text-xl font-semibold">Payment Details</h2>
-							<p className="text-sm text-muted-foreground">Enter your card for monthly payments</p>
+							<p className="text-sm text-muted-foreground">
+								Enter your card for monthly payments
+							</p>
 						</div>
 					</CardHeader>
 					<CardContent>
 						<CardDetailsStep />
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
-						<InstallmentSummary firstPayment="$83.33" monthly="$83.33" total="$500.00" />
-						<NavigationButtons step={currentStep} totalSteps={steps.length} onPrev={() => {}} onNext={() => {}} />
+						<InstallmentSummary
+							firstPayment="$83.33"
+							monthly="$83.33"
+							total="$500.00"
+						/>
+						<NavigationButtons
+							step={currentStep}
+							totalSteps={steps.length}
+							onPrev={() => {}}
+							onNext={() => {}}
+						/>
 					</CardFooter>
 				</Card>
 			</div>

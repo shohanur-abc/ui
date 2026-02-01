@@ -18,7 +18,13 @@ type StatCardProps = {
 	unit: string;
 };
 
-const StatCard = ({ label, value, previousValue, change, unit }: StatCardProps) => {
+const StatCard = ({
+	label,
+	value,
+	previousValue,
+	change,
+	unit,
+}: StatCardProps) => {
 	const isPositive = change > 0;
 	const isNeutral = change === 0;
 
@@ -50,7 +56,9 @@ const StatCard = ({ label, value, previousValue, change, unit }: StatCardProps) 
 					)}
 					{Math.abs(change)}%
 				</div>
-				<span className="text-xs text-muted-foreground">vs {previousValue}</span>
+				<span className="text-xs text-muted-foreground">
+					vs {previousValue}
+				</span>
 			</div>
 		</div>
 	);
@@ -77,18 +85,70 @@ const Highlight = ({ title, value, description }: HighlightProps) => (
 
 export default function Main() {
 	const stats: StatCardProps[] = [
-		{ label: 'Gross Revenue', value: '$1.24M', previousValue: 'last month', change: 18.5, unit: 'USD' },
-		{ label: 'Net Profit', value: '$248K', previousValue: 'last month', change: 12.3, unit: 'USD' },
-		{ label: 'Profit Margin', value: '20.0%', previousValue: 'last month', change: -1.5, unit: '%' },
-		{ label: 'Operating Costs', value: '$992K', previousValue: 'last month', change: 22.1, unit: 'USD' },
-		{ label: 'Customer Acquisition', value: '$42.50', previousValue: 'last month', change: -8.2, unit: 'per customer' },
-		{ label: 'Lifetime Value', value: '$385', previousValue: 'last month', change: 5.4, unit: 'per customer' },
-		{ label: 'Payback Period', value: '3.2', previousValue: 'last month', change: 0, unit: 'months' },
-		{ label: 'Revenue per Visit', value: '$8.42', previousValue: 'last month', change: 6.8, unit: 'USD' },
+		{
+			label: 'Gross Revenue',
+			value: '$1.24M',
+			previousValue: 'last month',
+			change: 18.5,
+			unit: 'USD',
+		},
+		{
+			label: 'Net Profit',
+			value: '$248K',
+			previousValue: 'last month',
+			change: 12.3,
+			unit: 'USD',
+		},
+		{
+			label: 'Profit Margin',
+			value: '20.0%',
+			previousValue: 'last month',
+			change: -1.5,
+			unit: '%',
+		},
+		{
+			label: 'Operating Costs',
+			value: '$992K',
+			previousValue: 'last month',
+			change: 22.1,
+			unit: 'USD',
+		},
+		{
+			label: 'Customer Acquisition',
+			value: '$42.50',
+			previousValue: 'last month',
+			change: -8.2,
+			unit: 'per customer',
+		},
+		{
+			label: 'Lifetime Value',
+			value: '$385',
+			previousValue: 'last month',
+			change: 5.4,
+			unit: 'per customer',
+		},
+		{
+			label: 'Payback Period',
+			value: '3.2',
+			previousValue: 'last month',
+			change: 0,
+			unit: 'months',
+		},
+		{
+			label: 'Revenue per Visit',
+			value: '$8.42',
+			previousValue: 'last month',
+			change: 6.8,
+			unit: 'USD',
+		},
 	];
 
 	const highlights: HighlightProps[] = [
-		{ title: 'Best Performing', value: 'Electronics', description: '+32% revenue growth' },
+		{
+			title: 'Best Performing',
+			value: 'Electronics',
+			description: '+32% revenue growth',
+		},
 		{ title: 'Top Market', value: 'California', description: '$185K in sales' },
 	];
 

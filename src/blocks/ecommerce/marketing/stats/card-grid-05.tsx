@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { Sparkles, ChartBar, Globe, Heart, type LucideIcon } from 'lucide-react';
+import {
+	Sparkles,
+	ChartBar,
+	Globe,
+	Heart,
+	type LucideIcon,
+} from 'lucide-react';
 
 interface StatItemProps {
 	icon: LucideIcon;
@@ -11,7 +17,14 @@ interface StatItemProps {
 	isPositive: boolean;
 }
 
-const StatCard = ({ icon: Icon, label, value, change, period, isPositive }: StatItemProps) => (
+const StatCard = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	period,
+	isPositive,
+}: StatItemProps) => (
 	<Card className="group relative isolate overflow-hidden p-6 transition-all duration-300 hover:border-primary/40">
 		<div className="absolute inset-0 -z-10 bg-gradient-to-t from-primary/[0.03] to-transparent" />
 		<div className="flex flex-col gap-4">
@@ -20,7 +33,10 @@ const StatCard = ({ icon: Icon, label, value, change, period, isPositive }: Stat
 					<Icon className="size-4 text-primary" />
 					<span className="text-sm font-medium">{label}</span>
 				</div>
-				<Badge variant={isPositive ? 'default' : 'destructive'} className="text-[10px]">
+				<Badge
+					variant={isPositive ? 'default' : 'destructive'}
+					className="text-[10px]"
+				>
 					{change}
 				</Badge>
 			</div>
@@ -32,10 +48,38 @@ const StatCard = ({ icon: Icon, label, value, change, period, isPositive }: Stat
 
 export default function Main() {
 	const stats: StatItemProps[] = [
-		{ icon: Sparkles, label: 'Revenue', value: '$284K', change: '+18.2%', period: 'vs last quarter', isPositive: true },
-		{ icon: ChartBar, label: 'Orders', value: '12.4K', change: '+24.1%', period: 'vs last quarter', isPositive: true },
-		{ icon: Globe, label: 'Visitors', value: '847K', change: '+42.8%', period: 'vs last quarter', isPositive: true },
-		{ icon: Heart, label: 'Wishlist', value: '28.9K', change: '-2.4%', period: 'vs last quarter', isPositive: false },
+		{
+			icon: Sparkles,
+			label: 'Revenue',
+			value: '$284K',
+			change: '+18.2%',
+			period: 'vs last quarter',
+			isPositive: true,
+		},
+		{
+			icon: ChartBar,
+			label: 'Orders',
+			value: '12.4K',
+			change: '+24.1%',
+			period: 'vs last quarter',
+			isPositive: true,
+		},
+		{
+			icon: Globe,
+			label: 'Visitors',
+			value: '847K',
+			change: '+42.8%',
+			period: 'vs last quarter',
+			isPositive: true,
+		},
+		{
+			icon: Heart,
+			label: 'Wishlist',
+			value: '28.9K',
+			change: '-2.4%',
+			period: 'vs last quarter',
+			isPositive: false,
+		},
 	];
 
 	return (

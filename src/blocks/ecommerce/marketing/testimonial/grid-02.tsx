@@ -60,7 +60,9 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 		<CardContent className="p-6 @lg:p-8 flex flex-col h-full">
 			<div className="flex items-start justify-between gap-4 mb-6">
 				<Quote className="size-10 text-primary/20 shrink-0" />
-				{item.metric && <MetricBadge value={item.metric.value} label={item.metric.label} />}
+				{item.metric && (
+					<MetricBadge value={item.metric.value} label={item.metric.label} />
+				)}
 			</div>
 			<StarRating rating={item.rating} />
 			<p className="text-foreground text-lg leading-relaxed flex-1 mt-4 mb-6">
@@ -95,7 +97,8 @@ export default function Main() {
 			author: 'Catherine Bell',
 			role: 'VP of Sales',
 			company: 'SalesForce Pro',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'CB',
 			rating: 5,
 			metric: { value: '+127%', label: 'conversion' },
@@ -106,7 +109,8 @@ export default function Main() {
 			author: 'Michael Foster',
 			role: 'Engineering Director',
 			company: 'BuildRight',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'MF',
 			rating: 5,
 			metric: { value: '5 days', label: 'to deploy' },
@@ -117,7 +121,8 @@ export default function Main() {
 			author: 'Lisa Chang',
 			role: 'Founder & CEO',
 			company: 'LaunchPad',
-			avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
 			initials: 'LC',
 			rating: 5,
 			metric: { value: '50%', label: 'cost savings' },
@@ -128,7 +133,8 @@ export default function Main() {
 			author: 'Ryan Mitchell',
 			role: 'Data Scientist',
 			company: 'DataDriven',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'RM',
 			rating: 5,
 			metric: { value: '10x', label: 'faster insights' },
@@ -136,7 +142,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					icon={TrendingUp}

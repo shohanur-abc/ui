@@ -1,10 +1,25 @@
 import Link from 'next/link';
-import { Phone, MapPin, ArrowRight, ArrowLeft, ShoppingBag, User, Calendar, Home } from 'lucide-react';
+import {
+	Phone,
+	MapPin,
+	ArrowRight,
+	ArrowLeft,
+	ShoppingBag,
+	User,
+	Calendar,
+	Home,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	Select,
@@ -14,7 +29,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -32,7 +53,9 @@ const StepIndicator = ({
 }) => (
 	<div className="space-y-2 mb-6">
 		<div className="flex justify-between text-sm">
-			<span className="text-muted-foreground">Step {currentStep} of {steps.length}</span>
+			<span className="text-muted-foreground">
+				Step {currentStep} of {steps.length}
+			</span>
 			<span className="font-medium">{steps[currentStep - 1]}</span>
 		</div>
 		<Progress value={(currentStep / steps.length) * 100} className="h-2" />
@@ -78,7 +101,10 @@ const SelectField = ({
 			</SelectTrigger>
 			<SelectContent>
 				{options.map((option) => (
-					<SelectItem key={option} value={option.toLowerCase().replace(/\s/g, '-')}>
+					<SelectItem
+						key={option}
+						value={option.toLowerCase().replace(/\s/g, '-')}
+					>
 						{option}
 					</SelectItem>
 				))}
@@ -109,14 +135,43 @@ const NavigationButtons = ({
 );
 
 const ProfileStep = () => {
-	const countries = ['United States', 'Canada', 'United Kingdom', 'Australia', 'Germany', 'France'];
+	const countries = [
+		'United States',
+		'Canada',
+		'United Kingdom',
+		'Australia',
+		'Germany',
+		'France',
+	];
 
 	return (
 		<form className="space-y-4">
-			<FormField id="wizard-phone" label="Phone Number" type="tel" placeholder="+1 (555) 123-4567" icon={Phone} />
-			<FormField id="wizard-birth" label="Date of Birth" type="date" placeholder="" icon={Calendar} />
-			<SelectField label="Country" placeholder="Select country" options={countries} />
-			<FormField id="wizard-city" label="City" type="text" placeholder="New York" icon={MapPin} />
+			<FormField
+				id="wizard-phone"
+				label="Phone Number"
+				type="tel"
+				placeholder="+1 (555) 123-4567"
+				icon={Phone}
+			/>
+			<FormField
+				id="wizard-birth"
+				label="Date of Birth"
+				type="date"
+				placeholder=""
+				icon={Calendar}
+			/>
+			<SelectField
+				label="Country"
+				placeholder="Select country"
+				options={countries}
+			/>
+			<FormField
+				id="wizard-city"
+				label="City"
+				type="text"
+				placeholder="New York"
+				icon={MapPin}
+			/>
 			<NavigationButtons showBack={true} nextLabel="Continue" />
 		</form>
 	);
@@ -134,7 +189,9 @@ export default function Main() {
 							<Logo name="ShopNow" icon={ShoppingBag} />
 						</div>
 						<CardTitle className="text-2xl">Your profile</CardTitle>
-						<CardDescription>Help us personalize your experience</CardDescription>
+						<CardDescription>
+							Help us personalize your experience
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<StepIndicator steps={steps} currentStep={2} />

@@ -31,7 +31,13 @@ interface CardGridProps {
 	items: WishlistItem[];
 }
 
-const ColorSelector = ({ colors, selected }: { colors: ColorOption[]; selected: string }) => (
+const ColorSelector = ({
+	colors,
+	selected,
+}: {
+	colors: ColorOption[];
+	selected: string;
+}) => (
 	<div className="mt-3">
 		<div className="flex items-center gap-1 mb-2 text-xs text-muted-foreground">
 			<Palette className="size-3" />
@@ -42,7 +48,9 @@ const ColorSelector = ({ colors, selected }: { colors: ColorOption[]; selected: 
 				<button
 					key={color.name}
 					className={`size-6 rounded-full border-2 transition-all ${
-						selected === color.name ? 'border-primary ring-2 ring-primary/30' : 'border-transparent'
+						selected === color.name
+							? 'border-primary ring-2 ring-primary/30'
+							: 'border-transparent'
 					} ${!color.available ? 'opacity-50' : 'hover:scale-110'}`}
 					style={{ backgroundColor: color.hex }}
 					title={color.name}
@@ -57,7 +65,13 @@ const ColorSelector = ({ colors, selected }: { colors: ColorOption[]; selected: 
 	</div>
 );
 
-const SizeSelector = ({ sizes, selected }: { sizes: SizeOption[]; selected: string }) => (
+const SizeSelector = ({
+	sizes,
+	selected,
+}: {
+	sizes: SizeOption[];
+	selected: string;
+}) => (
 	<div className="mt-3">
 		<div className="flex items-center gap-1 mb-2 text-xs text-muted-foreground">
 			<Ruler className="size-3" />
@@ -123,16 +137,101 @@ const CardGrid = ({ items }: CardGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Premium Cotton Hoodie', price: 89.00, image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop', colors: [{ name: 'Black', hex: '#1a1a1a', available: true }, { name: 'Navy', hex: '#1e3a5f', available: true }, { name: 'Gray', hex: '#6b7280', available: true }, { name: 'Burgundy', hex: '#800020', available: false }], sizes: [{ name: 'XS', available: true }, { name: 'S', available: true }, { name: 'M', available: true }, { name: 'L', available: false }, { name: 'XL', available: true }], selectedColor: 'Black', selectedSize: 'M', href: '/product/1' },
-		{ id: '2', name: 'Slim Fit Chinos', price: 65.00, image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=400&fit=crop', colors: [{ name: 'Khaki', hex: '#c3b091', available: true }, { name: 'Navy', hex: '#1e3a5f', available: true }, { name: 'Olive', hex: '#556b2f', available: true }], sizes: [{ name: '30', available: true }, { name: '32', available: true }, { name: '34', available: true }, { name: '36', available: true }], selectedColor: 'Khaki', selectedSize: '32', href: '/product/2' },
-		{ id: '3', name: 'Athletic Sneakers', price: 129.00, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop', colors: [{ name: 'White', hex: '#ffffff', available: true }, { name: 'Black', hex: '#1a1a1a', available: true }, { name: 'Red', hex: '#dc2626', available: false }], sizes: [{ name: '8', available: true }, { name: '9', available: true }, { name: '10', available: false }, { name: '11', available: true }, { name: '12', available: true }], selectedColor: 'White', selectedSize: '9', href: '/product/3' },
-		{ id: '4', name: 'Linen Button-Up', price: 75.00, image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop', colors: [{ name: 'White', hex: '#ffffff', available: true }, { name: 'Blue', hex: '#3b82f6', available: true }, { name: 'Pink', hex: '#ec4899', available: true }], sizes: [{ name: 'S', available: true }, { name: 'M', available: true }, { name: 'L', available: true }, { name: 'XL', available: true }], selectedColor: 'Blue', selectedSize: 'L', href: '/product/4' },
+		{
+			id: '1',
+			name: 'Premium Cotton Hoodie',
+			price: 89.0,
+			image:
+				'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop',
+			colors: [
+				{ name: 'Black', hex: '#1a1a1a', available: true },
+				{ name: 'Navy', hex: '#1e3a5f', available: true },
+				{ name: 'Gray', hex: '#6b7280', available: true },
+				{ name: 'Burgundy', hex: '#800020', available: false },
+			],
+			sizes: [
+				{ name: 'XS', available: true },
+				{ name: 'S', available: true },
+				{ name: 'M', available: true },
+				{ name: 'L', available: false },
+				{ name: 'XL', available: true },
+			],
+			selectedColor: 'Black',
+			selectedSize: 'M',
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Slim Fit Chinos',
+			price: 65.0,
+			image:
+				'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=400&fit=crop',
+			colors: [
+				{ name: 'Khaki', hex: '#c3b091', available: true },
+				{ name: 'Navy', hex: '#1e3a5f', available: true },
+				{ name: 'Olive', hex: '#556b2f', available: true },
+			],
+			sizes: [
+				{ name: '30', available: true },
+				{ name: '32', available: true },
+				{ name: '34', available: true },
+				{ name: '36', available: true },
+			],
+			selectedColor: 'Khaki',
+			selectedSize: '32',
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Athletic Sneakers',
+			price: 129.0,
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop',
+			colors: [
+				{ name: 'White', hex: '#ffffff', available: true },
+				{ name: 'Black', hex: '#1a1a1a', available: true },
+				{ name: 'Red', hex: '#dc2626', available: false },
+			],
+			sizes: [
+				{ name: '8', available: true },
+				{ name: '9', available: true },
+				{ name: '10', available: false },
+				{ name: '11', available: true },
+				{ name: '12', available: true },
+			],
+			selectedColor: 'White',
+			selectedSize: '9',
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Linen Button-Up',
+			price: 75.0,
+			image:
+				'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop',
+			colors: [
+				{ name: 'White', hex: '#ffffff', available: true },
+				{ name: 'Blue', hex: '#3b82f6', available: true },
+				{ name: 'Pink', hex: '#ec4899', available: true },
+			],
+			sizes: [
+				{ name: 'S', available: true },
+				{ name: 'M', available: true },
+				{ name: 'L', available: true },
+				{ name: 'XL', available: true },
+			],
+			selectedColor: 'Blue',
+			selectedSize: 'L',
+			href: '/product/4',
+		},
 	];
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<h1 className="text-2xl @md:text-3xl font-bold mb-6 @md:mb-8">My Wishlist</h1>
+				<h1 className="text-2xl @md:text-3xl font-bold mb-6 @md:mb-8">
+					My Wishlist
+				</h1>
 				<CardGrid items={wishlistItems} />
 			</div>
 		</section>

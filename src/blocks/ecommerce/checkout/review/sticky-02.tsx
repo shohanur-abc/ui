@@ -2,7 +2,13 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -68,9 +74,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -82,7 +92,8 @@ export default function Main() {
 			variant: 'Drip / Stainless',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -90,7 +101,8 @@ export default function Main() {
 			variant: 'Arabica / 1kg',
 			price: 24.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -124,9 +136,21 @@ export default function Main() {
 
 						<Card className="mb-6">
 							<CardContent className="space-y-3 pt-6">
-								<InfoLine icon={MapPin} label="Ship to" value="Rachel T., Los Angeles, CA" />
-								<InfoLine icon={Truck} label="Delivery" value="Standard · Dec 26-28" />
-								<InfoLine icon={CreditCard} label="Payment" value="Amex •••• 3210" />
+								<InfoLine
+									icon={MapPin}
+									label="Ship to"
+									value="Rachel T., Los Angeles, CA"
+								/>
+								<InfoLine
+									icon={Truck}
+									label="Delivery"
+									value="Standard · Dec 26-28"
+								/>
+								<InfoLine
+									icon={CreditCard}
+									label="Payment"
+									value="Amex •••• 3210"
+								/>
 							</CardContent>
 						</Card>
 

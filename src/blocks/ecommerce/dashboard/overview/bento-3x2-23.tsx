@@ -72,10 +72,34 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const stats: StatItem[] = [
-		{ title: 'Revenue', value: '$124.5k', change: '+23%', trend: 'up', icon: DollarSign },
-		{ title: 'Orders', value: '3,842', change: '+18%', trend: 'up', icon: ShoppingCart },
-		{ title: 'Avg Order', value: '$68.45', change: '-2%', trend: 'down', icon: CreditCard },
-		{ title: 'Products', value: '1,247', change: '+5%', trend: 'up', icon: Package },
+		{
+			title: 'Revenue',
+			value: '$124.5k',
+			change: '+23%',
+			trend: 'up',
+			icon: DollarSign,
+		},
+		{
+			title: 'Orders',
+			value: '3,842',
+			change: '+18%',
+			trend: 'up',
+			icon: ShoppingCart,
+		},
+		{
+			title: 'Avg Order',
+			value: '$68.45',
+			change: '-2%',
+			trend: 'down',
+			icon: CreditCard,
+		},
+		{
+			title: 'Products',
+			value: '1,247',
+			change: '+5%',
+			trend: 'up',
+			icon: Package,
+		},
 	];
 
 	const pieData: PieDataItem[] = [
@@ -103,7 +127,10 @@ export default function Main() {
 							<CardTitle className="text-base">Sales by Category</CardTitle>
 						</CardHeader>
 						<CardContent className="flex items-center gap-6">
-							<ChartContainer config={chartConfig} className="h-[140px] w-[140px]">
+							<ChartContainer
+								config={chartConfig}
+								className="h-[140px] w-[140px]"
+							>
 								<PieChart>
 									<ChartTooltip content={<ChartTooltipContent hideLabel />} />
 									<Pie

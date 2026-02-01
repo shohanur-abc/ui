@@ -85,7 +85,9 @@ const TimelineEntry = ({
 						</AvatarFallback>
 					</Avatar>
 					<div>
-						<p className="font-semibold text-sm text-foreground">{item.author}</p>
+						<p className="font-semibold text-sm text-foreground">
+							{item.author}
+						</p>
 						<p className="text-xs text-muted-foreground">
 							{item.role} · {item.company}
 						</p>
@@ -114,7 +116,8 @@ export default function Main() {
 				author: 'Peter Grant',
 				role: 'Director',
 				company: 'AnnualReview',
-				avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+				avatar:
+					'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 				initials: 'PG',
 				rating: 5,
 				date: 'March 15, 2024',
@@ -126,7 +129,8 @@ export default function Main() {
 				author: 'Quinn Lee',
 				role: 'Data Lead',
 				company: 'DataFirst',
-				avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+				avatar:
+					'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 				initials: 'QL',
 				rating: 5,
 				date: 'February 8, 2024',
@@ -140,7 +144,8 @@ export default function Main() {
 				author: 'Rachel Kim',
 				role: 'CTO',
 				company: 'EnterpriseCo',
-				avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+				avatar:
+					'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 				initials: 'RK',
 				rating: 5,
 				date: 'October 22, 2023',
@@ -152,7 +157,8 @@ export default function Main() {
 				author: 'Samuel Wright',
 				role: 'CFO',
 				company: 'ROI Corp',
-				avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+				avatar:
+					'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 				initials: 'SW',
 				rating: 5,
 				date: 'June 5, 2023',
@@ -162,7 +168,10 @@ export default function Main() {
 	};
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="History"

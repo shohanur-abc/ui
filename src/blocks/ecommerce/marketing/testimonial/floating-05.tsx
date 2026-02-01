@@ -91,7 +91,8 @@ export default function Main() {
 			author: 'Kelly Chen',
 			role: 'CTO',
 			company: 'CloudFirst',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'KC',
 			rating: 5,
 		},
@@ -101,7 +102,8 @@ export default function Main() {
 			author: 'Leo Park',
 			role: 'VP Engineering',
 			company: 'MigratePro',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'LP',
 			rating: 5,
 		},
@@ -111,17 +113,18 @@ export default function Main() {
 			author: 'Maria Lee',
 			role: 'CEO',
 			company: 'AgileCorp',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'ML',
 			rating: 5,
 		},
 		{
-			quote:
-				'Cost optimization features saved us over 40% on infrastructure.',
+			quote: 'Cost optimization features saved us over 40% on infrastructure.',
 			author: 'Nathan Kim',
 			role: 'CFO',
 			company: 'SaveSmart',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'NK',
 			rating: 5,
 		},
@@ -131,14 +134,18 @@ export default function Main() {
 			author: 'Olivia Foster',
 			role: 'COO',
 			company: 'GlobalReach',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'OF',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden min-h-[900px]" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden min-h-[900px]"
+			data-theme="testimonial"
+		>
 			{/* Cloud background decoration */}
 			<div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-primary/5" />
 			<div className="absolute top-20 left-1/4 w-64 h-32 bg-primary/5 rounded-full blur-3xl" />

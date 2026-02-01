@@ -7,12 +7,28 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-const InlineCardInput = ({ label, placeholder, icon: Icon, type }: { label: string; placeholder: string; icon?: React.ComponentType<{ className?: string }>; type?: string }) => (
+const InlineCardInput = ({
+	label,
+	placeholder,
+	icon: Icon,
+	type,
+}: {
+	label: string;
+	placeholder: string;
+	icon?: React.ComponentType<{ className?: string }>;
+	type?: string;
+}) => (
 	<div className="space-y-1.5">
 		<Label className="text-xs">{label}</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" />}
-			<Input placeholder={placeholder} type={type} className={`h-9 text-sm ${Icon ? 'pl-8' : ''}`} />
+			{Icon && (
+				<Icon className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" />
+			)}
+			<Input
+				placeholder={placeholder}
+				type={type}
+				className={`h-9 text-sm ${Icon ? 'pl-8' : ''}`}
+			/>
 		</div>
 	</div>
 );
@@ -30,7 +46,11 @@ export default function Main() {
 			<div className="mx-auto max-w-sm px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardContent className="p-4 space-y-4">
-						<InlineCardInput label="Card Number" placeholder="4242 4242 4242 4242" icon={CreditCard} />
+						<InlineCardInput
+							label="Card Number"
+							placeholder="4242 4242 4242 4242"
+							icon={CreditCard}
+						/>
 						<div className="grid grid-cols-2 gap-3">
 							<InlineCardInput label="Expiry" placeholder="MM/YY" />
 							<InlineCardInput label="CVV" placeholder="•••" type="password" />

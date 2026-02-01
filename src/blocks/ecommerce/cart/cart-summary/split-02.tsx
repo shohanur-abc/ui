@@ -46,7 +46,10 @@ const TotalRow = ({ label, value }: { label: string; value: string }) => (
 const CouponSection = ({
 	placeholder,
 	buttonLabel,
-}: { placeholder: string; buttonLabel: string }) => (
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="space-y-3">
 		<p className="text-sm font-medium">Have a coupon?</p>
 		<div className="flex gap-2">
@@ -80,7 +83,11 @@ const SecureCheckout = ({
 	label,
 	href,
 	securityText,
-}: { label: string; href: string; securityText: string }) => (
+}: {
+	label: string;
+	href: string;
+	securityText: string;
+}) => (
 	<div className="space-y-3">
 		<Button className="w-full" size="lg" asChild>
 			<Link href={href}>{label}</Link>

@@ -163,9 +163,24 @@ export default function Main() {
 	];
 
 	const products = [
-		{ name: 'Wireless Headphones', quantity: 1, price: '$299.99', status: 'Processing' },
-		{ name: 'USB-C Charger', quantity: 2, price: '$99.98', status: 'Processing' },
-		{ name: 'Carrying Case', quantity: 1, price: '$39.99', status: 'Processing' },
+		{
+			name: 'Wireless Headphones',
+			quantity: 1,
+			price: '$299.99',
+			status: 'Processing',
+		},
+		{
+			name: 'USB-C Charger',
+			quantity: 2,
+			price: '$99.98',
+			status: 'Processing',
+		},
+		{
+			name: 'Carrying Case',
+			quantity: 1,
+			price: '$39.99',
+			status: 'Processing',
+		},
 	];
 
 	return (

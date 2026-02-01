@@ -24,29 +24,38 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm font-medium">Monthly Goals</CardTitle>
-						<p className="text-xs text-muted-foreground">Track progress towards targets</p>
+						<p className="text-xs text-muted-foreground">
+							Track progress towards targets
+						</p>
 					</CardHeader>
 					<CardContent className="pt-4">
 						<div className="grid grid-cols-1 @md:grid-cols-2 gap-6">
 							{goals.map((goal, i) => {
-								const percent = Math.min((goal.current / goal.target) * 100, 100);
+								const percent = Math.min(
+									(goal.current / goal.target) * 100,
+									100,
+								);
 								const isComplete = percent >= 100;
-								
+
 								return (
 									<div key={i} className="space-y-2">
 										<div className="flex items-center justify-between">
 											<span className="text-sm font-medium">{goal.label}</span>
-											<span className={`text-sm font-semibold ${isComplete ? 'text-emerald-500' : ''}`}>
+											<span
+												className={`text-sm font-semibold ${isComplete ? 'text-emerald-500' : ''}`}
+											>
 												{percent.toFixed(0)}%
 											</span>
 										</div>
 										<Progress value={percent} className="h-2" />
 										<div className="flex items-center justify-between text-xs text-muted-foreground">
 											<span>
-												{goal.unit}{goal.current.toLocaleString()}
+												{goal.unit}
+												{goal.current.toLocaleString()}
 											</span>
 											<span>
-												Target: {goal.unit}{goal.target.toLocaleString()}
+												Target: {goal.unit}
+												{goal.target.toLocaleString()}
 											</span>
 										</div>
 									</div>

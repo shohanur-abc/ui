@@ -18,7 +18,12 @@ type RegionCardProps = {
 	totalRevenue: string;
 };
 
-const RegionCard = ({ icon: Icon, title, regions, totalRevenue }: RegionCardProps) => (
+const RegionCard = ({
+	icon: Icon,
+	title,
+	regions,
+	totalRevenue,
+}: RegionCardProps) => (
 	<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
 		<CardHeader className="flex flex-row items-center justify-between pb-2">
 			<div className="flex items-center gap-3">
@@ -58,10 +63,25 @@ export default function Main() {
 			title: 'Sales by Region',
 			totalRevenue: '$142,580',
 			regions: [
-				{ region: 'North America', revenue: '$58,420', percentage: 41, flag: '🇺🇸' },
+				{
+					region: 'North America',
+					revenue: '$58,420',
+					percentage: 41,
+					flag: '🇺🇸',
+				},
 				{ region: 'Europe', revenue: '$42,150', percentage: 30, flag: '🇪🇺' },
-				{ region: 'Asia Pacific', revenue: '$28,450', percentage: 20, flag: '🇯🇵' },
-				{ region: 'Latin America', revenue: '$13,560', percentage: 9, flag: '🇧🇷' },
+				{
+					region: 'Asia Pacific',
+					revenue: '$28,450',
+					percentage: 20,
+					flag: '🇯🇵',
+				},
+				{
+					region: 'Latin America',
+					revenue: '$13,560',
+					percentage: 9,
+					flag: '🇧🇷',
+				},
 			],
 		},
 		{
@@ -69,8 +89,18 @@ export default function Main() {
 			title: 'Q1 Performance',
 			totalRevenue: '$98,750',
 			regions: [
-				{ region: 'United States', revenue: '$45,200', percentage: 46, flag: '🇺🇸' },
-				{ region: 'United Kingdom', revenue: '$22,300', percentage: 23, flag: '🇬🇧' },
+				{
+					region: 'United States',
+					revenue: '$45,200',
+					percentage: 46,
+					flag: '🇺🇸',
+				},
+				{
+					region: 'United Kingdom',
+					revenue: '$22,300',
+					percentage: 23,
+					flag: '🇬🇧',
+				},
 				{ region: 'Germany', revenue: '$18,500', percentage: 19, flag: '🇩🇪' },
 				{ region: 'Canada', revenue: '$12,750', percentage: 12, flag: '🇨🇦' },
 			],

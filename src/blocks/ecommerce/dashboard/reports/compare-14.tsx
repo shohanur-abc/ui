@@ -1,6 +1,13 @@
 'use client';
 
-import { ArrowUpRight, ArrowDownRight, Package, Truck, DollarSign, Clock } from 'lucide-react';
+import {
+	ArrowUpRight,
+	ArrowDownRight,
+	Package,
+	Truck,
+	DollarSign,
+	Clock,
+} from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 import {
@@ -36,7 +43,15 @@ type CarrierMetricProps = {
 	volume: string;
 };
 
-const CarrierMetric = ({ carrier, icon: Icon, avgCost, avgTime, onTime, onTimeChange, volume }: CarrierMetricProps) => (
+const CarrierMetric = ({
+	carrier,
+	icon: Icon,
+	avgCost,
+	avgTime,
+	onTime,
+	onTimeChange,
+	volume,
+}: CarrierMetricProps) => (
 	<Card className="border-border/30 bg-card/60">
 		<CardContent className="p-5">
 			<div className="flex items-center justify-between">
@@ -88,10 +103,42 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const carriers: CarrierMetricProps[] = [
-		{ carrier: 'FedEx Express', icon: Truck, avgCost: '$12.45', avgTime: '2.1 days', onTime: '96%', onTimeChange: 2.1, volume: '4,250' },
-		{ carrier: 'UPS Ground', icon: Package, avgCost: '$8.90', avgTime: '3.8 days', onTime: '94%', onTimeChange: -1.2, volume: '6,120' },
-		{ carrier: 'USPS Priority', icon: Truck, avgCost: '$7.25', avgTime: '4.2 days', onTime: '89%', onTimeChange: 0.5, volume: '3,850' },
-		{ carrier: 'DHL Express', icon: Package, avgCost: '$15.80', avgTime: '1.8 days', onTime: '98%', onTimeChange: 1.8, volume: '1,980' },
+		{
+			carrier: 'FedEx Express',
+			icon: Truck,
+			avgCost: '$12.45',
+			avgTime: '2.1 days',
+			onTime: '96%',
+			onTimeChange: 2.1,
+			volume: '4,250',
+		},
+		{
+			carrier: 'UPS Ground',
+			icon: Package,
+			avgCost: '$8.90',
+			avgTime: '3.8 days',
+			onTime: '94%',
+			onTimeChange: -1.2,
+			volume: '6,120',
+		},
+		{
+			carrier: 'USPS Priority',
+			icon: Truck,
+			avgCost: '$7.25',
+			avgTime: '4.2 days',
+			onTime: '89%',
+			onTimeChange: 0.5,
+			volume: '3,850',
+		},
+		{
+			carrier: 'DHL Express',
+			icon: Package,
+			avgCost: '$15.80',
+			avgTime: '1.8 days',
+			onTime: '98%',
+			onTimeChange: 1.8,
+			volume: '1,980',
+		},
 	];
 
 	const chartData: CarrierData[] = [
@@ -129,30 +176,63 @@ export default function Main() {
 						<div className="grid gap-6 @lg:grid-cols-2">
 							<Card className="border-border/30 bg-muted/10">
 								<CardContent className="p-4">
-									<p className="mb-4 text-sm font-medium">Cost vs Speed Comparison</p>
-									<ChartContainer config={chartConfig} className="h-[240px] w-full">
+									<p className="mb-4 text-sm font-medium">
+										Cost vs Speed Comparison
+									</p>
+									<ChartContainer
+										config={chartConfig}
+										className="h-[240px] w-full"
+									>
 										<BarChart data={chartData} margin={{ left: 12, right: 12 }}>
 											<CartesianGrid strokeDasharray="3 3" vertical={false} />
-											<XAxis dataKey="carrier" tickLine={false} axisLine={false} />
+											<XAxis
+												dataKey="carrier"
+												tickLine={false}
+												axisLine={false}
+											/>
 											<YAxis yAxisId="left" tickLine={false} axisLine={false} />
-											<YAxis yAxisId="right" orientation="right" tickLine={false} axisLine={false} />
+											<YAxis
+												yAxisId="right"
+												orientation="right"
+												tickLine={false}
+												axisLine={false}
+											/>
 											<ChartTooltip content={<ChartTooltipContent />} />
 											<ChartLegend content={<ChartLegendContent />} />
-											<Bar yAxisId="left" dataKey="cost" fill="var(--color-cost)" radius={4} />
-											<Bar yAxisId="right" dataKey="time" fill="var(--color-time)" radius={4} />
+											<Bar
+												yAxisId="left"
+												dataKey="cost"
+												fill="var(--color-cost)"
+												radius={4}
+											/>
+											<Bar
+												yAxisId="right"
+												dataKey="time"
+												fill="var(--color-time)"
+												radius={4}
+											/>
 										</BarChart>
 									</ChartContainer>
 								</CardContent>
 							</Card>
 							<Card className="border-border/30 bg-muted/10">
 								<CardContent className="p-4">
-									<p className="mb-4 text-sm font-medium">Summary & Recommendations</p>
+									<p className="mb-4 text-sm font-medium">
+										Summary & Recommendations
+									</p>
 									<div className="grid gap-3 @sm:grid-cols-2">
 										{summary.map((s, i) => (
-											<div key={i} className="rounded-lg border border-border/30 bg-muted/20 p-3">
-												<p className="text-xs text-muted-foreground">{s.label}</p>
+											<div
+												key={i}
+												className="rounded-lg border border-border/30 bg-muted/20 p-3"
+											>
+												<p className="text-xs text-muted-foreground">
+													{s.label}
+												</p>
 												<p className="mt-1 font-bold">{s.value}</p>
-												<p className="text-xs text-muted-foreground">{s.desc}</p>
+												<p className="text-xs text-muted-foreground">
+													{s.desc}
+												</p>
 											</div>
 										))}
 									</div>

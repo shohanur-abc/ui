@@ -3,7 +3,11 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from '@/components/ui/popover';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -99,7 +103,10 @@ const DeliveryDatePicker = ({
 			</div>
 			<Popover>
 				<PopoverTrigger asChild>
-					<Button variant="outline" className="w-full justify-start text-left font-normal">
+					<Button
+						variant="outline"
+						className="w-full justify-start text-left font-normal"
+					>
 						<CalendarDays className="mr-2 size-4" />
 						{selectedDate ? formatDate(selectedDate) : selectLabel}
 					</Button>
@@ -108,7 +115,10 @@ const DeliveryDatePicker = ({
 					<Calendar
 						mode="single"
 						selected={selectedDate}
-						disabled={(date) => date < new Date() || date > new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)}
+						disabled={(date) =>
+							date < new Date() ||
+							date > new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+						}
 					/>
 				</PopoverContent>
 			</Popover>
@@ -151,14 +161,16 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Classic Watch',
 				price: 199.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds',
 				price: 129.99,
 				quantity: 1,
@@ -171,7 +183,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

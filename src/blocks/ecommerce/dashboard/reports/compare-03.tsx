@@ -1,6 +1,13 @@
 'use client';
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import {
+	Bar,
+	BarChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	ResponsiveContainer,
+} from 'recharts';
 import { Calendar } from 'lucide-react';
 
 import {
@@ -62,9 +69,24 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const summaries: SummaryProps[] = [
-		{ label: 'Total Revenue', thisYear: '$14.8M', lastYear: '$12.4M', change: '+19.4%' },
-		{ label: 'Total Orders', thisYear: '148.5K', lastYear: '125.2K', change: '+18.6%' },
-		{ label: 'Avg Order Value', thisYear: '$99.70', lastYear: '$99.04', change: '+0.7%' },
+		{
+			label: 'Total Revenue',
+			thisYear: '$14.8M',
+			lastYear: '$12.4M',
+			change: '+19.4%',
+		},
+		{
+			label: 'Total Orders',
+			thisYear: '148.5K',
+			lastYear: '125.2K',
+			change: '+18.6%',
+		},
+		{
+			label: 'Avg Order Value',
+			thisYear: '$99.70',
+			lastYear: '$99.04',
+			change: '+0.7%',
+		},
 	];
 
 	const chartData: YearData[] = [

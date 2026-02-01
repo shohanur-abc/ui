@@ -77,7 +77,9 @@ const SectionLabel = ({
 	};
 
 	return (
-		<span className={`text-xs font-semibold uppercase tracking-wider ${colors[type]}`}>
+		<span
+			className={`text-xs font-semibold uppercase tracking-wider ${colors[type]}`}
+		>
 			{label}
 		</span>
 	);
@@ -105,7 +107,8 @@ export default function Main() {
 			author: 'Diana Foster',
 			role: 'CTO',
 			company: 'TechGlobal',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'DF',
 			rating: 5,
 			metrics: ['150% ROI', '6 months', 'Zero downtime'],
@@ -123,7 +126,8 @@ export default function Main() {
 			author: 'Eric Chen',
 			role: 'VP Engineering',
 			company: 'StartupX',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'EC',
 			rating: 5,
 			metrics: ['10,000 users', '99.99% uptime', '100x scale'],
@@ -141,7 +145,8 @@ export default function Main() {
 			author: 'Fiona Park',
 			role: 'CISO',
 			company: 'FinCorp',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'FP',
 			rating: 5,
 			metrics: ['3 certifications', '90 days', '15 contracts'],
@@ -149,7 +154,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Case Studies"

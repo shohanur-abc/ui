@@ -1,4 +1,11 @@
-import { Truck, Clock, Calendar, AlertCircle, Check, Package } from 'lucide-react';
+import {
+	Truck,
+	Clock,
+	Calendar,
+	AlertCircle,
+	Check,
+	Package,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -22,10 +29,10 @@ const AsapOption = ({
 	fastest?: boolean;
 }) => (
 	<Label htmlFor={value} className="cursor-pointer block">
-		<Card
-			className="relative transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
-		>
-			{fastest && <Badge className="absolute -top-2.5 left-4 bg-green-500">Fastest</Badge>}
+		<Card className="relative transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			{fastest && (
+				<Badge className="absolute -top-2.5 left-4 bg-green-500">Fastest</Badge>
+			)}
 			<CardContent className="p-5">
 				<div className="flex items-center gap-4">
 					<RadioGroupItem value={value} id={value} />
@@ -77,7 +84,9 @@ const ScheduleSlot = ({
 							className="sr-only"
 							disabled={!slot.available}
 						/>
-						<span className={slot.available ? '' : 'line-through'}>{slot.time}</span>
+						<span className={slot.available ? '' : 'line-through'}>
+							{slot.time}
+						</span>
 					</Label>
 				))}
 			</RadioGroup>
@@ -87,9 +96,25 @@ const ScheduleSlot = ({
 
 export default function Main() {
 	const asapOptions = [
-		{ value: 'rush', name: 'Rush Delivery', time: '30-45 minutes', price: '$9.99', fastest: true },
-		{ value: 'quick', name: 'Quick Delivery', time: '1-2 hours', price: '$5.99' },
-		{ value: 'standard', name: 'Standard Delivery', time: '2-4 hours', price: '$2.99' },
+		{
+			value: 'rush',
+			name: 'Rush Delivery',
+			time: '30-45 minutes',
+			price: '$9.99',
+			fastest: true,
+		},
+		{
+			value: 'quick',
+			name: 'Quick Delivery',
+			time: '1-2 hours',
+			price: '$5.99',
+		},
+		{
+			value: 'standard',
+			name: 'Standard Delivery',
+			time: '2-4 hours',
+			price: '$2.99',
+		},
 	];
 
 	const scheduleSlots = [
@@ -144,7 +169,8 @@ export default function Main() {
 						<Alert className="mb-4">
 							<AlertCircle className="size-4" />
 							<AlertDescription>
-								Delivery times are estimates. Actual time may vary based on traffic and demand.
+								Delivery times are estimates. Actual time may vary based on
+								traffic and demand.
 							</AlertDescription>
 						</Alert>
 
@@ -158,7 +184,9 @@ export default function Main() {
 							<CardContent className="p-4">
 								<div className="flex items-center gap-2 text-sm">
 									<Package className="size-4 text-primary" />
-									<span>Your order will be prepared immediately after checkout</span>
+									<span>
+										Your order will be prepared immediately after checkout
+									</span>
 								</div>
 							</CardContent>
 						</Card>
@@ -181,7 +209,9 @@ export default function Main() {
 				</Tabs>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

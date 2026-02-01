@@ -1,6 +1,12 @@
 'use client';
 
-import { CreditCard, CheckCircle2, Clock, XCircle, AlertCircle } from 'lucide-react';
+import {
+	CreditCard,
+	CheckCircle2,
+	Clock,
+	XCircle,
+	AlertCircle,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -72,7 +78,10 @@ const PaymentTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{payments.map((payment) => (
-							<TableRow key={payment.id} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={payment.id}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell>
 									<div className="flex items-center gap-3">
 										<span className="text-2xl">{payment.methodIcon}</span>
@@ -121,11 +130,61 @@ const PaymentTableCard = ({
 
 export default function Main() {
 	const payments: PaymentData[] = [
-		{ id: 'PAY-001', method: 'Credit Card', methodIcon: '💳', transactions: 4520, volume: 425000, fees: 12750, successRate: 98.5, avgProcessingTime: '2.3s', status: 'active' },
-		{ id: 'PAY-002', method: 'PayPal', methodIcon: '🅿️', transactions: 2180, volume: 185000, fees: 8325, successRate: 97.2, avgProcessingTime: '3.1s', status: 'active' },
-		{ id: 'PAY-003', method: 'Apple Pay', methodIcon: '🍎', transactions: 1250, volume: 142000, fees: 4260, successRate: 99.1, avgProcessingTime: '1.8s', status: 'active' },
-		{ id: 'PAY-004', method: 'Google Pay', methodIcon: '🔵', transactions: 890, volume: 98000, fees: 2940, successRate: 98.8, avgProcessingTime: '1.9s', status: 'issues' },
-		{ id: 'PAY-005', method: 'Bank Transfer', methodIcon: '🏦', transactions: 320, volume: 85000, fees: 850, successRate: 94.2, avgProcessingTime: '24h', status: 'active' },
+		{
+			id: 'PAY-001',
+			method: 'Credit Card',
+			methodIcon: '💳',
+			transactions: 4520,
+			volume: 425000,
+			fees: 12750,
+			successRate: 98.5,
+			avgProcessingTime: '2.3s',
+			status: 'active',
+		},
+		{
+			id: 'PAY-002',
+			method: 'PayPal',
+			methodIcon: '🅿️',
+			transactions: 2180,
+			volume: 185000,
+			fees: 8325,
+			successRate: 97.2,
+			avgProcessingTime: '3.1s',
+			status: 'active',
+		},
+		{
+			id: 'PAY-003',
+			method: 'Apple Pay',
+			methodIcon: '🍎',
+			transactions: 1250,
+			volume: 142000,
+			fees: 4260,
+			successRate: 99.1,
+			avgProcessingTime: '1.8s',
+			status: 'active',
+		},
+		{
+			id: 'PAY-004',
+			method: 'Google Pay',
+			methodIcon: '🔵',
+			transactions: 890,
+			volume: 98000,
+			fees: 2940,
+			successRate: 98.8,
+			avgProcessingTime: '1.9s',
+			status: 'issues',
+		},
+		{
+			id: 'PAY-005',
+			method: 'Bank Transfer',
+			methodIcon: '🏦',
+			transactions: 320,
+			volume: 85000,
+			fees: 850,
+			successRate: 94.2,
+			avgProcessingTime: '24h',
+			status: 'active',
+		},
 	];
 
 	return (

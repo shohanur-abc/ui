@@ -27,14 +27,17 @@ const Logo = ({ icon: Icon }: { icon: React.ElementType }) => (
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-3">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-3">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
 
 const EmailHighlight = ({ email }: { email: string }) => (
 	<p className="text-center text-sm mb-8">
-		We sent a code to <span className="font-medium text-foreground">{email}</span>
+		We sent a code to{' '}
+		<span className="font-medium text-foreground">{email}</span>
 	</p>
 );
 
@@ -116,7 +119,10 @@ export default function Main() {
 			<div className="relative min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo icon={Package} />
-					<Title text="Verify your email" subtitle="Enter the 6-digit code we sent to your email" />
+					<Title
+						text="Verify your email"
+						subtitle="Enter the 6-digit code we sent to your email"
+					/>
 					<EmailHighlight email="user@example.com" />
 
 					<form className="space-y-6">
@@ -126,7 +132,11 @@ export default function Main() {
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="Wrong email?" linkText="Change email address" href="/signup" />
+						<FooterLink
+							text="Wrong email?"
+							linkText="Change email address"
+							href="/signup"
+						/>
 					</div>
 				</div>
 			</div>

@@ -2,7 +2,12 @@ import { CreditCard, Lock, Package, ShieldCheck, Truck } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -51,19 +56,29 @@ const CartItemsList = ({ items }: { items: CartItemProps[] }) => (
 	</div>
 );
 
-const ShippingInfo = ({ address, method }: { address: string; method: string }) => (
+const ShippingInfo = ({
+	address,
+	method,
+}: {
+	address: string;
+	method: string;
+}) => (
 	<div className="p-4 rounded-lg bg-muted/50 space-y-2">
 		<div className="flex items-center gap-2">
 			<Truck className="size-4 text-muted-foreground" />
 			<span className="text-sm font-medium">Shipping</span>
 		</div>
 		<p className="text-sm text-muted-foreground">{address}</p>
-		<Badge variant="secondary" className="text-xs">{method}</Badge>
+		<Badge variant="secondary" className="text-xs">
+			{method}
+		</Badge>
 	</div>
 );
 
 const SummaryLine = ({ label, value, isTotal }: SummaryLineProps) => (
-	<div className={`flex justify-between ${isTotal ? 'text-lg font-semibold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${isTotal ? 'text-lg font-semibold' : 'text-sm'}`}
+	>
 		<span className={isTotal ? '' : 'text-muted-foreground'}>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -80,12 +95,27 @@ const OrderSummary = ({ lines }: { lines: SummaryLineProps[] }) => (
 	</div>
 );
 
-const FormInput = ({ id, label, placeholder, type = 'text', icon: Icon }: FormFieldProps) => (
+const FormInput = ({
+	id,
+	label,
+	placeholder,
+	type = 'text',
+	icon: Icon,
+}: FormFieldProps) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
@@ -119,8 +149,20 @@ const SecurityFooter = () => (
 
 export default function Main() {
 	const cartItems: CartItemProps[] = [
-		{ name: 'Wireless Headphones', variant: 'Black / Large', price: '$199.00', quantity: 1, image: '' },
-		{ name: 'Phone Case', variant: 'Clear', price: '$29.00', quantity: 2, image: '' },
+		{
+			name: 'Wireless Headphones',
+			variant: 'Black / Large',
+			price: '$199.00',
+			quantity: 1,
+			image: '',
+		},
+		{
+			name: 'Phone Case',
+			variant: 'Clear',
+			price: '$29.00',
+			quantity: 2,
+			image: '',
+		},
 	];
 
 	const summaryLines: SummaryLineProps[] = [
@@ -131,7 +173,12 @@ export default function Main() {
 	];
 
 	const formFields: FormFieldProps[] = [
-		{ id: 'card', label: 'Card Number', placeholder: '1234 5678 9012 3456', icon: CreditCard },
+		{
+			id: 'card',
+			label: 'Card Number',
+			placeholder: '1234 5678 9012 3456',
+			icon: CreditCard,
+		},
 		{ id: 'name', label: 'Cardholder Name', placeholder: 'John Doe' },
 		{ id: 'exp', label: 'Expiry', placeholder: 'MM/YY' },
 		{ id: 'cvc', label: 'CVC', placeholder: '123', type: 'password' },

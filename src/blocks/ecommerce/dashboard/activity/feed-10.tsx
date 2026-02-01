@@ -46,7 +46,10 @@ const PromoIcon = ({ type }: { type: PromoActivity['type'] }) => {
 		PromoActivity['type'],
 		{ icon: LucideIcon; className: string }
 	> = {
-		discount: { icon: Percent, className: 'bg-emerald-500/20 text-emerald-400' },
+		discount: {
+			icon: Percent,
+			className: 'bg-emerald-500/20 text-emerald-400',
+		},
 		coupon: { icon: Ticket, className: 'bg-blue-500/20 text-blue-400' },
 		gift: { icon: Gift, className: 'bg-pink-500/20 text-pink-400' },
 		'flash-sale': { icon: Tag, className: 'bg-amber-500/20 text-amber-400' },
@@ -98,7 +101,11 @@ const UsageProgress = ({ usage }: { usage: PromoActivity['usage'] }) => {
 				<div className="h-1.5 w-16 rounded-full bg-muted overflow-hidden">
 					<div
 						className={`h-full ${
-							percentage > 90 ? 'bg-rose-500' : percentage > 70 ? 'bg-amber-500' : 'bg-primary'
+							percentage > 90
+								? 'bg-rose-500'
+								: percentage > 70
+									? 'bg-amber-500'
+									: 'bg-primary'
 						}`}
 						style={{ width: `${Math.min(percentage, 100)}%` }}
 					/>
@@ -191,8 +198,12 @@ const SummaryStats = ({
 }) => (
 	<div className="grid grid-cols-2 gap-4">
 		<div className="flex flex-col p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-			<span className="text-sm text-muted-foreground mb-1">Revenue Generated</span>
-			<span className="text-2xl font-bold text-emerald-400">{totalSavings}</span>
+			<span className="text-sm text-muted-foreground mb-1">
+				Revenue Generated
+			</span>
+			<span className="text-2xl font-bold text-emerald-400">
+				{totalSavings}
+			</span>
 		</div>
 		<div className="flex flex-col p-4 rounded-lg bg-primary/10 border border-primary/20">
 			<span className="text-sm text-muted-foreground mb-1">Active Promos</span>
@@ -278,9 +289,7 @@ export default function Main() {
 			usage: { current: 156, limit: 200 },
 			revenue: '$89,450',
 			validUntil: 'Jun 30, 2024',
-			recentUsers: [
-				{ name: 'DK', initials: 'DK' },
-			],
+			recentUsers: [{ name: 'DK', initials: 'DK' }],
 		},
 		{
 			id: '5',

@@ -36,7 +36,11 @@ interface ArticleProps {
 }
 
 const CaseBadge = ({ text, href }: { text: string; href: string }) => (
-	<Badge variant="outline" className="gap-1.5 border-primary/50 text-primary" asChild>
+	<Badge
+		variant="outline"
+		className="gap-1.5 border-primary/50 text-primary"
+		asChild
+	>
 		<Link href={href}>
 			<Briefcase className="size-3" />
 			{text}
@@ -140,7 +144,9 @@ const Results = ({ items }: { items: { label: string; value: string }[] }) => (
 			<div className="grid grid-cols-2 @md:grid-cols-3 gap-6">
 				{items.map((item, index) => (
 					<div key={index}>
-						<p className="text-3xl @md:text-4xl font-bold text-primary">{item.value}</p>
+						<p className="text-3xl @md:text-4xl font-bold text-primary">
+							{item.value}
+						</p>
 						<p className="text-sm text-muted-foreground mt-1">{item.label}</p>
 					</div>
 				))}
@@ -149,14 +155,23 @@ const Results = ({ items }: { items: { label: string; value: string }[] }) => (
 	</Card>
 );
 
-const ContentSections = ({ sections }: { sections: { heading: string; paragraphs: string[] }[] }) => (
+const ContentSections = ({
+	sections,
+}: {
+	sections: { heading: string; paragraphs: string[] }[];
+}) => (
 	<div className="space-y-10">
 		{sections.map((section, sectionIndex) => (
 			<div key={sectionIndex}>
-				<h2 className="text-xl @md:text-2xl font-bold mb-4">{section.heading}</h2>
+				<h2 className="text-xl @md:text-2xl font-bold mb-4">
+					{section.heading}
+				</h2>
 				<div className="space-y-4">
 					{section.paragraphs.map((paragraph, pIndex) => (
-						<p key={pIndex} className="text-base @md:text-lg leading-[1.85] text-foreground/85">
+						<p
+							key={pIndex}
+							className="text-base @md:text-lg leading-[1.85] text-foreground/85"
+						>
 							{paragraph}
 						</p>
 					))}
@@ -170,7 +185,8 @@ export default function Main() {
 	const articleData: ArticleProps = {
 		category: 'Case Study',
 		categoryHref: '/blog/category/case-studies',
-		title: 'How We Reduced Page Load Time by 70% for a Fortune 500 E-commerce Platform',
+		title:
+			'How We Reduced Page Load Time by 70% for a Fortune 500 E-commerce Platform',
 		subtitle:
 			'A deep dive into the performance optimization strategies that transformed user experience and boosted conversions.',
 		caseStudy: {
@@ -181,7 +197,8 @@ export default function Main() {
 		},
 		author: {
 			name: 'Michael Chang',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'MC',
 			title: 'Principal Engineer',
 			company: 'Performance Labs',
@@ -218,7 +235,10 @@ export default function Main() {
 		<section className="@container relative" data-theme="article">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-6 @md:gap-8">
-					<CaseBadge text={articleData.category} href={articleData.categoryHref} />
+					<CaseBadge
+						text={articleData.category}
+						href={articleData.categoryHref}
+					/>
 					<Title text={articleData.title} />
 					<Subtitle text={articleData.subtitle} />
 					<MetaGrid caseStudy={articleData.caseStudy} />

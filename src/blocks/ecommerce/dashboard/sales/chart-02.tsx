@@ -41,19 +41,22 @@ const BarChartCard = ({
 		</CardHeader>
 		<CardContent>
 			<ChartContainer config={config} className="h-[300px] w-full">
-				<BarChart data={data} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-					<CartesianGrid strokeDasharray="3 3" className="stroke-border/50" vertical={false} />
+				<BarChart
+					data={data}
+					margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+				>
+					<CartesianGrid
+						strokeDasharray="3 3"
+						className="stroke-border/50"
+						vertical={false}
+					/>
 					<XAxis
 						dataKey="day"
 						tickLine={false}
 						axisLine={false}
 						className="text-xs"
 					/>
-					<YAxis
-						tickLine={false}
-						axisLine={false}
-						className="text-xs"
-					/>
+					<YAxis tickLine={false} axisLine={false} className="text-xs" />
 					<ChartTooltip content={<ChartTooltipContent />} />
 					<Bar
 						dataKey="sales"

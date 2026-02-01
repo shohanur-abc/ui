@@ -97,9 +97,7 @@ const AddressCard = ({
 						</div>
 						<div>
 							<span className="font-semibold">{typeLabel}</span>
-							{selected && (
-								<Badge className="ml-2 text-xs">Selected</Badge>
-							)}
+							{selected && <Badge className="ml-2 text-xs">Selected</Badge>}
 						</div>
 					</div>
 					<Button variant="ghost" size="icon-sm">

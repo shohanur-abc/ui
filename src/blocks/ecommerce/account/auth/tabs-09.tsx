@@ -1,14 +1,35 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Wallet, CreditCard, Gift, User, Plus } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Wallet,
+	CreditCard,
+	Gift,
+	User,
+	Plus,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -82,8 +103,20 @@ const WalletLogin = () => (
 	<div className="space-y-4">
 		<BalanceDisplay label="Your Balance" amount="$125.00" icon={Wallet} />
 		<form className="space-y-4">
-			<FormField id="wallet-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-			<FormField id="wallet-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+			<FormField
+				id="wallet-email"
+				label="Email"
+				type="email"
+				placeholder="you@example.com"
+				icon={Mail}
+			/>
+			<FormField
+				id="wallet-password"
+				label="Password"
+				type="password"
+				placeholder="••••••••"
+				icon={Lock}
+			/>
 			<SubmitButton label="Access Wallet" icon={ArrowRight} />
 		</form>
 	</div>
@@ -97,21 +130,50 @@ const GiftCardLogin = () => (
 				Enter your gift card details to check balance or redeem
 			</p>
 		</div>
-		<FormField id="card-number" label="Gift Card Number" type="text" placeholder="XXXX-XXXX-XXXX-XXXX" icon={CreditCard} />
-		<FormField id="card-pin" label="PIN" type="password" placeholder="••••" icon={Lock} />
+		<FormField
+			id="card-number"
+			label="Gift Card Number"
+			type="text"
+			placeholder="XXXX-XXXX-XXXX-XXXX"
+			icon={CreditCard}
+		/>
+		<FormField
+			id="card-pin"
+			label="PIN"
+			type="password"
+			placeholder="••••"
+			icon={Lock}
+		/>
 		<SubmitButton label="Check Balance" icon={ArrowRight} />
 	</form>
 );
 
 const AddFunds = () => (
 	<form className="space-y-4">
-		<FormField id="add-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField id="add-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			id="add-email"
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="add-password"
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<div className="space-y-2">
 			<Label>Amount to Add</Label>
 			<div className="grid grid-cols-4 gap-2">
 				{['$10', '$25', '$50', '$100'].map((amount) => (
-					<Button key={amount} type="button" variant="outline" className="w-full">
+					<Button
+						key={amount}
+						type="button"
+						variant="outline"
+						className="w-full"
+					>
 						{amount}
 					</Button>
 				))}

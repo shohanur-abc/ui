@@ -1,11 +1,33 @@
 'use client';
 
-import { ArrowRight, BadgeCheck, Clock, CreditCard, Gift, Lock, Percent, Shield, Star, Wallet, Zap } from 'lucide-react';
+import {
+	ArrowRight,
+	BadgeCheck,
+	Clock,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	Shield,
+	Star,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -45,7 +67,14 @@ const CartSummary = ({ items }: { items: CartItem[] }) => (
 	</div>
 );
 
-const InstallmentOption = ({ id, months, monthly, total, apr, popular }: InstallmentPlan) => (
+const InstallmentOption = ({
+	id,
+	months,
+	monthly,
+	total,
+	apr,
+	popular,
+}: InstallmentPlan) => (
 	<Label
 		htmlFor={id}
 		className="relative flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all hover:border-primary/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
@@ -76,7 +105,10 @@ const InstallmentContent = ({ plans }: { plans: InstallmentPlan[] }) => (
 			<Clock className="size-4 text-primary" />
 			<span className="text-sm">Split your payment with 0% APR</span>
 		</div>
-		<RadioGroup defaultValue={plans.find(p => p.popular)?.id} className="space-y-3">
+		<RadioGroup
+			defaultValue={plans.find((p) => p.popular)?.id}
+			className="space-y-3"
+		>
 			{plans.map((plan) => (
 				<InstallmentOption key={plan.id} {...plan} />
 			))}
@@ -109,7 +141,9 @@ const PaymentMethodContent = () => (
 		</div>
 		<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 			<Checkbox id="save" />
-			<Label htmlFor="save" className="text-sm cursor-pointer">Save card for future purchases</Label>
+			<Label htmlFor="save" className="text-sm cursor-pointer">
+				Save card for future purchases
+			</Label>
 		</div>
 	</div>
 );
@@ -147,7 +181,9 @@ const ReviewContent = () => (
 				<Clock className="size-4 text-muted-foreground" />
 				<span className="font-medium">6 Monthly Payments</span>
 			</div>
-			<p className="text-xs text-muted-foreground ml-6">$83.00/month at 0% APR</p>
+			<p className="text-xs text-muted-foreground ml-6">
+				$83.00/month at 0% APR
+			</p>
 		</div>
 		<div className="p-3 rounded-lg bg-muted/30">
 			<div className="flex items-center gap-2 text-sm">
@@ -166,7 +202,13 @@ const ReviewContent = () => (
 	</div>
 );
 
-const PaymentSummary = ({ firstPayment, monthly }: { firstPayment: string; monthly: string }) => (
+const PaymentSummary = ({
+	firstPayment,
+	monthly,
+}: {
+	firstPayment: string;
+	monthly: string;
+}) => (
 	<div className="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-3">
 		<div className="flex items-center justify-between">
 			<div>
@@ -198,8 +240,21 @@ export default function Main() {
 
 	const installmentPlans: InstallmentPlan[] = [
 		{ id: '3', months: 3, monthly: '$133.00', total: '$399.00', apr: '0% APR' },
-		{ id: '6', months: 6, monthly: '$66.50', total: '$399.00', apr: '0% APR', popular: true },
-		{ id: '12', months: 12, monthly: '$36.58', total: '$439.00', apr: '10% APR' },
+		{
+			id: '6',
+			months: 6,
+			monthly: '$66.50',
+			total: '$399.00',
+			apr: '0% APR',
+			popular: true,
+		},
+		{
+			id: '12',
+			months: 12,
+			monthly: '$36.58',
+			total: '$439.00',
+			apr: '10% APR',
+		},
 	];
 
 	return (
@@ -216,7 +271,11 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Accordion type="multiple" defaultValue={['cart', 'installment']} className="w-full">
+						<Accordion
+							type="multiple"
+							defaultValue={['cart', 'installment']}
+							className="w-full"
+						>
 							<AccordionItem value="cart">
 								<AccordionTrigger className="text-sm font-medium">
 									Your Cart ({cartItems.length} items)

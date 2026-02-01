@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowLeft,
@@ -24,7 +30,13 @@ interface OrderItem {
 	image: string;
 }
 
-const ProgressBar = ({ steps, current }: { steps: string[]; current: number }) => (
+const ProgressBar = ({
+	steps,
+	current,
+}: {
+	steps: string[];
+	current: number;
+}) => (
 	<div className="mb-10">
 		<div className="flex justify-between">
 			{steps.map((step, index) => (
@@ -106,7 +118,9 @@ const PricingRow = ({
 	bold?: boolean;
 	discount?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
 		<span className={discount ? 'text-green-600 dark:text-green-400' : ''}>
 			{discount && '-'}${Math.abs(amount).toFixed(2)}
@@ -122,7 +136,8 @@ export default function Main() {
 			variant: 'Matte Black / 12oz',
 			price: 24.99,
 			quantity: 2,
-			image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -130,7 +145,8 @@ export default function Main() {
 			variant: 'Glass / 600ml',
 			price: 39.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -138,14 +154,18 @@ export default function Main() {
 			variant: 'Electric / White',
 			price: 89.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=200&h=200&fit=crop',
 		},
 	];
 
 	const steps = ['Cart', 'Address', 'Payment', 'Review'];
 
 	return (
-		<section className="@container relative min-h-screen overflow-hidden" data-theme="neon">
+		<section
+			className="@container relative min-h-screen overflow-hidden"
+			data-theme="neon"
+		>
 			<div className="grid min-h-screen @xl:grid-cols-2">
 				<div className="flex flex-col bg-muted/30 px-4 py-12 @sm:px-8 @md:py-16 @xl:px-12 @2xl:px-16">
 					<div className="mx-auto w-full max-w-lg">
@@ -156,7 +176,9 @@ export default function Main() {
 								<FileCheck className="size-3.5" />
 								Final Review
 							</Badge>
-							<h1 className="text-2xl font-bold @md:text-3xl">Confirm Your Order</h1>
+							<h1 className="text-2xl font-bold @md:text-3xl">
+								Confirm Your Order
+							</h1>
 							<p className="mt-1 text-muted-foreground">
 								Review details before completing purchase
 							</p>
@@ -218,8 +240,12 @@ export default function Main() {
 								<div className="space-y-3">
 									<PricingRow label="Subtotal (4 items)" amount={179.96} />
 									<PricingRow label="Shipping" amount={9.99} />
-									<PricingRow label="Tax" amount={15.30} />
-									<PricingRow label="Promo (COFFEE20)" amount={35.99} discount />
+									<PricingRow label="Tax" amount={15.3} />
+									<PricingRow
+										label="Promo (COFFEE20)"
+										amount={35.99}
+										discount
+									/>
 								</div>
 
 								<Separator className="my-6" />

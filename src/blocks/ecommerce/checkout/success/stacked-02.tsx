@@ -110,7 +110,9 @@ const TimelineStep = ({
 		</div>
 		<div className={`pb-8 ${isLast ? 'pb-0' : ''}`}>
 			<div className="flex items-center gap-2">
-				<p className={`font-medium ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}>
+				<p
+					className={`font-medium ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}
+				>
 					{title}
 				</p>
 				{status === 'current' && (
@@ -135,11 +137,7 @@ const TrackingTimeline = ({ steps }: { steps: TimelineStepProps[] }) => (
 		<h2 className="font-semibold text-lg">Tracking Timeline</h2>
 		<div>
 			{steps.map((step, i) => (
-				<TimelineStep
-					key={i}
-					{...step}
-					isLast={i === steps.length - 1}
-				/>
+				<TimelineStep key={i} {...step} isLast={i === steps.length - 1} />
 			))}
 		</div>
 	</div>
@@ -246,10 +244,7 @@ export default function Main() {
 
 				<TrackingTimeline steps={timelineSteps} />
 
-				<TrackingNumber
-					carrier="FedEx"
-					trackingNumber="1Z999AA10123456784"
-				/>
+				<TrackingNumber carrier="FedEx" trackingNumber="1Z999AA10123456784" />
 
 				<DeliveryAddress
 					name="John Doe"
@@ -260,7 +255,11 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'Track Package', href: '/track', icon: ArrowRight },
-						{ label: 'View Order Details', href: '/orders', variant: 'outline' },
+						{
+							label: 'View Order Details',
+							href: '/orders',
+							variant: 'outline',
+						},
 					]}
 				/>
 			</div>

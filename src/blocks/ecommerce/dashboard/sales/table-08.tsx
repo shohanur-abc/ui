@@ -88,7 +88,10 @@ const RefundTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{refunds.map((refund) => (
-							<TableRow key={refund.id} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={refund.id}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell className="font-mono text-sm">{refund.id}</TableCell>
 								<TableCell className="font-mono text-sm text-muted-foreground">
 									{refund.orderId}
@@ -121,11 +124,56 @@ const RefundTableCard = ({
 
 export default function Main() {
 	const refunds: RefundData[] = [
-		{ id: 'REF-001', orderId: 'ORD-2820', customer: 'Emma Wilson', amount: 249, reason: 'Product not as described', requestDate: '2024-01-15', status: 'processed', processingTime: '2 days' },
-		{ id: 'REF-002', orderId: 'ORD-2815', customer: 'James Clark', amount: 89, reason: 'Changed mind', requestDate: '2024-01-15', status: 'pending', processingTime: 'In review' },
-		{ id: 'REF-003', orderId: 'ORD-2810', customer: 'Sarah Miller', amount: 450, reason: 'Defective item', requestDate: '2024-01-14', status: 'approved', processingTime: '1 day' },
-		{ id: 'REF-004', orderId: 'ORD-2805', customer: 'Michael Brown', amount: 120, reason: 'Wrong size', requestDate: '2024-01-14', status: 'processed', processingTime: '3 days' },
-		{ id: 'REF-005', orderId: 'ORD-2800', customer: 'Lisa Johnson', amount: 65, reason: 'Duplicate order', requestDate: '2024-01-13', status: 'rejected', processingTime: 'N/A' },
+		{
+			id: 'REF-001',
+			orderId: 'ORD-2820',
+			customer: 'Emma Wilson',
+			amount: 249,
+			reason: 'Product not as described',
+			requestDate: '2024-01-15',
+			status: 'processed',
+			processingTime: '2 days',
+		},
+		{
+			id: 'REF-002',
+			orderId: 'ORD-2815',
+			customer: 'James Clark',
+			amount: 89,
+			reason: 'Changed mind',
+			requestDate: '2024-01-15',
+			status: 'pending',
+			processingTime: 'In review',
+		},
+		{
+			id: 'REF-003',
+			orderId: 'ORD-2810',
+			customer: 'Sarah Miller',
+			amount: 450,
+			reason: 'Defective item',
+			requestDate: '2024-01-14',
+			status: 'approved',
+			processingTime: '1 day',
+		},
+		{
+			id: 'REF-004',
+			orderId: 'ORD-2805',
+			customer: 'Michael Brown',
+			amount: 120,
+			reason: 'Wrong size',
+			requestDate: '2024-01-14',
+			status: 'processed',
+			processingTime: '3 days',
+		},
+		{
+			id: 'REF-005',
+			orderId: 'ORD-2800',
+			customer: 'Lisa Johnson',
+			amount: 65,
+			reason: 'Duplicate order',
+			requestDate: '2024-01-13',
+			status: 'rejected',
+			processingTime: 'N/A',
+		},
 	];
 
 	const summaryStats = [

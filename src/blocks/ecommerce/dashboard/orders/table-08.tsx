@@ -16,7 +16,15 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import { Calendar, TrendingUp, TrendingDown, DollarSign, Package, ShoppingCart, Users } from 'lucide-react';
+import {
+	Calendar,
+	TrendingUp,
+	TrendingDown,
+	DollarSign,
+	Package,
+	ShoppingCart,
+	Users,
+} from 'lucide-react';
 
 interface Order {
 	id: string;
@@ -41,7 +49,13 @@ interface PeriodSelectorProps {
 	defaultValue: string;
 }
 
-const StatCard = ({ icon: Icon, label, value, change, trend }: StatCardProps) => (
+const StatCard = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	trend,
+}: StatCardProps) => (
 	<div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 border border-border/50">
 		<div className="p-2.5 rounded-lg bg-primary/10">
 			<Icon className="size-5 text-primary" />
@@ -52,9 +66,17 @@ const StatCard = ({ icon: Icon, label, value, change, trend }: StatCardProps) =>
 		</div>
 		<Badge
 			variant="outline"
-			className={trend === 'up' ? 'text-accent border-accent/30 bg-accent/10' : 'text-destructive border-destructive/30 bg-destructive/10'}
+			className={
+				trend === 'up'
+					? 'text-accent border-accent/30 bg-accent/10'
+					: 'text-destructive border-destructive/30 bg-destructive/10'
+			}
 		>
-			{trend === 'up' ? <TrendingUp className="size-3 mr-1" /> : <TrendingDown className="size-3 mr-1" />}
+			{trend === 'up' ? (
+				<TrendingUp className="size-3 mr-1" />
+			) : (
+				<TrendingDown className="size-3 mr-1" />
+			)}
 			{change}
 		</Badge>
 	</div>
@@ -68,16 +90,28 @@ const PeriodSelector = ({ options, defaultValue }: PeriodSelectorProps) => (
 		</SelectTrigger>
 		<SelectContent>
 			{options.map((option) => (
-				<SelectItem key={option.value} value={option.value}>{option.label}</SelectItem>
+				<SelectItem key={option.value} value={option.value}>
+					{option.label}
+				</SelectItem>
 			))}
 		</SelectContent>
 	</Select>
 );
 
-const MarginCell = ({ margin, marginPercent, trend }: { margin: string; marginPercent: number; trend: Order['trend'] }) => (
+const MarginCell = ({
+	margin,
+	marginPercent,
+	trend,
+}: {
+	margin: string;
+	marginPercent: number;
+	trend: Order['trend'];
+}) => (
 	<div className="flex items-center gap-2">
 		<span className="font-medium">{margin}</span>
-		<span className={`text-xs ${trend === 'up' ? 'text-accent' : 'text-destructive'}`}>
+		<span
+			className={`text-xs ${trend === 'up' ? 'text-accent' : 'text-destructive'}`}
+		>
 			({marginPercent}%)
 		</span>
 	</div>
@@ -89,23 +123,55 @@ const OrderRow = ({ order }: { order: Order }) => (
 		<TableCell className="text-center">{order.items}</TableCell>
 		<TableCell className="font-semibold">{order.revenue}</TableCell>
 		<TableCell>
-			<MarginCell margin={order.margin} marginPercent={order.marginPercent} trend={order.trend} />
+			<MarginCell
+				margin={order.margin}
+				marginPercent={order.marginPercent}
+				trend={order.trend}
+			/>
 		</TableCell>
 		<TableCell>
-			<Badge variant="secondary" className="capitalize">{order.channel}</Badge>
+			<Badge variant="secondary" className="capitalize">
+				{order.channel}
+			</Badge>
 		</TableCell>
 		<TableCell>
-			<Button variant="ghost" size="sm">Details</Button>
+			<Button variant="ghost" size="sm">
+				Details
+			</Button>
 		</TableCell>
 	</TableRow>
 );
 
 export default function Main() {
 	const stats: StatCardProps[] = [
-		{ icon: DollarSign, label: 'Total Revenue', value: '$48,560', change: '+12.5%', trend: 'up' },
-		{ icon: ShoppingCart, label: 'Total Orders', value: '1,234', change: '+8.2%', trend: 'up' },
-		{ icon: Package, label: 'Avg Order Value', value: '$39.35', change: '-2.1%', trend: 'down' },
-		{ icon: Users, label: 'New Customers', value: '156', change: '+24.3%', trend: 'up' },
+		{
+			icon: DollarSign,
+			label: 'Total Revenue',
+			value: '$48,560',
+			change: '+12.5%',
+			trend: 'up',
+		},
+		{
+			icon: ShoppingCart,
+			label: 'Total Orders',
+			value: '1,234',
+			change: '+8.2%',
+			trend: 'up',
+		},
+		{
+			icon: Package,
+			label: 'Avg Order Value',
+			value: '$39.35',
+			change: '-2.1%',
+			trend: 'down',
+		},
+		{
+			icon: Users,
+			label: 'New Customers',
+			value: '156',
+			change: '+24.3%',
+			trend: 'up',
+		},
 	];
 
 	const periodOptions = [
@@ -117,11 +183,51 @@ export default function Main() {
 	];
 
 	const orders: Order[] = [
-		{ id: 'ORD-7701', items: 5, revenue: '$1,245.00', margin: '$312.50', marginPercent: 25.1, trend: 'up', channel: 'web' },
-		{ id: 'ORD-7702', items: 2, revenue: '$489.00', margin: '$97.80', marginPercent: 20.0, trend: 'down', channel: 'mobile' },
-		{ id: 'ORD-7703', items: 8, revenue: '$2,340.00', margin: '$702.00', marginPercent: 30.0, trend: 'up', channel: 'web' },
-		{ id: 'ORD-7704', items: 3, revenue: '$567.00', margin: '$141.75', marginPercent: 25.0, trend: 'up', channel: 'pos' },
-		{ id: 'ORD-7705', items: 1, revenue: '$199.00', margin: '$39.80', marginPercent: 20.0, trend: 'down', channel: 'mobile' },
+		{
+			id: 'ORD-7701',
+			items: 5,
+			revenue: '$1,245.00',
+			margin: '$312.50',
+			marginPercent: 25.1,
+			trend: 'up',
+			channel: 'web',
+		},
+		{
+			id: 'ORD-7702',
+			items: 2,
+			revenue: '$489.00',
+			margin: '$97.80',
+			marginPercent: 20.0,
+			trend: 'down',
+			channel: 'mobile',
+		},
+		{
+			id: 'ORD-7703',
+			items: 8,
+			revenue: '$2,340.00',
+			margin: '$702.00',
+			marginPercent: 30.0,
+			trend: 'up',
+			channel: 'web',
+		},
+		{
+			id: 'ORD-7704',
+			items: 3,
+			revenue: '$567.00',
+			margin: '$141.75',
+			marginPercent: 25.0,
+			trend: 'up',
+			channel: 'pos',
+		},
+		{
+			id: 'ORD-7705',
+			items: 1,
+			revenue: '$199.00',
+			margin: '$39.80',
+			marginPercent: 20.0,
+			trend: 'down',
+			channel: 'mobile',
+		},
 	];
 
 	const headers = ['Order', 'Items', 'Revenue', 'Margin', 'Channel', 'Action'];
@@ -149,7 +255,10 @@ export default function Main() {
 							<TableHeader>
 								<TableRow className="bg-muted/30 hover:bg-muted/30 border-border/50">
 									{headers.map((header) => (
-										<TableHead key={header} className={header === 'Items' ? 'text-center' : ''}>
+										<TableHead
+											key={header}
+											className={header === 'Items' ? 'text-center' : ''}
+										>
 											{header}
 										</TableHead>
 									))}

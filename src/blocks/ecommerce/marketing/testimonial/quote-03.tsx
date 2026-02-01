@@ -76,13 +76,17 @@ export default function Main() {
 		author: 'Clara Chen',
 		role: 'Founder',
 		company: 'FutureTech',
-		avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 		initials: 'CC',
 		rating: 5,
 	};
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-primary/5" />
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-20 @md:py-28 @xl:py-36 relative z-10">
 				<SectionHeader badge="Bold Statement" title="One" highlight="Quote" />

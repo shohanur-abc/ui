@@ -3,7 +3,15 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, Heart, X, ChevronRight, Gift, Percent } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Heart,
+	X,
+	ChevronRight,
+	Gift,
+	Percent,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,7 +31,13 @@ interface PromoOffer {
 	code?: string;
 }
 
-const PageTitle = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageTitle = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center">
 		<h1 className="text-3xl font-bold @md:text-4xl">{title}</h1>
 		<p className="mt-2 text-muted-foreground">{subtitle}</p>
@@ -32,12 +46,19 @@ const PageTitle = ({ title, subtitle }: { title: string; subtitle: string }) => 
 
 const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 	<div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
-		<Image src={src} alt={alt} fill className="object-cover transition-transform hover:scale-105" />
+		<Image
+			src={src}
+			alt={alt}
+			fill
+			className="object-cover transition-transform hover:scale-105"
+		/>
 	</div>
 );
 
 const ItemBrand = ({ name }: { name: string }) => (
-	<p className="text-xs font-medium uppercase tracking-wider text-primary">{name}</p>
+	<p className="text-xs font-medium uppercase tracking-wider text-primary">
+		{name}
+	</p>
 );
 
 const ItemName = ({ name }: { name: string }) => (
@@ -68,10 +89,16 @@ const QuantityPicker = ({ quantity }: { quantity: number }) => (
 const ItemActions = ({ isSaved }: { isSaved: boolean }) => (
 	<div className="mt-4 flex gap-2">
 		<Button variant="ghost" size="sm" className="flex-1 gap-1 text-xs">
-			<Heart className={`size-3 ${isSaved ? 'fill-red-500 text-red-500' : ''}`} />
+			<Heart
+				className={`size-3 ${isSaved ? 'fill-red-500 text-red-500' : ''}`}
+			/>
 			{isSaved ? 'Saved' : 'Save'}
 		</Button>
-		<Button variant="ghost" size="sm" className="flex-1 gap-1 text-xs text-destructive hover:text-destructive">
+		<Button
+			variant="ghost"
+			size="sm"
+			className="flex-1 gap-1 text-xs text-destructive hover:text-destructive"
+		>
 			<X className="size-3" />
 			Remove
 		</Button>
@@ -99,20 +126,38 @@ const PromoCard = ({ icon: Icon, text, code }: PromoOffer) => (
 		<Icon className="size-5 text-primary" />
 		<div className="flex-1">
 			<p className="text-sm font-medium">{text}</p>
-			{code && <p className="text-xs text-muted-foreground">Use code: {code}</p>}
+			{code && (
+				<p className="text-xs text-muted-foreground">Use code: {code}</p>
+			)}
 		</div>
 	</div>
 );
 
-const CouponInput = ({ placeholder, buttonLabel }: { placeholder: string; buttonLabel: string }) => (
+const CouponInput = ({
+	placeholder,
+	buttonLabel,
+}: {
+	placeholder: string;
+	buttonLabel: string;
+}) => (
 	<div className="flex gap-2">
 		<Input placeholder={placeholder} className="flex-1" />
 		<Button variant="secondary">{buttonLabel}</Button>
 	</div>
 );
 
-const OrderLine = ({ label, value, isFinal }: { label: string; value: string; isFinal?: boolean }) => (
-	<div className={`flex justify-between ${isFinal ? 'text-xl font-bold' : 'text-sm'}`}>
+const OrderLine = ({
+	label,
+	value,
+	isFinal,
+}: {
+	label: string;
+	value: string;
+	isFinal?: boolean;
+}) => (
+	<div
+		className={`flex justify-between ${isFinal ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={isFinal ? '' : 'text-muted-foreground'}>{label}</span>
 		<span className={isFinal ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -168,7 +213,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1491553895911-0055uj6e82?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1491553895911-0055uj6e82?w=400&h=400&fit=crop',
 			name: 'Minimalist Ceramic Vase Set',
 			brand: 'Home Artisan',
 			price: 89.99,
@@ -177,7 +223,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=400&fit=crop',
 			name: 'Modern Accent Chair',
 			brand: 'Scandico',
 			price: 449.99,
@@ -186,7 +233,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
 			name: 'Handwoven Throw Blanket',
 			brand: 'Cozy Living',
 			price: 129.99,
@@ -195,7 +243,8 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&h=400&fit=crop',
 			name: 'Brass Table Lamp',
 			brand: 'Lumière',
 			price: 179.99,
@@ -219,7 +268,10 @@ export default function Main() {
 	return (
 		<section className="@container">
 			<div className="mx-auto max-w-7xl px-4 py-8 @md:py-12 @xl:py-16">
-				<PageTitle title="Your Shopping Cart" subtitle="Review your items before checkout" />
+				<PageTitle
+					title="Your Shopping Cart"
+					subtitle="Review your items before checkout"
+				/>
 
 				<div className="mt-10 grid gap-8 @xl:grid-cols-3">
 					<div className="@xl:col-span-2">

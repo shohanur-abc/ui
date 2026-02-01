@@ -1,11 +1,32 @@
 'use client';
 
-import { ArrowRight, Building2, Check, CreditCard, DollarSign, FileText, Lock, Receipt, Shield, Upload } from 'lucide-react';
+import {
+	ArrowRight,
+	Building2,
+	Check,
+	CreditCard,
+	DollarSign,
+	FileText,
+	Lock,
+	Receipt,
+	Shield,
+	Upload,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -87,7 +108,10 @@ const BillingAddressContent = () => (
 
 const PaymentTermsContent = ({ terms }: { terms: PaymentTerm[] }) => (
 	<div className="space-y-3 pt-4">
-		<RadioGroup defaultValue={terms[1]?.id || terms[0].id} className="space-y-3">
+		<RadioGroup
+			defaultValue={terms[1]?.id || terms[0].id}
+			className="space-y-3"
+		>
 			{terms.map((term) => (
 				<Label
 					key={term.id}
@@ -98,7 +122,11 @@ const PaymentTermsContent = ({ terms }: { terms: PaymentTerm[] }) => (
 					<div className="flex-1">
 						<div className="flex items-center gap-2">
 							<span className="font-medium">{term.name}</span>
-							{term.discount && <Badge variant="secondary" className="text-xs text-emerald-600">{term.discount}</Badge>}
+							{term.discount && (
+								<Badge variant="secondary" className="text-xs text-emerald-600">
+									{term.discount}
+								</Badge>
+							)}
 						</div>
 						<p className="text-xs text-muted-foreground">{term.description}</p>
 					</div>
@@ -111,7 +139,10 @@ const PaymentTermsContent = ({ terms }: { terms: PaymentTerm[] }) => (
 const PaymentMethodContent = () => (
 	<div className="space-y-4 pt-4">
 		<RadioGroup defaultValue="wire" className="space-y-3">
-			<Label htmlFor="wire" className="flex items-center gap-3 p-4 rounded-xl border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			<Label
+				htmlFor="wire"
+				className="flex items-center gap-3 p-4 rounded-xl border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+			>
 				<RadioGroupItem value="wire" id="wire" />
 				<Building2 className="size-5" />
 				<div className="flex-1">
@@ -119,7 +150,10 @@ const PaymentMethodContent = () => (
 					<p className="text-xs text-muted-foreground">Direct bank payment</p>
 				</div>
 			</Label>
-			<Label htmlFor="card-corp" className="flex items-center gap-3 p-4 rounded-xl border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			<Label
+				htmlFor="card-corp"
+				className="flex items-center gap-3 p-4 rounded-xl border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+			>
 				<RadioGroupItem value="card-corp" id="card-corp" />
 				<CreditCard className="size-5" />
 				<div className="flex-1">
@@ -127,12 +161,17 @@ const PaymentMethodContent = () => (
 					<p className="text-xs text-muted-foreground">Credit or debit card</p>
 				</div>
 			</Label>
-			<Label htmlFor="po" className="flex items-center gap-3 p-4 rounded-xl border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			<Label
+				htmlFor="po"
+				className="flex items-center gap-3 p-4 rounded-xl border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+			>
 				<RadioGroupItem value="po" id="po" />
 				<FileText className="size-5" />
 				<div className="flex-1">
 					<span className="font-medium">Purchase Order</span>
-					<p className="text-xs text-muted-foreground">Net 30 terms available</p>
+					<p className="text-xs text-muted-foreground">
+						Net 30 terms available
+					</p>
 				</div>
 			</Label>
 		</RadioGroup>
@@ -149,7 +188,9 @@ const PurchaseOrderContent = () => (
 			<Label className="text-sm">Upload PO Document (Optional)</Label>
 			<div className="border-2 border-dashed border-border rounded-xl p-6 text-center cursor-pointer hover:border-primary/50 transition-colors">
 				<Upload className="size-8 mx-auto mb-2 text-muted-foreground" />
-				<p className="text-sm text-muted-foreground">Drop PDF here or click to browse</p>
+				<p className="text-sm text-muted-foreground">
+					Drop PDF here or click to browse
+				</p>
 				<p className="text-xs text-muted-foreground mt-1">Max 10MB</p>
 			</div>
 		</div>
@@ -169,20 +210,33 @@ const TaxExemptContent = () => (
 			<Checkbox id="exempt" />
 			<Label htmlFor="exempt" className="flex-1 cursor-pointer">
 				<span className="font-medium">We are tax exempt</span>
-				<p className="text-xs text-muted-foreground">Upload exemption certificate to remove tax</p>
+				<p className="text-xs text-muted-foreground">
+					Upload exemption certificate to remove tax
+				</p>
 			</Label>
 		</div>
 		<div className="space-y-2">
 			<Label className="text-sm">Exemption Certificate</Label>
 			<div className="border-2 border-dashed border-border rounded-xl p-6 text-center cursor-pointer hover:border-primary/50 transition-colors">
 				<Upload className="size-8 mx-auto mb-2 text-muted-foreground" />
-				<p className="text-sm text-muted-foreground">Upload tax exemption certificate</p>
+				<p className="text-sm text-muted-foreground">
+					Upload tax exemption certificate
+				</p>
 			</div>
 		</div>
 	</div>
 );
 
-const InvoiceSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isDiscount?: boolean }[] }) => (
+const InvoiceSummary = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isDiscount?: boolean;
+	}[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		<div className="flex items-center gap-2 mb-3">
 			<Receipt className="size-4 text-muted-foreground" />
@@ -191,11 +245,23 @@ const InvoiceSummary = ({ lines }: { lines: { label: string; value: string; isTo
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isDiscount ? 'text-emerald-600' : line.isTotal ? '' : 'text-muted-foreground'}>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={
+							line.isDiscount
+								? 'text-emerald-600'
+								: line.isTotal
+									? ''
+									: 'text-muted-foreground'
+						}
+					>
 						{line.label}
 					</span>
-					<span className={line.isDiscount ? 'text-emerald-600' : ''}>{line.value}</span>
+					<span className={line.isDiscount ? 'text-emerald-600' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
@@ -211,16 +277,33 @@ const SubmitButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const paymentTerms: PaymentTerm[] = [
-		{ id: 'prepay', name: 'Prepay (Due Now)', description: 'Pay in full before order processing', discount: '3% off' },
-		{ id: 'net30', name: 'Net 30', description: 'Payment due within 30 days of invoice' },
-		{ id: 'net60', name: 'Net 60', description: 'Payment due within 60 days of invoice' },
+		{
+			id: 'prepay',
+			name: 'Prepay (Due Now)',
+			description: 'Pay in full before order processing',
+			discount: '3% off',
+		},
+		{
+			id: 'net30',
+			name: 'Net 30',
+			description: 'Payment due within 30 days of invoice',
+		},
+		{
+			id: 'net60',
+			name: 'Net 60',
+			description: 'Payment due within 60 days of invoice',
+		},
 	];
 
 	const invoiceLines = [
 		{ label: 'Enterprise License (Annual)', value: '$24,999.00' },
 		{ label: 'Implementation Services', value: '$5,000.00' },
 		{ label: 'Premium Support Package', value: '$2,499.00' },
-		{ label: 'Early Payment Discount (3%)', value: '-$974.94', isDiscount: true },
+		{
+			label: 'Early Payment Discount (3%)',
+			value: '-$974.94',
+			isDiscount: true,
+		},
 		{ label: 'Tax (8.5%)', value: '$2,684.47' },
 		{ label: 'Total Due', value: '$34,207.53', isTotal: true },
 	];
@@ -242,7 +325,11 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Accordion type="multiple" defaultValue={['company', 'terms']} className="w-full">
+						<Accordion
+							type="multiple"
+							defaultValue={['company', 'terms']}
+							className="w-full"
+						>
 							<AccordionItem value="company">
 								<AccordionTrigger className="hover:no-underline">
 									<div className="flex items-center gap-2">

@@ -1,17 +1,35 @@
-import { Check, Circle, MapPin, Truck, CreditCard, Gift, ChevronRight } from 'lucide-react';
+import {
+	Check,
+	Circle,
+	MapPin,
+	Truck,
+	CreditCard,
+	Gift,
+	ChevronRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 
 const TimelineStepper = ({
 	steps,
 	currentStep,
 }: {
-	steps: { icon: React.ComponentType<{ className?: string }>; label: string; description: string }[];
+	steps: {
+		icon: React.ComponentType<{ className?: string }>;
+		label: string;
+		description: string;
+	}[];
 	currentStep: number;
 }) => (
 	<div className="relative">
@@ -36,13 +54,21 @@ const TimelineStepper = ({
 								${!isCompleted && !isCurrent ? 'bg-muted text-muted-foreground' : ''}
 							`}
 						>
-							{isCompleted ? <Check className="size-5" /> : <Icon className="size-5" />}
+							{isCompleted ? (
+								<Check className="size-5" />
+							) : (
+								<Icon className="size-5" />
+							)}
 						</div>
 						<div className="flex-1 pt-1.5">
-							<p className={`font-medium ${!isCompleted && !isCurrent ? 'text-muted-foreground' : ''}`}>
+							<p
+								className={`font-medium ${!isCompleted && !isCurrent ? 'text-muted-foreground' : ''}`}
+							>
 								{step.label}
 							</p>
-							<p className="text-sm text-muted-foreground">{step.description}</p>
+							<p className="text-sm text-muted-foreground">
+								{step.description}
+							</p>
 						</div>
 					</div>
 				);
@@ -91,9 +117,21 @@ const CountrySelect = ({
 
 export default function Main() {
 	const steps = [
-		{ icon: MapPin, label: 'Shipping Address', description: 'Enter delivery details' },
-		{ icon: Truck, label: 'Delivery Method', description: 'Choose shipping speed' },
-		{ icon: CreditCard, label: 'Payment', description: 'Complete your purchase' },
+		{
+			icon: MapPin,
+			label: 'Shipping Address',
+			description: 'Enter delivery details',
+		},
+		{
+			icon: Truck,
+			label: 'Delivery Method',
+			description: 'Choose shipping speed',
+		},
+		{
+			icon: CreditCard,
+			label: 'Payment',
+			description: 'Complete your purchase',
+		},
 		{ icon: Gift, label: 'Confirmation', description: 'Order summary' },
 	];
 
@@ -120,7 +158,9 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Shipping Address</CardTitle>
-									<p className="text-sm text-muted-foreground">Enter your delivery information</p>
+									<p className="text-sm text-muted-foreground">
+										Enter your delivery information
+									</p>
 								</div>
 							</div>
 						</CardHeader>
@@ -130,13 +170,24 @@ export default function Main() {
 								<FormField label="Last Name" placeholder="Doe" />
 							</div>
 
-							<FormField label="Email Address" placeholder="john@example.com" type="email" />
-							<FormField label="Phone Number" placeholder="+1 (555) 123-4567" type="tel" />
+							<FormField
+								label="Email Address"
+								placeholder="john@example.com"
+								type="email"
+							/>
+							<FormField
+								label="Phone Number"
+								placeholder="+1 (555) 123-4567"
+								type="tel"
+							/>
 
 							<Separator />
 
 							<FormField label="Street Address" placeholder="123 Main Street" />
-							<FormField label="Apartment, Suite, etc." placeholder="Apt 4B (optional)" />
+							<FormField
+								label="Apartment, Suite, etc."
+								placeholder="Apt 4B (optional)"
+							/>
 
 							<div className="grid @sm:grid-cols-3 gap-4">
 								<FormField label="City" placeholder="New York" />
@@ -149,7 +200,9 @@ export default function Main() {
 							<Separator />
 
 							<div className="flex gap-3">
-								<Button variant="outline" className="flex-1">Back to Cart</Button>
+								<Button variant="outline" className="flex-1">
+									Back to Cart
+								</Button>
 								<Button className="flex-1 gap-2">
 									Continue
 									<ChevronRight className="size-4" />

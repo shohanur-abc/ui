@@ -85,7 +85,8 @@ export default function Main() {
 			author: 'Kelly Chen',
 			role: 'IT Director',
 			company: 'ImplementFirst',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'KC',
 			rating: 5,
 		},
@@ -97,7 +98,8 @@ export default function Main() {
 			author: 'Leo Park',
 			role: 'Training Manager',
 			company: 'LearnQuick',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'LP',
 			rating: 5,
 		},
@@ -109,7 +111,8 @@ export default function Main() {
 			author: 'Maria Foster',
 			role: 'Operations Lead',
 			company: 'SupportFirst',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'MF',
 			rating: 5,
 		},
@@ -121,7 +124,8 @@ export default function Main() {
 			author: 'Nathan Lee',
 			role: 'CEO',
 			company: 'ResultsCorp',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'NL',
 			rating: 5,
 		},
@@ -133,14 +137,18 @@ export default function Main() {
 			author: 'Olivia Kim',
 			role: 'VP Operations',
 			company: 'RecommendPro',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'OK',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="FAQ Style"
@@ -165,7 +173,9 @@ export default function Main() {
 										<Quote className="size-6 text-primary/20" />
 										<StarRating rating={item.rating} />
 									</div>
-									<p className="text-foreground leading-relaxed">"{item.quote}"</p>
+									<p className="text-foreground leading-relaxed">
+										"{item.quote}"
+									</p>
 									<AuthorInfo item={item} />
 								</AccordionContent>
 							</AccordionItem>

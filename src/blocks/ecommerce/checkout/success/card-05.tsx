@@ -42,9 +42,7 @@ const SuccessHeader = () => (
 					<CheckCircle className="size-7 text-primary" />
 				</div>
 				<div>
-					<h1 className="text-xl @lg:text-2xl font-bold">
-						Purchase Complete!
-					</h1>
+					<h1 className="text-xl @lg:text-2xl font-bold">Purchase Complete!</h1>
 					<p className="text-muted-foreground">
 						Your digital items are ready for download
 					</p>

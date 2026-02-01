@@ -1,10 +1,27 @@
 'use client';
 
-import { ArrowLeft, Check, ChevronRight, CreditCard, Gift, Lock, MapPin, Package, Shield, Truck, X } from 'lucide-react';
+import {
+	ArrowLeft,
+	Check,
+	ChevronRight,
+	CreditCard,
+	Gift,
+	Lock,
+	MapPin,
+	Package,
+	Shield,
+	Truck,
+	X,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -19,7 +36,13 @@ interface Step {
 	current: boolean;
 }
 
-const SteppedDrawerHeader = ({ steps, onClose }: { steps: Step[]; onClose: () => void }) => (
+const SteppedDrawerHeader = ({
+	steps,
+	onClose,
+}: {
+	steps: Step[];
+	onClose: () => void;
+}) => (
 	<div className="space-y-4">
 		<div className="flex items-center justify-between">
 			<h2 className="text-lg font-semibold">Checkout</h2>
@@ -30,13 +53,27 @@ const SteppedDrawerHeader = ({ steps, onClose }: { steps: Step[]; onClose: () =>
 		<div className="flex items-center gap-1">
 			{steps.map((step, index) => (
 				<div key={step.id} className="flex items-center flex-1">
-					<div className={`flex items-center gap-2 ${step.current ? 'text-primary' : step.completed ? 'text-primary' : 'text-muted-foreground'}`}>
-						<div className={`size-7 rounded-full flex items-center justify-center text-xs ${
-							step.completed ? 'bg-primary text-primary-foreground' : step.current ? 'border-2 border-primary' : 'bg-muted'
-						}`}>
-							{step.completed ? <Check className="size-3" /> : <step.icon className="size-3" />}
+					<div
+						className={`flex items-center gap-2 ${step.current ? 'text-primary' : step.completed ? 'text-primary' : 'text-muted-foreground'}`}
+					>
+						<div
+							className={`size-7 rounded-full flex items-center justify-center text-xs ${
+								step.completed
+									? 'bg-primary text-primary-foreground'
+									: step.current
+										? 'border-2 border-primary'
+										: 'bg-muted'
+							}`}
+						>
+							{step.completed ? (
+								<Check className="size-3" />
+							) : (
+								<step.icon className="size-3" />
+							)}
 						</div>
-						<span className="text-xs font-medium hidden @sm:inline">{step.name}</span>
+						<span className="text-xs font-medium hidden @sm:inline">
+							{step.name}
+						</span>
 					</div>
 					{index < steps.length - 1 && (
 						<ChevronRight className="size-4 mx-2 text-muted-foreground shrink-0" />
@@ -146,7 +183,15 @@ const GiftOptions = () => (
 	</div>
 );
 
-const OrderTotal = ({ subtotal, shipping, total }: { subtotal: string; shipping: string; total: string }) => (
+const OrderTotal = ({
+	subtotal,
+	shipping,
+	total,
+}: {
+	subtotal: string;
+	shipping: string;
+	total: string;
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		<div className="flex justify-between text-sm">
 			<span className="text-muted-foreground">Subtotal</span>
@@ -164,7 +209,15 @@ const OrderTotal = ({ subtotal, shipping, total }: { subtotal: string; shipping:
 	</div>
 );
 
-const NavigationButtons = ({ onBack, onNext, isLast }: { onBack: () => void; onNext: () => void; isLast: boolean }) => (
+const NavigationButtons = ({
+	onBack,
+	onNext,
+	isLast,
+}: {
+	onBack: () => void;
+	onNext: () => void;
+	isLast: boolean;
+}) => (
 	<div className="flex gap-3">
 		<Button variant="outline" onClick={onBack} className="gap-2">
 			<ArrowLeft className="size-4" />
@@ -187,10 +240,34 @@ const NavigationButtons = ({ onBack, onNext, isLast }: { onBack: () => void; onN
 
 export default function Main() {
 	const steps: Step[] = [
-		{ id: 'shipping', name: 'Shipping', icon: MapPin, completed: true, current: false },
-		{ id: 'delivery', name: 'Delivery', icon: Truck, completed: true, current: false },
-		{ id: 'payment', name: 'Payment', icon: CreditCard, completed: false, current: true },
-		{ id: 'review', name: 'Review', icon: Package, completed: false, current: false },
+		{
+			id: 'shipping',
+			name: 'Shipping',
+			icon: MapPin,
+			completed: true,
+			current: false,
+		},
+		{
+			id: 'delivery',
+			name: 'Delivery',
+			icon: Truck,
+			completed: true,
+			current: false,
+		},
+		{
+			id: 'payment',
+			name: 'Payment',
+			icon: CreditCard,
+			completed: false,
+			current: true,
+		},
+		{
+			id: 'review',
+			name: 'Review',
+			icon: Package,
+			completed: false,
+			current: false,
+		},
 	];
 
 	return (
@@ -206,7 +283,11 @@ export default function Main() {
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
 						<OrderTotal subtotal="$249.00" shipping="Free" total="$249.00" />
-						<NavigationButtons onBack={() => {}} onNext={() => {}} isLast={false} />
+						<NavigationButtons
+							onBack={() => {}}
+							onNext={() => {}}
+							isLast={false}
+						/>
 					</CardFooter>
 				</Card>
 			</div>

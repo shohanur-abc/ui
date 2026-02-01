@@ -1,7 +1,13 @@
 import { Truck, Clock, Package, Shield, Gift, Check, Star } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
@@ -105,7 +111,11 @@ export default function Main() {
 			price: '$5.99',
 			time: '5-7 business days',
 			icon: Package,
-			features: ['Standard tracking', 'Email notifications', 'Secure packaging'],
+			features: [
+				'Standard tracking',
+				'Email notifications',
+				'Secure packaging',
+			],
 		},
 		{
 			value: 'premium',
@@ -115,7 +125,12 @@ export default function Main() {
 			time: '2-3 business days',
 			icon: Truck,
 			popular: true,
-			features: ['Priority handling', 'Real-time tracking', '$100 insurance', 'SMS updates'],
+			features: [
+				'Priority handling',
+				'Real-time tracking',
+				'$100 insurance',
+				'SMS updates',
+			],
 		},
 		{
 			value: 'elite',
@@ -124,12 +139,22 @@ export default function Main() {
 			price: '$29.99',
 			time: 'Next day',
 			icon: Star,
-			features: ['Express priority', 'Full insurance', 'Signature delivery', 'Dedicated support'],
+			features: [
+				'Express priority',
+				'Full insurance',
+				'Signature delivery',
+				'Dedicated support',
+			],
 		},
 	];
 
 	const addons = [
-		{ id: 'insurance', icon: Shield, label: 'Extended Insurance', price: '+$4.99' },
+		{
+			id: 'insurance',
+			icon: Shield,
+			label: 'Extended Insurance',
+			price: '+$4.99',
+		},
 		{ id: 'gift', icon: Gift, label: 'Premium Gift Wrap', price: '+$6.99' },
 	];
 
@@ -137,11 +162,18 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Choose Your Shipping Tier</h1>
-					<p className="text-muted-foreground">Select the perfect delivery experience for your needs</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Choose Your Shipping Tier
+					</h1>
+					<p className="text-muted-foreground">
+						Select the perfect delivery experience for your needs
+					</p>
 				</div>
 
-				<RadioGroup defaultValue="premium" className="grid @md:grid-cols-3 gap-6 mb-8">
+				<RadioGroup
+					defaultValue="premium"
+					className="grid @md:grid-cols-3 gap-6 mb-8"
+				>
 					{tiers.map((tier) => (
 						<TierCard key={tier.value} {...tier} />
 					))}

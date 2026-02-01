@@ -62,9 +62,10 @@ const TierBadges = ({
 	<div className="flex flex-wrap gap-1">
 		{tiers.map((tier) => {
 			const isActive = currentQty >= tier.minQty;
-			const isNext = tiers.findIndex(
-				(t) => currentQty < t.minQty && t.minQty === tier.minQty,
-			) === 0;
+			const isNext =
+				tiers.findIndex(
+					(t) => currentQty < t.minQty && t.minQty === tier.minQty,
+				) === 0;
 
 			return (
 				<Badge
@@ -89,7 +90,12 @@ const BulkItem = ({ item }: { item: CartItem }) => {
 		<div className="py-4">
 			<div className="flex gap-3">
 				<div className="relative size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
-					<Image src={item.image} alt={item.name} fill className="object-cover" />
+					<Image
+						src={item.image}
+						alt={item.name}
+						fill
+						className="object-cover"
+					/>
 				</div>
 				<div className="flex min-w-0 flex-1 flex-col">
 					<div className="flex items-start justify-between gap-2">
@@ -192,7 +198,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
 				name: 'Premium Phone Case',
 				basePrice: 24.99,
 				quantity: 12,
@@ -205,7 +212,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
 				name: 'USB-C Cable',
 				basePrice: 14.99,
 				quantity: 6,
@@ -218,7 +226,10 @@ export default function Main() {
 		],
 	};
 
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

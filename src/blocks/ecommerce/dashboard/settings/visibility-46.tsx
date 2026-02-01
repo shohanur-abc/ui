@@ -127,7 +127,7 @@ export default function Main() {
 		{
 			id: 'wishlist',
 			name: 'Wishlist',
-			description: 'Products you\'ve saved',
+			description: "Products you've saved",
 			visibility: 'friends',
 			icon: Heart,
 		},
@@ -189,7 +189,9 @@ export default function Main() {
 						<CardHeader className="border-b">
 							<div className="flex items-center justify-between">
 								<div>
-									<CardTitle className="text-base">Section Visibility</CardTitle>
+									<CardTitle className="text-base">
+										Section Visibility
+									</CardTitle>
 									<CardDescription>
 										Customize visibility for each section
 									</CardDescription>
@@ -240,7 +242,10 @@ export default function Main() {
 									enabled: false,
 								},
 							].map((setting) => (
-								<div key={setting.title} className="flex items-center justify-between">
+								<div
+									key={setting.title}
+									className="flex items-center justify-between"
+								>
 									<div className="flex items-center gap-3">
 										<setting.icon className="size-5 text-muted-foreground" />
 										<div>

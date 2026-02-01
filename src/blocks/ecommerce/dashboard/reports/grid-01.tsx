@@ -90,11 +90,51 @@ export default function Main() {
 	};
 
 	const products: ProductReportItem[] = [
-		{ id: 'PRD-001', name: 'Wireless Headphones Pro', category: 'Electronics', revenue: '$24,500', units: 245, trend: 'up', change: '+12.5%' },
-		{ id: 'PRD-002', name: 'Smart Watch Series X', category: 'Electronics', revenue: '$18,300', units: 183, trend: 'up', change: '+8.3%' },
-		{ id: 'PRD-003', name: 'Ergonomic Office Chair', category: 'Furniture', revenue: '$15,200', units: 76, trend: 'down', change: '-2.1%' },
-		{ id: 'PRD-004', name: 'Mechanical Keyboard RGB', category: 'Electronics', revenue: '$12,800', units: 256, trend: 'up', change: '+15.7%' },
-		{ id: 'PRD-005', name: 'Premium Laptop Stand', category: 'Accessories', revenue: '$9,400', units: 188, trend: 'down', change: '-4.2%' },
+		{
+			id: 'PRD-001',
+			name: 'Wireless Headphones Pro',
+			category: 'Electronics',
+			revenue: '$24,500',
+			units: 245,
+			trend: 'up',
+			change: '+12.5%',
+		},
+		{
+			id: 'PRD-002',
+			name: 'Smart Watch Series X',
+			category: 'Electronics',
+			revenue: '$18,300',
+			units: 183,
+			trend: 'up',
+			change: '+8.3%',
+		},
+		{
+			id: 'PRD-003',
+			name: 'Ergonomic Office Chair',
+			category: 'Furniture',
+			revenue: '$15,200',
+			units: 76,
+			trend: 'down',
+			change: '-2.1%',
+		},
+		{
+			id: 'PRD-004',
+			name: 'Mechanical Keyboard RGB',
+			category: 'Electronics',
+			revenue: '$12,800',
+			units: 256,
+			trend: 'up',
+			change: '+15.7%',
+		},
+		{
+			id: 'PRD-005',
+			name: 'Premium Laptop Stand',
+			category: 'Accessories',
+			revenue: '$9,400',
+			units: 188,
+			trend: 'down',
+			change: '-4.2%',
+		},
 	];
 
 	return (

@@ -1,14 +1,35 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, ShoppingBag, Shield, CreditCard, Truck } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	ShoppingBag,
+	Shield,
+	CreditCard,
+	Truck,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -24,9 +45,14 @@ const TrustBadges = ({
 }) => (
 	<div className="grid grid-cols-3 gap-2 mb-6">
 		{badges.map((badge, i) => (
-			<div key={i} className="flex flex-col items-center gap-1 p-2 rounded-lg bg-muted/50">
+			<div
+				key={i}
+				className="flex flex-col items-center gap-1 p-2 rounded-lg bg-muted/50"
+			>
 				<badge.icon className="size-4 text-primary" />
-				<span className="text-xs text-muted-foreground text-center">{badge.label}</span>
+				<span className="text-xs text-muted-foreground text-center">
+					{badge.label}
+				</span>
 			</div>
 		))}
 	</div>
@@ -177,8 +203,18 @@ export default function Main() {
 						<SocialButton icon={GoogleIcon} label="Continue with Google" />
 						<DividerText text="or" />
 						<form className="space-y-4">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<RememberForgot
 								rememberLabel="Remember me"
 								forgotLabel="Forgot password?"
@@ -188,7 +224,11 @@ export default function Main() {
 						</form>
 					</CardContent>
 					<CardFooter>
-						<FooterLink text="New to TrustMart?" linkText="Create account" href="/signup" />
+						<FooterLink
+							text="New to TrustMart?"
+							linkText="Create account"
+							href="/signup"
+						/>
 					</CardFooter>
 				</Card>
 			</div>

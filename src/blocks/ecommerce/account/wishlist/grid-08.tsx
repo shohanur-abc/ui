@@ -22,7 +22,13 @@ interface WishlistGridProps {
 	items: WishlistItem[];
 }
 
-const HeaderSection = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const HeaderSection = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="mb-8 @md:mb-10">
 		<div className="flex items-center gap-3 mb-2">
 			<div className="p-2 rounded-lg bg-primary/10">
@@ -83,13 +89,19 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			)}
 		</div>
 		<CardContent className="p-4">
-			<SellerInfo name={item.sellerName} avatar={item.sellerAvatar} isVerified={item.isVerified} />
+			<SellerInfo
+				name={item.sellerName}
+				avatar={item.sellerAvatar}
+				isVerified={item.isVerified}
+			/>
 			<Link href={item.href}>
 				<h3 className="mt-2 font-semibold line-clamp-1 group-hover:text-primary transition-colors">
 					{item.name}
 				</h3>
 			</Link>
-			<p className="mt-1 text-sm text-muted-foreground line-clamp-2">{item.description}</p>
+			<p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+				{item.description}
+			</p>
 			<div className="mt-3 flex items-center justify-between">
 				<div className="flex items-baseline gap-2">
 					<span className="text-lg font-bold">${item.price.toFixed(2)}</span>
@@ -117,16 +129,66 @@ const WishlistGrid = ({ items }: WishlistGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Handcrafted Ceramic Vase', description: 'Beautiful handmade ceramic vase with unique glazing pattern', price: 89.00, originalPrice: 129.00, image: 'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&h=400&fit=crop', sellerName: 'Artisan Studio', sellerAvatar: 'https://i.pravatar.cc/100?img=1', isVerified: true, href: '/product/1' },
-		{ id: '2', name: 'Organic Cotton Throw Blanket', description: 'Soft and cozy throw made from 100% organic cotton', price: 75.00, image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop', sellerName: 'Eco Home', sellerAvatar: 'https://i.pravatar.cc/100?img=2', isVerified: true, href: '/product/2' },
-		{ id: '3', name: 'Vintage Brass Table Lamp', description: 'Mid-century modern brass lamp with fabric shade', price: 145.00, image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop', sellerName: 'Retro Finds', sellerAvatar: 'https://i.pravatar.cc/100?img=3', isVerified: false, href: '/product/3' },
-		{ id: '4', name: 'Minimalist Wall Clock', description: 'Clean design wall clock with silent movement', price: 65.00, originalPrice: 85.00, image: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=400&h=400&fit=crop', sellerName: 'Modern Living', sellerAvatar: 'https://i.pravatar.cc/100?img=4', isVerified: true, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Handcrafted Ceramic Vase',
+			description:
+				'Beautiful handmade ceramic vase with unique glazing pattern',
+			price: 89.0,
+			originalPrice: 129.0,
+			image:
+				'https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&h=400&fit=crop',
+			sellerName: 'Artisan Studio',
+			sellerAvatar: 'https://i.pravatar.cc/100?img=1',
+			isVerified: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Organic Cotton Throw Blanket',
+			description: 'Soft and cozy throw made from 100% organic cotton',
+			price: 75.0,
+			image:
+				'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop',
+			sellerName: 'Eco Home',
+			sellerAvatar: 'https://i.pravatar.cc/100?img=2',
+			isVerified: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Vintage Brass Table Lamp',
+			description: 'Mid-century modern brass lamp with fabric shade',
+			price: 145.0,
+			image:
+				'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop',
+			sellerName: 'Retro Finds',
+			sellerAvatar: 'https://i.pravatar.cc/100?img=3',
+			isVerified: false,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Minimalist Wall Clock',
+			description: 'Clean design wall clock with silent movement',
+			price: 65.0,
+			originalPrice: 85.0,
+			image:
+				'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=400&h=400&fit=crop',
+			sellerName: 'Modern Living',
+			sellerAvatar: 'https://i.pravatar.cc/100?img=4',
+			isVerified: true,
+			href: '/product/4',
+		},
 	];
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<HeaderSection title="My Wishlist" subtitle="Products you've saved from various sellers" />
+				<HeaderSection
+					title="My Wishlist"
+					subtitle="Products you've saved from various sellers"
+				/>
 				<WishlistGrid items={wishlistItems} />
 			</div>
 		</section>

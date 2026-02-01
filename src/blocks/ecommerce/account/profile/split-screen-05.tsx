@@ -65,7 +65,10 @@ const ProfileField = ({
 			<Icon className="size-4" />
 			{label}
 			{verified && (
-				<Badge variant="secondary" className="text-xs gap-1 bg-green-500/20 text-green-600">
+				<Badge
+					variant="secondary"
+					className="text-xs gap-1 bg-green-500/20 text-green-600"
+				>
 					<Check className="size-3" />
 					Verified
 				</Badge>
@@ -88,14 +91,18 @@ const AddressCard = ({
 	address: string;
 	isDefault?: boolean;
 }) => (
-	<div className={`p-4 rounded-lg border ${isDefault ? 'border-primary bg-primary/5' : 'bg-muted/30'}`}>
+	<div
+		className={`p-4 rounded-lg border ${isDefault ? 'border-primary bg-primary/5' : 'bg-muted/30'}`}
+	>
 		<div className="flex items-start justify-between mb-2">
 			<div className="flex items-center gap-2">
 				<MapPin className="size-4 text-muted-foreground" />
 				<span className="font-medium">{type}</span>
 			</div>
 			{isDefault && (
-				<Badge variant="default" className="text-xs">Default</Badge>
+				<Badge variant="default" className="text-xs">
+					Default
+				</Badge>
 			)}
 		</div>
 		<p className="text-sm text-muted-foreground">{address}</p>
@@ -140,9 +147,26 @@ export default function Main() {
 			canEdit: true,
 		},
 		fields: [
-			{ icon: User, label: 'Full Name', value: 'Emily Johnson', editable: true },
-			{ icon: Mail, label: 'Email Address', value: 'emily.j@example.com', editable: false, verified: true },
-			{ icon: Phone, label: 'Phone Number', value: '+1 (555) 234-5678', editable: true, verified: true },
+			{
+				icon: User,
+				label: 'Full Name',
+				value: 'Emily Johnson',
+				editable: true,
+			},
+			{
+				icon: Mail,
+				label: 'Email Address',
+				value: 'emily.j@example.com',
+				editable: false,
+				verified: true,
+			},
+			{
+				icon: Phone,
+				label: 'Phone Number',
+				value: '+1 (555) 234-5678',
+				editable: true,
+				verified: true,
+			},
 		],
 		addresses: [
 			{
@@ -168,12 +192,16 @@ export default function Main() {
 								<EditableAvatar {...profileData.avatar} />
 								<div>
 									<h2 className="font-semibold">{profileData.avatar.name}</h2>
-									<p className="text-sm text-muted-foreground">Member since 2023</p>
+									<p className="text-sm text-muted-foreground">
+										Member since 2023
+									</p>
 								</div>
 							</div>
 							<div className="space-y-6">
 								<div>
-									<h3 className="text-lg font-semibold mb-4">Personal Information</h3>
+									<h3 className="text-lg font-semibold mb-4">
+										Personal Information
+									</h3>
 									<div className="grid @md:grid-cols-2 gap-4">
 										{profileData.fields.map((field, i) => (
 											<ProfileField key={i} {...field} />

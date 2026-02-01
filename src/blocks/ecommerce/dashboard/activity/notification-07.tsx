@@ -50,14 +50,24 @@ const TypeConfig: Record<
 	{ icon: LucideIcon; className: string }
 > = {
 	login_failed: { icon: XCircle, className: 'bg-rose-500/20 text-rose-400' },
-	login_success: { icon: CheckCircle2, className: 'bg-emerald-500/20 text-emerald-400' },
+	login_success: {
+		icon: CheckCircle2,
+		className: 'bg-emerald-500/20 text-emerald-400',
+	},
 	password_change: { icon: Lock, className: 'bg-blue-500/20 text-blue-400' },
-	suspicious_activity: { icon: AlertTriangle, className: 'bg-orange-500/20 text-orange-400' },
+	suspicious_activity: {
+		icon: AlertTriangle,
+		className: 'bg-orange-500/20 text-orange-400',
+	},
 	new_device: { icon: Monitor, className: 'bg-purple-500/20 text-purple-400' },
 	blocked_ip: { icon: UserX, className: 'bg-rose-500/20 text-rose-400' },
 };
 
-const SeverityBadge = ({ severity }: { severity: SecurityAlert['severity'] }) => {
+const SeverityBadge = ({
+	severity,
+}: {
+	severity: SecurityAlert['severity'];
+}) => {
 	const config = {
 		critical: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
 		warning: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
@@ -65,7 +75,10 @@ const SeverityBadge = ({ severity }: { severity: SecurityAlert['severity'] }) =>
 	};
 
 	return (
-		<Badge variant="outline" className={`uppercase text-xs ${config[severity]}`}>
+		<Badge
+			variant="outline"
+			className={`uppercase text-xs ${config[severity]}`}
+		>
 			{severity}
 		</Badge>
 	);
@@ -233,8 +246,7 @@ export default function Main() {
 			type: 'new_device',
 			severity: 'info',
 			title: 'New Device Login',
-			description:
-				'Admin user "john.admin" logged in from a new device.',
+			description: 'Admin user "john.admin" logged in from a new device.',
 			device: 'MacBook Pro - Chrome 122',
 			location: 'San Francisco, CA',
 			timestamp: '1 hour ago',

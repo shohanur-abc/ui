@@ -26,7 +26,12 @@ const SectionTitle = ({ text }: { text: string }) => (
 	<h3 className="text-lg font-semibold tracking-tight">{text}</h3>
 );
 
-const PaymentMethodCard = ({ id, icon: Icon, label, description }: PaymentMethodProps) => (
+const PaymentMethodCard = ({
+	id,
+	icon: Icon,
+	label,
+	description,
+}: PaymentMethodProps) => (
 	<Label
 		htmlFor={id}
 		className="flex items-center gap-4 p-4 rounded-lg border border-border/50 bg-card/30 cursor-pointer transition-all hover:bg-accent/50 hover:border-primary/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
@@ -44,7 +49,11 @@ const PaymentMethodCard = ({ id, icon: Icon, label, description }: PaymentMethod
 	</Label>
 );
 
-const PaymentMethodSelector = ({ methods }: { methods: PaymentMethodProps[] }) => (
+const PaymentMethodSelector = ({
+	methods,
+}: {
+	methods: PaymentMethodProps[];
+}) => (
 	<RadioGroup defaultValue={methods[0]?.id} className="space-y-3">
 		{methods.map((method) => (
 			<PaymentMethodCard key={method.id} {...method} />
@@ -52,9 +61,17 @@ const PaymentMethodSelector = ({ methods }: { methods: PaymentMethodProps[] }) =
 	</RadioGroup>
 );
 
-const FormField = ({ id, label, placeholder, type = 'text', className }: InputFieldProps) => (
+const FormField = ({
+	id,
+	label,
+	placeholder,
+	type = 'text',
+	className,
+}: InputFieldProps) => (
 	<div className={`space-y-2 ${className || ''}`}>
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<Input id={id} type={type} placeholder={placeholder} />
 	</div>
 );
@@ -103,8 +120,18 @@ export default function Main() {
 	];
 
 	const cardFields: InputFieldProps[] = [
-		{ id: 'cardNumber', label: 'Card Number', placeholder: '1234 5678 9012 3456', className: '@sm:col-span-2' },
-		{ id: 'cardName', label: 'Name on Card', placeholder: 'John Doe', className: '@sm:col-span-2' },
+		{
+			id: 'cardNumber',
+			label: 'Card Number',
+			placeholder: '1234 5678 9012 3456',
+			className: '@sm:col-span-2',
+		},
+		{
+			id: 'cardName',
+			label: 'Name on Card',
+			placeholder: 'John Doe',
+			className: '@sm:col-span-2',
+		},
 		{ id: 'expiry', label: 'Expiry', placeholder: 'MM/YY' },
 		{ id: 'cvv', label: 'CVV', placeholder: '123', type: 'password' },
 	];

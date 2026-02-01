@@ -1,7 +1,12 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Badge } from '@/components/ui/badge';
 import { Check, MapPin, Clock, Truck, Zap } from 'lucide-react';
@@ -94,7 +99,8 @@ export default function Main() {
 			id: '1',
 			type: 'Home',
 			name: 'John Doe',
-			address: '123 Main Street, Apt 4B, San Francisco, CA 94102, United States',
+			address:
+				'123 Main Street, Apt 4B, San Francisco, CA 94102, United States',
 			deliveryTime: 'Get it by Tomorrow, 9 AM - 12 PM',
 			deliveryIcon: Zap,
 			isRecommended: true,
@@ -103,7 +109,8 @@ export default function Main() {
 			id: '2',
 			type: 'Office',
 			name: 'John Doe - TechCorp Inc.',
-			address: '456 Market Street, Suite 100, San Francisco, CA 94103, United States',
+			address:
+				'456 Market Street, Suite 100, San Francisco, CA 94103, United States',
 			deliveryTime: 'Get it in 2-3 Business Days',
 			deliveryIcon: Truck,
 		},

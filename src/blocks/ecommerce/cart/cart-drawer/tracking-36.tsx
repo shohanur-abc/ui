@@ -11,7 +11,15 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { CheckCircle, MapPin, Minus, Navigation, Plus, ShoppingBag, X } from 'lucide-react';
+import {
+	CheckCircle,
+	MapPin,
+	Minus,
+	Navigation,
+	Plus,
+	ShoppingBag,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -123,7 +131,11 @@ const TrackingTimeline = ({
 					<div className="flex-1 pb-4">
 						<p
 							className={`text-sm font-medium ${
-								step.current ? 'text-primary' : step.completed ? '' : 'text-muted-foreground'
+								step.current
+									? 'text-primary'
+									: step.completed
+										? ''
+										: 'text-muted-foreground'
 							}`}
 						>
 							{step.label}
@@ -163,24 +175,50 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Smart Watch',
 				price: 299.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds',
 				price: 149.99,
 				quantity: 1,
 			},
 		],
 		tracking: [
-			{ id: '1', label: 'Order Placed', time: 'Today', completed: true, current: false },
-			{ id: '2', label: 'Processing', time: 'Tomorrow', completed: false, current: true },
-			{ id: '3', label: 'Shipped', time: 'Dec 5', completed: false, current: false },
-			{ id: '4', label: 'Delivered', time: 'Dec 7', completed: false, current: false },
+			{
+				id: '1',
+				label: 'Order Placed',
+				time: 'Today',
+				completed: true,
+				current: false,
+			},
+			{
+				id: '2',
+				label: 'Processing',
+				time: 'Tomorrow',
+				completed: false,
+				current: true,
+			},
+			{
+				id: '3',
+				label: 'Shipped',
+				time: 'Dec 5',
+				completed: false,
+				current: false,
+			},
+			{
+				id: '4',
+				label: 'Delivered',
+				time: 'Dec 7',
+				completed: false,
+				current: false,
+			},
 		],
 	};
 
@@ -188,7 +226,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

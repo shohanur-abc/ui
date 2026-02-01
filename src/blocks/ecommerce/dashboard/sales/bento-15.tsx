@@ -1,6 +1,15 @@
 'use client';
 
-import { Trophy, Medal, Star, Crown, TrendingUp, Target, Award, Zap } from 'lucide-react';
+import {
+	Trophy,
+	Medal,
+	Star,
+	Crown,
+	TrendingUp,
+	Target,
+	Award,
+	Zap,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
@@ -46,7 +55,9 @@ const getRankIcon = (rank: number) => {
 		case 3:
 			return <Medal className="size-5 text-amber-700" />;
 		default:
-			return <span className="text-sm font-bold text-muted-foreground">#{rank}</span>;
+			return (
+				<span className="text-sm font-bold text-muted-foreground">#{rank}</span>
+			);
 	}
 };
 
@@ -63,13 +74,22 @@ const LeaderboardCard = ({ performers }: { performers: TopPerformer[] }) => (
 				<div
 					key={idx}
 					className={`flex items-center gap-4 p-3 rounded-lg transition-colors ${
-						performer.rank === 1 ? 'bg-amber-500/10 border border-amber-500/20' : 'hover:bg-muted/50'
+						performer.rank === 1
+							? 'bg-amber-500/10 border border-amber-500/20'
+							: 'hover:bg-muted/50'
 					}`}
 				>
-					<div className="w-8 flex justify-center">{getRankIcon(performer.rank)}</div>
+					<div className="w-8 flex justify-center">
+						{getRankIcon(performer.rank)}
+					</div>
 					<Avatar className="size-10">
 						<AvatarImage src={performer.avatar} alt={performer.name} />
-						<AvatarFallback>{performer.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+						<AvatarFallback>
+							{performer.name
+								.split(' ')
+								.map((n) => n[0])
+								.join('')}
+						</AvatarFallback>
 					</Avatar>
 					<div className="flex-1">
 						<p className="font-medium">{performer.name}</p>
@@ -78,8 +98,13 @@ const LeaderboardCard = ({ performers }: { performers: TopPerformer[] }) => (
 					<div className="text-right">
 						<p className="font-bold">${performer.sales.toLocaleString()}</p>
 						<div className="flex items-center gap-1 text-xs">
-							<Progress value={(performer.sales / performer.target) * 100} className="h-1 w-16" />
-							<span className="text-muted-foreground">{performer.deals} deals</span>
+							<Progress
+								value={(performer.sales / performer.target) * 100}
+								className="h-1 w-16"
+							/>
+							<span className="text-muted-foreground">
+								{performer.deals} deals
+							</span>
 						</div>
 					</div>
 				</div>
@@ -88,7 +113,11 @@ const LeaderboardCard = ({ performers }: { performers: TopPerformer[] }) => (
 	</Card>
 );
 
-const AchievementsCard = ({ achievements }: { achievements: Achievement[] }) => (
+const AchievementsCard = ({
+	achievements,
+}: {
+	achievements: Achievement[];
+}) => (
 	<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
 		<CardHeader className="pb-2">
 			<div className="flex items-center gap-2">
@@ -104,17 +133,23 @@ const AchievementsCard = ({ achievements }: { achievements: Achievement[] }) => 
 						achievement.unlocked ? 'bg-primary/10' : 'bg-muted/30 opacity-60'
 					}`}
 				>
-					<div className={`p-2 rounded-lg ${achievement.unlocked ? 'bg-primary/20 text-primary' : 'bg-muted'}`}>
+					<div
+						className={`p-2 rounded-lg ${achievement.unlocked ? 'bg-primary/20 text-primary' : 'bg-muted'}`}
+					>
 						{achievement.icon}
 					</div>
 					<div className="flex-1">
 						<p className="text-sm font-medium">{achievement.title}</p>
-						<p className="text-xs text-muted-foreground">{achievement.description}</p>
+						<p className="text-xs text-muted-foreground">
+							{achievement.description}
+						</p>
 						{!achievement.unlocked && (
 							<Progress value={achievement.progress} className="h-1 mt-2" />
 						)}
 					</div>
-					{achievement.unlocked && <Star className="size-4 fill-amber-500 text-amber-500" />}
+					{achievement.unlocked && (
+						<Star className="size-4 fill-amber-500 text-amber-500" />
+					)}
 				</div>
 			))}
 		</CardContent>
@@ -134,7 +169,9 @@ const TeamStatsCard = ({ stats }: { stats: TeamStat[] }) => (
 				<div key={idx} className="space-y-2">
 					<div className="flex justify-between text-sm">
 						<span>{stat.label}</span>
-						<span className="font-medium">{stat.value} / {stat.target}</span>
+						<span className="font-medium">
+							{stat.value} / {stat.target}
+						</span>
 					</div>
 					<Progress value={stat.progress} className="h-2" />
 				</div>
@@ -143,7 +180,11 @@ const TeamStatsCard = ({ stats }: { stats: TeamStat[] }) => (
 	</Card>
 );
 
-const BentoLayout15 = ({ performers, achievements, teamStats }: BentoLayout15Props) => (
+const BentoLayout15 = ({
+	performers,
+	achievements,
+	teamStats,
+}: BentoLayout15Props) => (
 	<div className="grid grid-cols-1 @md:grid-cols-2 @xl:grid-cols-4 gap-4">
 		<LeaderboardCard performers={performers} />
 		<AchievementsCard achievements={achievements} />
@@ -153,16 +194,66 @@ const BentoLayout15 = ({ performers, achievements, teamStats }: BentoLayout15Pro
 
 export default function Main() {
 	const performers: TopPerformer[] = [
-		{ name: 'Sarah Johnson', avatar: '/placeholder.svg', role: 'Senior Sales Rep', sales: 285000, target: 250000, deals: 42, rank: 1 },
-		{ name: 'Michael Chen', avatar: '/placeholder.svg', role: 'Sales Rep', sales: 248000, target: 250000, deals: 38, rank: 2 },
-		{ name: 'Emily Davis', avatar: '/placeholder.svg', role: 'Sales Rep', sales: 195000, target: 200000, deals: 31, rank: 3 },
-		{ name: 'James Wilson', avatar: '/placeholder.svg', role: 'Junior Sales Rep', sales: 168000, target: 200000, deals: 28, rank: 4 },
+		{
+			name: 'Sarah Johnson',
+			avatar: '/placeholder.svg',
+			role: 'Senior Sales Rep',
+			sales: 285000,
+			target: 250000,
+			deals: 42,
+			rank: 1,
+		},
+		{
+			name: 'Michael Chen',
+			avatar: '/placeholder.svg',
+			role: 'Sales Rep',
+			sales: 248000,
+			target: 250000,
+			deals: 38,
+			rank: 2,
+		},
+		{
+			name: 'Emily Davis',
+			avatar: '/placeholder.svg',
+			role: 'Sales Rep',
+			sales: 195000,
+			target: 200000,
+			deals: 31,
+			rank: 3,
+		},
+		{
+			name: 'James Wilson',
+			avatar: '/placeholder.svg',
+			role: 'Junior Sales Rep',
+			sales: 168000,
+			target: 200000,
+			deals: 28,
+			rank: 4,
+		},
 	];
 
 	const achievements: Achievement[] = [
-		{ title: 'First $100K', description: 'Reach $100K in monthly sales', icon: <Zap className="size-4" />, progress: 100, unlocked: true },
-		{ title: 'Deal Closer', description: 'Close 50 deals in a month', icon: <Target className="size-4" />, progress: 100, unlocked: true },
-		{ title: 'Top Performer', description: 'Rank #1 for 3 months', icon: <Trophy className="size-4" />, progress: 66, unlocked: false },
+		{
+			title: 'First $100K',
+			description: 'Reach $100K in monthly sales',
+			icon: <Zap className="size-4" />,
+			progress: 100,
+			unlocked: true,
+		},
+		{
+			title: 'Deal Closer',
+			description: 'Close 50 deals in a month',
+			icon: <Target className="size-4" />,
+			progress: 100,
+			unlocked: true,
+		},
+		{
+			title: 'Top Performer',
+			description: 'Rank #1 for 3 months',
+			icon: <Trophy className="size-4" />,
+			progress: 66,
+			unlocked: false,
+		},
 	];
 
 	const teamStats: TeamStat[] = [
@@ -174,7 +265,11 @@ export default function Main() {
 	return (
 		<section className="@container" data-theme="sales">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12">
-				<BentoLayout15 performers={performers} achievements={achievements} teamStats={teamStats} />
+				<BentoLayout15
+					performers={performers}
+					achievements={achievements}
+					teamStats={teamStats}
+				/>
 			</div>
 		</section>
 	);

@@ -12,7 +12,14 @@ interface LeaderStatProps {
 	badge?: string;
 }
 
-const LeaderStat = ({ rank, name, avatar, sales, orders, badge }: LeaderStatProps) => {
+const LeaderStat = ({
+	rank,
+	name,
+	avatar,
+	sales,
+	orders,
+	badge,
+}: LeaderStatProps) => {
 	const RankIcon = rank === 1 ? Crown : rank === 2 ? Medal : Award;
 	const rankColors = {
 		1: 'text-yellow-500',
@@ -21,9 +28,13 @@ const LeaderStat = ({ rank, name, avatar, sales, orders, badge }: LeaderStatProp
 	};
 
 	return (
-		<Card className={`group relative overflow-hidden p-6 transition-all duration-300 hover:shadow-lg ${rank === 1 ? 'border-primary/30 bg-primary/5' : ''}`}>
+		<Card
+			className={`group relative overflow-hidden p-6 transition-all duration-300 hover:shadow-lg ${rank === 1 ? 'border-primary/30 bg-primary/5' : ''}`}
+		>
 			{rank <= 3 && (
-				<RankIcon className={`absolute right-4 top-4 size-6 ${rankColors[rank as keyof typeof rankColors]}`} />
+				<RankIcon
+					className={`absolute right-4 top-4 size-6 ${rankColors[rank as keyof typeof rankColors]}`}
+				/>
 			)}
 			<div className="flex items-center gap-4">
 				<div className="relative">
@@ -41,7 +52,11 @@ const LeaderStat = ({ rank, name, avatar, sales, orders, badge }: LeaderStatProp
 				</div>
 				<div className="text-right">
 					<p className="text-xl font-bold">{sales}</p>
-					{badge && <Badge variant="secondary" className="mt-1 text-[10px]">{badge}</Badge>}
+					{badge && (
+						<Badge variant="secondary" className="mt-1 text-[10px]">
+							{badge}
+						</Badge>
+					)}
 				</div>
 			</div>
 		</Card>
@@ -50,11 +65,42 @@ const LeaderStat = ({ rank, name, avatar, sales, orders, badge }: LeaderStatProp
 
 export default function Main() {
 	const stats: LeaderStatProps[] = [
-		{ rank: 1, name: 'Sarah Johnson', avatar: '/placeholder.svg', sales: '$48,294', orders: 284, badge: 'Top Seller' },
-		{ rank: 2, name: 'Mike Chen', avatar: '/placeholder.svg', sales: '$42,847', orders: 247 },
-		{ rank: 3, name: 'Emily Davis', avatar: '/placeholder.svg', sales: '$38,294', orders: 198 },
-		{ rank: 4, name: 'Alex Rivera', avatar: '/placeholder.svg', sales: '$32,847', orders: 167 },
-		{ rank: 5, name: 'Jordan Lee', avatar: '/placeholder.svg', sales: '$28,294', orders: 142 },
+		{
+			rank: 1,
+			name: 'Sarah Johnson',
+			avatar: '/placeholder.svg',
+			sales: '$48,294',
+			orders: 284,
+			badge: 'Top Seller',
+		},
+		{
+			rank: 2,
+			name: 'Mike Chen',
+			avatar: '/placeholder.svg',
+			sales: '$42,847',
+			orders: 247,
+		},
+		{
+			rank: 3,
+			name: 'Emily Davis',
+			avatar: '/placeholder.svg',
+			sales: '$38,294',
+			orders: 198,
+		},
+		{
+			rank: 4,
+			name: 'Alex Rivera',
+			avatar: '/placeholder.svg',
+			sales: '$32,847',
+			orders: 167,
+		},
+		{
+			rank: 5,
+			name: 'Jordan Lee',
+			avatar: '/placeholder.svg',
+			sales: '$28,294',
+			orders: 142,
+		},
 	];
 
 	return (

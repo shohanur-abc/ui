@@ -8,7 +8,11 @@ type NestedDonutData = {
 };
 
 const NestedDonutChart = ({ data }: { data: NestedDonutData }) => {
-	const createRing = (items: { value: number; color: string }[], innerRadius: number, outerRadius: number) => {
+	const createRing = (
+		items: { value: number; color: string }[],
+		innerRadius: number,
+		outerRadius: number,
+	) => {
 		const total = items.reduce((a, b) => a + b.value, 0);
 		let currentAngle = -90;
 
@@ -47,28 +51,50 @@ const NestedDonutChart = ({ data }: { data: NestedDonutData }) => {
 			<div className="relative w-56 h-56">
 				<svg viewBox="0 0 100 100" className="w-full h-full">
 					{innerSlices.map((slice, i) => (
-						<path key={`i-${i}`} d={slice.d} fill={slice.color} stroke="hsl(var(--background))" strokeWidth="0.3" />
+						<path
+							key={`i-${i}`}
+							d={slice.d}
+							fill={slice.color}
+							stroke="hsl(var(--background))"
+							strokeWidth="0.3"
+						/>
 					))}
 					{outerSlices.map((slice, i) => (
-						<path key={`o-${i}`} d={slice.d} fill={slice.color} stroke="hsl(var(--background))" strokeWidth="0.3" />
+						<path
+							key={`o-${i}`}
+							d={slice.d}
+							fill={slice.color}
+							stroke="hsl(var(--background))"
+							strokeWidth="0.3"
+						/>
 					))}
 				</svg>
 			</div>
 			<div className="grid grid-cols-2 gap-x-8 gap-y-2">
 				<div>
-					<p className="text-xs text-muted-foreground mb-2 font-medium">Inner: Category</p>
+					<p className="text-xs text-muted-foreground mb-2 font-medium">
+						Inner: Category
+					</p>
 					{data.inner.map((item, i) => (
 						<div key={i} className="flex items-center gap-2 mb-1">
-							<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }} />
+							<div
+								className="w-2.5 h-2.5 rounded-full"
+								style={{ backgroundColor: item.color }}
+							/>
 							<span className="text-xs">{item.label}</span>
 						</div>
 					))}
 				</div>
 				<div>
-					<p className="text-xs text-muted-foreground mb-2 font-medium">Outer: Subcategory</p>
+					<p className="text-xs text-muted-foreground mb-2 font-medium">
+						Outer: Subcategory
+					</p>
 					{data.outer.map((item, i) => (
 						<div key={i} className="flex items-center gap-2 mb-1">
-							<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }} />
+							<div
+								className="w-2.5 h-2.5 rounded-full"
+								style={{ backgroundColor: item.color }}
+							/>
 							<span className="text-xs">{item.label}</span>
 						</div>
 					))}
@@ -100,8 +126,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Sales by Category</CardTitle>
-						<p className="text-xs text-muted-foreground">Nested breakdown of categories and subcategories</p>
+						<CardTitle className="text-sm font-medium">
+							Sales by Category
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Nested breakdown of categories and subcategories
+						</p>
 					</CardHeader>
 					<CardContent>
 						<NestedDonutChart data={categoryData} />

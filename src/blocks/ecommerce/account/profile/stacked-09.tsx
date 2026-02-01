@@ -48,7 +48,9 @@ const KidsHeader = ({
 				<div className="relative">
 					<Avatar className="size-24 ring-4 ring-pink-500">
 						<AvatarImage src={src} alt={name} />
-						<AvatarFallback className="text-2xl bg-pink-500 text-white">{fallback}</AvatarFallback>
+						<AvatarFallback className="text-2xl bg-pink-500 text-white">
+							{fallback}
+						</AvatarFallback>
 					</Avatar>
 					<div className="absolute -bottom-2 -right-2 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">
 						Lvl {level}
@@ -95,13 +97,21 @@ const DailyQuests = ({
 				>
 					<div className="flex items-center gap-3">
 						<span className="text-2xl">{quest.icon}</span>
-						<span className={quest.completed ? 'line-through text-muted-foreground' : 'font-medium'}>
+						<span
+							className={
+								quest.completed
+									? 'line-through text-muted-foreground'
+									: 'font-medium'
+							}
+						>
 							{quest.title}
 						</span>
 					</div>
 					<div className="flex items-center gap-2">
 						<span className="text-sm">+{quest.reward} 🪙</span>
-						{quest.completed && <span className="text-green-500 text-xl">✓</span>}
+						{quest.completed && (
+							<span className="text-green-500 text-xl">✓</span>
+						)}
 					</div>
 				</div>
 			))}
@@ -129,7 +139,9 @@ const LearningProgress = ({
 							<span className="text-xl">{subject.icon}</span>
 							<span className="font-medium">{subject.name}</span>
 						</div>
-						<span className="text-sm text-muted-foreground">{subject.progress}%</span>
+						<span className="text-sm text-muted-foreground">
+							{subject.progress}%
+						</span>
 					</div>
 					<div className="h-3 rounded-full bg-muted overflow-hidden">
 						<div
@@ -146,7 +158,12 @@ const LearningProgress = ({
 const BadgesSection = ({
 	badges,
 }: {
-	badges: { name: string; icon: string; earned: boolean; description: string }[];
+	badges: {
+		name: string;
+		icon: string;
+		earned: boolean;
+		description: string;
+	}[];
 }) => (
 	<Card className="border-2 border-amber-500/30">
 		<CardHeader className="pb-3">
@@ -166,7 +183,9 @@ const BadgesSection = ({
 						title={badge.description}
 					>
 						<span className="text-3xl">{badge.icon}</span>
-						<span className="text-xs text-center mt-1 truncate w-full">{badge.name}</span>
+						<span className="text-xs text-center mt-1 truncate w-full">
+							{badge.name}
+						</span>
 					</div>
 				))}
 			</div>
@@ -177,7 +196,12 @@ const BadgesSection = ({
 const Activities = ({
 	activities,
 }: {
-	activities: { title: string; type: string; icon: React.ElementType; color: string }[];
+	activities: {
+		title: string;
+		type: string;
+		icon: React.ElementType;
+		color: string;
+	}[];
 }) => (
 	<Card className="border-2 border-purple-500/30">
 		<CardHeader className="pb-3">
@@ -194,7 +218,9 @@ const Activities = ({
 						className={`flex flex-col items-center gap-2 p-4 rounded-xl ${activity.color} hover:scale-105 transition-transform`}
 					>
 						<activity.icon className="size-8 text-white" />
-						<span className="text-sm font-medium text-white">{activity.title}</span>
+						<span className="text-sm font-medium text-white">
+							{activity.title}
+						</span>
 					</button>
 				))}
 			</div>
@@ -229,11 +255,15 @@ const FriendsSection = ({
 								<AvatarImage src={friend.avatar} />
 								<AvatarFallback>{friend.name[0]}</AvatarFallback>
 							</Avatar>
-							<div className={`absolute bottom-0 right-0 size-3 rounded-full border-2 border-background ${
-								friend.status === 'online' ? 'bg-green-500' : 'bg-gray-400'
-							}`} />
+							<div
+								className={`absolute bottom-0 right-0 size-3 rounded-full border-2 border-background ${
+									friend.status === 'online' ? 'bg-green-500' : 'bg-gray-400'
+								}`}
+							/>
 						</div>
-						<span className="text-xs mt-1 truncate w-14 text-center">{friend.name}</span>
+						<span className="text-xs mt-1 truncate w-14 text-center">
+							{friend.name}
+						</span>
 					</div>
 				))}
 			</div>
@@ -256,7 +286,10 @@ const RewardsShop = ({
 		<CardContent>
 			<div className="grid grid-cols-3 gap-3">
 				{rewards.map((reward, i) => (
-					<button key={i} className="flex flex-col items-center p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
+					<button
+						key={i}
+						className="flex flex-col items-center p-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+					>
 						<span className="text-3xl">{reward.icon}</span>
 						<span className="text-xs font-medium mt-1">{reward.name}</span>
 						<div className="flex items-center gap-1 mt-1">
@@ -287,7 +320,9 @@ const WeeklyStreak = ({
 						<div
 							key={i}
 							className={`size-8 rounded-full flex items-center justify-center text-xs font-bold ${
-								day.completed ? 'bg-red-500 text-white' : 'bg-muted text-muted-foreground'
+								day.completed
+									? 'bg-red-500 text-white'
+									: 'bg-muted text-muted-foreground'
 							}`}
 						>
 							{day.day}
@@ -310,10 +345,20 @@ export default function Main() {
 			coins: 450,
 		},
 		quests: [
-			{ title: 'Complete 3 math puzzles', reward: 50, completed: true, icon: '🧮' },
+			{
+				title: 'Complete 3 math puzzles',
+				reward: 50,
+				completed: true,
+				icon: '🧮',
+			},
 			{ title: 'Read a story', reward: 30, completed: true, icon: '📖' },
 			{ title: 'Draw a picture', reward: 40, completed: false, icon: '🎨' },
-			{ title: 'Play a learning game', reward: 25, completed: false, icon: '🎮' },
+			{
+				title: 'Play a learning game',
+				reward: 25,
+				completed: false,
+				icon: '🎮',
+			},
 		],
 		subjects: [
 			{ name: 'Math', progress: 75, icon: '➕', color: 'bg-blue-500' },
@@ -322,12 +367,42 @@ export default function Main() {
 			{ name: 'Art', progress: 90, icon: '🎨', color: 'bg-pink-500' },
 		],
 		badges: [
-			{ name: 'Star Reader', icon: '⭐', earned: true, description: 'Read 10 books' },
-			{ name: 'Math Wizard', icon: '🧙', earned: true, description: 'Complete 50 math problems' },
-			{ name: 'Artist', icon: '🎨', earned: true, description: 'Create 20 artworks' },
-			{ name: 'Explorer', icon: '🗺️', earned: true, description: 'Try 5 different subjects' },
-			{ name: 'Scientist', icon: '🔬', earned: false, description: 'Complete 10 experiments' },
-			{ name: 'Musician', icon: '🎵', earned: false, description: 'Learn 5 songs' },
+			{
+				name: 'Star Reader',
+				icon: '⭐',
+				earned: true,
+				description: 'Read 10 books',
+			},
+			{
+				name: 'Math Wizard',
+				icon: '🧙',
+				earned: true,
+				description: 'Complete 50 math problems',
+			},
+			{
+				name: 'Artist',
+				icon: '🎨',
+				earned: true,
+				description: 'Create 20 artworks',
+			},
+			{
+				name: 'Explorer',
+				icon: '🗺️',
+				earned: true,
+				description: 'Try 5 different subjects',
+			},
+			{
+				name: 'Scientist',
+				icon: '🔬',
+				earned: false,
+				description: 'Complete 10 experiments',
+			},
+			{
+				name: 'Musician',
+				icon: '🎵',
+				earned: false,
+				description: 'Learn 5 songs',
+			},
 		],
 		activities: [
 			{ title: 'Games', type: 'play', icon: Gamepad2, color: 'bg-purple-500' },
@@ -336,11 +411,31 @@ export default function Main() {
 			{ title: 'Art', type: 'create', icon: Palette, color: 'bg-orange-500' },
 		],
 		friends: [
-			{ name: 'Max', avatar: 'https://i.pravatar.cc/56?img=33', status: 'online' as const },
-			{ name: 'Sophie', avatar: 'https://i.pravatar.cc/56?img=44', status: 'online' as const },
-			{ name: 'Jake', avatar: 'https://i.pravatar.cc/56?img=12', status: 'offline' as const },
-			{ name: 'Emma', avatar: 'https://i.pravatar.cc/56?img=9', status: 'online' as const },
-			{ name: 'Lucas', avatar: 'https://i.pravatar.cc/56?img=8', status: 'offline' as const },
+			{
+				name: 'Max',
+				avatar: 'https://i.pravatar.cc/56?img=33',
+				status: 'online' as const,
+			},
+			{
+				name: 'Sophie',
+				avatar: 'https://i.pravatar.cc/56?img=44',
+				status: 'online' as const,
+			},
+			{
+				name: 'Jake',
+				avatar: 'https://i.pravatar.cc/56?img=12',
+				status: 'offline' as const,
+			},
+			{
+				name: 'Emma',
+				avatar: 'https://i.pravatar.cc/56?img=9',
+				status: 'online' as const,
+			},
+			{
+				name: 'Lucas',
+				avatar: 'https://i.pravatar.cc/56?img=8',
+				status: 'offline' as const,
+			},
 		],
 		rewards: [
 			{ name: 'Stickers', icon: '🌟', cost: 100 },

@@ -1,10 +1,29 @@
 import Link from 'next/link';
-import { Mail, ArrowRight, CheckCircle2, ShoppingBag, PartyPopper } from 'lucide-react';
+import {
+	Mail,
+	ArrowRight,
+	CheckCircle2,
+	ShoppingBag,
+	PartyPopper,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -90,7 +109,11 @@ export default function Main() {
 							Welcome to ShopNow! Your account has been successfully created.
 						</CardDescription>
 						<NextSteps steps={steps} />
-						<ActionButton label="Start Shopping" icon={ArrowRight} href="/shop" />
+						<ActionButton
+							label="Start Shopping"
+							icon={ArrowRight}
+							href="/shop"
+						/>
 					</CardContent>
 					<CardFooter className="justify-center">
 						<p className="text-sm text-muted-foreground">

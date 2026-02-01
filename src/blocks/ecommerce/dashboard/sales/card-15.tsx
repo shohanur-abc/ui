@@ -16,7 +16,10 @@ type ConversionFunnelCardProps = {
 	metrics: ConversionMetric[];
 };
 
-const ConversionFunnelCard = ({ title, metrics }: ConversionFunnelCardProps) => (
+const ConversionFunnelCard = ({
+	title,
+	metrics,
+}: ConversionFunnelCardProps) => (
 	<Card className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30">
 		<CardHeader className="flex flex-row items-center gap-3 pb-4">
 			<div className="p-2 rounded-lg bg-primary/10 text-primary">

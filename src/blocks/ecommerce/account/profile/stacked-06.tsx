@@ -46,8 +46,15 @@ const StorageHeader = ({
 						<Cloud className="size-8 text-sky-500" />
 					</div>
 					<div>
-						<Badge variant="secondary" className="mb-1">{plan}</Badge>
-						<h1 className="text-2xl font-bold">{used} <span className="text-lg font-normal text-muted-foreground">of {total}</span></h1>
+						<Badge variant="secondary" className="mb-1">
+							{plan}
+						</Badge>
+						<h1 className="text-2xl font-bold">
+							{used}{' '}
+							<span className="text-lg font-normal text-muted-foreground">
+								of {total}
+							</span>
+						</h1>
 						<Progress value={percentage} className="h-2 w-48 mt-2" />
 					</div>
 				</div>
@@ -69,7 +76,13 @@ const StorageHeader = ({
 const StorageBreakdown = ({
 	categories,
 }: {
-	categories: { icon: React.ElementType; name: string; size: string; count: number; color: string }[];
+	categories: {
+		icon: React.ElementType;
+		name: string;
+		size: string;
+		count: number;
+		color: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -78,7 +91,10 @@ const StorageBreakdown = ({
 		<CardContent>
 			<div className="grid grid-cols-2 @md:grid-cols-4 gap-4">
 				{categories.map((cat, i) => (
-					<div key={i} className="flex flex-col items-center p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
+					<div
+						key={i}
+						className="flex flex-col items-center p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer"
+					>
 						<div className={`p-3 rounded-full ${cat.color} mb-3`}>
 							<cat.icon className="size-5 text-white" />
 						</div>
@@ -95,28 +111,43 @@ const StorageBreakdown = ({
 const QuickAccess = ({
 	files,
 }: {
-	files: { name: string; type: string; modified: string; icon: React.ElementType; starred: boolean }[];
+	files: {
+		name: string;
+		type: string;
+		modified: string;
+		icon: React.ElementType;
+		starred: boolean;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
 			<div className="flex items-center justify-between">
 				<h2 className="font-semibold">Quick Access</h2>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{files.map((file, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors group">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors group"
+				>
 					<div className="flex items-center gap-3">
 						<file.icon className="size-5 text-muted-foreground" />
 						<div>
 							<p className="font-medium">{file.name}</p>
-							<p className="text-xs text-muted-foreground">{file.type} • {file.modified}</p>
+							<p className="text-xs text-muted-foreground">
+								{file.type} • {file.modified}
+							</p>
 						</div>
 					</div>
 					<div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
 						<Button variant="ghost" size="icon" className="size-8">
-							<Star className={`size-4 ${file.starred ? 'fill-amber-500 text-amber-500' : ''}`} />
+							<Star
+								className={`size-4 ${file.starred ? 'fill-amber-500 text-amber-500' : ''}`}
+							/>
 						</Button>
 						<Button variant="ghost" size="icon" className="size-8">
 							<Share2 className="size-4" />
@@ -134,7 +165,12 @@ const QuickAccess = ({
 const RecentActivity = ({
 	activities,
 }: {
-	activities: { action: string; file: string; time: string; icon: React.ElementType }[];
+	activities: {
+		action: string;
+		file: string;
+		time: string;
+		icon: React.ElementType;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -163,7 +199,12 @@ const RecentActivity = ({
 const SharedWithMe = ({
 	shares,
 }: {
-	shares: { name: string; owner: { name: string; avatar: string }; date: string; type: string }[];
+	shares: {
+		name: string;
+		owner: { name: string; avatar: string };
+		date: string;
+		type: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -174,7 +215,10 @@ const SharedWithMe = ({
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{shares.map((share, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+				>
 					<div className="flex items-center gap-3">
 						<Folder className="size-5 text-blue-500" />
 						<div>
@@ -202,7 +246,10 @@ const StorageAlerts = ({
 }) => (
 	<div className="space-y-3">
 		{alerts.map((alert, i) => (
-			<Card key={i} className={alert.type === 'warning' ? 'border-amber-500/30' : ''}>
+			<Card
+				key={i}
+				className={alert.type === 'warning' ? 'border-amber-500/30' : ''}
+			>
 				<CardContent className="p-4">
 					<div className="flex items-center gap-3">
 						{alert.type === 'warning' ? (
@@ -211,7 +258,11 @@ const StorageAlerts = ({
 							<Bell className="size-5 text-blue-500" />
 						)}
 						<p className="flex-1 text-sm">{alert.message}</p>
-						{alert.action && <Button variant="outline" size="sm">{alert.action}</Button>}
+						{alert.action && (
+							<Button variant="outline" size="sm">
+								{alert.action}
+							</Button>
+						)}
 					</div>
 				</CardContent>
 			</Card>
@@ -235,10 +286,16 @@ const TrashInfo = ({
 					</div>
 					<div>
 						<p className="font-medium">Trash</p>
-						<p className="text-sm text-muted-foreground">{itemCount} items • {size}</p>
+						<p className="text-sm text-muted-foreground">
+							{itemCount} items • {size}
+						</p>
 					</div>
 				</div>
-				<Button variant="outline" size="sm" className="text-red-500 hover:text-red-600">
+				<Button
+					variant="outline"
+					size="sm"
+					className="text-red-500 hover:text-red-600"
+				>
 					Empty Trash
 				</Button>
 			</div>
@@ -255,30 +312,115 @@ export default function Main() {
 			plan: 'Pro Plan',
 		},
 		categories: [
-			{ icon: Image, name: 'Photos', size: '32.5 GB', count: 4521, color: 'bg-pink-500' },
-			{ icon: Video, name: 'Videos', size: '18.2 GB', count: 234, color: 'bg-purple-500' },
-			{ icon: FileText, name: 'Documents', size: '12.8 GB', count: 1892, color: 'bg-blue-500' },
-			{ icon: Music, name: 'Music', size: '4.9 GB', count: 847, color: 'bg-green-500' },
+			{
+				icon: Image,
+				name: 'Photos',
+				size: '32.5 GB',
+				count: 4521,
+				color: 'bg-pink-500',
+			},
+			{
+				icon: Video,
+				name: 'Videos',
+				size: '18.2 GB',
+				count: 234,
+				color: 'bg-purple-500',
+			},
+			{
+				icon: FileText,
+				name: 'Documents',
+				size: '12.8 GB',
+				count: 1892,
+				color: 'bg-blue-500',
+			},
+			{
+				icon: Music,
+				name: 'Music',
+				size: '4.9 GB',
+				count: 847,
+				color: 'bg-green-500',
+			},
 		],
 		quickAccess: [
-			{ name: 'Project Proposal.pdf', type: 'PDF', modified: '2 hours ago', icon: FileText, starred: true },
-			{ name: 'Presentation.pptx', type: 'PowerPoint', modified: 'Yesterday', icon: File, starred: false },
-			{ name: 'Budget 2024.xlsx', type: 'Excel', modified: '3 days ago', icon: File, starred: true },
-			{ name: 'Meeting Notes.docx', type: 'Word', modified: '1 week ago', icon: FileText, starred: false },
+			{
+				name: 'Project Proposal.pdf',
+				type: 'PDF',
+				modified: '2 hours ago',
+				icon: FileText,
+				starred: true,
+			},
+			{
+				name: 'Presentation.pptx',
+				type: 'PowerPoint',
+				modified: 'Yesterday',
+				icon: File,
+				starred: false,
+			},
+			{
+				name: 'Budget 2024.xlsx',
+				type: 'Excel',
+				modified: '3 days ago',
+				icon: File,
+				starred: true,
+			},
+			{
+				name: 'Meeting Notes.docx',
+				type: 'Word',
+				modified: '1 week ago',
+				icon: FileText,
+				starred: false,
+			},
 		],
 		activities: [
-			{ action: 'Uploaded', file: 'design-v2.fig', time: '5 min ago', icon: Upload },
-			{ action: 'Shared', file: 'Q1 Report.pdf', time: '1 hour ago', icon: Share2 },
-			{ action: 'Downloaded', file: 'assets.zip', time: '3 hours ago', icon: Download },
-			{ action: 'Moved to trash', file: 'old-notes.txt', time: 'Yesterday', icon: Trash2 },
+			{
+				action: 'Uploaded',
+				file: 'design-v2.fig',
+				time: '5 min ago',
+				icon: Upload,
+			},
+			{
+				action: 'Shared',
+				file: 'Q1 Report.pdf',
+				time: '1 hour ago',
+				icon: Share2,
+			},
+			{
+				action: 'Downloaded',
+				file: 'assets.zip',
+				time: '3 hours ago',
+				icon: Download,
+			},
+			{
+				action: 'Moved to trash',
+				file: 'old-notes.txt',
+				time: 'Yesterday',
+				icon: Trash2,
+			},
 		],
 		sharedWithMe: [
-			{ name: 'Marketing Assets', owner: { name: 'Sarah', avatar: 'https://i.pravatar.cc/32?img=1' }, date: 'Jan 28', type: 'View' },
-			{ name: 'Brand Guidelines', owner: { name: 'Mike', avatar: 'https://i.pravatar.cc/32?img=2' }, date: 'Jan 25', type: 'Edit' },
+			{
+				name: 'Marketing Assets',
+				owner: { name: 'Sarah', avatar: 'https://i.pravatar.cc/32?img=1' },
+				date: 'Jan 28',
+				type: 'View',
+			},
+			{
+				name: 'Brand Guidelines',
+				owner: { name: 'Mike', avatar: 'https://i.pravatar.cc/32?img=2' },
+				date: 'Jan 25',
+				type: 'Edit',
+			},
 		],
 		alerts: [
-			{ type: 'warning' as const, message: 'Storage almost full. Upgrade for more space.', action: 'Upgrade' },
-			{ type: 'info' as const, message: 'Auto-backup completed for 1,245 photos.' },
+			{
+				type: 'warning' as const,
+				message: 'Storage almost full. Upgrade for more space.',
+				action: 'Upgrade',
+			},
+			{
+				type: 'info' as const,
+				message: 'Auto-backup completed for 1,245 photos.',
+			},
 		],
 		trash: { itemCount: 23, size: '2.1 GB' },
 	};

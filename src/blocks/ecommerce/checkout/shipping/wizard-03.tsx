@@ -1,4 +1,11 @@
-import { Circle, Check, MapPin, Truck, CreditCard, PartyPopper } from 'lucide-react';
+import {
+	Circle,
+	Check,
+	MapPin,
+	Truck,
+	CreditCard,
+	PartyPopper,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -30,7 +37,11 @@ const VerticalStepper = ({
 								${!isCompleted && !isCurrent ? 'bg-muted text-muted-foreground' : ''}
 							`}
 						>
-							{isCompleted ? <Check className="size-5" /> : <Icon className="size-5" />}
+							{isCompleted ? (
+								<Check className="size-5" />
+							) : (
+								<Icon className="size-5" />
+							)}
 						</div>
 						{i < steps.length - 1 && (
 							<div
@@ -42,7 +53,9 @@ const VerticalStepper = ({
 						)}
 					</div>
 					<div className="pt-2">
-						<p className={`font-medium ${!isCompleted && !isCurrent ? 'text-muted-foreground' : ''}`}>
+						<p
+							className={`font-medium ${!isCompleted && !isCurrent ? 'text-muted-foreground' : ''}`}
+						>
 							{step.label}
 						</p>
 					</div>
@@ -65,7 +78,12 @@ const FormField = ({
 }) => (
 	<div className="space-y-2">
 		<Label>{label}</Label>
-		<Input type={type} placeholder={placeholder} defaultValue={defaultValue} className="h-11" />
+		<Input
+			type={type}
+			placeholder={placeholder}
+			defaultValue={defaultValue}
+			className="h-11"
+		/>
 	</div>
 );
 
@@ -94,7 +112,9 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<h1 className="text-3xl font-bold mb-2">Checkout</h1>
-				<p className="text-muted-foreground mb-8">Complete your order in a few steps</p>
+				<p className="text-muted-foreground mb-8">
+					Complete your order in a few steps
+				</p>
 
 				<div className="grid @lg:grid-cols-[280px_1fr] gap-8">
 					<div className="hidden @lg:block">
@@ -113,24 +133,49 @@ export default function Main() {
 								</div>
 								<div>
 									<h2 className="text-xl font-bold">Shipping Address</h2>
-									<p className="text-sm text-muted-foreground">Where should we deliver your order?</p>
+									<p className="text-sm text-muted-foreground">
+										Where should we deliver your order?
+									</p>
 								</div>
 							</div>
 
 							<FormSection title="Contact Information">
 								<div className="grid @sm:grid-cols-2 gap-4">
-									<FormField label="First Name" placeholder="John" defaultValue="John" />
-									<FormField label="Last Name" placeholder="Doe" defaultValue="Doe" />
+									<FormField
+										label="First Name"
+										placeholder="John"
+										defaultValue="John"
+									/>
+									<FormField
+										label="Last Name"
+										placeholder="Doe"
+										defaultValue="Doe"
+									/>
 								</div>
-								<FormField label="Email" placeholder="john@example.com" type="email" defaultValue="john.doe@email.com" />
-								<FormField label="Phone" placeholder="+1 (555) 123-4567" type="tel" />
+								<FormField
+									label="Email"
+									placeholder="john@example.com"
+									type="email"
+									defaultValue="john.doe@email.com"
+								/>
+								<FormField
+									label="Phone"
+									placeholder="+1 (555) 123-4567"
+									type="tel"
+								/>
 							</FormSection>
 
 							<Separator className="my-6" />
 
 							<FormSection title="Delivery Address">
-								<FormField label="Street Address" placeholder="123 Main Street" />
-								<FormField label="Apartment, Suite, etc." placeholder="Apt 4B" />
+								<FormField
+									label="Street Address"
+									placeholder="123 Main Street"
+								/>
+								<FormField
+									label="Apartment, Suite, etc."
+									placeholder="Apt 4B"
+								/>
 								<div className="grid @sm:grid-cols-3 gap-4">
 									<FormField label="City" placeholder="New York" />
 									<FormField label="State" placeholder="NY" />
@@ -139,8 +184,12 @@ export default function Main() {
 							</FormSection>
 
 							<div className="flex flex-col @sm:flex-row gap-3 pt-8">
-								<Button variant="outline" className="@sm:w-auto">Cancel</Button>
-								<Button className="flex-1 @sm:flex-initial @sm:ml-auto">Continue to Delivery</Button>
+								<Button variant="outline" className="@sm:w-auto">
+									Cancel
+								</Button>
+								<Button className="flex-1 @sm:flex-initial @sm:ml-auto">
+									Continue to Delivery
+								</Button>
 							</div>
 						</CardContent>
 					</Card>

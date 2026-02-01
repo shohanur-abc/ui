@@ -17,10 +17,7 @@ const CornerDecorations = () => (
 	</>
 );
 
-const Header = ({
-	icon: Icon,
-	title,
-}: { icon: LucideIcon; title: string }) => (
+const Header = ({ icon: Icon, title }: { icon: LucideIcon; title: string }) => (
 	<div className="mb-4 flex items-center gap-2">
 		<Icon className="size-5" />
 		<span className="font-bold uppercase tracking-wider">{title}</span>

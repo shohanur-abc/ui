@@ -2,7 +2,14 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from '@/components/ui/table';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 
 type Order = {
@@ -38,12 +45,54 @@ const OrderRow = ({ order }: { order: Order }) => (
 );
 
 const orders: Order[] = [
-	{ id: 'ORD-2024-001', customer: 'Sarah Johnson', items: 3, total: 245.99, status: 'delivered', date: 'Jan 15, 2024' },
-	{ id: 'ORD-2024-002', customer: 'Michael Chen', items: 1, total: 149.99, status: 'shipped', date: 'Jan 16, 2024' },
-	{ id: 'ORD-2024-003', customer: 'Emily Davis', items: 5, total: 432.50, status: 'processing', date: 'Jan 17, 2024' },
-	{ id: 'ORD-2024-004', customer: 'James Wilson', items: 2, total: 89.99, status: 'pending', date: 'Jan 17, 2024' },
-	{ id: 'ORD-2024-005', customer: 'Lisa Brown', items: 1, total: 299.99, status: 'cancelled', date: 'Jan 18, 2024' },
-	{ id: 'ORD-2024-006', customer: 'David Lee', items: 4, total: 567.00, status: 'shipped', date: 'Jan 18, 2024' },
+	{
+		id: 'ORD-2024-001',
+		customer: 'Sarah Johnson',
+		items: 3,
+		total: 245.99,
+		status: 'delivered',
+		date: 'Jan 15, 2024',
+	},
+	{
+		id: 'ORD-2024-002',
+		customer: 'Michael Chen',
+		items: 1,
+		total: 149.99,
+		status: 'shipped',
+		date: 'Jan 16, 2024',
+	},
+	{
+		id: 'ORD-2024-003',
+		customer: 'Emily Davis',
+		items: 5,
+		total: 432.5,
+		status: 'processing',
+		date: 'Jan 17, 2024',
+	},
+	{
+		id: 'ORD-2024-004',
+		customer: 'James Wilson',
+		items: 2,
+		total: 89.99,
+		status: 'pending',
+		date: 'Jan 17, 2024',
+	},
+	{
+		id: 'ORD-2024-005',
+		customer: 'Lisa Brown',
+		items: 1,
+		total: 299.99,
+		status: 'cancelled',
+		date: 'Jan 18, 2024',
+	},
+	{
+		id: 'ORD-2024-006',
+		customer: 'David Lee',
+		items: 4,
+		total: 567.0,
+		status: 'shipped',
+		date: 'Jan 18, 2024',
+	},
 ];
 
 export default function Main() {
@@ -53,7 +102,9 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm font-medium">Recent Orders</CardTitle>
-						<p className="text-xs text-muted-foreground">Latest order activity</p>
+						<p className="text-xs text-muted-foreground">
+							Latest order activity
+						</p>
 					</CardHeader>
 					<CardContent>
 						<div className="overflow-x-auto">

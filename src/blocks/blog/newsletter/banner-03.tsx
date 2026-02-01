@@ -18,7 +18,14 @@ const GradientDecorative = () => (
 	</div>
 );
 
-const Banner = ({ badge, title, subtitle, placeholder, buttonText, dismissLabel }: BannerProps) => (
+const Banner = ({
+	badge,
+	title,
+	subtitle,
+	placeholder,
+	buttonText,
+	dismissLabel,
+}: BannerProps) => (
 	<div className="relative flex flex-col @xl:flex-row @xl:items-center gap-4 p-4 @md:p-6 rounded-xl border bg-card overflow-hidden">
 		<GradientDecorative />
 		<div className="flex-1 flex flex-col @md:flex-row @md:items-center gap-4">

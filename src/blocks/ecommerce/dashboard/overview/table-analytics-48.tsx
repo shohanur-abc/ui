@@ -48,7 +48,12 @@ type PageRow = {
 	conversions: number;
 };
 
-const AnalyticsKpiCard = ({ title, value, change, icon: Icon }: AnalyticsKpi) => (
+const AnalyticsKpiCard = ({
+	title,
+	value,
+	change,
+	icon: Icon,
+}: AnalyticsKpi) => (
 	<Card>
 		<CardContent className="flex items-center gap-4 p-4">
 			<div className="rounded-lg bg-primary/10 p-2.5">
@@ -79,16 +84,69 @@ export default function Main() {
 		{ title: 'Page Views', value: '284,521', change: '+24%', icon: Eye },
 		{ title: 'Unique Visitors', value: '45,234', change: '+18%', icon: Users },
 		{ title: 'Bounce Rate', value: '32.4%', change: '-5%', icon: Globe },
-		{ title: 'Conversion Rate', value: '3.24%', change: '+0.5%', icon: MousePointerClick },
+		{
+			title: 'Conversion Rate',
+			value: '3.24%',
+			change: '+0.5%',
+			icon: MousePointerClick,
+		},
 	];
 
 	const pages: PageRow[] = [
-		{ path: '/', title: 'Homepage', views: 45234, uniqueViews: 38456, bounceRate: '28%', avgTime: '2:45', conversions: 1245 },
-		{ path: '/products', title: 'Products Listing', views: 32456, uniqueViews: 28234, bounceRate: '35%', avgTime: '3:12', conversions: 892 },
-		{ path: '/products/wireless-headphones', title: 'Wireless Headphones Pro', views: 18234, uniqueViews: 15678, bounceRate: '22%', avgTime: '4:32', conversions: 432 },
-		{ path: '/cart', title: 'Shopping Cart', views: 12456, uniqueViews: 11234, bounceRate: '45%', avgTime: '1:45', conversions: 567 },
-		{ path: '/checkout', title: 'Checkout', views: 8234, uniqueViews: 7456, bounceRate: '18%', avgTime: '5:12', conversions: 723 },
-		{ path: '/about', title: 'About Us', views: 5678, uniqueViews: 4567, bounceRate: '52%', avgTime: '1:23', conversions: 45 },
+		{
+			path: '/',
+			title: 'Homepage',
+			views: 45234,
+			uniqueViews: 38456,
+			bounceRate: '28%',
+			avgTime: '2:45',
+			conversions: 1245,
+		},
+		{
+			path: '/products',
+			title: 'Products Listing',
+			views: 32456,
+			uniqueViews: 28234,
+			bounceRate: '35%',
+			avgTime: '3:12',
+			conversions: 892,
+		},
+		{
+			path: '/products/wireless-headphones',
+			title: 'Wireless Headphones Pro',
+			views: 18234,
+			uniqueViews: 15678,
+			bounceRate: '22%',
+			avgTime: '4:32',
+			conversions: 432,
+		},
+		{
+			path: '/cart',
+			title: 'Shopping Cart',
+			views: 12456,
+			uniqueViews: 11234,
+			bounceRate: '45%',
+			avgTime: '1:45',
+			conversions: 567,
+		},
+		{
+			path: '/checkout',
+			title: 'Checkout',
+			views: 8234,
+			uniqueViews: 7456,
+			bounceRate: '18%',
+			avgTime: '5:12',
+			conversions: 723,
+		},
+		{
+			path: '/about',
+			title: 'About Us',
+			views: 5678,
+			uniqueViews: 4567,
+			bounceRate: '52%',
+			avgTime: '1:23',
+			conversions: 45,
+		},
 	];
 
 	const visitorData = [
@@ -126,12 +184,29 @@ export default function Main() {
 								<CardTitle className="text-sm">Visitors Today</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={areaConfig} className="h-[160px] w-full">
+								<ChartContainer
+									config={areaConfig}
+									className="h-[160px] w-full"
+								>
 									<AreaChart data={visitorData}>
 										<defs>
-											<linearGradient id="table48fill" x1="0" y1="0" x2="0" y2="1">
-												<stop offset="5%" stopColor="var(--color-visitors)" stopOpacity={0.3} />
-												<stop offset="95%" stopColor="var(--color-visitors)" stopOpacity={0} />
+											<linearGradient
+												id="table48fill"
+												x1="0"
+												y1="0"
+												x2="0"
+												y2="1"
+											>
+												<stop
+													offset="5%"
+													stopColor="var(--color-visitors)"
+													stopOpacity={0.3}
+												/>
+												<stop
+													offset="95%"
+													stopColor="var(--color-visitors)"
+													stopOpacity={0}
+												/>
 											</linearGradient>
 										</defs>
 										<XAxis dataKey="time" tickLine={false} axisLine={false} />
@@ -155,7 +230,11 @@ export default function Main() {
 									<BarChart data={conversionData}>
 										<XAxis dataKey="day" tickLine={false} axisLine={false} />
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
-										<Bar dataKey="value" fill="var(--color-value)" radius={[4, 4, 0, 0]} />
+										<Bar
+											dataKey="value"
+											fill="var(--color-value)"
+											radius={[4, 4, 0, 0]}
+										/>
 									</BarChart>
 								</ChartContainer>
 							</CardContent>
@@ -177,9 +256,15 @@ export default function Main() {
 									<TableRow>
 										<TableHead>Page</TableHead>
 										<TableHead>Views</TableHead>
-										<TableHead className="hidden @lg:table-cell">Unique</TableHead>
-										<TableHead className="hidden @xl:table-cell">Bounce</TableHead>
-										<TableHead className="hidden @lg:table-cell">Avg Time</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Unique
+										</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Bounce
+										</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Avg Time
+										</TableHead>
 										<TableHead>Conversions</TableHead>
 									</TableRow>
 								</TableHeader>
@@ -189,14 +274,26 @@ export default function Main() {
 											<TableCell>
 												<div>
 													<p className="font-medium">{page.title}</p>
-													<p className="text-xs text-muted-foreground">{page.path}</p>
+													<p className="text-xs text-muted-foreground">
+														{page.path}
+													</p>
 												</div>
 											</TableCell>
-											<TableCell className="font-medium">{page.views.toLocaleString()}</TableCell>
-											<TableCell className="hidden @lg:table-cell">{page.uniqueViews.toLocaleString()}</TableCell>
-											<TableCell className="hidden @xl:table-cell">{page.bounceRate}</TableCell>
-											<TableCell className="hidden @lg:table-cell">{page.avgTime}</TableCell>
-											<TableCell className="font-medium">{page.conversions}</TableCell>
+											<TableCell className="font-medium">
+												{page.views.toLocaleString()}
+											</TableCell>
+											<TableCell className="hidden @lg:table-cell">
+												{page.uniqueViews.toLocaleString()}
+											</TableCell>
+											<TableCell className="hidden @xl:table-cell">
+												{page.bounceRate}
+											</TableCell>
+											<TableCell className="hidden @lg:table-cell">
+												{page.avgTime}
+											</TableCell>
+											<TableCell className="font-medium">
+												{page.conversions}
+											</TableCell>
 										</TableRow>
 									))}
 								</TableBody>

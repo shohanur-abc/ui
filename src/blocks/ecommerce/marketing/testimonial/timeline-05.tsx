@@ -75,7 +75,9 @@ const StepCard = ({
 				<CardContent className="p-5 text-center flex flex-col h-full">
 					<Quote className="size-6 text-primary/20 mx-auto mb-3" />
 					<StarRating rating={item.rating} />
-					<p className="text-foreground leading-relaxed flex-1 mb-4">"{item.quote}"</p>
+					<p className="text-foreground leading-relaxed flex-1 mb-4">
+						"{item.quote}"
+					</p>
 					<div className="flex flex-col items-center gap-2 pt-3 border-t border-border/50">
 						<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 							<AvatarImage src={item.avatar} alt={item.author} />
@@ -84,7 +86,9 @@ const StepCard = ({
 							</AvatarFallback>
 						</Avatar>
 						<div className="text-center">
-							<p className="font-semibold text-sm text-foreground">{item.author}</p>
+							<p className="font-semibold text-sm text-foreground">
+								{item.author}
+							</p>
 							<p className="text-xs text-muted-foreground">
 								{item.role} · {item.company}
 							</p>
@@ -105,43 +109,44 @@ export default function Main() {
 			author: 'Carla Young',
 			role: 'Director',
 			company: 'DemoPro',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'CY',
 			rating: 5,
 			step: 'Demo',
 			stepNumber: 1,
 		},
 		{
-			quote:
-				'Onboarding was personalized to our specific business needs.',
+			quote: 'Onboarding was personalized to our specific business needs.',
 			author: 'Derek Brown',
 			role: 'Ops Manager',
 			company: 'OnboardFirst',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'DB',
 			rating: 5,
 			step: 'Onboard',
 			stepNumber: 2,
 		},
 		{
-			quote:
-				'Launch was smooth. We were live in production same day.',
+			quote: 'Launch was smooth. We were live in production same day.',
 			author: 'Elena Kim',
 			role: 'CTO',
 			company: 'LaunchCorp',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'EK',
 			rating: 5,
 			step: 'Launch',
 			stepNumber: 3,
 		},
 		{
-			quote:
-				'Ongoing optimization has maximized our results continuously.',
+			quote: 'Ongoing optimization has maximized our results continuously.',
 			author: 'Frank Lee',
 			role: 'Growth Lead',
 			company: 'OptimizeInc',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'FL',
 			rating: 5,
 			step: 'Optimize',
@@ -150,7 +155,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Roadmap"

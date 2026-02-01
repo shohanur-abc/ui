@@ -138,25 +138,28 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=200&h=200&fit=crop',
 				name: 'Limited Edition Sneakers',
-				price: 220.00,
+				price: 220.0,
 				quantity: 1,
 				stockLevel: 'low',
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=200&h=200&fit=crop',
 				name: 'Designer Sunglasses',
-				price: 185.00,
+				price: 185.0,
 				quantity: 1,
 				stockLevel: 'medium',
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop',
 				name: 'Leather Belt',
-				price: 65.00,
+				price: 65.0,
 				quantity: 1,
 				stockLevel: 'high',
 			},
@@ -167,7 +170,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 	const hasLowStock = cartData.items.some((item) => item.stockLevel === 'low');
 
 	return (

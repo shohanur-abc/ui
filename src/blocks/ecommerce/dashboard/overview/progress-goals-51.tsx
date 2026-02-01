@@ -23,7 +23,15 @@ type GoalItem = {
 	color: string;
 };
 
-const GoalCard = ({ title, description, current, target, unit, icon: Icon, color }: GoalItem) => {
+const GoalCard = ({
+	title,
+	description,
+	current,
+	target,
+	unit,
+	icon: Icon,
+	color,
+}: GoalItem) => {
 	const percentage = Math.min((current / target) * 100, 100);
 	const isComplete = current >= target;
 
@@ -37,7 +45,9 @@ const GoalCard = ({ title, description, current, target, unit, icon: Icon, color
 					{isComplete ? (
 						<CheckCircle2 className="size-5 text-emerald-500" />
 					) : (
-						<span className="text-xs text-muted-foreground">{Math.round(percentage)}%</span>
+						<span className="text-xs text-muted-foreground">
+							{Math.round(percentage)}%
+						</span>
 					)}
 				</div>
 				<div className="mt-4">
@@ -47,8 +57,12 @@ const GoalCard = ({ title, description, current, target, unit, icon: Icon, color
 				<div className="mt-4">
 					<Progress value={percentage} className="h-2" />
 					<div className="mt-2 flex items-center justify-between text-sm">
-						<span className="font-medium">{current.toLocaleString()} {unit}</span>
-						<span className="text-muted-foreground">of {target.toLocaleString()}</span>
+						<span className="font-medium">
+							{current.toLocaleString()} {unit}
+						</span>
+						<span className="text-muted-foreground">
+							of {target.toLocaleString()}
+						</span>
 					</div>
 				</div>
 			</CardContent>
@@ -58,12 +72,60 @@ const GoalCard = ({ title, description, current, target, unit, icon: Icon, color
 
 export default function Main() {
 	const goals: GoalItem[] = [
-		{ title: 'Revenue Target', description: 'Monthly revenue goal', current: 248632, target: 300000, unit: '$', icon: DollarSign, color: 'bg-primary/10 text-primary' },
-		{ title: 'Orders Target', description: 'Monthly orders goal', current: 6842, target: 8000, unit: 'orders', icon: ShoppingCart, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'New Customers', description: 'Monthly acquisition', current: 234, target: 200, unit: 'customers', icon: Users, color: 'bg-blue-500/10 text-blue-500' },
-		{ title: 'Product Launches', description: 'Quarterly launches', current: 8, target: 12, unit: 'products', icon: Package, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Conversion Rate', description: 'Target rate', current: 3.2, target: 4.0, unit: '%', icon: Target, color: 'bg-purple-500/10 text-purple-500' },
-		{ title: 'Avg Order Value', description: 'Monthly target', current: 36, target: 40, unit: '$', icon: TrendingUp, color: 'bg-pink-500/10 text-pink-500' },
+		{
+			title: 'Revenue Target',
+			description: 'Monthly revenue goal',
+			current: 248632,
+			target: 300000,
+			unit: '$',
+			icon: DollarSign,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'Orders Target',
+			description: 'Monthly orders goal',
+			current: 6842,
+			target: 8000,
+			unit: 'orders',
+			icon: ShoppingCart,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'New Customers',
+			description: 'Monthly acquisition',
+			current: 234,
+			target: 200,
+			unit: 'customers',
+			icon: Users,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
+		{
+			title: 'Product Launches',
+			description: 'Quarterly launches',
+			current: 8,
+			target: 12,
+			unit: 'products',
+			icon: Package,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Conversion Rate',
+			description: 'Target rate',
+			current: 3.2,
+			target: 4.0,
+			unit: '%',
+			icon: Target,
+			color: 'bg-purple-500/10 text-purple-500',
+		},
+		{
+			title: 'Avg Order Value',
+			description: 'Monthly target',
+			current: 36,
+			target: 40,
+			unit: '$',
+			icon: TrendingUp,
+			color: 'bg-pink-500/10 text-pink-500',
+		},
 	];
 
 	return (

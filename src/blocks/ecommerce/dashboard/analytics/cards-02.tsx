@@ -23,10 +23,20 @@ type StatCardProps = {
 	target: string;
 };
 
-const StatCard = ({ icon: Icon, title, value, change, trend, progress, target }: StatCardProps) => (
+const StatCard = ({
+	icon: Icon,
+	title,
+	value,
+	change,
+	trend,
+	progress,
+	target,
+}: StatCardProps) => (
 	<Card className="group border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<CardHeader className="flex flex-row items-center justify-between pb-2">
-			<CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+			<CardTitle className="text-sm font-medium text-muted-foreground">
+				{title}
+			</CardTitle>
 			<div className="rounded-lg bg-primary/10 p-2 transition-colors group-hover:bg-primary/20">
 				<Icon className="size-4 text-primary" />
 			</div>
@@ -34,8 +44,14 @@ const StatCard = ({ icon: Icon, title, value, change, trend, progress, target }:
 		<CardContent className="space-y-3">
 			<div className="flex items-baseline gap-2">
 				<span className="text-2xl @sm:text-3xl font-bold">{value}</span>
-				<span className={`inline-flex items-center gap-0.5 text-xs font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}>
-					{trend === 'up' ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
+				<span
+					className={`inline-flex items-center gap-0.5 text-xs font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}
+				>
+					{trend === 'up' ? (
+						<ArrowUpRight className="size-3" />
+					) : (
+						<ArrowDownRight className="size-3" />
+					)}
 					{Math.abs(change)}%
 				</span>
 			</div>
@@ -52,10 +68,42 @@ const StatCard = ({ icon: Icon, title, value, change, trend, progress, target }:
 );
 
 const stats: StatCardProps[] = [
-	{ icon: TrendingUp, title: 'Conversion Rate', value: '3.24%', change: 12.5, trend: 'up', progress: 72, target: '4.5%' },
-	{ icon: CreditCard, title: 'Avg. Order Value', value: '$127.50', change: 5.3, trend: 'up', progress: 85, target: '$150' },
-	{ icon: RefreshCcw, title: 'Return Rate', value: '2.1%', change: 0.8, trend: 'down', progress: 21, target: '<3%' },
-	{ icon: Percent, title: 'Profit Margin', value: '24.8%', change: 2.1, trend: 'up', progress: 83, target: '30%' },
+	{
+		icon: TrendingUp,
+		title: 'Conversion Rate',
+		value: '3.24%',
+		change: 12.5,
+		trend: 'up',
+		progress: 72,
+		target: '4.5%',
+	},
+	{
+		icon: CreditCard,
+		title: 'Avg. Order Value',
+		value: '$127.50',
+		change: 5.3,
+		trend: 'up',
+		progress: 85,
+		target: '$150',
+	},
+	{
+		icon: RefreshCcw,
+		title: 'Return Rate',
+		value: '2.1%',
+		change: 0.8,
+		trend: 'down',
+		progress: 21,
+		target: '<3%',
+	},
+	{
+		icon: Percent,
+		title: 'Profit Margin',
+		value: '24.8%',
+		change: 2.1,
+		trend: 'up',
+		progress: 83,
+		target: '30%',
+	},
 ];
 
 export default function Main() {

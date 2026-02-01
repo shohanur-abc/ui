@@ -49,7 +49,9 @@ const StarRating = ({ rating }: { rating: number }) => (
 
 const LogoCard = ({ item }: { item: TestimonialItem }) => (
 	<div className="shrink-0 w-[140px] h-[80px] rounded-lg bg-card border border-border/50 flex items-center justify-center hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all">
-		<span className="text-2xl font-bold text-muted-foreground">{item.companyLogo}</span>
+		<span className="text-2xl font-bold text-muted-foreground">
+			{item.companyLogo}
+		</span>
 	</div>
 );
 
@@ -92,7 +94,8 @@ export default function Main() {
 			author: 'Jack Chen',
 			role: 'CEO',
 			company: 'TechFirst',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'JC',
 			rating: 5,
 			companyLogo: 'TF',
@@ -103,7 +106,8 @@ export default function Main() {
 			author: 'Karen Park',
 			role: 'CFO',
 			company: 'InvestCo',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'KP',
 			rating: 5,
 			companyLogo: 'IC',
@@ -114,7 +118,8 @@ export default function Main() {
 			author: 'Leo Kim',
 			role: 'CISO',
 			company: 'SecureNet',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'LK',
 			rating: 5,
 			companyLogo: 'SN',
@@ -125,7 +130,8 @@ export default function Main() {
 			author: 'Maya Lee',
 			role: 'CTO',
 			company: 'IntegratePro',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'ML',
 			rating: 5,
 			companyLogo: 'IP',
@@ -136,7 +142,8 @@ export default function Main() {
 			author: 'Nathan Foster',
 			role: 'Operations',
 			company: 'SupportFirst',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'NF',
 			rating: 5,
 			companyLogo: 'SF',
@@ -147,7 +154,8 @@ export default function Main() {
 			author: 'Olivia Davis',
 			role: 'VP Engineering',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'OD',
 			rating: 5,
 			companyLogo: 'SU',
@@ -158,7 +166,10 @@ export default function Main() {
 	const doubledCards = [...testimonials, ...testimonials];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<style jsx>{`
 				@keyframes scroll-left {
 					0% {
@@ -186,7 +197,11 @@ export default function Main() {
 
 			<div className="py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8">
-					<SectionHeader badge="Logo + Cards" title="Trusted By" highlight="Leaders" />
+					<SectionHeader
+						badge="Logo + Cards"
+						title="Trusted By"
+						highlight="Leaders"
+					/>
 				</div>
 
 				{/* Logo marquee */}

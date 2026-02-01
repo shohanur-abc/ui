@@ -9,13 +9,7 @@ import {
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Input } from '@/components/ui/input';
-import {
-	Timer,
-	Gift,
-	Truck,
-	AlertCircle,
-	type LucideIcon,
-} from 'lucide-react';
+import { Timer, Gift, Truck, AlertCircle, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 
 type SummaryRowProps = {
@@ -34,7 +28,9 @@ type PromoBannerProps = {
 const SummaryRow = ({ label, value, strike }: SummaryRowProps) => (
 	<div className="flex items-center justify-between text-sm">
 		<span className="text-muted-foreground">{label}</span>
-		<span className={strike ? 'text-muted-foreground line-through' : 'font-medium'}>
+		<span
+			className={strike ? 'text-muted-foreground line-through' : 'font-medium'}
+		>
 			{value}
 		</span>
 	</div>
@@ -44,7 +40,11 @@ const TotalRow = ({
 	label,
 	value,
 	originalValue,
-}: { label: string; value: string; originalValue?: string }) => (
+}: {
+	label: string;
+	value: string;
+	originalValue?: string;
+}) => (
 	<div className="space-y-1">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>
@@ -63,7 +63,10 @@ const TotalRow = ({
 const Header = ({
 	title,
 	countdown,
-}: { title: string; countdown?: { label: string; time: string } }) => (
+}: {
+	title: string;
+	countdown?: { label: string; time: string };
+}) => (
 	<CardHeader className="border-b">
 		<CardTitle className="flex items-center justify-between">
 			{title}
@@ -84,13 +87,17 @@ const PromoBanner = ({
 	variant,
 }: PromoBannerProps) => {
 	const variants = {
-		warning: 'border-amber-500/50 bg-amber-500/10 text-amber-600 dark:text-amber-400',
-		success: 'border-green-500/50 bg-green-500/10 text-green-600 dark:text-green-400',
+		warning:
+			'border-amber-500/50 bg-amber-500/10 text-amber-600 dark:text-amber-400',
+		success:
+			'border-green-500/50 bg-green-500/10 text-green-600 dark:text-green-400',
 		info: 'border-blue-500/50 bg-blue-500/10 text-blue-600 dark:text-blue-400',
 	};
 
 	return (
-		<div className={`flex items-center gap-3 rounded-lg border p-3 ${variants[variant]}`}>
+		<div
+			className={`flex items-center gap-3 rounded-lg border p-3 ${variants[variant]}`}
+		>
 			<Icon className="size-5 shrink-0" />
 			<div>
 				<p className="text-sm font-medium">{title}</p>
@@ -104,7 +111,11 @@ const PromoCode = ({
 	placeholder,
 	buttonLabel,
 	appliedCode,
-}: { placeholder: string; buttonLabel: string; appliedCode?: { code: string; savings: string } }) => (
+}: {
+	placeholder: string;
+	buttonLabel: string;
+	appliedCode?: { code: string; savings: string };
+}) => (
 	<div className="space-y-2">
 		{appliedCode ? (
 			<div className="flex items-center justify-between rounded-lg border border-green-500/50 bg-green-500/10 p-3">
@@ -160,11 +171,7 @@ export default function Main() {
 							appliedCode={{ code: 'SAVE20', savings: '-$119.80' }}
 						/>
 						<Separator />
-						<TotalRow
-							label="Total"
-							value="$522.39"
-							originalValue="$655.18"
-						/>
+						<TotalRow label="Total" value="$522.39" originalValue="$655.18" />
 						<PromoBanner
 							icon={Truck}
 							title="Free Shipping Applied"

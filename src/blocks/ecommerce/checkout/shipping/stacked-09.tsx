@@ -1,4 +1,13 @@
-import { MapPin, Truck, Check, Clock, Package, Edit2, Plus, ChevronRight } from 'lucide-react';
+import {
+	MapPin,
+	Truck,
+	Check,
+	Clock,
+	Package,
+	Edit2,
+	Plus,
+	ChevronRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -18,16 +27,22 @@ const StepIndicator = ({
 	<div className="flex items-center justify-between mb-8">
 		{steps.map((step, i) => (
 			<div key={i} className="flex items-center">
-				<div className={`
+				<div
+					className={`
 					flex size-8 items-center justify-center rounded-full text-sm font-medium
 					${i < currentStep ? 'bg-primary text-primary-foreground' : i === currentStep ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}
-				`}>
+				`}
+				>
 					{i < currentStep ? <Check className="size-4" /> : i + 1}
 				</div>
-				<span className={`ml-2 text-sm hidden @sm:inline ${i <= currentStep ? 'font-medium' : 'text-muted-foreground'}`}>
+				<span
+					className={`ml-2 text-sm hidden @sm:inline ${i <= currentStep ? 'font-medium' : 'text-muted-foreground'}`}
+				>
 					{step}
 				</span>
-				{i < steps.length - 1 && <div className="w-8 @sm:w-12 @md:w-16 h-0.5 mx-2 bg-muted" />}
+				{i < steps.length - 1 && (
+					<div className="w-8 @sm:w-12 @md:w-16 h-0.5 mx-2 bg-muted" />
+				)}
 			</div>
 		))}
 	</div>
@@ -54,7 +69,11 @@ const AddressOption = ({
 		<div className="flex-1">
 			<div className="flex items-center gap-2 mb-1">
 				<span className="font-medium">{label}</span>
-				{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+				{isDefault && (
+					<Badge variant="secondary" className="text-xs">
+						Default
+					</Badge>
+				)}
 			</div>
 			<p className="text-sm text-muted-foreground">{name}</p>
 			<p className="text-sm text-muted-foreground">{address}</p>
@@ -90,7 +109,9 @@ const ShippingOption = ({
 			${recommended ? 'ring-2 ring-primary/20' : ''}
 		`}
 	>
-		{recommended && <Badge className="absolute -top-2.5 right-4">Recommended</Badge>}
+		{recommended && (
+			<Badge className="absolute -top-2.5 right-4">Recommended</Badge>
+		)}
 		<RadioGroupItem value={value} id={value} />
 		<Avatar className="size-10">
 			<AvatarImage src={logo} />
@@ -138,19 +159,62 @@ export default function Main() {
 	const steps = ['Cart', 'Shipping', 'Payment', 'Review'];
 
 	const addresses = [
-		{ value: 'home', label: 'Home', name: 'John Doe', address: '123 Main St, Apt 4B, New York, NY 10001', isDefault: true },
-		{ value: 'work', label: 'Work', name: 'John Doe', address: '456 Business Ave, Floor 12, New York, NY 10002' },
+		{
+			value: 'home',
+			label: 'Home',
+			name: 'John Doe',
+			address: '123 Main St, Apt 4B, New York, NY 10001',
+			isDefault: true,
+		},
+		{
+			value: 'work',
+			label: 'Work',
+			name: 'John Doe',
+			address: '456 Business Ave, Floor 12, New York, NY 10002',
+		},
 	];
 
 	const shippingOptions = [
-		{ value: 'usps', carrier: 'USPS', logo: '/api/placeholder/40/40', name: 'Priority Mail', time: '2-3 days', price: '$7.99' },
-		{ value: 'ups', carrier: 'UPS', logo: '/api/placeholder/40/40', name: 'Ground', time: '3-5 days', price: '$9.99', recommended: true },
-		{ value: 'fedex', carrier: 'FedEx', logo: '/api/placeholder/40/40', name: 'Express', time: '1-2 days', price: '$15.99' },
+		{
+			value: 'usps',
+			carrier: 'USPS',
+			logo: '/api/placeholder/40/40',
+			name: 'Priority Mail',
+			time: '2-3 days',
+			price: '$7.99',
+		},
+		{
+			value: 'ups',
+			carrier: 'UPS',
+			logo: '/api/placeholder/40/40',
+			name: 'Ground',
+			time: '3-5 days',
+			price: '$9.99',
+			recommended: true,
+		},
+		{
+			value: 'fedex',
+			carrier: 'FedEx',
+			logo: '/api/placeholder/40/40',
+			name: 'Express',
+			time: '1-2 days',
+			price: '$15.99',
+		},
 	];
 
 	const orderItems = [
-		{ name: 'Wireless Headphones', quantity: 1, price: '$79.99', image: '/api/placeholder/48/48' },
-		{ name: 'Phone Case', quantity: 2, price: '$29.98', image: '/api/placeholder/48/48' },
+		{
+			name: 'Wireless Headphones',
+			quantity: 1,
+			price: '$79.99',
+			image: '/api/placeholder/48/48',
+		},
+		{
+			name: 'Phone Case',
+			quantity: 2,
+			price: '$29.98',
+			image: '/api/placeholder/48/48',
+		},
 	];
 
 	return (

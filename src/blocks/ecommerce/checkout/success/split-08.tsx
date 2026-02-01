@@ -189,13 +189,7 @@ const BillingInfo = ({
 	</div>
 );
 
-const PaymentInfo = ({
-	method,
-	last4,
-}: {
-	method: string;
-	last4: string;
-}) => (
+const PaymentInfo = ({ method, last4 }: { method: string; last4: string }) => (
 	<div className="p-4 rounded-xl bg-muted/50 border">
 		<div className="flex items-center gap-3">
 			<CreditCard className="size-5 text-muted-foreground" />
@@ -285,10 +279,7 @@ export default function Main() {
 						/>
 
 						<div className="grid grid-cols-2 gap-4">
-							<BillingInfo
-								company="John Doe"
-								address="123 Main St, NY 10001"
-							/>
+							<BillingInfo company="John Doe" address="123 Main St, NY 10001" />
 							<PaymentInfo method="Visa" last4="4242" />
 						</div>
 

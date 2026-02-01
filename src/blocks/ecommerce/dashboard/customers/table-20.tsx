@@ -67,7 +67,13 @@ interface AbandonedCart {
 const AbandonmentStats = ({
 	stats,
 }: {
-	stats: { title: string; value: string; change: string; changeType: 'up' | 'down'; icon: React.ElementType }[];
+	stats: {
+		title: string;
+		value: string;
+		change: string;
+		changeType: 'up' | 'down';
+		icon: React.ElementType;
+	}[];
 }) => (
 	<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 		{stats.map((stat, i) => (
@@ -147,12 +153,28 @@ const FilterSection = ({
 	</div>
 );
 
-const RecoveryBadge = ({ status }: { status: AbandonedCart['recoveryStatus'] }) => {
+const RecoveryBadge = ({
+	status,
+}: {
+	status: AbandonedCart['recoveryStatus'];
+}) => {
 	const config = {
-		not_sent: { label: 'Not Sent', className: 'bg-slate-500/10 text-slate-400 border-slate-500/20' },
-		email_sent: { label: 'Email Sent', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		recovered: { label: 'Recovered', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		expired: { label: 'Expired', className: 'bg-red-500/10 text-red-500 border-red-500/20' },
+		not_sent: {
+			label: 'Not Sent',
+			className: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
+		},
+		email_sent: {
+			label: 'Email Sent',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		recovered: {
+			label: 'Recovered',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		expired: {
+			label: 'Expired',
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[status].className}>
@@ -185,7 +207,9 @@ const CartRow = ({ cart }: { cart: AbandonedCart }) => (
 					<div className="flex items-center gap-2">
 						<p className="font-medium">{cart.customer.name}</p>
 						{cart.customer.isGuest && (
-							<Badge variant="secondary" className="text-xs">Guest</Badge>
+							<Badge variant="secondary" className="text-xs">
+								Guest
+							</Badge>
 						)}
 					</div>
 					<p className="text-muted-foreground text-xs">{cart.customer.email}</p>
@@ -264,16 +288,45 @@ const CartRow = ({ cart }: { cart: AbandonedCart }) => (
 
 export default function Main() {
 	const stats = [
-		{ title: 'Abandoned Carts', value: '456', change: '-12% this week', changeType: 'down' as const, icon: ShoppingCart },
-		{ title: 'Total Value', value: '$87.4K', change: '+8% this week', changeType: 'up' as const, icon: DollarSign },
-		{ title: 'Recovery Rate', value: '18%', change: '+3% this month', changeType: 'up' as const, icon: TrendingUp },
-		{ title: 'Avg. Cart Value', value: '$191', change: '+15% this month', changeType: 'up' as const, icon: Package },
+		{
+			title: 'Abandoned Carts',
+			value: '456',
+			change: '-12% this week',
+			changeType: 'down' as const,
+			icon: ShoppingCart,
+		},
+		{
+			title: 'Total Value',
+			value: '$87.4K',
+			change: '+8% this week',
+			changeType: 'up' as const,
+			icon: DollarSign,
+		},
+		{
+			title: 'Recovery Rate',
+			value: '18%',
+			change: '+3% this month',
+			changeType: 'up' as const,
+			icon: TrendingUp,
+		},
+		{
+			title: 'Avg. Cart Value',
+			value: '$191',
+			change: '+15% this month',
+			changeType: 'up' as const,
+			icon: Package,
+		},
 	];
 
 	const carts: AbandonedCart[] = [
 		{
 			id: '1',
-			customer: { name: 'Katie Brown', email: 'katie.b@email.com', initials: 'KB', isGuest: false },
+			customer: {
+				name: 'Katie Brown',
+				email: 'katie.b@email.com',
+				initials: 'KB',
+				isGuest: false,
+			},
 			cartValue: '$459.99',
 			itemsCount: 5,
 			topItem: 'Premium Wireless Headphones',
@@ -286,7 +339,12 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'Leo Martinez', email: 'leo.m@email.com', initials: 'LM', isGuest: true },
+			customer: {
+				name: 'Leo Martinez',
+				email: 'leo.m@email.com',
+				initials: 'LM',
+				isGuest: true,
+			},
 			cartValue: '$234.50',
 			itemsCount: 3,
 			topItem: 'Smart Watch Series 5',
@@ -299,7 +357,12 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Maya Johnson', email: 'maya.j@email.com', initials: 'MJ', isGuest: false },
+			customer: {
+				name: 'Maya Johnson',
+				email: 'maya.j@email.com',
+				initials: 'MJ',
+				isGuest: false,
+			},
 			cartValue: '$789.00',
 			itemsCount: 8,
 			topItem: 'Gaming Laptop Pro',
@@ -312,7 +375,12 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'Noah Williams', email: 'noah.w@email.com', initials: 'NW', isGuest: false },
+			customer: {
+				name: 'Noah Williams',
+				email: 'noah.w@email.com',
+				initials: 'NW',
+				isGuest: false,
+			},
 			cartValue: '$156.75',
 			itemsCount: 2,
 			topItem: 'Running Shoes Elite',
@@ -325,7 +393,12 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Olivia Davis', email: 'olivia.d@email.com', initials: 'OD', isGuest: true },
+			customer: {
+				name: 'Olivia Davis',
+				email: 'olivia.d@email.com',
+				initials: 'OD',
+				isGuest: true,
+			},
 			cartValue: '$89.99',
 			itemsCount: 1,
 			topItem: 'Bluetooth Speaker Mini',
@@ -360,12 +433,18 @@ export default function Main() {
 								</TableHead>
 								<TableHead>Customer</TableHead>
 								<TableHead>Cart Value</TableHead>
-								<TableHead className="hidden @md:table-cell">Top Item</TableHead>
+								<TableHead className="hidden @md:table-cell">
+									Top Item
+								</TableHead>
 								<TableHead className="hidden @lg:table-cell">Status</TableHead>
 								<TableHead className="hidden @lg:table-cell">Time</TableHead>
-								<TableHead className="hidden @xl:table-cell text-center">Emails</TableHead>
+								<TableHead className="hidden @xl:table-cell text-center">
+									Emails
+								</TableHead>
 								<TableHead className="hidden @xl:table-cell">Source</TableHead>
-								<TableHead className="hidden @2xl:table-cell">Exit Page</TableHead>
+								<TableHead className="hidden @2xl:table-cell">
+									Exit Page
+								</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>

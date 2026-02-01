@@ -11,16 +11,31 @@ interface ComparisonStatProps {
 	progress: number;
 }
 
-const ComparisonStat = ({ label, current, previous, change, progress }: ComparisonStatProps) => {
+const ComparisonStat = ({
+	label,
+	current,
+	previous,
+	change,
+	progress,
+}: ComparisonStatProps) => {
 	const isPositive = change >= 0;
 
 	return (
 		<Card className="group p-6 transition-all duration-300 hover:shadow-md">
 			<div className="space-y-4">
 				<div className="flex items-center justify-between">
-					<span className="text-sm font-medium text-muted-foreground">{label}</span>
-					<Badge variant={isPositive ? 'default' : 'destructive'} className="gap-1">
-						{isPositive ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+					<span className="text-sm font-medium text-muted-foreground">
+						{label}
+					</span>
+					<Badge
+						variant={isPositive ? 'default' : 'destructive'}
+						className="gap-1"
+					>
+						{isPositive ? (
+							<TrendingUp className="size-3" />
+						) : (
+							<TrendingDown className="size-3" />
+						)}
 						{Math.abs(change)}%
 					</Badge>
 				</div>
@@ -36,10 +51,34 @@ const ComparisonStat = ({ label, current, previous, change, progress }: Comparis
 
 export default function Main() {
 	const stats: ComparisonStatProps[] = [
-		{ label: 'Revenue', current: '$284K', previous: '$218K', change: 30.3, progress: 85 },
-		{ label: 'Orders', current: '8,492', previous: '7,124', change: 19.2, progress: 72 },
-		{ label: 'Customers', current: '4,284', previous: '3,847', change: 11.4, progress: 64 },
-		{ label: 'Avg. Order', current: '$142', previous: '$128', change: 10.9, progress: 58 },
+		{
+			label: 'Revenue',
+			current: '$284K',
+			previous: '$218K',
+			change: 30.3,
+			progress: 85,
+		},
+		{
+			label: 'Orders',
+			current: '8,492',
+			previous: '7,124',
+			change: 19.2,
+			progress: 72,
+		},
+		{
+			label: 'Customers',
+			current: '4,284',
+			previous: '3,847',
+			change: 11.4,
+			progress: 64,
+		},
+		{
+			label: 'Avg. Order',
+			current: '$142',
+			previous: '$128',
+			change: 10.9,
+			progress: 58,
+		},
 	];
 
 	return (

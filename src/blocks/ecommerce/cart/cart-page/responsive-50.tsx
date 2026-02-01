@@ -1,8 +1,23 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, ShoppingCart, Smartphone, Tablet, Monitor } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	ShoppingCart,
+	Smartphone,
+	Tablet,
+	Monitor,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -21,7 +36,9 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 			<ShoppingCart className="size-6 text-primary" />
 			<h1 className="text-xl font-bold @sm:text-2xl @md:text-3xl">{title}</h1>
 		</div>
-		<Badge variant="secondary" className="px-2 py-0.5 @sm:px-3 @sm:py-1">{count}</Badge>
+		<Badge variant="secondary" className="px-2 py-0.5 @sm:px-3 @sm:py-1">
+			{count}
+		</Badge>
 	</div>
 );
 
@@ -61,7 +78,9 @@ const QuantityControlFull = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-{/* Mobile view - compact list */}
+{
+	/* Mobile view - compact list */
+}
 const MobileItem = ({ item }: { item: CartItem }) => (
 	<div className="flex gap-3 py-3 @sm:hidden">
 		<ItemImageSmall src={item.image} alt={item.name} />
@@ -70,16 +89,24 @@ const MobileItem = ({ item }: { item: CartItem }) => (
 			<p className="text-xs text-muted-foreground">{item.variant}</p>
 			<div className="flex items-center justify-between mt-2">
 				<QuantityControlCompact quantity={item.quantity} />
-				<p className="font-bold text-sm">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-bold text-sm">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
-		<Button size="icon-sm" variant="ghost" className="size-6 text-muted-foreground hover:text-destructive shrink-0">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-6 text-muted-foreground hover:text-destructive shrink-0"
+		>
 			<X className="size-3" />
 		</Button>
 	</div>
 );
 
-{/* Tablet view - horizontal cards */}
+{
+	/* Tablet view - horizontal cards */
+}
 const TabletItem = ({ item }: { item: CartItem }) => (
 	<Card className="hidden @sm:block @lg:hidden overflow-hidden">
 		<CardContent className="p-0 flex">
@@ -92,7 +119,11 @@ const TabletItem = ({ item }: { item: CartItem }) => (
 						<h3 className="font-semibold">{item.name}</h3>
 						<p className="text-sm text-muted-foreground">{item.variant}</p>
 					</div>
-					<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+					<Button
+						size="icon-sm"
+						variant="ghost"
+						className="text-muted-foreground hover:text-destructive"
+					>
 						<X className="size-4" />
 					</Button>
 				</div>
@@ -106,14 +137,18 @@ const TabletItem = ({ item }: { item: CartItem }) => (
 							<Plus className="size-3" />
 						</Button>
 					</div>
-					<p className="text-lg font-bold text-primary">${(item.price * item.quantity).toFixed(2)}</p>
+					<p className="text-lg font-bold text-primary">
+						${(item.price * item.quantity).toFixed(2)}
+					</p>
 				</div>
 			</div>
 		</CardContent>
 	</Card>
 );
 
-{/* Desktop view - detailed grid */}
+{
+	/* Desktop view - detailed grid */
+}
 const DesktopItem = ({ item }: { item: CartItem }) => (
 	<Card className="hidden @lg:block overflow-hidden">
 		<CardContent className="p-4">
@@ -124,14 +159,20 @@ const DesktopItem = ({ item }: { item: CartItem }) => (
 						<h3 className="font-semibold">{item.name}</h3>
 						<p className="text-sm text-muted-foreground">{item.variant}</p>
 					</div>
-					<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+					<Button
+						size="icon-sm"
+						variant="ghost"
+						className="text-muted-foreground hover:text-destructive"
+					>
 						<X className="size-4" />
 					</Button>
 				</div>
 				<Separator />
 				<div className="flex items-center justify-between">
 					<QuantityControlFull quantity={item.quantity} />
-					<p className="text-2xl font-bold text-primary">${(item.price * item.quantity).toFixed(2)}</p>
+					<p className="text-2xl font-bold text-primary">
+						${(item.price * item.quantity).toFixed(2)}
+					</p>
 				</div>
 			</div>
 		</CardContent>
@@ -147,7 +188,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg @md:text-xl font-bold' : 'text-sm @md:text-base text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg @md:text-xl font-bold' : 'text-sm @md:text-base text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -172,7 +215,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop',
 			name: 'Running Shoes Pro',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -180,7 +224,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
 			name: 'Studio Headphones',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -188,7 +233,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver • Leather',
 			price: 249.99,
@@ -196,7 +242,8 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300&h=300&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White • ANC',
 			price: 179.99,
@@ -250,7 +297,9 @@ export default function Main() {
 					<div>
 						<Card className="sticky top-4">
 							<CardHeader className="pb-3 @lg:pb-6">
-								<CardTitle className="text-base @md:text-lg">Order Summary</CardTitle>
+								<CardTitle className="text-base @md:text-lg">
+									Order Summary
+								</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-2 @md:space-y-3">
 								{summaryLines.map((line, i) => (

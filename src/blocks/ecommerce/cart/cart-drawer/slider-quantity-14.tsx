@@ -85,13 +85,7 @@ const SliderItem = ({ item }: { item: CartItem }) => (
 	</div>
 );
 
-const CheckoutButton = ({
-	total,
-	label,
-}: {
-	total: number;
-	label: string;
-}) => (
+const CheckoutButton = ({ total, label }: { total: number; label: string }) => (
 	<div className="space-y-3 border-t border-border pt-4">
 		<div className="flex items-center justify-between text-lg">
 			<span>Total</span>
@@ -110,7 +104,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=200&h=200&fit=crop',
 				name: 'Running Shoes Ultra',
 				variant: 'Black / US 10',
 				price: 189.99,
@@ -119,19 +114,21 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=200&h=200&fit=crop',
 				name: 'Athletic Shorts',
 				variant: 'Navy / M',
-				price: 45.00,
+				price: 45.0,
 				quantity: 3,
 				maxQuantity: 15,
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&h=200&fit=crop',
 				name: 'Performance Tee',
 				variant: 'White / L',
-				price: 35.00,
+				price: 35.0,
 				quantity: 5,
 				maxQuantity: 20,
 			},
@@ -142,7 +139,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

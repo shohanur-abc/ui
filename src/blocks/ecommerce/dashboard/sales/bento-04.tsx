@@ -1,6 +1,13 @@
 'use client';
 
-import { Target, TrendingUp, ArrowRight, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
+import {
+	Target,
+	TrendingUp,
+	ArrowRight,
+	CheckCircle2,
+	Clock,
+	AlertCircle,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
@@ -65,8 +72,12 @@ const GoalCard = ({ goal }: { goal: Goal }) => {
 				</div>
 				<div className="space-y-2">
 					<div className="flex items-baseline gap-1">
-						<span className="text-2xl font-bold">{goal.current.toLocaleString()}</span>
-						<span className="text-muted-foreground">/ {goal.target.toLocaleString()} {goal.unit}</span>
+						<span className="text-2xl font-bold">
+							{goal.current.toLocaleString()}
+						</span>
+						<span className="text-muted-foreground">
+							/ {goal.target.toLocaleString()} {goal.unit}
+						</span>
 					</div>
 					<Progress value={progress} className="h-2" />
 					<div className="flex justify-between text-xs text-muted-foreground">
@@ -106,7 +117,9 @@ const MilestoneCard = ({ milestone }: { milestone: MilestoneData }) => (
 						) : (
 							<div className="size-4 rounded-full border-2 border-muted-foreground" />
 						)}
-						<span className={`text-xs ${m.achieved ? 'font-medium' : 'text-muted-foreground'}`}>
+						<span
+							className={`text-xs ${m.achieved ? 'font-medium' : 'text-muted-foreground'}`}
+						>
 							{m.label}
 						</span>
 					</div>
@@ -127,10 +140,38 @@ const BentoLayout4 = ({ goals, milestone }: BentoLayout4Props) => (
 
 export default function Main() {
 	const goals: Goal[] = [
-		{ title: 'Revenue Target', current: 142580, target: 175000, unit: 'USD', status: 'on-track', dueDate: 'Jan 31' },
-		{ title: 'New Customers', current: 324, target: 400, unit: 'users', status: 'on-track', dueDate: 'Jan 31' },
-		{ title: 'Order Volume', current: 1284, target: 1500, unit: 'orders', status: 'behind', dueDate: 'Jan 31' },
-		{ title: 'Conversion Rate', current: 4.2, target: 5.0, unit: '%', status: 'completed', dueDate: 'Jan 31' },
+		{
+			title: 'Revenue Target',
+			current: 142580,
+			target: 175000,
+			unit: 'USD',
+			status: 'on-track',
+			dueDate: 'Jan 31',
+		},
+		{
+			title: 'New Customers',
+			current: 324,
+			target: 400,
+			unit: 'users',
+			status: 'on-track',
+			dueDate: 'Jan 31',
+		},
+		{
+			title: 'Order Volume',
+			current: 1284,
+			target: 1500,
+			unit: 'orders',
+			status: 'behind',
+			dueDate: 'Jan 31',
+		},
+		{
+			title: 'Conversion Rate',
+			current: 4.2,
+			target: 5.0,
+			unit: '%',
+			status: 'completed',
+			dueDate: 'Jan 31',
+		},
 	];
 
 	const milestone: MilestoneData = {

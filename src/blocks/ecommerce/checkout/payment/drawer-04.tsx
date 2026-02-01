@@ -1,10 +1,26 @@
 'use client';
 
-import { AlertCircle, Check, Clock, CreditCard, Gift, Lock, Percent, Shield, X, Zap } from 'lucide-react';
+import {
+	AlertCircle,
+	Check,
+	Clock,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	Shield,
+	X,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -17,7 +33,13 @@ interface PromoOffer {
 	expiresIn?: string;
 }
 
-const DrawerHeader = ({ title, onClose }: { title: string; onClose: () => void }) => (
+const DrawerHeader = ({
+	title,
+	onClose,
+}: {
+	title: string;
+	onClose: () => void;
+}) => (
 	<div className="flex items-center justify-between pb-4 border-b">
 		<h2 className="text-lg font-semibold">{title}</h2>
 		<Button variant="ghost" size="icon" onClick={onClose}>
@@ -47,7 +69,9 @@ const InstallmentOption = () => (
 		<div className="flex items-center gap-2">
 			<Clock className="size-4 text-primary" />
 			<span className="font-medium">Pay in 4 installments</span>
-			<Badge variant="secondary" className="text-xs">0% APR</Badge>
+			<Badge variant="secondary" className="text-xs">
+				0% APR
+			</Badge>
 		</div>
 		<RadioGroup defaultValue="4x" className="grid grid-cols-3 gap-2">
 			{['2x', '3x', '4x'].map((option) => (
@@ -130,14 +154,37 @@ const PromoCodeSection = () => (
 	</div>
 );
 
-const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isDiscount?: boolean }[] }) => (
+const OrderSummary = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isDiscount?: boolean;
+	}[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isDiscount ? 'text-emerald-600' : !line.isTotal ? 'text-muted-foreground' : ''}>{line.label}</span>
-					<span className={line.isDiscount ? 'text-emerald-600' : ''}>{line.value}</span>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={
+							line.isDiscount
+								? 'text-emerald-600'
+								: !line.isTotal
+									? 'text-muted-foreground'
+									: ''
+						}
+					>
+						{line.label}
+					</span>
+					<span className={line.isDiscount ? 'text-emerald-600' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
@@ -145,7 +192,11 @@ const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTota
 );
 
 export default function Main() {
-	const offer: PromoOffer = { code: 'SAVE20', description: 'First order discount', discount: '20% OFF' };
+	const offer: PromoOffer = {
+		code: 'SAVE20',
+		description: 'First order discount',
+		discount: '20% OFF',
+	};
 
 	const orderLines = [
 		{ label: 'Subtotal', value: '$299.00' },

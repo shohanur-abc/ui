@@ -17,12 +17,20 @@ interface HeaderProps {
 
 const Header = ({ title, subtitle }: HeaderProps) => (
 	<div className="space-y-4">
-		<h2 className="text-3xl font-bold tracking-tight @sm:text-4xl @xl:text-5xl">{title}</h2>
+		<h2 className="text-3xl font-bold tracking-tight @sm:text-4xl @xl:text-5xl">
+			{title}
+		</h2>
 		<p className="text-lg text-muted-foreground">{subtitle}</p>
 	</div>
 );
 
-const StatItem = ({ icon: Icon, label, value, progress, target }: StatItemProps) => (
+const StatItem = ({
+	icon: Icon,
+	label,
+	value,
+	progress,
+	target,
+}: StatItemProps) => (
 	<div className="group space-y-3">
 		<div className="flex items-center gap-3">
 			<div className="rounded-lg bg-primary/10 p-2 transition-colors duration-300 group-hover:bg-primary/15">
@@ -45,10 +53,34 @@ export default function Main() {
 	};
 
 	const stats: StatItemProps[] = [
-		{ icon: Target, label: 'Revenue Target', value: '$8.4M', progress: 84, target: '$10M' },
-		{ icon: Rocket, label: 'New Customers', value: '42K', progress: 70, target: '60K' },
-		{ icon: Shield, label: 'Order Success', value: '98.2%', progress: 98, target: '99%' },
-		{ icon: Zap, label: 'Platform Speed', value: '1.2s', progress: 92, target: '1.0s' },
+		{
+			icon: Target,
+			label: 'Revenue Target',
+			value: '$8.4M',
+			progress: 84,
+			target: '$10M',
+		},
+		{
+			icon: Rocket,
+			label: 'New Customers',
+			value: '42K',
+			progress: 70,
+			target: '60K',
+		},
+		{
+			icon: Shield,
+			label: 'Order Success',
+			value: '98.2%',
+			progress: 98,
+			target: '99%',
+		},
+		{
+			icon: Zap,
+			label: 'Platform Speed',
+			value: '1.2s',
+			progress: 92,
+			target: '1.0s',
+		},
 	];
 
 	return (

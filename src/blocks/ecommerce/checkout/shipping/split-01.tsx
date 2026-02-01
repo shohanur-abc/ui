@@ -42,7 +42,9 @@ const SummaryRow = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'font-semibold text-lg' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'font-semibold text-lg' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-foreground' : ''}>{value}</span>
 	</div>
@@ -79,7 +81,8 @@ const FormField = ({
 export default function Main() {
 	const orderItems = [
 		{
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
 			name: 'Premium Wireless Headphones',
 			variant: 'Black / Large',
 			quantity: 1,
@@ -120,8 +123,16 @@ export default function Main() {
 								<FormField label="First Name" placeholder="John" />
 								<FormField label="Last Name" placeholder="Doe" />
 							</div>
-							<FormField label="Email" placeholder="john@example.com" type="email" />
-							<FormField label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
+							<FormField
+								label="Email"
+								placeholder="john@example.com"
+								type="email"
+							/>
+							<FormField
+								label="Phone"
+								placeholder="+1 (555) 000-0000"
+								type="tel"
+							/>
 							<FormField label="Address" placeholder="123 Main Street" />
 							<FormField label="Apartment, Suite, etc." placeholder="Apt 4B" />
 							<div className="grid @sm:grid-cols-3 gap-4">
@@ -131,7 +142,9 @@ export default function Main() {
 							</div>
 
 							<div className="flex flex-col @sm:flex-row gap-3 pt-6">
-								<Button variant="outline" className="flex-1">Back to Cart</Button>
+								<Button variant="outline" className="flex-1">
+									Back to Cart
+								</Button>
 								<Button className="flex-1">Continue to Payment</Button>
 							</div>
 						</div>

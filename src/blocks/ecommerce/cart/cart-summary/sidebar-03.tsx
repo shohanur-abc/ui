@@ -15,7 +15,11 @@ const PromoSection = ({
 	icon: Icon,
 	placeholder,
 	buttonText,
-}: { icon: LucideIcon; placeholder: string; buttonText: string }) => (
+}: {
+	icon: LucideIcon;
+	placeholder: string;
+	buttonText: string;
+}) => (
 	<div className="mb-6 space-y-2">
 		<div className="flex items-center gap-2">
 			<Icon className="size-4 text-muted-foreground" />
@@ -34,7 +38,11 @@ const AppliedCoupon = ({
 	code,
 	savings,
 	onRemove,
-}: { code: string; savings: string; onRemove?: () => void }) => (
+}: {
+	code: string;
+	savings: string;
+	onRemove?: () => void;
+}) => (
 	<div className="mb-4 flex items-center justify-between rounded-lg border border-green-500/30 bg-green-500/10 p-3">
 		<div className="flex items-center gap-2">
 			<Ticket className="size-4 text-green-600 dark:text-green-400" />
@@ -53,10 +61,18 @@ const AppliedCoupon = ({
 
 const SummaryRow = ({ label, value, discount }: SummaryRowProps) => (
 	<div className="flex items-center justify-between py-2 text-sm">
-		<span className={discount ? 'text-green-600 dark:text-green-400' : 'text-muted-foreground'}>
+		<span
+			className={
+				discount
+					? 'text-green-600 dark:text-green-400'
+					: 'text-muted-foreground'
+			}
+		>
 			{label}
 		</span>
-		<span className={`font-medium ${discount ? 'text-green-600 dark:text-green-400' : ''}`}>
+		<span
+			className={`font-medium ${discount ? 'text-green-600 dark:text-green-400' : ''}`}
+		>
 			{value}
 		</span>
 	</div>

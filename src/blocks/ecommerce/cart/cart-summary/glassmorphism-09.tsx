@@ -2,7 +2,13 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
-import { Gift, Sparkles, MessageSquare, Package, type LucideIcon } from 'lucide-react';
+import {
+	Gift,
+	Sparkles,
+	MessageSquare,
+	Package,
+	type LucideIcon,
+} from 'lucide-react';
 import Link from 'next/link';
 
 type SummaryRowProps = {
@@ -32,7 +38,10 @@ const GlassCard = ({ children }: { children: React.ReactNode }) => (
 const GiftHeader = ({
 	title,
 	badge,
-}: { title: string; badge: { label: string; icon: LucideIcon } }) => (
+}: {
+	title: string;
+	badge: { label: string; icon: LucideIcon };
+}) => (
 	<div className="mb-4 flex items-center gap-2">
 		<span className="text-lg font-semibold">{title}</span>
 		<Badge className="gap-1 bg-pink-500/20 text-pink-400 backdrop-blur hover:bg-pink-500/30">

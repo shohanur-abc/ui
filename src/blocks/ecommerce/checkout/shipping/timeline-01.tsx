@@ -1,4 +1,11 @@
-import { MapPin, Truck, CreditCard, Check, Package, ChevronRight } from 'lucide-react';
+import {
+	MapPin,
+	Truck,
+	CreditCard,
+	Check,
+	Package,
+	ChevronRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -31,19 +38,31 @@ const TimelineStep = ({
 					${status === 'upcoming' ? 'border-muted bg-muted text-muted-foreground' : ''}
 				`}
 			>
-				{status === 'completed' ? <Check className="size-5" /> : <Icon className="size-5" />}
+				{status === 'completed' ? (
+					<Check className="size-5" />
+				) : (
+					<Icon className="size-5" />
+				)}
 			</div>
 			{!isLast && (
-				<div className={`w-0.5 flex-1 my-2 ${status === 'completed' ? 'bg-primary' : 'bg-muted'}`} />
+				<div
+					className={`w-0.5 flex-1 my-2 ${status === 'completed' ? 'bg-primary' : 'bg-muted'}`}
+				/>
 			)}
 		</div>
 		<div className={`pb-8 ${isLast ? 'pb-0' : ''}`}>
 			<div className="flex items-center gap-2">
-				<h3 className={`font-semibold ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}>{title}</h3>
+				<h3
+					className={`font-semibold ${status === 'upcoming' ? 'text-muted-foreground' : ''}`}
+				>
+					{title}
+				</h3>
 				{status === 'current' && <Badge>Current</Badge>}
 				{status === 'completed' && <Badge variant="secondary">Done</Badge>}
 			</div>
-			{description && <p className="text-sm text-muted-foreground mt-1">{description}</p>}
+			{description && (
+				<p className="text-sm text-muted-foreground mt-1">{description}</p>
+			)}
 		</div>
 	</div>
 );
@@ -76,16 +95,52 @@ const ShippingOption = ({
 
 export default function Main() {
 	const steps = [
-		{ step: 1, title: 'Shipping Address', description: '123 Main St, New York, NY 10001', icon: MapPin, status: 'completed' as const },
-		{ step: 2, title: 'Shipping Method', icon: Truck, status: 'current' as const },
-		{ step: 3, title: 'Payment', icon: CreditCard, status: 'upcoming' as const },
-		{ step: 4, title: 'Review & Confirm', icon: Package, status: 'upcoming' as const },
+		{
+			step: 1,
+			title: 'Shipping Address',
+			description: '123 Main St, New York, NY 10001',
+			icon: MapPin,
+			status: 'completed' as const,
+		},
+		{
+			step: 2,
+			title: 'Shipping Method',
+			icon: Truck,
+			status: 'current' as const,
+		},
+		{
+			step: 3,
+			title: 'Payment',
+			icon: CreditCard,
+			status: 'upcoming' as const,
+		},
+		{
+			step: 4,
+			title: 'Review & Confirm',
+			icon: Package,
+			status: 'upcoming' as const,
+		},
 	];
 
 	const options = [
-		{ value: 'standard', name: 'Standard Shipping', time: '5-7 business days', price: '$5.99' },
-		{ value: 'express', name: 'Express Shipping', time: '2-3 business days', price: '$12.99' },
-		{ value: 'overnight', name: 'Overnight Shipping', time: 'Next business day', price: '$24.99' },
+		{
+			value: 'standard',
+			name: 'Standard Shipping',
+			time: '5-7 business days',
+			price: '$5.99',
+		},
+		{
+			value: 'express',
+			name: 'Express Shipping',
+			time: '2-3 business days',
+			price: '$12.99',
+		},
+		{
+			value: 'overnight',
+			name: 'Overnight Shipping',
+			time: 'Next business day',
+			price: '$24.99',
+		},
 	];
 
 	return (
@@ -96,7 +151,11 @@ export default function Main() {
 				<div className="grid @lg:grid-cols-[240px_1fr] gap-8">
 					<div className="hidden @lg:block">
 						{steps.map((step, i) => (
-							<TimelineStep key={step.step} {...step} isLast={i === steps.length - 1} />
+							<TimelineStep
+								key={step.step}
+								{...step}
+								isLast={i === steps.length - 1}
+							/>
 						))}
 					</div>
 
@@ -108,7 +167,9 @@ export default function Main() {
 								</div>
 								<div>
 									<h2 className="text-xl font-bold">Shipping Method</h2>
-									<p className="text-sm text-muted-foreground">Choose your delivery speed</p>
+									<p className="text-sm text-muted-foreground">
+										Choose your delivery speed
+									</p>
 								</div>
 							</div>
 
@@ -119,7 +180,9 @@ export default function Main() {
 							</RadioGroup>
 
 							<div className="flex gap-3">
-								<Button variant="outline" className="flex-1">Back</Button>
+								<Button variant="outline" className="flex-1">
+									Back
+								</Button>
 								<Button className="flex-1">
 									Continue to Payment
 									<ChevronRight className="size-5 ml-2" />

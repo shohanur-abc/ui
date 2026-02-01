@@ -19,7 +19,10 @@ const DoubleBorderContainer = ({ children }: { children: React.ReactNode }) => (
 const Header = ({
 	title,
 	badge,
-}: { title: string; badge: { label: string; icon: LucideIcon } }) => (
+}: {
+	title: string;
+	badge: { label: string; icon: LucideIcon };
+}) => (
 	<div className="flex items-center justify-between pb-4">
 		<span className="text-lg font-bold">{title}</span>
 		<Badge className="gap-1" variant="secondary">

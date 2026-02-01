@@ -28,12 +28,7 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
-} from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
 interface ProductImage {
@@ -77,7 +72,9 @@ const ImageUploader = ({
 							onClick={() => onSetPrimary(image.id)}
 							title={labels.setPrimary}
 						>
-							<Star className={`size-4 ${image.isPrimary ? 'fill-amber-400 text-amber-400' : ''}`} />
+							<Star
+								className={`size-4 ${image.isPrimary ? 'fill-amber-400 text-amber-400' : ''}`}
+							/>
 						</Button>
 						<Button
 							variant="destructive"
@@ -177,21 +174,37 @@ const PricingForm = ({ labels }: PricingFormProps) => (
 		<div className="space-y-2">
 			<Label htmlFor="price">{labels.price}</Label>
 			<div className="relative">
-				<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
-				<Input id="price" type="number" defaultValue="199.99" className="pl-7" />
+				<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+					$
+				</span>
+				<Input
+					id="price"
+					type="number"
+					defaultValue="199.99"
+					className="pl-7"
+				/>
 			</div>
 		</div>
 		<div className="space-y-2">
 			<Label htmlFor="compare-price">{labels.comparePrice}</Label>
 			<div className="relative">
-				<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
-				<Input id="compare-price" type="number" defaultValue="249.99" className="pl-7" />
+				<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+					$
+				</span>
+				<Input
+					id="compare-price"
+					type="number"
+					defaultValue="249.99"
+					className="pl-7"
+				/>
 			</div>
 		</div>
 		<div className="space-y-2">
 			<Label htmlFor="cost">{labels.cost}</Label>
 			<div className="relative">
-				<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+				<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+					$
+				</span>
 				<Input id="cost" type="number" defaultValue="89.00" className="pl-7" />
 			</div>
 		</div>
@@ -235,9 +248,24 @@ const InventoryForm = ({ labels }: InventoryFormProps) => (
 export default function Main() {
 	const [activeTab, setActiveTab] = React.useState('basic');
 	const [images, setImages] = React.useState<ProductImage[]>([
-		{ id: '1', url: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop', alt: 'Product 1', isPrimary: true },
-		{ id: '2', url: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=300&fit=crop', alt: 'Product 2', isPrimary: false },
-		{ id: '3', url: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=300&h=300&fit=crop', alt: 'Product 3', isPrimary: false },
+		{
+			id: '1',
+			url: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
+			alt: 'Product 1',
+			isPrimary: true,
+		},
+		{
+			id: '2',
+			url: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=300&fit=crop',
+			alt: 'Product 2',
+			isPrimary: false,
+		},
+		{
+			id: '3',
+			url: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=300&h=300&fit=crop',
+			alt: 'Product 3',
+			isPrimary: false,
+		},
 	]);
 
 	const handleUpload = () => {
@@ -250,7 +278,7 @@ export default function Main() {
 
 	const handleSetPrimary = (id: string) => {
 		setImages((prev) =>
-			prev.map((img) => ({ ...img, isPrimary: img.id === id }))
+			prev.map((img) => ({ ...img, isPrimary: img.id === id })),
 		);
 	};
 

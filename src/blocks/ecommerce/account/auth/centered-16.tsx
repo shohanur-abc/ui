@@ -49,7 +49,13 @@ const LanguageSelector = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -60,7 +66,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -172,17 +180,34 @@ export default function Main() {
 			<div className="relative min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo name="GlobalMart" icon={Globe} />
-					<Title text="Create your account" subtitle="Shop from anywhere in the world" />
+					<Title
+						text="Create your account"
+						subtitle="Shop from anywhere in the world"
+					/>
 
 					<form className="space-y-5">
-						<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-						<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+						<FormField
+							label="Email"
+							type="email"
+							placeholder="you@example.com"
+							icon={Mail}
+						/>
+						<FormField
+							label="Password"
+							type="password"
+							placeholder="••••••••"
+							icon={Lock}
+						/>
 						<CountrySelect label="Country" countries={countries} />
 						<SubmitButton label="Create Account" icon={ArrowRight} />
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="Already have an account?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already have an account?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</div>
 				</div>
 			</div>

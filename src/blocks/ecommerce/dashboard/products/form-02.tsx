@@ -103,7 +103,9 @@ const QuickAddForm = ({ isOpen, onClose, labels }: QuickAddFormProps) => {
 					<div className="grid gap-4 @sm:grid-cols-2">
 						<FormField label={labels.price} required error={errors.price}>
 							<div className="relative">
-								<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+								<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+									$
+								</span>
 								<Input type="number" placeholder="0.00" className="pl-7" />
 							</div>
 						</FormField>
@@ -138,7 +140,11 @@ const QuickAddForm = ({ isOpen, onClose, labels }: QuickAddFormProps) => {
 					<Button variant="outline" onClick={onClose}>
 						{labels.cancel}
 					</Button>
-					<Button onClick={handleSubmit} disabled={isSubmitting} className="gap-2">
+					<Button
+						onClick={handleSubmit}
+						disabled={isSubmitting}
+						className="gap-2"
+					>
 						{isSubmitting ? (
 							<>
 								<Loader2 className="size-4 animate-spin" />
@@ -159,7 +165,12 @@ const QuickAddForm = ({ isOpen, onClose, labels }: QuickAddFormProps) => {
 
 interface AiGeneratorProps {
 	onGenerate: (data: { name: string; description: string }) => void;
-	labels: { title: string; placeholder: string; generate: string; generating: string };
+	labels: {
+		title: string;
+		placeholder: string;
+		generate: string;
+		generating: string;
+	};
 }
 
 const AiGenerator = ({ onGenerate, labels }: AiGeneratorProps) => {
@@ -172,7 +183,8 @@ const AiGenerator = ({ onGenerate, labels }: AiGeneratorProps) => {
 		setTimeout(() => {
 			onGenerate({
 				name: 'Premium Wireless Headphones',
-				description: 'Experience crystal-clear audio with our top-of-the-line wireless headphones.',
+				description:
+					'Experience crystal-clear audio with our top-of-the-line wireless headphones.',
 			});
 			setIsGenerating(false);
 			setPrompt('');
@@ -225,7 +237,10 @@ const ImageDropzone = ({ images, onUpload, onRemove }: ImageDropzoneProps) => (
 	<div className="space-y-3">
 		<div className="grid gap-3 @sm:grid-cols-4">
 			{images.map((_, idx) => (
-				<div key={idx} className="group relative aspect-square overflow-hidden rounded-lg border bg-muted">
+				<div
+					key={idx}
+					className="group relative aspect-square overflow-hidden rounded-lg border bg-muted"
+				>
 					<Button
 						variant="destructive"
 						size="icon-sm"
@@ -250,7 +265,10 @@ const ImageDropzone = ({ images, onUpload, onRemove }: ImageDropzoneProps) => (
 export default function Main() {
 	const [isQuickAddOpen, setIsQuickAddOpen] = React.useState(false);
 	const [images, setImages] = React.useState<string[]>(['', '', '']);
-	const [generatedData, setGeneratedData] = React.useState<{ name: string; description: string } | null>(null);
+	const [generatedData, setGeneratedData] = React.useState<{
+		name: string;
+		description: string;
+	} | null>(null);
 
 	const handleAiGenerate = (data: { name: string; description: string }) => {
 		setGeneratedData(data);
@@ -284,12 +302,18 @@ export default function Main() {
 								<Sparkles className="size-3" />
 								AI Generated
 							</Badge>
-							<Button variant="ghost" size="icon-sm" onClick={() => setGeneratedData(null)}>
+							<Button
+								variant="ghost"
+								size="icon-sm"
+								onClick={() => setGeneratedData(null)}
+							>
 								<X className="size-4" />
 							</Button>
 						</div>
 						<p className="font-medium">{generatedData.name}</p>
-						<p className="text-sm text-muted-foreground">{generatedData.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{generatedData.description}
+						</p>
 						<Button className="mt-3 gap-2" size="sm">
 							<Check className="size-4" />
 							Use This
@@ -302,12 +326,21 @@ export default function Main() {
 				<div className="rounded-lg border bg-card p-6">
 					<h3 className="mb-4 font-semibold">Form with Validation</h3>
 					<div className="space-y-4">
-						<FormField label="Product Name" required error="Product name is required">
-							<Input placeholder="Enter product name" className="border-destructive" />
+						<FormField
+							label="Product Name"
+							required
+							error="Product name is required"
+						>
+							<Input
+								placeholder="Enter product name"
+								className="border-destructive"
+							/>
 						</FormField>
 						<FormField label="Price" required>
 							<div className="relative">
-								<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+								<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+									$
+								</span>
 								<Input type="number" placeholder="0.00" className="pl-7" />
 							</div>
 						</FormField>
@@ -322,7 +355,9 @@ export default function Main() {
 					<ImageDropzone
 						images={images}
 						onUpload={() => setImages((prev) => [...prev, ''])}
-						onRemove={(idx) => setImages((prev) => prev.filter((_, i) => i !== idx))}
+						onRemove={(idx) =>
+							setImages((prev) => prev.filter((_, i) => i !== idx))
+						}
 					/>
 				</div>
 

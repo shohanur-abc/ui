@@ -99,7 +99,9 @@ const BreakdownRow = ({
 			</div>
 			<div className="text-right">
 				<span className="font-medium">{amount}</span>
-				<span className="ml-2 text-xs text-muted-foreground">{percentage}%</span>
+				<span className="ml-2 text-xs text-muted-foreground">
+					{percentage}%
+				</span>
 			</div>
 		</div>
 		<Progress value={percentage} className="h-1.5" />
@@ -117,16 +119,59 @@ const barConfig: ChartConfig = {
 
 export default function Main() {
 	const revenueKpis: RevenueKpi[] = [
-		{ title: 'Total Revenue', value: '$248,632', change: '+28%', trend: 'up', icon: CircleDollarSign, description: 'Total earnings this month' },
-		{ title: 'Net Profit', value: '$67,842', change: '+22%', trend: 'up', icon: Wallet, description: 'After expenses and taxes' },
-		{ title: 'Avg Transaction', value: '$36.70', change: '-2%', trend: 'down', icon: CreditCard, description: 'Per order value' },
-		{ title: 'Refunds', value: '$4,521', change: '-15%', trend: 'up', icon: Banknote, description: 'Total refunds issued' },
+		{
+			title: 'Total Revenue',
+			value: '$248,632',
+			change: '+28%',
+			trend: 'up',
+			icon: CircleDollarSign,
+			description: 'Total earnings this month',
+		},
+		{
+			title: 'Net Profit',
+			value: '$67,842',
+			change: '+22%',
+			trend: 'up',
+			icon: Wallet,
+			description: 'After expenses and taxes',
+		},
+		{
+			title: 'Avg Transaction',
+			value: '$36.70',
+			change: '-2%',
+			trend: 'down',
+			icon: CreditCard,
+			description: 'Per order value',
+		},
+		{
+			title: 'Refunds',
+			value: '$4,521',
+			change: '-15%',
+			trend: 'up',
+			icon: Banknote,
+			description: 'Total refunds issued',
+		},
 	];
 
 	const breakdown: RevenueBreakdown[] = [
-		{ label: 'Product Sales', amount: '$186,474', percentage: 75, color: 'bg-chart-1' },
-		{ label: 'Subscriptions', amount: '$37,295', percentage: 15, color: 'bg-chart-2' },
-		{ label: 'Services', amount: '$18,637', percentage: 7, color: 'bg-chart-3' },
+		{
+			label: 'Product Sales',
+			amount: '$186,474',
+			percentage: 75,
+			color: 'bg-chart-1',
+		},
+		{
+			label: 'Subscriptions',
+			amount: '$37,295',
+			percentage: 15,
+			color: 'bg-chart-2',
+		},
+		{
+			label: 'Services',
+			amount: '$18,637',
+			percentage: 7,
+			color: 'bg-chart-3',
+		},
 		{ label: 'Other', amount: '$6,226', percentage: 3, color: 'bg-chart-4' },
 	];
 
@@ -164,12 +209,29 @@ export default function Main() {
 								<CardTitle className="text-base">Daily Revenue</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={areaConfig} className="h-[180px] w-full">
+								<ChartContainer
+									config={areaConfig}
+									className="h-[180px] w-full"
+								>
 									<AreaChart data={dailyData}>
 										<defs>
-											<linearGradient id="split37fill" x1="0" y1="0" x2="0" y2="1">
-												<stop offset="5%" stopColor="var(--color-revenue)" stopOpacity={0.3} />
-												<stop offset="95%" stopColor="var(--color-revenue)" stopOpacity={0} />
+											<linearGradient
+												id="split37fill"
+												x1="0"
+												y1="0"
+												x2="0"
+												y2="1"
+											>
+												<stop
+													offset="5%"
+													stopColor="var(--color-revenue)"
+													stopOpacity={0.3}
+												/>
+												<stop
+													offset="95%"
+													stopColor="var(--color-revenue)"
+													stopOpacity={0}
+												/>
 											</linearGradient>
 										</defs>
 										<XAxis dataKey="day" tickLine={false} axisLine={false} />
@@ -205,10 +267,23 @@ export default function Main() {
 								<ChartContainer config={barConfig} className="h-[200px] w-full">
 									<BarChart data={monthlyData}>
 										<XAxis dataKey="month" tickLine={false} axisLine={false} />
-										<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v / 1000}k`} />
+										<YAxis
+											tickLine={false}
+											axisLine={false}
+											tickFormatter={(v) => `$${v / 1000}k`}
+										/>
 										<ChartTooltip content={<ChartTooltipContent />} />
-										<Bar dataKey="revenue" fill="var(--color-revenue)" radius={[4, 4, 0, 0]} />
-										<Bar dataKey="target" fill="var(--color-target)" radius={[4, 4, 0, 0]} opacity={0.5} />
+										<Bar
+											dataKey="revenue"
+											fill="var(--color-revenue)"
+											radius={[4, 4, 0, 0]}
+										/>
+										<Bar
+											dataKey="target"
+											fill="var(--color-target)"
+											radius={[4, 4, 0, 0]}
+											opacity={0.5}
+										/>
 									</BarChart>
 								</ChartContainer>
 							</CardContent>

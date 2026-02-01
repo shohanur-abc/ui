@@ -1,10 +1,25 @@
 'use client';
 
-import { ArrowLeft, ArrowRight, Check, CreditCard, Lock, MapPin, Shield, Truck, User } from 'lucide-react';
+import {
+	ArrowLeft,
+	ArrowRight,
+	Check,
+	CreditCard,
+	Lock,
+	MapPin,
+	Shield,
+	Truck,
+	User,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -17,7 +32,13 @@ interface WizardStep {
 	status: 'completed' | 'current' | 'upcoming';
 }
 
-const StepIndicator = ({ steps, currentStep }: { steps: WizardStep[]; currentStep: number }) => (
+const StepIndicator = ({
+	steps,
+	currentStep,
+}: {
+	steps: WizardStep[];
+	currentStep: number;
+}) => (
 	<div className="flex items-center justify-between mb-8">
 		{steps.map((step, index) => (
 			<div key={index} className="flex items-center">
@@ -31,14 +52,22 @@ const StepIndicator = ({ steps, currentStep }: { steps: WizardStep[]; currentSte
 									: 'bg-muted text-muted-foreground'
 						}`}
 					>
-						{step.status === 'completed' ? <Check className="size-5" /> : <step.icon className="size-5" />}
+						{step.status === 'completed' ? (
+							<Check className="size-5" />
+						) : (
+							<step.icon className="size-5" />
+						)}
 					</div>
-					<span className={`text-xs mt-2 font-medium ${step.status === 'current' ? 'text-primary' : 'text-muted-foreground'}`}>
+					<span
+						className={`text-xs mt-2 font-medium ${step.status === 'current' ? 'text-primary' : 'text-muted-foreground'}`}
+					>
 						{step.title}
 					</span>
 				</div>
 				{index < steps.length - 1 && (
-					<div className={`w-12 @sm:w-20 h-0.5 mx-2 ${step.status === 'completed' ? 'bg-primary' : 'bg-muted'}`} />
+					<div
+						className={`w-12 @sm:w-20 h-0.5 mx-2 ${step.status === 'completed' ? 'bg-primary' : 'bg-muted'}`}
+					/>
 				)}
 			</div>
 		))}
@@ -67,7 +96,9 @@ const CustomerInfoStep = () => (
 		</div>
 		<div className="flex items-center gap-3">
 			<Checkbox id="newsletter" />
-			<Label htmlFor="newsletter" className="text-sm cursor-pointer">Receive order updates via SMS</Label>
+			<Label htmlFor="newsletter" className="text-sm cursor-pointer">
+				Receive order updates via SMS
+			</Label>
 		</div>
 	</div>
 );
@@ -98,7 +129,9 @@ const ShippingStep = () => (
 		</div>
 		<div className="flex items-center gap-3">
 			<Checkbox id="save-address" defaultChecked />
-			<Label htmlFor="save-address" className="text-sm cursor-pointer">Save as default address</Label>
+			<Label htmlFor="save-address" className="text-sm cursor-pointer">
+				Save as default address
+			</Label>
 		</div>
 	</div>
 );
@@ -106,9 +139,25 @@ const ShippingStep = () => (
 const DeliveryStep = () => (
 	<div className="space-y-3">
 		{[
-			{ id: 'express', name: 'Express Delivery', time: '1-2 business days', price: '$14.99', recommended: true },
-			{ id: 'standard', name: 'Standard Shipping', time: '3-5 business days', price: '$7.99' },
-			{ id: 'economy', name: 'Economy', time: '7-10 business days', price: 'Free' },
+			{
+				id: 'express',
+				name: 'Express Delivery',
+				time: '1-2 business days',
+				price: '$14.99',
+				recommended: true,
+			},
+			{
+				id: 'standard',
+				name: 'Standard Shipping',
+				time: '3-5 business days',
+				price: '$7.99',
+			},
+			{
+				id: 'economy',
+				name: 'Economy',
+				time: '7-10 business days',
+				price: 'Free',
+			},
 		].map((option) => (
 			<Label
 				key={option.id}
@@ -120,13 +169,23 @@ const DeliveryStep = () => (
 				{option.recommended && (
 					<Badge className="absolute -top-2.5 left-4 text-xs">Fastest</Badge>
 				)}
-				<input type="radio" name="delivery" id={option.id} className="sr-only" defaultChecked={option.id === 'standard'} />
+				<input
+					type="radio"
+					name="delivery"
+					id={option.id}
+					className="sr-only"
+					defaultChecked={option.id === 'standard'}
+				/>
 				<Truck className="size-5 text-muted-foreground shrink-0" />
 				<div className="flex-1">
 					<span className="font-medium">{option.name}</span>
 					<p className="text-xs text-muted-foreground">{option.time}</p>
 				</div>
-				<span className={`font-medium ${option.price === 'Free' ? 'text-primary' : ''}`}>{option.price}</span>
+				<span
+					className={`font-medium ${option.price === 'Free' ? 'text-primary' : ''}`}
+				>
+					{option.price}
+				</span>
 			</Label>
 		))}
 	</div>
@@ -157,12 +216,22 @@ const PaymentStep = () => (
 		</div>
 		<div className="flex items-center gap-3">
 			<Checkbox id="save-card" />
-			<Label htmlFor="save-card" className="text-sm cursor-pointer">Save card for future purchases</Label>
+			<Label htmlFor="save-card" className="text-sm cursor-pointer">
+				Save card for future purchases
+			</Label>
 		</div>
 	</div>
 );
 
-const NavigationButtons = ({ step, onPrev, onNext }: { step: number; onPrev: () => void; onNext: () => void }) => (
+const NavigationButtons = ({
+	step,
+	onPrev,
+	onNext,
+}: {
+	step: number;
+	onPrev: () => void;
+	onNext: () => void;
+}) => (
 	<div className="flex gap-3">
 		{step > 1 && (
 			<Button variant="outline" onClick={onPrev} className="gap-2">
@@ -186,13 +255,21 @@ const NavigationButtons = ({ step, onPrev, onNext }: { step: number; onPrev: () 
 	</div>
 );
 
-const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean }[] }) => (
+const OrderSummary = ({
+	lines,
+}: {
+	lines: { label: string; value: string; isTotal?: boolean }[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isTotal ? '' : 'text-muted-foreground'}>{line.label}</span>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span className={line.isTotal ? '' : 'text-muted-foreground'}>
+						{line.label}
+					</span>
 					<span>{line.value}</span>
 				</div>
 			</div>
@@ -234,13 +311,19 @@ export default function Main() {
 					<CardContent>
 						<div className="mb-4">
 							<h3 className="text-lg font-medium mb-1">Delivery Method</h3>
-							<p className="text-sm text-muted-foreground">Choose how you want to receive your order</p>
+							<p className="text-sm text-muted-foreground">
+								Choose how you want to receive your order
+							</p>
 						</div>
 						<DeliveryStep />
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
 						<OrderSummary lines={orderLines} />
-						<NavigationButtons step={currentStep} onPrev={() => {}} onNext={() => {}} />
+						<NavigationButtons
+							step={currentStep}
+							onPrev={() => {}}
+							onNext={() => {}}
+						/>
 					</CardFooter>
 				</Card>
 			</div>

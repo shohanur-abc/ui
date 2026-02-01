@@ -31,7 +31,8 @@ const SuccessMessage = ({
 
 const OrderNumber = ({ number }: { number: string }) => (
 	<p className="text-center text-sm text-muted-foreground">
-		Order <span className="font-mono font-semibold text-foreground">{number}</span>
+		Order{' '}
+		<span className="font-mono font-semibold text-foreground">{number}</span>
 	</p>
 );
 

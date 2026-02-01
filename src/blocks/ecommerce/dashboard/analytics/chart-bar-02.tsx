@@ -13,14 +13,18 @@ const HorizontalBarChart = ({ data }: { data: HorizontalBarData[] }) => {
 				const width = (item.value / max) * 100;
 				return (
 					<div key={i} className="flex items-center gap-4">
-						<span className="w-24 text-sm text-muted-foreground truncate">{item.label}</span>
+						<span className="w-24 text-sm text-muted-foreground truncate">
+							{item.label}
+						</span>
 						<div className="flex-1 h-8 bg-muted/30 rounded-md overflow-hidden">
 							<div
 								className="h-full rounded-md transition-all duration-500"
 								style={{ width: `${width}%`, backgroundColor: item.color }}
 							/>
 						</div>
-						<span className="w-16 text-right text-sm font-medium">{item.value.toLocaleString()}</span>
+						<span className="w-16 text-right text-sm font-medium">
+							{item.value.toLocaleString()}
+						</span>
 					</div>
 				);
 			})}
@@ -43,8 +47,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Sales by Category</CardTitle>
-						<p className="text-xs text-muted-foreground">Revenue distribution across categories</p>
+						<CardTitle className="text-sm font-medium">
+							Sales by Category
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Revenue distribution across categories
+						</p>
 					</CardHeader>
 					<CardContent>
 						<HorizontalBarChart data={categoryData} />

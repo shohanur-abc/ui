@@ -61,7 +61,10 @@ const CategoryTableCard = ({
 						</TableHeader>
 						<TableBody>
 							{categories.map((cat, idx) => (
-								<TableRow key={idx} className="hover:bg-muted/50 transition-colors">
+								<TableRow
+									key={idx}
+									className="hover:bg-muted/50 transition-colors"
+								>
 									<TableCell>
 										<div className="flex items-center gap-3">
 											<span className="text-2xl">{cat.icon}</span>
@@ -97,10 +100,14 @@ const CategoryTableCard = ({
 									</TableCell>
 									<TableCell className="text-right">
 										<div>
-											<span className="font-medium">{cat.orders.toLocaleString()}</span>
+											<span className="font-medium">
+												{cat.orders.toLocaleString()}
+											</span>
 											<span
 												className={`ml-2 text-xs ${
-													cat.orderGrowth >= 0 ? 'text-primary' : 'text-destructive'
+													cat.orderGrowth >= 0
+														? 'text-primary'
+														: 'text-destructive'
 												}`}
 											>
 												{cat.orderGrowth >= 0 ? '+' : ''}
@@ -113,10 +120,7 @@ const CategoryTableCard = ({
 									</TableCell>
 									<TableCell>
 										<div className="space-y-1">
-											<Progress
-												value={cat.inventoryLevel}
-												className="h-2"
-											/>
+											<Progress value={cat.inventoryLevel} className="h-2" />
 											<span className="text-xs text-muted-foreground">
 												{cat.inventoryLevel}%
 											</span>
@@ -134,11 +138,56 @@ const CategoryTableCard = ({
 
 export default function Main() {
 	const categories: CategoryData[] = [
-		{ category: 'Electronics', icon: '📱', revenue: 158000, revenueGrowth: 12.5, orders: 1250, orderGrowth: 8, avgMargin: 24, inventoryLevel: 72 },
-		{ category: 'Clothing', icon: '👕', revenue: 125000, revenueGrowth: 8.2, orders: 2100, orderGrowth: 15, avgMargin: 42, inventoryLevel: 85 },
-		{ category: 'Home & Garden', icon: '🏠', revenue: 98000, revenueGrowth: -3.1, orders: 890, orderGrowth: -5, avgMargin: 35, inventoryLevel: 45 },
-		{ category: 'Sports', icon: '⚽', revenue: 76000, revenueGrowth: 22.8, orders: 680, orderGrowth: 18, avgMargin: 28, inventoryLevel: 92 },
-		{ category: 'Beauty', icon: '💄', revenue: 54000, revenueGrowth: 5.4, orders: 920, orderGrowth: 12, avgMargin: 58, inventoryLevel: 68 },
+		{
+			category: 'Electronics',
+			icon: '📱',
+			revenue: 158000,
+			revenueGrowth: 12.5,
+			orders: 1250,
+			orderGrowth: 8,
+			avgMargin: 24,
+			inventoryLevel: 72,
+		},
+		{
+			category: 'Clothing',
+			icon: '👕',
+			revenue: 125000,
+			revenueGrowth: 8.2,
+			orders: 2100,
+			orderGrowth: 15,
+			avgMargin: 42,
+			inventoryLevel: 85,
+		},
+		{
+			category: 'Home & Garden',
+			icon: '🏠',
+			revenue: 98000,
+			revenueGrowth: -3.1,
+			orders: 890,
+			orderGrowth: -5,
+			avgMargin: 35,
+			inventoryLevel: 45,
+		},
+		{
+			category: 'Sports',
+			icon: '⚽',
+			revenue: 76000,
+			revenueGrowth: 22.8,
+			orders: 680,
+			orderGrowth: 18,
+			avgMargin: 28,
+			inventoryLevel: 92,
+		},
+		{
+			category: 'Beauty',
+			icon: '💄',
+			revenue: 54000,
+			revenueGrowth: 5.4,
+			orders: 920,
+			orderGrowth: 12,
+			avgMargin: 58,
+			inventoryLevel: 68,
+		},
 	];
 
 	return (

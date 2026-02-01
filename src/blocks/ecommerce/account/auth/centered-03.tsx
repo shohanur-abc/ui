@@ -12,7 +12,13 @@ const GlowDecorative = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-3 mb-8">
 		<div className="flex size-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/25">
 			<Icon className="size-6" />
@@ -23,7 +29,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-10">
-		<h1 className="text-3xl @sm:text-4xl font-bold tracking-tight mb-3">{text}</h1>
+		<h1 className="text-3xl @sm:text-4xl font-bold tracking-tight mb-3">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground text-lg">{subtitle}</p>}
 	</div>
 );
@@ -54,7 +62,11 @@ const SubmitButton = ({
 	label: string;
 	icon?: React.ElementType;
 }) => (
-	<Button type="submit" size="lg" className="w-full gap-2 group shadow-lg shadow-primary/20">
+	<Button
+		type="submit"
+		size="lg"
+		className="w-full gap-2 group shadow-lg shadow-primary/20"
+	>
 		{label}
 		{Icon && (
 			<Icon className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -90,17 +102,28 @@ export default function Main() {
 			<div className="relative min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo name="ShopNest" icon={Store} />
-					<Title text="Forgot password?" subtitle="No worries, we'll send you reset instructions" />
+					<Title
+						text="Forgot password?"
+						subtitle="No worries, we'll send you reset instructions"
+					/>
 
 					<form className="space-y-6">
-						<FormField label="Email address" type="email" placeholder="Enter your email" />
+						<FormField
+							label="Email address"
+							type="email"
+							placeholder="Enter your email"
+						/>
 						<SubmitButton label="Send reset link" icon={ArrowRight} />
 					</form>
 
 					<InfoText text="Check your spam folder if you don't see the email" />
 
 					<div className="mt-8">
-						<FooterLink text="Remember your password?" linkText="Back to login" href="/login" />
+						<FooterLink
+							text="Remember your password?"
+							linkText="Back to login"
+							href="/login"
+						/>
 					</div>
 				</div>
 			</div>

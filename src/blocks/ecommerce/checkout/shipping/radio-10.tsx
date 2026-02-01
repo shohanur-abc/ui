@@ -1,4 +1,12 @@
-import { Truck, Clock, MapPin, Package, Check, ArrowRight, Info } from 'lucide-react';
+import {
+	Truck,
+	Clock,
+	MapPin,
+	Package,
+	Check,
+	ArrowRight,
+	Info,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -29,14 +37,18 @@ const SplitShipmentRadio = ({
 				${recommended ? 'ring-2 ring-primary/20' : ''}
 			`}
 		>
-			{recommended && <Badge className="absolute -top-2.5 left-4">Recommended</Badge>}
+			{recommended && (
+				<Badge className="absolute -top-2.5 left-4">Recommended</Badge>
+			)}
 			<CardContent className="p-5">
 				<div className="flex items-start gap-4">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
 					<div className="flex-1">
 						<div className="flex items-center justify-between mb-2">
 							<h3 className="font-semibold text-lg">{title}</h3>
-							<span className="text-lg font-bold text-primary">{totalPrice}</span>
+							<span className="text-lg font-bold text-primary">
+								{totalPrice}
+							</span>
 						</div>
 						<p className="text-sm text-muted-foreground mb-3">{description}</p>
 						<div className="space-y-2">
@@ -119,7 +131,13 @@ export default function Main() {
 
 	const speedOptions = [
 		{ value: 'standard', name: 'Standard', time: '5-7 days', price: '$5.99' },
-		{ value: 'express', name: 'Express', time: '2-3 days', price: '$12.99', best: true },
+		{
+			value: 'express',
+			name: 'Express',
+			time: '2-3 days',
+			price: '$12.99',
+			best: true,
+		},
 		{ value: 'overnight', name: 'Overnight', time: '1 day', price: '$24.99' },
 	];
 
@@ -160,7 +178,8 @@ export default function Main() {
 						<div className="flex items-start gap-3">
 							<Info className="size-5 text-muted-foreground shrink-0 mt-0.5" />
 							<p className="text-sm text-muted-foreground">
-								Delivery speed applies to each shipment. You'll receive tracking for each package separately.
+								Delivery speed applies to each shipment. You'll receive tracking
+								for each package separately.
 							</p>
 						</div>
 					</CardContent>

@@ -1,11 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -77,10 +72,7 @@ const AddressCard = ({
 				<Icon className="size-4 text-primary" />
 				<span className="text-sm font-medium">{title}</span>
 			</div>
-			<Link
-				href={editHref}
-				className="text-xs text-primary hover:underline"
-			>
+			<Link href={editHref} className="text-xs text-primary hover:underline">
 				Edit
 			</Link>
 		</div>

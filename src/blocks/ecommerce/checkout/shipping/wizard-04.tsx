@@ -1,4 +1,11 @@
-import { ArrowLeft, ArrowRight, MapPin, Package, Truck, Check } from 'lucide-react';
+import {
+	ArrowLeft,
+	ArrowRight,
+	MapPin,
+	Package,
+	Truck,
+	Check,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -70,9 +77,7 @@ const DeliveryCard = ({
 				has-[:checked]:border-primary has-[:checked]:bg-gradient-to-br has-[:checked]:from-primary/5 has-[:checked]:to-transparent
 			`}
 		>
-			{badge && (
-				<Badge className="absolute -top-2.5 left-4">{badge}</Badge>
-			)}
+			{badge && <Badge className="absolute -top-2.5 left-4">{badge}</Badge>}
 			<CardContent className="p-6 h-full flex flex-col">
 				<div className="flex items-start justify-between mb-4">
 					<div className="flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -134,7 +139,10 @@ export default function Main() {
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="flex items-center justify-center mb-12">
 					{steps.map((step, i) => (
-						<div key={step.number} className="flex items-center flex-1 last:flex-initial">
+						<div
+							key={step.number}
+							className="flex items-center flex-1 last:flex-initial"
+						>
 							<NumberedStep {...step} />
 							{i < steps.length - 1 && (
 								<StepperDivider completed={step.status === 'completed'} />
@@ -145,10 +153,15 @@ export default function Main() {
 
 				<div className="text-center mb-10">
 					<h1 className="text-3xl font-bold mb-2">Choose Delivery Method</h1>
-					<p className="text-muted-foreground">Select how you'd like your order shipped</p>
+					<p className="text-muted-foreground">
+						Select how you'd like your order shipped
+					</p>
 				</div>
 
-				<RadioGroup defaultValue="express" className="grid @sm:grid-cols-3 gap-6 mb-10">
+				<RadioGroup
+					defaultValue="express"
+					className="grid @sm:grid-cols-3 gap-6 mb-10"
+				>
 					{deliveryOptions.map((option) => (
 						<DeliveryCard key={option.value} {...option} />
 					))}

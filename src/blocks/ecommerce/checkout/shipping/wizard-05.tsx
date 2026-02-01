@@ -1,4 +1,11 @@
-import { Check, MapPin, Truck, CreditCard, Gift, ArrowRight } from 'lucide-react';
+import {
+	Check,
+	MapPin,
+	Truck,
+	CreditCard,
+	Gift,
+	ArrowRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -75,22 +82,16 @@ const AccordionStep = ({
 				)}
 			</div>
 			{completed && (
-				<Button variant="ghost" size="sm">Edit</Button>
+				<Button variant="ghost" size="sm">
+					Edit
+				</Button>
 			)}
 		</div>
-		{active && (
-			<div className="p-4 pt-0 border-t">
-				{children}
-			</div>
-		)}
+		{active && <div className="p-4 pt-0 border-t">{children}</div>}
 	</div>
 );
 
-const FormRow = ({
-	children,
-}: {
-	children: React.ReactNode;
-}) => (
+const FormRow = ({ children }: { children: React.ReactNode }) => (
 	<div className="grid @sm:grid-cols-2 gap-4">{children}</div>
 );
 
@@ -145,11 +146,18 @@ export default function Main() {
 								<FormField label="City" placeholder="New York" />
 								<FormField label="ZIP Code" placeholder="10001" />
 							</FormRow>
-							<FormField label="Phone" placeholder="+1 (555) 123-4567" type="tel" />
+							<FormField
+								label="Phone"
+								placeholder="+1 (555) 123-4567"
+								type="tel"
+							/>
 
 							<div className="flex items-center gap-2 pt-2">
 								<Checkbox id="save-address" />
-								<Label htmlFor="save-address" className="text-sm cursor-pointer">
+								<Label
+									htmlFor="save-address"
+									className="text-sm cursor-pointer"
+								>
 									Save this address for future orders
 								</Label>
 							</div>
@@ -157,23 +165,17 @@ export default function Main() {
 							<Separator className="my-4" />
 
 							<div className="flex gap-3">
-								<Button variant="outline" className="flex-1">Back</Button>
+								<Button variant="outline" className="flex-1">
+									Back
+								</Button>
 								<Button className="flex-1">Continue to Shipping</Button>
 							</div>
 						</div>
 					</AccordionStep>
 
-					<AccordionStep
-						number={3}
-						title="Shipping Method"
-						icon={Truck}
-					/>
+					<AccordionStep number={3} title="Shipping Method" icon={Truck} />
 
-					<AccordionStep
-						number={4}
-						title="Payment"
-						icon={CreditCard}
-					/>
+					<AccordionStep number={4} title="Payment" icon={CreditCard} />
 				</div>
 			</div>
 		</section>

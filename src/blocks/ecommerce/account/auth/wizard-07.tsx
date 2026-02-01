@@ -1,14 +1,37 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowLeft, Store, Check, Building2, Mail, Phone, Globe, Edit2, Sparkles } from 'lucide-react';
+import {
+	ArrowRight,
+	ArrowLeft,
+	Store,
+	Check,
+	Building2,
+	Mail,
+	Phone,
+	Globe,
+	Edit2,
+	Sparkles,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -40,7 +63,9 @@ const StepCircle = ({
 		>
 			{isCompleted ? <Check className="size-5" /> : step}
 		</div>
-		<span className={`text-xs mt-2 ${isActive || isCompleted ? 'text-primary' : 'text-muted-foreground'}`}>
+		<span
+			className={`text-xs mt-2 ${isActive || isCompleted ? 'text-primary' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</span>
 	</div>
@@ -120,7 +145,9 @@ const NavigationButtons = ({
 		)}
 		<Button type="submit" className="flex-1 gap-2 group">
 			{nextLabel}
-			{NextIcon && <NextIcon className="size-4 transition-transform group-hover:translate-x-0.5" />}
+			{NextIcon && (
+				<NextIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
+			)}
 		</Button>
 	</div>
 );
@@ -145,27 +172,45 @@ const ReviewStep = () => {
 
 	return (
 		<form className="space-y-4">
-			<ReviewSection title="Business Information" items={businessInfo} editStep={1} />
-			<ReviewSection title="Verification" items={verificationInfo} editStep={2} />
+			<ReviewSection
+				title="Business Information"
+				items={businessInfo}
+				editStep={1}
+			/>
+			<ReviewSection
+				title="Verification"
+				items={verificationInfo}
+				editStep={2}
+			/>
 			<ReviewSection title="Store Setup" items={storeInfo} editStep={3} />
 
 			<Separator />
 
 			<div className="flex items-start gap-2">
 				<Checkbox id="terms" className="mt-0.5" />
-				<Label htmlFor="terms" className="text-sm font-normal cursor-pointer leading-relaxed">
+				<Label
+					htmlFor="terms"
+					className="text-sm font-normal cursor-pointer leading-relaxed"
+				>
 					I agree to the{' '}
 					<Link href="/seller-terms" className="text-primary hover:underline">
 						Seller Terms
 					</Link>{' '}
 					and{' '}
-					<Link href="/marketplace-policy" className="text-primary hover:underline">
+					<Link
+						href="/marketplace-policy"
+						className="text-primary hover:underline"
+					>
 						Marketplace Policy
 					</Link>
 				</Label>
 			</div>
 
-			<NavigationButtons showBack={true} nextLabel="Submit Application" nextIcon={Sparkles} />
+			<NavigationButtons
+				showBack={true}
+				nextLabel="Submit Application"
+				nextIcon={Sparkles}
+			/>
 		</form>
 	);
 };
@@ -182,7 +227,9 @@ export default function Main() {
 							<Logo name="SellerHub" icon={Store} />
 						</div>
 						<CardTitle className="text-2xl">Review & Submit</CardTitle>
-						<CardDescription>Double-check your information before submitting</CardDescription>
+						<CardDescription>
+							Double-check your information before submitting
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<StepProgress steps={steps} currentStep={4} />

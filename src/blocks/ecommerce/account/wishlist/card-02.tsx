@@ -24,13 +24,21 @@ const ImageGallery = ({ images, name }: { images: string[]; name: string }) => (
 	<div className="grid grid-cols-3 gap-1">
 		<div className="col-span-2 row-span-2">
 			<AspectRatio ratio={1}>
-				<img src={images[0]} alt={name} className="size-full object-cover rounded-tl-xl" />
+				<img
+					src={images[0]}
+					alt={name}
+					className="size-full object-cover rounded-tl-xl"
+				/>
 			</AspectRatio>
 		</div>
 		{images.slice(1, 3).map((img, i) => (
 			<div key={i}>
 				<AspectRatio ratio={1}>
-					<img src={img} alt={`${name} ${i + 2}`} className={`size-full object-cover ${i === 0 ? 'rounded-tr-xl' : ''}`} />
+					<img
+						src={img}
+						alt={`${name} ${i + 2}`}
+						className={`size-full object-cover ${i === 0 ? 'rounded-tr-xl' : ''}`}
+					/>
 				</AspectRatio>
 			</div>
 		))}
@@ -60,7 +68,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			)}
 		</div>
 		<CardContent className="p-4">
-			<p className="text-xs text-muted-foreground uppercase tracking-wider">{item.brand}</p>
+			<p className="text-xs text-muted-foreground uppercase tracking-wider">
+				{item.brand}
+			</p>
 			<Link href={item.href}>
 				<h3 className="mt-1 font-semibold line-clamp-1 group-hover:text-primary transition-colors">
 					{item.name}
@@ -69,7 +79,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			<div className="mt-2 flex items-baseline gap-2">
 				<span className="text-lg font-bold">${item.price.toFixed(2)}</span>
 				{item.originalPrice && (
-					<span className="text-sm text-muted-foreground line-through">${item.originalPrice.toFixed(2)}</span>
+					<span className="text-sm text-muted-foreground line-through">
+						${item.originalPrice.toFixed(2)}
+					</span>
 				)}
 			</div>
 			<Button className="w-full mt-4 gap-2" disabled={!item.inStock}>
@@ -90,10 +102,60 @@ const CardGrid = ({ items }: CardGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Floral Summer Dress', price: 89.00, originalPrice: 129.00, images: ['https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=400&fit=crop', 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=200&h=200&fit=crop', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=200&h=200&fit=crop'], brand: 'Reformation', inStock: true, href: '/product/1' },
-		{ id: '2', name: 'Tailored Linen Blazer', price: 245.00, images: ['https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=400&fit=crop', 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&h=200&fit=crop', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=200&h=200&fit=crop'], brand: 'Theory', inStock: true, href: '/product/2' },
-		{ id: '3', name: 'Silk Midi Skirt', price: 179.00, images: ['https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&h=400&fit=crop', 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=200&h=200&fit=crop', 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop'], brand: 'Vince', inStock: false, href: '/product/3' },
-		{ id: '4', name: 'Cashmere Cardigan', price: 325.00, originalPrice: 425.00, images: ['https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=400&fit=crop', 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&h=200&fit=crop', 'https://images.unsplash.com/photo-1520367445093-50dc08a59d9d?w=200&h=200&fit=crop'], brand: 'Everlane', inStock: true, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Floral Summer Dress',
+			price: 89.0,
+			originalPrice: 129.0,
+			images: [
+				'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=400&fit=crop',
+				'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=200&h=200&fit=crop',
+				'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=200&h=200&fit=crop',
+			],
+			brand: 'Reformation',
+			inStock: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Tailored Linen Blazer',
+			price: 245.0,
+			images: [
+				'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=400&fit=crop',
+				'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&h=200&fit=crop',
+				'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=200&h=200&fit=crop',
+			],
+			brand: 'Theory',
+			inStock: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Silk Midi Skirt',
+			price: 179.0,
+			images: [
+				'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&h=400&fit=crop',
+				'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=200&h=200&fit=crop',
+				'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop',
+			],
+			brand: 'Vince',
+			inStock: false,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Cashmere Cardigan',
+			price: 325.0,
+			originalPrice: 425.0,
+			images: [
+				'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=400&fit=crop',
+				'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&h=200&fit=crop',
+				'https://images.unsplash.com/photo-1520367445093-50dc08a59d9d?w=200&h=200&fit=crop',
+			],
+			brand: 'Everlane',
+			inStock: true,
+			href: '/product/4',
+		},
 	];
 
 	return (

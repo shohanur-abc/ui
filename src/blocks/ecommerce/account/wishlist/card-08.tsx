@@ -33,7 +33,12 @@ const StarRating = ({ rating }: { rating: number }) => (
 	<div className="flex items-center gap-1">
 		<div className="flex">
 			{[...Array(5)].map((_, i) => (
-				<span key={i} className={`text-sm ${i < rating ? 'text-amber-400' : 'text-muted'}`}>★</span>
+				<span
+					key={i}
+					className={`text-sm ${i < rating ? 'text-amber-400' : 'text-muted'}`}
+				>
+					★
+				</span>
 			))}
 		</div>
 	</div>
@@ -49,7 +54,9 @@ const TopReview = ({ review }: { review: Review }) => (
 			<span className="text-xs font-medium">{review.author}</span>
 			<StarRating rating={review.rating} />
 		</div>
-		<p className="text-xs text-muted-foreground line-clamp-2">&ldquo;{review.text}&rdquo;</p>
+		<p className="text-xs text-muted-foreground line-clamp-2">
+			&ldquo;{review.text}&rdquo;
+		</p>
 		<div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground">
 			<ThumbsUp className="size-3" />
 			<span>{review.helpful} found helpful</span>
@@ -82,7 +89,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			</Link>
 			<div className="flex items-center gap-2 mt-1">
 				<StarRating rating={Math.round(item.rating)} />
-				<span className="text-xs text-muted-foreground">({item.reviewCount} reviews)</span>
+				<span className="text-xs text-muted-foreground">
+					({item.reviewCount} reviews)
+				</span>
 			</div>
 			<p className="text-xl font-bold mt-2">${item.price.toFixed(2)}</p>
 			<TopReview review={item.topReview} />
@@ -110,9 +119,57 @@ const CardGrid = ({ items }: CardGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Aromatherapy Diffuser', price: 49.99, image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=400&fit=crop', rating: 4.8, reviewCount: 1234, topReview: { author: 'Sarah M.', avatar: 'https://i.pravatar.cc/100?img=1', rating: 5, text: 'Love this diffuser! It runs quietly and the mist output is perfect. Great addition to my home office.', helpful: 89 }, href: '/product/1' },
-		{ id: '2', name: 'Himalayan Salt Lamp', price: 34.99, image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop', rating: 4.6, reviewCount: 892, topReview: { author: 'Mike T.', avatar: 'https://i.pravatar.cc/100?img=2', rating: 5, text: 'Beautiful warm glow. Creates such a relaxing atmosphere in my bedroom. Highly recommend!', helpful: 56 }, href: '/product/2' },
-		{ id: '3', name: 'Bamboo Plant Stand', price: 65.00, image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&h=400&fit=crop', rating: 4.7, reviewCount: 567, topReview: { author: 'Emily R.', avatar: 'https://i.pravatar.cc/100?img=3', rating: 4, text: 'Sturdy and well-made. Assembly was easy. Perfect for displaying my plant collection.', helpful: 34 }, href: '/product/3' },
+		{
+			id: '1',
+			name: 'Aromatherapy Diffuser',
+			price: 49.99,
+			image:
+				'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=400&fit=crop',
+			rating: 4.8,
+			reviewCount: 1234,
+			topReview: {
+				author: 'Sarah M.',
+				avatar: 'https://i.pravatar.cc/100?img=1',
+				rating: 5,
+				text: 'Love this diffuser! It runs quietly and the mist output is perfect. Great addition to my home office.',
+				helpful: 89,
+			},
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Himalayan Salt Lamp',
+			price: 34.99,
+			image:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+			rating: 4.6,
+			reviewCount: 892,
+			topReview: {
+				author: 'Mike T.',
+				avatar: 'https://i.pravatar.cc/100?img=2',
+				rating: 5,
+				text: 'Beautiful warm glow. Creates such a relaxing atmosphere in my bedroom. Highly recommend!',
+				helpful: 56,
+			},
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Bamboo Plant Stand',
+			price: 65.0,
+			image:
+				'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&h=400&fit=crop',
+			rating: 4.7,
+			reviewCount: 567,
+			topReview: {
+				author: 'Emily R.',
+				avatar: 'https://i.pravatar.cc/100?img=3',
+				rating: 4,
+				text: 'Sturdy and well-made. Assembly was easy. Perfect for displaying my plant collection.',
+				helpful: 34,
+			},
+			href: '/product/3',
+		},
 	];
 
 	return (
@@ -120,7 +177,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<div className="mb-6 @md:mb-8">
 					<h1 className="text-2xl @md:text-3xl font-bold">Wishlist</h1>
-					<p className="text-muted-foreground mt-1">See what others are saying about your saved items</p>
+					<p className="text-muted-foreground mt-1">
+						See what others are saying about your saved items
+					</p>
 				</div>
 				<CardGrid items={wishlistItems} />
 			</div>

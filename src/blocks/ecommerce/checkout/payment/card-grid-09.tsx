@@ -1,10 +1,28 @@
 'use client';
 
-import { Building2, Check, CreditCard, Gift, Globe, Lock, Percent, Shield, Smartphone, Star, Wallet, Zap } from 'lucide-react';
+import {
+	Building2,
+	Check,
+	CreditCard,
+	Gift,
+	Globe,
+	Lock,
+	Percent,
+	Shield,
+	Smartphone,
+	Star,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -26,7 +44,15 @@ interface PaymentMethod {
 	icon: React.ComponentType<{ className?: string }>;
 }
 
-const MembershipBanner = ({ tier, points, nextTier }: { tier: string; points: string; nextTier: string }) => (
+const MembershipBanner = ({
+	tier,
+	points,
+	nextTier,
+}: {
+	tier: string;
+	points: string;
+	nextTier: string;
+}) => (
 	<div className="p-4 rounded-xl bg-gradient-to-r from-primary/20 to-primary/5 border border-primary/20">
 		<div className="flex items-center justify-between">
 			<div className="flex items-center gap-3">
@@ -36,7 +62,9 @@ const MembershipBanner = ({ tier, points, nextTier }: { tier: string; points: st
 				<div>
 					<div className="flex items-center gap-2">
 						<span className="font-semibold">{tier} Member</span>
-						<Badge variant="secondary" className="text-xs">{points} pts</Badge>
+						<Badge variant="secondary" className="text-xs">
+							{points} pts
+						</Badge>
 					</div>
 					<p className="text-xs text-muted-foreground">{nextTier}</p>
 				</div>
@@ -46,20 +74,20 @@ const MembershipBanner = ({ tier, points, nextTier }: { tier: string; points: st
 	</div>
 );
 
-const PaymentMethodCard = ({ 
-	id, 
-	name, 
-	bonus, 
-	icon: Icon, 
-	selected, 
-	onSelect 
+const PaymentMethodCard = ({
+	id,
+	name,
+	bonus,
+	icon: Icon,
+	selected,
+	onSelect,
 }: PaymentMethod & { selected: boolean; onSelect: (id: string) => void }) => (
 	<button
 		type="button"
 		onClick={() => onSelect(id)}
 		className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-all ${
-			selected 
-				? 'border-primary bg-primary/5' 
+			selected
+				? 'border-primary bg-primary/5'
 				: 'border-border/50 hover:border-primary/30'
 		}`}
 	>
@@ -78,22 +106,22 @@ const PaymentMethodCard = ({
 	</button>
 );
 
-const PaymentMethodsGrid = ({ 
-	methods, 
-	selected, 
-	onSelect 
-}: { 
-	methods: PaymentMethod[]; 
-	selected: string; 
-	onSelect: (id: string) => void 
+const PaymentMethodsGrid = ({
+	methods,
+	selected,
+	onSelect,
+}: {
+	methods: PaymentMethod[];
+	selected: string;
+	onSelect: (id: string) => void;
 }) => (
 	<div className="space-y-3">
 		<h3 className="text-sm font-medium">Select Payment Method</h3>
 		<div className="grid grid-cols-2 gap-2">
 			{methods.map((method) => (
-				<PaymentMethodCard 
-					key={method.id} 
-					{...method} 
+				<PaymentMethodCard
+					key={method.id}
+					{...method}
 					selected={selected === method.id}
 					onSelect={onSelect}
 				/>
@@ -128,28 +156,53 @@ const RewardsInput = () => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
 			<h3 className="text-sm font-medium">Use Rewards</h3>
-			<Badge variant="outline" className="text-xs">2,500 pts available</Badge>
+			<Badge variant="outline" className="text-xs">
+				2,500 pts available
+			</Badge>
 		</div>
 		<div className="flex gap-2">
 			<div className="relative flex-1">
 				<Gift className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
 				<Input placeholder="Points to redeem" className="pl-10" />
 			</div>
-			<Button variant="outline" size="sm">Apply</Button>
+			<Button variant="outline" size="sm">
+				Apply
+			</Button>
 		</div>
 	</div>
 );
 
-const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isBonus?: boolean }[] }) => (
+const OrderSummary = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isBonus?: boolean;
+	}[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isBonus ? 'text-primary' : line.isTotal ? '' : 'text-muted-foreground'}>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={
+							line.isBonus
+								? 'text-primary'
+								: line.isTotal
+									? ''
+									: 'text-muted-foreground'
+						}
+					>
 						{line.label}
 					</span>
-					<span className={line.isBonus ? 'text-primary' : ''}>{line.value}</span>
+					<span className={line.isBonus ? 'text-primary' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
@@ -159,7 +212,10 @@ const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTota
 const EarnedBadge = ({ points }: { points: string }) => (
 	<div className="flex items-center justify-center gap-2 p-2 rounded-lg bg-primary/10 text-sm">
 		<Star className="size-4 text-primary" />
-		<span>You'll earn <strong className="text-primary">{points}</strong> on this purchase!</span>
+		<span>
+			You'll earn <strong className="text-primary">{points}</strong> on this
+			purchase!
+		</span>
 	</div>
 );
 
@@ -190,17 +246,17 @@ export default function Main() {
 			<div className="mx-auto max-w-md px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardHeader className="pb-4">
-						<MembershipBanner 
+						<MembershipBanner
 							tier="Gold"
 							points="2,500"
 							nextTier="500 pts to Platinum"
 						/>
 					</CardHeader>
 					<CardContent className="space-y-6">
-						<PaymentMethodsGrid 
-							methods={paymentMethods} 
-							selected="card" 
-							onSelect={() => {}} 
+						<PaymentMethodsGrid
+							methods={paymentMethods}
+							selected="card"
+							onSelect={() => {}}
 						/>
 						<CardForm />
 						<Separator />

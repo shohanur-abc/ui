@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -89,8 +95,12 @@ const ProductTile = ({ item }: { item: CartItem }) => (
 					<p className="text-xs text-muted-foreground">{item.options}</p>
 				</div>
 				<div className="flex items-center justify-between">
-					<span className="text-xs text-muted-foreground">×{item.quantity}</span>
-					<span className="text-sm font-semibold">${item.price.toFixed(2)}</span>
+					<span className="text-xs text-muted-foreground">
+						×{item.quantity}
+					</span>
+					<span className="text-sm font-semibold">
+						${item.price.toFixed(2)}
+					</span>
 				</div>
 			</div>
 		</div>
@@ -107,7 +117,9 @@ const AddressInfo = ({
 	lines: string[];
 }) => (
 	<div>
-		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">{label}</p>
+		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">
+			{label}
+		</p>
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
 			<p key={i} className="text-sm text-muted-foreground">
@@ -127,7 +139,9 @@ const DeliveryBadge = ({
 	eco?: boolean;
 }) => (
 	<div className="flex items-center gap-3 rounded-xl bg-muted/50 p-4">
-		<div className={`flex size-10 items-center justify-center rounded-full ${eco ? 'bg-green-500/10' : 'bg-primary/10'}`}>
+		<div
+			className={`flex size-10 items-center justify-center rounded-full ${eco ? 'bg-green-500/10' : 'bg-primary/10'}`}
+		>
 			{eco ? (
 				<Recycle className="size-5 text-green-600 dark:text-green-400" />
 			) : (
@@ -162,7 +176,9 @@ const PaymentInfo = ({
 			<CreditCard className="size-6 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -183,7 +199,9 @@ const ChecklistItem = ({
 		>
 			{checked && <Check className="size-3 text-white" />}
 		</div>
-		<span className={`text-sm ${checked ? '' : 'text-muted-foreground'}`}>{label}</span>
+		<span className={`text-sm ${checked ? '' : 'text-muted-foreground'}`}>
+			{label}
+		</span>
 	</div>
 );
 
@@ -198,9 +216,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -212,7 +234,8 @@ export default function Main() {
 			options: 'Stainless Steel / 750ml',
 			price: 34.99,
 			quantity: 2,
-			image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&h=200&fit=crop',
 			sustainable: true,
 		},
 		{
@@ -221,7 +244,8 @@ export default function Main() {
 			options: 'Large / Natural',
 			price: 29.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1544181093-c91c3b22c3c7?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1544181093-c91c3b22c3c7?w=200&h=200&fit=crop',
 			sustainable: true,
 		},
 	];
@@ -251,7 +275,12 @@ export default function Main() {
 						</div>
 					</MasonryCard>
 
-					<MasonryCard title="Ship To" icon={MapPin} size="sm" onEdit={() => {}}>
+					<MasonryCard
+						title="Ship To"
+						icon={MapPin}
+						size="sm"
+						onEdit={() => {}}
+					>
 						<AddressInfo
 							label="Shipping"
 							name="Ava Mitchell"
@@ -259,7 +288,12 @@ export default function Main() {
 						/>
 					</MasonryCard>
 
-					<MasonryCard title="Bill To" icon={MapPin} size="sm" onEdit={() => {}}>
+					<MasonryCard
+						title="Bill To"
+						icon={MapPin}
+						size="sm"
+						onEdit={() => {}}
+					>
 						<AddressInfo
 							label="Billing"
 							name="Ava Mitchell"
@@ -267,7 +301,12 @@ export default function Main() {
 						/>
 					</MasonryCard>
 
-					<MasonryCard title="Delivery" icon={Truck} size="md" onEdit={() => {}}>
+					<MasonryCard
+						title="Delivery"
+						icon={Truck}
+						size="md"
+						onEdit={() => {}}
+					>
 						<DeliveryBadge
 							type="Carbon Neutral Shipping"
 							date="Arrives Dec 23-26, 2025"
@@ -275,7 +314,12 @@ export default function Main() {
 						/>
 					</MasonryCard>
 
-					<MasonryCard title="Payment" icon={CreditCard} size="md" onEdit={() => {}}>
+					<MasonryCard
+						title="Payment"
+						icon={CreditCard}
+						size="md"
+						onEdit={() => {}}
+					>
 						<PaymentInfo brand="Visa" last4="7777" exp="10/27" />
 					</MasonryCard>
 

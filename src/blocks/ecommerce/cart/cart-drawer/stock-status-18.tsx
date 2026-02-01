@@ -10,7 +10,14 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { AlertCircle, Minus, Plus, RefreshCw, ShoppingCart, X } from 'lucide-react';
+import {
+	AlertCircle,
+	Minus,
+	Plus,
+	RefreshCw,
+	ShoppingCart,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -29,8 +36,18 @@ interface CartDrawerProps {
 	items: CartItem[];
 }
 
-const StatusTrigger = ({ count, hasIssues }: { count: number; hasIssues: boolean }) => (
-	<Button variant={hasIssues ? 'destructive' : 'outline'} size="icon" className="relative">
+const StatusTrigger = ({
+	count,
+	hasIssues,
+}: {
+	count: number;
+	hasIssues: boolean;
+}) => (
+	<Button
+		variant={hasIssues ? 'destructive' : 'outline'}
+		size="icon"
+		className="relative"
+	>
 		<ShoppingCart className="size-4" />
 		{count > 0 && (
 			<Badge
@@ -65,9 +82,7 @@ const StatusItem = ({ item }: { item: CartItem }) => {
 	const isUnavailable = item.status === 'out-of-stock';
 
 	return (
-		<div
-			className={`flex gap-3 py-4 ${isUnavailable ? 'opacity-60' : ''}`}
-		>
+		<div className={`flex gap-3 py-4 ${isUnavailable ? 'opacity-60' : ''}`}>
 			<div className="relative size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
 				<Image
 					src={item.image}
@@ -152,7 +167,11 @@ const Footer = ({
 					* Unavailable items will be removed at checkout
 				</p>
 			)}
-			<Button className="w-full" size="lg" disabled={availableItems.length === 0}>
+			<Button
+				className="w-full"
+				size="lg"
+				disabled={availableItems.length === 0}
+			>
 				{checkoutLabel}
 			</Button>
 		</div>
@@ -166,7 +185,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Air Max 90',
 				variant: 'Red / US 10',
 				price: 149.99,
@@ -175,7 +195,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'React Element',
 				variant: 'Blue / US 9',
 				price: 169.99,
@@ -184,7 +205,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200&h=200&fit=crop',
 				name: 'Classic Leather',
 				variant: 'White / US 11',
 				price: 89.99,
@@ -193,7 +215,8 @@ export default function Main() {
 			},
 			{
 				id: '4',
-				image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
 				name: 'Trail Runner',
 				variant: 'Green / US 10',
 				price: 129.99,
@@ -203,7 +226,10 @@ export default function Main() {
 		],
 	};
 
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 	const issueCount = cartData.items.filter(
 		(item) => item.status === 'out-of-stock',
 	).length;

@@ -1,8 +1,21 @@
-import { Building2, ChevronRight, CreditCard, Globe2, Lock, Smartphone, Wallet } from 'lucide-react';
+import {
+	Building2,
+	ChevronRight,
+	CreditCard,
+	Globe2,
+	Lock,
+	Smartphone,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -34,7 +47,12 @@ const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	</div>
 );
 
-const PaymentMethodCard = ({ icon: Icon, name, description, badge }: PaymentMethodProps) => (
+const PaymentMethodCard = ({
+	icon: Icon,
+	name,
+	description,
+	badge,
+}: PaymentMethodProps) => (
 	<button className="flex items-center gap-4 w-full p-4 rounded-xl border border-border/50 bg-card/50 hover:border-primary/30 hover:bg-accent/30 transition-all text-left group">
 		<div className="size-12 rounded-xl bg-muted flex items-center justify-center shrink-0">
 			<Icon className="size-6" />
@@ -42,7 +60,11 @@ const PaymentMethodCard = ({ icon: Icon, name, description, badge }: PaymentMeth
 		<div className="flex-1">
 			<div className="flex items-center gap-2">
 				<span className="font-medium">{name}</span>
-				{badge && <Badge variant="secondary" className="text-xs">{badge}</Badge>}
+				{badge && (
+					<Badge variant="secondary" className="text-xs">
+						{badge}
+					</Badge>
+				)}
 			</div>
 			<p className="text-sm text-muted-foreground">{description}</p>
 		</div>
@@ -63,15 +85,25 @@ const RecentPayment = ({ method, last4, date }: RecentPaymentProps) => (
 		<div className="flex items-center gap-3">
 			<CreditCard className="size-4 text-muted-foreground" />
 			<div>
-				<p className="text-sm font-medium">{method} •••• {last4}</p>
+				<p className="text-sm font-medium">
+					{method} •••• {last4}
+				</p>
 				<p className="text-xs text-muted-foreground">Last used {date}</p>
 			</div>
 		</div>
-		<Button variant="outline" size="sm">Use</Button>
+		<Button variant="outline" size="sm">
+			Use
+		</Button>
 	</div>
 );
 
-const RecentPayments = ({ payments, title }: { payments: RecentPaymentProps[]; title: string }) => (
+const RecentPayments = ({
+	payments,
+	title,
+}: {
+	payments: RecentPaymentProps[];
+	title: string;
+}) => (
 	<div className="space-y-3">
 		<h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
 		{payments.map((payment, index) => (
@@ -80,7 +112,13 @@ const RecentPayments = ({ payments, title }: { payments: RecentPaymentProps[]; t
 	</div>
 );
 
-const CountrySelector = ({ countries, current }: { countries: CountryProps[]; current: string }) => (
+const CountrySelector = ({
+	countries,
+	current,
+}: {
+	countries: CountryProps[];
+	current: string;
+}) => (
 	<div className="flex items-center gap-2">
 		<Globe2 className="size-4 text-muted-foreground" />
 		<select className="bg-transparent text-sm border-none outline-none cursor-pointer font-medium">
@@ -107,18 +145,38 @@ const FormField = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
 
-const AmountDisplay = ({ label, amount, currency }: { label: string; amount: string; currency: string }) => (
+const AmountDisplay = ({
+	label,
+	amount,
+	currency,
+}: {
+	label: string;
+	amount: string;
+	currency: string;
+}) => (
 	<div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 text-center">
 		<p className="text-sm text-muted-foreground mb-1">{label}</p>
-		<p className="text-3xl font-bold">{currency}{amount}</p>
+		<p className="text-3xl font-bold">
+			{currency}
+			{amount}
+		</p>
 	</div>
 );
 
@@ -131,10 +189,31 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const paymentMethods: PaymentMethodProps[] = [
-		{ id: 'card', icon: CreditCard, name: 'Credit / Debit Card', description: 'Visa, Mastercard, Amex' },
-		{ id: 'wallet', icon: Wallet, name: 'Digital Wallet', description: 'Apple Pay, Google Pay', badge: 'Fast' },
-		{ id: 'bank', icon: Building2, name: 'Bank Transfer', description: 'ACH, Wire transfer' },
-		{ id: 'mobile', icon: Smartphone, name: 'Mobile Payment', description: 'Venmo, Cash App' },
+		{
+			id: 'card',
+			icon: CreditCard,
+			name: 'Credit / Debit Card',
+			description: 'Visa, Mastercard, Amex',
+		},
+		{
+			id: 'wallet',
+			icon: Wallet,
+			name: 'Digital Wallet',
+			description: 'Apple Pay, Google Pay',
+			badge: 'Fast',
+		},
+		{
+			id: 'bank',
+			icon: Building2,
+			name: 'Bank Transfer',
+			description: 'ACH, Wire transfer',
+		},
+		{
+			id: 'mobile',
+			icon: Smartphone,
+			name: 'Mobile Payment',
+			description: 'Venmo, Cash App',
+		},
 	];
 
 	const recentPayments: RecentPaymentProps[] = [
@@ -159,7 +238,10 @@ export default function Main() {
 						</div>
 						<PaymentMethods methods={paymentMethods} />
 						<Separator />
-						<RecentPayments payments={recentPayments} title="Recent Payment Methods" />
+						<RecentPayments
+							payments={recentPayments}
+							title="Recent Payment Methods"
+						/>
 					</div>
 					<div>
 						<Card className="border-border/50 bg-card/50 backdrop-blur-sm @lg:sticky @lg:top-8">
@@ -167,13 +249,31 @@ export default function Main() {
 								<h3 className="font-semibold">Card Details</h3>
 							</CardHeader>
 							<CardContent className="space-y-4">
-								<AmountDisplay label="Amount Due" amount="199.00" currency="$" />
+								<AmountDisplay
+									label="Amount Due"
+									amount="199.00"
+									currency="$"
+								/>
 								<Separator />
-								<FormField id="number" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
-								<FormField id="name" label="Cardholder Name" placeholder="John Doe" />
+								<FormField
+									id="number"
+									label="Card Number"
+									placeholder="1234 5678 9012 3456"
+									icon={CreditCard}
+								/>
+								<FormField
+									id="name"
+									label="Cardholder Name"
+									placeholder="John Doe"
+								/>
 								<div className="grid grid-cols-2 gap-4">
 									<FormField id="exp" label="Expiry" placeholder="MM/YY" />
-									<FormField id="cvc" label="CVC" placeholder="123" type="password" />
+									<FormField
+										id="cvc"
+										label="CVC"
+										placeholder="123"
+										type="password"
+									/>
 								</div>
 							</CardContent>
 							<CardFooter>

@@ -89,7 +89,8 @@ export default function Main() {
 			author: 'Grace Kim',
 			role: 'Team Lead',
 			company: 'ProductiveHQ',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'GK',
 			rating: 5,
 		},
@@ -99,7 +100,8 @@ export default function Main() {
 			author: 'Henry Davis',
 			role: 'DevOps Lead',
 			company: 'IntegratePro',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'HD',
 			rating: 5,
 		},
@@ -112,7 +114,8 @@ export default function Main() {
 			author: 'Isabelle Chen',
 			role: 'Consultant',
 			company: 'Advisory Group',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'IC',
 			rating: 5,
 		},
@@ -121,7 +124,8 @@ export default function Main() {
 			author: 'Jason Wright',
 			role: 'Software Engineer',
 			company: 'CodeBase',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'JW',
 			rating: 5,
 		},
@@ -130,7 +134,8 @@ export default function Main() {
 			author: 'Kelly Martinez',
 			role: 'Co-Founder',
 			company: 'StartupNow',
-			avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
 			initials: 'KM',
 			rating: 5,
 		},
@@ -143,23 +148,29 @@ export default function Main() {
 			author: 'Liam Foster',
 			role: 'Customer Success',
 			company: 'HelpDesk Pro',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'LF',
 			rating: 5,
 		},
 		{
-			quote: 'Security and performance at the highest level. Exactly what we needed.',
+			quote:
+				'Security and performance at the highest level. Exactly what we needed.',
 			author: 'Mia Thompson',
 			role: 'Security Lead',
 			company: 'SecureFirst',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'MT',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Stacked Reviews"

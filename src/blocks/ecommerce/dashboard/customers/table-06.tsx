@@ -68,7 +68,12 @@ const HeaderWithSearch = ({
 const MetricCards = ({
 	metrics,
 }: {
-	metrics: { label: string; value: string; icon: React.ElementType; change: string }[];
+	metrics: {
+		label: string;
+		value: string;
+		icon: React.ElementType;
+		change: string;
+	}[];
 }) => (
 	<div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-4">
 		{metrics.map((metric, i) => (
@@ -98,9 +103,7 @@ const GrowthIndicator = ({ value }: { value: number }) => {
 				isPositive ? 'text-emerald-500' : 'text-red-500'
 			}`}
 		>
-			<ArrowUpRight
-				className={`size-3.5 ${!isPositive ? 'rotate-90' : ''}`}
-			/>
+			<ArrowUpRight className={`size-3.5 ${!isPositive ? 'rotate-90' : ''}`} />
 			{Math.abs(value)}%
 		</div>
 	);
@@ -277,9 +280,15 @@ export default function Main() {
 								<TableHead>Country</TableHead>
 								<TableHead className="text-right">Customers</TableHead>
 								<TableHead className="text-right">Revenue</TableHead>
-								<TableHead className="hidden @md:table-cell text-right">Growth</TableHead>
-								<TableHead className="hidden @lg:table-cell">Conversion</TableHead>
-								<TableHead className="hidden @xl:table-cell">Top Products</TableHead>
+								<TableHead className="hidden @md:table-cell text-right">
+									Growth
+								</TableHead>
+								<TableHead className="hidden @lg:table-cell">
+									Conversion
+								</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Top Products
+								</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>

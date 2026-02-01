@@ -49,7 +49,12 @@ interface StatusBadgeProps {
 	status: Order['status'];
 }
 
-const Toolbar = ({ searchPlaceholder, filterLabel, exportLabel, refreshLabel }: ToolbarProps) => (
+const Toolbar = ({
+	searchPlaceholder,
+	filterLabel,
+	exportLabel,
+	refreshLabel,
+}: ToolbarProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 @sm:items-center @sm:justify-between mb-6">
 		<div className="relative flex-1 max-w-sm">
 			<Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
@@ -90,24 +95,36 @@ const SortableHeader = ({ label, sortable = true }: SortableHeaderProps) => (
 );
 
 const StatusBadge = ({ status }: StatusBadgeProps) => {
-	const variants: Record<Order['status'], 'default' | 'secondary' | 'destructive' | 'outline'> = {
+	const variants: Record<
+		Order['status'],
+		'default' | 'secondary' | 'destructive' | 'outline'
+	> = {
 		pending: 'outline',
 		confirmed: 'secondary',
 		shipped: 'default',
 		delivered: 'default',
 		returned: 'destructive',
 	};
-	return <Badge variant={variants[status]} className="capitalize">{status}</Badge>;
+	return (
+		<Badge variant={variants[status]} className="capitalize">
+			{status}
+		</Badge>
+	);
 };
 
 const PaymentBadge = ({ payment }: PaymentBadgeProps) => {
 	const config: Record<Order['payment'], { className: string }> = {
 		paid: { className: 'bg-accent/20 text-accent border-accent/30' },
-		unpaid: { className: 'bg-destructive/20 text-destructive border-destructive/30' },
+		unpaid: {
+			className: 'bg-destructive/20 text-destructive border-destructive/30',
+		},
 		refunded: { className: 'bg-muted text-muted-foreground' },
 	};
 	return (
-		<Badge variant="outline" className={`capitalize ${config[payment].className}`}>
+		<Badge
+			variant="outline"
+			className={`capitalize ${config[payment].className}`}
+		>
 			{payment}
 		</Badge>
 	);
@@ -128,17 +145,59 @@ const OrderRow = ({ order }: { order: Order }) => (
 		<TableCell>
 			<PaymentBadge payment={order.payment} />
 		</TableCell>
-		<TableCell className="text-muted-foreground text-sm">{order.date}</TableCell>
+		<TableCell className="text-muted-foreground text-sm">
+			{order.date}
+		</TableCell>
 	</TableRow>
 );
 
 export default function Main() {
 	const orders: Order[] = [
-		{ id: 'INV-2401', product: 'Wireless Headphones Pro', quantity: 2, amount: '$299.00', status: 'delivered', payment: 'paid', date: 'Jan 28, 2026' },
-		{ id: 'INV-2402', product: 'Smart Watch Ultra', quantity: 1, amount: '$499.00', status: 'shipped', payment: 'paid', date: 'Jan 27, 2026' },
-		{ id: 'INV-2403', product: 'Laptop Stand Adjustable', quantity: 3, amount: '$89.97', status: 'confirmed', payment: 'unpaid', date: 'Jan 27, 2026' },
-		{ id: 'INV-2404', product: 'USB-C Hub 7-in-1', quantity: 1, amount: '$59.99', status: 'pending', payment: 'unpaid', date: 'Jan 26, 2026' },
-		{ id: 'INV-2405', product: 'Mechanical Keyboard RGB', quantity: 1, amount: '$149.00', status: 'returned', payment: 'refunded', date: 'Jan 25, 2026' },
+		{
+			id: 'INV-2401',
+			product: 'Wireless Headphones Pro',
+			quantity: 2,
+			amount: '$299.00',
+			status: 'delivered',
+			payment: 'paid',
+			date: 'Jan 28, 2026',
+		},
+		{
+			id: 'INV-2402',
+			product: 'Smart Watch Ultra',
+			quantity: 1,
+			amount: '$499.00',
+			status: 'shipped',
+			payment: 'paid',
+			date: 'Jan 27, 2026',
+		},
+		{
+			id: 'INV-2403',
+			product: 'Laptop Stand Adjustable',
+			quantity: 3,
+			amount: '$89.97',
+			status: 'confirmed',
+			payment: 'unpaid',
+			date: 'Jan 27, 2026',
+		},
+		{
+			id: 'INV-2404',
+			product: 'USB-C Hub 7-in-1',
+			quantity: 1,
+			amount: '$59.99',
+			status: 'pending',
+			payment: 'unpaid',
+			date: 'Jan 26, 2026',
+		},
+		{
+			id: 'INV-2405',
+			product: 'Mechanical Keyboard RGB',
+			quantity: 1,
+			amount: '$149.00',
+			status: 'returned',
+			payment: 'refunded',
+			date: 'Jan 25, 2026',
+		},
 	];
 
 	const headers = [
@@ -166,7 +225,11 @@ export default function Main() {
 						<TableHeader>
 							<TableRow className="bg-muted/30 hover:bg-muted/30">
 								{headers.map((header, i) => (
-									<SortableHeader key={i} label={header.label} sortable={header.sortable} />
+									<SortableHeader
+										key={i}
+										label={header.label}
+										sortable={header.sortable}
+									/>
 								))}
 							</TableRow>
 						</TableHeader>

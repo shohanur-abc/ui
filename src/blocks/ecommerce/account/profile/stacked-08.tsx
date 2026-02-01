@@ -45,7 +45,9 @@ const NutritionHeader = ({
 			<div className="flex flex-col @md:flex-row items-center gap-6">
 				<Avatar className="size-20 ring-4 ring-lime-500/20">
 					<AvatarImage src={src} alt={name} />
-					<AvatarFallback className="text-xl bg-lime-500 text-white">{fallback}</AvatarFallback>
+					<AvatarFallback className="text-xl bg-lime-500 text-white">
+						{fallback}
+					</AvatarFallback>
 				</Avatar>
 				<div className="text-center @md:text-left flex-1">
 					<h1 className="text-2xl font-bold">{name}</h1>
@@ -53,11 +55,15 @@ const NutritionHeader = ({
 					<div className="flex items-center justify-center @md:justify-start gap-6 mt-3 text-sm">
 						<div className="flex items-center gap-2">
 							<Scale className="size-4 text-muted-foreground" />
-							<span>Current: <strong>{currentWeight}</strong></span>
+							<span>
+								Current: <strong>{currentWeight}</strong>
+							</span>
 						</div>
 						<div className="flex items-center gap-2">
 							<Target className="size-4 text-muted-foreground" />
-							<span>Target: <strong>{targetWeight}</strong></span>
+							<span>
+								Target: <strong>{targetWeight}</strong>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -85,17 +91,31 @@ const DailyCalories = ({
 		<CardHeader className="pb-3">
 			<div className="flex items-center justify-between">
 				<h2 className="font-semibold">Today's Calories</h2>
-				<Badge variant="outline">{remaining > 0 ? `${remaining} cal left` : 'Goal reached!'}</Badge>
+				<Badge variant="outline">
+					{remaining > 0 ? `${remaining} cal left` : 'Goal reached!'}
+				</Badge>
 			</div>
 		</CardHeader>
 		<CardContent>
 			<div className="flex items-center justify-center gap-8">
 				<div className="relative size-32">
 					<svg className="size-32 -rotate-90">
-						<circle cx="64" cy="64" r="56" fill="none" stroke="currentColor" strokeWidth="8" className="text-muted" />
 						<circle
-							cx="64" cy="64" r="56"
-							fill="none" stroke="currentColor" strokeWidth="8"
+							cx="64"
+							cy="64"
+							r="56"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="8"
+							className="text-muted"
+						/>
+						<circle
+							cx="64"
+							cy="64"
+							r="56"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="8"
 							strokeDasharray={`${Math.min((consumed / target) * 352, 352)} 352`}
 							strokeLinecap="round"
 							className="text-lime-500"
@@ -134,7 +154,13 @@ const DailyCalories = ({
 const Macros = ({
 	macros,
 }: {
-	macros: { name: string; current: number; target: number; unit: string; color: string }[];
+	macros: {
+		name: string;
+		current: number;
+		target: number;
+		unit: string;
+		color: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -145,12 +171,18 @@ const Macros = ({
 				<div key={i} className="space-y-2">
 					<div className="flex items-center justify-between text-sm">
 						<span className="font-medium">{macro.name}</span>
-						<span>{macro.current}{macro.unit} / {macro.target}{macro.unit}</span>
+						<span>
+							{macro.current}
+							{macro.unit} / {macro.target}
+							{macro.unit}
+						</span>
 					</div>
 					<div className="h-2 rounded-full bg-muted overflow-hidden">
 						<div
 							className={`h-full rounded-full ${macro.color}`}
-							style={{ width: `${Math.min((macro.current / macro.target) * 100, 100)}%` }}
+							style={{
+								width: `${Math.min((macro.current / macro.target) * 100, 100)}%`,
+							}}
 						/>
 					</div>
 				</div>
@@ -162,7 +194,12 @@ const Macros = ({
 const MealLog = ({
 	meals,
 }: {
-	meals: { type: string; time: string; items: { name: string; calories: number }[]; totalCalories: number }[];
+	meals: {
+		type: string;
+		time: string;
+		items: { name: string; calories: number }[];
+		totalCalories: number;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -189,9 +226,14 @@ const MealLog = ({
 					</div>
 					<div className="space-y-1">
 						{meal.items.map((item, j) => (
-							<div key={j} className="flex items-center justify-between text-sm">
+							<div
+								key={j}
+								className="flex items-center justify-between text-sm"
+							>
 								<span>{item.name}</span>
-								<span className="text-muted-foreground">{item.calories} cal</span>
+								<span className="text-muted-foreground">
+									{item.calories} cal
+								</span>
 							</div>
 						))}
 					</div>
@@ -221,8 +263,14 @@ const WeightProgress = ({
 					<LineChart className="size-5" />
 					Weight Progress
 				</h2>
-				<div className={`flex items-center gap-1 ${positive ? 'text-green-500' : 'text-red-500'}`}>
-					{positive ? <TrendingDown className="size-4" /> : <TrendingUp className="size-4" />}
+				<div
+					className={`flex items-center gap-1 ${positive ? 'text-green-500' : 'text-red-500'}`}
+				>
+					{positive ? (
+						<TrendingDown className="size-4" />
+					) : (
+						<TrendingUp className="size-4" />
+					)}
 					<span className="text-sm font-medium">{weeklyChange}</span>
 				</div>
 			</div>
@@ -261,7 +309,9 @@ const WaterIntake = ({
 					</div>
 					<div>
 						<p className="font-medium">Water Intake</p>
-						<p className="text-sm text-muted-foreground">{current} of {target} glasses</p>
+						<p className="text-sm text-muted-foreground">
+							{current} of {target} glasses
+						</p>
 					</div>
 				</div>
 				<div className="flex gap-1">
@@ -280,7 +330,12 @@ const WaterIntake = ({
 const Streaks = ({
 	streaks,
 }: {
-	streaks: { label: string; days: number; icon: React.ElementType; active: boolean }[];
+	streaks: {
+		label: string;
+		days: number;
+		icon: React.ElementType;
+		active: boolean;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -292,8 +347,13 @@ const Streaks = ({
 		<CardContent>
 			<div className="grid grid-cols-3 gap-4">
 				{streaks.map((streak, i) => (
-					<div key={i} className={`text-center p-3 rounded-lg ${streak.active ? 'bg-amber-500/10' : 'bg-muted/30'}`}>
-						<streak.icon className={`size-6 mx-auto ${streak.active ? 'text-amber-500' : 'text-muted-foreground'}`} />
+					<div
+						key={i}
+						className={`text-center p-3 rounded-lg ${streak.active ? 'bg-amber-500/10' : 'bg-muted/30'}`}
+					>
+						<streak.icon
+							className={`size-6 mx-auto ${streak.active ? 'text-amber-500' : 'text-muted-foreground'}`}
+						/>
 						<p className="text-xl font-bold mt-1">{streak.days}</p>
 						<p className="text-xs text-muted-foreground">{streak.label}</p>
 					</div>
@@ -315,10 +375,34 @@ export default function Main() {
 		},
 		calories: { consumed: 1456, target: 1800, burned: 320, remaining: 664 },
 		macros: [
-			{ name: 'Protein', current: 85, target: 120, unit: 'g', color: 'bg-red-500' },
-			{ name: 'Carbs', current: 145, target: 180, unit: 'g', color: 'bg-blue-500' },
-			{ name: 'Fat', current: 48, target: 60, unit: 'g', color: 'bg-amber-500' },
-			{ name: 'Fiber', current: 18, target: 25, unit: 'g', color: 'bg-green-500' },
+			{
+				name: 'Protein',
+				current: 85,
+				target: 120,
+				unit: 'g',
+				color: 'bg-red-500',
+			},
+			{
+				name: 'Carbs',
+				current: 145,
+				target: 180,
+				unit: 'g',
+				color: 'bg-blue-500',
+			},
+			{
+				name: 'Fat',
+				current: 48,
+				target: 60,
+				unit: 'g',
+				color: 'bg-amber-500',
+			},
+			{
+				name: 'Fiber',
+				current: 18,
+				target: 25,
+				unit: 'g',
+				color: 'bg-green-500',
+			},
 		],
 		meals: [
 			{
@@ -342,9 +426,7 @@ export default function Main() {
 			{
 				type: 'Snack',
 				time: '3:30 PM',
-				items: [
-					{ name: 'Apple with Almond Butter', calories: 200 },
-				],
+				items: [{ name: 'Apple with Almond Butter', calories: 200 }],
 				totalCalories: 200,
 			},
 		],

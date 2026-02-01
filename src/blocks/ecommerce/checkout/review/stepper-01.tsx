@@ -2,7 +2,13 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -87,7 +93,9 @@ const AddressInfo = ({
 	address: string;
 }) => (
 	<div className="rounded-xl border bg-card p-4">
-		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">{type}</p>
+		<p className="mb-1 text-xs font-medium uppercase text-muted-foreground">
+			{type}
+		</p>
 		<p className="font-medium">{name}</p>
 		<p className="text-sm text-muted-foreground">{address}</p>
 	</div>
@@ -124,7 +132,9 @@ const PaymentInfo = ({
 	<div className="flex items-center gap-4 rounded-xl border bg-card p-4">
 		<CreditCard className="size-6 text-primary" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -141,9 +151,13 @@ const SummaryRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -164,7 +178,8 @@ export default function Main() {
 			variant: 'Purple / 6mm',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -172,7 +187,8 @@ export default function Main() {
 			variant: 'Cork / Set of 2',
 			price: 24.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=200&h=200&fit=crop',
 		},
 	];
 

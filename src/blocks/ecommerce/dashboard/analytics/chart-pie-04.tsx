@@ -13,7 +13,13 @@ type MiniDonutProps = {
 	trend: 'up' | 'down';
 };
 
-const MiniDonut = ({ title, data, centerValue, change, trend }: MiniDonutProps) => {
+const MiniDonut = ({
+	title,
+	data,
+	centerValue,
+	change,
+	trend,
+}: MiniDonutProps) => {
 	const total = data.reduce((a, b) => a + b.value, 0);
 	let currentAngle = -90;
 
@@ -72,8 +78,13 @@ const MiniDonut = ({ title, data, centerValue, change, trend }: MiniDonutProps) 
 					<div className="flex flex-col gap-1">
 						{data.map((item, i) => (
 							<div key={i} className="flex items-center gap-2">
-								<div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
-								<span className="text-xs text-muted-foreground">{item.label}</span>
+								<div
+									className="w-2 h-2 rounded-full"
+									style={{ backgroundColor: item.color }}
+								/>
+								<span className="text-xs text-muted-foreground">
+									{item.label}
+								</span>
 							</div>
 						))}
 					</div>

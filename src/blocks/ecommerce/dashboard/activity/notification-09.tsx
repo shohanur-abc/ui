@@ -48,13 +48,20 @@ const TypeConfig: Record<
 	{ icon: LucideIcon; className: string }
 > = {
 	milestone: { icon: Target, className: 'bg-emerald-500/20 text-emerald-400' },
-	budget_warning: { icon: AlertTriangle, className: 'bg-amber-500/20 text-amber-400' },
+	budget_warning: {
+		icon: AlertTriangle,
+		className: 'bg-amber-500/20 text-amber-400',
+	},
 	performance: { icon: TrendingUp, className: 'bg-blue-500/20 text-blue-400' },
 	ended: { icon: CheckCircle2, className: 'bg-purple-500/20 text-purple-400' },
 	started: { icon: Megaphone, className: 'bg-primary/20 text-primary' },
 };
 
-const PlatformBadge = ({ platform }: { platform: CampaignAlert['platform'] }) => {
+const PlatformBadge = ({
+	platform,
+}: {
+	platform: CampaignAlert['platform'];
+}) => {
 	const config = {
 		google: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
 		facebook: 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30',
@@ -64,7 +71,10 @@ const PlatformBadge = ({ platform }: { platform: CampaignAlert['platform'] }) =>
 	};
 
 	return (
-		<Badge variant="outline" className={`text-xs capitalize ${config[platform]}`}>
+		<Badge
+			variant="outline"
+			className={`text-xs capitalize ${config[platform]}`}
+		>
 			{platform}
 		</Badge>
 	);
@@ -85,13 +95,12 @@ const MetricPill = ({
 		<Icon className="size-3 text-muted-foreground" />
 		<span className="text-muted-foreground">{label}:</span>
 		<span className="font-medium text-foreground">{value}</span>
-		{trend && (
-			trend === 'up' ? (
+		{trend &&
+			(trend === 'up' ? (
 				<TrendingUp className="size-3 text-emerald-400" />
 			) : (
 				<TrendingDown className="size-3 text-rose-400" />
-			)
-		)}
+			))}
 	</div>
 );
 
@@ -236,7 +245,8 @@ export default function Main() {
 			campaignName: 'Retargeting - Cart Abandoners',
 			type: 'budget_warning',
 			platform: 'facebook',
-			message: 'Campaign has used 85% of daily budget. Consider increasing budget.',
+			message:
+				'Campaign has used 85% of daily budget. Consider increasing budget.',
 			metrics: {
 				spend: '$850',
 				budget: '$1,000',
@@ -260,7 +270,8 @@ export default function Main() {
 			campaignName: 'Weekly Newsletter',
 			type: 'performance',
 			platform: 'email',
-			message: 'Open rate 15% below average. Subject line may need optimization.',
+			message:
+				'Open rate 15% below average. Subject line may need optimization.',
 			metrics: {
 				ctr: '1.8%',
 				conversions: 45,
@@ -273,7 +284,8 @@ export default function Main() {
 			campaignName: 'Gen Z Summer Vibes',
 			type: 'ended',
 			platform: 'tiktok',
-			message: 'Campaign completed successfully. Final metrics are ready for review.',
+			message:
+				'Campaign completed successfully. Final metrics are ready for review.',
 			metrics: {
 				spend: '$2,000',
 				roas: '3.8x',

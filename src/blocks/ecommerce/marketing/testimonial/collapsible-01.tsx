@@ -96,7 +96,9 @@ const CollapsibleCard = ({ item }: { item: TestimonialItem }) => {
 						</AvatarFallback>
 					</Avatar>
 					<div>
-						<p className="font-semibold text-sm text-foreground">{item.author}</p>
+						<p className="font-semibold text-sm text-foreground">
+							{item.author}
+						</p>
 						<p className="text-xs text-muted-foreground">
 							{item.role} · {item.company}
 						</p>
@@ -116,7 +118,8 @@ export default function Main() {
 			author: 'Grace Wilson',
 			role: 'Marketing Director',
 			company: 'MarketFirst',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'GW',
 			rating: 5,
 		},
@@ -127,7 +130,8 @@ export default function Main() {
 			author: 'Henry Park',
 			role: 'CTO',
 			company: 'TechEval',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'HP',
 			rating: 5,
 		},
@@ -138,7 +142,8 @@ export default function Main() {
 			author: 'Irene Chen',
 			role: 'Operations Lead',
 			company: 'SupportFirst',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'IC',
 			rating: 5,
 		},
@@ -149,7 +154,8 @@ export default function Main() {
 			author: 'Jack Martinez',
 			role: 'CFO',
 			company: 'ROI Masters',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'JM',
 			rating: 5,
 		},
@@ -160,7 +166,8 @@ export default function Main() {
 			author: 'Karen Lee',
 			role: 'VP Engineering',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'KL',
 			rating: 5,
 		},
@@ -171,14 +178,18 @@ export default function Main() {
 			author: 'Leo Brown',
 			role: 'Integration Lead',
 			company: 'ConnectPro',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'LB',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Expandable"

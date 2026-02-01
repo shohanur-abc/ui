@@ -1,7 +1,12 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { BarChart3, TrendingUp, TrendingDown, type LucideIcon } from 'lucide-react';
+import {
+	BarChart3,
+	TrendingUp,
+	TrendingDown,
+	type LucideIcon,
+} from 'lucide-react';
 
 interface StatItemProps {
 	label: string;
@@ -17,7 +22,12 @@ interface HighlightStatProps {
 	subtitle: string;
 }
 
-const HighlightCard = ({ icon: Icon, label, value, subtitle }: HighlightStatProps) => (
+const HighlightCard = ({
+	icon: Icon,
+	label,
+	value,
+	subtitle,
+}: HighlightStatProps) => (
 	<Card className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 p-8 text-primary-foreground @md:p-10">
 		<div className="absolute -right-8 -top-8 size-40 rounded-full bg-white/10 blur-3xl" />
 		<div className="relative space-y-6">
@@ -26,7 +36,9 @@ const HighlightCard = ({ icon: Icon, label, value, subtitle }: HighlightStatProp
 			</div>
 			<div className="space-y-2">
 				<p className="text-sm font-medium opacity-80">{label}</p>
-				<p className="text-5xl font-bold tracking-tighter @md:text-6xl">{value}</p>
+				<p className="text-5xl font-bold tracking-tighter @md:text-6xl">
+					{value}
+				</p>
 				<p className="text-sm opacity-70">{subtitle}</p>
 			</div>
 		</div>
@@ -38,8 +50,15 @@ const StatItem = ({ label, value, change, trend }: StatItemProps) => (
 		<span className="text-sm text-muted-foreground">{label}</span>
 		<div className="flex items-center gap-3">
 			<span className="text-lg font-semibold">{value}</span>
-			<Badge variant={trend === 'up' ? 'default' : 'destructive'} className="gap-1 text-[10px]">
-				{trend === 'up' ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+			<Badge
+				variant={trend === 'up' ? 'default' : 'destructive'}
+				className="gap-1 text-[10px]"
+			>
+				{trend === 'up' ? (
+					<TrendingUp className="size-3" />
+				) : (
+					<TrendingDown className="size-3" />
+				)}
 				{change}
 			</Badge>
 		</div>
@@ -55,7 +74,12 @@ export default function Main() {
 	};
 
 	const stats: StatItemProps[] = [
-		{ label: 'Average Order Value', value: '$247', change: '+12%', trend: 'up' },
+		{
+			label: 'Average Order Value',
+			value: '$247',
+			change: '+12%',
+			trend: 'up',
+		},
 		{ label: 'Conversion Rate', value: '3.8%', change: '+0.5%', trend: 'up' },
 		{ label: 'Cart Abandonment', value: '68%', change: '-4%', trend: 'up' },
 		{ label: 'Return Rate', value: '8.2%', change: '+1.2%', trend: 'down' },

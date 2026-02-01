@@ -71,7 +71,13 @@ const DeviceIcon = ({ device }: { device: AccessLog['device'] }) => {
 	return <Icon className="size-3.5 text-muted-foreground" />;
 };
 
-const StatusBadge = ({ status, code }: { status: AccessLog['status']; code: number }) => {
+const StatusBadge = ({
+	status,
+	code,
+}: {
+	status: AccessLog['status'];
+	code: number;
+}) => {
 	const config = {
 		success: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
 		failed: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
@@ -147,21 +153,25 @@ const AccessEntry = ({ log }: { log: AccessLog }) => (
 	</div>
 );
 
-const AccessStats = ({
-	stats,
-}: { stats: AccessLogProps['stats'] }) => (
+const AccessStats = ({ stats }: { stats: AccessLogProps['stats'] }) => (
 	<div className="grid grid-cols-3 gap-4">
 		<div className="flex flex-col p-3 rounded-lg bg-muted/30 border border-border/50">
 			<span className="text-xs text-muted-foreground">Total Requests</span>
-			<span className="text-xl font-bold text-foreground">{stats.totalRequests}</span>
+			<span className="text-xl font-bold text-foreground">
+				{stats.totalRequests}
+			</span>
 		</div>
 		<div className="flex flex-col p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
 			<span className="text-xs text-muted-foreground">Success Rate</span>
-			<span className="text-xl font-bold text-emerald-400">{stats.successRate}%</span>
+			<span className="text-xl font-bold text-emerald-400">
+				{stats.successRate}%
+			</span>
 		</div>
 		<div className="flex flex-col p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
 			<span className="text-xs text-muted-foreground">Blocked</span>
-			<span className="text-xl font-bold text-amber-400">{stats.blockedCount}</span>
+			<span className="text-xl font-bold text-amber-400">
+				{stats.blockedCount}
+			</span>
 		</div>
 	</div>
 );

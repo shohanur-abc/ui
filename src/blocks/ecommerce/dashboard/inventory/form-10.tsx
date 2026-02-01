@@ -11,7 +11,14 @@ import {
 	Plus,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -47,7 +54,9 @@ const ItemCheck = ({ item, onResultChange, onNotesChange }: ItemCheckProps) => (
 				<Button
 					size="sm"
 					variant={item.result === 'pass' ? 'default' : 'outline'}
-					className={item.result === 'pass' ? 'bg-emerald-500 hover:bg-emerald-600' : ''}
+					className={
+						item.result === 'pass' ? 'bg-emerald-500 hover:bg-emerald-600' : ''
+					}
 					onClick={() => onResultChange(item.id, 'pass')}
 				>
 					<Check className="mr-1 size-3" />
@@ -56,7 +65,11 @@ const ItemCheck = ({ item, onResultChange, onNotesChange }: ItemCheckProps) => (
 				<Button
 					size="sm"
 					variant={item.result === 'fail' ? 'default' : 'outline'}
-					className={item.result === 'fail' ? 'bg-destructive hover:bg-destructive/90' : ''}
+					className={
+						item.result === 'fail'
+							? 'bg-destructive hover:bg-destructive/90'
+							: ''
+					}
 					onClick={() => onResultChange(item.id, 'fail')}
 				>
 					<X className="mr-1 size-3" />
@@ -85,7 +98,10 @@ const ImageUpload = ({ images, onAdd }: ImageUploadProps) => (
 		<Label>Evidence Photos</Label>
 		<div className="flex flex-wrap gap-2">
 			{images.map((_, index) => (
-				<div key={index} className="size-20 rounded-lg bg-muted flex items-center justify-center">
+				<div
+					key={index}
+					className="size-20 rounded-lg bg-muted flex items-center justify-center"
+				>
 					<Camera className="size-6 text-muted-foreground" />
 				</div>
 			))}
@@ -112,11 +128,15 @@ export default function Main() {
 	const [images, setImages] = React.useState<string[]>([]);
 
 	const handleResultChange = (id: string, result: InspectionItem['result']) => {
-		setItems((prev) => prev.map((item) => (item.id === id ? { ...item, result } : item)));
+		setItems((prev) =>
+			prev.map((item) => (item.id === id ? { ...item, result } : item)),
+		);
 	};
 
 	const handleNotesChange = (id: string, notes: string) => {
-		setItems((prev) => prev.map((item) => (item.id === id ? { ...item, notes } : item)));
+		setItems((prev) =>
+			prev.map((item) => (item.id === id ? { ...item, notes } : item)),
+		);
 	};
 
 	const passCount = items.filter((i) => i.result === 'pass').length;
@@ -128,8 +148,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Receiving Inspection</CardTitle>
-						<CardDescription>Quality check for incoming shipments</CardDescription>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Receiving Inspection
+						</CardTitle>
+						<CardDescription>
+							Quality check for incoming shipments
+						</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<div className="grid gap-4 @lg:grid-cols-3">
@@ -141,7 +165,11 @@ export default function Main() {
 										onChange={(e) => setPoNumber(e.target.value)}
 										placeholder="Scan or enter PO number"
 									/>
-									<Button variant="ghost" size="icon" className="absolute right-1 top-1/2 -translate-y-1/2">
+									<Button
+										variant="ghost"
+										size="icon"
+										className="absolute right-1 top-1/2 -translate-y-1/2"
+									>
 										<Scan className="size-4" />
 									</Button>
 								</div>
@@ -152,24 +180,37 @@ export default function Main() {
 							</div>
 							<div className="space-y-2">
 								<Label>Date</Label>
-								<Input type="date" defaultValue={new Date().toISOString().split('T')[0]} />
+								<Input
+									type="date"
+									defaultValue={new Date().toISOString().split('T')[0]}
+								/>
 							</div>
 						</div>
 
 						<div className="space-y-2">
 							<Label>Overall Condition</Label>
-							<RadioGroup value={condition} onValueChange={setCondition} className="flex gap-4">
+							<RadioGroup
+								value={condition}
+								onValueChange={setCondition}
+								className="flex gap-4"
+							>
 								<div className="flex items-center space-x-2">
 									<RadioGroupItem value="good" id="good" />
-									<Label htmlFor="good" className="font-normal">Good</Label>
+									<Label htmlFor="good" className="font-normal">
+										Good
+									</Label>
 								</div>
 								<div className="flex items-center space-x-2">
 									<RadioGroupItem value="damaged" id="damaged" />
-									<Label htmlFor="damaged" className="font-normal">Damaged</Label>
+									<Label htmlFor="damaged" className="font-normal">
+										Damaged
+									</Label>
 								</div>
 								<div className="flex items-center space-x-2">
 									<RadioGroupItem value="partial" id="partial" />
-									<Label htmlFor="partial" className="font-normal">Partial Shipment</Label>
+									<Label htmlFor="partial" className="font-normal">
+										Partial Shipment
+									</Label>
 								</div>
 							</RadioGroup>
 						</div>
@@ -178,8 +219,12 @@ export default function Main() {
 							<div className="flex items-center justify-between">
 								<Label className="text-base">Inspection Checklist</Label>
 								<div className="flex gap-2 text-sm">
-									<Badge variant="outline" className="text-emerald-500">{passCount} Pass</Badge>
-									<Badge variant="outline" className="text-destructive">{failCount} Fail</Badge>
+									<Badge variant="outline" className="text-emerald-500">
+										{passCount} Pass
+									</Badge>
+									<Badge variant="outline" className="text-destructive">
+										{failCount} Fail
+									</Badge>
 									<Badge variant="secondary">{pendingCount} Pending</Badge>
 								</div>
 							</div>
@@ -195,7 +240,10 @@ export default function Main() {
 							</div>
 						</div>
 
-						<ImageUpload images={images} onAdd={() => setImages([...images, ''])} />
+						<ImageUpload
+							images={images}
+							onAdd={() => setImages([...images, ''])}
+						/>
 
 						<div className="space-y-2">
 							<Label>Additional Notes</Label>
@@ -213,9 +261,7 @@ export default function Main() {
 						</div>
 						<div className="flex gap-3">
 							<Button variant="outline">Save Draft</Button>
-							<Button disabled={pendingCount > 0}>
-								Complete Inspection
-							</Button>
+							<Button disabled={pendingCount > 0}>Complete Inspection</Button>
 						</div>
 					</CardFooter>
 				</Card>

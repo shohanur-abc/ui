@@ -43,26 +43,32 @@ interface SpendingCustomer {
 	trend: 'up' | 'down' | 'stable';
 }
 
-const TrendIndicator = ({ value, trend }: { value: number; trend: 'up' | 'down' | 'stable' }) => {
+const TrendIndicator = ({
+	value,
+	trend,
+}: {
+	value: number;
+	trend: 'up' | 'down' | 'stable';
+}) => {
 	if (trend === 'stable') {
 		return <span className="text-muted-foreground text-xs">0%</span>;
 	}
 	const isPositive = trend === 'up';
 	return (
-		<span className={`flex items-center text-xs font-medium ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}>
-			{isPositive ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
+		<span
+			className={`flex items-center text-xs font-medium ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}
+		>
+			{isPositive ? (
+				<ArrowUpRight className="size-3" />
+			) : (
+				<ArrowDownRight className="size-3" />
+			)}
 			{Math.abs(value)}%
 		</span>
 	);
 };
 
-const BudgetBar = ({
-	used,
-	limit,
-}: {
-	used: number;
-	limit: string;
-}) => (
+const BudgetBar = ({ used, limit }: { used: number; limit: string }) => (
 	<div className="min-w-[120px]">
 		<div className="flex items-center justify-between text-xs mb-1">
 			<span className="text-muted-foreground">Budget</span>
@@ -116,7 +122,10 @@ const SpendingListItem = ({ customer }: { customer: SpendingCustomer }) => (
 				<p className="text-muted-foreground text-xs">This Month</p>
 				<div className="flex items-center gap-1.5">
 					<p className="font-semibold">{customer.spending.thisMonth}</p>
-					<TrendIndicator value={customer.spending.change} trend={customer.trend} />
+					<TrendIndicator
+						value={customer.spending.change}
+						trend={customer.trend}
+					/>
 				</div>
 			</div>
 			<div>
@@ -168,7 +177,12 @@ export default function Main() {
 			name: 'Zachary Turner',
 			email: 'zachary.t@email.com',
 			initials: 'ZT',
-			spending: { thisMonth: '$2,450', lastMonth: '$1,890', change: 29, avgMonthly: '$2,100' },
+			spending: {
+				thisMonth: '$2,450',
+				lastMonth: '$1,890',
+				change: 29,
+				avgMonthly: '$2,100',
+			},
 			budget: { limit: '$3,000', used: 82 },
 			paymentMethods: ['Visa', 'PayPal'],
 			lastPurchase: 'Today',
@@ -180,7 +194,12 @@ export default function Main() {
 			name: 'Amanda Foster',
 			email: 'amanda.f@email.com',
 			initials: 'AF',
-			spending: { thisMonth: '$890', lastMonth: '$1,120', change: -21, avgMonthly: '$950' },
+			spending: {
+				thisMonth: '$890',
+				lastMonth: '$1,120',
+				change: -21,
+				avgMonthly: '$950',
+			},
 			paymentMethods: ['Mastercard'],
 			lastPurchase: '3 days ago',
 			category: 'Regular',
@@ -191,7 +210,12 @@ export default function Main() {
 			name: 'Brian Cooper',
 			email: 'brian.c@email.com',
 			initials: 'BC',
-			spending: { thisMonth: '$3,200', lastMonth: '$2,800', change: 14, avgMonthly: '$2,900' },
+			spending: {
+				thisMonth: '$3,200',
+				lastMonth: '$2,800',
+				change: 14,
+				avgMonthly: '$2,900',
+			},
 			budget: { limit: '$5,000', used: 64 },
 			paymentMethods: ['Amex', 'Apple Pay'],
 			lastPurchase: 'Yesterday',
@@ -203,7 +227,12 @@ export default function Main() {
 			name: 'Christina Lee',
 			email: 'christina.l@email.com',
 			initials: 'CL',
-			spending: { thisMonth: '$450', lastMonth: '$450', change: 0, avgMonthly: '$480' },
+			spending: {
+				thisMonth: '$450',
+				lastMonth: '$450',
+				change: 0,
+				avgMonthly: '$480',
+			},
 			paymentMethods: ['Visa'],
 			lastPurchase: '1 week ago',
 			category: 'Standard',
@@ -214,7 +243,12 @@ export default function Main() {
 			name: 'Derek Morgan',
 			email: 'derek.m@email.com',
 			initials: 'DM',
-			spending: { thisMonth: '$5,600', lastMonth: '$4,200', change: 33, avgMonthly: '$4,800' },
+			spending: {
+				thisMonth: '$5,600',
+				lastMonth: '$4,200',
+				change: 33,
+				avgMonthly: '$4,800',
+			},
 			budget: { limit: '$6,000', used: 93 },
 			paymentMethods: ['Amex', 'Bank Transfer'],
 			lastPurchase: 'Today',
@@ -226,7 +260,12 @@ export default function Main() {
 			name: 'Elena Rodriguez',
 			email: 'elena.r@email.com',
 			initials: 'ER',
-			spending: { thisMonth: '$1,200', lastMonth: '$1,800', change: -33, avgMonthly: '$1,500' },
+			spending: {
+				thisMonth: '$1,200',
+				lastMonth: '$1,800',
+				change: -33,
+				avgMonthly: '$1,500',
+			},
 			paymentMethods: ['PayPal'],
 			lastPurchase: '5 days ago',
 			category: 'Regular',
@@ -237,7 +276,12 @@ export default function Main() {
 			name: 'Franklin Hayes',
 			email: 'franklin.h@email.com',
 			initials: 'FH',
-			spending: { thisMonth: '$780', lastMonth: '$720', change: 8, avgMonthly: '$750' },
+			spending: {
+				thisMonth: '$780',
+				lastMonth: '$720',
+				change: 8,
+				avgMonthly: '$750',
+			},
 			paymentMethods: ['Visa', 'Google Pay'],
 			lastPurchase: '2 days ago',
 			category: 'Standard',
@@ -248,7 +292,12 @@ export default function Main() {
 			name: 'Gloria Chen',
 			email: 'gloria.c@email.com',
 			initials: 'GC',
-			spending: { thisMonth: '$4,100', lastMonth: '$3,900', change: 5, avgMonthly: '$4,000' },
+			spending: {
+				thisMonth: '$4,100',
+				lastMonth: '$3,900',
+				change: 5,
+				avgMonthly: '$4,000',
+			},
 			budget: { limit: '$4,500', used: 91 },
 			paymentMethods: ['Mastercard', 'Wire'],
 			lastPurchase: 'Today',

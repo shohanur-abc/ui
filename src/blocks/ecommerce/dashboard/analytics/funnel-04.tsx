@@ -24,21 +24,35 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm font-medium">Sales Funnel</CardTitle>
-						<p className="text-xs text-muted-foreground">B2B sales pipeline visualization</p>
+						<p className="text-xs text-muted-foreground">
+							B2B sales pipeline visualization
+						</p>
 					</CardHeader>
 					<CardContent className="pt-6">
 						<div className="relative flex flex-col items-center">
 							<svg viewBox="0 0 400 300" className="w-full max-w-md">
 								{steps.map((step, i) => {
 									const topWidth = (steps[i].value / maxValue) * 380;
-									const bottomWidth = i < steps.length - 1 ? (steps[i + 1].value / maxValue) * 380 : topWidth * 0.8;
+									const bottomWidth =
+										i < steps.length - 1
+											? (steps[i + 1].value / maxValue) * 380
+											: topWidth * 0.8;
 									const y = i * 55 + 10;
 									const topX = (400 - topWidth) / 2;
 									const bottomX = (400 - bottomWidth) / 2;
-									const convRate = i < steps.length - 1 ? ((steps[i + 1].value / step.value) * 100).toFixed(0) : null;
-									
-									const colors = ['#06b6d4', '#22d3ee', '#67e8f9', '#a5f3fc', '#10b981'];
-									
+									const convRate =
+										i < steps.length - 1
+											? ((steps[i + 1].value / step.value) * 100).toFixed(0)
+											: null;
+
+									const colors = [
+										'#06b6d4',
+										'#22d3ee',
+										'#67e8f9',
+										'#a5f3fc',
+										'#10b981',
+									];
+
 									return (
 										<g key={i}>
 											<path

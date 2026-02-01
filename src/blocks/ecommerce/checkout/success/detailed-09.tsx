@@ -176,7 +176,9 @@ const OrderItemsCard = ({
 					</div>
 					<div className="flex-1">
 						<p className="font-medium">{item.name}</p>
-						<p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
+						<p className="text-sm text-muted-foreground">
+							Qty: {item.quantity}
+						</p>
 					</div>
 					<p className="font-semibold">
 						{currency}
@@ -304,14 +306,22 @@ const CTA = ({ items }: CTAProps) => (
 
 export default function Main() {
 	const orderItems: OrderItemProps[] = [
-		{ name: 'Organic Whole Milk (1 gal)', quantity: 2, price: 6.99, currency: '$' },
+		{
+			name: 'Organic Whole Milk (1 gal)',
+			quantity: 2,
+			price: 6.99,
+			currency: '$',
+		},
 		{ name: 'Fresh Bread Loaf', quantity: 1, price: 4.99, currency: '$' },
 		{ name: 'Free Range Eggs (12)', quantity: 1, price: 5.49, currency: '$' },
 		{ name: 'Mixed Greens Salad', quantity: 2, price: 3.99, currency: '$' },
 	];
 
 	const pickupInstructions = [
-		{ step: 1, text: 'Park in one of the designated pickup spots near the store entrance' },
+		{
+			step: 1,
+			text: 'Park in one of the designated pickup spots near the store entrance',
+		},
 		{ step: 2, text: 'Open the app and check in to notify us of your arrival' },
 		{ step: 3, text: 'Show your pickup code to the store associate' },
 		{ step: 4, text: 'Verify your items and complete the pickup' },
@@ -350,11 +360,7 @@ export default function Main() {
 							hours="Mon-Sat: 8AM-9PM, Sun: 9AM-7PM"
 							distance="1.2 miles"
 						/>
-						<OrderItemsCard
-							items={orderItems}
-							total={32.44}
-							currency="$"
-						/>
+						<OrderItemsCard items={orderItems} total={32.44} currency="$" />
 					</div>
 				</div>
 
@@ -369,7 +375,11 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: "I'm Here", href: '/checkin', icon: ArrowRight },
-						{ label: 'Reschedule Pickup', href: '/reschedule', variant: 'outline' },
+						{
+							label: 'Reschedule Pickup',
+							href: '/reschedule',
+							variant: 'outline',
+						},
 					]}
 				/>
 			</div>

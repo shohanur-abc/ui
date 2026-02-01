@@ -93,7 +93,7 @@ const QuickViewModal = ({
 										className="absolute left-2 top-1/2 -translate-y-1/2"
 										onClick={() =>
 											setCurrentImage((prev) =>
-												prev === 0 ? product.images.length - 1 : prev - 1
+												prev === 0 ? product.images.length - 1 : prev - 1,
 											)
 										}
 									>
@@ -105,7 +105,7 @@ const QuickViewModal = ({
 										className="absolute right-2 top-1/2 -translate-y-1/2"
 										onClick={() =>
 											setCurrentImage((prev) =>
-												prev === product.images.length - 1 ? 0 : prev + 1
+												prev === product.images.length - 1 ? 0 : prev + 1,
 											)
 										}
 									>
@@ -138,7 +138,9 @@ const QuickViewModal = ({
 								>
 									{product.status}
 								</Badge>
-								<span className="text-sm text-muted-foreground">{product.sku}</span>
+								<span className="text-sm text-muted-foreground">
+									{product.sku}
+								</span>
 							</div>
 							<h2 className="text-xl font-bold">{product.name}</h2>
 						</div>
@@ -158,7 +160,9 @@ const QuickViewModal = ({
 						</div>
 
 						<div className="flex items-baseline gap-3">
-							<span className="text-2xl font-bold">${product.price.toFixed(2)}</span>
+							<span className="text-2xl font-bold">
+								${product.price.toFixed(2)}
+							</span>
 							{product.comparePrice && (
 								<>
 									<span className="text-lg text-muted-foreground line-through">
@@ -169,7 +173,9 @@ const QuickViewModal = ({
 							)}
 						</div>
 
-						<p className="text-sm text-muted-foreground">{product.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{product.description}
+						</p>
 
 						<div className="flex items-center gap-2">
 							<div

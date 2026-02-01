@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -69,9 +75,13 @@ const TotalRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -83,7 +93,8 @@ export default function Main() {
 			variant: 'Cherry MX / RGB',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -91,7 +102,8 @@ export default function Main() {
 			variant: 'Extended / Black',
 			price: 29.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -162,7 +174,10 @@ export default function Main() {
 								<TotalRow label="Total" value="$189.27" bold />
 							</CardContent>
 							<CardFooter className="flex-col gap-4">
-								<Button size="lg" className="w-full gap-2 shadow-lg shadow-primary/20">
+								<Button
+									size="lg"
+									className="w-full gap-2 shadow-lg shadow-primary/20"
+								>
 									<Lock className="size-4" />
 									Place Order
 									<ArrowRight className="size-4" />

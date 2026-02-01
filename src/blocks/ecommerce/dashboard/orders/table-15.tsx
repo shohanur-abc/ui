@@ -10,7 +10,15 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
-import { GitCompare, ArrowRight, ArrowLeftRight, Clock, CheckCircle, XCircle, Package } from 'lucide-react';
+import {
+	GitCompare,
+	ArrowRight,
+	ArrowLeftRight,
+	Clock,
+	CheckCircle,
+	XCircle,
+	Package,
+} from 'lucide-react';
 
 interface ExchangeOrder {
 	id: string;
@@ -52,7 +60,14 @@ const ExchangeArrow = ({ originalItem, newItem }: ExchangeArrowProps) => (
 );
 
 const StatusBadge = ({ status }: StatusBadgeProps) => {
-	const config: Record<ExchangeOrder['status'], { icon: typeof Clock; variant: 'default' | 'secondary' | 'destructive' | 'outline'; label: string }> = {
+	const config: Record<
+		ExchangeOrder['status'],
+		{
+			icon: typeof Clock;
+			variant: 'default' | 'secondary' | 'destructive' | 'outline';
+			label: string;
+		}
+	> = {
 		pending: { icon: Clock, variant: 'outline', label: 'Pending' },
 		approved: { icon: CheckCircle, variant: 'secondary', label: 'Approved' },
 		shipped: { icon: Package, variant: 'default', label: 'Shipped' },
@@ -72,13 +87,19 @@ const PriceDiff = ({ diff }: PriceDiffProps) => {
 	const isPositive = diff.startsWith('+');
 	const isNegative = diff.startsWith('-');
 	return (
-		<span className={`font-medium ${isPositive ? 'text-accent' : isNegative ? 'text-destructive' : 'text-muted-foreground'}`}>
+		<span
+			className={`font-medium ${isPositive ? 'text-accent' : isNegative ? 'text-destructive' : 'text-muted-foreground'}`}
+		>
 			{diff}
 		</span>
 	);
 };
 
-const CustomerCell = ({ customer }: { customer: ExchangeOrder['customer'] }) => (
+const CustomerCell = ({
+	customer,
+}: {
+	customer: ExchangeOrder['customer'];
+}) => (
 	<div className="flex items-center gap-2">
 		<Avatar className="size-7">
 			<AvatarFallback className="bg-primary/10 text-primary text-xs">
@@ -94,25 +115,36 @@ const ExchangeRow = ({ order }: { order: ExchangeOrder }) => (
 		<TableCell className="font-mono text-sm">
 			<div>
 				<span>{order.id}</span>
-				<p className="text-xs text-muted-foreground">from {order.originalOrder}</p>
+				<p className="text-xs text-muted-foreground">
+					from {order.originalOrder}
+				</p>
 			</div>
 		</TableCell>
 		<TableCell>
 			<CustomerCell customer={order.customer} />
 		</TableCell>
 		<TableCell className="min-w-80">
-			<ExchangeArrow originalItem={order.originalItem} newItem={order.newItem} />
+			<ExchangeArrow
+				originalItem={order.originalItem}
+				newItem={order.newItem}
+			/>
 		</TableCell>
-		<TableCell className="max-w-32 truncate text-muted-foreground text-sm">{order.reason}</TableCell>
+		<TableCell className="max-w-32 truncate text-muted-foreground text-sm">
+			{order.reason}
+		</TableCell>
 		<TableCell>
 			<PriceDiff diff={order.priceDiff} />
 		</TableCell>
 		<TableCell>
 			<StatusBadge status={order.status} />
 		</TableCell>
-		<TableCell className="text-muted-foreground text-sm">{order.date}</TableCell>
+		<TableCell className="text-muted-foreground text-sm">
+			{order.date}
+		</TableCell>
 		<TableCell>
-			<Button variant="ghost" size="sm">Details</Button>
+			<Button variant="ghost" size="sm">
+				Details
+			</Button>
 		</TableCell>
 	</TableRow>
 );
@@ -176,7 +208,16 @@ export default function Main() {
 		},
 	];
 
-	const headers = ['Exchange ID', 'Customer', 'Items', 'Reason', 'Price Diff', 'Status', 'Date', ''];
+	const headers = [
+		'Exchange ID',
+		'Customer',
+		'Items',
+		'Reason',
+		'Price Diff',
+		'Status',
+		'Date',
+		'',
+	];
 
 	return (
 		<section className="@container" data-theme="orders">
@@ -188,7 +229,9 @@ export default function Main() {
 						</div>
 						<div>
 							<h2 className="text-xl font-semibold">Order Exchanges</h2>
-							<p className="text-sm text-muted-foreground">Track product exchange requests</p>
+							<p className="text-sm text-muted-foreground">
+								Track product exchange requests
+							</p>
 						</div>
 					</div>
 				</div>

@@ -86,13 +86,7 @@ const FeatureItems = ({ items }: FeatureItemProps) => (
 	</div>
 );
 
-const SidebarHeader = ({
-	title,
-	count,
-}: {
-	title: string;
-	count: number;
-}) => (
+const SidebarHeader = ({ title, count }: { title: string; count: number }) => (
 	<div className="flex items-center justify-between mb-6">
 		<h3 className="text-lg font-semibold">{title}</h3>
 		<span className="text-sm text-muted-foreground">{count} items</span>
@@ -106,7 +100,10 @@ const CartItem = ({
 }) => (
 	<div className="space-y-3">
 		{items.map((item, i) => (
-			<div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
+			<div
+				key={i}
+				className="flex items-center gap-3 p-3 rounded-lg bg-muted/50"
+			>
 				<div className="size-12 rounded-md bg-muted shrink-0" />
 				<div className="flex-1 min-w-0">
 					<p className="text-sm font-medium truncate">{item.name}</p>
@@ -161,8 +158,16 @@ export default function Main() {
 								<Field label="First Name" placeholder="John" />
 								<Field label="Last Name" placeholder="Doe" />
 							</div>
-							<Field label="Email Address" placeholder="john@example.com" type="email" />
-							<Field label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
+							<Field
+								label="Email Address"
+								placeholder="john@example.com"
+								type="email"
+							/>
+							<Field
+								label="Phone Number"
+								placeholder="+1 (555) 000-0000"
+								type="tel"
+							/>
 							<SelectField
 								label="Country"
 								placeholder="Select country"
@@ -172,13 +177,20 @@ export default function Main() {
 							<Field label="Apartment, Suite, etc." placeholder="Optional" />
 							<div className="grid @sm:grid-cols-3 gap-4">
 								<Field label="City" placeholder="San Francisco" />
-								<SelectField label="State" placeholder="State" options={states} />
+								<SelectField
+									label="State"
+									placeholder="State"
+									options={states}
+								/>
 								<Field label="ZIP Code" placeholder="94102" />
 							</div>
 
 							<div className="flex items-center gap-3 pt-2">
 								<Checkbox id="same-billing" />
-								<Label htmlFor="same-billing" className="text-sm font-normal cursor-pointer">
+								<Label
+									htmlFor="same-billing"
+									className="text-sm font-normal cursor-pointer"
+								>
 									Use same address for billing
 								</Label>
 							</div>

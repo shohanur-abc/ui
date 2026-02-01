@@ -1,11 +1,33 @@
 'use client';
 
-import { ArrowRight, BadgeCheck, Check, CreditCard, Gift, Lock, MapPin, Receipt, Shield, Truck, User } from 'lucide-react';
+import {
+	ArrowRight,
+	BadgeCheck,
+	Check,
+	CreditCard,
+	Gift,
+	Lock,
+	MapPin,
+	Receipt,
+	Shield,
+	Truck,
+	User,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -22,16 +44,28 @@ const StepProgress = ({ steps }: { steps: StepIndicator[] }) => (
 	<div className="flex items-center justify-between mb-6">
 		{steps.map((step, index) => (
 			<div key={index} className="flex items-center">
-				<div className={`flex items-center gap-2 ${step.current ? 'text-primary' : step.completed ? 'text-primary' : 'text-muted-foreground'}`}>
-					<div className={`size-8 rounded-full flex items-center justify-center text-sm font-medium ${
-						step.completed ? 'bg-primary text-primary-foreground' : step.current ? 'bg-primary text-primary-foreground' : 'bg-muted'
-					}`}>
+				<div
+					className={`flex items-center gap-2 ${step.current ? 'text-primary' : step.completed ? 'text-primary' : 'text-muted-foreground'}`}
+				>
+					<div
+						className={`size-8 rounded-full flex items-center justify-center text-sm font-medium ${
+							step.completed
+								? 'bg-primary text-primary-foreground'
+								: step.current
+									? 'bg-primary text-primary-foreground'
+									: 'bg-muted'
+						}`}
+					>
 						{step.completed ? <Check className="size-4" /> : step.step}
 					</div>
-					<span className="text-sm font-medium hidden @sm:inline">{step.label}</span>
+					<span className="text-sm font-medium hidden @sm:inline">
+						{step.label}
+					</span>
 				</div>
 				{index < steps.length - 1 && (
-					<div className={`w-8 @sm:w-16 h-0.5 mx-2 ${step.completed ? 'bg-primary' : 'bg-muted'}`} />
+					<div
+						className={`w-8 @sm:w-16 h-0.5 mx-2 ${step.completed ? 'bg-primary' : 'bg-muted'}`}
+					/>
 				)}
 			</div>
 		))}
@@ -60,7 +94,9 @@ const CustomerInfoContent = () => (
 		</div>
 		<div className="flex items-center gap-3">
 			<Checkbox id="newsletter" />
-			<Label htmlFor="newsletter" className="text-sm cursor-pointer">Receive updates and promotions</Label>
+			<Label htmlFor="newsletter" className="text-sm cursor-pointer">
+				Receive updates and promotions
+			</Label>
 		</div>
 	</div>
 );
@@ -91,7 +127,9 @@ const ShippingContent = () => (
 		</div>
 		<div className="flex items-center gap-3">
 			<Checkbox id="billing-same" defaultChecked />
-			<Label htmlFor="billing-same" className="text-sm cursor-pointer">Billing address same as shipping</Label>
+			<Label htmlFor="billing-same" className="text-sm cursor-pointer">
+				Billing address same as shipping
+			</Label>
 		</div>
 	</div>
 );
@@ -99,22 +137,50 @@ const ShippingContent = () => (
 const DeliveryContent = () => (
 	<div className="space-y-3 pt-4">
 		{[
-			{ id: 'express', name: 'Express', time: '1-2 days', price: '$14.99', icon: Truck },
-			{ id: 'standard', name: 'Standard', time: '3-5 days', price: '$7.99', icon: Truck },
-			{ id: 'economy', name: 'Economy', time: '7-10 days', price: 'Free', icon: Truck },
+			{
+				id: 'express',
+				name: 'Express',
+				time: '1-2 days',
+				price: '$14.99',
+				icon: Truck,
+			},
+			{
+				id: 'standard',
+				name: 'Standard',
+				time: '3-5 days',
+				price: '$7.99',
+				icon: Truck,
+			},
+			{
+				id: 'economy',
+				name: 'Economy',
+				time: '7-10 days',
+				price: 'Free',
+				icon: Truck,
+			},
 		].map((option) => (
 			<Label
 				key={option.id}
 				htmlFor={option.id}
 				className="flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all hover:border-primary/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
 			>
-				<input type="radio" name="delivery" id={option.id} className="sr-only" defaultChecked={option.id === 'standard'} />
+				<input
+					type="radio"
+					name="delivery"
+					id={option.id}
+					className="sr-only"
+					defaultChecked={option.id === 'standard'}
+				/>
 				<Truck className="size-5 text-muted-foreground" />
 				<div className="flex-1">
 					<span className="font-medium">{option.name}</span>
 					<p className="text-xs text-muted-foreground">{option.time}</p>
 				</div>
-				<span className={`font-medium ${option.price === 'Free' ? 'text-primary' : ''}`}>{option.price}</span>
+				<span
+					className={`font-medium ${option.price === 'Free' ? 'text-primary' : ''}`}
+				>
+					{option.price}
+				</span>
 			</Label>
 		))}
 	</div>
@@ -145,7 +211,9 @@ const PaymentContent = () => (
 		</div>
 		<div className="flex items-center gap-3">
 			<Checkbox id="save-card" />
-			<Label htmlFor="save-card" className="text-sm cursor-pointer">Save card for future purchases</Label>
+			<Label htmlFor="save-card" className="text-sm cursor-pointer">
+				Save card for future purchases
+			</Label>
 		</div>
 	</div>
 );
@@ -169,16 +237,37 @@ const PromoContent = () => (
 	</div>
 );
 
-const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isDiscount?: boolean }[] }) => (
+const OrderSummary = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isDiscount?: boolean;
+	}[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isDiscount ? 'text-emerald-600' : line.isTotal ? '' : 'text-muted-foreground'}>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={
+							line.isDiscount
+								? 'text-emerald-600'
+								: line.isTotal
+									? ''
+									: 'text-muted-foreground'
+						}
+					>
 						{line.label}
 					</span>
-					<span className={line.isDiscount ? 'text-emerald-600' : ''}>{line.value}</span>
+					<span className={line.isDiscount ? 'text-emerald-600' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
@@ -216,7 +305,12 @@ export default function Main() {
 						<StepProgress steps={steps} />
 					</CardHeader>
 					<CardContent>
-						<Accordion type="single" collapsible defaultValue="delivery" className="w-full">
+						<Accordion
+							type="single"
+							collapsible
+							defaultValue="delivery"
+							className="w-full"
+						>
 							<AccordionItem value="customer">
 								<AccordionTrigger className="hover:no-underline">
 									<div className="flex items-center gap-3">
@@ -225,7 +319,9 @@ export default function Main() {
 										</div>
 										<div className="text-left">
 											<span className="font-medium">Customer Information</span>
-											<p className="text-xs text-muted-foreground">john@example.com</p>
+											<p className="text-xs text-muted-foreground">
+												john@example.com
+											</p>
 										</div>
 									</div>
 								</AccordionTrigger>
@@ -241,7 +337,9 @@ export default function Main() {
 										</div>
 										<div className="text-left">
 											<span className="font-medium">Shipping Address</span>
-											<p className="text-xs text-muted-foreground">123 Main St, New York, NY 10001</p>
+											<p className="text-xs text-muted-foreground">
+												123 Main St, New York, NY 10001
+											</p>
 										</div>
 									</div>
 								</AccordionTrigger>
@@ -257,7 +355,9 @@ export default function Main() {
 										</div>
 										<div className="text-left">
 											<span className="font-medium">Delivery Method</span>
-											<p className="text-xs text-muted-foreground">Choose shipping speed</p>
+											<p className="text-xs text-muted-foreground">
+												Choose shipping speed
+											</p>
 										</div>
 									</div>
 								</AccordionTrigger>
@@ -273,7 +373,9 @@ export default function Main() {
 										</div>
 										<div className="text-left">
 											<span className="font-medium">Payment</span>
-											<p className="text-xs text-muted-foreground">Card details</p>
+											<p className="text-xs text-muted-foreground">
+												Card details
+											</p>
 										</div>
 									</div>
 								</AccordionTrigger>
@@ -289,7 +391,9 @@ export default function Main() {
 										</div>
 										<div className="text-left">
 											<span className="font-medium">Promo Code</span>
-											<p className="text-xs text-emerald-600">WELCOME15 applied</p>
+											<p className="text-xs text-emerald-600">
+												WELCOME15 applied
+											</p>
 										</div>
 									</div>
 								</AccordionTrigger>

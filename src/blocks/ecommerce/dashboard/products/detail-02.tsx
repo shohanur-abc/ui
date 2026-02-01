@@ -71,21 +71,13 @@ const AttributeEditor = ({
 					<GripVertical className="size-4 cursor-grab text-muted-foreground" />
 					<span className="font-medium">{attribute.name}</span>
 				</div>
-				<Button
-					variant="ghost"
-					size="icon-sm"
-					onClick={onRemoveAttribute}
-				>
+				<Button variant="ghost" size="icon-sm" onClick={onRemoveAttribute}>
 					<Trash2 className="size-4" />
 				</Button>
 			</div>
 			<div className="flex flex-wrap gap-2">
 				{attribute.values.map((value) => (
-					<Badge
-						key={value}
-						variant="secondary"
-						className="gap-1 pr-1"
-					>
+					<Badge key={value} variant="secondary" className="gap-1 pr-1">
 						{value}
 						<button
 							onClick={() => onRemoveValue(value)}
@@ -121,7 +113,13 @@ const AttributeEditor = ({
 interface AddAttributeButtonProps {
 	onAdd: (name: string) => void;
 	existingAttributes: string[];
-	labels: { add: string; color: string; size: string; material: string; style: string };
+	labels: {
+		add: string;
+		color: string;
+		size: string;
+		material: string;
+		style: string;
+	};
 }
 
 const AddAttributeButton = ({
@@ -137,7 +135,7 @@ const AddAttributeButton = ({
 	];
 
 	const availableOptions = allOptions.filter(
-		(opt) => !existingAttributes.includes(opt.id)
+		(opt) => !existingAttributes.includes(opt.id),
 	);
 
 	if (availableOptions.length === 0) return null;
@@ -173,7 +171,9 @@ const VariantRow = ({
 	onDelete,
 	onDuplicate,
 }: VariantRowProps) => (
-	<div className={`grid items-center gap-4 rounded-lg border bg-card p-3 @sm:grid-cols-6 ${!variant.enabled ? 'opacity-50' : ''}`}>
+	<div
+		className={`grid items-center gap-4 rounded-lg border bg-card p-3 @sm:grid-cols-6 ${!variant.enabled ? 'opacity-50' : ''}`}
+	>
 		<div className="flex items-center gap-2 @sm:col-span-2">
 			<GripVertical className="size-4 cursor-grab text-muted-foreground" />
 			<div className="size-10 rounded-md bg-muted" />
@@ -186,7 +186,9 @@ const VariantRow = ({
 		</div>
 		<div>
 			<div className="relative">
-				<span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-muted-foreground">$</span>
+				<span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-muted-foreground">
+					$
+				</span>
 				<Input
 					type="number"
 					value={variant.price}
@@ -256,11 +258,46 @@ export default function Main() {
 	]);
 
 	const [variants, setVariants] = React.useState<ProductVariant[]>([
-		{ id: '1', attributes: { color: 'Black', size: 'S' }, sku: 'TEE-BLK-S', price: 29.99, stock: 50, enabled: true },
-		{ id: '2', attributes: { color: 'Black', size: 'M' }, sku: 'TEE-BLK-M', price: 29.99, stock: 75, enabled: true },
-		{ id: '3', attributes: { color: 'Black', size: 'L' }, sku: 'TEE-BLK-L', price: 29.99, stock: 60, enabled: true },
-		{ id: '4', attributes: { color: 'White', size: 'S' }, sku: 'TEE-WHT-S', price: 29.99, stock: 45, enabled: true },
-		{ id: '5', attributes: { color: 'White', size: 'M' }, sku: 'TEE-WHT-M', price: 29.99, stock: 30, enabled: false },
+		{
+			id: '1',
+			attributes: { color: 'Black', size: 'S' },
+			sku: 'TEE-BLK-S',
+			price: 29.99,
+			stock: 50,
+			enabled: true,
+		},
+		{
+			id: '2',
+			attributes: { color: 'Black', size: 'M' },
+			sku: 'TEE-BLK-M',
+			price: 29.99,
+			stock: 75,
+			enabled: true,
+		},
+		{
+			id: '3',
+			attributes: { color: 'Black', size: 'L' },
+			sku: 'TEE-BLK-L',
+			price: 29.99,
+			stock: 60,
+			enabled: true,
+		},
+		{
+			id: '4',
+			attributes: { color: 'White', size: 'S' },
+			sku: 'TEE-WHT-S',
+			price: 29.99,
+			stock: 45,
+			enabled: true,
+		},
+		{
+			id: '5',
+			attributes: { color: 'White', size: 'M' },
+			sku: 'TEE-WHT-M',
+			price: 29.99,
+			stock: 30,
+			enabled: false,
+		},
 	]);
 
 	const handleAddAttribute = (name: string) => {
@@ -277,8 +314,8 @@ export default function Main() {
 	const handleAddValue = (attrId: string, value: string) => {
 		setAttributes((prev) =>
 			prev.map((a) =>
-				a.id === attrId ? { ...a, values: [...a.values, value] } : a
-			)
+				a.id === attrId ? { ...a, values: [...a.values, value] } : a,
+			),
 		);
 	};
 
@@ -287,18 +324,18 @@ export default function Main() {
 			prev.map((a) =>
 				a.id === attrId
 					? { ...a, values: a.values.filter((v) => v !== value) }
-					: a
-			)
+					: a,
+			),
 		);
 	};
 
 	const handleUpdateVariant = (
 		variantId: string,
 		field: keyof ProductVariant,
-		value: any
+		value: any,
 	) => {
 		setVariants((prev) =>
-			prev.map((v) => (v.id === variantId ? { ...v, [field]: value } : v))
+			prev.map((v) => (v.id === variantId ? { ...v, [field]: value } : v)),
 		);
 	};
 

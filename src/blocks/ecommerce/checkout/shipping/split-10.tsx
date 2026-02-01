@@ -1,4 +1,11 @@
-import { MapPin, CreditCard, Package, Lock, ShieldCheck, Check } from 'lucide-react';
+import {
+	MapPin,
+	CreditCard,
+	Package,
+	Lock,
+	ShieldCheck,
+	Check,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -23,9 +30,15 @@ const StepIndicator = ({
 						${step.number > currentStep ? 'bg-muted text-muted-foreground' : ''}
 					`}
 				>
-					{step.number < currentStep ? <Check className="size-4" /> : step.number}
+					{step.number < currentStep ? (
+						<Check className="size-4" />
+					) : (
+						step.number
+					)}
 				</div>
-				<span className={`text-sm whitespace-nowrap ${step.number === currentStep ? 'font-medium' : 'text-muted-foreground'}`}>
+				<span
+					className={`text-sm whitespace-nowrap ${step.number === currentStep ? 'font-medium' : 'text-muted-foreground'}`}
+				>
 					{step.label}
 				</span>
 				{i < steps.length - 1 && <div className="w-8 h-px bg-border" />}
@@ -98,7 +111,10 @@ const TrustBadges = ({
 }) => (
 	<div className="flex flex-wrap items-center justify-center gap-4">
 		{badges.map((badge, i) => (
-			<div key={i} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+			<div
+				key={i}
+				className="flex items-center gap-1.5 text-xs text-muted-foreground"
+			>
 				<badge.icon className="size-3.5" />
 				<span>{badge.text}</span>
 			</div>
@@ -142,9 +158,20 @@ export default function Main() {
 									<FormInput label="First Name" placeholder="John" />
 									<FormInput label="Last Name" placeholder="Doe" />
 								</div>
-								<FormInput label="Email" placeholder="john@example.com" type="email" />
-								<FormInput label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
-								<FormInput label="Street Address" placeholder="123 Main Street" />
+								<FormInput
+									label="Email"
+									placeholder="john@example.com"
+									type="email"
+								/>
+								<FormInput
+									label="Phone"
+									placeholder="+1 (555) 000-0000"
+									type="tel"
+								/>
+								<FormInput
+									label="Street Address"
+									placeholder="123 Main Street"
+								/>
 								<FormInput label="Apt / Suite" placeholder="Apartment 4B" />
 								<div className="grid @sm:grid-cols-3 gap-4">
 									<FormInput label="City" placeholder="New York" />
@@ -155,7 +182,9 @@ export default function Main() {
 						</FormSection>
 
 						<div className="flex gap-3">
-							<Button variant="outline" className="flex-1">Back to Cart</Button>
+							<Button variant="outline" className="flex-1">
+								Back to Cart
+							</Button>
 							<Button className="flex-1">Continue to Payment</Button>
 						</div>
 					</div>
@@ -204,7 +233,8 @@ export default function Main() {
 								<span className="text-sm font-medium">Secure Checkout</span>
 							</div>
 							<p className="text-xs text-muted-foreground">
-								Your payment information is encrypted and secure. We never store your card details.
+								Your payment information is encrypted and secure. We never store
+								your card details.
 							</p>
 						</div>
 

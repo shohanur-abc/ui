@@ -1,26 +1,14 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Tag,
-	Plus,
-	X,
-	Check,
-	Search,
-	Sparkles,
-} from 'lucide-react';
+import { Tag, Plus, X, Check, Search, Sparkles } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
-} from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
 interface ExistingTag {
@@ -71,7 +59,7 @@ const TagSelector = ({
 	onSearchChange,
 }: TagSelectorProps) => {
 	const filteredTags = tags.filter((tag) =>
-		tag.name.toLowerCase().includes(searchQuery.toLowerCase())
+		tag.name.toLowerCase().includes(searchQuery.toLowerCase()),
 	);
 
 	return (
@@ -200,20 +188,22 @@ const ProductTagPreview = ({
 						</Badge>
 					);
 				})}
-				{removeTags.filter((t) => product.currentTags.includes(t)).map((tagId) => {
-					const tag = getTag(tagId);
-					if (!tag) return null;
-					return (
-						<Badge
-							key={tagId}
-							variant="outline"
-							className="gap-1 line-through opacity-50"
-						>
-							<div className={`size-2 rounded-full ${tag.color}`} />
-							{tag.name}
-						</Badge>
-					);
-				})}
+				{removeTags
+					.filter((t) => product.currentTags.includes(t))
+					.map((tagId) => {
+						const tag = getTag(tagId);
+						if (!tag) return null;
+						return (
+							<Badge
+								key={tagId}
+								variant="outline"
+								className="gap-1 line-through opacity-50"
+							>
+								<div className={`size-2 rounded-full ${tag.color}`} />
+								{tag.name}
+							</Badge>
+						);
+					})}
 			</div>
 		</div>
 	);
@@ -222,8 +212,12 @@ const ProductTagPreview = ({
 export default function Main() {
 	const [activeTab, setActiveTab] = React.useState('add');
 	const [searchQuery, setSearchQuery] = React.useState('');
-	const [selectedAddTags, setSelectedAddTags] = React.useState<string[]>(['sale']);
-	const [selectedRemoveTags, setSelectedRemoveTags] = React.useState<string[]>([]);
+	const [selectedAddTags, setSelectedAddTags] = React.useState<string[]>([
+		'sale',
+	]);
+	const [selectedRemoveTags, setSelectedRemoveTags] = React.useState<string[]>(
+		[],
+	);
 
 	const tags: ExistingTag[] = [
 		{ id: 'bestseller', name: 'Bestseller', color: 'bg-amber-500', count: 45 },
@@ -237,21 +231,36 @@ export default function Main() {
 	];
 
 	const products: ProductWithTags[] = [
-		{ id: '1', name: 'Wireless Headphones Pro', sku: 'WHP-001', currentTags: ['bestseller', 'premium'] },
-		{ id: '2', name: 'Mechanical Keyboard RGB', sku: 'MKB-002', currentTags: ['new', 'featured'] },
-		{ id: '3', name: 'Gaming Mouse Elite', sku: 'GME-003', currentTags: ['sale'] },
+		{
+			id: '1',
+			name: 'Wireless Headphones Pro',
+			sku: 'WHP-001',
+			currentTags: ['bestseller', 'premium'],
+		},
+		{
+			id: '2',
+			name: 'Mechanical Keyboard RGB',
+			sku: 'MKB-002',
+			currentTags: ['new', 'featured'],
+		},
+		{
+			id: '3',
+			name: 'Gaming Mouse Elite',
+			sku: 'GME-003',
+			currentTags: ['sale'],
+		},
 		{ id: '4', name: 'USB-C Hub 7-in-1', sku: 'UCH-004', currentTags: ['eco'] },
 	];
 
 	const toggleAddTag = (tagId: string) => {
 		setSelectedAddTags((prev) =>
-			prev.includes(tagId) ? prev.filter((t) => t !== tagId) : [...prev, tagId]
+			prev.includes(tagId) ? prev.filter((t) => t !== tagId) : [...prev, tagId],
 		);
 	};
 
 	const toggleRemoveTag = (tagId: string) => {
 		setSelectedRemoveTags((prev) =>
-			prev.includes(tagId) ? prev.filter((t) => t !== tagId) : [...prev, tagId]
+			prev.includes(tagId) ? prev.filter((t) => t !== tagId) : [...prev, tagId],
 		);
 	};
 

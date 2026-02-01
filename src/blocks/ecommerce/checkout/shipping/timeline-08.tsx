@@ -1,4 +1,12 @@
-import { Package, Truck, Clock, Check, Calendar, AlertCircle, ArrowRight } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	Clock,
+	Check,
+	Calendar,
+	AlertCircle,
+	ArrowRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -24,29 +32,51 @@ const MultiPackageTimeline = ({
 		{packages.map((pkg, pkgIdx) => (
 			<div key={pkg.id} className="relative">
 				<div className="flex items-center gap-3 mb-3">
-					<div className={`flex size-8 items-center justify-center rounded-full ${
-						pkg.status === 'delivered' ? 'bg-green-500' : pkg.status === 'shipped' ? 'bg-blue-500' : 'bg-amber-500'
-					} text-white`}>
-						{pkg.status === 'delivered' ? <Check className="size-4" /> : <Package className="size-4" />}
+					<div
+						className={`flex size-8 items-center justify-center rounded-full ${
+							pkg.status === 'delivered'
+								? 'bg-green-500'
+								: pkg.status === 'shipped'
+									? 'bg-blue-500'
+									: 'bg-amber-500'
+						} text-white`}
+					>
+						{pkg.status === 'delivered' ? (
+							<Check className="size-4" />
+						) : (
+							<Package className="size-4" />
+						)}
 					</div>
 					<div className="flex-1">
 						<div className="flex items-center gap-2">
 							<span className="font-medium">Package {pkgIdx + 1}</span>
-							<Badge variant={pkg.status === 'delivered' ? 'default' : 'secondary'} className="text-xs capitalize">
+							<Badge
+								variant={pkg.status === 'delivered' ? 'default' : 'secondary'}
+								className="text-xs capitalize"
+							>
 								{pkg.status}
 							</Badge>
 						</div>
-						<p className="text-sm text-muted-foreground">{pkg.carrier} • {pkg.eta}</p>
+						<p className="text-sm text-muted-foreground">
+							{pkg.carrier} • {pkg.eta}
+						</p>
 					</div>
 				</div>
 				<div className="ml-11 flex gap-2 overflow-x-auto pb-2">
 					{pkg.items.map((item, i) => (
-						<div key={i} className="flex items-center gap-2 shrink-0 p-2 rounded-lg bg-muted/50">
+						<div
+							key={i}
+							className="flex items-center gap-2 shrink-0 p-2 rounded-lg bg-muted/50"
+						>
 							<Avatar className="size-8 rounded-lg">
 								<AvatarImage src={item.image} />
-								<AvatarFallback className="rounded-lg text-xs">{item.name[0]}</AvatarFallback>
+								<AvatarFallback className="rounded-lg text-xs">
+									{item.name[0]}
+								</AvatarFallback>
 							</Avatar>
-							<span className="text-sm font-medium truncate max-w-[100px]">{item.name}</span>
+							<span className="text-sm font-medium truncate max-w-[100px]">
+								{item.name}
+							</span>
 						</div>
 					))}
 				</div>
@@ -78,7 +108,11 @@ const DeliveryDate = ({
 			hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-primary-foreground
 		`}
 	>
-		{fastest && <Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-xs">Fastest</Badge>}
+		{fastest && (
+			<Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-xs">
+				Fastest
+			</Badge>
+		)}
 		<RadioGroupItem value={value} id={value} className="sr-only" />
 		<span className="text-xs uppercase opacity-70">{day}</span>
 		<span className="text-2xl font-bold">{date}</span>
@@ -101,9 +135,7 @@ export default function Main() {
 		},
 		{
 			id: 'pkg-2',
-			items: [
-				{ name: 'Smart Watch', image: '/products/watch.jpg' },
-			],
+			items: [{ name: 'Smart Watch', image: '/products/watch.jpg' }],
 			status: 'processing' as const,
 			eta: 'Ships Jan 20',
 			carrier: 'UPS',
@@ -111,7 +143,14 @@ export default function Main() {
 	];
 
 	const dates = [
-		{ value: 'd1', day: 'Mon', date: '15', month: 'Jan', price: '$14.99', fastest: true },
+		{
+			value: 'd1',
+			day: 'Mon',
+			date: '15',
+			month: 'Jan',
+			price: '$14.99',
+			fastest: true,
+		},
 		{ value: 'd2', day: 'Tue', date: '16', month: 'Jan', price: '$9.99' },
 		{ value: 'd3', day: 'Wed', date: '17', month: 'Jan', price: '$7.99' },
 		{ value: 'd4', day: 'Thu', date: '18', month: 'Jan', price: '$5.99' },
@@ -138,7 +177,8 @@ export default function Main() {
 				<Alert className="mb-6">
 					<AlertCircle className="size-4" />
 					<AlertDescription>
-						Package 2 is being prepared. Select a delivery date for when all items are ready.
+						Package 2 is being prepared. Select a delivery date for when all
+						items are ready.
 					</AlertDescription>
 				</Alert>
 
@@ -150,7 +190,10 @@ export default function Main() {
 						</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<RadioGroup defaultValue="d3" className="flex gap-2 overflow-x-auto pb-2">
+						<RadioGroup
+							defaultValue="d3"
+							className="flex gap-2 overflow-x-auto pb-2"
+						>
 							{dates.map((date) => (
 								<DeliveryDate key={date.value} {...date} />
 							))}

@@ -1,10 +1,25 @@
 'use client';
 
-import { ArrowRight, Check, CreditCard, Gift, Lock, Percent, Shield, Smartphone, Wallet } from 'lucide-react';
+import {
+	ArrowRight,
+	Check,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	Shield,
+	Smartphone,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -28,7 +43,9 @@ interface CartItem {
 
 const CartSummary = ({ items }: { items: CartItem[] }) => (
 	<div className="space-y-3">
-		<h3 className="font-medium text-sm">Order Summary ({items.length} items)</h3>
+		<h3 className="font-medium text-sm">
+			Order Summary ({items.length} items)
+		</h3>
 		<div className="space-y-2">
 			{items.map((item, index) => (
 				<div key={index} className="flex gap-3 p-2 rounded-lg bg-muted/30">
@@ -37,7 +54,9 @@ const CartSummary = ({ items }: { items: CartItem[] }) => (
 					</div>
 					<div className="flex-1 min-w-0">
 						<p className="text-sm font-medium truncate">{item.name}</p>
-						<p className="text-xs text-muted-foreground">{item.variant} × {item.quantity}</p>
+						<p className="text-xs text-muted-foreground">
+							{item.variant} × {item.quantity}
+						</p>
 					</div>
 					<span className="text-sm font-medium">{item.price}</span>
 				</div>
@@ -46,22 +65,25 @@ const CartSummary = ({ items }: { items: CartItem[] }) => (
 	</div>
 );
 
-const SavedMethodCard = ({ 
-	id, 
-	type, 
-	label, 
-	sublabel, 
-	icon: Icon, 
-	isDefault, 
-	selected, 
-	onSelect 
-}: SavedPaymentMethod & { selected: boolean; onSelect: (id: string) => void }) => (
+const SavedMethodCard = ({
+	id,
+	type,
+	label,
+	sublabel,
+	icon: Icon,
+	isDefault,
+	selected,
+	onSelect,
+}: SavedPaymentMethod & {
+	selected: boolean;
+	onSelect: (id: string) => void;
+}) => (
 	<button
 		type="button"
 		onClick={() => onSelect(id)}
 		className={`w-full flex items-center gap-3 p-3 rounded-xl border-2 transition-all text-left ${
-			selected 
-				? 'border-primary bg-primary/5' 
+			selected
+				? 'border-primary bg-primary/5'
 				: 'border-border/50 hover:border-primary/30'
 		}`}
 	>
@@ -71,7 +93,11 @@ const SavedMethodCard = ({
 		<div className="flex-1">
 			<div className="flex items-center gap-2">
 				<span className="text-sm font-medium">{label}</span>
-				{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+				{isDefault && (
+					<Badge variant="secondary" className="text-xs">
+						Default
+					</Badge>
+				)}
 			</div>
 			<p className="text-xs text-muted-foreground">{sublabel}</p>
 		</div>
@@ -83,25 +109,27 @@ const SavedMethodCard = ({
 	</button>
 );
 
-const SavedPaymentMethods = ({ 
-	methods, 
-	selected, 
-	onSelect 
-}: { 
-	methods: SavedPaymentMethod[]; 
-	selected: string; 
-	onSelect: (id: string) => void 
+const SavedPaymentMethods = ({
+	methods,
+	selected,
+	onSelect,
+}: {
+	methods: SavedPaymentMethod[];
+	selected: string;
+	onSelect: (id: string) => void;
 }) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
 			<h3 className="font-medium text-sm">Payment Method</h3>
-			<Button variant="ghost" size="sm" className="text-xs h-7">+ Add new</Button>
+			<Button variant="ghost" size="sm" className="text-xs h-7">
+				+ Add new
+			</Button>
 		</div>
 		<div className="grid gap-2">
 			{methods.map((method) => (
-				<SavedMethodCard 
-					key={method.id} 
-					{...method} 
+				<SavedMethodCard
+					key={method.id}
+					{...method}
 					selected={selected === method.id}
 					onSelect={onSelect}
 				/>
@@ -115,7 +143,9 @@ const CvvConfirmation = () => (
 		<Label className="text-sm">Enter CVV to confirm</Label>
 		<div className="flex gap-3">
 			<Input type="password" placeholder="•••" className="w-24" />
-			<span className="text-xs text-muted-foreground self-center">3 digits on back of card</span>
+			<span className="text-xs text-muted-foreground self-center">
+				3 digits on back of card
+			</span>
 		</div>
 	</div>
 );
@@ -128,21 +158,44 @@ const PromoCodeInput = () => (
 				<Gift className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
 				<Input placeholder="Enter code" className="pl-10" />
 			</div>
-			<Button variant="outline" size="sm">Apply</Button>
+			<Button variant="outline" size="sm">
+				Apply
+			</Button>
 		</div>
 	</div>
 );
 
-const PriceBreakdown = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isDiscount?: boolean }[] }) => (
+const PriceBreakdown = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isDiscount?: boolean;
+	}[];
+}) => (
 	<div className="space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isDiscount ? 'text-emerald-600' : line.isTotal ? '' : 'text-muted-foreground'}>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={
+							line.isDiscount
+								? 'text-emerald-600'
+								: line.isTotal
+									? ''
+									: 'text-muted-foreground'
+						}
+					>
 						{line.label}
 					</span>
-					<span className={line.isDiscount ? 'text-emerald-600' : ''}>{line.value}</span>
+					<span className={line.isDiscount ? 'text-emerald-600' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
@@ -171,14 +224,45 @@ const SecurityBadges = () => (
 
 export default function Main() {
 	const cartItems: CartItem[] = [
-		{ name: 'Wireless Mouse', variant: 'Black', quantity: 1, price: '$79.00', image: '🖱️' },
-		{ name: 'USB-C Hub', variant: 'Silver', quantity: 1, price: '$49.00', image: '🔌' },
+		{
+			name: 'Wireless Mouse',
+			variant: 'Black',
+			quantity: 1,
+			price: '$79.00',
+			image: '🖱️',
+		},
+		{
+			name: 'USB-C Hub',
+			variant: 'Silver',
+			quantity: 1,
+			price: '$49.00',
+			image: '🔌',
+		},
 	];
 
 	const savedMethods: SavedPaymentMethod[] = [
-		{ id: 'visa', type: 'card', label: 'Visa •••• 4242', sublabel: 'Expires 12/26', icon: CreditCard, isDefault: true },
-		{ id: 'apple', type: 'wallet', label: 'Apple Pay', sublabel: 'john@apple.com', icon: Smartphone },
-		{ id: 'paypal', type: 'wallet', label: 'PayPal', sublabel: 'john@email.com', icon: Wallet },
+		{
+			id: 'visa',
+			type: 'card',
+			label: 'Visa •••• 4242',
+			sublabel: 'Expires 12/26',
+			icon: CreditCard,
+			isDefault: true,
+		},
+		{
+			id: 'apple',
+			type: 'wallet',
+			label: 'Apple Pay',
+			sublabel: 'john@apple.com',
+			icon: Smartphone,
+		},
+		{
+			id: 'paypal',
+			type: 'wallet',
+			label: 'PayPal',
+			sublabel: 'john@email.com',
+			icon: Wallet,
+		},
 	];
 
 	const priceLines = [
@@ -205,10 +289,10 @@ export default function Main() {
 					<CardContent className="space-y-6">
 						<CartSummary items={cartItems} />
 						<Separator />
-						<SavedPaymentMethods 
-							methods={savedMethods} 
-							selected="visa" 
-							onSelect={() => {}} 
+						<SavedPaymentMethods
+							methods={savedMethods}
+							selected="visa"
+							onSelect={() => {}}
 						/>
 						<CvvConfirmation />
 						<PromoCodeInput />

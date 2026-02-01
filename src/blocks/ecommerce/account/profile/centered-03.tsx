@@ -55,7 +55,9 @@ const ProfileAvatar = ({
 		<div>
 			<h1 className="text-xl font-bold">{name}</h1>
 			<p className="text-sm text-muted-foreground">{email}</p>
-			<p className="text-xs text-muted-foreground mt-1">Member since {memberSince}</p>
+			<p className="text-xs text-muted-foreground mt-1">
+				Member since {memberSince}
+			</p>
 		</div>
 	</div>
 );
@@ -65,7 +67,13 @@ const MenuSection = ({
 	items,
 }: {
 	title: string;
-	items: { icon: React.ElementType; label: string; href: string; badge?: string; color?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+		color?: string;
+	}[];
 }) => (
 	<div className="space-y-2">
 		<h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-2">
@@ -78,10 +86,14 @@ const MenuSection = ({
 					href={item.href}
 					className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors group"
 				>
-					<item.icon className={`size-5 ${item.color || 'text-muted-foreground'} group-hover:text-foreground transition-colors`} />
+					<item.icon
+						className={`size-5 ${item.color || 'text-muted-foreground'} group-hover:text-foreground transition-colors`}
+					/>
 					<span className="flex-1 text-sm font-medium">{item.label}</span>
 					{item.badge && (
-						<Badge variant="secondary" className="text-xs">{item.badge}</Badge>
+						<Badge variant="secondary" className="text-xs">
+							{item.badge}
+						</Badge>
 					)}
 					<ArrowRight className="size-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
 				</Link>
@@ -91,7 +103,10 @@ const MenuSection = ({
 );
 
 const LogoutButton = () => (
-	<Button variant="ghost" className="w-full justify-start gap-3 text-destructive hover:text-destructive hover:bg-destructive/10">
+	<Button
+		variant="ghost"
+		className="w-full justify-start gap-3 text-destructive hover:text-destructive hover:bg-destructive/10"
+	>
 		<LogOut className="size-5" />
 		Sign Out
 	</Button>
@@ -110,9 +125,23 @@ export default function Main() {
 			{
 				title: 'Account',
 				items: [
-					{ icon: User, label: 'Personal Information', href: '/account/personal' },
-					{ icon: MapPin, label: 'Addresses', href: '/account/addresses', badge: '3' },
-					{ icon: CreditCard, label: 'Payment Methods', href: '/account/payment', badge: '2' },
+					{
+						icon: User,
+						label: 'Personal Information',
+						href: '/account/personal',
+					},
+					{
+						icon: MapPin,
+						label: 'Addresses',
+						href: '/account/addresses',
+						badge: '3',
+					},
+					{
+						icon: CreditCard,
+						label: 'Payment Methods',
+						href: '/account/payment',
+						badge: '2',
+					},
 				],
 			},
 			{
@@ -120,7 +149,13 @@ export default function Main() {
 				items: [
 					{ icon: Package, label: 'Orders', href: '/orders', badge: '12' },
 					{ icon: Heart, label: 'Wishlist', href: '/wishlist', badge: '8' },
-					{ icon: Bell, label: 'Notifications', href: '/notifications', badge: '3', color: 'text-blue-500' },
+					{
+						icon: Bell,
+						label: 'Notifications',
+						href: '/notifications',
+						badge: '3',
+						color: 'text-blue-500',
+					},
 				],
 			},
 			{

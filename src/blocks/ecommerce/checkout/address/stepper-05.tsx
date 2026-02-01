@@ -105,12 +105,7 @@ const SelectField = ({ label, placeholder, options }: SelectFieldProps) => (
 	</div>
 );
 
-const ShippingOption = ({
-	value,
-	label,
-	time,
-	price,
-}: ShippingOptionProps) => (
+const ShippingOption = ({ value, label, time, price }: ShippingOptionProps) => (
 	<label className="flex items-center gap-4 p-4 rounded-xl border border-border cursor-pointer hover:bg-muted/30 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary/5">
 		<RadioGroupItem value={value} />
 		<div className="flex-1">
@@ -146,7 +141,11 @@ const AddressForm = ({
 			<Field label="Email" placeholder="john@example.com" type="email" />
 			<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 			<Separator />
-			<SelectField label="Country" placeholder="Select country" options={countries} />
+			<SelectField
+				label="Country"
+				placeholder="Select country"
+				options={countries}
+			/>
 			<Field label="Street Address" placeholder="123 Main Street" />
 			<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 			<div className="grid @sm:grid-cols-3 gap-4">

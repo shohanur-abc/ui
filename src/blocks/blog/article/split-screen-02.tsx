@@ -1,5 +1,11 @@
 import Link from 'next/link';
-import { Clock, Calendar, ArrowUpRight, Heart, MessageCircle } from 'lucide-react';
+import {
+	Clock,
+	Calendar,
+	ArrowUpRight,
+	Heart,
+	MessageCircle,
+} from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -23,7 +29,11 @@ interface ArticleProps {
 	stats: { likes: number; comments: number };
 }
 
-const Categories = ({ items }: { items: { label: string; href: string }[] }) => (
+const Categories = ({
+	items,
+}: {
+	items: { label: string; href: string }[];
+}) => (
 	<div className="flex flex-wrap gap-2">
 		{items.map((item, index) => (
 			<Badge
@@ -106,13 +116,27 @@ const ArticleBody = ({ paragraphs }: { paragraphs: string[] }) => (
 	</div>
 );
 
-const EngagementBar = ({ likes, comments }: { likes: number; comments: number }) => (
+const EngagementBar = ({
+	likes,
+	comments,
+}: {
+	likes: number;
+	comments: number;
+}) => (
 	<div className="flex items-center gap-4 pt-6 border-t border-border">
-		<Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
+		<Button
+			variant="ghost"
+			size="sm"
+			className="gap-2 text-muted-foreground hover:text-foreground"
+		>
 			<Heart className="size-4" />
 			<span>{likes}</span>
 		</Button>
-		<Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
+		<Button
+			variant="ghost"
+			size="sm"
+			className="gap-2 text-muted-foreground hover:text-foreground"
+		>
 			<MessageCircle className="size-4" />
 			<span>{comments}</span>
 		</Button>
@@ -134,7 +158,8 @@ export default function Main() {
 			'A comprehensive guide to creating, maintaining, and evolving design systems that work for teams of all sizes.',
 		author: {
 			name: 'Alex Chen',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'AC',
 		},
 		publishDate: 'Jan 20, 2026',
@@ -164,12 +189,18 @@ export default function Main() {
 							publishDate={articleData.publishDate}
 							readTime={articleData.readTime}
 						/>
-						<HeroImageSection src={articleData.heroImage} alt={articleData.heroAlt} />
+						<HeroImageSection
+							src={articleData.heroImage}
+							alt={articleData.heroAlt}
+						/>
 					</div>
 
 					<div className="flex flex-col gap-8 @lg:pt-4">
 						<ArticleBody paragraphs={articleData.content} />
-						<EngagementBar likes={articleData.stats.likes} comments={articleData.stats.comments} />
+						<EngagementBar
+							likes={articleData.stats.likes}
+							comments={articleData.stats.comments}
+						/>
 					</div>
 				</div>
 			</div>

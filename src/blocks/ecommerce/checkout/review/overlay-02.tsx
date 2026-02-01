@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -26,7 +32,12 @@ interface Product {
 const OverlayItem = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-4 rounded-xl bg-background/80 p-4 backdrop-blur-sm">
 		<div className="relative size-16 shrink-0 overflow-hidden rounded-lg shadow-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="font-medium">{product.name}</p>
@@ -71,9 +82,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -85,7 +100,8 @@ export default function Main() {
 			variant: 'Oversized / Striped',
 			price: 44.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1600369672770-985fd30004eb?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1600369672770-985fd30004eb?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -93,7 +109,8 @@ export default function Main() {
 			variant: 'Polarized / Tortoise',
 			price: 129.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -101,12 +118,16 @@ export default function Main() {
 			variant: 'Wide Brim / Natural',
 			price: 39.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1521369909029-2afed882baee?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1521369909029-2afed882baee?w=200&h=200&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative min-h-screen overflow-hidden" data-theme="neon">
+		<section
+			className="@container relative min-h-screen overflow-hidden"
+			data-theme="neon"
+		>
 			<div className="absolute inset-0">
 				<Image
 					src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&h=1080&fit=crop"
@@ -116,7 +137,7 @@ export default function Main() {
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
 			</div>
-			
+
 			<div className="relative mx-auto max-w-5xl px-4 py-12 @sm:px-6 @md:py-16 @xl:py-20">
 				<div className="mb-10 text-center">
 					<Badge className="mb-4 gap-1.5 bg-background/80 backdrop-blur-sm">

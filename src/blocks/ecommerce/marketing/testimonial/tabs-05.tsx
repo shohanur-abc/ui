@@ -41,7 +41,9 @@ const SectionHeader = ({
 			<h2 className="text-3xl @sm:text-4xl @lg:text-5xl font-bold tracking-tight mb-4">
 				{title}
 			</h2>
-			<p className="text-muted-foreground text-base @md:text-lg">{description}</p>
+			<p className="text-muted-foreground text-base @md:text-lg">
+				{description}
+			</p>
 		</div>
 	</div>
 );
@@ -72,7 +74,9 @@ const TimelineCard = ({ item }: { item: TestimonialItem }) => (
 				<DateTag date={item.date} />
 			</div>
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed flex-1 mb-5">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed flex-1 mb-5">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -102,7 +106,8 @@ export default function Main() {
 					author: 'Bella Thompson',
 					role: 'IT Manager',
 					company: 'QuickStart',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'BT',
 					rating: 5,
 					date: '2 days ago',
@@ -112,7 +117,8 @@ export default function Main() {
 					author: 'Chris Johnson',
 					role: 'Data Analyst',
 					company: 'DataFirst',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'CJ',
 					rating: 5,
 					date: '3 days ago',
@@ -122,7 +128,8 @@ export default function Main() {
 					author: 'Diana Lee',
 					role: 'Operations',
 					company: 'FastTrack',
-					avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 					initials: 'DL',
 					rating: 5,
 					date: '5 days ago',
@@ -138,7 +145,8 @@ export default function Main() {
 					author: 'Eric Williams',
 					role: 'Team Lead',
 					company: 'ProductiveCo',
-					avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 					initials: 'EW',
 					rating: 5,
 					date: '2 weeks ago',
@@ -148,7 +156,8 @@ export default function Main() {
 					author: 'Fiona Chen',
 					role: 'DevOps Lead',
 					company: 'IntegratePro',
-					avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 					initials: 'FC',
 					rating: 5,
 					date: '3 weeks ago',
@@ -158,7 +167,8 @@ export default function Main() {
 					author: 'George Park',
 					role: 'HR Director',
 					company: 'OnboardFirst',
-					avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 					initials: 'GP',
 					rating: 5,
 					date: '3 weeks ago',
@@ -174,7 +184,8 @@ export default function Main() {
 					author: 'Hannah Davis',
 					role: 'CEO',
 					company: 'LongTermPro',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'HD',
 					rating: 5,
 					date: 'Jan 2023',
@@ -184,7 +195,8 @@ export default function Main() {
 					author: 'Ian Brooks',
 					role: 'Founder',
 					company: 'EarlyStage',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'IB',
 					rating: 5,
 					date: 'Nov 2022',
@@ -194,7 +206,8 @@ export default function Main() {
 					author: 'Julia Martinez',
 					role: 'Consultant',
 					company: 'Advisory Pro',
-					avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 					initials: 'JM',
 					rating: 5,
 					date: 'Mar 2022',
@@ -204,7 +217,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Recent Reviews"

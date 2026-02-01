@@ -11,7 +11,13 @@ import {
 	BarChart3,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
 	Select,
@@ -59,18 +65,29 @@ const ComparisonCard = ({ stat }: ComparisonCardProps) => {
 				<div className="mt-4 grid grid-cols-2 gap-4">
 					<div>
 						<p className="text-xs text-muted-foreground">Current Period</p>
-						<p className="text-xl font-bold">{formatValue(stat.current, stat.unit)}</p>
+						<p className="text-xl font-bold">
+							{formatValue(stat.current, stat.unit)}
+						</p>
 					</div>
 					<div>
 						<p className="text-xs text-muted-foreground">Previous Period</p>
-						<p className="text-xl font-medium text-muted-foreground">{formatValue(stat.previous, stat.unit)}</p>
+						<p className="text-xl font-medium text-muted-foreground">
+							{formatValue(stat.previous, stat.unit)}
+						</p>
 					</div>
 				</div>
 				<div className="mt-4 flex items-center justify-between rounded-lg bg-muted p-3">
 					<span className="text-sm text-muted-foreground">Change</span>
-					<div className={`flex items-center gap-1 font-semibold ${isPositive ? 'text-emerald-500' : 'text-destructive'}`}>
-						{isPositive ? <TrendingUp className="size-4" /> : <TrendingDown className="size-4" />}
-						{isPositive ? '+' : ''}{stat.change}%
+					<div
+						className={`flex items-center gap-1 font-semibold ${isPositive ? 'text-emerald-500' : 'text-destructive'}`}
+					>
+						{isPositive ? (
+							<TrendingUp className="size-4" />
+						) : (
+							<TrendingDown className="size-4" />
+						)}
+						{isPositive ? '+' : ''}
+						{stat.change}%
 					</div>
 				</div>
 			</CardContent>
@@ -147,8 +164,12 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Period Comparison</CardTitle>
-								<CardDescription>Compare key metrics across time periods</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Period Comparison
+								</CardTitle>
+								<CardDescription>
+									Compare key metrics across time periods
+								</CardDescription>
 							</div>
 							<PeriodSelector value={period} onChange={setPeriod} />
 						</div>

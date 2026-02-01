@@ -45,7 +45,13 @@ type OrderRow = {
 	payment: 'paid' | 'pending' | 'refunded';
 };
 
-const SummaryCard = ({ title, value, change, icon: Icon, color }: SummaryItem) => (
+const SummaryCard = ({
+	title,
+	value,
+	change,
+	icon: Icon,
+	color,
+}: SummaryItem) => (
 	<Card>
 		<CardContent className="flex items-center gap-4 p-4">
 			<div className={`rounded-lg p-2.5 ${color}`}>
@@ -91,20 +97,107 @@ const getPaymentStyle = (payment: OrderRow['payment']) => {
 
 export default function Main() {
 	const summaries: SummaryItem[] = [
-		{ title: 'Total Orders', value: '2,847', change: '+18%', icon: ShoppingCart, color: 'bg-primary/10 text-primary' },
-		{ title: 'Pending', value: '42', change: '-5%', icon: Clock, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Shipped', value: '156', change: '+12%', icon: Truck, color: 'bg-blue-500/10 text-blue-500' },
-		{ title: 'Delivered', value: '892', change: '+24%', icon: CheckCircle2, color: 'bg-emerald-500/10 text-emerald-500' },
+		{
+			title: 'Total Orders',
+			value: '2,847',
+			change: '+18%',
+			icon: ShoppingCart,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'Pending',
+			value: '42',
+			change: '-5%',
+			icon: Clock,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Shipped',
+			value: '156',
+			change: '+12%',
+			icon: Truck,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
+		{
+			title: 'Delivered',
+			value: '892',
+			change: '+24%',
+			icon: CheckCircle2,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
 	];
 
 	const orders: OrderRow[] = [
-		{ id: 'ORD-4521', customer: 'John Doe', email: 'john@example.com', products: 3, amount: '$234.50', date: 'Dec 12, 2024', status: 'pending', payment: 'paid' },
-		{ id: 'ORD-4520', customer: 'Jane Smith', email: 'jane@example.com', products: 2, amount: '$189.00', date: 'Dec 12, 2024', status: 'processing', payment: 'paid' },
-		{ id: 'ORD-4519', customer: 'Bob Wilson', email: 'bob@example.com', products: 5, amount: '$456.20', date: 'Dec 11, 2024', status: 'shipped', payment: 'paid' },
-		{ id: 'ORD-4518', customer: 'Alice Brown', email: 'alice@example.com', products: 1, amount: '$78.90', date: 'Dec 11, 2024', status: 'delivered', payment: 'paid' },
-		{ id: 'ORD-4517', customer: 'Mike Johnson', email: 'mike@example.com', products: 4, amount: '$321.00', date: 'Dec 10, 2024', status: 'delivered', payment: 'paid' },
-		{ id: 'ORD-4516', customer: 'Sarah Davis', email: 'sarah@example.com', products: 2, amount: '$145.50', date: 'Dec 10, 2024', status: 'cancelled', payment: 'refunded' },
-		{ id: 'ORD-4515', customer: 'Tom Wilson', email: 'tom@example.com', products: 3, amount: '$267.80', date: 'Dec 09, 2024', status: 'delivered', payment: 'paid' },
+		{
+			id: 'ORD-4521',
+			customer: 'John Doe',
+			email: 'john@example.com',
+			products: 3,
+			amount: '$234.50',
+			date: 'Dec 12, 2024',
+			status: 'pending',
+			payment: 'paid',
+		},
+		{
+			id: 'ORD-4520',
+			customer: 'Jane Smith',
+			email: 'jane@example.com',
+			products: 2,
+			amount: '$189.00',
+			date: 'Dec 12, 2024',
+			status: 'processing',
+			payment: 'paid',
+		},
+		{
+			id: 'ORD-4519',
+			customer: 'Bob Wilson',
+			email: 'bob@example.com',
+			products: 5,
+			amount: '$456.20',
+			date: 'Dec 11, 2024',
+			status: 'shipped',
+			payment: 'paid',
+		},
+		{
+			id: 'ORD-4518',
+			customer: 'Alice Brown',
+			email: 'alice@example.com',
+			products: 1,
+			amount: '$78.90',
+			date: 'Dec 11, 2024',
+			status: 'delivered',
+			payment: 'paid',
+		},
+		{
+			id: 'ORD-4517',
+			customer: 'Mike Johnson',
+			email: 'mike@example.com',
+			products: 4,
+			amount: '$321.00',
+			date: 'Dec 10, 2024',
+			status: 'delivered',
+			payment: 'paid',
+		},
+		{
+			id: 'ORD-4516',
+			customer: 'Sarah Davis',
+			email: 'sarah@example.com',
+			products: 2,
+			amount: '$145.50',
+			date: 'Dec 10, 2024',
+			status: 'cancelled',
+			payment: 'refunded',
+		},
+		{
+			id: 'ORD-4515',
+			customer: 'Tom Wilson',
+			email: 'tom@example.com',
+			products: 3,
+			amount: '$267.80',
+			date: 'Dec 09, 2024',
+			status: 'delivered',
+			payment: 'paid',
+		},
 	];
 
 	return (
@@ -132,11 +225,17 @@ export default function Main() {
 									<TableRow>
 										<TableHead>Order ID</TableHead>
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @lg:table-cell">Products</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Products
+										</TableHead>
 										<TableHead>Amount</TableHead>
-										<TableHead className="hidden @xl:table-cell">Date</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Date
+										</TableHead>
 										<TableHead>Status</TableHead>
-										<TableHead className="hidden @lg:table-cell">Payment</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Payment
+										</TableHead>
 										<TableHead className="w-10"></TableHead>
 									</TableRow>
 								</TableHeader>
@@ -147,19 +246,33 @@ export default function Main() {
 											<TableCell>
 												<div>
 													<p className="font-medium">{order.customer}</p>
-													<p className="text-xs text-muted-foreground">{order.email}</p>
+													<p className="text-xs text-muted-foreground">
+														{order.email}
+													</p>
 												</div>
 											</TableCell>
-											<TableCell className="hidden @lg:table-cell">{order.products}</TableCell>
-											<TableCell className="font-medium">{order.amount}</TableCell>
-											<TableCell className="hidden @xl:table-cell text-muted-foreground">{order.date}</TableCell>
+											<TableCell className="hidden @lg:table-cell">
+												{order.products}
+											</TableCell>
+											<TableCell className="font-medium">
+												{order.amount}
+											</TableCell>
+											<TableCell className="hidden @xl:table-cell text-muted-foreground">
+												{order.date}
+											</TableCell>
 											<TableCell>
-												<Badge variant="secondary" className={getStatusStyle(order.status)}>
+												<Badge
+													variant="secondary"
+													className={getStatusStyle(order.status)}
+												>
 													{order.status}
 												</Badge>
 											</TableCell>
 											<TableCell className="hidden @lg:table-cell">
-												<Badge variant="secondary" className={getPaymentStyle(order.payment)}>
+												<Badge
+													variant="secondary"
+													className={getPaymentStyle(order.payment)}
+												>
 													{order.payment}
 												</Badge>
 											</TableCell>

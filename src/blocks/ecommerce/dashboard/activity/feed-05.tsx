@@ -62,7 +62,10 @@ const StatusBadge = ({ status }: { status: InventoryItem['status'] }) => {
 const TrendIndicator = ({
 	trend,
 	value,
-}: { trend: InventoryItem['trend']; value: string }) => {
+}: {
+	trend: InventoryItem['trend'];
+	value: string;
+}) => {
 	const config = {
 		up: { icon: TrendingUp, className: 'text-emerald-400' },
 		down: { icon: TrendingDown, className: 'text-rose-400' },
@@ -193,7 +196,11 @@ const InventoryCard = ({ item }: { item: InventoryItem }) => (
 	</div>
 );
 
-const SummaryBar = ({ summary }: { summary: InventoryFeedProps['summary'] }) => (
+const SummaryBar = ({
+	summary,
+}: {
+	summary: InventoryFeedProps['summary'];
+}) => (
 	<div className="grid grid-cols-3 gap-3">
 		<div className="flex flex-col items-center p-3 rounded-lg bg-muted/50 border border-border/50">
 			<Warehouse className="size-5 text-primary mb-1" />
@@ -204,12 +211,16 @@ const SummaryBar = ({ summary }: { summary: InventoryFeedProps['summary'] }) => 
 		</div>
 		<div className="flex flex-col items-center p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
 			<AlertTriangle className="size-5 text-amber-400 mb-1" />
-			<span className="text-xl font-bold text-amber-400">{summary.lowStock}</span>
+			<span className="text-xl font-bold text-amber-400">
+				{summary.lowStock}
+			</span>
 			<span className="text-xs text-muted-foreground">Low Stock</span>
 		</div>
 		<div className="flex flex-col items-center p-3 rounded-lg bg-rose-500/10 border border-rose-500/20">
 			<AlertTriangle className="size-5 text-rose-400 mb-1" />
-			<span className="text-xl font-bold text-rose-400">{summary.critical}</span>
+			<span className="text-xl font-bold text-rose-400">
+				{summary.critical}
+			</span>
 			<span className="text-xs text-muted-foreground">Critical</span>
 		</div>
 	</div>

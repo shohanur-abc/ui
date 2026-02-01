@@ -60,7 +60,11 @@ const StepBadge = ({
 		}`}
 	>
 		<div className="size-6 rounded-full bg-white/20 flex items-center justify-center">
-			{completed ? <Check className="size-3.5" /> : <Icon className="size-3.5" />}
+			{completed ? (
+				<Check className="size-3.5" />
+			) : (
+				<Icon className="size-3.5" />
+			)}
 		</div>
 		<span className="text-sm font-medium hidden @sm:inline">{label}</span>
 	</div>

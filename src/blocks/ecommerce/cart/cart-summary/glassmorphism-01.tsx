@@ -18,7 +18,11 @@ const GlassHeader = ({
 	icon: Icon,
 	title,
 	itemCount,
-}: { icon: LucideIcon; title: string; itemCount: number }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	itemCount: number;
+}) => (
 	<div className="mb-4 flex items-center justify-between">
 		<div className="flex items-center gap-2">
 			<div className="flex size-10 items-center justify-center rounded-xl bg-white/20 backdrop-blur">
@@ -56,11 +60,7 @@ export default function Main() {
 			<div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-purple-500/10 to-pink-500/20" />
 			<div className="relative mx-auto max-w-md px-4 py-16 @sm:px-6 @md:py-20 @xl:py-24">
 				<GlassContainer>
-					<GlassHeader
-						icon={ShoppingBag}
-						title="Order Summary"
-						itemCount={3}
-					/>
+					<GlassHeader icon={ShoppingBag} title="Order Summary" itemCount={3} />
 					<div className="space-y-3">
 						{summaryItems.map((item, i) => (
 							<SummaryRow key={i} {...item} />

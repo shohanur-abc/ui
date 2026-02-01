@@ -68,7 +68,9 @@ const TemplateCard = ({
 							</Badge>
 						)}
 					</div>
-					<p className="mt-1 text-sm text-muted-foreground truncate">{subject}</p>
+					<p className="mt-1 text-sm text-muted-foreground truncate">
+						{subject}
+					</p>
 					<div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
 						<Badge variant="outline" className="text-xs">
 							{category}
@@ -189,7 +191,7 @@ export default function Main() {
 	];
 
 	const variables: Variable[] = [
-		{ name: 'customer_name', description: 'Customer\'s full name' },
+		{ name: 'customer_name', description: "Customer's full name" },
 		{ name: 'order_id', description: 'Order reference number' },
 		{ name: 'store_name', description: 'Your store name' },
 		{ name: 'tracking_url', description: 'Shipment tracking link' },
@@ -233,7 +235,10 @@ export default function Main() {
 										<div className="space-y-4">
 											<div className="space-y-2">
 												<Label htmlFor="templateName">Template Name</Label>
-												<Input id="templateName" placeholder="e.g., Order Confirmation" />
+												<Input
+													id="templateName"
+													placeholder="e.g., Order Confirmation"
+												/>
 											</div>
 											<div className="space-y-2">
 												<Label htmlFor="subject">Email Subject</Label>
@@ -273,7 +278,9 @@ export default function Main() {
 						<TabsContent value="variables" className="mt-6">
 							<Card>
 								<CardHeader className="border-b">
-									<CardTitle className="text-base">Template Variables</CardTitle>
+									<CardTitle className="text-base">
+										Template Variables
+									</CardTitle>
 									<CardDescription>
 										Use these variables in your templates
 									</CardDescription>

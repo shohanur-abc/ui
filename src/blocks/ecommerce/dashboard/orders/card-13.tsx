@@ -1,8 +1,22 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { Split, Package, DollarSign, Truck, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
+import {
+	Split,
+	Package,
+	DollarSign,
+	Truck,
+	Clock,
+	ArrowRight,
+	CheckCircle2,
+} from 'lucide-react';
 
 interface SplitShipment {
 	shipmentId: string;
@@ -35,7 +49,14 @@ interface ShipmentCardProps {
 }
 
 const StatusBadge = ({ status }: { status: SplitShipment['status'] }) => {
-	const config: Record<SplitShipment['status'], { icon: typeof Clock; variant: 'default' | 'secondary' | 'outline'; label: string }> = {
+	const config: Record<
+		SplitShipment['status'],
+		{
+			icon: typeof Clock;
+			variant: 'default' | 'secondary' | 'outline';
+			label: string;
+		}
+	> = {
 		pending: { icon: Clock, variant: 'outline', label: 'Pending' },
 		shipped: { icon: Truck, variant: 'secondary', label: 'Shipped' },
 		delivered: { icon: CheckCircle2, variant: 'default', label: 'Delivered' },
@@ -52,10 +73,12 @@ const StatusBadge = ({ status }: { status: SplitShipment['status'] }) => {
 const ShipmentCard = ({ shipment, index, labels }: ShipmentCardProps) => (
 	<div className="p-4 rounded-lg bg-muted/20 border border-border/50 space-y-3">
 		<div className="flex items-center justify-between">
-			<span className="font-medium">{labels.shipment} {index + 1}</span>
+			<span className="font-medium">
+				{labels.shipment} {index + 1}
+			</span>
 			<StatusBadge status={shipment.status} />
 		</div>
-		
+
 		<div className="space-y-1.5">
 			{shipment.items.map((item, i) => (
 				<div key={i} className="flex items-center gap-2 text-sm">
@@ -109,7 +132,12 @@ const SplitOrderCard = ({ order, labels }: SplitOrderCardProps) => (
 		</CardHeader>
 		<CardContent className="space-y-4">
 			{order.shipments.map((shipment, i) => (
-				<ShipmentCard key={shipment.shipmentId} shipment={shipment} index={i} labels={labels} />
+				<ShipmentCard
+					key={shipment.shipmentId}
+					shipment={shipment}
+					index={i}
+					labels={labels}
+				/>
 			))}
 
 			<Separator />
@@ -148,18 +176,14 @@ export default function Main() {
 			},
 			{
 				shipmentId: 'SHP-002',
-				items: [
-					{ name: 'Laptop Stand', quantity: 1 },
-				],
+				items: [{ name: 'Laptop Stand', quantity: 1 }],
 				status: 'shipped' as const,
 				trackingNumber: '1Z999AA10987654321',
 				estimatedDelivery: 'Jan 30, 2026',
 			},
 			{
 				shipmentId: 'SHP-003',
-				items: [
-					{ name: 'External SSD 1TB', quantity: 1 },
-				],
+				items: [{ name: 'External SSD 1TB', quantity: 1 }],
 				status: 'pending' as const,
 				estimatedDelivery: 'Feb 2, 2026',
 			},

@@ -26,13 +26,21 @@ interface CardGridProps {
 	items: WishlistItem[];
 }
 
-const DeliverySelector = ({ options, selected }: { options: DeliveryOption[]; selected: 'delivery' | 'pickup' }) => (
+const DeliverySelector = ({
+	options,
+	selected,
+}: {
+	options: DeliveryOption[];
+	selected: 'delivery' | 'pickup';
+}) => (
 	<RadioGroup defaultValue={selected} className="mt-3 space-y-2">
 		{options.map((option) => (
 			<div
 				key={option.type}
 				className={`flex items-center gap-3 p-2 rounded-lg border cursor-pointer transition-colors ${
-					selected === option.type ? 'border-primary bg-primary/5' : 'hover:bg-muted/50'
+					selected === option.type
+						? 'border-primary bg-primary/5'
+						: 'hover:bg-muted/50'
 				}`}
 			>
 				<RadioGroupItem value={option.type} id={`${option.type}-option`} />
@@ -44,10 +52,14 @@ const DeliverySelector = ({ options, selected }: { options: DeliveryOption[]; se
 					)}
 					<div className="flex-1">
 						<p className="text-xs font-medium">{option.label}</p>
-						<p className="text-[10px] text-muted-foreground">{option.estimate}</p>
+						<p className="text-[10px] text-muted-foreground">
+							{option.estimate}
+						</p>
 					</div>
 					{option.price !== undefined && (
-						<span className="text-xs font-medium">{option.price === 0 ? 'FREE' : `$${option.price.toFixed(2)}`}</span>
+						<span className="text-xs font-medium">
+							{option.price === 0 ? 'FREE' : `$${option.price.toFixed(2)}`}
+						</span>
 					)}
 				</div>
 			</div>
@@ -79,7 +91,10 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 				</h3>
 			</Link>
 			<p className="text-xl font-bold mt-2">${item.price.toFixed(2)}</p>
-			<DeliverySelector options={item.deliveryOptions} selected={item.selectedDelivery} />
+			<DeliverySelector
+				options={item.deliveryOptions}
+				selected={item.selectedDelivery}
+			/>
 			<Button className="w-full mt-4 gap-2">
 				<ShoppingCart className="size-4" />
 				Add to Cart
@@ -101,19 +116,91 @@ const LocationBanner = () => (
 		<div className="flex items-center gap-3">
 			<MapPin className="size-5 text-primary" />
 			<div>
-				<p className="text-sm font-medium">Delivering to San Francisco, CA 94107</p>
-				<p className="text-xs text-muted-foreground">Update location for accurate delivery estimates</p>
+				<p className="text-sm font-medium">
+					Delivering to San Francisco, CA 94107
+				</p>
+				<p className="text-xs text-muted-foreground">
+					Update location for accurate delivery estimates
+				</p>
 			</div>
 		</div>
-		<Button variant="outline" size="sm">Change</Button>
+		<Button variant="outline" size="sm">
+			Change
+		</Button>
 	</div>
 );
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Smart Home Speaker', price: 199.00, image: 'https://images.unsplash.com/photo-1543512214-318c7553f230?w=400&h=400&fit=crop', deliveryOptions: [{ type: 'delivery', label: 'Standard Shipping', estimate: 'Arrives Wed, Oct 25', price: 0 }, { type: 'pickup', label: 'Store Pickup', estimate: 'Ready in 2 hours', price: 0 }], selectedDelivery: 'delivery', href: '/product/1' },
-		{ id: '2', name: 'Robot Vacuum', price: 349.00, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop', deliveryOptions: [{ type: 'delivery', label: 'Express Shipping', estimate: 'Arrives Tomorrow', price: 9.99 }, { type: 'pickup', label: 'Curbside Pickup', estimate: 'Ready Today', price: 0 }], selectedDelivery: 'pickup', href: '/product/2' },
-		{ id: '3', name: 'Air Purifier', price: 249.00, image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=400&fit=crop', deliveryOptions: [{ type: 'delivery', label: 'Free Shipping', estimate: 'Arrives Fri, Oct 27', price: 0 }, { type: 'pickup', label: 'Store Pickup', estimate: 'Ready in 1 hour', price: 0 }], selectedDelivery: 'delivery', href: '/product/3' },
+		{
+			id: '1',
+			name: 'Smart Home Speaker',
+			price: 199.0,
+			image:
+				'https://images.unsplash.com/photo-1543512214-318c7553f230?w=400&h=400&fit=crop',
+			deliveryOptions: [
+				{
+					type: 'delivery',
+					label: 'Standard Shipping',
+					estimate: 'Arrives Wed, Oct 25',
+					price: 0,
+				},
+				{
+					type: 'pickup',
+					label: 'Store Pickup',
+					estimate: 'Ready in 2 hours',
+					price: 0,
+				},
+			],
+			selectedDelivery: 'delivery',
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Robot Vacuum',
+			price: 349.0,
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop',
+			deliveryOptions: [
+				{
+					type: 'delivery',
+					label: 'Express Shipping',
+					estimate: 'Arrives Tomorrow',
+					price: 9.99,
+				},
+				{
+					type: 'pickup',
+					label: 'Curbside Pickup',
+					estimate: 'Ready Today',
+					price: 0,
+				},
+			],
+			selectedDelivery: 'pickup',
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Air Purifier',
+			price: 249.0,
+			image:
+				'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=400&fit=crop',
+			deliveryOptions: [
+				{
+					type: 'delivery',
+					label: 'Free Shipping',
+					estimate: 'Arrives Fri, Oct 27',
+					price: 0,
+				},
+				{
+					type: 'pickup',
+					label: 'Store Pickup',
+					estimate: 'Ready in 1 hour',
+					price: 0,
+				},
+			],
+			selectedDelivery: 'delivery',
+			href: '/product/3',
+		},
 	];
 
 	return (

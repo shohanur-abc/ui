@@ -12,11 +12,14 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
-	ChartConfig,
-	ChartContainer,
-} from '@/components/ui/chart';
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
+import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 import { Progress } from '@/components/ui/progress';
 
 type MetricItem = {
@@ -34,14 +37,24 @@ type RadialItem = {
 	fill: string;
 };
 
-const MetricCard = ({ title, value, progress, change, icon: Icon, color }: MetricItem) => (
+const MetricCard = ({
+	title,
+	value,
+	progress,
+	change,
+	icon: Icon,
+	color,
+}: MetricItem) => (
 	<Card>
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between">
 				<div className={`rounded-lg p-2 ${color}`}>
 					<Icon className="size-4" />
 				</div>
-				<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+				<Badge
+					variant="secondary"
+					className="bg-emerald-500/10 text-emerald-500 text-xs"
+				>
 					<ArrowUpRight className="mr-0.5 size-3" />
 					{change}
 				</Badge>
@@ -52,7 +65,9 @@ const MetricCard = ({ title, value, progress, change, icon: Icon, color }: Metri
 			</div>
 			<div className="mt-3">
 				<Progress value={progress} className="h-1.5" />
-				<p className="mt-1 text-xs text-muted-foreground">{progress}% of target</p>
+				<p className="mt-1 text-xs text-muted-foreground">
+					{progress}% of target
+				</p>
 			</div>
 		</CardContent>
 	</Card>
@@ -64,10 +79,38 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const metrics: MetricItem[] = [
-		{ title: 'Revenue', value: '$248K', progress: 83, change: '+28%', icon: DollarSign, color: 'bg-primary/10 text-primary' },
-		{ title: 'Orders', value: '6,842', progress: 85, change: '+22%', icon: ShoppingCart, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'Customers', value: '3,847', progress: 96, change: '+18%', icon: Users, color: 'bg-blue-500/10 text-blue-500' },
-		{ title: 'Products', value: '1,247', progress: 78, change: '+12%', icon: Package, color: 'bg-amber-500/10 text-amber-500' },
+		{
+			title: 'Revenue',
+			value: '$248K',
+			progress: 83,
+			change: '+28%',
+			icon: DollarSign,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'Orders',
+			value: '6,842',
+			progress: 85,
+			change: '+22%',
+			icon: ShoppingCart,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'Customers',
+			value: '3,847',
+			progress: 96,
+			change: '+18%',
+			icon: Users,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
+		{
+			title: 'Products',
+			value: '1,247',
+			progress: 78,
+			change: '+12%',
+			icon: Package,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
 	];
 
 	const radialData: RadialItem[] = [
@@ -78,7 +121,7 @@ export default function Main() {
 	];
 
 	const overallProgress = Math.round(
-		radialData.reduce((acc, item) => acc + item.value, 0) / radialData.length
+		radialData.reduce((acc, item) => acc + item.value, 0) / radialData.length,
 	);
 
 	return (
@@ -96,7 +139,10 @@ export default function Main() {
 							<CardDescription>Combined target achievement</CardDescription>
 						</CardHeader>
 						<CardContent className="flex flex-col items-center pb-8">
-							<ChartContainer config={chartConfig} className="h-[220px] w-[220px]">
+							<ChartContainer
+								config={chartConfig}
+								className="h-[220px] w-[220px]"
+							>
 								<RadialBarChart
 									innerRadius="30%"
 									outerRadius="100%"
@@ -104,16 +150,14 @@ export default function Main() {
 									startAngle={180}
 									endAngle={0}
 								>
-									<RadialBar
-										dataKey="value"
-										background
-										cornerRadius={4}
-									/>
+									<RadialBar dataKey="value" background cornerRadius={4} />
 								</RadialBarChart>
 							</ChartContainer>
 							<div className="mt-4 text-center">
 								<p className="text-4xl font-bold">{overallProgress}%</p>
-								<p className="text-sm text-muted-foreground">Average completion</p>
+								<p className="text-sm text-muted-foreground">
+									Average completion
+								</p>
 							</div>
 						</CardContent>
 					</Card>

@@ -62,7 +62,9 @@ const CenteredCard = ({ item }: { item: TestimonialItem }) => (
 			</div>
 			<StarRating rating={item.rating} />
 			<Quote className="size-8 text-primary/20 mx-auto mb-3" />
-			<p className="text-foreground text-lg leading-relaxed mb-6">"{item.quote}"</p>
+			<p className="text-foreground text-lg leading-relaxed mb-6">
+				"{item.quote}"
+			</p>
 			<div className="pt-4 border-t border-border/50">
 				<p className="font-bold text-foreground">{item.author}</p>
 				<p className="text-muted-foreground text-sm">
@@ -81,7 +83,8 @@ export default function Main() {
 			author: 'Karen White',
 			role: 'Marketing Director',
 			company: 'EngagePro',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'KW',
 			rating: 5,
 		},
@@ -91,7 +94,8 @@ export default function Main() {
 			author: 'Luke Brown',
 			role: 'CTO',
 			company: 'TechFlow',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'LB',
 			rating: 5,
 		},
@@ -101,14 +105,18 @@ export default function Main() {
 			author: 'Mia Rodriguez',
 			role: 'CFO',
 			company: 'FinanceFirst',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'MR',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Centered"

@@ -156,7 +156,10 @@ const Summary = ({
 	items: CartItem[];
 	checkoutLabel: string;
 }) => {
-	const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 
 	return (
 		<div className="space-y-4 border-t border-border pt-4">
@@ -181,33 +184,36 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&h=200&fit=crop',
 				name: 'Oversized T-Shirt',
 				color: 'Black',
 				size: 'L',
-				price: 45.00,
+				price: 45.0,
 				quantity: 2,
 				availableSizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
 				availableColors: ['Black', 'White', 'Gray', 'Navy'],
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop',
 				name: 'Slim Fit Jeans',
 				color: 'Blue',
 				size: '32',
-				price: 89.00,
+				price: 89.0,
 				quantity: 1,
 				availableSizes: ['28', '30', '32', '34', '36'],
 				availableColors: ['Blue', 'Black', 'Gray'],
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=200&h=200&fit=crop',
 				name: 'Bomber Jacket',
 				color: 'Olive',
 				size: 'M',
-				price: 149.00,
+				price: 149.0,
 				quantity: 1,
 				availableSizes: ['S', 'M', 'L', 'XL'],
 				availableColors: ['Black', 'Olive', 'Navy'],
@@ -215,7 +221,10 @@ export default function Main() {
 		],
 	};
 
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

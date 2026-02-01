@@ -50,11 +50,17 @@ const ActivityIcon = ({ type }: { type: LiveActivity['type'] }) => {
 		LiveActivity['type'],
 		{ icon: LucideIcon; className: string }
 	> = {
-		purchase: { icon: CreditCard, className: 'bg-emerald-500/20 text-emerald-400' },
+		purchase: {
+			icon: CreditCard,
+			className: 'bg-emerald-500/20 text-emerald-400',
+		},
 		view: { icon: Eye, className: 'bg-blue-500/20 text-blue-400' },
 		cart: { icon: ShoppingCart, className: 'bg-purple-500/20 text-purple-400' },
 		wishlist: { icon: Heart, className: 'bg-pink-500/20 text-pink-400' },
-		review: { icon: MessageSquare, className: 'bg-amber-500/20 text-amber-400' },
+		review: {
+			icon: MessageSquare,
+			className: 'bg-amber-500/20 text-amber-400',
+		},
 		order: { icon: Package, className: 'bg-primary/20 text-primary' },
 	};
 
@@ -79,7 +85,9 @@ const LiveIndicator = ({ isLive }: { isLive: boolean }) => (
 				<div className="absolute inset-0 size-2 rounded-full bg-emerald-400 animate-ping" />
 			)}
 		</div>
-		<span className={`text-xs font-medium ${isLive ? 'text-emerald-400' : 'text-muted-foreground'}`}>
+		<span
+			className={`text-xs font-medium ${isLive ? 'text-emerald-400' : 'text-muted-foreground'}`}
+		>
 			{isLive ? 'LIVE' : 'PAUSED'}
 		</span>
 	</div>
@@ -120,7 +128,9 @@ const ActivityItem = ({ activity }: { activity: LiveActivity }) => (
 				</Badge>
 			)}
 		</div>
-		<span className="text-xs text-muted-foreground shrink-0">{activity.timestamp}</span>
+		<span className="text-xs text-muted-foreground shrink-0">
+			{activity.timestamp}
+		</span>
 	</div>
 );
 
@@ -154,12 +164,7 @@ const StatsBar = ({
 	</div>
 );
 
-const LiveStream = ({
-	title,
-	activities,
-	stats,
-	isLive,
-}: LiveStreamProps) => (
+const LiveStream = ({ title, activities, stats, isLive }: LiveStreamProps) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardHeader className="flex-row items-center justify-between border-b border-border/50">
 			<CardTitle className="text-lg font-semibold flex items-center gap-3">

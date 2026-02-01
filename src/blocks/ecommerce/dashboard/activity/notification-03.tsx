@@ -204,7 +204,7 @@ export default function Main() {
 			},
 			subject: 'Question about order #ORD-2024-0892',
 			preview:
-				'Hi, I wanted to ask about the delivery timeline for my recent order. The tracking shows it\'s been stuck in transit for 3 days now...',
+				"Hi, I wanted to ask about the delivery timeline for my recent order. The tracking shows it's been stuck in transit for 3 days now...",
 			timestamp: '5 min ago',
 			isRead: false,
 			orderId: 'ORD-2024-0892',
@@ -219,7 +219,7 @@ export default function Main() {
 			},
 			subject: 'Product availability inquiry',
 			preview:
-				'Is the Smart Watch Pro available in silver color? I\'ve been waiting for it to come back in stock.',
+				"Is the Smart Watch Pro available in silver color? I've been waiting for it to come back in stock.",
 			timestamp: '15 min ago',
 			isRead: false,
 			isStarred: true,
@@ -247,7 +247,7 @@ export default function Main() {
 			},
 			subject: 'Bulk order inquiry',
 			preview:
-				'We\'re interested in placing a bulk order for 50 wireless keyboards. Could you provide pricing information and delivery options?',
+				"We're interested in placing a bulk order for 50 wireless keyboards. Could you provide pricing information and delivery options?",
 			timestamp: '2 hours ago',
 			isRead: true,
 			isStarred: true,
@@ -261,7 +261,7 @@ export default function Main() {
 			},
 			subject: 'Return request',
 			preview:
-				'I\'d like to return the monitor I purchased last week. The screen has a dead pixel.',
+				"I'd like to return the monitor I purchased last week. The screen has a dead pixel.",
 			timestamp: '3 hours ago',
 			isRead: true,
 			orderId: 'ORD-2024-0845',

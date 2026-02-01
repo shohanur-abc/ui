@@ -1,6 +1,12 @@
 'use client';
 
-import { MousePointer, Eye, ShoppingCart, CreditCard, TrendingUp } from 'lucide-react';
+import {
+	MousePointer,
+	Eye,
+	ShoppingCart,
+	CreditCard,
+	TrendingUp,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
@@ -83,7 +89,10 @@ const ConversionTableCard = ({
 						</TableHeader>
 						<TableBody>
 							{sources.map((source, idx) => (
-								<TableRow key={idx} className="hover:bg-muted/50 transition-colors">
+								<TableRow
+									key={idx}
+									className="hover:bg-muted/50 transition-colors"
+								>
 									<TableCell>
 										<div className="flex items-center gap-3">
 											<span className="text-xl">{source.icon}</span>
@@ -107,7 +116,10 @@ const ConversionTableCard = ({
 												{source.addToCart.toLocaleString()}
 											</span>
 											<p className="text-xs text-muted-foreground">
-												{((source.addToCart / source.visitors) * 100).toFixed(1)}%
+												{((source.addToCart / source.visitors) * 100).toFixed(
+													1,
+												)}
+												%
 											</p>
 										</div>
 									</TableCell>
@@ -117,7 +129,10 @@ const ConversionTableCard = ({
 												{source.purchases.toLocaleString()}
 											</span>
 											<p className="text-xs text-muted-foreground">
-												{((source.purchases / source.addToCart) * 100).toFixed(1)}% cart conv.
+												{((source.purchases / source.addToCart) * 100).toFixed(
+													1,
+												)}
+												% cart conv.
 											</p>
 										</div>
 									</TableCell>
@@ -149,11 +164,61 @@ const ConversionTableCard = ({
 
 export default function Main() {
 	const sources: ConversionData[] = [
-		{ source: 'Google Search', icon: '🔍', visitors: 45000, views: 125000, addToCart: 4500, checkouts: 2800, purchases: 1850, conversionRate: 4.1, revenue: 185000 },
-		{ source: 'Direct Traffic', icon: '🔗', visitors: 28000, views: 85000, addToCart: 3200, checkouts: 2100, purchases: 1400, conversionRate: 5.0, revenue: 142000 },
-		{ source: 'Facebook Ads', icon: '📘', visitors: 22000, views: 58000, addToCart: 2640, checkouts: 1540, purchases: 880, conversionRate: 4.0, revenue: 88000 },
-		{ source: 'Email Campaign', icon: '📧', visitors: 15000, views: 42000, addToCart: 2100, checkouts: 1680, purchases: 1200, conversionRate: 8.0, revenue: 120000 },
-		{ source: 'Instagram', icon: '📸', visitors: 18000, views: 52000, addToCart: 1620, checkouts: 900, purchases: 540, conversionRate: 3.0, revenue: 54000 },
+		{
+			source: 'Google Search',
+			icon: '🔍',
+			visitors: 45000,
+			views: 125000,
+			addToCart: 4500,
+			checkouts: 2800,
+			purchases: 1850,
+			conversionRate: 4.1,
+			revenue: 185000,
+		},
+		{
+			source: 'Direct Traffic',
+			icon: '🔗',
+			visitors: 28000,
+			views: 85000,
+			addToCart: 3200,
+			checkouts: 2100,
+			purchases: 1400,
+			conversionRate: 5.0,
+			revenue: 142000,
+		},
+		{
+			source: 'Facebook Ads',
+			icon: '📘',
+			visitors: 22000,
+			views: 58000,
+			addToCart: 2640,
+			checkouts: 1540,
+			purchases: 880,
+			conversionRate: 4.0,
+			revenue: 88000,
+		},
+		{
+			source: 'Email Campaign',
+			icon: '📧',
+			visitors: 15000,
+			views: 42000,
+			addToCart: 2100,
+			checkouts: 1680,
+			purchases: 1200,
+			conversionRate: 8.0,
+			revenue: 120000,
+		},
+		{
+			source: 'Instagram',
+			icon: '📸',
+			visitors: 18000,
+			views: 52000,
+			addToCart: 1620,
+			checkouts: 900,
+			purchases: 540,
+			conversionRate: 3.0,
+			revenue: 54000,
+		},
 	];
 
 	return (

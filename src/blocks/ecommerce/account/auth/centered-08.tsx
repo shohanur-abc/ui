@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Smartphone, Shield, Zap, ShoppingBag } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Smartphone,
+	Shield,
+	Zap,
+	ShoppingBag,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,7 +15,13 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-6">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -18,12 +32,20 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-6">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
 
-const Feature = ({ icon: Icon, text }: { icon: React.ElementType; text: string }) => (
+const Feature = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ElementType;
+	text: string;
+}) => (
 	<div className="flex items-center gap-2 text-sm text-muted-foreground">
 		<Icon className="size-4 text-primary" />
 		<span>{text}</span>
@@ -144,8 +166,18 @@ export default function Main() {
 					<Features items={features} />
 
 					<form className="space-y-5">
-						<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-						<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+						<FormField
+							label="Email"
+							type="email"
+							placeholder="you@example.com"
+							icon={Mail}
+						/>
+						<FormField
+							label="Password"
+							type="password"
+							placeholder="••••••••"
+							icon={Lock}
+						/>
 						<RememberForgot
 							rememberLabel="Keep me signed in"
 							forgotLabel="Forgot password?"
@@ -159,7 +191,11 @@ export default function Main() {
 					</div>
 
 					<div className="mt-6">
-						<FooterLink text="New to QuickCart?" linkText="Create an account" href="/signup" />
+						<FooterLink
+							text="New to QuickCart?"
+							linkText="Create an account"
+							href="/signup"
+						/>
 					</div>
 				</div>
 			</div>

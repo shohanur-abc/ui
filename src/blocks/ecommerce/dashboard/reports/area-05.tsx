@@ -1,6 +1,13 @@
 'use client';
 
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis, ReferenceLine } from 'recharts';
+import {
+	Area,
+	AreaChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	ReferenceLine,
+} from 'recharts';
 import { ArrowUpRight, ArrowDownRight, Minus } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -32,9 +39,18 @@ type InsightProps = {
 
 const Insight = ({ label, value, status }: InsightProps) => {
 	const statusConfig = {
-		up: { icon: ArrowUpRight, class: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20' },
-		down: { icon: ArrowDownRight, class: 'text-rose-500 bg-rose-500/10 border-rose-500/20' },
-		neutral: { icon: Minus, class: 'text-amber-500 bg-amber-500/10 border-amber-500/20' },
+		up: {
+			icon: ArrowUpRight,
+			class: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20',
+		},
+		down: {
+			icon: ArrowDownRight,
+			class: 'text-rose-500 bg-rose-500/10 border-rose-500/20',
+		},
+		neutral: {
+			icon: Minus,
+			class: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
+		},
 	};
 	const Icon = statusConfig[status].icon;
 
@@ -97,8 +113,16 @@ export default function Main() {
 								<AreaChart data={chartData} margin={{ left: 12, right: 12 }}>
 									<defs>
 										<linearGradient id="actualGrad" x1="0" y1="0" x2="0" y2="1">
-											<stop offset="5%" stopColor="var(--color-actual)" stopOpacity={0.4} />
-											<stop offset="95%" stopColor="var(--color-actual)" stopOpacity={0} />
+											<stop
+												offset="5%"
+												stopColor="var(--color-actual)"
+												stopOpacity={0.4}
+											/>
+											<stop
+												offset="95%"
+												stopColor="var(--color-actual)"
+												stopOpacity={0}
+											/>
 										</linearGradient>
 									</defs>
 									<CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -151,7 +175,8 @@ export default function Main() {
 								))}
 								<div className="mt-4 rounded-lg bg-muted/50 p-4">
 									<p className="text-xs text-muted-foreground">
-										Forecast accuracy for 2024 is <span className="font-medium text-foreground">94.2%</span>, 
+										Forecast accuracy for 2024 is{' '}
+										<span className="font-medium text-foreground">94.2%</span>,
 										exceeding the target of 90%.
 									</p>
 								</div>

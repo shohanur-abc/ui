@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -26,7 +32,12 @@ interface Product {
 const CenteredItem = ({ product }: { product: Product }) => (
 	<div className="flex flex-col items-center text-center">
 		<div className="relative mb-3 size-20 overflow-hidden rounded-xl">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<p className="font-medium">{product.name}</p>
 		<p className="text-sm text-muted-foreground">{product.variant}</p>
@@ -70,9 +81,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -84,7 +99,8 @@ export default function Main() {
 			variant: 'Wireless / Black',
 			price: 199.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -92,7 +108,8 @@ export default function Main() {
 			variant: 'Hard Shell',
 			price: 39.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -107,9 +124,7 @@ export default function Main() {
 					<h1 className="text-2xl font-bold tracking-tight @md:text-3xl">
 						Review & Confirm
 					</h1>
-					<p className="mt-2 text-muted-foreground">
-						You&apos;re almost done!
-					</p>
+					<p className="mt-2 text-muted-foreground">You&apos;re almost done!</p>
 				</div>
 
 				<div className="flex items-center justify-center gap-2 mb-8">
@@ -119,7 +134,9 @@ export default function Main() {
 								<div className="flex size-6 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
 									{i < 3 ? <CheckCircle className="size-4" /> : i + 1}
 								</div>
-								<span className={`text-sm ${i === 3 ? 'font-medium' : 'text-muted-foreground'}`}>
+								<span
+									className={`text-sm ${i === 3 ? 'font-medium' : 'text-muted-foreground'}`}
+								>
 									{step}
 								</span>
 							</div>

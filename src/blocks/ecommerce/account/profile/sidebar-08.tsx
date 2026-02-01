@@ -57,11 +57,15 @@ const StorageSidebar = ({
 				<p className="text-sm text-muted-foreground truncate">{email}</p>
 			</div>
 		</div>
-		<Badge variant="secondary" className="w-full justify-center">{plan}</Badge>
+		<Badge variant="secondary" className="w-full justify-center">
+			{plan}
+		</Badge>
 		<div className="space-y-2">
 			<div className="flex justify-between text-sm">
 				<span>Storage</span>
-				<span className="text-muted-foreground">{usedStorage} / {totalStorage} GB</span>
+				<span className="text-muted-foreground">
+					{usedStorage} / {totalStorage} GB
+				</span>
 			</div>
 			<Progress value={(usedStorage / totalStorage) * 100} className="h-2" />
 		</div>
@@ -76,7 +80,12 @@ const StorageNav = ({
 	items,
 	activeHref,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; count?: number }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		count?: number;
+	}[];
 	activeHref: string;
 }) => (
 	<nav className="space-y-1">
@@ -103,7 +112,12 @@ const StorageNav = ({
 const StorageCategories = ({
 	categories,
 }: {
-	categories: { icon: React.ElementType; label: string; size: string; color: string }[];
+	categories: {
+		icon: React.ElementType;
+		label: string;
+		size: string;
+		color: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -115,7 +129,10 @@ const StorageCategories = ({
 		<CardContent>
 			<div className="grid @sm:grid-cols-2 gap-4">
 				{categories.map((cat, i) => (
-					<div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
+					<div
+						key={i}
+						className="flex items-center gap-3 p-3 rounded-lg bg-muted/30"
+					>
 						<div className={`p-2 rounded-lg ${cat.color}`}>
 							<cat.icon className="size-5 text-white" />
 						</div>
@@ -133,7 +150,13 @@ const StorageCategories = ({
 const RecentFiles = ({
 	files,
 }: {
-	files: { icon: React.ElementType; name: string; size: string; modified: string; iconColor: string }[];
+	files: {
+		icon: React.ElementType;
+		name: string;
+		size: string;
+		modified: string;
+		iconColor: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -146,12 +169,17 @@ const RecentFiles = ({
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{files.map((file, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 group">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 group"
+				>
 					<div className="flex items-center gap-3">
 						<file.icon className={`size-5 ${file.iconColor}`} />
 						<div>
 							<p className="font-medium text-sm">{file.name}</p>
-							<p className="text-xs text-muted-foreground">{file.size} • {file.modified}</p>
+							<p className="text-xs text-muted-foreground">
+								{file.size} • {file.modified}
+							</p>
 						</div>
 					</div>
 					<div className="flex items-center gap-1 opacity-0 group-hover:opacity-100">
@@ -174,7 +202,13 @@ const RecentFiles = ({
 const SharedWith = ({
 	people,
 }: {
-	people: { src: string; fallback: string; name: string; email: string; permission: string }[];
+	people: {
+		src: string;
+		fallback: string;
+		name: string;
+		email: string;
+		permission: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -198,7 +232,9 @@ const SharedWith = ({
 					</Avatar>
 					<div className="flex-1 min-w-0">
 						<p className="font-medium text-sm truncate">{person.name}</p>
-						<p className="text-xs text-muted-foreground truncate">{person.email}</p>
+						<p className="text-xs text-muted-foreground truncate">
+							{person.email}
+						</p>
 					</div>
 					<Badge variant="outline">{person.permission}</Badge>
 				</div>
@@ -226,20 +262,61 @@ export default function Main() {
 			{ icon: Trash2, label: 'Trash', href: '/trash', count: 8 },
 		],
 		categories: [
-			{ icon: ImageIcon, label: 'Images', size: '32.4 GB', color: 'bg-blue-500' },
+			{
+				icon: ImageIcon,
+				label: 'Images',
+				size: '32.4 GB',
+				color: 'bg-blue-500',
+			},
 			{ icon: Box, label: 'Documents', size: '18.2 GB', color: 'bg-green-500' },
 			{ icon: Globe, label: 'Videos', size: '24.8 GB', color: 'bg-purple-500' },
 			{ icon: Folder, label: 'Other', size: '2.6 GB', color: 'bg-orange-500' },
 		],
 		files: [
-			{ icon: ImageIcon, name: 'product-photos.zip', size: '128 MB', modified: '2 hours ago', iconColor: 'text-blue-500' },
-			{ icon: Box, name: 'Q4-report.pdf', size: '2.4 MB', modified: '5 hours ago', iconColor: 'text-red-500' },
-			{ icon: Globe, name: 'presentation.pptx', size: '15.8 MB', modified: 'Yesterday', iconColor: 'text-orange-500' },
-			{ icon: Folder, name: 'design-assets', size: '256 MB', modified: '2 days ago', iconColor: 'text-amber-500' },
+			{
+				icon: ImageIcon,
+				name: 'product-photos.zip',
+				size: '128 MB',
+				modified: '2 hours ago',
+				iconColor: 'text-blue-500',
+			},
+			{
+				icon: Box,
+				name: 'Q4-report.pdf',
+				size: '2.4 MB',
+				modified: '5 hours ago',
+				iconColor: 'text-red-500',
+			},
+			{
+				icon: Globe,
+				name: 'presentation.pptx',
+				size: '15.8 MB',
+				modified: 'Yesterday',
+				iconColor: 'text-orange-500',
+			},
+			{
+				icon: Folder,
+				name: 'design-assets',
+				size: '256 MB',
+				modified: '2 days ago',
+				iconColor: 'text-amber-500',
+			},
 		],
 		sharedWith: [
-			{ src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100', fallback: 'JW', name: 'James Wilson', email: 'james@example.com', permission: 'Edit' },
-			{ src: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100', fallback: 'MR', name: 'Michael Rodriguez', email: 'michael@example.com', permission: 'View' },
+			{
+				src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
+				fallback: 'JW',
+				name: 'James Wilson',
+				email: 'james@example.com',
+				permission: 'Edit',
+			},
+			{
+				src: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100',
+				fallback: 'MR',
+				name: 'Michael Rodriguez',
+				email: 'michael@example.com',
+				permission: 'View',
+			},
 		],
 	};
 
@@ -254,7 +331,10 @@ export default function Main() {
 								<Separator />
 								<StorageNav items={profileData.nav} activeHref="/files" />
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>

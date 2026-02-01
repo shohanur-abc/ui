@@ -1,10 +1,23 @@
 'use client';
 
-import { Building2, Check, CreditCard, Lock, Shield, Smartphone, Wallet } from 'lucide-react';
+import {
+	Building2,
+	Check,
+	CreditCard,
+	Lock,
+	Shield,
+	Smartphone,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -17,14 +30,26 @@ interface PaymentMethodCard {
 	popular?: boolean;
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center mb-6">
 		<h1 className="text-2xl @md:text-3xl font-bold">{title}</h1>
 		<p className="text-muted-foreground mt-2">{subtitle}</p>
 	</div>
 );
 
-const MethodCard = ({ id, name, description, icon: Icon, popular }: PaymentMethodCard) => (
+const MethodCard = ({
+	id,
+	name,
+	description,
+	icon: Icon,
+	popular,
+}: PaymentMethodCard) => (
 	<Label
 		htmlFor={id}
 		className="relative flex flex-col items-center p-6 rounded-2xl border-2 border-border/50 cursor-pointer transition-all hover:border-primary/30 hover:bg-muted/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
@@ -37,7 +62,9 @@ const MethodCard = ({ id, name, description, icon: Icon, popular }: PaymentMetho
 			<Icon className="size-6" />
 		</div>
 		<span className="font-semibold">{name}</span>
-		<span className="text-xs text-muted-foreground text-center mt-1">{description}</span>
+		<span className="text-xs text-muted-foreground text-center mt-1">
+			{description}
+		</span>
 		<div className="absolute top-4 right-4 size-5 rounded-full border-2 border-border flex items-center justify-center opacity-0 has-[:checked]:opacity-100 peer-checked:opacity-100 transition-opacity">
 			<Check className="size-3 text-primary" />
 		</div>
@@ -45,7 +72,10 @@ const MethodCard = ({ id, name, description, icon: Icon, popular }: PaymentMetho
 );
 
 const PaymentMethodGrid = ({ methods }: { methods: PaymentMethodCard[] }) => (
-	<RadioGroup defaultValue={methods.find(m => m.popular)?.id || methods[0]?.id} className="grid grid-cols-2 @md:grid-cols-4 gap-3">
+	<RadioGroup
+		defaultValue={methods.find((m) => m.popular)?.id || methods[0]?.id}
+		className="grid grid-cols-2 @md:grid-cols-4 gap-3"
+	>
 		{methods.map((method) => (
 			<MethodCard key={method.id} {...method} />
 		))}
@@ -106,16 +136,40 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const paymentMethods: PaymentMethodCard[] = [
-		{ id: 'card', name: 'Card', description: 'Credit or debit', icon: CreditCard, popular: true },
-		{ id: 'wallet', name: 'Wallet', description: 'Apple/Google Pay', icon: Wallet },
-		{ id: 'bank', name: 'Bank', description: 'Direct transfer', icon: Building2 },
-		{ id: 'mobile', name: 'Mobile', description: 'Phone payment', icon: Smartphone },
+		{
+			id: 'card',
+			name: 'Card',
+			description: 'Credit or debit',
+			icon: CreditCard,
+			popular: true,
+		},
+		{
+			id: 'wallet',
+			name: 'Wallet',
+			description: 'Apple/Google Pay',
+			icon: Wallet,
+		},
+		{
+			id: 'bank',
+			name: 'Bank',
+			description: 'Direct transfer',
+			icon: Building2,
+		},
+		{
+			id: 'mobile',
+			name: 'Mobile',
+			description: 'Phone payment',
+			icon: Smartphone,
+		},
 	];
 
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<PageHeader title="Select Payment" subtitle="Choose your preferred payment method" />
+				<PageHeader
+					title="Select Payment"
+					subtitle="Choose your preferred payment method"
+				/>
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardContent className="pt-6">
 						<PaymentMethodGrid methods={paymentMethods} />

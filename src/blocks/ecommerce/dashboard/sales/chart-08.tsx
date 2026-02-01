@@ -85,14 +85,15 @@ const HeatmapChartCard = ({
 				<div className="flex items-center justify-center gap-2 mt-4">
 					<span className="text-xs text-muted-foreground">Low</span>
 					<div className="flex gap-1">
-						{['bg-primary/10', 'bg-primary/25', 'bg-primary/45', 'bg-primary/65', 'bg-primary/90'].map(
-							(color, idx) => (
-								<div
-									key={idx}
-									className={`size-4 rounded-sm ${color}`}
-								/>
-							),
-						)}
+						{[
+							'bg-primary/10',
+							'bg-primary/25',
+							'bg-primary/45',
+							'bg-primary/65',
+							'bg-primary/90',
+						].map((color, idx) => (
+							<div key={idx} className={`size-4 rounded-sm ${color}`} />
+						))}
 					</div>
 					<span className="text-xs text-muted-foreground">High</span>
 				</div>
@@ -103,7 +104,17 @@ const HeatmapChartCard = ({
 
 export default function Main() {
 	const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-	const hours = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
+	const hours = [
+		'9AM',
+		'10AM',
+		'11AM',
+		'12PM',
+		'1PM',
+		'2PM',
+		'3PM',
+		'4PM',
+		'5PM',
+	];
 
 	const heatmapData: HeatmapData[] = hours.map((hour) => ({
 		hour,

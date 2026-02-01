@@ -11,7 +11,10 @@ type SummaryRowProps = {
 const CompactHeader = ({
 	icon: Icon,
 	title,
-}: { icon: LucideIcon; title: string }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+}) => (
 	<div className="flex items-center gap-2 text-sm font-medium">
 		<Icon className="size-4" />
 		{title}

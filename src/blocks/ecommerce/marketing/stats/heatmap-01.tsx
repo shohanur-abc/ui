@@ -33,8 +33,8 @@ const HeatmapRow = ({ day, hours }: HeatmapStatProps) => (
 );
 
 export default function Main() {
-	const generateHours = () => 
-		['6am', '9am', '12pm', '3pm', '6pm', '9pm'].map(hour => ({
+	const generateHours = () =>
+		['6am', '9am', '12pm', '3pm', '6pm', '9pm'].map((hour) => ({
 			hour,
 			value: Math.floor(Math.random() * 80) + 20,
 		}));
@@ -62,7 +62,12 @@ export default function Main() {
 							<span className="w-8" />
 							<div className="flex flex-1 gap-1">
 								{['6am', '9am', '12pm', '3pm', '6pm', '9pm'].map((h) => (
-									<span key={h} className="flex-1 text-center text-xs text-muted-foreground">{h}</span>
+									<span
+										key={h}
+										className="flex-1 text-center text-xs text-muted-foreground"
+									>
+										{h}
+									</span>
 								))}
 							</div>
 						</div>

@@ -1,7 +1,20 @@
-import { ArrowLeft, CreditCard, Eye, EyeOff, HelpCircle, Lock, ShieldCheck } from 'lucide-react';
+import {
+	ArrowLeft,
+	CreditCard,
+	Eye,
+	EyeOff,
+	HelpCircle,
+	Lock,
+	ShieldCheck,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -36,7 +49,12 @@ const BackButton = ({ label }: { label: string }) => (
 	</Button>
 );
 
-const CardPreview = ({ cardNumber, cardHolder, expiry, brand }: CardPreviewProps) => (
+const CardPreview = ({
+	cardNumber,
+	cardHolder,
+	expiry,
+	brand,
+}: CardPreviewProps) => (
 	<div className="relative h-44 @sm:h-48 rounded-2xl bg-gradient-to-br from-primary/90 via-primary to-primary/80 p-5 @sm:p-6 text-primary-foreground shadow-xl overflow-hidden">
 		<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_50%)]" />
 		<div className="relative h-full flex flex-col justify-between">
@@ -47,7 +65,9 @@ const CardPreview = ({ cardNumber, cardHolder, expiry, brand }: CardPreviewProps
 				<span className="text-sm font-semibold tracking-wider">{brand}</span>
 			</div>
 			<div className="space-y-4">
-				<p className="text-lg @sm:text-xl font-mono tracking-[0.2em]">{cardNumber}</p>
+				<p className="text-lg @sm:text-xl font-mono tracking-[0.2em]">
+					{cardNumber}
+				</p>
 				<div className="flex justify-between items-end">
 					<div>
 						<p className="text-xs opacity-70">Card Holder</p>
@@ -63,10 +83,20 @@ const CardPreview = ({ cardNumber, cardHolder, expiry, brand }: CardPreviewProps
 	</div>
 );
 
-const FormInput = ({ id, label, placeholder, type = 'text', helpText, icon: Icon, actionIcon: ActionIcon }: FormInputProps) => (
+const FormInput = ({
+	id,
+	label,
+	placeholder,
+	type = 'text',
+	helpText,
+	icon: Icon,
+	actionIcon: ActionIcon,
+}: FormInputProps) => (
 	<div className="space-y-2">
 		<div className="flex items-center justify-between">
-			<Label htmlFor={id} className="text-sm">{label}</Label>
+			<Label htmlFor={id} className="text-sm">
+				{label}
+			</Label>
 			{helpText && (
 				<button className="text-muted-foreground hover:text-foreground transition-colors">
 					<HelpCircle className="size-3.5" />
@@ -74,7 +104,9 @@ const FormInput = ({ id, label, placeholder, type = 'text', helpText, icon: Icon
 			)}
 		</div>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
 			<Input
 				id={id}
 				type={type}
@@ -97,17 +129,31 @@ const SecurityFeature = ({ icon: Icon, text }: SecurityFeatureProps) => (
 	</div>
 );
 
-const SaveCardToggle = ({ label, description }: { label: string; description: string }) => (
+const SaveCardToggle = ({
+	label,
+	description,
+}: {
+	label: string;
+	description: string;
+}) => (
 	<div className="flex items-start gap-3 p-4 rounded-lg bg-muted/50">
 		<Checkbox id="save" className="mt-0.5" />
 		<div>
-			<Label htmlFor="save" className="font-medium cursor-pointer">{label}</Label>
+			<Label htmlFor="save" className="font-medium cursor-pointer">
+				{label}
+			</Label>
 			<p className="text-xs text-muted-foreground mt-1">{description}</p>
 		</div>
 	</div>
 );
 
-const PaymentButton = ({ label, amount }: { label: string; amount: string }) => (
+const PaymentButton = ({
+	label,
+	amount,
+}: {
+	label: string;
+	amount: string;
+}) => (
 	<Button className="w-full gap-2" size="lg">
 		<Lock className="size-4" />
 		{label} {amount}
@@ -131,13 +177,25 @@ export default function Main() {
 	};
 
 	const formFields: FormInputProps[] = [
-		{ id: 'number', label: 'Card Number', placeholder: '1234 5678 9012 3456', icon: CreditCard },
+		{
+			id: 'number',
+			label: 'Card Number',
+			placeholder: '1234 5678 9012 3456',
+			icon: CreditCard,
+		},
 		{ id: 'holder', label: 'Cardholder Name', placeholder: 'JOHN DOE' },
 	];
 
 	const rowFields: FormInputProps[] = [
 		{ id: 'expiry', label: 'Expiry Date', placeholder: 'MM/YY' },
-		{ id: 'cvv', label: 'CVV', placeholder: '•••', type: 'password', helpText: '3 digits on back', actionIcon: EyeOff },
+		{
+			id: 'cvv',
+			label: 'CVV',
+			placeholder: '•••',
+			type: 'password',
+			helpText: '3 digits on back',
+			actionIcon: EyeOff,
+		},
 	];
 
 	const securityFeatures: SecurityFeatureProps[] = [

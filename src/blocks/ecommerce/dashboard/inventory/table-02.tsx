@@ -70,7 +70,10 @@ const Toolbar = ({
 		<div className="flex flex-col gap-2 @sm:flex-row @sm:items-center">
 			<div className="relative">
 				<Search className="absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-				<Input placeholder={searchPlaceholder} className="w-full pl-9 @sm:w-72" />
+				<Input
+					placeholder={searchPlaceholder}
+					className="w-full pl-9 @sm:w-72"
+				/>
 			</div>
 			<Select>
 				<SelectTrigger className="w-full @sm:w-40">
@@ -104,7 +107,10 @@ type StatusBadgeProps = {
 };
 
 const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
-	const variants: Record<'available' | 'reserved' | 'depleted', 'default' | 'secondary' | 'destructive'> = {
+	const variants: Record<
+		'available' | 'reserved' | 'depleted',
+		'default' | 'secondary' | 'destructive'
+	> = {
 		available: 'default',
 		reserved: 'secondary',
 		depleted: 'destructive',
@@ -120,8 +126,13 @@ type StockProgressProps = {
 
 const StockProgress = ({ quantity, maxStock }: StockProgressProps) => {
 	const percentage = Math.min((quantity / maxStock) * 100, 100);
-	const colorClass = percentage > 50 ? '' : percentage > 20 ? '[&>div]:bg-yellow-500' : '[&>div]:bg-destructive';
-	
+	const colorClass =
+		percentage > 50
+			? ''
+			: percentage > 20
+				? '[&>div]:bg-yellow-500'
+				: '[&>div]:bg-destructive';
+
 	return (
 		<div className="flex items-center gap-2">
 			<Progress value={percentage} className={`h-2 w-20 ${colorClass}`} />
@@ -134,7 +145,11 @@ const StockProgress = ({ quantity, maxStock }: StockProgressProps) => {
 
 type InventoryRowProps = {
 	item: InventoryItem;
-	actions: { label: string; onClick: (id: string) => void; destructive?: boolean }[];
+	actions: {
+		label: string;
+		onClick: (id: string) => void;
+		destructive?: boolean;
+	}[];
 	selected: boolean;
 	onSelect: (id: string, checked: boolean) => void;
 	statusLabels: Record<'available' | 'reserved' | 'depleted', string>;
@@ -158,7 +173,11 @@ const InventoryRow = ({
 			<div className="flex items-center gap-3">
 				<div className="relative size-12 overflow-hidden rounded-lg border bg-muted">
 					{item.image ? (
-						<img src={item.image} alt={item.name} className="size-full object-cover" />
+						<img
+							src={item.image}
+							alt={item.name}
+							className="size-full object-cover"
+						/>
 					) : (
 						<div className="flex size-full items-center justify-center">
 							<Package className="size-5 text-muted-foreground" />
@@ -237,7 +256,11 @@ const Pagination = ({
 				<span className="text-sm tabular-nums">
 					{currentPage} / {totalPages}
 				</span>
-				<Button variant="outline" size="icon-sm" disabled={currentPage === totalPages}>
+				<Button
+					variant="outline"
+					size="icon-sm"
+					disabled={currentPage === totalPages}
+				>
 					<ChevronRight className="size-4" />
 				</Button>
 			</div>
@@ -311,8 +334,15 @@ export default function Main() {
 	const actions = [
 		{ label: 'View Details', onClick: (id: string) => console.log('View', id) },
 		{ label: 'Edit Item', onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Transfer Stock', onClick: (id: string) => console.log('Transfer', id) },
-		{ label: 'Delete', onClick: (id: string) => console.log('Delete', id), destructive: true },
+		{
+			label: 'Transfer Stock',
+			onClick: (id: string) => console.log('Transfer', id),
+		},
+		{
+			label: 'Delete',
+			onClick: (id: string) => console.log('Delete', id),
+			destructive: true,
+		},
 	];
 
 	const handleSelect = (id: string, checked: boolean) => {

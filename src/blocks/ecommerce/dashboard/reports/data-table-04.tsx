@@ -48,7 +48,10 @@ type ShippingItem = {
 
 const statusConfig = {
 	'in-transit': { label: 'In Transit', color: 'bg-blue-500/10 text-blue-500' },
-	delivered: { label: 'Delivered', color: 'bg-emerald-500/10 text-emerald-500' },
+	delivered: {
+		label: 'Delivered',
+		color: 'bg-emerald-500/10 text-emerald-500',
+	},
 	pending: { label: 'Pending', color: 'bg-amber-500/10 text-amber-500' },
 	delayed: { label: 'Delayed', color: 'bg-rose-500/10 text-rose-500' },
 };
@@ -56,7 +59,10 @@ const statusConfig = {
 type StatusBadgeProps = { status: ShippingItem['status'] };
 
 const StatusBadge = ({ status }: StatusBadgeProps) => (
-	<Badge variant="secondary" className={`border-0 ${statusConfig[status].color}`}>
+	<Badge
+		variant="secondary"
+		className={`border-0 ${statusConfig[status].color}`}
+	>
 		{statusConfig[status].label}
 	</Badge>
 );
@@ -148,12 +154,66 @@ export default function Main() {
 	];
 
 	const shipments: ShippingItem[] = [
-		{ trackingId: 'TRK-78234521', orderId: 'ORD-8921', destination: 'New York, NY 10001', carrier: 'FedEx', weight: '2.5 kg', cost: '$12.50', status: 'in-transit', eta: 'Jan 30' },
-		{ trackingId: 'TRK-78234520', orderId: 'ORD-8920', destination: 'Los Angeles, CA 90001', carrier: 'UPS', weight: '1.2 kg', cost: '$9.80', status: 'delivered', eta: 'Jan 28' },
-		{ trackingId: 'TRK-78234519', orderId: 'ORD-8919', destination: 'Chicago, IL 60601', carrier: 'USPS', weight: '0.8 kg', cost: '$7.25', status: 'pending', eta: 'Jan 31' },
-		{ trackingId: 'TRK-78234518', orderId: 'ORD-8918', destination: 'Houston, TX 77001', carrier: 'DHL', weight: '3.7 kg', cost: '$18.90', status: 'delayed', eta: 'Feb 2' },
-		{ trackingId: 'TRK-78234517', orderId: 'ORD-8917', destination: 'Phoenix, AZ 85001', carrier: 'FedEx', weight: '1.5 kg', cost: '$11.20', status: 'in-transit', eta: 'Jan 29' },
-		{ trackingId: 'TRK-78234516', orderId: 'ORD-8916', destination: 'Seattle, WA 98101', carrier: 'UPS', weight: '4.2 kg', cost: '$22.50', status: 'delivered', eta: 'Jan 27' },
+		{
+			trackingId: 'TRK-78234521',
+			orderId: 'ORD-8921',
+			destination: 'New York, NY 10001',
+			carrier: 'FedEx',
+			weight: '2.5 kg',
+			cost: '$12.50',
+			status: 'in-transit',
+			eta: 'Jan 30',
+		},
+		{
+			trackingId: 'TRK-78234520',
+			orderId: 'ORD-8920',
+			destination: 'Los Angeles, CA 90001',
+			carrier: 'UPS',
+			weight: '1.2 kg',
+			cost: '$9.80',
+			status: 'delivered',
+			eta: 'Jan 28',
+		},
+		{
+			trackingId: 'TRK-78234519',
+			orderId: 'ORD-8919',
+			destination: 'Chicago, IL 60601',
+			carrier: 'USPS',
+			weight: '0.8 kg',
+			cost: '$7.25',
+			status: 'pending',
+			eta: 'Jan 31',
+		},
+		{
+			trackingId: 'TRK-78234518',
+			orderId: 'ORD-8918',
+			destination: 'Houston, TX 77001',
+			carrier: 'DHL',
+			weight: '3.7 kg',
+			cost: '$18.90',
+			status: 'delayed',
+			eta: 'Feb 2',
+		},
+		{
+			trackingId: 'TRK-78234517',
+			orderId: 'ORD-8917',
+			destination: 'Phoenix, AZ 85001',
+			carrier: 'FedEx',
+			weight: '1.5 kg',
+			cost: '$11.20',
+			status: 'in-transit',
+			eta: 'Jan 29',
+		},
+		{
+			trackingId: 'TRK-78234516',
+			orderId: 'ORD-8916',
+			destination: 'Seattle, WA 98101',
+			carrier: 'UPS',
+			weight: '4.2 kg',
+			cost: '$22.50',
+			status: 'delivered',
+			eta: 'Jan 27',
+		},
 	];
 
 	return (

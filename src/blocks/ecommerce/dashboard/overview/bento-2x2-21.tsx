@@ -119,10 +119,30 @@ export default function Main() {
 	];
 
 	const recentOrders: RecentOrderItem[] = [
-		{ id: 'ORD-001', customer: 'John Doe', amount: '$234.50', status: 'completed' },
-		{ id: 'ORD-002', customer: 'Jane Smith', amount: '$189.00', status: 'processing' },
-		{ id: 'ORD-003', customer: 'Bob Wilson', amount: '$456.20', status: 'pending' },
-		{ id: 'ORD-004', customer: 'Alice Brown', amount: '$78.90', status: 'completed' },
+		{
+			id: 'ORD-001',
+			customer: 'John Doe',
+			amount: '$234.50',
+			status: 'completed',
+		},
+		{
+			id: 'ORD-002',
+			customer: 'Jane Smith',
+			amount: '$189.00',
+			status: 'processing',
+		},
+		{
+			id: 'ORD-003',
+			customer: 'Bob Wilson',
+			amount: '$456.20',
+			status: 'pending',
+		},
+		{
+			id: 'ORD-004',
+			customer: 'Alice Brown',
+			amount: '$78.90',
+			status: 'completed',
+		},
 	];
 
 	return (

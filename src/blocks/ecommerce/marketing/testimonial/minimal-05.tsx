@@ -23,11 +23,11 @@ const StarRating = ({ rating }: { rating: number }) => (
 
 export default function Main() {
 	const testimonial: TestimonialItem = {
-		quote:
-			'Exceptional product. Exceeded all expectations.',
+		quote: 'Exceptional product. Exceeded all expectations.',
 		author: 'Brian Foster',
 		role: 'Founder, StartupXYZ',
-		avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 		initials: 'BF',
 		rating: 5,
 	};
@@ -48,7 +48,9 @@ export default function Main() {
 							"{testimonial.quote}"
 						</p>
 						<p className="text-muted-foreground">
-							<span className="font-semibold text-foreground">{testimonial.author}</span>
+							<span className="font-semibold text-foreground">
+								{testimonial.author}
+							</span>
 							{' · '}
 							{testimonial.role}
 						</p>

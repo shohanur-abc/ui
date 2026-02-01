@@ -1,8 +1,21 @@
-import { Card, CardContent, CardHeader, CardTitle, CardAction } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardAction,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { MoreHorizontal, Package, DollarSign, Clock, CheckCircle2, AlertCircle } from 'lucide-react';
+import {
+	MoreHorizontal,
+	Package,
+	DollarSign,
+	Clock,
+	CheckCircle2,
+	AlertCircle,
+} from 'lucide-react';
 
 interface Order {
 	id: string;
@@ -22,14 +35,22 @@ interface StatusIconProps {
 }
 
 const StatusIcon = ({ status }: StatusIconProps) => {
-	const config: Record<Order['status'], { icon: typeof CheckCircle2; className: string }> = {
+	const config: Record<
+		Order['status'],
+		{ icon: typeof CheckCircle2; className: string }
+	> = {
 		pending: { icon: Clock, className: 'text-yellow-500 bg-yellow-500/10' },
 		completed: { icon: CheckCircle2, className: 'text-accent bg-accent/10' },
-		failed: { icon: AlertCircle, className: 'text-destructive bg-destructive/10' },
+		failed: {
+			icon: AlertCircle,
+			className: 'text-destructive bg-destructive/10',
+		},
 	};
 	const { icon: Icon, className } = config[status];
 	return (
-		<div className={`size-8 rounded-full flex items-center justify-center ${className}`}>
+		<div
+			className={`size-8 rounded-full flex items-center justify-center ${className}`}
+		>
 			<Icon className="size-4" />
 		</div>
 	);
@@ -49,7 +70,15 @@ const CustomerInfo = ({ customer }: { customer: Order['customer'] }) => (
 	</div>
 );
 
-const OrderMetric = ({ icon: Icon, value, label }: { icon: React.ComponentType<{ className?: string }>; value: string; label: string }) => (
+const OrderMetric = ({
+	icon: Icon,
+	value,
+	label,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	value: string;
+	label: string;
+}) => (
 	<div className="flex items-center gap-2 text-sm">
 		<Icon className="size-4 text-muted-foreground" />
 		<span className="text-muted-foreground">{label}:</span>
@@ -64,16 +93,28 @@ const OrderCardCompact = ({ order }: OrderCardCompactProps) => (
 				<StatusIcon status={order.status} />
 				<div className="flex-1 min-w-0">
 					<div className="flex items-center justify-between mb-2">
-						<span className="font-mono text-sm text-muted-foreground">{order.id}</span>
-						<span className="text-xs text-muted-foreground">{order.timeAgo}</span>
+						<span className="font-mono text-sm text-muted-foreground">
+							{order.id}
+						</span>
+						<span className="text-xs text-muted-foreground">
+							{order.timeAgo}
+						</span>
 					</div>
 					<CustomerInfo customer={order.customer} />
 					<div className="flex items-center gap-4 mt-3">
 						<OrderMetric icon={DollarSign} value={order.amount} label="Total" />
-						<OrderMetric icon={Package} value={order.items.toString()} label="Items" />
+						<OrderMetric
+							icon={Package}
+							value={order.items.toString()}
+							label="Items"
+						/>
 					</div>
 				</div>
-				<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100 transition-opacity">
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					className="opacity-0 group-hover:opacity-100 transition-opacity"
+				>
 					<MoreHorizontal className="size-4" />
 				</Button>
 			</div>
@@ -83,10 +124,38 @@ const OrderCardCompact = ({ order }: OrderCardCompactProps) => (
 
 export default function Main() {
 	const orders: Order[] = [
-		{ id: '#ORD-7891', customer: { name: 'Alex Thompson', avatar: '', initials: 'AT' }, amount: '$342.00', items: 3, status: 'completed', timeAgo: '2 min ago' },
-		{ id: '#ORD-7892', customer: { name: 'Maria Santos', avatar: '', initials: 'MS' }, amount: '$89.99', items: 1, status: 'pending', timeAgo: '15 min ago' },
-		{ id: '#ORD-7893', customer: { name: 'James Chen', avatar: '', initials: 'JC' }, amount: '$567.50', items: 5, status: 'completed', timeAgo: '1 hour ago' },
-		{ id: '#ORD-7894', customer: { name: 'Lisa Park', avatar: '', initials: 'LP' }, amount: '$124.00', items: 2, status: 'failed', timeAgo: '2 hours ago' },
+		{
+			id: '#ORD-7891',
+			customer: { name: 'Alex Thompson', avatar: '', initials: 'AT' },
+			amount: '$342.00',
+			items: 3,
+			status: 'completed',
+			timeAgo: '2 min ago',
+		},
+		{
+			id: '#ORD-7892',
+			customer: { name: 'Maria Santos', avatar: '', initials: 'MS' },
+			amount: '$89.99',
+			items: 1,
+			status: 'pending',
+			timeAgo: '15 min ago',
+		},
+		{
+			id: '#ORD-7893',
+			customer: { name: 'James Chen', avatar: '', initials: 'JC' },
+			amount: '$567.50',
+			items: 5,
+			status: 'completed',
+			timeAgo: '1 hour ago',
+		},
+		{
+			id: '#ORD-7894',
+			customer: { name: 'Lisa Park', avatar: '', initials: 'LP' },
+			amount: '$124.00',
+			items: 2,
+			status: 'failed',
+			timeAgo: '2 hours ago',
+		},
 	];
 
 	return (

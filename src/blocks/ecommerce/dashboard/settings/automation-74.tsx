@@ -121,11 +121,7 @@ const AutomationCard = ({
 	);
 };
 
-const TemplateCard = ({
-	name,
-	description,
-	category,
-}: AutomationTemplate) => (
+const TemplateCard = ({ name, description, category }: AutomationTemplate) => (
 	<div className="rounded-lg border p-4 hover:border-primary/50 hover:bg-primary/5 cursor-pointer transition-all">
 		<div className="flex items-start justify-between">
 			<div>
@@ -183,10 +179,30 @@ export default function Main() {
 	];
 
 	const templates: AutomationTemplate[] = [
-		{ id: '1', name: 'Welcome email', description: 'Send welcome email to new customers', category: 'Email' },
-		{ id: '2', name: 'Review request', description: 'Ask for review 7 days after delivery', category: 'Email' },
-		{ id: '3', name: 'Refund notification', description: 'Notify customer of processed refund', category: 'Notification' },
-		{ id: '4', name: 'Restock alert', description: 'Notify customers when item is back in stock', category: 'Inventory' },
+		{
+			id: '1',
+			name: 'Welcome email',
+			description: 'Send welcome email to new customers',
+			category: 'Email',
+		},
+		{
+			id: '2',
+			name: 'Review request',
+			description: 'Ask for review 7 days after delivery',
+			category: 'Email',
+		},
+		{
+			id: '3',
+			name: 'Refund notification',
+			description: 'Notify customer of processed refund',
+			category: 'Notification',
+		},
+		{
+			id: '4',
+			name: 'Restock alert',
+			description: 'Notify customers when item is back in stock',
+			category: 'Inventory',
+		},
 	];
 
 	return (

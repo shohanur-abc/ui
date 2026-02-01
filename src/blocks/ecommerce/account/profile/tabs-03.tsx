@@ -43,7 +43,11 @@ const SettingsHeader = ({
 				<AvatarImage src={src} alt={name} />
 				<AvatarFallback className="text-xl">{fallback}</AvatarFallback>
 			</Avatar>
-			<Button size="icon" variant="secondary" className="absolute -bottom-1 -right-1 size-8 rounded-full">
+			<Button
+				size="icon"
+				variant="secondary"
+				className="absolute -bottom-1 -right-1 size-8 rounded-full"
+			>
 				<Camera className="size-4" />
 			</Button>
 		</div>
@@ -57,7 +61,13 @@ const SettingsHeader = ({
 const ProfileTab = ({
 	data,
 }: {
-	data: { firstName: string; lastName: string; email: string; phone: string; birthDate: string };
+	data: {
+		firstName: string;
+		lastName: string;
+		email: string;
+		phone: string;
+		birthDate: string;
+	};
 }) => (
 	<div className="space-y-6">
 		<div className="grid @sm:grid-cols-2 gap-4">
@@ -93,24 +103,37 @@ const ProfileTab = ({
 const SecurityTab = ({
 	settings,
 }: {
-	settings: { icon: React.ElementType; label: string; description: string; type: 'toggle' | 'action'; enabled?: boolean }[];
+	settings: {
+		icon: React.ElementType;
+		label: string;
+		description: string;
+		type: 'toggle' | 'action';
+		enabled?: boolean;
+	}[];
 }) => (
 	<div className="space-y-4">
 		{settings.map((setting, i) => (
-			<div key={i} className="flex items-center justify-between p-4 rounded-lg border">
+			<div
+				key={i}
+				className="flex items-center justify-between p-4 rounded-lg border"
+			>
 				<div className="flex items-center gap-4">
 					<div className="p-2 rounded-lg bg-muted">
 						<setting.icon className="size-5" />
 					</div>
 					<div>
 						<p className="font-medium">{setting.label}</p>
-						<p className="text-sm text-muted-foreground">{setting.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{setting.description}
+						</p>
 					</div>
 				</div>
 				{setting.type === 'toggle' ? (
 					<Switch defaultChecked={setting.enabled} />
 				) : (
-					<Button variant="outline" size="sm">Update</Button>
+					<Button variant="outline" size="sm">
+						Update
+					</Button>
 				)}
 			</div>
 		))}
@@ -120,7 +143,12 @@ const SecurityTab = ({
 const AddressesTab = ({
 	addresses,
 }: {
-	addresses: { label: string; address: string; city: string; isDefault: boolean }[];
+	addresses: {
+		label: string;
+		address: string;
+		city: string;
+		isDefault: boolean;
+	}[];
 }) => (
 	<div className="space-y-4">
 		<div className="flex justify-end">
@@ -140,13 +168,21 @@ const AddressesTab = ({
 									<p className="font-medium">{address.label}</p>
 									{address.isDefault && <Badge>Default</Badge>}
 								</div>
-								<p className="text-sm text-muted-foreground">{address.address}</p>
+								<p className="text-sm text-muted-foreground">
+									{address.address}
+								</p>
 								<p className="text-sm text-muted-foreground">{address.city}</p>
 							</div>
 						</div>
 						<div className="flex gap-2">
-							<Button variant="ghost" size="sm">Edit</Button>
-							<Button variant="ghost" size="icon" className="text-destructive hover:text-destructive">
+							<Button variant="ghost" size="sm">
+								Edit
+							</Button>
+							<Button
+								variant="ghost"
+								size="icon"
+								className="text-destructive hover:text-destructive"
+							>
 								<Trash2 className="size-4" />
 							</Button>
 						</div>
@@ -179,15 +215,25 @@ const PaymentTab = ({
 							</div>
 							<div>
 								<div className="flex items-center gap-2">
-									<p className="font-medium">{card.type} ending in {card.last4}</p>
+									<p className="font-medium">
+										{card.type} ending in {card.last4}
+									</p>
 									{card.isDefault && <Badge>Default</Badge>}
 								</div>
-								<p className="text-sm text-muted-foreground">Expires {card.expiry}</p>
+								<p className="text-sm text-muted-foreground">
+									Expires {card.expiry}
+								</p>
 							</div>
 						</div>
 						<div className="flex gap-2">
-							<Button variant="ghost" size="sm">Edit</Button>
-							<Button variant="ghost" size="icon" className="text-destructive hover:text-destructive">
+							<Button variant="ghost" size="sm">
+								Edit
+							</Button>
+							<Button
+								variant="ghost"
+								size="icon"
+								className="text-destructive hover:text-destructive"
+							>
 								<Trash2 className="size-4" />
 							</Button>
 						</div>
@@ -201,7 +247,11 @@ const PaymentTab = ({
 const NotificationsTab = ({
 	channels,
 }: {
-	channels: { icon: React.ElementType; label: string; notifications: { name: string; enabled: boolean }[] }[];
+	channels: {
+		icon: React.ElementType;
+		label: string;
+		notifications: { name: string; enabled: boolean }[];
+	}[];
 }) => (
 	<div className="space-y-6">
 		{channels.map((channel, i) => (
@@ -241,14 +291,46 @@ export default function Main() {
 			birthDate: '1990-05-15',
 		},
 		security: [
-			{ icon: Key, label: 'Password', description: 'Last changed 3 months ago', type: 'action' as const },
-			{ icon: Smartphone, label: 'Two-Factor Authentication', description: 'Add an extra layer of security', type: 'toggle' as const, enabled: true },
-			{ icon: Lock, label: 'Login Alerts', description: 'Get notified of new sign-ins', type: 'toggle' as const, enabled: true },
-			{ icon: Globe, label: 'Active Sessions', description: '3 devices currently signed in', type: 'action' as const },
+			{
+				icon: Key,
+				label: 'Password',
+				description: 'Last changed 3 months ago',
+				type: 'action' as const,
+			},
+			{
+				icon: Smartphone,
+				label: 'Two-Factor Authentication',
+				description: 'Add an extra layer of security',
+				type: 'toggle' as const,
+				enabled: true,
+			},
+			{
+				icon: Lock,
+				label: 'Login Alerts',
+				description: 'Get notified of new sign-ins',
+				type: 'toggle' as const,
+				enabled: true,
+			},
+			{
+				icon: Globe,
+				label: 'Active Sessions',
+				description: '3 devices currently signed in',
+				type: 'action' as const,
+			},
 		],
 		addresses: [
-			{ label: 'Home', address: '123 Main Street, Apt 4B', city: 'New York, NY 10001', isDefault: true },
-			{ label: 'Work', address: '456 Business Ave, Floor 12', city: 'New York, NY 10002', isDefault: false },
+			{
+				label: 'Home',
+				address: '123 Main Street, Apt 4B',
+				city: 'New York, NY 10001',
+				isDefault: true,
+			},
+			{
+				label: 'Work',
+				address: '456 Business Ave, Floor 12',
+				city: 'New York, NY 10002',
+				isDefault: false,
+			},
 		],
 		cards: [
 			{ type: 'Visa', last4: '4242', expiry: '12/26', isDefault: true },

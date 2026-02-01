@@ -46,7 +46,13 @@ type CategoryStat = {
 	percentage: number;
 };
 
-const ProductKpiCard = ({ title, value, change, trend, icon: Icon }: ProductKpi) => (
+const ProductKpiCard = ({
+	title,
+	value,
+	change,
+	trend,
+	icon: Icon,
+}: ProductKpi) => (
 	<div className="rounded-xl border bg-card p-4">
 		<div className="flex items-center gap-3">
 			<div className="rounded-lg bg-primary/10 p-2">
@@ -124,16 +130,61 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const productKpis: ProductKpi[] = [
-		{ title: 'Total Products', value: '1,247', change: '+12', trend: 'up', icon: Package },
-		{ title: 'Total Sales', value: '$89.4k', change: '+24%', trend: 'up', icon: DollarSign },
-		{ title: 'Avg Rating', value: '4.6', change: '+0.2', trend: 'up', icon: Star },
+		{
+			title: 'Total Products',
+			value: '1,247',
+			change: '+12',
+			trend: 'up',
+			icon: Package,
+		},
+		{
+			title: 'Total Sales',
+			value: '$89.4k',
+			change: '+24%',
+			trend: 'up',
+			icon: DollarSign,
+		},
+		{
+			title: 'Avg Rating',
+			value: '4.6',
+			change: '+0.2',
+			trend: 'up',
+			icon: Star,
+		},
 		{ title: 'Low Stock', value: '18', change: '-5', trend: 'up', icon: Box },
 	];
 
 	const topProducts: TopProduct[] = [
-		{ name: 'Wireless Headphones Pro', category: 'Electronics', sold: 432, revenue: '$25.9k', stock: 45, rating: 4.8, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80' },
-		{ name: 'Smart Watch Ultra', category: 'Electronics', sold: 324, revenue: '$19.4k', stock: 12, rating: 4.7, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80' },
-		{ name: 'Ergonomic Laptop Stand', category: 'Accessories', sold: 287, revenue: '$14.3k', stock: 78, rating: 4.9, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=80' },
+		{
+			name: 'Wireless Headphones Pro',
+			category: 'Electronics',
+			sold: 432,
+			revenue: '$25.9k',
+			stock: 45,
+			rating: 4.8,
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80',
+		},
+		{
+			name: 'Smart Watch Ultra',
+			category: 'Electronics',
+			sold: 324,
+			revenue: '$19.4k',
+			stock: 12,
+			rating: 4.7,
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80',
+		},
+		{
+			name: 'Ergonomic Laptop Stand',
+			category: 'Accessories',
+			sold: 287,
+			revenue: '$14.3k',
+			stock: 78,
+			rating: 4.9,
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=80',
+		},
 	];
 
 	const categories: CategoryStat[] = [
@@ -165,7 +216,9 @@ export default function Main() {
 						</div>
 						<Card>
 							<CardHeader className="pb-2">
-								<CardTitle className="text-base">Products by Category</CardTitle>
+								<CardTitle className="text-base">
+									Products by Category
+								</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-4 pt-0">
 								{categories.map((cat, i) => (
@@ -177,7 +230,9 @@ export default function Main() {
 					<div className="space-y-4">
 						<Card>
 							<CardHeader className="pb-2">
-								<CardTitle className="text-base">Top Selling Products</CardTitle>
+								<CardTitle className="text-base">
+									Top Selling Products
+								</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-3 pt-0">
 								{topProducts.map((product, i) => (
@@ -190,11 +245,18 @@ export default function Main() {
 								<CardTitle className="text-base">Monthly Sales</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={chartConfig} className="h-[160px] w-full">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[160px] w-full"
+								>
 									<BarChart data={salesData}>
 										<XAxis dataKey="month" tickLine={false} axisLine={false} />
 										<ChartTooltip content={<ChartTooltipContent hideLabel />} />
-										<Bar dataKey="sales" fill="var(--color-sales)" radius={[4, 4, 0, 0]} />
+										<Bar
+											dataKey="sales"
+											fill="var(--color-sales)"
+											radius={[4, 4, 0, 0]}
+										/>
 									</BarChart>
 								</ChartContainer>
 							</CardContent>

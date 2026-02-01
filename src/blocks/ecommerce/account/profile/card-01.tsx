@@ -45,13 +45,7 @@ const ProfileAvatar = ({
 	</div>
 );
 
-const ProfileName = ({
-	name,
-	email,
-}: {
-	name: string;
-	email: string;
-}) => (
+const ProfileName = ({ name, email }: { name: string; email: string }) => (
 	<div className="text-center @md:text-left">
 		<h2 className="text-lg @md:text-xl font-semibold tracking-tight">{name}</h2>
 		<p className="text-sm text-muted-foreground">{email}</p>
@@ -94,7 +88,12 @@ const ProfileInfo = ({
 const ProfileActions = ({
 	items,
 }: {
-	items: { label: string; href: string; icon: React.ElementType; variant?: 'default' | 'outline' | 'secondary' | 'ghost' }[];
+	items: {
+		label: string;
+		href: string;
+		icon: React.ElementType;
+		variant?: 'default' | 'outline' | 'secondary' | 'ghost';
+	}[];
 }) => (
 	<div className="flex flex-wrap gap-2">
 		{items.map((action, i) => (
@@ -134,8 +133,18 @@ export default function Main() {
 			{ icon: Calendar, label: 'Member Since', value: 'Jan 2024' },
 		],
 		actions: [
-			{ label: 'Edit Profile', href: '/account/edit', icon: Edit, variant: 'default' as const },
-			{ label: 'Settings', href: '/account/settings', icon: Settings, variant: 'outline' as const },
+			{
+				label: 'Edit Profile',
+				href: '/account/edit',
+				icon: Edit,
+				variant: 'default' as const,
+			},
+			{
+				label: 'Settings',
+				href: '/account/settings',
+				icon: Settings,
+				variant: 'outline' as const,
+			},
 		],
 	};
 

@@ -1,4 +1,13 @@
-import { Truck, Store, Box, MapPin, Clock, Check, ChevronRight, Search } from 'lucide-react';
+import {
+	Truck,
+	Store,
+	Box,
+	MapPin,
+	Clock,
+	Check,
+	ChevronRight,
+	Search,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -28,12 +37,20 @@ const DeliveryTypeCard = ({
 		className="flex-1 flex flex-col items-center gap-2 p-4 border-2 rounded-xl cursor-pointer hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5 transition-all"
 	>
 		<RadioGroupItem value={value} id={value} className="sr-only" />
-		<div className={`flex size-12 items-center justify-center rounded-xl transition-colors ${selected ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
+		<div
+			className={`flex size-12 items-center justify-center rounded-xl transition-colors ${selected ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}
+		>
 			<Icon className="size-6" />
 		</div>
 		<span className="font-semibold">{title}</span>
-		<span className="text-xs text-muted-foreground text-center">{description}</span>
-		{badge && <Badge variant="secondary" className="text-xs">{badge}</Badge>}
+		<span className="text-xs text-muted-foreground text-center">
+			{description}
+		</span>
+		{badge && (
+			<Badge variant="secondary" className="text-xs">
+				{badge}
+			</Badge>
+		)}
 	</Label>
 );
 
@@ -58,7 +75,11 @@ const LocationItem = ({
 	>
 		<RadioGroupItem value={value} id={value} className="mt-1" />
 		<div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-			{type === 'store' ? <Store className="size-5 text-muted-foreground" /> : <Box className="size-5 text-muted-foreground" />}
+			{type === 'store' ? (
+				<Store className="size-5 text-muted-foreground" />
+			) : (
+				<Box className="size-5 text-muted-foreground" />
+			)}
 		</div>
 		<div className="flex-1">
 			<div className="flex items-center justify-between mb-1">
@@ -101,7 +122,9 @@ const ShippingSpeed = ({
 				</div>
 			</div>
 		</div>
-		<span className={`font-bold ${free ? 'text-green-600 dark:text-green-400' : 'text-primary'}`}>
+		<span
+			className={`font-bold ${free ? 'text-green-600 dark:text-green-400' : 'text-primary'}`}
+		>
 			{price}
 		</span>
 	</Label>
@@ -109,24 +132,56 @@ const ShippingSpeed = ({
 
 export default function Main() {
 	const pickupLocations = [
-		{ value: 'store-1', name: 'Main Street Store', address: '123 Main St, NY', distance: '0.3 mi', hours: 'Open until 9 PM', type: 'store' as const },
-		{ value: 'store-2', name: 'Central Mall', address: '456 Central Ave, NY', distance: '0.8 mi', hours: 'Open until 10 PM', type: 'store' as const },
-		{ value: 'locker-1', name: 'Locker NYC-001', address: '100 Broadway, NY', distance: '0.5 mi', hours: '24/7 Access', type: 'locker' as const },
+		{
+			value: 'store-1',
+			name: 'Main Street Store',
+			address: '123 Main St, NY',
+			distance: '0.3 mi',
+			hours: 'Open until 9 PM',
+			type: 'store' as const,
+		},
+		{
+			value: 'store-2',
+			name: 'Central Mall',
+			address: '456 Central Ave, NY',
+			distance: '0.8 mi',
+			hours: 'Open until 10 PM',
+			type: 'store' as const,
+		},
+		{
+			value: 'locker-1',
+			name: 'Locker NYC-001',
+			address: '100 Broadway, NY',
+			distance: '0.5 mi',
+			hours: '24/7 Access',
+			type: 'locker' as const,
+		},
 	];
 
 	const shippingSpeeds = [
-		{ value: 'standard', name: 'Standard', time: '5-7 days', price: 'Free', free: true },
+		{
+			value: 'standard',
+			name: 'Standard',
+			time: '5-7 days',
+			price: 'Free',
+			free: true,
+		},
 		{ value: 'express', name: 'Express', time: '2-3 days', price: '$12.99' },
 	];
 
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
-				<h1 className="text-3xl font-bold mb-2">How Would You Like to Receive Your Order?</h1>
+				<h1 className="text-3xl font-bold mb-2">
+					How Would You Like to Receive Your Order?
+				</h1>
 				<p className="text-muted-foreground mb-8">Choose delivery or pickup</p>
 
 				{/* Delivery Type */}
-				<RadioGroup defaultValue="delivery" className="grid grid-cols-3 gap-3 mb-8">
+				<RadioGroup
+					defaultValue="delivery"
+					className="grid grid-cols-3 gap-3 mb-8"
+				>
 					<DeliveryTypeCard
 						value="delivery"
 						icon={Truck}
@@ -162,10 +217,16 @@ export default function Main() {
 						<div className="p-4 rounded-xl bg-muted/50">
 							<div className="flex items-center justify-between mb-1">
 								<span className="font-medium">John Doe</span>
-								<Button variant="ghost" size="sm">Change</Button>
+								<Button variant="ghost" size="sm">
+									Change
+								</Button>
 							</div>
-							<p className="text-sm text-muted-foreground">123 Main Street, Apt 4B</p>
-							<p className="text-sm text-muted-foreground">New York, NY 10001</p>
+							<p className="text-sm text-muted-foreground">
+								123 Main Street, Apt 4B
+							</p>
+							<p className="text-sm text-muted-foreground">
+								New York, NY 10001
+							</p>
 						</div>
 					</CardContent>
 				</Card>

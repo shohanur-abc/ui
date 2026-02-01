@@ -55,7 +55,9 @@ const ImpactMetric = ({
 	color,
 }: ImpactMetricProps) => (
 	<div className="text-center p-4 rounded-xl bg-muted/30">
-		<div className={`size-12 rounded-full mx-auto mb-3 flex items-center justify-center ${color}`}>
+		<div
+			className={`size-12 rounded-full mx-auto mb-3 flex items-center justify-center ${color}`}
+		>
 			<Icon className="size-6" />
 		</div>
 		<p className="text-2xl font-bold">{value}</p>
@@ -250,7 +252,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'View Full Impact', href: '/impact', icon: Leaf },
-						{ label: 'Track Order', href: '/track', variant: 'outline', icon: ArrowRight },
+						{
+							label: 'Track Order',
+							href: '/track',
+							variant: 'outline',
+							icon: ArrowRight,
+						},
 					]}
 				/>
 			</div>

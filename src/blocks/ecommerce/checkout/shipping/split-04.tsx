@@ -27,7 +27,9 @@ const CheckoutStep = ({
 		>
 			{completed ? <Check className="size-5" /> : step}
 		</div>
-		<span className={`hidden @lg:block ${active ? 'font-medium' : 'text-muted-foreground'}`}>
+		<span
+			className={`hidden @lg:block ${active ? 'font-medium' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</span>
 	</div>
@@ -37,7 +39,12 @@ const StepProgress = ({
 	steps,
 	progress,
 }: {
-	steps: { step: number; label: string; active?: boolean; completed?: boolean }[];
+	steps: {
+		step: number;
+		label: string;
+		active?: boolean;
+		completed?: boolean;
+	}[];
 	progress: number;
 }) => (
 	<div className="space-y-4">
@@ -94,7 +101,9 @@ const OrderSummaryItem = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-semibold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-semibold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -128,15 +137,29 @@ export default function Main() {
 										<FormInput label="First Name" placeholder="John" />
 										<FormInput label="Last Name" placeholder="Doe" />
 									</div>
-									<FormInput label="Email Address" placeholder="john@example.com" type="email" />
-									<FormInput label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
+									<FormInput
+										label="Email Address"
+										placeholder="john@example.com"
+										type="email"
+									/>
+									<FormInput
+										label="Phone Number"
+										placeholder="+1 (555) 000-0000"
+										type="tel"
+									/>
 								</div>
 							</SectionCard>
 
 							<SectionCard icon={Home} title="Shipping Address">
 								<div className="space-y-4">
-									<FormInput label="Street Address" placeholder="123 Main Street" />
-									<FormInput label="Apartment / Suite" placeholder="Apt 4B (optional)" />
+									<FormInput
+										label="Street Address"
+										placeholder="123 Main Street"
+									/>
+									<FormInput
+										label="Apartment / Suite"
+										placeholder="Apt 4B (optional)"
+									/>
 									<div className="grid @sm:grid-cols-3 gap-4">
 										<FormInput label="City" placeholder="New York" />
 										<FormInput label="State" placeholder="NY" />
@@ -146,7 +169,9 @@ export default function Main() {
 							</SectionCard>
 
 							<div className="flex gap-3">
-								<Button variant="outline" className="flex-1">Back</Button>
+								<Button variant="outline" className="flex-1">
+									Back
+								</Button>
 								<Button className="flex-1 gap-2">
 									Continue
 									<ArrowRight className="size-4" />

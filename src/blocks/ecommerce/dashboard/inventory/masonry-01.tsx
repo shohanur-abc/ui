@@ -1,12 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	Star,
-	Eye,
-	ShoppingCart,
-} from 'lucide-react';
+import { Package, Star, Eye, ShoppingCart } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -63,7 +58,11 @@ const FeaturedCard = ({
 			)}
 			<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
 			<div className="absolute inset-x-0 bottom-0 flex gap-2 p-4 opacity-0 transition-all group-hover:opacity-100">
-				<Button size="sm" className="flex-1" onClick={() => onQuickAdd(item.id)}>
+				<Button
+					size="sm"
+					className="flex-1"
+					onClick={() => onQuickAdd(item.id)}
+				>
 					<ShoppingCart className="size-4" />
 					{quickAddLabel}
 				</Button>
@@ -92,7 +91,9 @@ const FeaturedCard = ({
 			</div>
 			<div className="flex items-center justify-between">
 				<span className="text-xl font-bold">${item.price.toFixed(2)}</span>
-				<span className="text-sm text-muted-foreground">{item.quantity} in stock</span>
+				<span className="text-sm text-muted-foreground">
+					{item.quantity} in stock
+				</span>
 			</div>
 		</CardContent>
 	</Card>
@@ -133,14 +134,102 @@ const SmallCard = ({ item, onView }: SmallCardProps) => (
 
 export default function Main() {
 	const inventory: InventoryItem[] = [
-		{ id: '1', name: 'Premium Noise Canceling Headphones', sku: 'PNCH-001', image: '', quantity: 45, price: 299.99, rating: 5, reviews: 128, featured: true, category: 'Audio' },
-		{ id: '2', name: 'Ultra-Wide Gaming Monitor 34"', sku: 'UGM-002', image: '', quantity: 12, price: 599.99, rating: 4, reviews: 89, featured: true, category: 'Displays' },
-		{ id: '3', name: 'Wireless Mechanical Keyboard', sku: 'WMK-003', image: '', quantity: 78, price: 149.99, rating: 4, reviews: 256, featured: false, category: 'Peripherals' },
-		{ id: '4', name: 'RGB Gaming Mouse', sku: 'RGM-004', image: '', quantity: 156, price: 79.99, rating: 5, reviews: 342, featured: false, category: 'Peripherals' },
-		{ id: '5', name: 'USB-C Docking Station', sku: 'UDS-005', image: '', quantity: 34, price: 199.99, rating: 4, reviews: 67, featured: false, category: 'Accessories' },
-		{ id: '6', name: 'Portable SSD 2TB', sku: 'PSSD-006', image: '', quantity: 89, price: 179.99, rating: 5, reviews: 189, featured: false, category: 'Storage' },
-		{ id: '7', name: 'Webcam 4K HDR', sku: 'W4H-007', image: '', quantity: 23, price: 199.99, rating: 4, reviews: 45, featured: false, category: 'Video' },
-		{ id: '8', name: 'Studio Microphone USB', sku: 'SMU-008', image: '', quantity: 56, price: 129.99, rating: 4, reviews: 112, featured: false, category: 'Audio' },
+		{
+			id: '1',
+			name: 'Premium Noise Canceling Headphones',
+			sku: 'PNCH-001',
+			image: '',
+			quantity: 45,
+			price: 299.99,
+			rating: 5,
+			reviews: 128,
+			featured: true,
+			category: 'Audio',
+		},
+		{
+			id: '2',
+			name: 'Ultra-Wide Gaming Monitor 34"',
+			sku: 'UGM-002',
+			image: '',
+			quantity: 12,
+			price: 599.99,
+			rating: 4,
+			reviews: 89,
+			featured: true,
+			category: 'Displays',
+		},
+		{
+			id: '3',
+			name: 'Wireless Mechanical Keyboard',
+			sku: 'WMK-003',
+			image: '',
+			quantity: 78,
+			price: 149.99,
+			rating: 4,
+			reviews: 256,
+			featured: false,
+			category: 'Peripherals',
+		},
+		{
+			id: '4',
+			name: 'RGB Gaming Mouse',
+			sku: 'RGM-004',
+			image: '',
+			quantity: 156,
+			price: 79.99,
+			rating: 5,
+			reviews: 342,
+			featured: false,
+			category: 'Peripherals',
+		},
+		{
+			id: '5',
+			name: 'USB-C Docking Station',
+			sku: 'UDS-005',
+			image: '',
+			quantity: 34,
+			price: 199.99,
+			rating: 4,
+			reviews: 67,
+			featured: false,
+			category: 'Accessories',
+		},
+		{
+			id: '6',
+			name: 'Portable SSD 2TB',
+			sku: 'PSSD-006',
+			image: '',
+			quantity: 89,
+			price: 179.99,
+			rating: 5,
+			reviews: 189,
+			featured: false,
+			category: 'Storage',
+		},
+		{
+			id: '7',
+			name: 'Webcam 4K HDR',
+			sku: 'W4H-007',
+			image: '',
+			quantity: 23,
+			price: 199.99,
+			rating: 4,
+			reviews: 45,
+			featured: false,
+			category: 'Video',
+		},
+		{
+			id: '8',
+			name: 'Studio Microphone USB',
+			sku: 'SMU-008',
+			image: '',
+			quantity: 56,
+			price: 129.99,
+			rating: 4,
+			reviews: 112,
+			featured: false,
+			category: 'Audio',
+		},
 	];
 
 	const featuredItems = inventory.filter((item) => item.featured);

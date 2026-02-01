@@ -36,10 +36,16 @@ interface RevenueTrackerProps {
 	};
 }
 
-const TypeConfig: Record<RevenueStream['type'], { icon: LucideIcon; className: string }> = {
+const TypeConfig: Record<
+	RevenueStream['type'],
+	{ icon: LucideIcon; className: string }
+> = {
 	sales: { icon: CreditCard, className: 'bg-emerald-500/20 text-emerald-400' },
 	subscriptions: { icon: Wallet, className: 'bg-blue-500/20 text-blue-400' },
-	affiliates: { icon: ArrowUpRight, className: 'bg-purple-500/20 text-purple-400' },
+	affiliates: {
+		icon: ArrowUpRight,
+		className: 'bg-purple-500/20 text-purple-400',
+	},
 	ads: { icon: Target, className: 'bg-orange-500/20 text-orange-400' },
 	services: { icon: PiggyBank, className: 'bg-pink-500/20 text-pink-400' },
 };
@@ -53,9 +59,10 @@ const formatCurrency = (value: number): string => {
 const RevenueCard = ({ stream }: { stream: RevenueStream }) => {
 	const config = TypeConfig[stream.type];
 	const Icon = config.icon;
-	const change = stream.previous > 0
-		? ((stream.current - stream.previous) / stream.previous) * 100
-		: 0;
+	const change =
+		stream.previous > 0
+			? ((stream.current - stream.previous) / stream.previous) * 100
+			: 0;
 	const isPositive = change >= 0;
 	const progress = Math.min((stream.current / stream.target) * 100, 100);
 
@@ -117,9 +124,7 @@ const RevenueCard = ({ stream }: { stream: RevenueStream }) => {
 						/>
 						<div className="flex items-center justify-between text-xs text-muted-foreground">
 							<span>{progress.toFixed(0)}% of target</span>
-							<span>
-								vs {formatCurrency(stream.previous)} last period
-							</span>
+							<span>vs {formatCurrency(stream.previous)} last period</span>
 						</div>
 					</div>
 				</div>
@@ -128,11 +133,7 @@ const RevenueCard = ({ stream }: { stream: RevenueStream }) => {
 	);
 };
 
-const TotalRevenue = ({
-	stats,
-}: {
-	stats: RevenueTrackerProps['stats'];
-}) => (
+const TotalRevenue = ({ stats }: { stats: RevenueTrackerProps['stats'] }) => (
 	<div className="p-5 rounded-xl border border-primary/20 bg-primary/5">
 		<div className="flex items-center justify-between">
 			<div className="flex items-center gap-4">

@@ -9,7 +9,11 @@ type CouponInputProps = {
 	buttonLabel: string;
 };
 
-const CouponInput = ({ icon: Icon, placeholder, buttonLabel }: CouponInputProps) => (
+const CouponInput = ({
+	icon: Icon,
+	placeholder,
+	buttonLabel,
+}: CouponInputProps) => (
 	<div className="flex items-center gap-2">
 		<div className="relative">
 			<Icon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -21,10 +25,7 @@ const CouponInput = ({ icon: Icon, placeholder, buttonLabel }: CouponInputProps)
 	</div>
 );
 
-const TotalDisplay = ({
-	label,
-	value,
-}: { label: string; value: string }) => (
+const TotalDisplay = ({ label, value }: { label: string; value: string }) => (
 	<div className="flex items-center gap-2">
 		<span className="text-sm text-muted-foreground">{label}</span>
 		<span className="text-lg font-bold">{value}</span>

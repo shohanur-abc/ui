@@ -3,7 +3,15 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Minus, Plus, X, ShoppingBag, Heart, Clock, ArrowRight } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ShoppingBag,
+	Heart,
+	Clock,
+	ArrowRight,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,7 +24,15 @@ interface Product {
 	addedAt?: string;
 }
 
-const TabHeader = ({ icon: Icon, label, count }: { icon: React.ComponentType<{ className?: string }>; label: string; count: number }) => (
+const TabHeader = ({
+	icon: Icon,
+	label,
+	count,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	label: string;
+	count: number;
+}) => (
 	<div className="flex items-center gap-2">
 		<Icon className="size-4" />
 		<span>{label}</span>
@@ -52,7 +68,11 @@ const QuantityButtons = ({ quantity }: { quantity: number }) => (
 );
 
 const RemoveAction = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<X className="size-4" />
 	</Button>
 );
@@ -75,7 +95,13 @@ const CartItem = ({ product }: { product: Product }) => (
 	</div>
 );
 
-const SavedItem = ({ product, moveToCartLabel }: { product: Product; moveToCartLabel: string }) => (
+const SavedItem = ({
+	product,
+	moveToCartLabel,
+}: {
+	product: Product;
+	moveToCartLabel: string;
+}) => (
 	<div className="flex gap-4 py-4">
 		<ProductImage src={product.image} alt={product.name} />
 		<div className="flex min-w-0 flex-1 flex-col justify-between">
@@ -99,8 +125,18 @@ const SavedItem = ({ product, moveToCartLabel }: { product: Product; moveToCartL
 	</div>
 );
 
-const SummaryRow = ({ label, value, isBold }: { label: string; value: string; isBold?: boolean }) => (
-	<div className={`flex justify-between ${isBold ? 'text-lg font-bold' : 'text-sm'}`}>
+const SummaryRow = ({
+	label,
+	value,
+	isBold,
+}: {
+	label: string;
+	value: string;
+	isBold?: boolean;
+}) => (
+	<div
+		className={`flex justify-between ${isBold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={isBold ? '' : 'text-muted-foreground'}>{label}</span>
 		<span className={isBold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -167,14 +203,16 @@ export default function Main() {
 	const cartItems: Product[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
 			name: 'Premium Leather Sneakers',
 			price: 189.99,
 			quantity: 1,
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=200&h=200&fit=crop',
 			name: 'Classic Aviator Sunglasses',
 			price: 159.99,
 			quantity: 2,
@@ -184,14 +222,16 @@ export default function Main() {
 	const savedItems: Product[] = [
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&h=200&fit=crop',
 			name: 'Vintage Leather Backpack',
 			price: 249.99,
 			addedAt: '2 days ago',
 		},
 		{
 			id: '4',
-			image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=200&h=200&fit=crop',
 			name: 'Minimalist Watch Gold Edition',
 			price: 329.99,
 			addedAt: '1 week ago',
@@ -215,10 +255,18 @@ export default function Main() {
 						<Tabs defaultValue="cart">
 							<TabsList className="w-full">
 								<TabsTrigger value="cart" className="flex-1">
-									<TabHeader icon={ShoppingBag} label="Cart" count={cartItems.length} />
+									<TabHeader
+										icon={ShoppingBag}
+										label="Cart"
+										count={cartItems.length}
+									/>
 								</TabsTrigger>
 								<TabsTrigger value="saved" className="flex-1">
-									<TabHeader icon={Heart} label="Saved" count={savedItems.length} />
+									<TabHeader
+										icon={Heart}
+										label="Saved"
+										count={savedItems.length}
+									/>
 								</TabsTrigger>
 							</TabsList>
 
@@ -226,7 +274,9 @@ export default function Main() {
 								<Card>
 									<CardContent className="divide-y p-4">
 										{cartItems.length > 0 ? (
-											cartItems.map((item) => <CartItem key={item.id} product={item} />)
+											cartItems.map((item) => (
+												<CartItem key={item.id} product={item} />
+											))
 										) : (
 											<EmptyState
 												icon={ShoppingBag}
@@ -245,7 +295,11 @@ export default function Main() {
 									<CardContent className="divide-y p-4">
 										{savedItems.length > 0 ? (
 											savedItems.map((item) => (
-												<SavedItem key={item.id} product={item} moveToCartLabel="Move to Cart" />
+												<SavedItem
+													key={item.id}
+													product={item}
+													moveToCartLabel="Move to Cart"
+												/>
 											))
 										) : (
 											<EmptyState

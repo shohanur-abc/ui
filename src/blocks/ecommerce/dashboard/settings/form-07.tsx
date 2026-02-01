@@ -146,7 +146,9 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Privacy Settings</CardTitle>
-									<CardDescription>Control your privacy and visibility preferences</CardDescription>
+									<CardDescription>
+										Control your privacy and visibility preferences
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>
@@ -166,7 +168,9 @@ export default function Main() {
 									</div>
 									<div>
 										<CardTitle>Data Export</CardTitle>
-										<CardDescription>Download a copy of your data</CardDescription>
+										<CardDescription>
+											Download a copy of your data
+										</CardDescription>
 									</div>
 								</div>
 								<Badge variant="secondary">GDPR Compliant</Badge>
@@ -187,7 +191,9 @@ export default function Main() {
 					<Card>
 						<CardHeader className="border-b">
 							<CardTitle className="text-destructive">Danger Zone</CardTitle>
-							<CardDescription>Irreversible and destructive actions</CardDescription>
+							<CardDescription>
+								Irreversible and destructive actions
+							</CardDescription>
 						</CardHeader>
 						<CardContent className="space-y-4 pt-6">
 							<DangerAction

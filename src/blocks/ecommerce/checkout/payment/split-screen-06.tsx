@@ -1,9 +1,24 @@
-import { Award, CheckCircle2, CreditCard, Lock, RefreshCw, Shield, Sparkles, Star, Zap } from 'lucide-react';
+import {
+	Award,
+	CheckCircle2,
+	CreditCard,
+	Lock,
+	RefreshCw,
+	Shield,
+	Sparkles,
+	Star,
+	Zap,
+} from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -29,7 +44,12 @@ interface TrustItemProps {
 	label: string;
 }
 
-const PlanHeader = ({ name, price, period, popular }: Omit<PlanProps, 'features'>) => (
+const PlanHeader = ({
+	name,
+	price,
+	period,
+	popular,
+}: Omit<PlanProps, 'features'>) => (
 	<div className="space-y-2">
 		<div className="flex items-center gap-2">
 			<h2 className="text-2xl font-bold">{name}</h2>
@@ -62,7 +82,13 @@ const FeaturesList = ({ features }: { features: string[] }) => (
 	</div>
 );
 
-const Testimonial = ({ quote, author, role, avatar, initials }: TestimonialProps) => (
+const Testimonial = ({
+	quote,
+	author,
+	role,
+	avatar,
+	initials,
+}: TestimonialProps) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-3">
 		<div className="flex gap-1">
 			{Array.from({ length: 5 }).map((_, i) => (
@@ -86,9 +112,14 @@ const Testimonial = ({ quote, author, role, avatar, initials }: TestimonialProps
 const TrustBadges = ({ items }: { items: TrustItemProps[] }) => (
 	<div className="grid grid-cols-3 gap-4">
 		{items.map((item, index) => (
-			<div key={index} className="flex flex-col items-center gap-2 p-3 rounded-lg bg-muted/50">
+			<div
+				key={index}
+				className="flex flex-col items-center gap-2 p-3 rounded-lg bg-muted/50"
+			>
 				<item.icon className="size-5 text-primary" />
-				<span className="text-xs text-center text-muted-foreground">{item.label}</span>
+				<span className="text-xs text-center text-muted-foreground">
+					{item.label}
+				</span>
 			</div>
 		))}
 	</div>
@@ -108,20 +139,39 @@ const PaymentField = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
 
-const BillingToggle = ({ monthly, annual }: { monthly: string; annual: string }) => (
+const BillingToggle = ({
+	monthly,
+	annual,
+}: {
+	monthly: string;
+	annual: string;
+}) => (
 	<div className="flex items-center justify-center gap-3 p-2 rounded-lg bg-muted/50">
-		<Button variant="default" size="sm">{monthly}</Button>
+		<Button variant="default" size="sm">
+			{monthly}
+		</Button>
 		<Button variant="ghost" size="sm" className="gap-1">
 			{annual}
-			<Badge variant="secondary" className="text-xs ml-1">Save 20%</Badge>
+			<Badge variant="secondary" className="text-xs ml-1">
+				Save 20%
+			</Badge>
 		</Button>
 	</div>
 );
@@ -157,7 +207,8 @@ export default function Main() {
 	};
 
 	const testimonial: TestimonialProps = {
-		quote: "This tool has transformed how we work. The ROI was visible within the first week.",
+		quote:
+			'This tool has transformed how we work. The ROI was visible within the first week.',
 		author: 'Sarah Chen',
 		role: 'CEO at TechCorp',
 		avatar: '',
@@ -187,15 +238,35 @@ export default function Main() {
 						<Card className="border-border/50 bg-card/50 backdrop-blur-sm @lg:sticky @lg:top-8">
 							<CardHeader className="pb-4">
 								<h3 className="font-semibold">Subscribe to Pro</h3>
-								<p className="text-sm text-muted-foreground">Enter payment details to start</p>
+								<p className="text-sm text-muted-foreground">
+									Enter payment details to start
+								</p>
 							</CardHeader>
 							<CardContent className="space-y-4">
-								<PaymentField id="email" label="Email" placeholder="john@example.com" />
-								<PaymentField id="card" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
-								<PaymentField id="name" label="Name on Card" placeholder="John Doe" />
+								<PaymentField
+									id="email"
+									label="Email"
+									placeholder="john@example.com"
+								/>
+								<PaymentField
+									id="card"
+									label="Card Number"
+									placeholder="1234 5678 9012 3456"
+									icon={CreditCard}
+								/>
+								<PaymentField
+									id="name"
+									label="Name on Card"
+									placeholder="John Doe"
+								/>
 								<div className="grid grid-cols-2 gap-4">
 									<PaymentField id="exp" label="Expiry" placeholder="MM/YY" />
-									<PaymentField id="cvc" label="CVC" placeholder="123" type="password" />
+									<PaymentField
+										id="cvc"
+										label="CVC"
+										placeholder="123"
+										type="password"
+									/>
 								</div>
 								<div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
 									<div className="flex justify-between text-sm">

@@ -1,6 +1,13 @@
 'use client';
 
-import { Clock, DollarSign, Package, Percent, RefreshCw, Users } from 'lucide-react';
+import {
+	Clock,
+	DollarSign,
+	Package,
+	Percent,
+	RefreshCw,
+	Users,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 import {
@@ -99,10 +106,42 @@ export default function Main() {
 	];
 
 	const quarterlyData: QuarterlyData[] = [
-		{ quarter: 'Q1 2025', revenue: '$245,800', orders: 5680, customers: 2845, avgOrderValue: '$43.28', returnRate: '3.4%', processingTime: '2.1 days' },
-		{ quarter: 'Q2 2025', revenue: '$298,500', orders: 6890, customers: 3120, avgOrderValue: '$43.32', returnRate: '3.2%', processingTime: '1.9 days' },
-		{ quarter: 'Q3 2025', revenue: '$312,400', orders: 7240, customers: 3280, avgOrderValue: '$43.15', returnRate: '2.9%', processingTime: '1.7 days' },
-		{ quarter: 'Q4 2025', revenue: '$385,600', orders: 8640, customers: 3645, avgOrderValue: '$44.63', returnRate: '2.8%', processingTime: '1.6 days' },
+		{
+			quarter: 'Q1 2025',
+			revenue: '$245,800',
+			orders: 5680,
+			customers: 2845,
+			avgOrderValue: '$43.28',
+			returnRate: '3.4%',
+			processingTime: '2.1 days',
+		},
+		{
+			quarter: 'Q2 2025',
+			revenue: '$298,500',
+			orders: 6890,
+			customers: 3120,
+			avgOrderValue: '$43.32',
+			returnRate: '3.2%',
+			processingTime: '1.9 days',
+		},
+		{
+			quarter: 'Q3 2025',
+			revenue: '$312,400',
+			orders: 7240,
+			customers: 3280,
+			avgOrderValue: '$43.15',
+			returnRate: '2.9%',
+			processingTime: '1.7 days',
+		},
+		{
+			quarter: 'Q4 2025',
+			revenue: '$385,600',
+			orders: 8640,
+			customers: 3645,
+			avgOrderValue: '$44.63',
+			returnRate: '2.8%',
+			processingTime: '1.6 days',
+		},
 	];
 
 	return (

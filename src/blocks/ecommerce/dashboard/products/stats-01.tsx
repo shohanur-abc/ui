@@ -14,12 +14,7 @@ import {
 	Minus,
 } from 'lucide-react';
 
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface MetricData {
 	value: number;
@@ -126,7 +121,11 @@ const TrendChartMini = ({ data, positive = true }: TrendChartMiniProps) => {
 		.join(' ');
 
 	return (
-		<svg className="h-12 w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+		<svg
+			className="h-12 w-full"
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+		>
 			<polyline
 				points={points}
 				fill="none"
@@ -172,9 +171,18 @@ const DetailedStatCard = ({
 					<div>
 						<p className="text-sm text-muted-foreground">{title}</p>
 						<p className="mt-1 text-3xl font-bold">{formatValue(value)}</p>
-						<div className={`mt-2 flex items-center gap-1 text-sm ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}>
-							{isPositive ? <TrendingUp className="size-4" /> : <TrendingDown className="size-4" />}
-							<span>{isPositive ? '+' : ''}{change.toFixed(1)}% vs last period</span>
+						<div
+							className={`mt-2 flex items-center gap-1 text-sm ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}
+						>
+							{isPositive ? (
+								<TrendingUp className="size-4" />
+							) : (
+								<TrendingDown className="size-4" />
+							)}
+							<span>
+								{isPositive ? '+' : ''}
+								{change.toFixed(1)}% vs last period
+							</span>
 						</div>
 					</div>
 					<div className="flex size-12 items-center justify-center rounded-lg bg-primary/10">

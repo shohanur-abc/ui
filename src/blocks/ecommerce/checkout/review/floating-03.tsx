@@ -77,9 +77,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -91,7 +95,8 @@ export default function Main() {
 			variant: 'Waterproof / Blue',
 			price: 79.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop',
 		},
 		{
 			id: '2',
@@ -99,7 +104,8 @@ export default function Main() {
 			variant: 'Active Noise',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop',
 		},
 		{
 			id: '3',
@@ -107,7 +113,8 @@ export default function Main() {
 			variant: 'Wireless / Black',
 			price: 39.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&h=400&fit=crop',
 		},
 	];
 
@@ -122,9 +129,7 @@ export default function Main() {
 					<h1 className="text-2xl font-bold tracking-tight @md:text-3xl">
 						Review Your Order
 					</h1>
-					<p className="mt-1 text-muted-foreground">
-						Premium sound equipment
-					</p>
+					<p className="mt-1 text-muted-foreground">Premium sound equipment</p>
 				</div>
 
 				<div className="grid gap-8 @lg:grid-cols-[1fr_360px]">

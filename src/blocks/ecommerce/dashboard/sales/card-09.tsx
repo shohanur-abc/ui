@@ -1,6 +1,12 @@
 'use client';
 
-import { CreditCard, Smartphone, Globe, Building2, type LucideIcon } from 'lucide-react';
+import {
+	CreditCard,
+	Smartphone,
+	Globe,
+	Building2,
+	type LucideIcon,
+} from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 

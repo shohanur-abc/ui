@@ -8,20 +8,33 @@ interface ProgressStatProps {
 	unit?: string;
 }
 
-const ProgressStat = ({ label, value, target, unit = '' }: ProgressStatProps) => {
+const ProgressStat = ({
+	label,
+	value,
+	target,
+	unit = '',
+}: ProgressStatProps) => {
 	const percentage = Math.round((value / target) * 100);
 
 	return (
 		<Card className="group p-6 transition-all duration-300 hover:shadow-md">
 			<div className="space-y-4">
 				<div className="flex items-baseline justify-between">
-					<span className="text-sm font-medium text-muted-foreground">{label}</span>
+					<span className="text-sm font-medium text-muted-foreground">
+						{label}
+					</span>
 					<span className="text-xs text-muted-foreground">{percentage}%</span>
 				</div>
 				<div className="space-y-2">
 					<div className="flex items-baseline gap-1">
-						<span className="text-3xl font-bold tracking-tight">{value.toLocaleString()}{unit}</span>
-						<span className="text-sm text-muted-foreground">/ {target.toLocaleString()}{unit}</span>
+						<span className="text-3xl font-bold tracking-tight">
+							{value.toLocaleString()}
+							{unit}
+						</span>
+						<span className="text-sm text-muted-foreground">
+							/ {target.toLocaleString()}
+							{unit}
+						</span>
 					</div>
 					<Progress value={percentage} className="h-2" />
 				</div>

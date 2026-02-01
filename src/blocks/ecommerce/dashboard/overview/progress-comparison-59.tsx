@@ -13,7 +13,13 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	ChartConfig,
 	ChartContainer,
@@ -31,7 +37,14 @@ type ComparisonMetric = {
 	icon: LucideIcon;
 };
 
-const ComparisonCard = ({ title, current, previous, change, progress, icon: Icon }: ComparisonMetric) => {
+const ComparisonCard = ({
+	title,
+	current,
+	previous,
+	change,
+	progress,
+	icon: Icon,
+}: ComparisonMetric) => {
 	const isPositive = change >= 0;
 
 	return (
@@ -46,11 +59,17 @@ const ComparisonCard = ({ title, current, previous, change, progress, icon: Icon
 				<div className="mt-4 flex items-end justify-between">
 					<div>
 						<p className="text-3xl font-bold">{current}</p>
-						<p className="text-xs text-muted-foreground">vs {previous} last month</p>
+						<p className="text-xs text-muted-foreground">
+							vs {previous} last month
+						</p>
 					</div>
 					<Badge
 						variant="secondary"
-						className={isPositive ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500'}
+						className={
+							isPositive
+								? 'bg-emerald-500/10 text-emerald-500'
+								: 'bg-red-500/10 text-red-500'
+						}
 					>
 						{isPositive ? (
 							<ArrowUpRight className="mr-0.5 size-3" />
@@ -79,10 +98,38 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const metrics: ComparisonMetric[] = [
-		{ title: 'Revenue', current: '$248K', previous: '$194K', change: 28, progress: 83, icon: DollarSign },
-		{ title: 'Orders', current: '6,842', previous: '5,608', change: 22, progress: 85, icon: ShoppingCart },
-		{ title: 'Customers', current: '3,847', previous: '3,256', change: 18, progress: 96, icon: Users },
-		{ title: 'Products Sold', current: '12,456', previous: '10,234', change: 22, progress: 83, icon: Package },
+		{
+			title: 'Revenue',
+			current: '$248K',
+			previous: '$194K',
+			change: 28,
+			progress: 83,
+			icon: DollarSign,
+		},
+		{
+			title: 'Orders',
+			current: '6,842',
+			previous: '5,608',
+			change: 22,
+			progress: 85,
+			icon: ShoppingCart,
+		},
+		{
+			title: 'Customers',
+			current: '3,847',
+			previous: '3,256',
+			change: 18,
+			progress: 96,
+			icon: Users,
+		},
+		{
+			title: 'Products Sold',
+			current: '12,456',
+			previous: '10,234',
+			change: 22,
+			progress: 83,
+			icon: Package,
+		},
 	];
 
 	const chartData = [
@@ -93,7 +140,7 @@ export default function Main() {
 	];
 
 	const overallGrowth = Math.round(
-		metrics.reduce((acc, m) => acc + m.change, 0) / metrics.length
+		metrics.reduce((acc, m) => acc + m.change, 0) / metrics.length,
 	);
 
 	return (
@@ -112,7 +159,10 @@ export default function Main() {
 									<CardTitle>Month-over-Month Comparison</CardTitle>
 									<CardDescription>Revenue trend comparison</CardDescription>
 								</div>
-								<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500">
+								<Badge
+									variant="secondary"
+									className="bg-emerald-500/10 text-emerald-500"
+								>
 									<TrendingUp className="mr-1 size-3" />
 									{overallGrowth}% avg growth
 								</Badge>
@@ -122,7 +172,11 @@ export default function Main() {
 							<ChartContainer config={chartConfig} className="h-[280px] w-full">
 								<LineChart data={chartData}>
 									<XAxis dataKey="week" tickLine={false} axisLine={false} />
-									<YAxis tickLine={false} axisLine={false} tickFormatter={(value) => `$${value / 1000}K`} />
+									<YAxis
+										tickLine={false}
+										axisLine={false}
+										tickFormatter={(value) => `$${value / 1000}K`}
+									/>
 									<ChartTooltip content={<ChartTooltipContent />} />
 									<Line
 										type="monotone"
@@ -144,11 +198,15 @@ export default function Main() {
 							<div className="mt-4 flex justify-center gap-6">
 								<div className="flex items-center gap-2">
 									<div className="h-0.5 w-4 bg-[var(--chart-1)]" />
-									<span className="text-sm text-muted-foreground">This Month</span>
+									<span className="text-sm text-muted-foreground">
+										This Month
+									</span>
 								</div>
 								<div className="flex items-center gap-2">
 									<div className="h-0.5 w-4 border-t-2 border-dashed border-[var(--chart-2)]" />
-									<span className="text-sm text-muted-foreground">Last Month</span>
+									<span className="text-sm text-muted-foreground">
+										Last Month
+									</span>
 								</div>
 							</div>
 						</CardContent>

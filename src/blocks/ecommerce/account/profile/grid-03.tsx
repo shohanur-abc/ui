@@ -79,10 +79,22 @@ const CalorieRingCard = ({
 		<CardContent className="flex flex-col items-center justify-center">
 			<div className="relative size-40">
 				<svg className="size-40 -rotate-90">
-					<circle cx="80" cy="80" r="70" fill="none" stroke="currentColor" strokeWidth="12" className="text-muted" />
 					<circle
-						cx="80" cy="80" r="70"
-						fill="none" stroke="currentColor" strokeWidth="12"
+						cx="80"
+						cy="80"
+						r="70"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="12"
+						className="text-muted"
+					/>
+					<circle
+						cx="80"
+						cy="80"
+						r="70"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="12"
 						strokeDasharray={`${(consumed / target) * 440} 440`}
 						strokeLinecap="round"
 						className="text-orange-500"
@@ -130,7 +142,13 @@ const MacroCard = ({
 				<Icon className={`size-4 ${color}`} />
 				<span className="text-sm font-medium">{name}</span>
 			</div>
-			<p className="text-xl font-bold">{current}<span className="text-sm text-muted-foreground">/{target}{unit}</span></p>
+			<p className="text-xl font-bold">
+				{current}
+				<span className="text-sm text-muted-foreground">
+					/{target}
+					{unit}
+				</span>
+			</p>
 			<Progress value={(current / target) * 100} className="h-1.5 mt-2" />
 		</CardContent>
 	</Card>
@@ -154,7 +172,10 @@ const ActivityStatCard = ({
 	<Card>
 		<CardContent className="p-4">
 			<Icon className={`size-6 ${color} mb-2`} />
-			<p className="text-2xl font-bold">{value}<span className="text-sm text-muted-foreground">{unit}</span></p>
+			<p className="text-2xl font-bold">
+				{value}
+				<span className="text-sm text-muted-foreground">{unit}</span>
+			</p>
 			<p className="text-xs text-muted-foreground">{label}</p>
 			<p className="text-xs text-muted-foreground mt-1">Goal: {target}</p>
 		</CardContent>
@@ -280,13 +301,24 @@ const GoalCard = ({
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between mb-2">
 				<Target className="size-5 text-muted-foreground" />
-				<span className={`text-xs flex items-center gap-1 ${positive ? 'text-green-500' : 'text-red-500'}`}>
-					{positive ? <TrendingDown className="size-3" /> : <TrendingUp className="size-3" />}
+				<span
+					className={`text-xs flex items-center gap-1 ${positive ? 'text-green-500' : 'text-red-500'}`}
+				>
+					{positive ? (
+						<TrendingDown className="size-3" />
+					) : (
+						<TrendingUp className="size-3" />
+					)}
 					{change}
 				</span>
 			</div>
 			<p className="text-sm text-muted-foreground">{title}</p>
-			<p className="text-xl font-bold">{current} <span className="text-sm text-muted-foreground">/ {target} {unit}</span></p>
+			<p className="text-xl font-bold">
+				{current}{' '}
+				<span className="text-sm text-muted-foreground">
+					/ {target} {unit}
+				</span>
+			</p>
 		</CardContent>
 	</Card>
 );
@@ -302,17 +334,64 @@ export default function Main() {
 		},
 		calories: { consumed: 1450, burned: 420, target: 2000, remaining: 970 },
 		macros: [
-			{ name: 'Protein', current: 85, target: 120, unit: 'g', icon: Beef, color: 'text-red-500' },
-			{ name: 'Carbs', current: 145, target: 200, unit: 'g', icon: Apple, color: 'text-amber-500' },
-			{ name: 'Fats', current: 48, target: 65, unit: 'g', icon: Zap, color: 'text-purple-500' },
+			{
+				name: 'Protein',
+				current: 85,
+				target: 120,
+				unit: 'g',
+				icon: Beef,
+				color: 'text-red-500',
+			},
+			{
+				name: 'Carbs',
+				current: 145,
+				target: 200,
+				unit: 'g',
+				icon: Apple,
+				color: 'text-amber-500',
+			},
+			{
+				name: 'Fats',
+				current: 48,
+				target: 65,
+				unit: 'g',
+				icon: Zap,
+				color: 'text-purple-500',
+			},
 		],
 		activities: [
-			{ icon: Footprints, label: 'Steps', value: '8,432', unit: '', target: '10,000', color: 'text-blue-500' },
-			{ icon: Timer, label: 'Active Time', value: '45', unit: ' min', target: '60 min', color: 'text-green-500' },
+			{
+				icon: Footprints,
+				label: 'Steps',
+				value: '8,432',
+				unit: '',
+				target: '10,000',
+				color: 'text-blue-500',
+			},
+			{
+				icon: Timer,
+				label: 'Active Time',
+				value: '45',
+				unit: ' min',
+				target: '60 min',
+				color: 'text-green-500',
+			},
 		],
 		workouts: [
-			{ name: 'Morning Run', duration: '32 min', calories: 320, time: '7:00 AM', type: 'Cardio' },
-			{ name: 'Upper Body', duration: '45 min', calories: 280, time: 'Yesterday', type: 'Strength' },
+			{
+				name: 'Morning Run',
+				duration: '32 min',
+				calories: 320,
+				time: '7:00 AM',
+				type: 'Cardio',
+			},
+			{
+				name: 'Upper Body',
+				duration: '45 min',
+				calories: 280,
+				time: 'Yesterday',
+				type: 'Strength',
+			},
 		],
 		weeklyProgress: [
 			{ day: 'M', value: 8500, target: 10000 },
@@ -325,8 +404,22 @@ export default function Main() {
 		],
 		sleep: { hours: 7.5, quality: 85, bedtime: '11:00', wakeup: '6:30' },
 		goals: [
-			{ title: 'Current Weight', current: '156', target: '145', unit: 'lbs', change: '-2.5 lbs', positive: true },
-			{ title: 'Body Fat', current: '24', target: '20', unit: '%', change: '-1.2%', positive: true },
+			{
+				title: 'Current Weight',
+				current: '156',
+				target: '145',
+				unit: 'lbs',
+				change: '-2.5 lbs',
+				positive: true,
+			},
+			{
+				title: 'Body Fat',
+				current: '24',
+				target: '20',
+				unit: '%',
+				change: '-1.2%',
+				positive: true,
+			},
 		],
 	};
 

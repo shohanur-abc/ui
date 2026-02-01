@@ -75,7 +75,11 @@ const TotalRow = ({
 	label,
 	value,
 	points,
-}: { label: string; value: string; points: number }) => (
+}: {
+	label: string;
+	value: string;
+	points: number;
+}) => (
 	<div className="space-y-1">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>

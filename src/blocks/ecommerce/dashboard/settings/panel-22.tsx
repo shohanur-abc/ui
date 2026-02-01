@@ -19,7 +19,12 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from '@/components/ui/input-otp';
+import {
+	InputOTP,
+	InputOTPGroup,
+	InputOTPSlot,
+	InputOTPSeparator,
+} from '@/components/ui/input-otp';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 
@@ -74,7 +79,9 @@ const AuthMethodCard = ({
 	>
 		<div
 			className={`flex size-10 items-center justify-center rounded-lg ${
-				active ? 'bg-emerald-500/10 text-emerald-500' : 'bg-muted text-muted-foreground'
+				active
+					? 'bg-emerald-500/10 text-emerald-500'
+					: 'bg-muted text-muted-foreground'
 			}`}
 		>
 			<Icon className="size-5" />
@@ -84,7 +91,9 @@ const AuthMethodCard = ({
 				<span className="font-medium">{name}</span>
 				{primary && <Badge variant="default">Primary</Badge>}
 				{active && !primary && (
-					<Badge className="bg-emerald-500/10 text-emerald-500 border-0">Active</Badge>
+					<Badge className="bg-emerald-500/10 text-emerald-500 border-0">
+						Active
+					</Badge>
 				)}
 			</div>
 			<p className="text-sm text-muted-foreground">{description}</p>
@@ -162,7 +171,9 @@ export default function Main() {
 
 					<Card>
 						<CardHeader className="border-b">
-							<CardTitle className="text-base">Setup Authenticator App</CardTitle>
+							<CardTitle className="text-base">
+								Setup Authenticator App
+							</CardTitle>
 							<CardDescription>
 								Scan the QR code with your authenticator app
 							</CardDescription>

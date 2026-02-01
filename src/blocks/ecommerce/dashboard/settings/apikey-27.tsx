@@ -189,10 +189,30 @@ export default function Main() {
 	];
 
 	const permissions: Permission[] = [
-		{ id: 'read', name: 'Read Access', description: 'View products, orders, and customers', checked: true },
-		{ id: 'write', name: 'Write Access', description: 'Create and update resources', checked: true },
-		{ id: 'delete', name: 'Delete Access', description: 'Remove resources permanently', checked: false },
-		{ id: 'admin', name: 'Admin Access', description: 'Full administrative permissions', checked: false },
+		{
+			id: 'read',
+			name: 'Read Access',
+			description: 'View products, orders, and customers',
+			checked: true,
+		},
+		{
+			id: 'write',
+			name: 'Write Access',
+			description: 'Create and update resources',
+			checked: true,
+		},
+		{
+			id: 'delete',
+			name: 'Delete Access',
+			description: 'Remove resources permanently',
+			checked: false,
+		},
+		{
+			id: 'admin',
+			name: 'Admin Access',
+			description: 'Full administrative permissions',
+			checked: false,
+		},
 	];
 
 	return (

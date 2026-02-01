@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -27,7 +33,12 @@ interface Product {
 const BentoItem = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-3 rounded-lg bg-muted/30 p-3">
 		<div className="relative size-12 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="truncate text-sm font-medium">{product.name}</p>
@@ -35,7 +46,9 @@ const BentoItem = ({ product }: { product: Product }) => (
 		</div>
 		<div className="text-right">
 			<p className="text-sm font-bold">${product.price.toFixed(2)}</p>
-			<Badge variant="secondary" className="text-xs">×{product.qty}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				×{product.qty}
+			</Badge>
 		</div>
 	</div>
 );
@@ -58,7 +71,9 @@ const BentoTile = ({
 	};
 
 	return (
-		<div className={`overflow-hidden rounded-2xl border bg-card ${span ? spanClasses[span] : ''}`}>
+		<div
+			className={`overflow-hidden rounded-2xl border bg-card ${span ? spanClasses[span] : ''}`}
+		>
 			<div className="flex items-center gap-2 border-b px-4 py-3">
 				<Icon className="size-4 text-primary" />
 				<h3 className="text-sm font-semibold">{title}</h3>
@@ -100,16 +115,12 @@ const DeliveryContent = ({
 	</div>
 );
 
-const PaymentContent = ({
-	brand,
-	last4,
-}: {
-	brand: string;
-	last4: string;
-}) => (
+const PaymentContent = ({ brand, last4 }: { brand: string; last4: string }) => (
 	<div className="flex items-center gap-2">
 		<CreditCard className="size-4 text-muted-foreground" />
-		<span className="font-medium">{brand} •••• {last4}</span>
+		<span className="font-medium">
+			{brand} •••• {last4}
+		</span>
 	</div>
 );
 
@@ -122,7 +133,9 @@ const GiftContent = ({
 }) => (
 	<div className="flex items-center justify-between">
 		<span className="font-mono text-sm">{code}</span>
-		<span className="font-semibold text-green-600 dark:text-green-400">{discount}</span>
+		<span className="font-semibold text-green-600 dark:text-green-400">
+			{discount}
+		</span>
 	</div>
 );
 
@@ -137,9 +150,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -151,7 +168,8 @@ export default function Main() {
 			variant: 'Crystal / Set of 4',
 			price: 79.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -159,7 +177,8 @@ export default function Main() {
 			variant: 'Hand-blown / 1.5L',
 			price: 59.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1569945195021-9f8d4d3e3b0e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1569945195021-9f8d4d3e3b0e?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -167,7 +186,8 @@ export default function Main() {
 			variant: 'Electric / Rechargeable',
 			price: 34.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -197,15 +217,25 @@ export default function Main() {
 					</BentoTile>
 
 					<BentoTile title="Shipping" icon={MapPin}>
-						<AddressContent name="Victoria C." address="321 Wine Way, Napa, CA 94558" />
+						<AddressContent
+							name="Victoria C."
+							address="321 Wine Way, Napa, CA 94558"
+						/>
 					</BentoTile>
 
 					<BentoTile title="Billing" icon={MapPin}>
-						<AddressContent name="Victoria C." address="321 Wine Way, Napa, CA 94558" />
+						<AddressContent
+							name="Victoria C."
+							address="321 Wine Way, Napa, CA 94558"
+						/>
 					</BentoTile>
 
 					<BentoTile title="Delivery" icon={Truck}>
-						<DeliveryContent method="Premium" date="Dec 22-23, 2025" price="$9.99" />
+						<DeliveryContent
+							method="Premium"
+							date="Dec 22-23, 2025"
+							price="$9.99"
+						/>
 					</BentoTile>
 
 					<BentoTile title="Payment" icon={CreditCard}>

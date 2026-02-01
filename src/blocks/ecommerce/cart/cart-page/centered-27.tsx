@@ -1,8 +1,21 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, X, ArrowRight, ShoppingCart, CreditCard } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	ShoppingCart,
+	CreditCard,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -15,7 +28,13 @@ interface CartItem {
 	quantity: number;
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center">
 		<div className="inline-flex items-center justify-center size-16 rounded-full bg-primary/10 mb-4">
 			<ShoppingCart className="size-8 text-primary" />
@@ -52,7 +71,9 @@ const ItemCard = ({ item }: { item: CartItem }) => (
 						<Plus className="size-3" />
 					</Button>
 				</div>
-				<p className="font-bold text-primary">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-bold text-primary">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</CardContent>
 	</Card>
@@ -67,7 +88,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span className={bold ? '' : ''}>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -136,7 +159,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
 			name: 'Premium Headphones',
 			variant: 'Midnight Black',
 			price: 299.99,
@@ -144,7 +168,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
 			name: 'Minimalist Watch',
 			variant: 'Silver • Leather',
 			price: 199.99,
@@ -152,7 +177,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=300&h=300&fit=crop',
 			name: 'Designer Scarf',
 			variant: 'Blue Pattern',
 			price: 89.99,

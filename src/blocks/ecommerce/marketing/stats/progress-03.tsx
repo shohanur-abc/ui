@@ -1,7 +1,13 @@
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { Globe, Smartphone, Laptop, Store, type LucideIcon } from 'lucide-react';
+import {
+	Globe,
+	Smartphone,
+	Laptop,
+	Store,
+	type LucideIcon,
+} from 'lucide-react';
 
 interface ChannelStatProps {
 	icon: LucideIcon;
@@ -11,7 +17,13 @@ interface ChannelStatProps {
 	color: string;
 }
 
-const ChannelStat = ({ icon: Icon, channel, sales, percentage, color }: ChannelStatProps) => (
+const ChannelStat = ({
+	icon: Icon,
+	channel,
+	sales,
+	percentage,
+	color,
+}: ChannelStatProps) => (
 	<div className="group space-y-3">
 		<div className="flex items-center justify-between">
 			<div className="flex items-center gap-2">
@@ -26,16 +38,42 @@ const ChannelStat = ({ icon: Icon, channel, sales, percentage, color }: ChannelS
 				style={{ width: `${percentage}%`, backgroundColor: `var(--${color})` }}
 			/>
 		</div>
-		<p className="text-right text-xs text-muted-foreground">{percentage}% of total</p>
+		<p className="text-right text-xs text-muted-foreground">
+			{percentage}% of total
+		</p>
 	</div>
 );
 
 export default function Main() {
 	const stats: ChannelStatProps[] = [
-		{ icon: Globe, channel: 'Website', sales: '$1.2M', percentage: 48, color: 'chart-1' },
-		{ icon: Smartphone, channel: 'Mobile App', sales: '$847K', percentage: 34, color: 'chart-2' },
-		{ icon: Store, channel: 'Retail', sales: '$324K', percentage: 13, color: 'chart-3' },
-		{ icon: Laptop, channel: 'Marketplace', sales: '$128K', percentage: 5, color: 'chart-4' },
+		{
+			icon: Globe,
+			channel: 'Website',
+			sales: '$1.2M',
+			percentage: 48,
+			color: 'chart-1',
+		},
+		{
+			icon: Smartphone,
+			channel: 'Mobile App',
+			sales: '$847K',
+			percentage: 34,
+			color: 'chart-2',
+		},
+		{
+			icon: Store,
+			channel: 'Retail',
+			sales: '$324K',
+			percentage: 13,
+			color: 'chart-3',
+		},
+		{
+			icon: Laptop,
+			channel: 'Marketplace',
+			sales: '$128K',
+			percentage: 5,
+			color: 'chart-4',
+		},
 	];
 
 	return (

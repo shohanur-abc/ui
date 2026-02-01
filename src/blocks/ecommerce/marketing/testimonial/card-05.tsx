@@ -63,7 +63,9 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 				<LocationBadge text={item.location} />
 			</div>
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed flex-1 mt-4 mb-6">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed flex-1 mt-4 mb-6">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -82,7 +84,13 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 	</Card>
 );
 
-const CTASection = ({ text, buttonText }: { text: string; buttonText: string }) => (
+const CTASection = ({
+	text,
+	buttonText,
+}: {
+	text: string;
+	buttonText: string;
+}) => (
 	<div className="text-center mt-12 @lg:mt-16">
 		<p className="text-muted-foreground mb-4">{text}</p>
 		<Button size="lg" className="gap-2 group">
@@ -100,7 +108,8 @@ export default function Main() {
 			author: 'Carlos Mendoza',
 			role: 'Operations Manager',
 			company: 'LATAM Tech',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'CM',
 			rating: 5,
 			location: 'São Paulo, Brazil',
@@ -111,7 +120,8 @@ export default function Main() {
 			author: 'Diana Schmidt',
 			role: 'Regional Director',
 			company: 'Euro Solutions',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'DS',
 			rating: 5,
 			location: 'Berlin, Germany',
@@ -122,7 +132,8 @@ export default function Main() {
 			author: 'Eric Wong',
 			role: 'Tech Director',
 			company: 'Asia Pacific Corp',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'EW',
 			rating: 5,
 			location: 'Singapore',
@@ -133,7 +144,8 @@ export default function Main() {
 			author: 'Fatima Al-Hassan',
 			role: 'Legal Director',
 			company: 'Gulf Enterprises',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'FA',
 			rating: 5,
 			location: 'Dubai, UAE',
@@ -141,7 +153,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Global Reach"

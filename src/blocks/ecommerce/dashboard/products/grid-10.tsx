@@ -17,10 +17,7 @@ import {
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-	Card,
-	CardContent,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -106,13 +103,17 @@ const SEOIndicator = ({ label, score, icon: Icon }: SEOIndicatorProps) => {
 		<Tooltip>
 			<TooltipTrigger asChild>
 				<div className="flex flex-col items-center gap-1">
-					<div className={`flex size-8 items-center justify-center rounded-lg bg-muted ${getColor()}`}>
+					<div
+						className={`flex size-8 items-center justify-center rounded-lg bg-muted ${getColor()}`}
+					>
 						<Icon className="size-4" />
 					</div>
 					<span className={`text-xs font-medium ${getColor()}`}>{score}</span>
 				</div>
 			</TooltipTrigger>
-			<TooltipContent>{label}: {score}%</TooltipContent>
+			<TooltipContent>
+				{label}: {score}%
+			</TooltipContent>
 		</Tooltip>
 	);
 };
@@ -155,7 +156,10 @@ const IssuesList = ({ issues, maxShow = 2 }: IssuesListProps) => {
 	return (
 		<div className="space-y-1">
 			{issues.slice(0, maxShow).map((issue, idx) => (
-				<div key={idx} className="flex items-start gap-2 text-xs text-amber-500">
+				<div
+					key={idx}
+					className="flex items-start gap-2 text-xs text-amber-500"
+				>
 					<AlertCircle className="mt-0.5 size-3 shrink-0" />
 					<span>{issue}</span>
 				</div>
@@ -175,14 +179,20 @@ interface ContentProgressProps {
 	label: string;
 }
 
-const ContentProgress = ({ imagesCount, maxImages, label }: ContentProgressProps) => {
+const ContentProgress = ({
+	imagesCount,
+	maxImages,
+	label,
+}: ContentProgressProps) => {
 	const percentage = (imagesCount / maxImages) * 100;
 
 	return (
 		<div className="space-y-1">
 			<div className="flex items-center justify-between text-xs">
 				<span className="text-muted-foreground">{label}</span>
-				<span className="font-medium">{imagesCount}/{maxImages}</span>
+				<span className="font-medium">
+					{imagesCount}/{maxImages}
+				</span>
 			</div>
 			<Progress value={percentage} className="h-1.5" />
 		</div>
@@ -191,7 +201,11 @@ const ContentProgress = ({ imagesCount, maxImages, label }: ContentProgressProps
 
 interface ProductCardProps {
 	product: ContentProduct;
-	actions: { label: string; icon?: React.ElementType; onClick: (id: string) => void }[];
+	actions: {
+		label: string;
+		icon?: React.ElementType;
+		onClick: (id: string) => void;
+	}[];
 	labels: {
 		title: string;
 		description: string;
@@ -206,7 +220,9 @@ const ProductCard = ({ product, actions, labels }: ProductCardProps) => {
 	const isComplete = product.overallScore >= 80 && product.issues.length === 0;
 
 	return (
-		<Card className={`overflow-hidden transition-all ${isComplete ? 'ring-1 ring-emerald-500/20' : ''}`}>
+		<Card
+			className={`overflow-hidden transition-all ${isComplete ? 'ring-1 ring-emerald-500/20' : ''}`}
+		>
 			<CardContent className="p-0">
 				<div className="flex gap-4 p-4">
 					<div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-muted">
@@ -258,10 +274,26 @@ const ProductCard = ({ product, actions, labels }: ProductCardProps) => {
 				<div className="flex items-center justify-between border-y bg-muted/30 px-4 py-3">
 					<ScoreCircle score={product.overallScore} size="sm" />
 					<div className="flex items-center gap-3">
-						<SEOIndicator label={labels.title} score={product.seoScore.title} icon={Type} />
-						<SEOIndicator label={labels.description} score={product.seoScore.description} icon={FileText} />
-						<SEOIndicator label={labels.images} score={product.seoScore.images} icon={ImageIcon} />
-						<SEOIndicator label={labels.keywords} score={product.seoScore.keywords} icon={Search} />
+						<SEOIndicator
+							label={labels.title}
+							score={product.seoScore.title}
+							icon={Type}
+						/>
+						<SEOIndicator
+							label={labels.description}
+							score={product.seoScore.description}
+							icon={FileText}
+						/>
+						<SEOIndicator
+							label={labels.images}
+							score={product.seoScore.images}
+							icon={ImageIcon}
+						/>
+						<SEOIndicator
+							label={labels.keywords}
+							score={product.seoScore.keywords}
+							icon={Search}
+						/>
 					</div>
 				</div>
 
@@ -293,9 +325,11 @@ export default function Main() {
 			id: '1',
 			name: 'Organic Face Cream',
 			sku: 'BTY-OFC-001',
-			image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=200&fit=crop',
 			title: 'Organic Face Cream - Natural Skincare for All Skin Types',
-			description: 'Nourishing organic face cream made with natural ingredients...',
+			description:
+				'Nourishing organic face cream made with natural ingredients...',
 			imagesCount: 6,
 			maxImages: 8,
 			seoScore: { title: 95, description: 88, images: 75, keywords: 80 },
@@ -311,7 +345,8 @@ export default function Main() {
 			id: '2',
 			name: 'Vitamin C Serum',
 			sku: 'BTY-VCS-002',
-			image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=200&h=200&fit=crop',
 			title: 'Vitamin C Serum',
 			description: 'Brightening serum',
 			imagesCount: 3,
@@ -332,9 +367,11 @@ export default function Main() {
 			id: '3',
 			name: 'Hydrating Lip Balm',
 			sku: 'BTY-HLB-003',
-			image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=200&h=200&fit=crop',
 			title: 'Hydrating Lip Balm with Natural Beeswax',
-			description: 'Keep your lips soft and hydrated with our natural beeswax lip balm...',
+			description:
+				'Keep your lips soft and hydrated with our natural beeswax lip balm...',
 			imagesCount: 5,
 			maxImages: 6,
 			seoScore: { title: 82, description: 78, images: 83, keywords: 70 },
@@ -350,9 +387,12 @@ export default function Main() {
 			id: '4',
 			name: 'Anti-Aging Night Cream',
 			sku: 'BTY-ANC-004',
-			image: 'https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=200&h=200&fit=crop',
-			title: 'Anti-Aging Night Cream - Retinol & Peptide Complex for Youthful Skin',
-			description: 'Advanced anti-aging night cream formulated with retinol and peptides...',
+			image:
+				'https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=200&h=200&fit=crop',
+			title:
+				'Anti-Aging Night Cream - Retinol & Peptide Complex for Youthful Skin',
+			description:
+				'Advanced anti-aging night cream formulated with retinol and peptides...',
 			imagesCount: 8,
 			maxImages: 8,
 			seoScore: { title: 98, description: 92, images: 100, keywords: 88 },
@@ -369,7 +409,8 @@ export default function Main() {
 			id: '5',
 			name: 'Charcoal Face Mask',
 			sku: 'BTY-CFM-005',
-			image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=200&h=200&fit=crop',
 			title: 'Charcoal',
 			description: 'Deep cleansing mask',
 			imagesCount: 2,
@@ -388,9 +429,11 @@ export default function Main() {
 			id: '6',
 			name: 'Rose Water Toner',
 			sku: 'BTY-RWT-006',
-			image: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=200&h=200&fit=crop',
 			title: 'Rose Water Toner - Hydrating & Refreshing Facial Mist',
-			description: 'Natural rose water toner that hydrates, refreshes and balances skin pH...',
+			description:
+				'Natural rose water toner that hydrates, refreshes and balances skin pH...',
 			imagesCount: 7,
 			maxImages: 8,
 			seoScore: { title: 90, description: 85, images: 88, keywords: 82 },
@@ -404,9 +447,21 @@ export default function Main() {
 	];
 
 	const actions = [
-		{ label: 'Edit Content', icon: Pencil, onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Preview', icon: Eye, onClick: (id: string) => console.log('Preview', id) },
-		{ label: 'SEO Analysis', icon: Search, onClick: (id: string) => console.log('SEO', id) },
+		{
+			label: 'Edit Content',
+			icon: Pencil,
+			onClick: (id: string) => console.log('Edit', id),
+		},
+		{
+			label: 'Preview',
+			icon: Eye,
+			onClick: (id: string) => console.log('Preview', id),
+		},
+		{
+			label: 'SEO Analysis',
+			icon: Search,
+			onClick: (id: string) => console.log('SEO', id),
+		},
 	];
 
 	const labels = {

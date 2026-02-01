@@ -46,7 +46,9 @@ const LearnerProfileCard = ({
 			<div className="flex flex-col @sm:flex-row @sm:items-center gap-4">
 				<Avatar className="size-20 ring-4 ring-blue-500/30">
 					<AvatarImage src={src} alt={name} />
-					<AvatarFallback className="bg-blue-500 text-white text-2xl">{fallback}</AvatarFallback>
+					<AvatarFallback className="bg-blue-500 text-white text-2xl">
+						{fallback}
+					</AvatarFallback>
 				</Avatar>
 				<div className="flex-1">
 					<h2 className="text-xl font-bold">{name}</h2>
@@ -58,7 +60,9 @@ const LearnerProfileCard = ({
 						</div>
 						<div className="flex items-center gap-1">
 							<Zap className="size-4 text-amber-500" />
-							<span className="text-sm font-medium">{xp.toLocaleString()} XP</span>
+							<span className="text-sm font-medium">
+								{xp.toLocaleString()} XP
+							</span>
 						</div>
 					</div>
 				</div>
@@ -88,13 +92,19 @@ const CurrentCourseCard = ({
 			<div className="relative aspect-video rounded-lg overflow-hidden mb-4">
 				<Image src={image} alt={title} fill className="object-cover" />
 				<div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-					<Button size="icon" variant="secondary" className="rounded-full size-12">
+					<Button
+						size="icon"
+						variant="secondary"
+						className="rounded-full size-12"
+					>
 						<Play className="size-5 ml-0.5" />
 					</Button>
 				</div>
 			</div>
 			<div className="flex-1">
-				<Badge variant="secondary" className="mb-2">In Progress</Badge>
+				<Badge variant="secondary" className="mb-2">
+					In Progress
+				</Badge>
 				<h3 className="font-semibold">{title}</h3>
 				<p className="text-sm text-muted-foreground">{instructor}</p>
 				<div className="mt-3 space-y-1">
@@ -116,7 +126,12 @@ const CurrentCourseCard = ({
 const StatsCard = ({
 	items,
 }: {
-	items: { icon: React.ElementType; value: string; label: string; color: string }[];
+	items: {
+		icon: React.ElementType;
+		value: string;
+		label: string;
+		color: string;
+	}[];
 }) => (
 	<Card>
 		<CardContent className="p-4">
@@ -149,9 +164,14 @@ const SkillsCard = ({
 					<div key={i} className="space-y-1">
 						<div className="flex items-center justify-between text-sm">
 							<span>{skill.name}</span>
-							<span className="text-muted-foreground">Lvl {skill.level}/{skill.maxLevel}</span>
+							<span className="text-muted-foreground">
+								Lvl {skill.level}/{skill.maxLevel}
+							</span>
 						</div>
-						<Progress value={(skill.level / skill.maxLevel) * 100} className={`h-2 ${skill.color}`} />
+						<Progress
+							value={(skill.level / skill.maxLevel) * 100}
+							className={`h-2 ${skill.color}`}
+						/>
 					</div>
 				))}
 			</div>
@@ -175,7 +195,10 @@ const CertificatesCard = ({
 			</div>
 			<div className="grid @sm:grid-cols-3 gap-3">
 				{certificates.map((cert, i) => (
-					<div key={i} className="p-3 rounded-lg border bg-card hover:bg-muted/50 transition-colors">
+					<div
+						key={i}
+						className="p-3 rounded-lg border bg-card hover:bg-muted/50 transition-colors"
+					>
 						<div className="flex items-center gap-2 mb-2">
 							<FileText className="size-4 text-amber-500" />
 							<Download className="size-4 text-muted-foreground ml-auto cursor-pointer hover:text-foreground" />
@@ -211,14 +234,18 @@ const GoalsCard = ({
 				<div className="p-3 rounded-lg bg-muted/30">
 					<div className="flex items-center justify-between mb-1">
 						<span className="text-sm">Daily: {daily}</span>
-						<span className="text-xs text-muted-foreground">{dailyProgress}%</span>
+						<span className="text-xs text-muted-foreground">
+							{dailyProgress}%
+						</span>
 					</div>
 					<Progress value={dailyProgress} className="h-2" />
 				</div>
 				<div className="p-3 rounded-lg bg-muted/30">
 					<div className="flex items-center justify-between mb-1">
 						<span className="text-sm">Weekly: {weekly}</span>
-						<span className="text-xs text-muted-foreground">{weeklyProgress}%</span>
+						<span className="text-xs text-muted-foreground">
+							{weeklyProgress}%
+						</span>
 					</div>
 					<Progress value={weeklyProgress} className="h-2" />
 				</div>
@@ -238,7 +265,8 @@ export default function Main() {
 			xp: 15800,
 		},
 		currentCourse: {
-			image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600',
+			image:
+				'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600',
 			title: 'Advanced React Patterns',
 			instructor: 'Sarah Johnson',
 			progress: 68,
@@ -246,14 +274,39 @@ export default function Main() {
 		},
 		stats: [
 			{ icon: Book, value: '12', label: 'Courses', color: 'text-blue-500' },
-			{ icon: Clock, value: '147h', label: 'Learn Time', color: 'text-green-500' },
-			{ icon: Trophy, value: '8', label: 'Certificates', color: 'text-amber-500' },
-			{ icon: Star, value: '4.9', label: 'Avg Rating', color: 'text-purple-500' },
+			{
+				icon: Clock,
+				value: '147h',
+				label: 'Learn Time',
+				color: 'text-green-500',
+			},
+			{
+				icon: Trophy,
+				value: '8',
+				label: 'Certificates',
+				color: 'text-amber-500',
+			},
+			{
+				icon: Star,
+				value: '4.9',
+				label: 'Avg Rating',
+				color: 'text-purple-500',
+			},
 		],
 		skills: [
-			{ name: 'JavaScript', level: 8, maxLevel: 10, color: '[&>div]:bg-amber-500' },
+			{
+				name: 'JavaScript',
+				level: 8,
+				maxLevel: 10,
+				color: '[&>div]:bg-amber-500',
+			},
 			{ name: 'React', level: 7, maxLevel: 10, color: '[&>div]:bg-blue-500' },
-			{ name: 'Node.js', level: 5, maxLevel: 10, color: '[&>div]:bg-green-500' },
+			{
+				name: 'Node.js',
+				level: 5,
+				maxLevel: 10,
+				color: '[&>div]:bg-green-500',
+			},
 		],
 		certificates: [
 			{ title: 'React Developer', issuer: 'Meta', date: 'Jan 2024' },

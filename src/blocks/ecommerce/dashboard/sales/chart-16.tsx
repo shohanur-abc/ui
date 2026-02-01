@@ -68,7 +68,11 @@ const WaterfallChartCard = ({
 						data={processedData}
 						margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
 					>
-						<CartesianGrid strokeDasharray="3 3" className="stroke-border/50" vertical={false} />
+						<CartesianGrid
+							strokeDasharray="3 3"
+							className="stroke-border/50"
+							vertical={false}
+						/>
 						<XAxis
 							dataKey="name"
 							tickLine={false}

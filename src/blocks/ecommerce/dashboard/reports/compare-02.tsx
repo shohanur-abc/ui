@@ -22,7 +22,15 @@ type ProductCompareProps = {
 	conversion: number;
 };
 
-const ProductCompareCard = ({ name, category, price, revenue, units, rating, conversion }: ProductCompareProps) => (
+const ProductCompareCard = ({
+	name,
+	category,
+	price,
+	revenue,
+	units,
+	rating,
+	conversion,
+}: ProductCompareProps) => (
 	<Card className="flex-1 border-border/30 bg-muted/20">
 		<CardContent className="p-5">
 			<div className="mb-4 border-b border-border/30 pb-4">

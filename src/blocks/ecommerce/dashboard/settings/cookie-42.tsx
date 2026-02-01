@@ -88,8 +88,7 @@ export default function Main() {
 		{
 			id: 'essential',
 			name: 'Essential Cookies',
-			description:
-				'Required for the website to function. Cannot be disabled.',
+			description: 'Required for the website to function. Cannot be disabled.',
 			required: true,
 			enabled: true,
 			cookieCount: 4,
@@ -97,8 +96,7 @@ export default function Main() {
 		{
 			id: 'functional',
 			name: 'Functional Cookies',
-			description:
-				'Enable personalization and remember your preferences.',
+			description: 'Enable personalization and remember your preferences.',
 			required: false,
 			enabled: true,
 			cookieCount: 6,
@@ -106,8 +104,7 @@ export default function Main() {
 		{
 			id: 'analytics',
 			name: 'Analytics Cookies',
-			description:
-				'Help us understand how visitors use our website.',
+			description: 'Help us understand how visitors use our website.',
 			required: false,
 			enabled: true,
 			cookieCount: 3,
@@ -115,8 +112,7 @@ export default function Main() {
 		{
 			id: 'marketing',
 			name: 'Marketing Cookies',
-			description:
-				'Used to deliver personalized advertisements.',
+			description: 'Used to deliver personalized advertisements.',
 			required: false,
 			enabled: false,
 			cookieCount: 8,
@@ -124,10 +120,30 @@ export default function Main() {
 	];
 
 	const cookieDetails: CookieDetail[] = [
-		{ name: '_session', provider: 'First-party', purpose: 'Session management', expiry: 'Session' },
-		{ name: '_auth', provider: 'First-party', purpose: 'Authentication', expiry: '30 days' },
-		{ name: '_ga', provider: 'Google', purpose: 'Analytics', expiry: '2 years' },
-		{ name: '_fbp', provider: 'Facebook', purpose: 'Marketing', expiry: '3 months' },
+		{
+			name: '_session',
+			provider: 'First-party',
+			purpose: 'Session management',
+			expiry: 'Session',
+		},
+		{
+			name: '_auth',
+			provider: 'First-party',
+			purpose: 'Authentication',
+			expiry: '30 days',
+		},
+		{
+			name: '_ga',
+			provider: 'Google',
+			purpose: 'Analytics',
+			expiry: '2 years',
+		},
+		{
+			name: '_fbp',
+			provider: 'Facebook',
+			purpose: 'Marketing',
+			expiry: '3 months',
+		},
 	];
 
 	return (
@@ -218,7 +234,11 @@ export default function Main() {
 										htmlFor={option.value}
 										className="flex items-start gap-4 rounded-lg border p-4 cursor-pointer hover:bg-muted/30 has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
 									>
-										<RadioGroupItem value={option.value} id={option.value} className="mt-1" />
+										<RadioGroupItem
+											value={option.value}
+											id={option.value}
+											className="mt-1"
+										/>
 										<div>
 											<span className="font-medium">{option.label}</span>
 											<p className="text-sm text-muted-foreground">

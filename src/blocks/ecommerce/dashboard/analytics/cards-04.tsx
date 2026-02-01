@@ -21,20 +21,37 @@ type LargeMetricCardProps = {
 	details: { label: string; value: string }[];
 };
 
-const LargeMetricCard = ({ icon: Icon, title, value, change, trend, details }: LargeMetricCardProps) => (
+const LargeMetricCard = ({
+	icon: Icon,
+	title,
+	value,
+	change,
+	trend,
+	details,
+}: LargeMetricCardProps) => (
 	<Card className="group relative overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<div className="absolute -right-8 -top-8 size-32 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-2xl transition-all duration-500 group-hover:from-primary/20" />
 		<CardHeader className="flex flex-row items-center justify-between pb-2">
-			<CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+			<CardTitle className="text-sm font-medium text-muted-foreground">
+				{title}
+			</CardTitle>
 			<div className="rounded-full bg-primary/10 p-2 ring-1 ring-primary/20">
 				<Icon className="size-4 text-primary" />
 			</div>
 		</CardHeader>
 		<CardContent className="space-y-4">
 			<div>
-				<p className="text-3xl @sm:text-4xl font-bold tracking-tight">{value}</p>
-				<div className={`mt-1 inline-flex items-center gap-1 text-sm font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}>
-					{trend === 'up' ? <ArrowUpRight className="size-4" /> : <ArrowDownRight className="size-4" />}
+				<p className="text-3xl @sm:text-4xl font-bold tracking-tight">
+					{value}
+				</p>
+				<div
+					className={`mt-1 inline-flex items-center gap-1 text-sm font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}
+				>
+					{trend === 'up' ? (
+						<ArrowUpRight className="size-4" />
+					) : (
+						<ArrowDownRight className="size-4" />
+					)}
 					<span>{Math.abs(change)}% from last period</span>
 				</div>
 			</div>

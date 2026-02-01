@@ -5,7 +5,13 @@ import { Badge } from '@/components/ui/badge';
 
 type DataPoint = { label: string; value: number };
 
-const GradientLineChart = ({ data, color }: { data: DataPoint[]; color: string }) => {
+const GradientLineChart = ({
+	data,
+	color,
+}: {
+	data: DataPoint[];
+	color: string;
+}) => {
 	const max = Math.max(...data.map((d) => d.value));
 	const min = Math.min(...data.map((d) => d.value));
 	const range = max - min || 1;
@@ -28,7 +34,11 @@ const GradientLineChart = ({ data, color }: { data: DataPoint[]; color: string }
 
 	return (
 		<div className="relative h-48 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				<defs>
 					<linearGradient id={id} x1="0%" y1="0%" x2="0%" y2="100%">
 						<stop offset="0%" stopColor={color} stopOpacity="0.4" />
@@ -51,7 +61,14 @@ type ChartCardData = {
 	color: string;
 };
 
-const ChartCard = ({ title, value, change, trend, data, color }: ChartCardData) => (
+const ChartCard = ({
+	title,
+	value,
+	change,
+	trend,
+	data,
+	color,
+}: ChartCardData) => (
 	<Card className="border-border/50 bg-card/80 backdrop-blur-sm overflow-hidden">
 		<CardHeader className="pb-0">
 			<div className="flex items-center justify-between">
@@ -77,7 +94,15 @@ const chartCards: ChartCardData[] = [
 		value: '$124,532',
 		change: '+12.5%',
 		trend: 'up',
-		data: [{ label: '1', value: 45 }, { label: '2', value: 52 }, { label: '3', value: 48 }, { label: '4', value: 65 }, { label: '5', value: 58 }, { label: '6', value: 72 }, { label: '7', value: 85 }],
+		data: [
+			{ label: '1', value: 45 },
+			{ label: '2', value: 52 },
+			{ label: '3', value: 48 },
+			{ label: '4', value: 65 },
+			{ label: '5', value: 58 },
+			{ label: '6', value: 72 },
+			{ label: '7', value: 85 },
+		],
 		color: '#3b82f6',
 	},
 	{
@@ -85,7 +110,15 @@ const chartCards: ChartCardData[] = [
 		value: '3,847',
 		change: '+8.3%',
 		trend: 'up',
-		data: [{ label: '1', value: 32 }, { label: '2', value: 38 }, { label: '3', value: 35 }, { label: '4', value: 42 }, { label: '5', value: 48 }, { label: '6', value: 52 }, { label: '7', value: 58 }],
+		data: [
+			{ label: '1', value: 32 },
+			{ label: '2', value: 38 },
+			{ label: '3', value: 35 },
+			{ label: '4', value: 42 },
+			{ label: '5', value: 48 },
+			{ label: '6', value: 52 },
+			{ label: '7', value: 58 },
+		],
 		color: '#22c55e',
 	},
 	{
@@ -93,7 +126,15 @@ const chartCards: ChartCardData[] = [
 		value: '1,284',
 		change: '+15.2%',
 		trend: 'up',
-		data: [{ label: '1', value: 120 }, { label: '2', value: 135 }, { label: '3', value: 148 }, { label: '4', value: 162 }, { label: '5', value: 178 }, { label: '6', value: 195 }, { label: '7', value: 212 }],
+		data: [
+			{ label: '1', value: 120 },
+			{ label: '2', value: 135 },
+			{ label: '3', value: 148 },
+			{ label: '4', value: 162 },
+			{ label: '5', value: 178 },
+			{ label: '6', value: 195 },
+			{ label: '7', value: 212 },
+		],
 		color: '#a855f7',
 	},
 	{
@@ -101,7 +142,15 @@ const chartCards: ChartCardData[] = [
 		value: '$2,340',
 		change: '+5.1%',
 		trend: 'down',
-		data: [{ label: '1', value: 180 }, { label: '2', value: 195 }, { label: '3', value: 185 }, { label: '4', value: 200 }, { label: '5', value: 210 }, { label: '6', value: 205 }, { label: '7', value: 220 }],
+		data: [
+			{ label: '1', value: 180 },
+			{ label: '2', value: 195 },
+			{ label: '3', value: 185 },
+			{ label: '4', value: 200 },
+			{ label: '5', value: 210 },
+			{ label: '6', value: 205 },
+			{ label: '7', value: 220 },
+		],
 		color: '#ef4444',
 	},
 ];

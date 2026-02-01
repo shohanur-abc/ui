@@ -34,7 +34,11 @@ interface PromoCodeProps {
 }
 
 interface SummaryRowProps {
-	items: { label: string; value: string; type?: 'default' | 'discount' | 'total' }[];
+	items: {
+		label: string;
+		value: string;
+		type?: 'default' | 'discount' | 'total';
+	}[];
 }
 
 const BrandHeader = ({
@@ -124,7 +128,9 @@ const SummaryRows = ({ items }: SummaryRowProps) => (
 			<div
 				key={i}
 				className={`flex justify-between ${
-					item.type === 'total' ? 'text-lg font-semibold pt-3 border-t border-border' : 'text-sm'
+					item.type === 'total'
+						? 'text-lg font-semibold pt-3 border-t border-border'
+						: 'text-sm'
 				}`}
 			>
 				<span
@@ -246,16 +252,27 @@ export default function Main() {
 										<Field label="Last Name" placeholder="Doe" />
 									</div>
 									<Field label="Address" placeholder="Street address" />
-									<Field label="Apartment, suite, etc." placeholder="Optional" />
+									<Field
+										label="Apartment, suite, etc."
+										placeholder="Optional"
+									/>
 									<div className="grid grid-cols-6 gap-4">
-										<Field label="City" placeholder="City" className="col-span-3" />
+										<Field
+											label="City"
+											placeholder="City"
+											className="col-span-3"
+										/>
 										<SelectField
 											label="State"
 											placeholder="State"
 											options={states}
 											className="col-span-2"
 										/>
-										<Field label="ZIP" placeholder="12345" className="col-span-1" />
+										<Field
+											label="ZIP"
+											placeholder="12345"
+											className="col-span-1"
+										/>
 									</div>
 									<Field
 										label="Phone"
@@ -267,7 +284,10 @@ export default function Main() {
 
 							<div className="flex items-center gap-2">
 								<Checkbox id="save-info" />
-								<Label htmlFor="save-info" className="text-sm font-normal cursor-pointer">
+								<Label
+									htmlFor="save-info"
+									className="text-sm font-normal cursor-pointer"
+								>
 									Save this information for next time
 								</Label>
 							</div>

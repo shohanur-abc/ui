@@ -3,10 +3,7 @@
 import { Layers } from 'lucide-react';
 import { TreemapChart, Treemap, ResponsiveContainer, Tooltip } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-	ChartConfig,
-	ChartContainer,
-} from '@/components/ui/chart';
+import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 
 type TreemapDataPoint = {
 	name: string;

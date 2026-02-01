@@ -36,9 +36,7 @@ const PageTitle = () => (
 			<Badge variant="outline" className="mb-2">
 				Step 1 of 3
 			</Badge>
-			<h1 className="text-2xl @md:text-3xl font-bold">
-				Shipping Address
-			</h1>
+			<h1 className="text-2xl @md:text-3xl font-bold">Shipping Address</h1>
 		</div>
 		<Button variant="ghost" className="gap-2">
 			<Plus className="size-4" />

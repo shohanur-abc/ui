@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -58,17 +64,13 @@ const DrawerSection = ({
 	</div>
 );
 
-const AddressBlock = ({
-	name,
-	lines,
-}: {
-	name: string;
-	lines: string[];
-}) => (
+const AddressBlock = ({ name, lines }: { name: string; lines: string[] }) => (
 	<div className="rounded-lg bg-muted/50 p-3">
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
-			<p key={i} className="text-sm text-muted-foreground">{line}</p>
+			<p key={i} className="text-sm text-muted-foreground">
+				{line}
+			</p>
 		))}
 	</div>
 );
@@ -84,9 +86,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -98,7 +104,8 @@ export default function Main() {
 			variant: 'Gooseneck / 1L',
 			price: 89.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1594213114663-d94db9b66f3e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1594213114663-d94db9b66f3e?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -106,7 +113,8 @@ export default function Main() {
 			variant: 'Ceramic / 6 Cups',
 			price: 69.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -114,7 +122,8 @@ export default function Main() {
 			variant: 'Premium / 12 Varieties',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -174,7 +183,9 @@ export default function Main() {
 								<div className="flex items-center justify-between rounded-lg bg-muted/50 p-3">
 									<div>
 										<p className="font-medium">Standard</p>
-										<p className="text-sm text-muted-foreground">Dec 22-24, 2025</p>
+										<p className="text-sm text-muted-foreground">
+											Dec 22-24, 2025
+										</p>
 									</div>
 									<span className="font-semibold">$6.99</span>
 								</div>

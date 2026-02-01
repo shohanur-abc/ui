@@ -120,7 +120,12 @@ export default function Main() {
 			name: 'Pro',
 			price: '$29',
 			period: 'month',
-			features: ['Unlimited products', 'Advanced analytics', 'Priority support', 'Custom domain'],
+			features: [
+				'Unlimited products',
+				'Advanced analytics',
+				'Priority support',
+				'Custom domain',
+			],
 			isCurrentPlan: true,
 			isPopular: true,
 		},
@@ -129,7 +134,12 @@ export default function Main() {
 			name: 'Enterprise',
 			price: '$99',
 			period: 'month',
-			features: ['Everything in Pro', 'API access', 'Dedicated manager', 'SLA guarantee'],
+			features: [
+				'Everything in Pro',
+				'API access',
+				'Dedicated manager',
+				'SLA guarantee',
+			],
 			isCurrentPlan: false,
 		},
 	];
@@ -177,7 +187,9 @@ export default function Main() {
 									<Crown className="size-6 text-primary" />
 									<div>
 										<h4 className="font-semibold">Pro Plan</h4>
-										<p className="text-sm text-muted-foreground">Current plan</p>
+										<p className="text-sm text-muted-foreground">
+											Current plan
+										</p>
 									</div>
 								</div>
 								<div className="space-y-3">
@@ -224,7 +236,9 @@ export default function Main() {
 
 						<Card>
 							<CardHeader>
-								<CardTitle className="text-base">Subscription Options</CardTitle>
+								<CardTitle className="text-base">
+									Subscription Options
+								</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-3">
 								<div className="flex items-center justify-between">

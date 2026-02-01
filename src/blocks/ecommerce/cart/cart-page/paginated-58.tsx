@@ -1,9 +1,31 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Minus, Plus, X, ArrowRight, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, FileStack } from 'lucide-react';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	ChevronLeft,
+	ChevronRight,
+	ChevronsLeft,
+	ChevronsRight,
+	FileStack,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -22,7 +44,9 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 			<FileStack className="size-6 text-primary" />
 			<h1 className="text-2xl font-bold @md:text-3xl">{title}</h1>
 		</div>
-		<Badge variant="secondary" className="px-3 py-1">{count} total items</Badge>
+		<Badge variant="secondary" className="px-3 py-1">
+			{count} total items
+		</Badge>
 	</div>
 );
 
@@ -53,13 +77,19 @@ const PaginatedItem = ({ item }: { item: CartItem }) => (
 					<h3 className="font-semibold line-clamp-1">{item.name}</h3>
 					<p className="text-sm text-muted-foreground">{item.variant}</p>
 				</div>
-				<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive shrink-0">
+				<Button
+					size="icon-sm"
+					variant="ghost"
+					className="text-muted-foreground hover:text-destructive shrink-0"
+				>
 					<X className="size-4" />
 				</Button>
 			</div>
 			<div className="flex items-center justify-between mt-3">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-bold text-primary text-lg">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-bold text-primary text-lg">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -110,10 +140,18 @@ const PaginationControls = ({
 				))}
 			</div>
 
-			<Button size="icon-sm" variant="outline" disabled={currentPage === totalPages}>
+			<Button
+				size="icon-sm"
+				variant="outline"
+				disabled={currentPage === totalPages}
+			>
 				<ChevronRight className="size-4" />
 			</Button>
-			<Button size="icon-sm" variant="outline" disabled={currentPage === totalPages}>
+			<Button
+				size="icon-sm"
+				variant="outline"
+				disabled={currentPage === totalPages}
+			>
 				<ChevronsRight className="size-4" />
 			</Button>
 		</div>
@@ -147,7 +185,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -156,15 +196,87 @@ const SummaryLine = ({
 export default function Main() {
 	// Simulating a large cart with many items
 	const allItems: CartItem[] = [
-		{ id: '1', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop', name: 'Studio Headphones Pro', variant: 'Black • Wireless', price: 299.99, quantity: 1 },
-		{ id: '2', image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop', name: 'Wireless Earbuds', variant: 'White • ANC', price: 179.99, quantity: 1 },
-		{ id: '3', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop', name: 'Running Shoes', variant: 'Red • US 10', price: 149.99, quantity: 1 },
-		{ id: '4', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop', name: 'Classic Watch', variant: 'Silver • Leather', price: 249.99, quantity: 1 },
-		{ id: '5', image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=200&h=200&fit=crop', name: 'Silk Scarf', variant: 'Navy pattern', price: 89.99, quantity: 2 },
-		{ id: '6', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop', name: 'Leather Bag', variant: 'Brown', price: 329.99, quantity: 1 },
-		{ id: '7', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=200&h=200&fit=crop', name: 'Sunglasses', variant: 'Black', price: 159.99, quantity: 1 },
-		{ id: '8', image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=200&fit=crop', name: 'Camera', variant: 'Digital SLR', price: 899.99, quantity: 1 },
-		{ id: '9', image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop', name: 'Earbuds Case', variant: 'White', price: 29.99, quantity: 1 },
+		{
+			id: '1',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			name: 'Studio Headphones Pro',
+			variant: 'Black • Wireless',
+			price: 299.99,
+			quantity: 1,
+		},
+		{
+			id: '2',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			name: 'Wireless Earbuds',
+			variant: 'White • ANC',
+			price: 179.99,
+			quantity: 1,
+		},
+		{
+			id: '3',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			name: 'Running Shoes',
+			variant: 'Red • US 10',
+			price: 149.99,
+			quantity: 1,
+		},
+		{
+			id: '4',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			name: 'Classic Watch',
+			variant: 'Silver • Leather',
+			price: 249.99,
+			quantity: 1,
+		},
+		{
+			id: '5',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=200&h=200&fit=crop',
+			name: 'Silk Scarf',
+			variant: 'Navy pattern',
+			price: 89.99,
+			quantity: 2,
+		},
+		{
+			id: '6',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+			name: 'Leather Bag',
+			variant: 'Brown',
+			price: 329.99,
+			quantity: 1,
+		},
+		{
+			id: '7',
+			image:
+				'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=200&h=200&fit=crop',
+			name: 'Sunglasses',
+			variant: 'Black',
+			price: 159.99,
+			quantity: 1,
+		},
+		{
+			id: '8',
+			image:
+				'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=200&fit=crop',
+			name: 'Camera',
+			variant: 'Digital SLR',
+			price: 899.99,
+			quantity: 1,
+		},
+		{
+			id: '9',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			name: 'Earbuds Case',
+			variant: 'White',
+			price: 29.99,
+			quantity: 1,
+		},
 	];
 
 	const itemsPerPage = 3;
@@ -222,7 +334,10 @@ export default function Main() {
 							</CardHeader>
 							<CardContent className="space-y-3">
 								<div className="p-3 bg-muted/50 rounded-lg text-sm">
-									<p><strong>{allItems.length}</strong> items across <strong>{totalPages}</strong> pages</p>
+									<p>
+										<strong>{allItems.length}</strong> items across{' '}
+										<strong>{totalPages}</strong> pages
+									</p>
 								</div>
 
 								{summaryLines.map((line, i) => (

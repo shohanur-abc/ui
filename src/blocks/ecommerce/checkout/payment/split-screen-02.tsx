@@ -1,4 +1,12 @@
-import { ArrowRight, Check, CreditCard, Lock, MapPin, Package, User } from 'lucide-react';
+import {
+	ArrowRight,
+	Check,
+	CreditCard,
+	Lock,
+	MapPin,
+	Package,
+	User,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -41,7 +49,9 @@ const CheckoutStep = ({ number, label, completed, current }: StepProps) => (
 		>
 			{completed ? <Check className="size-4" /> : number}
 		</div>
-		<span className={`text-sm font-medium ${current ? 'text-foreground' : 'text-muted-foreground'}`}>
+		<span
+			className={`text-sm font-medium ${current ? 'text-foreground' : 'text-muted-foreground'}`}
+		>
 			{label}
 		</span>
 	</div>
@@ -60,7 +70,12 @@ const StepsSidebar = ({ steps }: { steps: StepProps[] }) => (
 	</div>
 );
 
-const PaymentMethodOption = ({ id, icon: Icon, label, description }: PaymentMethodProps) => (
+const PaymentMethodOption = ({
+	id,
+	icon: Icon,
+	label,
+	description,
+}: PaymentMethodProps) => (
 	<Label
 		htmlFor={id}
 		className="flex items-center gap-4 p-4 rounded-xl border border-border/50 cursor-pointer transition-all hover:border-primary/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
@@ -96,12 +111,18 @@ const CardFormField = ({
 	type?: string;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<Input id={id} type={type} placeholder={placeholder} />
 	</div>
 );
 
-const ConfirmationItem = ({ icon: Icon, label, value }: ConfirmationItemProps) => (
+const ConfirmationItem = ({
+	icon: Icon,
+	label,
+	value,
+}: ConfirmationItemProps) => (
 	<div className="flex items-start gap-3">
 		<div className="size-8 rounded-lg bg-muted flex items-center justify-center shrink-0">
 			<Icon className="size-4 text-muted-foreground" />
@@ -146,12 +167,21 @@ export default function Main() {
 	];
 
 	const paymentMethods: PaymentMethodProps[] = [
-		{ id: 'credit', icon: CreditCard, label: 'Credit Card', description: 'Pay with Visa, Mastercard, Amex' },
+		{
+			id: 'credit',
+			icon: CreditCard,
+			label: 'Credit Card',
+			description: 'Pay with Visa, Mastercard, Amex',
+		},
 	];
 
 	const confirmationItems: ConfirmationItemProps[] = [
 		{ icon: User, label: 'Customer', value: 'John Doe (john@example.com)' },
-		{ icon: MapPin, label: 'Shipping Address', value: '123 Main St, New York, NY 10001' },
+		{
+			icon: MapPin,
+			label: 'Shipping Address',
+			value: '123 Main St, New York, NY 10001',
+		},
 		{ icon: Package, label: 'Delivery', value: 'Express (2-3 business days)' },
 	];
 
@@ -173,11 +203,28 @@ export default function Main() {
 						<PaymentMethods methods={paymentMethods} />
 						<Card className="border-border/50 bg-card/50">
 							<CardContent className="pt-6 space-y-4">
-								<CardFormField id="number" label="Card Number" placeholder="1234 5678 9012 3456" />
-								<CardFormField id="name" label="Name on Card" placeholder="John Doe" />
+								<CardFormField
+									id="number"
+									label="Card Number"
+									placeholder="1234 5678 9012 3456"
+								/>
+								<CardFormField
+									id="name"
+									label="Name on Card"
+									placeholder="John Doe"
+								/>
 								<div className="grid grid-cols-2 gap-4">
-									<CardFormField id="expiry" label="Expiry Date" placeholder="MM/YY" />
-									<CardFormField id="cvv" label="Security Code" placeholder="CVV" type="password" />
+									<CardFormField
+										id="expiry"
+										label="Expiry Date"
+										placeholder="MM/YY"
+									/>
+									<CardFormField
+										id="cvv"
+										label="Security Code"
+										placeholder="CVV"
+										type="password"
+									/>
 								</div>
 							</CardContent>
 						</Card>

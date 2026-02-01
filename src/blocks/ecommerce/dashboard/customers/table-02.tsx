@@ -65,10 +65,22 @@ const PageHeader = ({
 
 const TierBadge = ({ tier }: { tier: Customer['tier'] }) => {
 	const config = {
-		bronze: { className: 'bg-orange-500/10 text-orange-500 border-orange-500/20', icon: null },
-		silver: { className: 'bg-slate-400/10 text-slate-400 border-slate-400/20', icon: null },
-		gold: { className: 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20', icon: Star },
-		platinum: { className: 'bg-violet-500/10 text-violet-500 border-violet-500/20', icon: Star },
+		bronze: {
+			className: 'bg-orange-500/10 text-orange-500 border-orange-500/20',
+			icon: null,
+		},
+		silver: {
+			className: 'bg-slate-400/10 text-slate-400 border-slate-400/20',
+			icon: null,
+		},
+		gold: {
+			className: 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20',
+			icon: Star,
+		},
+		platinum: {
+			className: 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+			icon: Star,
+		},
 	};
 	const Icon = config[tier].icon;
 	return (
@@ -121,9 +133,14 @@ const CustomerRow = ({ customer }: { customer: Customer }) => (
 			<TierBadge tier={customer.tier} />
 		</TableCell>
 		<TableCell className="hidden @xl:table-cell">
-			<LoyaltyProgress current={customer.loyaltyPoints} max={customer.maxPoints} />
+			<LoyaltyProgress
+				current={customer.loyaltyPoints}
+				max={customer.maxPoints}
+			/>
 		</TableCell>
-		<TableCell className="text-right font-semibold">{customer.lifetimeValue}</TableCell>
+		<TableCell className="text-right font-semibold">
+			{customer.lifetimeValue}
+		</TableCell>
 		<TableCell className="hidden @md:table-cell text-right">
 			{customer.avgOrderValue}
 		</TableCell>
@@ -163,7 +180,8 @@ const Pagination = ({
 	<div className="flex flex-col gap-4 @md:flex-row @md:items-center @md:justify-between border-t px-4 py-4">
 		<p className="text-muted-foreground text-sm">
 			Showing {(currentPage - 1) * itemsPerPage + 1}-
-			{Math.min(currentPage * itemsPerPage, totalItems)} of {totalItems} customers
+			{Math.min(currentPage * itemsPerPage, totalItems)} of {totalItems}{' '}
+			customers
 		</p>
 		<div className="flex items-center gap-2">
 			<Button variant="outline" size="sm" disabled={currentPage === 1}>
@@ -268,14 +286,18 @@ export default function Main() {
 								<TableHead className="hidden @lg:table-cell">
 									<SortableHeader label="Tier" />
 								</TableHead>
-								<TableHead className="hidden @xl:table-cell">Progress</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Progress
+								</TableHead>
 								<TableHead className="text-right">
 									<SortableHeader label="Lifetime Value" />
 								</TableHead>
 								<TableHead className="hidden @md:table-cell text-right">
 									Avg. Order
 								</TableHead>
-								<TableHead className="hidden @lg:table-cell">Last Purchase</TableHead>
+								<TableHead className="hidden @lg:table-cell">
+									Last Purchase
+								</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>

@@ -12,7 +12,15 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Building2, ChevronDown, Globe, Minus, Plus, ShoppingBag, X } from 'lucide-react';
+import {
+	Building2,
+	ChevronDown,
+	Globe,
+	Minus,
+	Plus,
+	ShoppingBag,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -108,10 +116,16 @@ const CountrySelector = ({
 			</Button>
 			{selectedCountry && (
 				<div className="flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2 text-sm">
-					<span className="text-muted-foreground">Shipping to {selectedCountry.name}</span>
+					<span className="text-muted-foreground">
+						Shipping to {selectedCountry.name}
+					</span>
 					<div className="text-right">
-						<span className="font-medium">${selectedCountry.shippingCost.toFixed(2)}</span>
-						<p className="text-xs text-muted-foreground">{selectedCountry.deliveryDays}</p>
+						<span className="font-medium">
+							${selectedCountry.shippingCost.toFixed(2)}
+						</span>
+						<p className="text-xs text-muted-foreground">
+							{selectedCountry.deliveryDays}
+						</p>
 					</div>
 				</div>
 			)}
@@ -174,18 +188,49 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Premium Sneakers',
 				price: 179.99,
 				quantity: 1,
 			},
 		],
 		countries: [
-			{ code: 'US', name: 'United States', flag: '🇺🇸', shippingCost: 0, deliveryDays: '3-5 days' },
-			{ code: 'UK', name: 'United Kingdom', flag: '🇬🇧', shippingCost: 15.99, deliveryDays: '5-7 days' },
-			{ code: 'DE', name: 'Germany', flag: '🇩🇪', shippingCost: 18.99, deliveryDays: '5-7 days' },
-			{ code: 'JP', name: 'Japan', flag: '🇯🇵', shippingCost: 24.99, deliveryDays: '7-10 days' },
-			{ code: 'AU', name: 'Australia', flag: '🇦🇺', shippingCost: 29.99, deliveryDays: '10-14 days' },
+			{
+				code: 'US',
+				name: 'United States',
+				flag: '🇺🇸',
+				shippingCost: 0,
+				deliveryDays: '3-5 days',
+			},
+			{
+				code: 'UK',
+				name: 'United Kingdom',
+				flag: '🇬🇧',
+				shippingCost: 15.99,
+				deliveryDays: '5-7 days',
+			},
+			{
+				code: 'DE',
+				name: 'Germany',
+				flag: '🇩🇪',
+				shippingCost: 18.99,
+				deliveryDays: '5-7 days',
+			},
+			{
+				code: 'JP',
+				name: 'Japan',
+				flag: '🇯🇵',
+				shippingCost: 24.99,
+				deliveryDays: '7-10 days',
+			},
+			{
+				code: 'AU',
+				name: 'Australia',
+				flag: '🇦🇺',
+				shippingCost: 29.99,
+				deliveryDays: '10-14 days',
+			},
 		],
 		selectedCountry: 'UK',
 	};
@@ -197,7 +242,10 @@ export default function Main() {
 	const shipping =
 		cartData.countries.find((c) => c.code === cartData.selectedCountry)
 			?.shippingCost || 0;
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

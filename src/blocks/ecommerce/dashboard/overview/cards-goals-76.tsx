@@ -14,10 +14,7 @@ import {
 
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-	ChartConfig,
-	ChartContainer,
-} from '@/components/ui/chart';
+import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 
 type GoalCard = {
 	title: string;
@@ -34,7 +31,16 @@ const chartConfig: ChartConfig = {
 	value: { label: 'Progress' },
 };
 
-const GoalCardComponent = ({ title, current, target, progress, icon: Icon, trend, color, chartColor }: GoalCard) => {
+const GoalCardComponent = ({
+	title,
+	current,
+	target,
+	progress,
+	icon: Icon,
+	trend,
+	color,
+	chartColor,
+}: GoalCard) => {
 	const chartData = [
 		{ name: 'Progress', value: progress, fill: chartColor },
 		{ name: 'Remaining', value: 100 - progress, fill: 'var(--muted)' },
@@ -47,7 +53,10 @@ const GoalCardComponent = ({ title, current, target, progress, icon: Icon, trend
 					<div className={`rounded-lg p-2 ${color}`}>
 						<Icon className="size-4" />
 					</div>
-					<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+					<Badge
+						variant="secondary"
+						className="bg-emerald-500/10 text-emerald-500 text-xs"
+					>
 						<ArrowUpRight className="mr-0.5 size-3" />
 						{trend}
 					</Badge>
@@ -74,7 +83,10 @@ const GoalCardComponent = ({ title, current, target, progress, icon: Icon, trend
 					<div className="flex-1">
 						<p className="text-2xl font-bold">{current}</p>
 						<p className="text-xs text-muted-foreground">of {target} target</p>
-						<p className="mt-1 text-sm font-medium" style={{ color: chartColor }}>
+						<p
+							className="mt-1 text-sm font-medium"
+							style={{ color: chartColor }}
+						>
 							{progress}% complete
 						</p>
 					</div>

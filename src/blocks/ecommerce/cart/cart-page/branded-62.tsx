@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Minus, Plus, X, ArrowRight, Crown, Shield, Award } from 'lucide-react';
 import Image from 'next/image';
@@ -22,7 +28,9 @@ const BrandLogo = () => (
 		</div>
 		<div>
 			<h2 className="font-bold text-lg tracking-tight">LUXE STORE</h2>
-			<p className="text-xs text-muted-foreground uppercase tracking-widest">Premium Shopping</p>
+			<p className="text-xs text-muted-foreground uppercase tracking-widest">
+				Premium Shopping
+			</p>
 		</div>
 	</div>
 );
@@ -43,7 +51,9 @@ const BrandBanner = () => (
 			<Award className="size-8 text-amber-500" />
 			<div>
 				<h3 className="font-semibold">Gold Member Benefits Applied</h3>
-				<p className="text-sm text-muted-foreground">Free priority shipping + 10% off your order</p>
+				<p className="text-sm text-muted-foreground">
+					Free priority shipping + 10% off your order
+				</p>
 			</div>
 		</div>
 	</div>
@@ -53,18 +63,28 @@ const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 	<div className="relative size-24 shrink-0 overflow-hidden rounded-xl bg-muted border-2 border-amber-500/20">
 		<Image src={src} alt={alt} fill className="object-cover" />
 		<div className="absolute top-1 right-1">
-			<Badge className="bg-amber-500 text-white text-[10px] px-1.5 py-0">Premium</Badge>
+			<Badge className="bg-amber-500 text-white text-[10px] px-1.5 py-0">
+				Premium
+			</Badge>
 		</div>
 	</div>
 );
 
 const QuantityControl = ({ quantity }: { quantity: number }) => (
 	<div className="flex items-center rounded-lg border-2 border-amber-500/30">
-		<Button size="icon-sm" variant="ghost" className="size-8 text-amber-600 hover:bg-amber-500/10">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 text-amber-600 hover:bg-amber-500/10"
+		>
 			<Minus className="size-3" />
 		</Button>
 		<span className="w-6 text-center text-sm font-semibold">{quantity}</span>
-		<Button size="icon-sm" variant="ghost" className="size-8 text-amber-600 hover:bg-amber-500/10">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 text-amber-600 hover:bg-amber-500/10"
+		>
 			<Plus className="size-3" />
 		</Button>
 	</div>
@@ -80,7 +100,9 @@ const BrandedItem = ({ item }: { item: CartItem }) => (
 					<p className="text-sm text-muted-foreground">{item.variant}</p>
 					<div className="flex items-center gap-1 mt-2">
 						<Shield className="size-3 text-green-500" />
-						<span className="text-xs text-green-600">Authenticity Guaranteed</span>
+						<span className="text-xs text-green-600">
+							Authenticity Guaranteed
+						</span>
 					</div>
 				</div>
 				<Button
@@ -94,8 +116,12 @@ const BrandedItem = ({ item }: { item: CartItem }) => (
 			<div className="flex items-center justify-between mt-4">
 				<QuantityControl quantity={item.quantity} />
 				<div className="text-right">
-					<p className="font-bold text-xl text-amber-600">${(item.price * item.quantity).toFixed(2)}</p>
-					<p className="text-xs text-muted-foreground line-through">${((item.price * item.quantity) * 1.1).toFixed(2)}</p>
+					<p className="font-bold text-xl text-amber-600">
+						${(item.price * item.quantity).toFixed(2)}
+					</p>
+					<p className="text-xs text-muted-foreground line-through">
+						${(item.price * item.quantity * 1.1).toFixed(2)}
+					</p>
 				</div>
 			</div>
 		</div>
@@ -113,7 +139,9 @@ const SummaryLine = ({
 	bold?: boolean;
 	highlight?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : ''} ${highlight ? 'text-amber-600' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : ''} ${highlight ? 'text-amber-600' : 'text-muted-foreground'}`}
+	>
 		<span className={bold ? 'text-foreground' : ''}>{label}</span>
 		<span className={bold ? 'text-amber-600' : ''}>{value}</span>
 	</div>
@@ -140,7 +168,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Studio Headphones Pro',
 			variant: 'Obsidian Black • Wireless',
 			price: 299.99,
@@ -148,7 +177,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Sterling Silver • Leather Band',
 			price: 449.99,
@@ -156,7 +186,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 			name: 'Italian Leather Bag',
 			variant: 'Cognac Brown • Hand-stitched',
 			price: 529.99,
@@ -165,13 +196,17 @@ export default function Main() {
 	];
 
 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
-	const memberDiscount = subtotal * 0.10;
+	const memberDiscount = subtotal * 0.1;
 	const tax = (subtotal - memberDiscount) * 0.08;
 	const total = subtotal - memberDiscount + tax;
 
 	const summaryLines = [
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
-		{ label: 'Gold Member (-10%)', value: `-$${memberDiscount.toFixed(2)}`, highlight: true },
+		{
+			label: 'Gold Member (-10%)',
+			value: `-$${memberDiscount.toFixed(2)}`,
+			highlight: true,
+		},
 		{ label: 'Priority Shipping', value: 'Free' },
 		{ label: 'Tax', value: `$${tax.toFixed(2)}` },
 		{ label: 'Total', value: `$${total.toFixed(2)}`, bold: true },
@@ -211,7 +246,9 @@ export default function Main() {
 							<CardContent className="space-y-3 pt-6">
 								{summaryLines.map((line, i) => (
 									<div key={i}>
-										{line.bold && <Separator className="my-3 bg-amber-500/20" />}
+										{line.bold && (
+											<Separator className="my-3 bg-amber-500/20" />
+										)}
 										<SummaryLine {...line} />
 									</div>
 								))}

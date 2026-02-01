@@ -1,10 +1,26 @@
 'use client';
 
-import { BadgeCheck, Check, Clock, CreditCard, Gift, Lock, Percent, Shield, Star, Wallet } from 'lucide-react';
+import {
+	BadgeCheck,
+	Check,
+	Clock,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	Shield,
+	Star,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -27,7 +43,14 @@ interface InstallmentOption {
 	popular?: boolean;
 }
 
-const ProductCard = ({ name, variant, price, originalPrice, image, badge }: Product) => (
+const ProductCard = ({
+	name,
+	variant,
+	price,
+	originalPrice,
+	image,
+	badge,
+}: Product) => (
 	<div className="flex gap-4 p-4 rounded-xl bg-muted/30">
 		<div className="size-20 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-3xl shrink-0">
 			{image}
@@ -38,34 +61,43 @@ const ProductCard = ({ name, variant, price, originalPrice, image, badge }: Prod
 					<h3 className="font-semibold">{name}</h3>
 					<p className="text-sm text-muted-foreground">{variant}</p>
 				</div>
-				{badge && <Badge variant="secondary" className="text-xs">{badge}</Badge>}
+				{badge && (
+					<Badge variant="secondary" className="text-xs">
+						{badge}
+					</Badge>
+				)}
 			</div>
 			<div className="flex items-center gap-2 mt-2">
 				<span className="text-lg font-bold">{price}</span>
 				{originalPrice && (
-					<span className="text-sm text-muted-foreground line-through">{originalPrice}</span>
+					<span className="text-sm text-muted-foreground line-through">
+						{originalPrice}
+					</span>
 				)}
 			</div>
 		</div>
 	</div>
 );
 
-const InstallmentCard = ({ 
-	id, 
-	months, 
-	monthly, 
-	total, 
-	apr, 
-	popular, 
-	selected, 
-	onSelect 
-}: InstallmentOption & { selected: boolean; onSelect: (id: string) => void }) => (
+const InstallmentCard = ({
+	id,
+	months,
+	monthly,
+	total,
+	apr,
+	popular,
+	selected,
+	onSelect,
+}: InstallmentOption & {
+	selected: boolean;
+	onSelect: (id: string) => void;
+}) => (
 	<button
 		type="button"
 		onClick={() => onSelect(id)}
 		className={`relative flex-1 p-3 rounded-xl border-2 transition-all ${
-			selected 
-				? 'border-primary bg-primary/5' 
+			selected
+				? 'border-primary bg-primary/5'
 				: 'border-border/50 hover:border-primary/30'
 		}`}
 	>
@@ -88,14 +120,14 @@ const InstallmentCard = ({
 	</button>
 );
 
-const InstallmentSelector = ({ 
-	options, 
-	selected, 
-	onSelect 
-}: { 
-	options: InstallmentOption[]; 
-	selected: string; 
-	onSelect: (id: string) => void 
+const InstallmentSelector = ({
+	options,
+	selected,
+	onSelect,
+}: {
+	options: InstallmentOption[];
+	selected: string;
+	onSelect: (id: string) => void;
 }) => (
 	<div className="space-y-3">
 		<div className="flex items-center gap-2">
@@ -104,9 +136,9 @@ const InstallmentSelector = ({
 		</div>
 		<div className="flex gap-2">
 			{options.map((option) => (
-				<InstallmentCard 
-					key={option.id} 
-					{...option} 
+				<InstallmentCard
+					key={option.id}
+					{...option}
 					selected={selected === option.id}
 					onSelect={onSelect}
 				/>
@@ -146,11 +178,19 @@ const PromoInput = () => (
 			<Gift className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
 			<Input placeholder="Promo code" className="pl-10" />
 		</div>
-		<Button variant="outline" size="sm">Apply</Button>
+		<Button variant="outline" size="sm">
+			Apply
+		</Button>
 	</div>
 );
 
-const PaymentSummary = ({ firstPayment, remaining }: { firstPayment: string; remaining: string }) => (
+const PaymentSummary = ({
+	firstPayment,
+	remaining,
+}: {
+	firstPayment: string;
+	remaining: string;
+}) => (
 	<div className="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-3">
 		<div className="flex justify-between items-center">
 			<div>
@@ -203,8 +243,21 @@ export default function Main() {
 
 	const installmentOptions: InstallmentOption[] = [
 		{ id: '3', months: 3, monthly: '$666.33', total: '$1,999', apr: '0% APR' },
-		{ id: '6', months: 6, monthly: '$333.17', total: '$1,999', apr: '0% APR', popular: true },
-		{ id: '12', months: 12, monthly: '$174.92', total: '$2,099', apr: '5% APR' },
+		{
+			id: '6',
+			months: 6,
+			monthly: '$333.17',
+			total: '$1,999',
+			apr: '0% APR',
+			popular: true,
+		},
+		{
+			id: '12',
+			months: 12,
+			monthly: '$174.92',
+			total: '$2,099',
+			apr: '5% APR',
+		},
 	];
 
 	return (
@@ -215,10 +268,10 @@ export default function Main() {
 						<ProductCard {...product} />
 					</CardHeader>
 					<CardContent className="space-y-6">
-						<InstallmentSelector 
-							options={installmentOptions} 
-							selected="6" 
-							onSelect={() => {}} 
+						<InstallmentSelector
+							options={installmentOptions}
+							selected="6"
+							onSelect={() => {}}
 						/>
 						<Separator />
 						<PaymentForm />

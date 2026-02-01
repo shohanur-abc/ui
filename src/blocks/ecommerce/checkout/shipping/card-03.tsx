@@ -1,4 +1,12 @@
-import { Truck, Plane, Ship, Clock, DollarSign, Shield, Leaf } from 'lucide-react';
+import {
+	Truck,
+	Plane,
+	Ship,
+	Clock,
+	DollarSign,
+	Shield,
+	Leaf,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -23,7 +31,9 @@ const FeatureTag = ({
 	};
 
 	return (
-		<span className={`inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs ${colors[variant]}`}>
+		<span
+			className={`inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs ${colors[variant]}`}
+		>
 			<Icon className="size-3" />
 			{text}
 		</span>
@@ -45,7 +55,11 @@ const DeliveryCard = ({
 	name: string;
 	time: string;
 	price: string;
-	features: { icon: React.ComponentType<{ className?: string }>; text: string; variant?: 'default' | 'success' | 'warning' }[];
+	features: {
+		icon: React.ComponentType<{ className?: string }>;
+		text: string;
+		variant?: 'default' | 'success' | 'warning';
+	}[];
 	recommended?: boolean;
 	ecoFriendly?: boolean;
 }) => (
@@ -58,10 +72,15 @@ const DeliveryCard = ({
 			`}
 		>
 			{recommended && (
-				<Badge className="absolute -top-3 left-1/2 -translate-x-1/2">Recommended</Badge>
+				<Badge className="absolute -top-3 left-1/2 -translate-x-1/2">
+					Recommended
+				</Badge>
 			)}
 			{ecoFriendly && (
-				<Badge variant="secondary" className="absolute -top-3 right-4 bg-green-500/10 text-green-600 border-green-500/20">
+				<Badge
+					variant="secondary"
+					className="absolute -top-3 right-4 bg-green-500/10 text-green-600 border-green-500/20"
+				>
 					<Leaf className="size-3 mr-1" />
 					Eco
 				</Badge>
@@ -141,8 +160,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Select Delivery Speed</h1>
-					<p className="text-muted-foreground">Choose the shipping option that works best for you</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Select Delivery Speed
+					</h1>
+					<p className="text-muted-foreground">
+						Choose the shipping option that works best for you
+					</p>
 				</div>
 
 				<RadioGroup defaultValue="air" className="space-y-4">
@@ -154,7 +177,9 @@ export default function Main() {
 				<Separator className="my-8" />
 
 				<div className="flex flex-col @sm:flex-row gap-3">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

@@ -112,7 +112,9 @@ const ShippingMethodRow = ({
 		<div className="flex items-center gap-4">
 			<div
 				className={`flex size-10 items-center justify-center rounded-lg ${
-					enabled ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'
+					enabled
+						? 'bg-primary/10 text-primary'
+						: 'bg-muted text-muted-foreground'
 				}`}
 			>
 				<Icon className="size-5" />

@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, Clock, RotateCcw, PackageCheck } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	Clock,
+	RotateCcw,
+	PackageCheck,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -21,28 +28,46 @@ interface CardGridProps {
 }
 
 const TimeOnList = ({ days }: { days: number }) => {
-	const color = days > 30 ? 'text-amber-600' : days > 7 ? 'text-muted-foreground' : 'text-green-600';
-	const label = days > 30 ? 'Been waiting' : days > 7 ? 'On list' : 'Recently added';
+	const color =
+		days > 30
+			? 'text-amber-600'
+			: days > 7
+				? 'text-muted-foreground'
+				: 'text-green-600';
+	const label =
+		days > 30 ? 'Been waiting' : days > 7 ? 'On list' : 'Recently added';
 
 	return (
 		<div className={`flex items-center gap-1 text-xs ${color}`}>
 			<Clock className="size-3" />
-			<span>{label}: {days} days</span>
+			<span>
+				{label}: {days} days
+			</span>
 		</div>
 	);
 };
 
-const PurchaseHistory = ({ count, lastDate }: { count: number; lastDate?: string }) => {
+const PurchaseHistory = ({
+	count,
+	lastDate,
+}: {
+	count: number;
+	lastDate?: string;
+}) => {
 	if (count === 0) return null;
 
 	return (
 		<div className="mt-2 p-2 rounded-lg bg-muted/50">
 			<div className="flex items-center gap-2 text-xs">
 				<RotateCcw className="size-3 text-primary" />
-				<span>Purchased {count} time{count > 1 ? 's' : ''}</span>
+				<span>
+					Purchased {count} time{count > 1 ? 's' : ''}
+				</span>
 			</div>
 			{lastDate && (
-				<p className="text-[10px] text-muted-foreground mt-1">Last: {lastDate}</p>
+				<p className="text-[10px] text-muted-foreground mt-1">
+					Last: {lastDate}
+				</p>
 			)}
 		</div>
 	);
@@ -71,7 +96,11 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 				</Badge>
 			)}
 			{item.daysOnList > 30 && (
-				<Badge className="absolute bottom-2 right-2" variant="outline" className="bg-amber-500/10 text-amber-700 border-amber-300">
+				<Badge
+					className="absolute bottom-2 right-2"
+					variant="outline"
+					className="bg-amber-500/10 text-amber-700 border-amber-300"
+				>
 					Long-term
 				</Badge>
 			)}
@@ -84,7 +113,10 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			</Link>
 			<TimeOnList days={item.daysOnList} />
 			<p className="text-xl font-bold mt-2">${item.price.toFixed(2)}</p>
-			<PurchaseHistory count={item.purchaseHistory} lastDate={item.lastPurchased} />
+			<PurchaseHistory
+				count={item.purchaseHistory}
+				lastDate={item.lastPurchased}
+			/>
 			<Button className="w-full mt-4 gap-2">
 				<ShoppingCart className="size-4" />
 				{item.purchaseHistory > 0 ? 'Buy Again' : 'Add to Cart'}
@@ -102,7 +134,9 @@ const CardGrid = ({ items }: CardGridProps) => (
 );
 
 const StatsHeader = ({ items }: { items: WishlistItem[] }) => {
-	const avgDays = Math.round(items.reduce((sum, item) => sum + item.daysOnList, 0) / items.length);
+	const avgDays = Math.round(
+		items.reduce((sum, item) => sum + item.daysOnList, 0) / items.length,
+	);
 	const repeatItems = items.filter((item) => item.purchaseHistory > 0).length;
 
 	return (
@@ -121,16 +155,61 @@ const StatsHeader = ({ items }: { items: WishlistItem[] }) => {
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Organic Coffee Beans', price: 24.99, image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop', addedDate: 'Sept 1', daysOnList: 45, purchaseHistory: 3, lastPurchased: 'Aug 15', href: '/product/1' },
-		{ id: '2', name: 'Protein Powder', price: 49.99, image: 'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400&h=400&fit=crop', addedDate: 'Oct 10', daysOnList: 12, purchaseHistory: 5, lastPurchased: 'Sept 28', href: '/product/2' },
-		{ id: '3', name: 'Green Tea Matcha', price: 29.99, image: 'https://images.unsplash.com/photo-1565799943715-8c3f4e1f3e1c?w=400&h=400&fit=crop', addedDate: 'Oct 18', daysOnList: 4, purchaseHistory: 0, href: '/product/3' },
-		{ id: '4', name: 'Vitamin D Supplements', price: 19.99, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop', addedDate: 'Aug 25', daysOnList: 58, purchaseHistory: 2, lastPurchased: 'July 20', href: '/product/4' },
+		{
+			id: '1',
+			name: 'Organic Coffee Beans',
+			price: 24.99,
+			image:
+				'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop',
+			addedDate: 'Sept 1',
+			daysOnList: 45,
+			purchaseHistory: 3,
+			lastPurchased: 'Aug 15',
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Protein Powder',
+			price: 49.99,
+			image:
+				'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400&h=400&fit=crop',
+			addedDate: 'Oct 10',
+			daysOnList: 12,
+			purchaseHistory: 5,
+			lastPurchased: 'Sept 28',
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Green Tea Matcha',
+			price: 29.99,
+			image:
+				'https://images.unsplash.com/photo-1565799943715-8c3f4e1f3e1c?w=400&h=400&fit=crop',
+			addedDate: 'Oct 18',
+			daysOnList: 4,
+			purchaseHistory: 0,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Vitamin D Supplements',
+			price: 19.99,
+			image:
+				'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop',
+			addedDate: 'Aug 25',
+			daysOnList: 58,
+			purchaseHistory: 2,
+			lastPurchased: 'July 20',
+			href: '/product/4',
+		},
 	];
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<h1 className="text-2xl @md:text-3xl font-bold mb-6">Wishlist History</h1>
+				<h1 className="text-2xl @md:text-3xl font-bold mb-6">
+					Wishlist History
+				</h1>
 				<StatsHeader items={wishlistItems} />
 				<CardGrid items={wishlistItems} />
 			</div>

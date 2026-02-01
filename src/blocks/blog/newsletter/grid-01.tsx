@@ -28,7 +28,9 @@ const Header = ({ badge, title, description }: HeaderProps) => (
 			<Sparkles className="size-3" />
 			{badge}
 		</Badge>
-		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">{title}</h2>
+		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">
+			{title}
+		</h2>
 		<p className="text-muted-foreground">{description}</p>
 	</div>
 );
@@ -47,11 +49,7 @@ const FeatureCard = ({ icon: Icon, title, description }: FeatureCardProps) => (
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 max-w-md mx-auto w-full">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="flex-1 h-11"
-		/>
+		<Input type="email" placeholder={placeholder} className="flex-1 h-11" />
 		<Button size="lg" className="gap-2 h-11">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}

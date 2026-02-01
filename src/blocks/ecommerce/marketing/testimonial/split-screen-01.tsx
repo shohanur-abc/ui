@@ -13,7 +13,13 @@ interface TestimonialItem {
 	rating: number;
 }
 
-const SectionBadge = ({ icon: Icon, label }: { icon: React.ElementType; label: string }) => (
+const SectionBadge = ({
+	icon: Icon,
+	label,
+}: {
+	icon: React.ElementType;
+	label: string;
+}) => (
 	<Badge variant="outline" className="mb-6 gap-2 border-primary/30">
 		<Icon className="size-3 text-primary" />
 		{label}
@@ -88,13 +94,17 @@ export default function Main() {
 		author: 'Benjamin Chen',
 		role: 'VP of Operations',
 		company: 'TechScale Inc',
-		avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 		initials: 'BC',
 		rating: 5,
 	};
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<div className="grid grid-cols-1 @lg:grid-cols-2 gap-10 @lg:gap-16 items-center">
 					<ContentSide

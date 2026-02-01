@@ -42,16 +42,14 @@ interface JobStreamProps {
 }
 
 const StatusIcon = ({ status }: { status: Job['status'] }) => {
-	const config: Record<
-		Job['status'],
-		{ icon: LucideIcon; className: string }
-	> = {
-		running: { icon: RotateCw, className: 'text-blue-400 animate-spin' },
-		completed: { icon: CheckCircle2, className: 'text-emerald-400' },
-		queued: { icon: Clock, className: 'text-amber-400' },
-		failed: { icon: XCircle, className: 'text-rose-400' },
-		cancelled: { icon: AlertCircle, className: 'text-muted-foreground' },
-	};
+	const config: Record<Job['status'], { icon: LucideIcon; className: string }> =
+		{
+			running: { icon: RotateCw, className: 'text-blue-400 animate-spin' },
+			completed: { icon: CheckCircle2, className: 'text-emerald-400' },
+			queued: { icon: Clock, className: 'text-amber-400' },
+			failed: { icon: XCircle, className: 'text-rose-400' },
+			cancelled: { icon: AlertCircle, className: 'text-muted-foreground' },
+		};
 
 	const { icon: Icon, className } = config[status];
 	return <Icon className={`size-5 ${className}`} />;
@@ -149,12 +147,8 @@ const JobCard = ({ job }: { job: Job }) => (
 
 				<div className="flex items-center justify-between text-xs text-muted-foreground">
 					<div className="flex items-center gap-3">
-						{job.startedAt && (
-							<span>Started: {job.startedAt}</span>
-						)}
-						{job.completedAt && (
-							<span>Completed: {job.completedAt}</span>
-						)}
+						{job.startedAt && <span>Started: {job.startedAt}</span>}
+						{job.completedAt && <span>Completed: {job.completedAt}</span>}
 					</div>
 					{job.duration && (
 						<div className="flex items-center gap-1">

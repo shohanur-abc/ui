@@ -62,7 +62,9 @@ const TestimonialCard = ({ item }: { item: TestimonialItem }) => (
 		<CardContent className="p-6 flex flex-col h-full">
 			<Quote className="size-8 text-primary/20 mb-3" />
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed flex-1 mb-6">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed flex-1 mb-6">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -94,7 +96,8 @@ export default function Main() {
 					author: 'Alex Chen',
 					role: 'Founder',
 					company: 'TechStart',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'AC',
 					rating: 5,
 				},
@@ -104,7 +107,8 @@ export default function Main() {
 					author: 'Beth Green',
 					role: 'Co-Founder',
 					company: 'LaunchFast',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'BG',
 					rating: 5,
 				},
@@ -114,7 +118,8 @@ export default function Main() {
 					author: 'Carlos Ruiz',
 					role: 'CTO',
 					company: 'InnovateTech',
-					avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 					initials: 'CR',
 					rating: 5,
 				},
@@ -131,27 +136,28 @@ export default function Main() {
 					author: 'Diana Foster',
 					role: 'CISO',
 					company: 'Global Corp',
-					avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 					initials: 'DF',
 					rating: 5,
 				},
 				{
-					quote:
-						'Scaled to 10,000 users without any performance issues.',
+					quote: 'Scaled to 10,000 users without any performance issues.',
 					author: 'Edward Kim',
 					role: 'IT Director',
 					company: 'Mega Enterprise',
-					avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 					initials: 'EK',
 					rating: 5,
 				},
 				{
-					quote:
-						'The dedicated support team understands enterprise needs.',
+					quote: 'The dedicated support team understands enterprise needs.',
 					author: 'Fiona Walsh',
 					role: 'VP Operations',
 					company: 'Fortune 500',
-					avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 					initials: 'FW',
 					rating: 5,
 				},
@@ -163,32 +169,32 @@ export default function Main() {
 			icon: Users,
 			testimonials: [
 				{
-					quote:
-						'Managing multiple clients is effortless with this platform.',
+					quote: 'Managing multiple clients is effortless with this platform.',
 					author: 'George Adams',
 					role: 'Agency Director',
 					company: 'Creative Agency',
-					avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 					initials: 'GA',
 					rating: 5,
 				},
 				{
-					quote:
-						'White-label options make it perfect for our brand.',
+					quote: 'White-label options make it perfect for our brand.',
 					author: 'Hannah Lee',
 					role: 'Brand Manager',
 					company: 'Design Studio',
-					avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 					initials: 'HL',
 					rating: 5,
 				},
 				{
-					quote:
-						'Our clients love the results. Huge win for our agency.',
+					quote: 'Our clients love the results. Huge win for our agency.',
 					author: 'Ian Brooks',
 					role: 'Account Director',
 					company: 'Marketing Pro',
-					avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+					avatar:
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 					initials: 'IB',
 					rating: 5,
 				},
@@ -197,7 +203,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="By Industry"

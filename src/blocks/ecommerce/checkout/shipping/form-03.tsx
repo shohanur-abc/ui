@@ -91,12 +91,22 @@ export default function Main() {
 							<InputField label="Last Name" placeholder="Doe" />
 						</div>
 
-						<InputField label="Email" placeholder="john.doe@email.com" type="email" />
+						<InputField
+							label="Email"
+							placeholder="john.doe@email.com"
+							type="email"
+						/>
 
 						<Separator className="my-6" />
 
-						<InputField label="Address Line 1" placeholder="Street address, P.O. box" />
-						<InputField label="Address Line 2" placeholder="Apartment, suite, unit, building, floor" />
+						<InputField
+							label="Address Line 1"
+							placeholder="Street address, P.O. box"
+						/>
+						<InputField
+							label="Address Line 2"
+							placeholder="Apartment, suite, unit, building, floor"
+						/>
 
 						<div className="grid @sm:grid-cols-3 gap-5">
 							<InputField label="City" placeholder="City" />
@@ -104,10 +114,17 @@ export default function Main() {
 							<InputField label="ZIP Code" placeholder="12345" />
 						</div>
 
-						<InputField label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
+						<InputField
+							label="Phone Number"
+							placeholder="+1 (555) 000-0000"
+							type="tel"
+						/>
 					</div>
 
-					<NavigationButtons backLabel="← Back to cart" nextLabel="Continue to delivery" />
+					<NavigationButtons
+						backLabel="← Back to cart"
+						nextLabel="Continue to delivery"
+					/>
 				</div>
 			</div>
 		</section>

@@ -1,7 +1,14 @@
 import { Mail, ArrowUpRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 interface NewsletterCardProps {
@@ -14,12 +21,20 @@ interface NewsletterCardProps {
 	featured?: boolean;
 }
 
-const NewsletterCard = ({ badge, title, description, features, placeholder, buttonText, featured }: NewsletterCardProps) => (
-	<Card className={`flex flex-col h-full ${featured ? 'border-primary shadow-lg' : ''}`}>
+const NewsletterCard = ({
+	badge,
+	title,
+	description,
+	features,
+	placeholder,
+	buttonText,
+	featured,
+}: NewsletterCardProps) => (
+	<Card
+		className={`flex flex-col h-full ${featured ? 'border-primary shadow-lg' : ''}`}
+	>
 		<CardHeader>
-			{badge && (
-				<Badge className="w-fit mb-2">{badge}</Badge>
-			)}
+			{badge && <Badge className="w-fit mb-2">{badge}</Badge>}
 			<CardTitle className="text-xl">{title}</CardTitle>
 			<CardDescription>{description}</CardDescription>
 		</CardHeader>
@@ -34,11 +49,7 @@ const NewsletterCard = ({ badge, title, description, features, placeholder, butt
 			</ul>
 		</CardContent>
 		<CardFooter className="flex-col gap-3">
-			<Input
-				type="email"
-				placeholder={placeholder}
-				className="w-full h-10"
-			/>
+			<Input type="email" placeholder={placeholder} className="w-full h-10" />
 			<Button className="w-full gap-2">
 				{buttonText}
 				<ArrowUpRight className="size-4" />
@@ -54,7 +65,9 @@ interface TitleProps {
 
 const Title = ({ text, subtitle }: TitleProps) => (
 	<div className="text-center flex flex-col gap-3 max-w-2xl mx-auto">
-		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">{text}</h2>
+		<h2 className="text-2xl @sm:text-3xl @lg:text-4xl font-bold tracking-tight">
+			{text}
+		</h2>
 		<p className="text-muted-foreground text-base @md:text-lg">{subtitle}</p>
 	</div>
 );

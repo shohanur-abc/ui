@@ -1,4 +1,11 @@
-import { Mail, ArrowRight, Calendar, FileText, Video, Headphones } from 'lucide-react';
+import {
+	Mail,
+	ArrowRight,
+	Calendar,
+	FileText,
+	Video,
+	Headphones,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
@@ -18,8 +25,15 @@ interface FormCardProps {
 	buttonIcon?: React.ElementType;
 }
 
-const BentoItem = ({ icon: Icon, title, description, className }: BentoItemProps) => (
-	<Card className={`group transition-all hover:shadow-md hover:border-primary/20 ${className}`}>
+const BentoItem = ({
+	icon: Icon,
+	title,
+	description,
+	className,
+}: BentoItemProps) => (
+	<Card
+		className={`group transition-all hover:shadow-md hover:border-primary/20 ${className}`}
+	>
 		<CardContent className="flex flex-col gap-3 p-5 h-full">
 			<div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center transition-colors group-hover:bg-primary/20">
 				<Icon className="size-5 text-primary" />
@@ -30,7 +44,13 @@ const BentoItem = ({ icon: Icon, title, description, className }: BentoItemProps
 	</Card>
 );
 
-const FormCard = ({ title, description, placeholder, buttonText, buttonIcon: Icon }: FormCardProps) => (
+const FormCard = ({
+	title,
+	description,
+	placeholder,
+	buttonText,
+	buttonIcon: Icon,
+}: FormCardProps) => (
 	<Card className="bg-primary text-primary-foreground">
 		<CardContent className="flex flex-col gap-5 p-6 h-full justify-center">
 			<div>

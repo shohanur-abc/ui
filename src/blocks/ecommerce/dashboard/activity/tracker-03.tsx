@@ -156,7 +156,9 @@ const ShipmentCard = ({ shipment }: { shipment: Shipment }) => {
 			<div className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
 				<div className="flex items-center gap-2">
 					<MapPin className="size-4 text-muted-foreground" />
-					<span className="text-sm text-foreground">{shipment.destination}</span>
+					<span className="text-sm text-foreground">
+						{shipment.destination}
+					</span>
 				</div>
 				<div className="flex items-center gap-2 text-sm">
 					<Clock className="size-4 text-muted-foreground" />

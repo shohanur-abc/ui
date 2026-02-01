@@ -25,8 +25,23 @@ type SupplierCompareProps = {
 	overallScore: number;
 };
 
-const SupplierCard = ({ name, avatar, initials, products, fulfillment, quality, pricing, leadTime, overallScore }: SupplierCompareProps) => {
-	const scoreColor = overallScore >= 90 ? 'text-emerald-500' : overallScore >= 75 ? 'text-amber-500' : 'text-rose-500';
+const SupplierCard = ({
+	name,
+	avatar,
+	initials,
+	products,
+	fulfillment,
+	quality,
+	pricing,
+	leadTime,
+	overallScore,
+}: SupplierCompareProps) => {
+	const scoreColor =
+		overallScore >= 90
+			? 'text-emerald-500'
+			: overallScore >= 75
+				? 'text-amber-500'
+				: 'text-rose-500';
 
 	return (
 		<Card className="flex-1 border-border/30 bg-card/60">
@@ -39,7 +54,9 @@ const SupplierCard = ({ name, avatar, initials, products, fulfillment, quality, 
 						</Avatar>
 						<div>
 							<p className="font-bold">{name}</p>
-							<p className="text-xs text-muted-foreground">{products} products</p>
+							<p className="text-xs text-muted-foreground">
+								{products} products
+							</p>
 						</div>
 					</div>
 					<div className="text-right">
@@ -64,7 +81,9 @@ const SupplierCard = ({ name, avatar, initials, products, fulfillment, quality, 
 					</div>
 					<div>
 						<div className="flex justify-between text-sm">
-							<span className="text-muted-foreground">Price Competitiveness</span>
+							<span className="text-muted-foreground">
+								Price Competitiveness
+							</span>
 							<span className="font-medium">{pricing}%</span>
 						</div>
 						<Progress value={pricing} className="mt-1 h-1.5" />

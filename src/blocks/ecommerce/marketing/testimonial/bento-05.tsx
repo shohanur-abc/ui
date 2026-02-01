@@ -58,7 +58,9 @@ const StatCard = ({ item }: { item: StatItem }) => (
 	<Card className="border-primary/20 bg-primary/5 hover:bg-primary/10 transition-colors">
 		<CardContent className="p-6 text-center">
 			<item.icon className="size-8 text-primary mx-auto mb-3" />
-			<p className="text-3xl @md:text-4xl font-bold text-primary">{item.value}</p>
+			<p className="text-3xl @md:text-4xl font-bold text-primary">
+				{item.value}
+			</p>
 			<p className="text-sm text-muted-foreground mt-1">{item.label}</p>
 		</CardContent>
 	</Card>
@@ -131,7 +133,8 @@ export default function Main() {
 		author: 'Amelia Watson',
 		role: 'VP of Operations',
 		company: 'Global Enterprises',
-		avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 		initials: 'AW',
 		rating: 5,
 		metric: { value: '+200%', label: 'efficiency' },
@@ -143,7 +146,8 @@ export default function Main() {
 			author: 'Ben Crawford',
 			role: 'IT Manager',
 			company: 'TechFirst',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'BC',
 			rating: 5,
 		},
@@ -152,14 +156,18 @@ export default function Main() {
 			author: 'Clara Davis',
 			role: 'Data Lead',
 			company: 'InsightPro',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'CD',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Stats & Stories"

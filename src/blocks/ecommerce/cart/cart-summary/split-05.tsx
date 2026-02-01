@@ -1,20 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
-import {
-	Gift,
-	Leaf,
-	Heart,
-	Recycle,
-	type LucideIcon,
-} from 'lucide-react';
+import { Gift, Leaf, Heart, Recycle, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 
 type SummaryRowProps = {
@@ -43,7 +32,11 @@ const TotalRow = ({
 	label,
 	value,
 	carbonOffset,
-}: { label: string; value: string; carbonOffset: string }) => (
+}: {
+	label: string;
+	value: string;
+	carbonOffset: string;
+}) => (
 	<div className="space-y-2">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>
@@ -88,7 +81,12 @@ const DonationOption = ({
 	title,
 	description,
 	amount,
-}: { icon: LucideIcon; title: string; description: string; amount: string }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	description: string;
+	amount: string;
+}) => (
 	<div className="flex items-center gap-3 rounded-lg border p-4">
 		<div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-pink-500/20">
 			<Icon className="size-5 text-pink-600 dark:text-pink-400" />

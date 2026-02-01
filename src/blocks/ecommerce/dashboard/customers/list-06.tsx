@@ -46,9 +46,16 @@ interface GeographicCustomer {
 const GrowthIndicator = ({ value }: { value: number }) => {
 	const isPositive = value > 0;
 	return (
-		<span className={`flex items-center text-xs ${isPositive ? 'text-emerald-500' : value < 0 ? 'text-red-500' : 'text-muted-foreground'}`}>
-			{isPositive ? <ArrowUpRight className="size-3" /> : value < 0 ? <ArrowDownRight className="size-3" /> : null}
-			{value > 0 ? '+' : ''}{value}%
+		<span
+			className={`flex items-center text-xs ${isPositive ? 'text-emerald-500' : value < 0 ? 'text-red-500' : 'text-muted-foreground'}`}
+		>
+			{isPositive ? (
+				<ArrowUpRight className="size-3" />
+			) : value < 0 ? (
+				<ArrowDownRight className="size-3" />
+			) : null}
+			{value > 0 ? '+' : ''}
+			{value}%
 		</span>
 	);
 };
@@ -56,13 +63,16 @@ const GrowthIndicator = ({ value }: { value: number }) => {
 const RegionBadge = ({ region }: { region: string }) => {
 	const colors: Record<string, string> = {
 		'North America': 'bg-blue-500/10 text-blue-500',
-		'Europe': 'bg-emerald-500/10 text-emerald-500',
+		Europe: 'bg-emerald-500/10 text-emerald-500',
 		'Asia Pacific': 'bg-violet-500/10 text-violet-500',
 		'Latin America': 'bg-amber-500/10 text-amber-500',
 		'Middle East': 'bg-orange-500/10 text-orange-500',
 	};
 	return (
-		<Badge variant="outline" className={colors[region] || 'bg-slate-500/10 text-slate-400'}>
+		<Badge
+			variant="outline"
+			className={colors[region] || 'bg-slate-500/10 text-slate-400'}
+		>
 			{region}
 		</Badge>
 	);
@@ -103,7 +113,9 @@ const GeographicListItem = ({ customer }: { customer: GeographicCustomer }) => (
 			</Avatar>
 			<div className="min-w-0">
 				<p className="font-semibold truncate">{customer.name}</p>
-				<p className="text-muted-foreground text-sm truncate">{customer.email}</p>
+				<p className="text-muted-foreground text-sm truncate">
+					{customer.email}
+				</p>
 			</div>
 		</div>
 		<div className="flex-1 min-w-0">
@@ -133,7 +145,9 @@ const GeographicListItem = ({ customer }: { customer: GeographicCustomer }) => (
 			</div>
 			<div className="text-center">
 				<div className="flex items-center justify-center gap-1">
-					<span className="font-semibold">{customer.metrics.avgOrderValue}</span>
+					<span className="font-semibold">
+						{customer.metrics.avgOrderValue}
+					</span>
 					<GrowthIndicator value={customer.metrics.growth} />
 				</div>
 				<p className="text-muted-foreground text-xs">AOV</p>
@@ -166,8 +180,19 @@ export default function Main() {
 			name: 'Patrick Miller',
 			email: 'patrick.m@email.com',
 			initials: 'PM',
-			location: { city: 'New York', state: 'NY', country: 'United States', region: 'North America', timezone: 'EST' },
-			metrics: { orders: 28, totalSpent: '$4,560', avgOrderValue: '$163', growth: 12 },
+			location: {
+				city: 'New York',
+				state: 'NY',
+				country: 'United States',
+				region: 'North America',
+				timezone: 'EST',
+			},
+			metrics: {
+				orders: 28,
+				totalSpent: '$4,560',
+				avgOrderValue: '$163',
+				growth: 12,
+			},
 			preferredCurrency: 'USD',
 			language: 'English',
 			lastActive: '2h ago',
@@ -177,8 +202,19 @@ export default function Main() {
 			name: 'Sophie Laurent',
 			email: 'sophie.l@email.com',
 			initials: 'SL',
-			location: { city: 'Paris', state: 'Île-de-France', country: 'France', region: 'Europe', timezone: 'CET' },
-			metrics: { orders: 15, totalSpent: '€2,340', avgOrderValue: '€156', growth: 8 },
+			location: {
+				city: 'Paris',
+				state: 'Île-de-France',
+				country: 'France',
+				region: 'Europe',
+				timezone: 'CET',
+			},
+			metrics: {
+				orders: 15,
+				totalSpent: '€2,340',
+				avgOrderValue: '€156',
+				growth: 8,
+			},
 			preferredCurrency: 'EUR',
 			language: 'French',
 			lastActive: '1d ago',
@@ -188,8 +224,19 @@ export default function Main() {
 			name: 'Takeshi Yamamoto',
 			email: 'takeshi.y@email.com',
 			initials: 'TY',
-			location: { city: 'Tokyo', state: 'Tokyo', country: 'Japan', region: 'Asia Pacific', timezone: 'JST' },
-			metrics: { orders: 42, totalSpent: '¥680,000', avgOrderValue: '¥16,190', growth: 22 },
+			location: {
+				city: 'Tokyo',
+				state: 'Tokyo',
+				country: 'Japan',
+				region: 'Asia Pacific',
+				timezone: 'JST',
+			},
+			metrics: {
+				orders: 42,
+				totalSpent: '¥680,000',
+				avgOrderValue: '¥16,190',
+				growth: 22,
+			},
 			preferredCurrency: 'JPY',
 			language: 'Japanese',
 			lastActive: '4h ago',
@@ -199,8 +246,19 @@ export default function Main() {
 			name: 'Maria Santos',
 			email: 'maria.s@email.com',
 			initials: 'MS',
-			location: { city: 'São Paulo', state: 'SP', country: 'Brazil', region: 'Latin America', timezone: 'BRT' },
-			metrics: { orders: 19, totalSpent: 'R$8,900', avgOrderValue: 'R$468', growth: -5 },
+			location: {
+				city: 'São Paulo',
+				state: 'SP',
+				country: 'Brazil',
+				region: 'Latin America',
+				timezone: 'BRT',
+			},
+			metrics: {
+				orders: 19,
+				totalSpent: 'R$8,900',
+				avgOrderValue: 'R$468',
+				growth: -5,
+			},
 			preferredCurrency: 'BRL',
 			language: 'Portuguese',
 			lastActive: '3d ago',
@@ -210,8 +268,19 @@ export default function Main() {
 			name: 'Ahmed Hassan',
 			email: 'ahmed.h@email.com',
 			initials: 'AH',
-			location: { city: 'Dubai', state: 'Dubai', country: 'UAE', region: 'Middle East', timezone: 'GST' },
-			metrics: { orders: 35, totalSpent: 'AED 28,500', avgOrderValue: 'AED 814', growth: 18 },
+			location: {
+				city: 'Dubai',
+				state: 'Dubai',
+				country: 'UAE',
+				region: 'Middle East',
+				timezone: 'GST',
+			},
+			metrics: {
+				orders: 35,
+				totalSpent: 'AED 28,500',
+				avgOrderValue: 'AED 814',
+				growth: 18,
+			},
 			preferredCurrency: 'AED',
 			language: 'Arabic',
 			lastActive: '12h ago',
@@ -221,8 +290,19 @@ export default function Main() {
 			name: 'Emma Williams',
 			email: 'emma.w@email.com',
 			initials: 'EW',
-			location: { city: 'London', state: 'England', country: 'United Kingdom', region: 'Europe', timezone: 'GMT' },
-			metrics: { orders: 24, totalSpent: '£3,200', avgOrderValue: '£133', growth: 15 },
+			location: {
+				city: 'London',
+				state: 'England',
+				country: 'United Kingdom',
+				region: 'Europe',
+				timezone: 'GMT',
+			},
+			metrics: {
+				orders: 24,
+				totalSpent: '£3,200',
+				avgOrderValue: '£133',
+				growth: 15,
+			},
 			preferredCurrency: 'GBP',
 			language: 'English',
 			lastActive: '6h ago',
@@ -232,8 +312,19 @@ export default function Main() {
 			name: 'Chen Wei',
 			email: 'chen.w@email.com',
 			initials: 'CW',
-			location: { city: 'Shanghai', state: 'Shanghai', country: 'China', region: 'Asia Pacific', timezone: 'CST' },
-			metrics: { orders: 56, totalSpent: '¥45,600', avgOrderValue: '¥814', growth: 28 },
+			location: {
+				city: 'Shanghai',
+				state: 'Shanghai',
+				country: 'China',
+				region: 'Asia Pacific',
+				timezone: 'CST',
+			},
+			metrics: {
+				orders: 56,
+				totalSpent: '¥45,600',
+				avgOrderValue: '¥814',
+				growth: 28,
+			},
 			preferredCurrency: 'CNY',
 			language: 'Mandarin',
 			lastActive: '1h ago',
@@ -243,8 +334,19 @@ export default function Main() {
 			name: 'Lucas Garcia',
 			email: 'lucas.g@email.com',
 			initials: 'LG',
-			location: { city: 'Mexico City', state: 'CDMX', country: 'Mexico', region: 'Latin America', timezone: 'CST' },
-			metrics: { orders: 12, totalSpent: 'MX$18,500', avgOrderValue: 'MX$1,542', growth: 0 },
+			location: {
+				city: 'Mexico City',
+				state: 'CDMX',
+				country: 'Mexico',
+				region: 'Latin America',
+				timezone: 'CST',
+			},
+			metrics: {
+				orders: 12,
+				totalSpent: 'MX$18,500',
+				avgOrderValue: 'MX$1,542',
+				growth: 0,
+			},
 			preferredCurrency: 'MXN',
 			language: 'Spanish',
 			lastActive: '2d ago',

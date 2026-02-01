@@ -80,7 +80,8 @@ const RadialChartCard = ({
 							</ChartContainer>
 							<p className="text-sm font-medium mt-2">{item.name}</p>
 							<p className="text-xs text-muted-foreground">
-								${(item.value / 1000).toFixed(0)}k / ${(item.target / 1000).toFixed(0)}k
+								${(item.value / 1000).toFixed(0)}k / $
+								{(item.target / 1000).toFixed(0)}k
 							</p>
 						</div>
 					);
@@ -92,10 +93,30 @@ const RadialChartCard = ({
 
 export default function Main() {
 	const chartData: RadialDataPoint[] = [
-		{ name: 'Q1 Target', value: 85000, target: 100000, fill: 'oklch(0.70 0.18 155)' },
-		{ name: 'Q2 Target', value: 72000, target: 100000, fill: 'oklch(0.65 0.16 175)' },
-		{ name: 'Q3 Target', value: 95000, target: 100000, fill: 'oklch(0.62 0.14 200)' },
-		{ name: 'Q4 Target', value: 45000, target: 100000, fill: 'oklch(0.68 0.15 130)' },
+		{
+			name: 'Q1 Target',
+			value: 85000,
+			target: 100000,
+			fill: 'oklch(0.70 0.18 155)',
+		},
+		{
+			name: 'Q2 Target',
+			value: 72000,
+			target: 100000,
+			fill: 'oklch(0.65 0.16 175)',
+		},
+		{
+			name: 'Q3 Target',
+			value: 95000,
+			target: 100000,
+			fill: 'oklch(0.62 0.14 200)',
+		},
+		{
+			name: 'Q4 Target',
+			value: 45000,
+			target: 100000,
+			fill: 'oklch(0.68 0.15 130)',
+		},
 	];
 
 	const chartConfig: ChartConfig = {

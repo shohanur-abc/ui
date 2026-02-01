@@ -39,11 +39,36 @@ interface LoyaltyCustomer {
 }
 
 const TierConfig = {
-	bronze: { color: 'text-amber-700', bg: 'bg-amber-700/10', border: 'border-amber-700/20', icon: Award },
-	silver: { color: 'text-slate-400', bg: 'bg-slate-400/10', border: 'border-slate-400/20', icon: Award },
-	gold: { color: 'text-amber-500', bg: 'bg-amber-500/10', border: 'border-amber-500/20', icon: Trophy },
-	platinum: { color: 'text-violet-500', bg: 'bg-violet-500/10', border: 'border-violet-500/20', icon: Trophy },
-	diamond: { color: 'text-cyan-400', bg: 'bg-cyan-400/10', border: 'border-cyan-400/20', icon: Zap },
+	bronze: {
+		color: 'text-amber-700',
+		bg: 'bg-amber-700/10',
+		border: 'border-amber-700/20',
+		icon: Award,
+	},
+	silver: {
+		color: 'text-slate-400',
+		bg: 'bg-slate-400/10',
+		border: 'border-slate-400/20',
+		icon: Award,
+	},
+	gold: {
+		color: 'text-amber-500',
+		bg: 'bg-amber-500/10',
+		border: 'border-amber-500/20',
+		icon: Trophy,
+	},
+	platinum: {
+		color: 'text-violet-500',
+		bg: 'bg-violet-500/10',
+		border: 'border-violet-500/20',
+		icon: Trophy,
+	},
+	diamond: {
+		color: 'text-cyan-400',
+		bg: 'bg-cyan-400/10',
+		border: 'border-cyan-400/20',
+		icon: Zap,
+	},
 };
 
 const PageHeader = ({
@@ -74,7 +99,10 @@ const TierBadge = ({ tier }: { tier: LoyaltyCustomer['tier'] }) => {
 	const config = TierConfig[tier];
 	const Icon = config.icon;
 	return (
-		<Badge variant="outline" className={`${config.color} ${config.border} gap-1 capitalize`}>
+		<Badge
+			variant="outline"
+			className={`${config.color} ${config.border} gap-1 capitalize`}
+		>
 			<Icon className="size-3" />
 			{tier}
 		</Badge>
@@ -96,8 +124,12 @@ const PointsDisplay = ({
 	return (
 		<div className="space-y-2">
 			<div className="flex items-center justify-between text-sm">
-				<span className={`font-bold ${config.color}`}>{points.toLocaleString()} pts</span>
-				<span className="text-muted-foreground">{pointsToNext.toLocaleString()} to next</span>
+				<span className={`font-bold ${config.color}`}>
+					{points.toLocaleString()} pts
+				</span>
+				<span className="text-muted-foreground">
+					{pointsToNext.toLocaleString()} to next
+				</span>
 			</div>
 			<Progress value={progress} className="h-2" />
 		</div>
@@ -123,8 +155,12 @@ const StatItem = ({
 const LoyaltyCard = ({ customer }: { customer: LoyaltyCustomer }) => {
 	const config = TierConfig[customer.tier];
 	return (
-		<Card className={`group relative overflow-hidden transition-shadow hover:shadow-lg`}>
-			<div className={`absolute inset-x-0 top-0 h-1 ${config.bg.replace('/10', '')}`} />
+		<Card
+			className={`group relative overflow-hidden transition-shadow hover:shadow-lg`}
+		>
+			<div
+				className={`absolute inset-x-0 top-0 h-1 ${config.bg.replace('/10', '')}`}
+			/>
 			<CardHeader className="pb-3">
 				<div className="flex items-start justify-between">
 					<div className="flex items-center gap-3">
@@ -135,7 +171,9 @@ const LoyaltyCard = ({ customer }: { customer: LoyaltyCustomer }) => {
 									{customer.initials}
 								</AvatarFallback>
 							</Avatar>
-							<div className={`absolute -right-1 -bottom-1 rounded-full p-1 ${config.bg}`}>
+							<div
+								className={`absolute -right-1 -bottom-1 rounded-full p-1 ${config.bg}`}
+							>
 								{(() => {
 									const Icon = config.icon;
 									return <Icon className={`size-3 ${config.color}`} />;
@@ -149,7 +187,11 @@ const LoyaltyCard = ({ customer }: { customer: LoyaltyCustomer }) => {
 					</div>
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
-							<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100">
+							<Button
+								variant="ghost"
+								size="icon-sm"
+								className="opacity-0 group-hover:opacity-100"
+							>
 								<MoreHorizontal className="size-4" />
 							</Button>
 						</DropdownMenuTrigger>
@@ -178,9 +220,21 @@ const LoyaltyCard = ({ customer }: { customer: LoyaltyCustomer }) => {
 					tier={customer.tier}
 				/>
 				<div className="space-y-1.5 border-t pt-3">
-					<StatItem icon={Calendar} label="Member since" value={customer.memberSince} />
-					<StatItem icon={Gift} label="Redeemed" value={customer.totalRedeemed} />
-					<StatItem icon={TrendingUp} label="Last activity" value={customer.lastActivity} />
+					<StatItem
+						icon={Calendar}
+						label="Member since"
+						value={customer.memberSince}
+					/>
+					<StatItem
+						icon={Gift}
+						label="Redeemed"
+						value={customer.totalRedeemed}
+					/>
+					<StatItem
+						icon={TrendingUp}
+						label="Last activity"
+						value={customer.lastActivity}
+					/>
 				</div>
 			</CardContent>
 		</Card>

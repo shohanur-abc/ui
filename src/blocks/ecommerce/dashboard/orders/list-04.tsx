@@ -2,7 +2,15 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import { Calendar, DollarSign, ShoppingBag, TrendingUp, TrendingDown, ArrowUpRight, Filter } from 'lucide-react';
+import {
+	Calendar,
+	DollarSign,
+	ShoppingBag,
+	TrendingUp,
+	TrendingDown,
+	ArrowUpRight,
+	Filter,
+} from 'lucide-react';
 
 interface DailyOrder {
 	date: string;
@@ -21,12 +29,25 @@ interface DailyOrderRowProps {
 	labels: { orders: string; revenue: string; avg: string; topProduct: string };
 }
 
-const TrendIndicator = ({ trend, percent }: { trend: DailyOrder['trend']; percent: string }) => {
-	if (trend === 'neutral') return <span className="text-muted-foreground">—</span>;
+const TrendIndicator = ({
+	trend,
+	percent,
+}: {
+	trend: DailyOrder['trend'];
+	percent: string;
+}) => {
+	if (trend === 'neutral')
+		return <span className="text-muted-foreground">—</span>;
 	const isUp = trend === 'up';
 	return (
-		<span className={`flex items-center gap-1 text-sm ${isUp ? 'text-accent' : 'text-destructive'}`}>
-			{isUp ? <TrendingUp className="size-4" /> : <TrendingDown className="size-4" />}
+		<span
+			className={`flex items-center gap-1 text-sm ${isUp ? 'text-accent' : 'text-destructive'}`}
+		>
+			{isUp ? (
+				<TrendingUp className="size-4" />
+			) : (
+				<TrendingDown className="size-4" />
+			)}
 			{percent}
 		</span>
 	);
@@ -53,7 +74,9 @@ const DailyOrderRow = ({ day, maxOrders, labels }: DailyOrderRowProps) => (
 				</div>
 				<Separator orientation="vertical" className="h-4" />
 				<div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-					<span>{labels.avg}: {day.avgOrderValue}</span>
+					<span>
+						{labels.avg}: {day.avgOrderValue}
+					</span>
 				</div>
 			</div>
 			<Progress value={(day.orderCount / maxOrders) * 100} className="h-1.5" />
@@ -65,25 +88,88 @@ const DailyOrderRow = ({ day, maxOrders, labels }: DailyOrderRowProps) => (
 			{day.topProduct}
 		</Badge>
 
-		<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100 transition-opacity">
+		<Button
+			variant="ghost"
+			size="icon-sm"
+			className="opacity-0 group-hover:opacity-100 transition-opacity"
+		>
 			<ArrowUpRight className="size-4" />
 		</Button>
 	</div>
 );
 
 export default function Main() {
-	const labels = { orders: 'orders', revenue: 'Revenue', avg: 'Avg', topProduct: 'Top' };
+	const labels = {
+		orders: 'orders',
+		revenue: 'Revenue',
+		avg: 'Avg',
+		topProduct: 'Top',
+	};
 
 	const days: DailyOrder[] = [
-		{ date: 'Jan 30, 2024', dayName: 'Tuesday', orderCount: 156, revenue: '$12,450', avgOrderValue: '$79.81', trend: 'up', trendPercent: '+12%', topProduct: 'Wireless Headphones' },
-		{ date: 'Jan 29, 2024', dayName: 'Monday', orderCount: 142, revenue: '$10,820', avgOrderValue: '$76.20', trend: 'up', trendPercent: '+8%', topProduct: 'USB-C Hub' },
-		{ date: 'Jan 28, 2024', dayName: 'Sunday', orderCount: 98, revenue: '$7,350', avgOrderValue: '$75.00', trend: 'down', trendPercent: '-15%', topProduct: 'Phone Case' },
-		{ date: 'Jan 27, 2024', dayName: 'Saturday', orderCount: 187, revenue: '$15,230', avgOrderValue: '$81.44', trend: 'up', trendPercent: '+22%', topProduct: 'Smart Watch' },
-		{ date: 'Jan 26, 2024', dayName: 'Friday', orderCount: 165, revenue: '$13,120', avgOrderValue: '$79.52', trend: 'up', trendPercent: '+5%', topProduct: 'Laptop Stand' },
-		{ date: 'Jan 25, 2024', dayName: 'Thursday', orderCount: 128, revenue: '$9,850', avgOrderValue: '$76.95', trend: 'neutral', trendPercent: '0%', topProduct: 'Keyboard' },
+		{
+			date: 'Jan 30, 2024',
+			dayName: 'Tuesday',
+			orderCount: 156,
+			revenue: '$12,450',
+			avgOrderValue: '$79.81',
+			trend: 'up',
+			trendPercent: '+12%',
+			topProduct: 'Wireless Headphones',
+		},
+		{
+			date: 'Jan 29, 2024',
+			dayName: 'Monday',
+			orderCount: 142,
+			revenue: '$10,820',
+			avgOrderValue: '$76.20',
+			trend: 'up',
+			trendPercent: '+8%',
+			topProduct: 'USB-C Hub',
+		},
+		{
+			date: 'Jan 28, 2024',
+			dayName: 'Sunday',
+			orderCount: 98,
+			revenue: '$7,350',
+			avgOrderValue: '$75.00',
+			trend: 'down',
+			trendPercent: '-15%',
+			topProduct: 'Phone Case',
+		},
+		{
+			date: 'Jan 27, 2024',
+			dayName: 'Saturday',
+			orderCount: 187,
+			revenue: '$15,230',
+			avgOrderValue: '$81.44',
+			trend: 'up',
+			trendPercent: '+22%',
+			topProduct: 'Smart Watch',
+		},
+		{
+			date: 'Jan 26, 2024',
+			dayName: 'Friday',
+			orderCount: 165,
+			revenue: '$13,120',
+			avgOrderValue: '$79.52',
+			trend: 'up',
+			trendPercent: '+5%',
+			topProduct: 'Laptop Stand',
+		},
+		{
+			date: 'Jan 25, 2024',
+			dayName: 'Thursday',
+			orderCount: 128,
+			revenue: '$9,850',
+			avgOrderValue: '$76.95',
+			trend: 'neutral',
+			trendPercent: '0%',
+			topProduct: 'Keyboard',
+		},
 	];
 
-	const maxOrders = Math.max(...days.map(d => d.orderCount));
+	const maxOrders = Math.max(...days.map((d) => d.orderCount));
 
 	return (
 		<section className="@container" data-theme="orders">
@@ -95,7 +181,9 @@ export default function Main() {
 						</div>
 						<div>
 							<h2 className="text-lg font-semibold">Daily Orders</h2>
-							<p className="text-sm text-muted-foreground">Last 7 days overview</p>
+							<p className="text-sm text-muted-foreground">
+								Last 7 days overview
+							</p>
 						</div>
 					</div>
 					<Button variant="outline" size="sm" className="gap-1.5">
@@ -105,7 +193,12 @@ export default function Main() {
 				</div>
 				<div className="rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm divide-y divide-border/50">
 					{days.map((day) => (
-						<DailyOrderRow key={day.date} day={day} maxOrders={maxOrders} labels={labels} />
+						<DailyOrderRow
+							key={day.date}
+							day={day}
+							maxOrders={maxOrders}
+							labels={labels}
+						/>
 					))}
 				</div>
 			</div>

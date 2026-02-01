@@ -44,11 +44,7 @@ const Subscribers = ({ avatars, count }: SubscribersProps) => (
 
 const Form = ({ placeholder, buttonText }: FormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 w-full @xl:w-auto">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="h-10 @xl:w-56"
-		/>
+		<Input type="email" placeholder={placeholder} className="h-10 @xl:w-56" />
 		<Button className="gap-2 h-10">
 			<Mail className="size-4" />
 			{buttonText}

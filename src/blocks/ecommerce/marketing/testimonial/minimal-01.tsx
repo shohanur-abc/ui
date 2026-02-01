@@ -12,13 +12,7 @@ interface TestimonialItem {
 	rating: number;
 }
 
-const SectionHeader = ({
-	badge,
-	title,
-}: {
-	badge: string;
-	title: string;
-}) => (
+const SectionHeader = ({ badge, title }: { badge: string; title: string }) => (
 	<div className="text-center mb-12 @lg:mb-16">
 		<Badge variant="outline" className="mb-4 gap-2 border-primary/30">
 			<Minus className="size-3 text-primary" />
@@ -71,7 +65,8 @@ export default function Main() {
 			author: 'Paula Chen',
 			role: 'CEO',
 			company: 'SimpleCo',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'PC',
 			rating: 5,
 		},
@@ -80,7 +75,8 @@ export default function Main() {
 			author: 'Quinn Park',
 			role: 'Design Lead',
 			company: 'CleanUI',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'QP',
 			rating: 5,
 		},
@@ -89,7 +85,8 @@ export default function Main() {
 			author: 'Rachel Lee',
 			role: 'CTO',
 			company: 'JustWorks',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'RL',
 			rating: 5,
 		},

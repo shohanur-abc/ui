@@ -18,7 +18,9 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 	<div className="flex items-center gap-2">
 		<ShoppingBag className="size-5 text-primary" />
 		<h1 className="font-semibold">{title}</h1>
-		<Badge variant="secondary" className="text-xs">{count}</Badge>
+		<Badge variant="secondary" className="text-xs">
+			{count}
+		</Badge>
 	</div>
 );
 
@@ -47,12 +49,24 @@ const QuantityMini = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const ItemTotal = ({ price, quantity }: { price: number; quantity: number }) => (
-	<p className="text-sm font-medium w-14 text-right">${(price * quantity).toFixed(2)}</p>
+const ItemTotal = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => (
+	<p className="text-sm font-medium w-14 text-right">
+		${(price * quantity).toFixed(2)}
+	</p>
 );
 
 const RemoveBtn = () => (
-	<Button size="icon-sm" variant="ghost" className="size-5 text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="size-5 text-muted-foreground hover:text-destructive"
+	>
 		<X className="size-3" />
 	</Button>
 );
@@ -67,8 +81,18 @@ const CartItemRow = ({ item }: { item: CartItem }) => (
 	</div>
 );
 
-const SummaryLine = ({ label, value, bold }: { label: string; value: string; bold?: boolean }) => (
-	<div className={`flex justify-between text-sm ${bold ? 'font-semibold' : 'text-muted-foreground'}`}>
+const SummaryLine = ({
+	label,
+	value,
+	bold,
+}: {
+	label: string;
+	value: string;
+	bold?: boolean;
+}) => (
+	<div
+		className={`flex justify-between text-sm ${bold ? 'font-semibold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -93,7 +117,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80&h=80&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80&h=80&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver',
 			price: 149.99,
@@ -101,7 +126,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=80&h=80&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=80&h=80&fit=crop',
 			name: 'Earbuds Pro',
 			variant: 'White',
 			price: 199.99,
@@ -109,7 +135,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=80&h=80&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=80&h=80&fit=crop',
 			name: 'Silk Scarf',
 			variant: 'Navy',
 			price: 79.99,
@@ -137,7 +164,11 @@ export default function Main() {
 					<SummaryLine label="Shipping" value="Free" />
 					<SummaryLine label="Tax" value={`$${(subtotal * 0.08).toFixed(2)}`} />
 					<Separator className="my-2" />
-					<SummaryLine label="Total" value={`$${(subtotal * 1.08).toFixed(2)}`} bold />
+					<SummaryLine
+						label="Total"
+						value={`$${(subtotal * 1.08).toFixed(2)}`}
+						bold
+					/>
 				</div>
 
 				<div className="mt-4 space-y-2">

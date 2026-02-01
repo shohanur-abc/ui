@@ -1,7 +1,21 @@
 'use client';
 
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from 'recharts';
-import { ArrowUpRight, ArrowDownRight, Percent, DollarSign, ShoppingCart, Users } from 'lucide-react';
+import {
+	Area,
+	AreaChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	ResponsiveContainer,
+} from 'recharts';
+import {
+	ArrowUpRight,
+	ArrowDownRight,
+	Percent,
+	DollarSign,
+	ShoppingCart,
+	Users,
+} from 'lucide-react';
 
 import {
 	Card,
@@ -34,7 +48,13 @@ type MetricCompareProps = {
 	change: number;
 };
 
-const MetricCompare = ({ label, icon: Icon, promo, normal, change }: MetricCompareProps) => (
+const MetricCompare = ({
+	label,
+	icon: Icon,
+	promo,
+	normal,
+	change,
+}: MetricCompareProps) => (
 	<div className="rounded-lg border border-border/30 bg-muted/20 p-4">
 		<div className="flex items-center gap-2 text-muted-foreground">
 			<Icon className="size-4" />
@@ -53,8 +73,13 @@ const MetricCompare = ({ label, icon: Icon, promo, normal, change }: MetricCompa
 						: 'border-rose-500/20 bg-rose-500/10 text-rose-500'
 				}
 			>
-				{change >= 0 ? <ArrowUpRight className="mr-1 size-3" /> : <ArrowDownRight className="mr-1 size-3" />}
-				{change >= 0 ? '+' : ''}{change}%
+				{change >= 0 ? (
+					<ArrowUpRight className="mr-1 size-3" />
+				) : (
+					<ArrowDownRight className="mr-1 size-3" />
+				)}
+				{change >= 0 ? '+' : ''}
+				{change}%
 			</Badge>
 		</div>
 	</div>
@@ -73,10 +98,34 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const metrics: MetricCompareProps[] = [
-		{ label: 'Avg Order Value', icon: DollarSign, promo: '$168', normal: '$142', change: 18.3 },
-		{ label: 'Orders/Day', icon: ShoppingCart, promo: '845', normal: '420', change: 101.2 },
-		{ label: 'Conversion Rate', icon: Percent, promo: '5.8%', normal: '4.2%', change: 38.1 },
-		{ label: 'New Customers', icon: Users, promo: '1,245', normal: '580', change: 114.7 },
+		{
+			label: 'Avg Order Value',
+			icon: DollarSign,
+			promo: '$168',
+			normal: '$142',
+			change: 18.3,
+		},
+		{
+			label: 'Orders/Day',
+			icon: ShoppingCart,
+			promo: '845',
+			normal: '420',
+			change: 101.2,
+		},
+		{
+			label: 'Conversion Rate',
+			icon: Percent,
+			promo: '5.8%',
+			normal: '4.2%',
+			change: 38.1,
+		},
+		{
+			label: 'New Customers',
+			icon: Users,
+			promo: '1,245',
+			normal: '580',
+			change: 114.7,
+		},
 	];
 
 	const chartData: PromoData[] = [
@@ -114,8 +163,13 @@ export default function Main() {
 						</div>
 						<Card className="border-border/30 bg-muted/10">
 							<CardContent className="p-4">
-								<p className="mb-4 text-sm font-medium">Daily Revenue Comparison</p>
-								<ChartContainer config={chartConfig} className="h-[280px] w-full">
+								<p className="mb-4 text-sm font-medium">
+									Daily Revenue Comparison
+								</p>
+								<ChartContainer
+									config={chartConfig}
+									className="h-[280px] w-full"
+								>
 									<AreaChart data={chartData} margin={{ left: 12, right: 12 }}>
 										<CartesianGrid strokeDasharray="3 3" vertical={false} />
 										<XAxis dataKey="day" tickLine={false} axisLine={false} />

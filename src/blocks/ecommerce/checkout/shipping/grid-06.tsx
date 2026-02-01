@@ -1,7 +1,13 @@
 import { Package, Truck, Clock, Check, Info, AlertCircle } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
@@ -27,20 +33,31 @@ const ProductShippingCard = ({
 				</Avatar>
 				<div>
 					<h3 className="font-semibold">{product}</h3>
-					<p className="text-sm text-muted-foreground">Select shipping for this item</p>
+					<p className="text-sm text-muted-foreground">
+						Select shipping for this item
+					</p>
 				</div>
 			</div>
-			<RadioGroup defaultValue={selected} className="grid grid-cols-2 @sm:grid-cols-4 gap-2">
+			<RadioGroup
+				defaultValue={selected}
+				className="grid grid-cols-2 @sm:grid-cols-4 gap-2"
+			>
 				{options.map((opt) => (
 					<Label
 						key={opt.value}
 						htmlFor={`${product}-${opt.value}`}
 						className="flex flex-col items-center p-2 rounded-lg border cursor-pointer hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5 transition-all text-center"
 					>
-						<RadioGroupItem value={opt.value} id={`${product}-${opt.value}`} className="sr-only" />
+						<RadioGroupItem
+							value={opt.value}
+							id={`${product}-${opt.value}`}
+							className="sr-only"
+						/>
 						<span className="font-medium text-sm">{opt.name}</span>
 						<span className="text-xs text-muted-foreground">{opt.time}</span>
-						<span className="text-sm font-bold text-primary mt-1">{opt.price}</span>
+						<span className="text-sm font-bold text-primary mt-1">
+							{opt.price}
+						</span>
 					</Label>
 				))}
 			</RadioGroup>
@@ -71,7 +88,11 @@ const BundleOption = ({
 				${savings ? 'ring-2 ring-green-500/30' : ''}
 			`}
 		>
-			{savings && <Badge className="absolute -top-2.5 right-4 bg-green-600">Save {savings}</Badge>}
+			{savings && (
+				<Badge className="absolute -top-2.5 right-4 bg-green-600">
+					Save {savings}
+				</Badge>
+			)}
 			<CardContent className="p-4 relative">
 				<div className="flex items-start gap-3">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
@@ -89,7 +110,9 @@ const BundleOption = ({
 							))}
 						</div>
 						<div className="mt-3 pt-3 border-t flex items-center justify-between">
-							<span className="text-sm text-muted-foreground">Total shipping</span>
+							<span className="text-sm text-muted-foreground">
+								Total shipping
+							</span>
 							<span className="font-bold text-primary">{totalPrice}</span>
 						</div>
 					</div>
@@ -106,9 +129,19 @@ export default function Main() {
 			image: '/products/headphones.jpg',
 			selected: 'express',
 			options: [
-				{ value: 'standard', name: 'Standard', time: '5-7 days', price: '$3.99' },
+				{
+					value: 'standard',
+					name: 'Standard',
+					time: '5-7 days',
+					price: '$3.99',
+				},
 				{ value: 'express', name: 'Express', time: '2-3 days', price: '$7.99' },
-				{ value: 'overnight', name: 'Overnight', time: '1 day', price: '$14.99' },
+				{
+					value: 'overnight',
+					name: 'Overnight',
+					time: '1 day',
+					price: '$14.99',
+				},
 				{ value: 'pickup', name: 'Pickup', time: '2 hours', price: 'Free' },
 			],
 		},
@@ -117,9 +150,19 @@ export default function Main() {
 			image: '/products/watch.jpg',
 			selected: 'standard',
 			options: [
-				{ value: 'standard', name: 'Standard', time: '5-7 days', price: '$3.99' },
+				{
+					value: 'standard',
+					name: 'Standard',
+					time: '5-7 days',
+					price: '$3.99',
+				},
 				{ value: 'express', name: 'Express', time: '2-3 days', price: '$7.99' },
-				{ value: 'overnight', name: 'Overnight', time: '1 day', price: '$14.99' },
+				{
+					value: 'overnight',
+					name: 'Overnight',
+					time: '1 day',
+					price: '$14.99',
+				},
 				{ value: 'pickup', name: 'Pickup', time: '2 hours', price: 'Free' },
 			],
 		},
@@ -150,8 +193,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Shipping Options</h1>
-					<p className="text-muted-foreground">Choose shipping for each item or bundle</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Shipping Options
+					</h1>
+					<p className="text-muted-foreground">
+						Choose shipping for each item or bundle
+					</p>
 				</div>
 
 				<div className="space-y-4 mb-8">
@@ -163,10 +210,15 @@ export default function Main() {
 				<Card className="mb-6">
 					<CardHeader>
 						<CardTitle>Bundle Options</CardTitle>
-						<CardDescription>Ship items together to save on shipping</CardDescription>
+						<CardDescription>
+							Ship items together to save on shipping
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
-						<RadioGroup defaultValue="together" className="grid @md:grid-cols-2 gap-4">
+						<RadioGroup
+							defaultValue="together"
+							className="grid @md:grid-cols-2 gap-4"
+						>
 							{bundleOptions.map((option) => (
 								<BundleOption key={option.value} {...option} />
 							))}

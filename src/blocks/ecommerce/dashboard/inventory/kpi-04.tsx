@@ -1,12 +1,6 @@
 'use client';
 
-import {
-	Package,
-	DollarSign,
-	TrendingUp,
-	Boxes,
-	Target,
-} from 'lucide-react';
+import { Package, DollarSign, TrendingUp, Boxes, Target } from 'lucide-react';
 
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -24,7 +18,11 @@ type CircularProgressProps = {
 	strokeWidth: number;
 };
 
-const CircularProgress = ({ value, size, strokeWidth }: CircularProgressProps) => {
+const CircularProgress = ({
+	value,
+	size,
+	strokeWidth,
+}: CircularProgressProps) => {
 	const radius = (size - strokeWidth) / 2;
 	const circumference = radius * 2 * Math.PI;
 	const offset = circumference - (value / 100) * circumference;
@@ -78,7 +76,9 @@ const MetricCard = ({ item, targetLabel }: MetricCardProps) => (
 				<p className="mt-1 text-2xl font-bold">{item.value}</p>
 				<div className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
 					<Target className="size-3" />
-					<span>{targetLabel}: {item.target}</span>
+					<span>
+						{targetLabel}: {item.target}
+					</span>
 				</div>
 			</div>
 		</CardContent>

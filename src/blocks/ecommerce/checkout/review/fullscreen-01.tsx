@@ -79,9 +79,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -93,7 +97,8 @@ export default function Main() {
 			variant: 'Travel / 40L',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop',
 		},
 		{
 			id: '2',
@@ -101,7 +106,8 @@ export default function Main() {
 			variant: 'Set of 4',
 			price: 34.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1581888227599-779811939961?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1581888227599-779811939961?w=400&h=400&fit=crop',
 		},
 		{
 			id: '3',
@@ -109,7 +115,8 @@ export default function Main() {
 			variant: 'Memory Foam',
 			price: 29.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&h=400&fit=crop',
 		},
 		{
 			id: '4',
@@ -117,14 +124,18 @@ export default function Main() {
 			variant: 'Hanging / Black',
 			price: 24.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative min-h-screen overflow-hidden" data-theme="neon">
+		<section
+			className="@container relative min-h-screen overflow-hidden"
+			data-theme="neon"
+		>
 			<div className="absolute inset-0 bg-gradient-to-b from-muted/50 to-background" />
-			
+
 			<div className="relative mx-auto max-w-7xl px-4 py-12 @sm:px-6 @md:py-16 @xl:py-20">
 				<div className="mb-12 text-center">
 					<Badge className="mb-4 gap-1.5">
@@ -166,11 +177,7 @@ export default function Main() {
 								value="Express"
 								subValue="Dec 18-19"
 							/>
-							<InfoCard
-								icon={CreditCard}
-								title="Payment"
-								value="Apple Pay"
-							/>
+							<InfoCard icon={CreditCard} title="Payment" value="Apple Pay" />
 						</div>
 					</div>
 

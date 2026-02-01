@@ -3,7 +3,13 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -98,7 +104,9 @@ const PaymentBlock = ({
 	<div className="flex items-center gap-3 rounded-lg bg-muted/30 p-4">
 		<CreditCard className="size-5 text-primary" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 		<Check className="ml-auto size-5 text-green-500" />
@@ -116,9 +124,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -130,7 +142,8 @@ export default function Main() {
 			variant: 'Inflatable / Flamingo',
 			price: 34.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1560265036-021b3e6dc27e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1560265036-021b3e6dc27e?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -138,7 +151,8 @@ export default function Main() {
 			variant: 'Insulated / 30L',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -146,7 +160,8 @@ export default function Main() {
 			variant: 'Waterproof / Blue',
 			price: 79.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -207,7 +222,11 @@ export default function Main() {
 								</TabsContent>
 
 								<TabsContent value="delivery" className="mt-0">
-									<DeliveryBlock method="Standard" date="Dec 26-28, 2025" price="Free" />
+									<DeliveryBlock
+										method="Standard"
+										date="Dec 26-28, 2025"
+										price="Free"
+									/>
 								</TabsContent>
 
 								<TabsContent value="payment" className="mt-0">

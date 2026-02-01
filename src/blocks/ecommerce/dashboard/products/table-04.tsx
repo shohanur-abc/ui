@@ -65,7 +65,10 @@ const TabsFilter = ({ tabs, defaultValue }: TabsFilterProps) => (
 			{tabs.map((tab) => (
 				<TabsTrigger key={tab.value} value={tab.value} className="gap-2">
 					{tab.label}
-					<Badge variant="secondary" className="h-5 min-w-5 rounded-full text-xs">
+					<Badge
+						variant="secondary"
+						className="h-5 min-w-5 rounded-full text-xs"
+					>
 						{tab.count}
 					</Badge>
 				</TabsTrigger>
@@ -81,7 +84,12 @@ interface FiltersProps {
 	dateLabel: string;
 }
 
-const Filters = ({ searchPlaceholder, typeLabel, types, dateLabel }: FiltersProps) => (
+const Filters = ({
+	searchPlaceholder,
+	typeLabel,
+	types,
+	dateLabel,
+}: FiltersProps) => (
 	<div className="flex flex-wrap items-center gap-3">
 		<div className="relative flex-1 min-w-[200px]">
 			<Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -125,7 +133,10 @@ interface ProductTypeBadgeProps {
 }
 
 const ProductTypeBadge = ({ type, labels }: ProductTypeBadgeProps) => {
-	const variants: Record<'physical' | 'digital' | 'subscription', 'default' | 'secondary' | 'outline'> = {
+	const variants: Record<
+		'physical' | 'digital' | 'subscription',
+		'default' | 'secondary' | 'outline'
+	> = {
 		physical: 'default',
 		digital: 'secondary',
 		subscription: 'outline',
@@ -161,10 +172,19 @@ interface ProductRowProps {
 	product: Product;
 	selected: boolean;
 	onSelect: (id: string, checked: boolean) => void;
-	actions: { label: string; onClick: (id: string) => void; variant?: 'destructive' }[];
+	actions: {
+		label: string;
+		onClick: (id: string) => void;
+		variant?: 'destructive';
+	}[];
 }
 
-const ProductRow = ({ product, selected, onSelect, actions }: ProductRowProps) => (
+const ProductRow = ({
+	product,
+	selected,
+	onSelect,
+	actions,
+}: ProductRowProps) => (
 	<TableRow data-state={selected ? 'selected' : undefined}>
 		<TableCell>
 			<Checkbox
@@ -199,7 +219,11 @@ const ProductRow = ({ product, selected, onSelect, actions }: ProductRowProps) =
 		<TableCell>
 			<ProductTypeBadge
 				type={product.type}
-				labels={{ physical: 'Physical', digital: 'Digital', subscription: 'Subscription' }}
+				labels={{
+					physical: 'Physical',
+					digital: 'Digital',
+					subscription: 'Subscription',
+				}}
 			/>
 		</TableCell>
 		<TableCell>
@@ -246,7 +270,9 @@ const ProductRow = ({ product, selected, onSelect, actions }: ProductRowProps) =
 							{action.variant === 'destructive' && <DropdownMenuSeparator />}
 							<DropdownMenuItem
 								onClick={() => action.onClick(product.id)}
-								className={action.variant === 'destructive' ? 'text-destructive' : ''}
+								className={
+									action.variant === 'destructive' ? 'text-destructive' : ''
+								}
 							>
 								{action.label}
 							</DropdownMenuItem>
@@ -268,7 +294,7 @@ export default function Main() {
 			sku: 'SUB-CSP-001',
 			image: '',
 			price: 29.99,
-			cost: 8.00,
+			cost: 8.0,
 			stock: 0,
 			status: 'active',
 			lastUpdated: '2 hours ago',
@@ -278,9 +304,10 @@ export default function Main() {
 			id: '2',
 			name: 'E-Book: Marketing Mastery',
 			sku: 'DIG-EB-002',
-			image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=100&h=100&fit=crop',
 			price: 49.99,
-			cost: 5.00,
+			cost: 5.0,
 			stock: 0,
 			status: 'active',
 			lastUpdated: '1 day ago',
@@ -290,9 +317,10 @@ export default function Main() {
 			id: '3',
 			name: 'Wireless Charging Pad',
 			sku: 'PHY-WCP-003',
-			image: 'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=100&h=100&fit=crop',
 			price: 39.99,
-			cost: 18.50,
+			cost: 18.5,
 			stock: 156,
 			status: 'active',
 			lastUpdated: '3 days ago',
@@ -302,7 +330,8 @@ export default function Main() {
 			id: '4',
 			name: 'Premium Template Bundle',
 			sku: 'DIG-TB-004',
-			image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=100&h=100&fit=crop',
 			price: 99.99,
 			cost: 0,
 			stock: 0,
@@ -314,9 +343,10 @@ export default function Main() {
 			id: '5',
 			name: 'USB-C Hub 7-in-1',
 			sku: 'PHY-UCH-005',
-			image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop',
 			price: 59.99,
-			cost: 28.00,
+			cost: 28.0,
 			stock: 8,
 			status: 'active',
 			lastUpdated: '1 week ago',
@@ -341,8 +371,15 @@ export default function Main() {
 	const actions = [
 		{ label: 'View', onClick: (id: string) => console.log('View', id) },
 		{ label: 'Edit', onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Duplicate', onClick: (id: string) => console.log('Duplicate', id) },
-		{ label: 'Delete', onClick: (id: string) => console.log('Delete', id), variant: 'destructive' as const },
+		{
+			label: 'Duplicate',
+			onClick: (id: string) => console.log('Duplicate', id),
+		},
+		{
+			label: 'Delete',
+			onClick: (id: string) => console.log('Delete', id),
+			variant: 'destructive' as const,
+		},
 	];
 
 	const handleSelect = (id: string, checked: boolean) => {

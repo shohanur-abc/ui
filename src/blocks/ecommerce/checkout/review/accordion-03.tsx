@@ -8,7 +8,13 @@ import {
 } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -36,7 +42,12 @@ interface Product {
 const AccordionProduct = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-4 py-3">
 		<div className="relative size-16 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 			{product.eco && (
 				<div className="absolute bottom-0 right-0 rounded-tl bg-green-500 p-0.5">
 					<Leaf className="size-3 text-white" />
@@ -54,13 +65,7 @@ const AccordionProduct = ({ product }: { product: Product }) => (
 	</div>
 );
 
-const AddressDisplay = ({
-	name,
-	lines,
-}: {
-	name: string;
-	lines: string[];
-}) => (
+const AddressDisplay = ({ name, lines }: { name: string; lines: string[] }) => (
 	<div className="rounded-lg bg-muted/50 p-3">
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
@@ -83,13 +88,23 @@ const DeliveryDisplay = ({
 	eco?: boolean;
 }) => (
 	<div className="flex items-center gap-3 rounded-lg bg-muted/50 p-3">
-		<div className={`flex size-10 items-center justify-center rounded-full ${eco ? 'bg-green-500/10' : 'bg-primary/10'}`}>
-			{eco ? <Leaf className="size-5 text-green-500" /> : <Truck className="size-5 text-primary" />}
+		<div
+			className={`flex size-10 items-center justify-center rounded-full ${eco ? 'bg-green-500/10' : 'bg-primary/10'}`}
+		>
+			{eco ? (
+				<Leaf className="size-5 text-green-500" />
+			) : (
+				<Truck className="size-5 text-primary" />
+			)}
 		</div>
 		<div className="flex-1">
 			<div className="flex items-center gap-2">
 				<p className="font-medium">{method}</p>
-				{eco && <Badge variant="secondary" className="text-xs">Eco</Badge>}
+				{eco && (
+					<Badge variant="secondary" className="text-xs">
+						Eco
+					</Badge>
+				)}
 			</div>
 			<p className="text-sm text-muted-foreground">{date}</p>
 		</div>
@@ -109,7 +124,9 @@ const PaymentDisplay = ({
 	<div className="flex items-center gap-3 rounded-lg bg-muted/50 p-3">
 		<CreditCard className="size-5 text-primary" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -126,9 +143,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -140,7 +161,8 @@ export default function Main() {
 			variant: 'Natural / Large',
 			price: 59.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1544181093-c91c3b22c3c7?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1544181093-c91c3b22c3c7?w=200&h=200&fit=crop',
 			eco: true,
 		},
 		{
@@ -149,7 +171,8 @@ export default function Main() {
 			variant: 'A5 / 3-Pack',
 			price: 24.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=200&h=200&fit=crop',
 			eco: true,
 		},
 	];
@@ -171,12 +194,21 @@ export default function Main() {
 				</div>
 
 				<div className="grid gap-6 @lg:grid-cols-[1fr_340px]">
-					<Accordion type="multiple" defaultValue={['items', 'shipping', 'payment']} className="space-y-4">
-						<AccordionItem value="items" className="rounded-xl border bg-card px-4">
+					<Accordion
+						type="multiple"
+						defaultValue={['items', 'shipping', 'payment']}
+						className="space-y-4"
+					>
+						<AccordionItem
+							value="items"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<div className="flex items-center gap-3">
 									<Package className="size-5 text-primary" />
-									<span className="font-semibold">Items ({products.length})</span>
+									<span className="font-semibold">
+										Items ({products.length})
+									</span>
 									<CheckCircle2 className="size-4 text-green-500" />
 								</div>
 							</AccordionTrigger>
@@ -189,7 +221,10 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="shipping" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="shipping"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<div className="flex items-center gap-3">
 									<MapPin className="size-5 text-primary" />
@@ -213,7 +248,10 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="payment" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="payment"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<div className="flex items-center gap-3">
 									<CreditCard className="size-5 text-primary" />

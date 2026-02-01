@@ -178,11 +178,15 @@ const AlertCard = ({ alert }: { alert: StockAlert }) => (
 const AlertCounts = ({ counts }: { counts: StockAlertsProps['counts'] }) => (
 	<div className="grid grid-cols-3 gap-3">
 		<div className="flex flex-col items-center p-3 rounded-lg bg-rose-500/10 border border-rose-500/20">
-			<span className="text-2xl font-bold text-rose-400">{counts.critical}</span>
+			<span className="text-2xl font-bold text-rose-400">
+				{counts.critical}
+			</span>
 			<span className="text-xs text-muted-foreground">Critical</span>
 		</div>
 		<div className="flex flex-col items-center p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
-			<span className="text-2xl font-bold text-amber-400">{counts.warning}</span>
+			<span className="text-2xl font-bold text-amber-400">
+				{counts.warning}
+			</span>
 			<span className="text-xs text-muted-foreground">Warning</span>
 		</div>
 		<div className="flex flex-col items-center p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">

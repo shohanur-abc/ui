@@ -51,7 +51,13 @@ const StarRating = ({ rating }: { rating: number }) => (
 	</div>
 );
 
-const ThemeIcon = ({ icon: Icon, label }: { icon: React.ElementType; label: string }) => (
+const ThemeIcon = ({
+	icon: Icon,
+	label,
+}: {
+	icon: React.ElementType;
+	label: string;
+}) => (
 	<div className="flex items-center gap-2 mb-4">
 		<div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center">
 			<Icon className="size-5 text-primary" />
@@ -95,7 +101,8 @@ export default function Main() {
 			author: 'Zachary Nelson',
 			role: 'Product Lead',
 			company: 'LaunchFast',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'ZN',
 			rating: 5,
 			icon: Rocket,
@@ -107,7 +114,8 @@ export default function Main() {
 			author: 'Amber Collins',
 			role: 'Marketing VP',
 			company: 'TargetPro',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'AC',
 			rating: 5,
 			icon: Target,
@@ -119,7 +127,8 @@ export default function Main() {
 			author: 'Blake Thompson',
 			role: 'Innovation Director',
 			company: 'FutureTech',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'BT',
 			rating: 5,
 			icon: Lightbulb,
@@ -128,7 +137,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Success Themes"

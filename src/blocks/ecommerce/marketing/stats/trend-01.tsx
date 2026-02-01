@@ -20,7 +20,10 @@ const MiniChart = ({ data }: { data: number[] }) => {
 				<div
 					key={i}
 					className="w-2 rounded-t bg-primary/60 transition-all duration-300 hover:bg-primary"
-					style={{ height: `${((value - min) / range) * 100}%`, minHeight: '4px' }}
+					style={{
+						height: `${((value - min) / range) * 100}%`,
+						minHeight: '4px',
+					}}
 				/>
 			))}
 		</div>
@@ -38,7 +41,9 @@ const TrendStat = ({ label, current, trend, change }: TrendStatProps) => {
 				<div className="space-y-2">
 					<p className="text-sm text-muted-foreground">{label}</p>
 					<p className="text-2xl font-bold tracking-tight">{current}</p>
-					<div className={`flex items-center gap-1 text-sm ${isPositive ? 'text-accent' : isNeutral ? 'text-muted-foreground' : 'text-destructive'}`}>
+					<div
+						className={`flex items-center gap-1 text-sm ${isPositive ? 'text-accent' : isNeutral ? 'text-muted-foreground' : 'text-destructive'}`}
+					>
 						<TrendIcon className="size-4" />
 						<span>{Math.abs(change)}%</span>
 					</div>
@@ -51,10 +56,30 @@ const TrendStat = ({ label, current, trend, change }: TrendStatProps) => {
 
 export default function Main() {
 	const stats: TrendStatProps[] = [
-		{ label: 'Daily Revenue', current: '$48,294', trend: [32, 45, 38, 52, 48, 62, 58], change: 12.4 },
-		{ label: 'Orders', current: '847', trend: [42, 38, 45, 52, 48, 55, 62], change: 8.2 },
-		{ label: 'Visitors', current: '12.4K', trend: [85, 78, 82, 75, 72, 68, 65], change: -4.2 },
-		{ label: 'Conversion', current: '3.8%', trend: [3.2, 3.4, 3.5, 3.6, 3.7, 3.8, 3.8], change: 0 },
+		{
+			label: 'Daily Revenue',
+			current: '$48,294',
+			trend: [32, 45, 38, 52, 48, 62, 58],
+			change: 12.4,
+		},
+		{
+			label: 'Orders',
+			current: '847',
+			trend: [42, 38, 45, 52, 48, 55, 62],
+			change: 8.2,
+		},
+		{
+			label: 'Visitors',
+			current: '12.4K',
+			trend: [85, 78, 82, 75, 72, 68, 65],
+			change: -4.2,
+		},
+		{
+			label: 'Conversion',
+			current: '3.8%',
+			trend: [3.2, 3.4, 3.5, 3.6, 3.7, 3.8, 3.8],
+			change: 0,
+		},
 	];
 
 	return (

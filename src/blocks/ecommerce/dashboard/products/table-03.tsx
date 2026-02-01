@@ -66,7 +66,11 @@ interface SearchBarProps {
 	filterCount?: number;
 }
 
-const SearchBar = ({ placeholder, filtersLabel, filterCount }: SearchBarProps) => (
+const SearchBar = ({
+	placeholder,
+	filtersLabel,
+	filterCount,
+}: SearchBarProps) => (
 	<div className="flex items-center gap-2 border-b px-6 py-3">
 		<div className="relative flex-1">
 			<Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -297,7 +301,8 @@ export default function Main() {
 			id: '1',
 			name: 'Premium Noise-Canceling Headphones',
 			sku: 'AUD-NC-001',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
 			price: 349.99,
 			stock: 156,
 			rating: 4.8,
@@ -310,7 +315,8 @@ export default function Main() {
 			id: '2',
 			name: 'Wireless Earbuds Pro',
 			sku: 'AUD-WE-002',
-			image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=100&h=100&fit=crop',
 			price: 199.99,
 			stock: 89,
 			rating: 4.6,
@@ -323,7 +329,8 @@ export default function Main() {
 			id: '3',
 			name: 'Smart Home Speaker',
 			sku: 'HOM-SP-003',
-			image: 'https://images.unsplash.com/photo-1543512214-318c7553f230?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1543512214-318c7553f230?w=100&h=100&fit=crop',
 			price: 149.99,
 			stock: 15,
 			rating: 4.4,
@@ -336,7 +343,8 @@ export default function Main() {
 			id: '4',
 			name: 'Portable Bluetooth Speaker',
 			sku: 'AUD-BT-004',
-			image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100&h=100&fit=crop',
 			price: 79.99,
 			stock: 0,
 			rating: 4.2,
@@ -349,7 +357,8 @@ export default function Main() {
 			id: '5',
 			name: 'Studio Monitor Speakers',
 			sku: 'AUD-SM-005',
-			image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=100&h=100&fit=crop',
 			price: 599.99,
 			stock: 34,
 			rating: 4.9,
@@ -370,7 +379,14 @@ export default function Main() {
 		setSelectedIds(newSet);
 	};
 
-	const columns = ['Product', 'Category', 'Price', 'Stock', 'Rating', 'Actions'];
+	const columns = [
+		'Product',
+		'Category',
+		'Price',
+		'Stock',
+		'Rating',
+		'Actions',
+	];
 
 	return (
 		<section className="@container" data-theme="dashboard">

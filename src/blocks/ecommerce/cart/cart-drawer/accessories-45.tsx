@@ -83,7 +83,12 @@ const ItemRow = ({ item }: { item: CartItem }) => (
 const AccessoryCard = ({ accessory }: { accessory: AccessoryItem }) => (
 	<Card className="flex gap-3 p-3 hover:bg-muted/50 transition-colors cursor-pointer">
 		<div className="relative size-14 shrink-0 overflow-hidden rounded-lg bg-muted">
-			<Image src={accessory.image} alt={accessory.name} fill className="object-cover" />
+			<Image
+				src={accessory.image}
+				alt={accessory.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex flex-1 flex-col justify-between">
 			<div>
@@ -150,7 +155,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200&h=200&fit=crop',
 				name: 'iPhone 15 Pro',
 				price: 999.99,
 				quantity: 1,
@@ -159,21 +165,24 @@ export default function Main() {
 		accessories: [
 			{
 				id: 'a1',
-				image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
 				name: 'Clear MagSafe Case',
 				price: 49.99,
 				compatibility: 'iPhone 15 Pro',
 			},
 			{
 				id: 'a2',
-				image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
 				name: 'MagSafe Charger',
 				price: 39.99,
 				compatibility: 'iPhone 15 Pro',
 			},
 			{
 				id: 'a3',
-				image: 'https://images.unsplash.com/photo-1605464315542-bda3e2f4e605?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1605464315542-bda3e2f4e605?w=200&h=200&fit=crop',
 				name: 'Screen Protector',
 				price: 19.99,
 				compatibility: 'iPhone 15 Pro',
@@ -185,7 +194,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

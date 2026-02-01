@@ -31,11 +31,7 @@ interface CTAProps {
 	}[];
 }
 
-const EcoSuccessCard = ({
-	orderNumber,
-}: {
-	orderNumber: string;
-}) => (
+const EcoSuccessCard = ({ orderNumber }: { orderNumber: string }) => (
 	<Card className="border-emerald-200 dark:border-emerald-800/30 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-emerald-950/30 dark:via-green-950/20 dark:to-teal-950/20 overflow-hidden">
 		<div className="absolute top-0 right-0 size-48 bg-emerald-200/30 dark:bg-emerald-800/10 rounded-full -translate-y-1/2 translate-x-1/2" />
 		<CardContent className="pt-8 pb-6 text-center relative">
@@ -62,7 +58,9 @@ const ImpactMetricCard = ({
 }: ImpactMetricProps) => (
 	<Card>
 		<CardContent className="pt-6 text-center">
-			<div className={`size-12 rounded-full mx-auto mb-3 flex items-center justify-center ${color}`}>
+			<div
+				className={`size-12 rounded-full mx-auto mb-3 flex items-center justify-center ${color}`}
+			>
 				<Icon className="size-6" />
 			</div>
 			<p className="text-2xl font-bold">{value}</p>
@@ -94,21 +92,30 @@ const TotalImpactCard = ({
 					<span>Trees Planted</span>
 					<span className="font-semibold">{treesPlanted}</span>
 				</div>
-				<Progress value={treesPlanted * 10} className="h-2 bg-emerald-100 dark:bg-emerald-900/30" />
+				<Progress
+					value={treesPlanted * 10}
+					className="h-2 bg-emerald-100 dark:bg-emerald-900/30"
+				/>
 			</div>
 			<div className="space-y-2">
 				<div className="flex justify-between text-sm">
 					<span>Carbon Offset</span>
 					<span className="font-semibold">{carbonSaved} kg</span>
 				</div>
-				<Progress value={carbonSaved} className="h-2 bg-emerald-100 dark:bg-emerald-900/30" />
+				<Progress
+					value={carbonSaved}
+					className="h-2 bg-emerald-100 dark:bg-emerald-900/30"
+				/>
 			</div>
 			<div className="space-y-2">
 				<div className="flex justify-between text-sm">
 					<span>Plastic Avoided</span>
 					<span className="font-semibold">{plasticAvoided} kg</span>
 				</div>
-				<Progress value={plasticAvoided * 10} className="h-2 bg-emerald-100 dark:bg-emerald-900/30" />
+				<Progress
+					value={plasticAvoided * 10}
+					className="h-2 bg-emerald-100 dark:bg-emerald-900/30"
+				/>
 			</div>
 		</CardContent>
 	</Card>
@@ -208,18 +215,19 @@ export default function Main() {
 					))}
 				</div>
 
-				<TotalImpactCard
-					treesPlanted={7}
-					carbonSaved={45}
-					plasticAvoided={3}
-				/>
+				<TotalImpactCard treesPlanted={7} carbonSaved={45} plasticAvoided={3} />
 
 				<CertificationsCard />
 
 				<CTA
 					items={[
 						{ label: 'View Impact', href: '/impact', icon: Heart },
-						{ label: 'Track Order', href: '/track', variant: 'outline', icon: ArrowRight },
+						{
+							label: 'Track Order',
+							href: '/track',
+							variant: 'outline',
+							icon: ArrowRight,
+						},
 					]}
 				/>
 			</div>

@@ -4,10 +4,22 @@ import { Mail, Lock, ArrowRight, ShoppingCart, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -123,8 +135,18 @@ export default function Main() {
 					<CardContent>
 						<CartSummary items={cartItems} total="$189.97" />
 						<form className="space-y-4">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<SubmitButton label="Sign in & Checkout" icon={ArrowRight} />
 						</form>
 						<div className="mt-4">
@@ -132,7 +154,10 @@ export default function Main() {
 						</div>
 						<p className="text-sm text-muted-foreground text-center mt-6">
 							New customer?{' '}
-							<Link href="/signup" className="text-primary font-medium hover:underline">
+							<Link
+								href="/signup"
+								className="text-primary font-medium hover:underline"
+							>
 								Create account
 							</Link>
 						</p>

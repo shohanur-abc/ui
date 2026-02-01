@@ -28,7 +28,16 @@ type KpiCardProps = {
 };
 
 const KpiCard = ({ item }: KpiCardProps) => {
-	const { title, value, subValue, progress, change, trend, icon: Icon, color } = item;
+	const {
+		title,
+		value,
+		subValue,
+		progress,
+		change,
+		trend,
+		icon: Icon,
+		color,
+	} = item;
 
 	return (
 		<Card className="group overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">

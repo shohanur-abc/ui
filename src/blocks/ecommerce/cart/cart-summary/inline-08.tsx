@@ -24,7 +24,9 @@ const FreeGiftProgress = ({
 			<Icon className="size-5 text-amber-500" />
 			<div className="flex-1 space-y-1">
 				<div className="flex justify-between text-xs">
-					<span>${remaining.toFixed(2)} to {reward}</span>
+					<span>
+						${remaining.toFixed(2)} to {reward}
+					</span>
 					<span className="text-muted-foreground">{progress.toFixed(0)}%</span>
 				</div>
 				<Progress value={progress} className="h-1.5" />

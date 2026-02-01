@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Input } from '@/components/ui/input';
 import {
@@ -129,7 +135,11 @@ const ItemActions = ({
 			<Heart className="size-4" />
 			{saveLabel}
 		</Button>
-		<Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:text-destructive">
+		<Button
+			variant="ghost"
+			size="sm"
+			className="gap-1.5 text-muted-foreground hover:text-destructive"
+		>
 			<Trash2 className="size-4" />
 			{removeLabel}
 		</Button>
@@ -153,7 +163,10 @@ const CartItemCard = ({ item }: { item: CartItem }) => (
 						<StockStatus inStock={item.inStock} />
 					</div>
 					<div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t">
-						<ProductPricing price={item.price} originalPrice={item.originalPrice} />
+						<ProductPricing
+							price={item.price}
+							originalPrice={item.originalPrice}
+						/>
 						<div className="flex items-center gap-4">
 							<QuantityControl quantity={item.quantity} />
 							<p className="text-lg font-bold w-24 text-right">
@@ -203,8 +216,12 @@ const PriceLine = ({
 	value: string;
 	variant?: 'default' | 'discount' | 'total';
 }) => (
-	<div className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}>
-		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>{label}</span>
+	<div
+		className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}
+	>
+		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span
 			className={
 				variant === 'total'
@@ -227,10 +244,17 @@ const OrderSummary = ({
 	features,
 }: {
 	title: string;
-	lines: { label: string; value: string; variant?: 'default' | 'discount' | 'total' }[];
+	lines: {
+		label: string;
+		value: string;
+		variant?: 'default' | 'discount' | 'total';
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
-	features: { icon: React.ComponentType<{ className?: string }>; text: string }[];
+	features: {
+		icon: React.ComponentType<{ className?: string }>;
+		text: string;
+	}[];
 }) => (
 	<Card className="sticky top-4">
 		<CardHeader>
@@ -268,9 +292,11 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
 			name: 'Premium Wireless Headphones',
-			description: 'High-fidelity audio with active noise cancellation and 30-hour battery life.',
+			description:
+				'High-fidelity audio with active noise cancellation and 30-hour battery life.',
 			variant: 'Midnight Black',
 			sku: 'WH-1000XM5',
 			price: 299.99,
@@ -281,9 +307,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=300&h=300&fit=crop',
 			name: 'Smart Fitness Watch',
-			description: 'Track your health metrics with precision. Water resistant to 50m.',
+			description:
+				'Track your health metrics with precision. Water resistant to 50m.',
 			variant: 'Silver • 44mm',
 			sku: 'FW-PRO-44',
 			price: 399.99,
@@ -294,14 +322,25 @@ export default function Main() {
 	];
 
 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
-	const savings = items.reduce((sum, i) => sum + ((i.originalPrice || i.price) - i.price) * i.quantity, 0);
+	const savings = items.reduce(
+		(sum, i) => sum + ((i.originalPrice || i.price) - i.price) * i.quantity,
+		0,
+	);
 
 	const summaryLines = [
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
-		{ label: 'You Save', value: `-$${savings.toFixed(2)}`, variant: 'discount' as const },
+		{
+			label: 'You Save',
+			value: `-$${savings.toFixed(2)}`,
+			variant: 'discount' as const,
+		},
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax', value: `$${(subtotal * 0.08).toFixed(2)}` },
-		{ label: 'Total', value: `$${(subtotal * 1.08).toFixed(2)}`, variant: 'total' as const },
+		{
+			label: 'Total',
+			value: `$${(subtotal * 1.08).toFixed(2)}`,
+			variant: 'total' as const,
+		},
 	];
 
 	const features = [

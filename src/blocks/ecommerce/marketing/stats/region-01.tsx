@@ -28,7 +28,13 @@ const Header = ({ title, subtitle }: HeaderProps) => (
 	</div>
 );
 
-const RegionStat = ({ region, revenue, orders, percentage, flag }: RegionStatProps) => (
+const RegionStat = ({
+	region,
+	revenue,
+	orders,
+	percentage,
+	flag,
+}: RegionStatProps) => (
 	<div className="group flex items-center gap-4 rounded-lg p-4 transition-colors hover:bg-secondary/50">
 		<div className="flex size-10 items-center justify-center rounded-full bg-secondary text-lg">
 			{flag}
@@ -51,11 +57,41 @@ export default function Main() {
 	};
 
 	const stats: RegionStatProps[] = [
-		{ region: 'North America', revenue: '$847K', orders: '12,847', percentage: 42, flag: '🇺🇸' },
-		{ region: 'Europe', revenue: '$524K', orders: '8,294', percentage: 26, flag: '🇪🇺' },
-		{ region: 'Asia Pacific', revenue: '$384K', orders: '6,847', percentage: 19, flag: '🇯🇵' },
-		{ region: 'Latin America', revenue: '$168K', orders: '2,847', percentage: 8, flag: '🇧🇷' },
-		{ region: 'Rest of World', revenue: '$102K', orders: '1,847', percentage: 5, flag: '🌍' },
+		{
+			region: 'North America',
+			revenue: '$847K',
+			orders: '12,847',
+			percentage: 42,
+			flag: '🇺🇸',
+		},
+		{
+			region: 'Europe',
+			revenue: '$524K',
+			orders: '8,294',
+			percentage: 26,
+			flag: '🇪🇺',
+		},
+		{
+			region: 'Asia Pacific',
+			revenue: '$384K',
+			orders: '6,847',
+			percentage: 19,
+			flag: '🇯🇵',
+		},
+		{
+			region: 'Latin America',
+			revenue: '$168K',
+			orders: '2,847',
+			percentage: 8,
+			flag: '🇧🇷',
+		},
+		{
+			region: 'Rest of World',
+			revenue: '$102K',
+			orders: '1,847',
+			percentage: 5,
+			flag: '🌍',
+		},
 	];
 
 	return (

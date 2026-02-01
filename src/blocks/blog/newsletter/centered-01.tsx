@@ -36,8 +36,7 @@ const Eyebrow = ({ icon: Icon, text }: EyebrowProps) => (
 
 const Title = ({ text, highlight }: TitleProps) => (
 	<h2 className="text-3xl @sm:text-4xl @lg:text-5xl font-bold tracking-tight">
-		{text}{' '}
-		{highlight && <span className="text-primary">{highlight}</span>}
+		{text} {highlight && <span className="text-primary">{highlight}</span>}
 	</h2>
 );
 
@@ -47,13 +46,13 @@ const Description = ({ text }: DescriptionProps) => (
 	</p>
 );
 
-const NewsletterForm = ({ placeholder, buttonText, buttonIcon: Icon }: NewsletterFormProps) => (
+const NewsletterForm = ({
+	placeholder,
+	buttonText,
+	buttonIcon: Icon,
+}: NewsletterFormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 max-w-md mx-auto w-full">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="flex-1 h-11"
-		/>
+		<Input type="email" placeholder={placeholder} className="flex-1 h-11" />
 		<Button size="lg" className="gap-2 h-11">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}

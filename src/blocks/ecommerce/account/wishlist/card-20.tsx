@@ -33,7 +33,11 @@ interface CardGridProps {
 const RelatedProducts = ({ items }: { items: RelatedItem[] }) => (
 	<Collapsible>
 		<CollapsibleTrigger asChild>
-			<Button variant="ghost" size="sm" className="w-full justify-between text-xs">
+			<Button
+				variant="ghost"
+				size="sm"
+				className="w-full justify-between text-xs"
+			>
 				<span className="flex items-center gap-1">
 					<Layers className="size-3" />
 					{items.length} Related Items
@@ -43,11 +47,20 @@ const RelatedProducts = ({ items }: { items: RelatedItem[] }) => (
 		</CollapsibleTrigger>
 		<CollapsibleContent className="mt-2 space-y-2">
 			{items.map((item, i) => (
-				<div key={i} className="flex items-center gap-2 p-2 rounded-lg bg-muted/50">
-					<img src={item.image} alt={item.name} className="size-10 rounded object-cover" />
+				<div
+					key={i}
+					className="flex items-center gap-2 p-2 rounded-lg bg-muted/50"
+				>
+					<img
+						src={item.image}
+						alt={item.name}
+						className="size-10 rounded object-cover"
+					/>
 					<div className="flex-1 min-w-0">
 						<p className="text-xs font-medium truncate">{item.name}</p>
-						<p className="text-xs text-muted-foreground">${item.price.toFixed(2)}</p>
+						<p className="text-xs text-muted-foreground">
+							${item.price.toFixed(2)}
+						</p>
 					</div>
 					<Button size="sm" variant="ghost" className="size-7 p-0">
 						<Heart className="size-3" />
@@ -96,7 +109,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 					{item.name}
 				</h3>
 			</Link>
-			<p className="text-sm text-muted-foreground line-clamp-2 mt-1">{item.description}</p>
+			<p className="text-sm text-muted-foreground line-clamp-2 mt-1">
+				{item.description}
+			</p>
 			<p className="text-xl font-bold mt-3">${item.price.toFixed(2)}</p>
 		</CardContent>
 		{item.relatedItems.length > 0 && (
@@ -126,9 +141,59 @@ const CardGrid = ({ items }: CardGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Professional Drawing Tablet', price: 399.00, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop', description: '15.6-inch display with pressure-sensitive stylus for digital art and design', relatedItems: [{ name: 'Drawing Glove', price: 12.99, image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=100&h=100&fit=crop' }, { name: 'Pen Nibs Set', price: 24.99, image: 'https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=100&h=100&fit=crop' }], href: '/product/1' },
-		{ id: '2', name: 'Wireless Art Pen Display', price: 599.00, image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop', description: 'Bluetooth-enabled pen display with 4K resolution and tilt recognition', relatedItems: [{ name: 'Tablet Stand', price: 49.99, image: 'https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=100&h=100&fit=crop' }], href: '/product/2' },
-		{ id: '3', name: 'Digital Stylus Pro', price: 129.00, image: 'https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=400&h=300&fit=crop', description: 'Universal stylus compatible with most tablets and touchscreens', relatedItems: [], href: '/product/3' },
+		{
+			id: '1',
+			name: 'Professional Drawing Tablet',
+			price: 399.0,
+			image:
+				'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop',
+			description:
+				'15.6-inch display with pressure-sensitive stylus for digital art and design',
+			relatedItems: [
+				{
+					name: 'Drawing Glove',
+					price: 12.99,
+					image:
+						'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=100&h=100&fit=crop',
+				},
+				{
+					name: 'Pen Nibs Set',
+					price: 24.99,
+					image:
+						'https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=100&h=100&fit=crop',
+				},
+			],
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Wireless Art Pen Display',
+			price: 599.0,
+			image:
+				'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',
+			description:
+				'Bluetooth-enabled pen display with 4K resolution and tilt recognition',
+			relatedItems: [
+				{
+					name: 'Tablet Stand',
+					price: 49.99,
+					image:
+						'https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=100&h=100&fit=crop',
+				},
+			],
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Digital Stylus Pro',
+			price: 129.0,
+			image:
+				'https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=400&h=300&fit=crop',
+			description:
+				'Universal stylus compatible with most tablets and touchscreens',
+			relatedItems: [],
+			href: '/product/3',
+		},
 	];
 
 	return (
@@ -136,7 +201,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<div className="mb-6 @md:mb-8">
 					<h1 className="text-2xl @md:text-3xl font-bold">Wishlist</h1>
-					<p className="text-muted-foreground mt-1">Products with related accessories</p>
+					<p className="text-muted-foreground mt-1">
+						Products with related accessories
+					</p>
 				</div>
 				<CardGrid items={wishlistItems} />
 			</div>

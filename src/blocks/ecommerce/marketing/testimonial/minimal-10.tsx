@@ -13,31 +13,36 @@ export default function Main() {
 		{
 			quote: 'Perfect.',
 			author: 'Rachel Chen',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'RC',
 		},
 		{
 			quote: 'Outstanding.',
 			author: 'Sam Park',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'SP',
 		},
 		{
 			quote: 'Incredible.',
 			author: 'Tina Lee',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'TL',
 		},
 		{
 			quote: 'Essential.',
 			author: 'Uma Kim',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'UK',
 		},
 		{
 			quote: 'Amazing.',
 			author: 'Victor Foster',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'VF',
 		},
 	];
@@ -55,7 +60,9 @@ export default function Main() {
 								</AvatarFallback>
 							</Avatar>
 							<div>
-								<p className="text-sm font-medium text-foreground">"{item.quote}"</p>
+								<p className="text-sm font-medium text-foreground">
+									"{item.quote}"
+								</p>
 								<p className="text-xs text-muted-foreground">{item.author}</p>
 							</div>
 						</div>

@@ -1,19 +1,19 @@
 /* Sales Dashboard Theme - Dark futuristic with emerald/green neon glow accents for revenue focus */
 [data-theme="sales"] {
-	--background: oklch(0.10 0.012 155);
+	--background: oklch(0.1 0.012 155);
 	--foreground: oklch(0.97 0.005 155);
 
-	--primary: oklch(0.70 0.18 155);
-	--primary-foreground: oklch(0.10 0.012 155);
+	--primary: oklch(0.7 0.18 155);
+	--primary-foreground: oklch(0.1 0.012 155);
 
 	--secondary: oklch(0.18 0.022 155);
 	--secondary-foreground: oklch(0.95 0.005 155);
 
 	--muted: oklch(0.16 0.015 155);
-	--muted-foreground: oklch(0.60 0.012 155);
+	--muted-foreground: oklch(0.6 0.012 155);
 
 	--accent: oklch(0.65 0.16 175);
-	--accent-foreground: oklch(0.10 0.012 155);
+	--accent-foreground: oklch(0.1 0.012 155);
 
 	--card: oklch(0.13 0.015 155);
 	--card-foreground: oklch(0.97 0.005 155);
@@ -22,9 +22,9 @@
 
 	--border: oklch(0.22 0.025 155);
 	--input: oklch(0.18 0.022 155);
-	--ring: oklch(0.70 0.18 155);
+	--ring: oklch(0.7 0.18 155);
 
-	--chart-1: oklch(0.70 0.18 155);
+	--chart-1: oklch(0.7 0.18 155);
 	--chart-2: oklch(0.65 0.16 175);
 	--chart-3: oklch(0.62 0.14 200);
 	--chart-4: oklch(0.68 0.15 130);
@@ -35,7 +35,7 @@
 	--background: oklch(0.08 0.012 155);
 	--foreground: oklch(0.98 0.005 155);
 
-	--primary: oklch(0.74 0.20 152);
+	--primary: oklch(0.74 0.2 152);
 	--primary-foreground: oklch(0.08 0.012 155);
 
 	--secondary: oklch(0.15 0.022 155);
@@ -50,9 +50,9 @@
 	--card: oklch(0.11 0.015 155);
 	--card-foreground: oklch(0.98 0.005 155);
 
-	--destructive: oklch(0.60 0.24 25);
+	--destructive: oklch(0.6 0.24 25);
 
-	--border: oklch(0.20 0.025 155);
+	--border: oklch(0.2 0.025 155);
 	--input: oklch(0.15 0.022 155);
-	--ring: oklch(0.74 0.20 152);
+	--ring: oklch(0.74 0.2 152);
 }

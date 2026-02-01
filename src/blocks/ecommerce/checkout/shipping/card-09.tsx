@@ -1,4 +1,12 @@
-import { Box, Truck, Clock, MapPin, Phone, ChevronRight, User } from 'lucide-react';
+import {
+	Box,
+	Truck,
+	Clock,
+	MapPin,
+	Phone,
+	ChevronRight,
+	User,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -38,13 +46,7 @@ const ConfirmationCard = ({
 	</Card>
 );
 
-const DetailRow = ({
-	label,
-	value,
-}: {
-	label: string;
-	value: string;
-}) => (
+const DetailRow = ({ label, value }: { label: string; value: string }) => (
 	<div className="flex justify-between py-2">
 		<span className="text-muted-foreground">{label}</span>
 		<span className="font-medium text-right">{value}</span>
@@ -68,7 +70,11 @@ const DeliveryTimeline = ({
 					{i + 1}
 				</div>
 				<div className="flex-1">
-					<p className={step.completed ? 'font-medium' : 'text-muted-foreground'}>{step.label}</p>
+					<p
+						className={step.completed ? 'font-medium' : 'text-muted-foreground'}
+					>
+						{step.label}
+					</p>
 					<p className="text-sm text-muted-foreground">{step.date}</p>
 				</div>
 			</div>
@@ -103,9 +109,15 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<Badge variant="outline" className="mb-4">Step 2 of 4</Badge>
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Review Shipping Details</h1>
-					<p className="text-muted-foreground">Confirm your delivery information before proceeding</p>
+					<Badge variant="outline" className="mb-4">
+						Step 2 of 4
+					</Badge>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Review Shipping Details
+					</h1>
+					<p className="text-muted-foreground">
+						Confirm your delivery information before proceeding
+					</p>
 				</div>
 
 				<div className="grid @lg:grid-cols-2 gap-6">
@@ -142,7 +154,9 @@ export default function Main() {
 							<div className="flex items-center justify-between">
 								<div>
 									<p className="font-medium">Express Delivery</p>
-									<p className="text-sm text-muted-foreground">2-3 business days</p>
+									<p className="text-sm text-muted-foreground">
+										2-3 business days
+									</p>
 								</div>
 								<span className="font-bold text-primary">$12.99</span>
 							</div>
@@ -179,7 +193,9 @@ export default function Main() {
 				<Separator className="my-8" />
 
 				<div className="flex flex-col @sm:flex-row gap-3">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1 gap-2">
 						Continue to Payment
 						<ChevronRight className="size-4" />

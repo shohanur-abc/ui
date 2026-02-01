@@ -42,7 +42,9 @@ const CarrierCard = ({
 						<RadioGroupItem value={value} id={value} />
 						<Avatar className="rounded-lg size-12 bg-muted">
 							<AvatarImage src={logo} />
-							<AvatarFallback className="rounded-lg font-bold">{name.slice(0, 2)}</AvatarFallback>
+							<AvatarFallback className="rounded-lg font-bold">
+								{name.slice(0, 2)}
+							</AvatarFallback>
 						</Avatar>
 						<div>
 							<h3 className="font-semibold">{name}</h3>
@@ -71,7 +73,9 @@ const CarrierCard = ({
 
 				<div className="flex flex-wrap gap-1">
 					{badges.map((badge, i) => (
-						<Badge key={i} variant="secondary" className="text-xs font-normal">{badge}</Badge>
+						<Badge key={i} variant="secondary" className="text-xs font-normal">
+							{badge}
+						</Badge>
 					))}
 				</div>
 			</CardContent>
@@ -153,18 +157,33 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Choose Carrier</h1>
-					<p className="text-muted-foreground">Compare carriers by rating, speed, and price</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Choose Carrier
+					</h1>
+					<p className="text-muted-foreground">
+						Compare carriers by rating, speed, and price
+					</p>
 				</div>
 
 				<div className="flex flex-wrap justify-center gap-3 mb-8">
-					<Button variant="outline" size="sm">Best Rating</Button>
-					<Button variant="outline" size="sm">Lowest Price</Button>
-					<Button variant="outline" size="sm">Fastest</Button>
-					<Button variant="outline" size="sm">Most Reliable</Button>
+					<Button variant="outline" size="sm">
+						Best Rating
+					</Button>
+					<Button variant="outline" size="sm">
+						Lowest Price
+					</Button>
+					<Button variant="outline" size="sm">
+						Fastest
+					</Button>
+					<Button variant="outline" size="sm">
+						Most Reliable
+					</Button>
 				</div>
 
-				<RadioGroup defaultValue="fedex" className="grid @sm:grid-cols-2 @lg:grid-cols-3 gap-4">
+				<RadioGroup
+					defaultValue="fedex"
+					className="grid @sm:grid-cols-2 @lg:grid-cols-3 gap-4"
+				>
 					{carriers.map((carrier) => (
 						<CarrierCard key={carrier.value} {...carrier} />
 					))}

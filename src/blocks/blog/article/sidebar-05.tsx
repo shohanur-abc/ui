@@ -44,7 +44,13 @@ const Title = ({ text }: { text: string }) => (
 	</h1>
 );
 
-const PublishInfo = ({ date, readTime }: { date: string; readTime: string }) => (
+const PublishInfo = ({
+	date,
+	readTime,
+}: {
+	date: string;
+	readTime: string;
+}) => (
 	<div className="flex items-center gap-3 text-sm text-muted-foreground">
 		<span>{date}</span>
 		<span>·</span>
@@ -91,7 +97,11 @@ const AuthorSidebar = ({ author }: { author: AuthorProps }) => (
 	</Card>
 );
 
-const TableOfContents = ({ items }: { items: { id: string; title: string }[] }) => (
+const TableOfContents = ({
+	items,
+}: {
+	items: { id: string; title: string }[];
+}) => (
 	<Card className="sticky top-36 border-0 bg-muted/40">
 		<CardHeader className="pb-3">
 			<p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
@@ -106,7 +116,9 @@ const TableOfContents = ({ items }: { items: { id: string; title: string }[] }) 
 						href={`#${item.id}`}
 						className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1 border-l-2 border-transparent hover:border-primary pl-3 -ml-px"
 					>
-						<span className="text-xs text-muted-foreground/60 mr-2">{String(index + 1).padStart(2, '0')}</span>
+						<span className="text-xs text-muted-foreground/60 mr-2">
+							{String(index + 1).padStart(2, '0')}
+						</span>
 						{item.title}
 					</Link>
 				))}
@@ -146,7 +158,8 @@ export default function Main() {
 		readTime: '18 min read',
 		author: {
 			name: 'Dr. Emily Watson',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'EW',
 			role: 'AI Research Scientist',
 			twitter: 'https://twitter.com',
@@ -181,20 +194,30 @@ export default function Main() {
 						<div className="flex flex-col gap-4">
 							<TagList tags={articleData.tags} />
 							<Title text={articleData.title} />
-							<PublishInfo date={articleData.publishDate} readTime={articleData.readTime} />
+							<PublishInfo
+								date={articleData.publishDate}
+								readTime={articleData.readTime}
+							/>
 						</div>
 
 						<div className="@xl:hidden">
 							<div className="flex items-center gap-3">
 								<Avatar className="size-10">
-									<AvatarImage src={articleData.author.avatar} alt={articleData.author.name} />
+									<AvatarImage
+										src={articleData.author.avatar}
+										alt={articleData.author.name}
+									/>
 									<AvatarFallback className="bg-primary/10 text-primary text-sm">
 										{articleData.author.initials}
 									</AvatarFallback>
 								</Avatar>
 								<div>
-									<p className="font-medium text-sm">{articleData.author.name}</p>
-									<p className="text-xs text-muted-foreground">{articleData.author.role}</p>
+									<p className="font-medium text-sm">
+										{articleData.author.name}
+									</p>
+									<p className="text-xs text-muted-foreground">
+										{articleData.author.role}
+									</p>
 								</div>
 							</div>
 						</div>

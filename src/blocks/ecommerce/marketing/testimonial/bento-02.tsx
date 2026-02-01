@@ -61,7 +61,10 @@ const WideCard = ({ item }: { item: TestimonialItem }) => (
 					<div className="flex items-center gap-3 mb-4 flex-wrap">
 						<Quote className="size-8 text-primary/30" />
 						{item.metric && (
-							<MetricDisplay value={item.metric.value} label={item.metric.label} />
+							<MetricDisplay
+								value={item.metric.value}
+								label={item.metric.label}
+							/>
 						)}
 					</div>
 					<StarRating rating={item.rating} />
@@ -78,9 +81,7 @@ const WideCard = ({ item }: { item: TestimonialItem }) => (
 					</Avatar>
 					<div>
 						<p className="font-bold text-lg text-foreground">{item.author}</p>
-						<p className="text-muted-foreground">
-							{item.role}
-						</p>
+						<p className="text-muted-foreground">{item.role}</p>
 						<p className="text-sm text-muted-foreground">{item.company}</p>
 					</div>
 				</div>
@@ -94,7 +95,9 @@ const TallCard = ({ item }: { item: TestimonialItem }) => (
 		<CardContent className="p-6 flex flex-col h-full">
 			<Quote className="size-8 text-primary/20 mb-3" />
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed flex-1 mt-3 mb-5">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed flex-1 mt-3 mb-5">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -120,7 +123,8 @@ export default function Main() {
 		author: 'Laura Mitchell',
 		role: 'Chief Technology Officer',
 		company: 'TechScale Inc',
-		avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 		initials: 'LM',
 		rating: 5,
 		metric: { value: '+127%', label: 'productivity' },
@@ -128,32 +132,32 @@ export default function Main() {
 
 	const testimonials: TestimonialItem[] = [
 		{
-			quote:
-				'The best software purchase we made. Clean, fast, and reliable.',
+			quote: 'The best software purchase we made. Clean, fast, and reliable.',
 			author: 'Marcus Chen',
 			role: 'Developer',
 			company: 'CodePro',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'MC',
 			rating: 5,
 		},
 		{
-			quote:
-				'Incredible value. Features that competitors charge triple for.',
+			quote: 'Incredible value. Features that competitors charge triple for.',
 			author: 'Nancy Drew',
 			role: 'Founder',
 			company: 'StartupNow',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'ND',
 			rating: 5,
 		},
 		{
-			quote:
-				'Support team is world-class. Always available, always helpful.',
+			quote: 'Support team is world-class. Always available, always helpful.',
 			author: 'Oliver Park',
 			role: 'IT Director',
 			company: 'SupportFirst',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'OP',
 			rating: 5,
 		},
@@ -163,14 +167,18 @@ export default function Main() {
 			author: 'Patricia Adams',
 			role: 'Security Lead',
 			company: 'SecureNet',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'PA',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Bento Grid"

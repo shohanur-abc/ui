@@ -41,13 +41,21 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => (
 		)}
 		<div className="mb-6">
 			<h3 className="text-xl font-bold mb-1">{plan.name}</h3>
-			<p className={`text-sm ${plan.highlighted ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+			<p
+				className={`text-sm ${plan.highlighted ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}
+			>
 				{plan.description}
 			</p>
 		</div>
 		<div className="mb-8">
 			<span className="text-4xl @lg:text-5xl font-bold">{plan.price}</span>
-			<span className={plan.highlighted ? 'text-primary-foreground/80' : 'text-muted-foreground'}>
+			<span
+				className={
+					plan.highlighted
+						? 'text-primary-foreground/80'
+						: 'text-muted-foreground'
+				}
+			>
 				{plan.period}
 			</span>
 		</div>
@@ -63,13 +71,20 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => (
 			{plan.features.map((feature, i) => (
 				<li key={i} className="flex items-center gap-3">
 					{feature.included ? (
-						<Check className={`size-4 shrink-0 ${plan.highlighted ? 'text-primary-foreground' : 'text-primary'}`} />
+						<Check
+							className={`size-4 shrink-0 ${plan.highlighted ? 'text-primary-foreground' : 'text-primary'}`}
+						/>
 					) : (
-						<Minus className={`size-4 shrink-0 ${plan.highlighted ? 'text-primary-foreground/50' : 'text-muted-foreground'}`} />
+						<Minus
+							className={`size-4 shrink-0 ${plan.highlighted ? 'text-primary-foreground/50' : 'text-muted-foreground'}`}
+						/>
 					)}
 					<span
 						className={`text-sm ${
-							!feature.included && (plan.highlighted ? 'text-primary-foreground/50' : 'text-muted-foreground')
+							!feature.included &&
+							(plan.highlighted
+								? 'text-primary-foreground/50'
+								: 'text-muted-foreground')
 						}`}
 					>
 						{feature.text}

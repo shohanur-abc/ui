@@ -104,10 +104,7 @@ const TestimonialCard = ({
 const TimelineDecorative = ({ years }: { years: number }) => (
 	<div className="flex gap-1 mt-4">
 		{Array.from({ length: years }).map((_, i) => (
-			<div
-				key={i}
-				className="w-2 h-2 rounded-full bg-primary-foreground/60"
-			/>
+			<div key={i} className="w-2 h-2 rounded-full bg-primary-foreground/60" />
 		))}
 	</div>
 );

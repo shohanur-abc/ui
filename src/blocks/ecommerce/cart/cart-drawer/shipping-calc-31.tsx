@@ -12,7 +12,15 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Calculator, MapPin, Minus, Plus, ShoppingBag, Truck, X } from 'lucide-react';
+import {
+	Calculator,
+	MapPin,
+	Minus,
+	Plus,
+	ShoppingBag,
+	Truck,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -121,9 +129,11 @@ const ShippingQuotes = ({ quotes }: { quotes: ShippingQuote[] }) => (
 					}`}
 				>
 					<div className="flex items-center gap-3">
-						<div className={`size-4 rounded-full border-2 ${
-							index === 0 ? 'border-primary bg-primary' : 'border-border'
-						}`}>
+						<div
+							className={`size-4 rounded-full border-2 ${
+								index === 0 ? 'border-primary bg-primary' : 'border-border'
+							}`}
+						>
 							{index === 0 && (
 								<div className="size-full flex items-center justify-center">
 									<div className="size-1.5 rounded-full bg-white" />
@@ -131,7 +141,9 @@ const ShippingQuotes = ({ quotes }: { quotes: ShippingQuote[] }) => (
 							)}
 						</div>
 						<div>
-							<p className="text-sm font-medium">{quote.carrier} - {quote.service}</p>
+							<p className="text-sm font-medium">
+								{quote.carrier} - {quote.service}
+							</p>
 							<p className="text-xs text-muted-foreground">{quote.days}</p>
 						</div>
 					</div>
@@ -180,7 +192,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 				name: 'Premium Headphones',
 				price: 249.99,
 				weight: 0.8,
@@ -188,7 +201,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
 				name: 'Phone Stand',
 				price: 39.99,
 				weight: 0.3,
@@ -196,9 +210,24 @@ export default function Main() {
 			},
 		],
 		quotes: [
-			{ carrier: 'UPS', service: 'Ground', price: 9.99, days: '5-7 business days' },
-			{ carrier: 'FedEx', service: 'Express', price: 19.99, days: '2-3 business days' },
-			{ carrier: 'USPS', service: 'Priority', price: 14.99, days: '3-5 business days' },
+			{
+				carrier: 'UPS',
+				service: 'Ground',
+				price: 9.99,
+				days: '5-7 business days',
+			},
+			{
+				carrier: 'FedEx',
+				service: 'Express',
+				price: 19.99,
+				days: '2-3 business days',
+			},
+			{
+				carrier: 'USPS',
+				service: 'Priority',
+				price: 14.99,
+				days: '3-5 business days',
+			},
 		],
 	};
 
@@ -207,7 +236,10 @@ export default function Main() {
 		0,
 	);
 	const shipping = cartData.quotes[0]?.price || 0;
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

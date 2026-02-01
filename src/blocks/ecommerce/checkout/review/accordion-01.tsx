@@ -8,7 +8,13 @@ import {
 } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -46,14 +52,19 @@ const AccordionHeader = ({
 	<div className="flex items-center gap-3">
 		<div
 			className={`flex size-8 items-center justify-center rounded-full ${
-				isComplete ? 'bg-green-500/10 text-green-500' : 'bg-primary/10 text-primary'
+				isComplete
+					? 'bg-green-500/10 text-green-500'
+					: 'bg-primary/10 text-primary'
 			}`}
 		>
 			{isComplete ? <Check className="size-4" /> : <Icon className="size-4" />}
 		</div>
 		<span className="font-medium">{title}</span>
 		{isComplete && (
-			<Badge variant="outline" className="ml-auto mr-4 text-xs text-green-600 border-green-600/30">
+			<Badge
+				variant="outline"
+				className="ml-auto mr-4 text-xs text-green-600 border-green-600/30"
+			>
 				Verified
 			</Badge>
 		)}
@@ -115,7 +126,9 @@ const ShippingOption = ({
 		}`}
 	>
 		<div className="flex items-center gap-3">
-			<Truck className={`size-5 ${selected ? 'text-primary' : 'text-muted-foreground'}`} />
+			<Truck
+				className={`size-5 ${selected ? 'text-primary' : 'text-muted-foreground'}`}
+			/>
 			<div>
 				<p className="font-medium">{name}</p>
 				<p className="text-sm text-muted-foreground">{duration}</p>
@@ -142,7 +155,9 @@ const PaymentCard = ({
 			<CreditCard className="size-6 text-white" />
 		</div>
 		<div className="flex-1">
-			<p className="font-medium">{type} •••• {last4}</p>
+			<p className="font-medium">
+				{type} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {expiry}</p>
 		</div>
 		<Badge variant="secondary">Default</Badge>
@@ -155,7 +170,9 @@ const PromoCode = ({ code, discount }: { code: string; discount: string }) => (
 			<Percent className="size-4 text-green-600 dark:text-green-400" />
 			<span className="font-mono text-sm font-medium">{code}</span>
 		</div>
-		<span className="font-medium text-green-600 dark:text-green-400">{discount}</span>
+		<span className="font-medium text-green-600 dark:text-green-400">
+			{discount}
+		</span>
 	</div>
 );
 
@@ -168,7 +185,9 @@ const SummaryLine = ({
 	value: string;
 	isTotal?: boolean;
 }) => (
-	<div className={`flex justify-between ${isTotal ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${isTotal ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={isTotal ? '' : 'text-muted-foreground'}>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -182,7 +201,8 @@ export default function Main() {
 			variant: 'White',
 			price: 179.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -190,7 +210,8 @@ export default function Main() {
 			variant: 'Standard',
 			price: 49.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -215,9 +236,16 @@ export default function Main() {
 						defaultValue={['items', 'shipping', 'payment', 'promos']}
 						className="space-y-4"
 					>
-						<AccordionItem value="items" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="items"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
-								<AccordionHeader icon={Package} title="Order Items (2)" isComplete />
+								<AccordionHeader
+									icon={Package}
+									title="Order Items (2)"
+									isComplete
+								/>
 							</AccordionTrigger>
 							<AccordionContent className="space-y-3 pb-4">
 								{items.map((item) => (
@@ -226,7 +254,10 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="address" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="address"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<AccordionHeader icon={MapPin} title="Addresses" isComplete />
 							</AccordionTrigger>
@@ -248,9 +279,16 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="shipping" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="shipping"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
-								<AccordionHeader icon={Truck} title="Shipping Method" isComplete />
+								<AccordionHeader
+									icon={Truck}
+									title="Shipping Method"
+									isComplete
+								/>
 							</AccordionTrigger>
 							<AccordionContent className="space-y-3 pb-4">
 								<ShippingOption
@@ -266,7 +304,10 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="payment" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="payment"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<AccordionHeader icon={CreditCard} title="Payment" isComplete />
 							</AccordionTrigger>
@@ -275,7 +316,10 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="promos" className="rounded-xl border bg-card px-4">
+						<AccordionItem
+							value="promos"
+							className="rounded-xl border bg-card px-4"
+						>
 							<AccordionTrigger className="hover:no-underline">
 								<AccordionHeader icon={Percent} title="Promotions" isComplete />
 							</AccordionTrigger>

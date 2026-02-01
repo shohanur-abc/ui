@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	Check,
@@ -60,7 +66,11 @@ const TimelineStepComponent = ({
 								: 'border-muted-foreground/30 bg-muted text-muted-foreground'
 					}`}
 				>
-					{isComplete ? <Check className="size-5" /> : <Icon className="size-5" />}
+					{isComplete ? (
+						<Check className="size-5" />
+					) : (
+						<Icon className="size-5" />
+					)}
 				</div>
 				{!isLast && (
 					<div
@@ -76,7 +86,12 @@ const TimelineStepComponent = ({
 						<p className="text-sm text-muted-foreground">{step.description}</p>
 					</div>
 					{isComplete && onEdit && (
-						<Button variant="ghost" size="sm" className="gap-1.5" onClick={onEdit}>
+						<Button
+							variant="ghost"
+							size="sm"
+							className="gap-1.5"
+							onClick={onEdit}
+						>
 							<Edit className="size-3.5" />
 							Edit
 						</Button>
@@ -114,7 +129,9 @@ const AddressCard = ({
 	lines: string[];
 }) => (
 	<div className="rounded-lg border bg-card/50 p-4">
-		<p className="mb-2 text-xs font-medium uppercase text-muted-foreground">{label}</p>
+		<p className="mb-2 text-xs font-medium uppercase text-muted-foreground">
+			{label}
+		</p>
 		<p className="font-medium">{name}</p>
 		{lines.map((line, i) => (
 			<p key={i} className="text-sm text-muted-foreground">
@@ -159,7 +176,9 @@ const PaymentInfo = ({
 			<CreditCard className="size-5 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{type} •••• {last4}</p>
+			<p className="font-medium">
+				{type} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">{name}</p>
 		</div>
 	</div>
@@ -178,7 +197,9 @@ const SummaryRow = ({
 }) => (
 	<div className={`flex justify-between ${bold ? 'font-bold' : 'text-sm'}`}>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -190,7 +211,8 @@ export default function Main() {
 			details: 'Voice Control / Black',
 			price: 129.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -198,7 +220,8 @@ export default function Main() {
 			details: 'Wireless',
 			price: 39.99,
 			quantity: 2,
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -230,12 +253,20 @@ export default function Main() {
 					<AddressCard
 						label="Ship To"
 						name="Emily Watson"
-						lines={['555 Tech Park Dr', 'Building A, Floor 3', 'Denver, CO 80202']}
+						lines={[
+							'555 Tech Park Dr',
+							'Building A, Floor 3',
+							'Denver, CO 80202',
+						]}
 					/>
 					<AddressCard
 						label="Bill To"
 						name="Emily Watson"
-						lines={['555 Tech Park Dr', 'Building A, Floor 3', 'Denver, CO 80202']}
+						lines={[
+							'555 Tech Park Dr',
+							'Building A, Floor 3',
+							'Denver, CO 80202',
+						]}
 					/>
 				</div>
 			),

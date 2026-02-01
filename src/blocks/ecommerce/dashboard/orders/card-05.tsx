@@ -1,9 +1,24 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
-import { Package, CreditCard, MapPin, Mail, Phone, Printer, Download, RotateCcw } from 'lucide-react';
+import {
+	Package,
+	CreditCard,
+	MapPin,
+	Mail,
+	Phone,
+	Printer,
+	Download,
+	RotateCcw,
+} from 'lucide-react';
 
 interface OrderItem {
 	name: string;
@@ -56,7 +71,10 @@ interface PaymentStatusBadgeProps {
 }
 
 const PaymentStatusBadge = ({ status }: PaymentStatusBadgeProps) => {
-	const config: Record<typeof status, { variant: 'default' | 'secondary' | 'destructive'; label: string }> = {
+	const config: Record<
+		typeof status,
+		{ variant: 'default' | 'secondary' | 'destructive'; label: string }
+	> = {
 		paid: { variant: 'default', label: 'Paid' },
 		pending: { variant: 'secondary', label: 'Pending' },
 		overdue: { variant: 'destructive', label: 'Overdue' },
@@ -64,13 +82,23 @@ const PaymentStatusBadge = ({ status }: PaymentStatusBadgeProps) => {
 	return <Badge variant={config[status].variant}>{config[status].label}</Badge>;
 };
 
-const CustomerInfo = ({ customer, label }: { customer: OrderInvoiceCardProps['order']['customer']; label: string }) => (
+const CustomerInfo = ({
+	customer,
+	label,
+}: {
+	customer: OrderInvoiceCardProps['order']['customer'];
+	label: string;
+}) => (
 	<div>
-		<p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">{label}</p>
+		<p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">
+			{label}
+		</p>
 		<div className="flex items-start gap-3">
 			<Avatar className="size-10">
 				<AvatarImage src={customer.avatar} alt={customer.name} />
-				<AvatarFallback className="bg-primary/10 text-primary">{customer.initials}</AvatarFallback>
+				<AvatarFallback className="bg-primary/10 text-primary">
+					{customer.initials}
+				</AvatarFallback>
 			</Avatar>
 			<div className="space-y-1 text-sm">
 				<p className="font-medium">{customer.name}</p>
@@ -95,18 +123,32 @@ const InvoiceItemRow = ({ item }: { item: OrderItem }) => (
 	<div className="flex items-center gap-4 py-3">
 		<Avatar className="size-12 rounded-lg">
 			<AvatarImage src={item.image} alt={item.name} />
-			<AvatarFallback className="rounded-lg bg-muted text-xs">{item.name.substring(0, 2)}</AvatarFallback>
+			<AvatarFallback className="rounded-lg bg-muted text-xs">
+				{item.name.substring(0, 2)}
+			</AvatarFallback>
 		</Avatar>
 		<div className="flex-1">
 			<p className="font-medium">{item.name}</p>
-			<p className="text-xs text-muted-foreground">SKU: {item.sku} • Qty: {item.quantity}</p>
+			<p className="text-xs text-muted-foreground">
+				SKU: {item.sku} • Qty: {item.quantity}
+			</p>
 		</div>
 		<span className="font-semibold">{item.price}</span>
 	</div>
 );
 
-const TotalRow = ({ label, value, isTotal }: { label: string; value: string; isTotal?: boolean }) => (
-	<div className={`flex justify-between ${isTotal ? 'text-lg font-bold pt-2 border-t border-border' : 'text-sm'}`}>
+const TotalRow = ({
+	label,
+	value,
+	isTotal,
+}: {
+	label: string;
+	value: string;
+	isTotal?: boolean;
+}) => (
+	<div
+		className={`flex justify-between ${isTotal ? 'text-lg font-bold pt-2 border-t border-border' : 'text-sm'}`}
+	>
 		<span className={isTotal ? '' : 'text-muted-foreground'}>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -131,9 +173,11 @@ const OrderInvoiceCard = ({ order, labels }: OrderInvoiceCardProps) => (
 		</CardHeader>
 		<CardContent className="p-6 space-y-6">
 			<CustomerInfo customer={order.customer} label={labels.billTo} />
-			
+
 			<div>
-				<p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">{labels.items}</p>
+				<p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">
+					{labels.items}
+				</p>
 				<div className="divide-y divide-border/50">
 					{order.items.map((item, i) => (
 						<InvoiceItemRow key={i} item={item} />
@@ -205,8 +249,20 @@ export default function Main() {
 			initials: 'JS',
 		},
 		items: [
-			{ name: 'Wireless Headphones Pro', sku: 'WHP-001', quantity: 1, price: '$199.00', image: '' },
-			{ name: 'USB-C Charging Cable', sku: 'UCC-002', quantity: 2, price: '$29.98', image: '' },
+			{
+				name: 'Wireless Headphones Pro',
+				sku: 'WHP-001',
+				quantity: 1,
+				price: '$199.00',
+				image: '',
+			},
+			{
+				name: 'USB-C Charging Cable',
+				sku: 'UCC-002',
+				quantity: 2,
+				price: '$29.98',
+				image: '',
+			},
 		],
 		subtotal: '$228.98',
 		tax: '$18.32',

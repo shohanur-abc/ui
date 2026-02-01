@@ -10,7 +10,13 @@ import {
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 
 type SupportTicket = {
 	id: string;
@@ -29,7 +35,10 @@ const getChannelConfig = (channel: SupportTicket['channel']) => {
 		case 'email':
 			return { icon: Mail, color: 'bg-blue-500/10 text-blue-500' };
 		case 'chat':
-			return { icon: MessageSquare, color: 'bg-emerald-500/10 text-emerald-500' };
+			return {
+				icon: MessageSquare,
+				color: 'bg-emerald-500/10 text-emerald-500',
+			};
 		case 'phone':
 			return { icon: Phone, color: 'bg-violet-500/10 text-violet-500' };
 	}
@@ -59,7 +68,16 @@ const getStatusStyle = (status: SupportTicket['status']) => {
 	}
 };
 
-const SupportTicketCard = ({ ticketId, customer, subject, message, channel, priority, status, time }: SupportTicket) => {
+const SupportTicketCard = ({
+	ticketId,
+	customer,
+	subject,
+	message,
+	channel,
+	priority,
+	status,
+	time,
+}: SupportTicket) => {
 	const channelConfig = getChannelConfig(channel);
 	const ChannelIcon = channelConfig.icon;
 
@@ -68,7 +86,9 @@ const SupportTicketCard = ({ ticketId, customer, subject, message, channel, prio
 			<div className="flex items-start justify-between gap-4">
 				<div className="flex items-center gap-3">
 					<Avatar className="size-10">
-						<AvatarFallback className="text-sm">{customer.initials}</AvatarFallback>
+						<AvatarFallback className="text-sm">
+							{customer.initials}
+						</AvatarFallback>
 					</Avatar>
 					<div>
 						<div className="flex items-center gap-2">
@@ -96,19 +116,19 @@ const SupportTicketCard = ({ ticketId, customer, subject, message, channel, prio
 					</div>
 					<p className="text-sm font-medium">{subject}</p>
 				</div>
-				<p className="mt-1 text-sm text-muted-foreground line-clamp-2">{message}</p>
+				<p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+					{message}
+				</p>
 			</div>
 			<div className="mt-3 flex items-center justify-between">
-				<span className="text-xs text-muted-foreground">{ticketId} • {time}</span>
+				<span className="text-xs text-muted-foreground">
+					{ticketId} • {time}
+				</span>
 				<div className="flex gap-2">
 					<Button size="sm" variant="outline">
 						View
 					</Button>
-					{status === 'open' && (
-						<Button size="sm">
-							Reply
-						</Button>
-					)}
+					{status === 'open' && <Button size="sm">Reply</Button>}
 				</div>
 			</div>
 		</div>
@@ -117,11 +137,82 @@ const SupportTicketCard = ({ ticketId, customer, subject, message, channel, prio
 
 export default function Main() {
 	const tickets: SupportTicket[] = [
-		{ id: '1', ticketId: 'TKT-4521', customer: { name: 'John Doe', initials: 'JD', email: 'john@example.com' }, subject: 'Order not received', message: 'I placed an order 5 days ago and it still hasnt arrived. The tracking shows it was delivered but I never received it.', channel: 'email', priority: 'urgent', status: 'open', time: '10m ago' },
-		{ id: '2', ticketId: 'TKT-4520', customer: { name: 'Jane Smith', initials: 'JS', email: 'jane@example.com' }, subject: 'Product quality issue', message: 'The headphones I received have a scratched surface. I would like a replacement or refund.', channel: 'chat', priority: 'high', status: 'open', time: '25m ago' },
-		{ id: '3', ticketId: 'TKT-4519', customer: { name: 'Bob Wilson', initials: 'BW', email: 'bob@example.com' }, subject: 'Return request', message: 'I want to return the keyboard I purchased last week. It doesnt fit my setup.', channel: 'email', priority: 'normal', status: 'pending', time: '1h ago' },
-		{ id: '4', ticketId: 'TKT-4518', customer: { name: 'Alice Brown', initials: 'AB', email: 'alice@example.com' }, subject: 'Billing inquiry', message: 'I was charged twice for my last order. Please help me resolve this issue.', channel: 'phone', priority: 'high', status: 'pending', time: '2h ago' },
-		{ id: '5', ticketId: 'TKT-4517', customer: { name: 'Mike Johnson', initials: 'MJ', email: 'mike@example.com' }, subject: 'Product inquiry', message: 'Can you tell me when the Smart Watch Ultra will be back in stock?', channel: 'chat', priority: 'low', status: 'resolved', time: '3h ago' },
+		{
+			id: '1',
+			ticketId: 'TKT-4521',
+			customer: { name: 'John Doe', initials: 'JD', email: 'john@example.com' },
+			subject: 'Order not received',
+			message:
+				'I placed an order 5 days ago and it still hasnt arrived. The tracking shows it was delivered but I never received it.',
+			channel: 'email',
+			priority: 'urgent',
+			status: 'open',
+			time: '10m ago',
+		},
+		{
+			id: '2',
+			ticketId: 'TKT-4520',
+			customer: {
+				name: 'Jane Smith',
+				initials: 'JS',
+				email: 'jane@example.com',
+			},
+			subject: 'Product quality issue',
+			message:
+				'The headphones I received have a scratched surface. I would like a replacement or refund.',
+			channel: 'chat',
+			priority: 'high',
+			status: 'open',
+			time: '25m ago',
+		},
+		{
+			id: '3',
+			ticketId: 'TKT-4519',
+			customer: {
+				name: 'Bob Wilson',
+				initials: 'BW',
+				email: 'bob@example.com',
+			},
+			subject: 'Return request',
+			message:
+				'I want to return the keyboard I purchased last week. It doesnt fit my setup.',
+			channel: 'email',
+			priority: 'normal',
+			status: 'pending',
+			time: '1h ago',
+		},
+		{
+			id: '4',
+			ticketId: 'TKT-4518',
+			customer: {
+				name: 'Alice Brown',
+				initials: 'AB',
+				email: 'alice@example.com',
+			},
+			subject: 'Billing inquiry',
+			message:
+				'I was charged twice for my last order. Please help me resolve this issue.',
+			channel: 'phone',
+			priority: 'high',
+			status: 'pending',
+			time: '2h ago',
+		},
+		{
+			id: '5',
+			ticketId: 'TKT-4517',
+			customer: {
+				name: 'Mike Johnson',
+				initials: 'MJ',
+				email: 'mike@example.com',
+			},
+			subject: 'Product inquiry',
+			message:
+				'Can you tell me when the Smart Watch Ultra will be back in stock?',
+			channel: 'chat',
+			priority: 'low',
+			status: 'resolved',
+			time: '3h ago',
+		},
 	];
 
 	const openCount = tickets.filter((t) => t.status === 'open').length;

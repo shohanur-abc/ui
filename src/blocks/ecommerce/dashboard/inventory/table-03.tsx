@@ -24,7 +24,13 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from '@/components/ui/collapsible';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 
 type WarehouseStock = {
 	warehouseId: string;
@@ -62,7 +68,10 @@ type StatusBadgeProps = {
 };
 
 const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
-	const variants: Record<'synced' | 'pending' | 'error', 'default' | 'secondary' | 'destructive'> = {
+	const variants: Record<
+		'synced' | 'pending' | 'error',
+		'default' | 'secondary' | 'destructive'
+	> = {
 		synced: 'default',
 		pending: 'secondary',
 		error: 'destructive',
@@ -84,8 +93,12 @@ const WarehouseRow = ({ warehouse }: WarehouseRowProps) => (
 			</div>
 		</TableCell>
 		<TableCell className="text-sm tabular-nums">{warehouse.quantity}</TableCell>
-		<TableCell className="text-sm tabular-nums text-muted-foreground">{warehouse.reserved}</TableCell>
-		<TableCell className="text-sm tabular-nums font-medium">{warehouse.available}</TableCell>
+		<TableCell className="text-sm tabular-nums text-muted-foreground">
+			{warehouse.reserved}
+		</TableCell>
+		<TableCell className="text-sm tabular-nums font-medium">
+			{warehouse.available}
+		</TableCell>
 		<TableCell />
 		<TableCell />
 	</TableRow>
@@ -99,10 +112,7 @@ type ExpandableRowProps = {
 	availableLabel: string;
 };
 
-const ExpandableRow = ({
-	item,
-	statusLabels,
-}: ExpandableRowProps) => {
+const ExpandableRow = ({ item, statusLabels }: ExpandableRowProps) => {
 	const [isOpen, setIsOpen] = React.useState(false);
 
 	return (
@@ -124,7 +134,11 @@ const ExpandableRow = ({
 						<div className="flex items-center gap-3">
 							<div className="relative size-10 overflow-hidden rounded-lg border bg-muted">
 								{item.image ? (
-									<img src={item.image} alt={item.name} className="size-full object-cover" />
+									<img
+										src={item.image}
+										alt={item.name}
+										className="size-full object-cover"
+									/>
 								) : (
 									<div className="flex size-full items-center justify-center">
 										<Package className="size-5 text-muted-foreground" />
@@ -137,7 +151,9 @@ const ExpandableRow = ({
 							</div>
 						</div>
 					</TableCell>
-					<TableCell className="font-semibold tabular-nums">{item.totalQuantity}</TableCell>
+					<TableCell className="font-semibold tabular-nums">
+						{item.totalQuantity}
+					</TableCell>
 					<TableCell>
 						<span className="text-sm text-muted-foreground">
 							{item.warehouses.length} locations
@@ -174,9 +190,27 @@ export default function Main() {
 			totalQuantity: 450,
 			status: 'synced',
 			warehouses: [
-				{ warehouseId: 'w1', warehouseName: 'Main Warehouse', quantity: 200, reserved: 25, available: 175 },
-				{ warehouseId: 'w2', warehouseName: 'East Distribution', quantity: 150, reserved: 10, available: 140 },
-				{ warehouseId: 'w3', warehouseName: 'West Fulfillment', quantity: 100, reserved: 15, available: 85 },
+				{
+					warehouseId: 'w1',
+					warehouseName: 'Main Warehouse',
+					quantity: 200,
+					reserved: 25,
+					available: 175,
+				},
+				{
+					warehouseId: 'w2',
+					warehouseName: 'East Distribution',
+					quantity: 150,
+					reserved: 10,
+					available: 140,
+				},
+				{
+					warehouseId: 'w3',
+					warehouseName: 'West Fulfillment',
+					quantity: 100,
+					reserved: 15,
+					available: 85,
+				},
 			],
 		},
 		{
@@ -187,8 +221,20 @@ export default function Main() {
 			totalQuantity: 180,
 			status: 'pending',
 			warehouses: [
-				{ warehouseId: 'w1', warehouseName: 'Main Warehouse', quantity: 80, reserved: 5, available: 75 },
-				{ warehouseId: 'w2', warehouseName: 'East Distribution', quantity: 100, reserved: 20, available: 80 },
+				{
+					warehouseId: 'w1',
+					warehouseName: 'Main Warehouse',
+					quantity: 80,
+					reserved: 5,
+					available: 75,
+				},
+				{
+					warehouseId: 'w2',
+					warehouseName: 'East Distribution',
+					quantity: 100,
+					reserved: 20,
+					available: 80,
+				},
 			],
 		},
 		{
@@ -199,7 +245,13 @@ export default function Main() {
 			totalQuantity: 0,
 			status: 'error',
 			warehouses: [
-				{ warehouseId: 'w1', warehouseName: 'Main Warehouse', quantity: 0, reserved: 0, available: 0 },
+				{
+					warehouseId: 'w1',
+					warehouseName: 'Main Warehouse',
+					quantity: 0,
+					reserved: 0,
+					available: 0,
+				},
 			],
 		},
 		{
@@ -210,8 +262,20 @@ export default function Main() {
 			totalQuantity: 65,
 			status: 'synced',
 			warehouses: [
-				{ warehouseId: 'w1', warehouseName: 'Main Warehouse', quantity: 35, reserved: 2, available: 33 },
-				{ warehouseId: 'w3', warehouseName: 'West Fulfillment', quantity: 30, reserved: 0, available: 30 },
+				{
+					warehouseId: 'w1',
+					warehouseName: 'Main Warehouse',
+					quantity: 35,
+					reserved: 2,
+					available: 33,
+				},
+				{
+					warehouseId: 'w3',
+					warehouseName: 'West Fulfillment',
+					quantity: 30,
+					reserved: 0,
+					available: 30,
+				},
 			],
 		},
 	];

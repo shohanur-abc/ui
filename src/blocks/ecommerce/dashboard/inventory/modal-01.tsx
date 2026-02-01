@@ -98,7 +98,13 @@ const ProductSheet = ({ product, open, onOpenChange }: ProductSheetProps) => {
 						<div className="flex items-center justify-between">
 							<span className="font-medium">Stock Level</span>
 							<Badge
-								variant={product.status === 'in-stock' ? 'default' : product.status === 'low-stock' ? 'secondary' : 'destructive'}
+								variant={
+									product.status === 'in-stock'
+										? 'default'
+										: product.status === 'low-stock'
+											? 'secondary'
+											: 'destructive'
+								}
 							>
 								{product.status.replace('-', ' ')}
 							</Badge>
@@ -107,7 +113,9 @@ const ProductSheet = ({ product, open, onOpenChange }: ProductSheetProps) => {
 							<Progress value={stockPercentage} className="h-3" />
 							<div className="flex justify-between text-sm text-muted-foreground">
 								<span>Min: {product.minStock}</span>
-								<span className="font-semibold text-foreground">{product.stock} units</span>
+								<span className="font-semibold text-foreground">
+									{product.stock} units
+								</span>
 								<span>Max: {product.maxStock}</span>
 							</div>
 						</div>
@@ -121,7 +129,10 @@ const ProductSheet = ({ product, open, onOpenChange }: ProductSheetProps) => {
 								<DetailRow label="Barcode" value={product.barcode} />
 							</div>
 							<div className="px-4">
-								<DetailRow label="Category" value={<Badge variant="outline">{product.category}</Badge>} />
+								<DetailRow
+									label="Category"
+									value={<Badge variant="outline">{product.category}</Badge>}
+								/>
 							</div>
 							<div className="px-4">
 								<DetailRow
@@ -142,10 +153,16 @@ const ProductSheet = ({ product, open, onOpenChange }: ProductSheetProps) => {
 						<h4 className="mb-3 font-medium">Pricing</h4>
 						<div className="divide-y rounded-lg border">
 							<div className="px-4">
-								<DetailRow label="Cost Price" value={`$${product.cost.toFixed(2)}`} />
+								<DetailRow
+									label="Cost Price"
+									value={`$${product.cost.toFixed(2)}`}
+								/>
 							</div>
 							<div className="px-4">
-								<DetailRow label="Sale Price" value={`$${product.price.toFixed(2)}`} />
+								<DetailRow
+									label="Sale Price"
+									value={`$${product.price.toFixed(2)}`}
+								/>
 							</div>
 							<div className="px-4">
 								<DetailRow
@@ -189,13 +206,19 @@ type DeleteDialogProps = {
 	onConfirm: () => void;
 };
 
-const DeleteDialog = ({ productName, open, onOpenChange, onConfirm }: DeleteDialogProps) => (
+const DeleteDialog = ({
+	productName,
+	open,
+	onOpenChange,
+	onConfirm,
+}: DeleteDialogProps) => (
 	<Dialog open={open} onOpenChange={onOpenChange}>
 		<DialogContent>
 			<DialogHeader>
 				<DialogTitle>Delete Product</DialogTitle>
 				<DialogDescription>
-					Are you sure you want to delete "{productName}"? This action cannot be undone.
+					Are you sure you want to delete "{productName}"? This action cannot be
+					undone.
 				</DialogDescription>
 			</DialogHeader>
 			<DialogFooter>
@@ -225,7 +248,7 @@ export default function Main() {
 		minStock: 50,
 		maxStock: 500,
 		price: 79.99,
-		cost: 45.00,
+		cost: 45.0,
 		location: 'Warehouse A - Shelf B12',
 		status: 'in-stock',
 		lastUpdated: '2024-01-18T14:30:00',
@@ -236,7 +259,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<div className="space-y-4">
 					<div className="flex gap-4">
-						<Button onClick={() => setSheetOpen(true)}>Open Product Details</Button>
+						<Button onClick={() => setSheetOpen(true)}>
+							Open Product Details
+						</Button>
 						<Button variant="destructive" onClick={() => setDeleteOpen(true)}>
 							Delete Product
 						</Button>

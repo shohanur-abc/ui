@@ -262,9 +262,7 @@ export default function Main() {
 			id: '4',
 			user: { initials: 'AV', isAnonymous: true },
 			currentPage: '/support/faq',
-			actions: [
-				{ type: 'view', label: 'FAQ viewed', timestamp: '15m ago' },
-			],
+			actions: [{ type: 'view', label: 'FAQ viewed', timestamp: '15m ago' }],
 			sessionDuration: '2:15',
 			pageViews: 2,
 			isActive: false,

@@ -64,7 +64,11 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const chartData: CategoryData[] = [
-		{ category: 'Electronics', sales: 128500, fill: 'var(--color-electronics)' },
+		{
+			category: 'Electronics',
+			sales: 128500,
+			fill: 'var(--color-electronics)',
+		},
 		{ category: 'Fashion', sales: 89200, fill: 'var(--color-fashion)' },
 		{ category: 'Home & Living', sales: 67800, fill: 'var(--color-home)' },
 		{ category: 'Beauty', sales: 52300, fill: 'var(--color-beauty)' },
@@ -72,7 +76,11 @@ export default function Main() {
 	];
 
 	const legendItems: LegendItemProps[] = [
-		{ color: 'bg-[oklch(0.7_0.2_280)]', label: 'Electronics', value: '$128.5k' },
+		{
+			color: 'bg-[oklch(0.7_0.2_280)]',
+			label: 'Electronics',
+			value: '$128.5k',
+		},
 		{ color: 'bg-[oklch(0.68_0.18_250)]', label: 'Fashion', value: '$89.2k' },
 		{ color: 'bg-[oklch(0.72_0.16_200)]', label: 'Home', value: '$67.8k' },
 		{ color: 'bg-[oklch(0.65_0.2_320)]', label: 'Beauty', value: '$52.3k' },

@@ -62,8 +62,7 @@ const SuccessIcon = ({ icon: Icon, label }: SuccessIconProps) => (
 
 const Title = ({ text, highlight }: { text: string; highlight?: string }) => (
 	<h1 className="text-3xl @sm:text-4xl @lg:text-5xl font-bold tracking-tight text-center">
-		{text}{' '}
-		{highlight && <span className="text-primary">{highlight}</span>}
+		{text} {highlight && <span className="text-primary">{highlight}</span>}
 	</h1>
 );
 

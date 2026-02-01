@@ -108,23 +108,26 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1491553895911-0055uj8g27j?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1491553895911-0055uj8g27j?w=200&h=200&fit=crop',
 				name: 'Minimalist Watch',
-				price: 195.00,
+				price: 195.0,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 				name: 'Leather Wallet',
-				price: 75.00,
+				price: 75.0,
 				quantity: 1,
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=200&h=200&fit=crop',
 				name: 'Canvas Tote Bag',
-				price: 45.00,
+				price: 45.0,
 				quantity: 2,
 			},
 		],
@@ -134,7 +137,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

@@ -15,7 +15,9 @@ const CounterStat = ({ icon: Icon, value, label }: CounterStatProps) => (
 			<div className="mb-4 inline-flex rounded-xl bg-secondary p-3 ring-1 ring-border transition-all duration-300 group-hover:ring-primary/30">
 				<Icon className="size-5 text-primary" />
 			</div>
-			<p className="text-4xl font-bold tracking-tighter @sm:text-5xl">{value}</p>
+			<p className="text-4xl font-bold tracking-tighter @sm:text-5xl">
+				{value}
+			</p>
 			<div className="mt-3 flex items-center gap-2">
 				<p className="text-sm text-muted-foreground">{label}</p>
 				<ArrowRight className="size-4 text-primary opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />

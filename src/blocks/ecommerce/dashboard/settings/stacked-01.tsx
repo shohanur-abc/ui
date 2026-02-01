@@ -74,7 +74,10 @@ const ProfileField = ({
 const SectionHeader = ({
 	title,
 	description,
-}: { title: string; description: string }) => (
+}: {
+	title: string;
+	description: string;
+}) => (
 	<CardHeader className="border-b">
 		<CardTitle className="flex items-center gap-2 text-lg">
 			<User className="size-5 text-primary" />

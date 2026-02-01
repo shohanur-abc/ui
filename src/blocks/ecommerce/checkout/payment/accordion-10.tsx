@@ -1,11 +1,34 @@
 'use client';
 
-import { ArrowRight, Check, CreditCard, Download, Key, Lock, Mail, Server, Shield, Smartphone, Wallet, Zap } from 'lucide-react';
+import {
+	ArrowRight,
+	Check,
+	CreditCard,
+	Download,
+	Key,
+	Lock,
+	Mail,
+	Server,
+	Shield,
+	Smartphone,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -23,7 +46,10 @@ interface LicenseType {
 
 const LicenseSelectionContent = ({ licenses }: { licenses: LicenseType[] }) => (
 	<div className="space-y-3 pt-4">
-		<RadioGroup defaultValue={licenses.find(l => l.popular)?.id || licenses[0].id} className="space-y-3">
+		<RadioGroup
+			defaultValue={licenses.find((l) => l.popular)?.id || licenses[0].id}
+			className="space-y-3"
+		>
 			{licenses.map((license) => (
 				<Label
 					key={license.id}
@@ -39,18 +65,26 @@ const LicenseSelectionContent = ({ licenses }: { licenses: LicenseType[] }) => (
 						</Badge>
 					)}
 					<div className="flex items-start gap-3">
-						<RadioGroupItem value={license.id} id={license.id} className="mt-1" />
+						<RadioGroupItem
+							value={license.id}
+							id={license.id}
+							className="mt-1"
+						/>
 						<div className="flex-1">
 							<div className="flex items-center justify-between">
 								<span className="font-medium">{license.name}</span>
 								<span className="font-bold">{license.price}</span>
 							</div>
-							<p className="text-xs text-muted-foreground mt-1">{license.description}</p>
+							<p className="text-xs text-muted-foreground mt-1">
+								{license.description}
+							</p>
 						</div>
 					</div>
 					<div className="ml-7 flex flex-wrap gap-2">
 						{license.features.map((feature, index) => (
-							<Badge key={index} variant="secondary" className="text-xs">{feature}</Badge>
+							<Badge key={index} variant="secondary" className="text-xs">
+								{feature}
+							</Badge>
 						))}
 					</div>
 				</Label>
@@ -66,21 +100,29 @@ const DeliveryOptionsContent = () => (
 				<Zap className="size-4 text-primary" />
 				<span className="font-medium">Instant Digital Delivery</span>
 			</div>
-			<p className="text-sm text-muted-foreground">Your product will be available immediately after purchase</p>
+			<p className="text-sm text-muted-foreground">
+				Your product will be available immediately after purchase
+			</p>
 		</div>
 		<div className="space-y-3">
 			<Label className="text-sm font-medium">Receive your license via:</Label>
 			<div className="space-y-2">
 				<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 					<Checkbox id="email" defaultChecked />
-					<Label htmlFor="email" className="flex items-center gap-2 cursor-pointer">
+					<Label
+						htmlFor="email"
+						className="flex items-center gap-2 cursor-pointer"
+					>
 						<Mail className="size-4" />
 						<span className="text-sm">Email</span>
 					</Label>
 				</div>
 				<div className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
 					<Checkbox id="dashboard" defaultChecked />
-					<Label htmlFor="dashboard" className="flex items-center gap-2 cursor-pointer">
+					<Label
+						htmlFor="dashboard"
+						className="flex items-center gap-2 cursor-pointer"
+					>
 						<Server className="size-4" />
 						<span className="text-sm">Account Dashboard</span>
 					</Label>
@@ -98,7 +140,9 @@ const AccountInfoContent = () => (
 				<Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
 				<Input type="email" placeholder="you@example.com" className="pl-10" />
 			</div>
-			<p className="text-xs text-muted-foreground">License key will be sent to this email</p>
+			<p className="text-xs text-muted-foreground">
+				License key will be sent to this email
+			</p>
 		</div>
 		<div className="flex items-center gap-3">
 			<Checkbox id="create-account" />
@@ -112,7 +156,10 @@ const AccountInfoContent = () => (
 const PaymentMethodContent = () => (
 	<div className="space-y-4 pt-4">
 		<div className="grid grid-cols-3 gap-2">
-			<Button variant="outline" className="h-14 flex-col gap-1 border-primary bg-primary/5">
+			<Button
+				variant="outline"
+				className="h-14 flex-col gap-1 border-primary bg-primary/5"
+			>
 				<CreditCard className="size-5" />
 				<span className="text-xs">Card</span>
 			</Button>
@@ -152,21 +199,47 @@ const LicenseAgreementContent = () => (
 	<div className="space-y-4 pt-4">
 		<div className="p-4 rounded-xl bg-muted/30 max-h-40 overflow-y-auto text-xs text-muted-foreground space-y-2">
 			<p className="font-medium text-foreground">End User License Agreement</p>
-			<p>This license grants you the right to use the software according to the selected license type.</p>
-			<p>Personal licenses are for individual use only. Team licenses allow usage by up to 5 team members. Enterprise licenses include unlimited seats and priority support.</p>
-			<p>Redistribution or resale of the software is prohibited. The license is non-transferable.</p>
-			<p>Updates and support are included for the duration specified in your license.</p>
+			<p>
+				This license grants you the right to use the software according to the
+				selected license type.
+			</p>
+			<p>
+				Personal licenses are for individual use only. Team licenses allow usage
+				by up to 5 team members. Enterprise licenses include unlimited seats and
+				priority support.
+			</p>
+			<p>
+				Redistribution or resale of the software is prohibited. The license is
+				non-transferable.
+			</p>
+			<p>
+				Updates and support are included for the duration specified in your
+				license.
+			</p>
 		</div>
 		<div className="flex items-start gap-3">
 			<Checkbox id="agree" className="mt-0.5" />
 			<Label htmlFor="agree" className="text-sm cursor-pointer">
-				I agree to the <a href="#" className="text-primary underline">License Agreement</a> and <a href="#" className="text-primary underline">Terms of Service</a>
+				I agree to the{' '}
+				<a href="#" className="text-primary underline">
+					License Agreement
+				</a>{' '}
+				and{' '}
+				<a href="#" className="text-primary underline">
+					Terms of Service
+				</a>
 			</Label>
 		</div>
 	</div>
 );
 
-const PurchaseSummary = ({ license, features }: { license: { name: string; price: string }; features: string[] }) => (
+const PurchaseSummary = ({
+	license,
+	features,
+}: {
+	license: { name: string; price: string };
+	features: string[];
+}) => (
 	<div className="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-4">
 		<div className="flex items-center justify-between">
 			<div>
@@ -261,7 +334,12 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Accordion type="single" collapsible defaultValue="license" className="w-full">
+						<Accordion
+							type="single"
+							collapsible
+							defaultValue="license"
+							className="w-full"
+						>
 							<AccordionItem value="license">
 								<AccordionTrigger className="hover:no-underline">
 									<div className="flex items-center gap-2">
@@ -320,7 +398,10 @@ export default function Main() {
 						</Accordion>
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
-						<PurchaseSummary license={{ name: 'Team License', price: '$149' }} features={features} />
+						<PurchaseSummary
+							license={{ name: 'Team License', price: '$149' }}
+							features={features}
+						/>
 						<PurchaseButton label="Complete Purchase" />
 					</CardFooter>
 				</Card>

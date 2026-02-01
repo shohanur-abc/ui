@@ -1,9 +1,25 @@
-import { ArrowRight, Building2, CreditCard, DollarSign, Lock, Repeat, Shield, Sparkles, Users, Zap } from 'lucide-react';
+import {
+	ArrowRight,
+	Building2,
+	CreditCard,
+	DollarSign,
+	Lock,
+	Repeat,
+	Shield,
+	Sparkles,
+	Users,
+	Zap,
+} from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -31,7 +47,13 @@ interface TeamMemberProps {
 	role: string;
 }
 
-const TeamPlanHeader = ({ name, seats, pricePerSeat, totalPrice, billingCycle }: TeamPlanProps) => (
+const TeamPlanHeader = ({
+	name,
+	seats,
+	pricePerSeat,
+	totalPrice,
+	billingCycle,
+}: TeamPlanProps) => (
 	<div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20">
 		<div className="flex items-start justify-between mb-4">
 			<div>
@@ -79,7 +101,13 @@ const Features = ({ features }: { features: FeatureProps[] }) => (
 	</div>
 );
 
-const TeamMember = ({ name, email, avatar, initials, role }: TeamMemberProps) => (
+const TeamMember = ({
+	name,
+	email,
+	avatar,
+	initials,
+	role,
+}: TeamMemberProps) => (
 	<div className="flex items-center gap-3">
 		<Avatar className="size-10">
 			<AvatarImage src={avatar} alt={name} />
@@ -89,15 +117,25 @@ const TeamMember = ({ name, email, avatar, initials, role }: TeamMemberProps) =>
 			<p className="font-medium text-sm truncate">{name}</p>
 			<p className="text-xs text-muted-foreground truncate">{email}</p>
 		</div>
-		<Badge variant="outline" className="text-xs shrink-0">{role}</Badge>
+		<Badge variant="outline" className="text-xs shrink-0">
+			{role}
+		</Badge>
 	</div>
 );
 
-const TeamMembers = ({ members, title }: { members: TeamMemberProps[]; title: string }) => (
+const TeamMembers = ({
+	members,
+	title,
+}: {
+	members: TeamMemberProps[];
+	title: string;
+}) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
 			<h3 className="text-sm font-medium">{title}</h3>
-			<Button variant="ghost" size="sm" className="text-xs">Manage</Button>
+			<Button variant="ghost" size="sm" className="text-xs">
+				Manage
+			</Button>
 		</div>
 		<div className="space-y-2">
 			{members.map((member, index) => (
@@ -107,7 +145,15 @@ const TeamMembers = ({ members, title }: { members: TeamMemberProps[]; title: st
 	</div>
 );
 
-const BillingOption = ({ label, description, enabled }: { label: string; description: string; enabled: boolean }) => (
+const BillingOption = ({
+	label,
+	description,
+	enabled,
+}: {
+	label: string;
+	description: string;
+	enabled: boolean;
+}) => (
 	<div className="flex items-center justify-between p-4 rounded-xl border border-border/50 bg-muted/30">
 		<div>
 			<p className="font-medium text-sm">{label}</p>
@@ -131,21 +177,38 @@ const FormField = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
 
-const InvoiceSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean }[] }) => (
+const InvoiceSummary = ({
+	lines,
+}: {
+	lines: { label: string; value: string; isTotal?: boolean }[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isTotal ? '' : 'text-muted-foreground'}>{line.label}</span>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span className={line.isTotal ? '' : 'text-muted-foreground'}>
+						{line.label}
+					</span>
 					<span>{line.value}</span>
 				</div>
 			</div>
@@ -183,16 +246,50 @@ export default function Main() {
 	};
 
 	const features: FeatureProps[] = [
-		{ icon: Users, title: 'Team Collaboration', description: 'Work together in real-time' },
-		{ icon: Shield, title: 'Admin Controls', description: 'Manage permissions & access' },
-		{ icon: Building2, title: 'SSO Integration', description: 'Enterprise single sign-on' },
-		{ icon: Zap, title: 'Priority Support', description: 'Dedicated account manager' },
+		{
+			icon: Users,
+			title: 'Team Collaboration',
+			description: 'Work together in real-time',
+		},
+		{
+			icon: Shield,
+			title: 'Admin Controls',
+			description: 'Manage permissions & access',
+		},
+		{
+			icon: Building2,
+			title: 'SSO Integration',
+			description: 'Enterprise single sign-on',
+		},
+		{
+			icon: Zap,
+			title: 'Priority Support',
+			description: 'Dedicated account manager',
+		},
 	];
 
 	const members: TeamMemberProps[] = [
-		{ name: 'John Doe', email: 'john@company.com', avatar: '', initials: 'JD', role: 'Admin' },
-		{ name: 'Jane Smith', email: 'jane@company.com', avatar: '', initials: 'JS', role: 'Member' },
-		{ name: 'Mike Wilson', email: 'mike@company.com', avatar: '', initials: 'MW', role: 'Member' },
+		{
+			name: 'John Doe',
+			email: 'john@company.com',
+			avatar: '',
+			initials: 'JD',
+			role: 'Admin',
+		},
+		{
+			name: 'Jane Smith',
+			email: 'jane@company.com',
+			avatar: '',
+			initials: 'JS',
+			role: 'Member',
+		},
+		{
+			name: 'Mike Wilson',
+			email: 'mike@company.com',
+			avatar: '',
+			initials: 'MW',
+			role: 'Member',
+		},
 	];
 
 	const invoiceLines = [
@@ -220,15 +317,36 @@ export default function Main() {
 						<Card className="border-border/50 bg-card/50 backdrop-blur-sm @lg:sticky @lg:top-8">
 							<CardHeader className="pb-4">
 								<h3 className="font-semibold">Payment Information</h3>
-								<p className="text-sm text-muted-foreground">Billing details for your team</p>
+								<p className="text-sm text-muted-foreground">
+									Billing details for your team
+								</p>
 							</CardHeader>
 							<CardContent className="space-y-4">
-								<FormField id="company" label="Company Name" placeholder="Acme Inc." icon={Building2} />
-								<FormField id="email" label="Billing Email" placeholder="billing@company.com" />
-								<FormField id="card" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
+								<FormField
+									id="company"
+									label="Company Name"
+									placeholder="Acme Inc."
+									icon={Building2}
+								/>
+								<FormField
+									id="email"
+									label="Billing Email"
+									placeholder="billing@company.com"
+								/>
+								<FormField
+									id="card"
+									label="Card Number"
+									placeholder="1234 5678 9012 3456"
+									icon={CreditCard}
+								/>
 								<div className="grid grid-cols-2 gap-4">
 									<FormField id="exp" label="Expiry" placeholder="MM/YY" />
-									<FormField id="cvc" label="CVC" placeholder="123" type="password" />
+									<FormField
+										id="cvc"
+										label="CVC"
+										placeholder="123"
+										type="password"
+									/>
 								</div>
 								<InvoiceSummary lines={invoiceLines} />
 							</CardContent>

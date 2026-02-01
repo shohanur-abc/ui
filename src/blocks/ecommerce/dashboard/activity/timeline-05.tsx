@@ -37,7 +37,11 @@ interface SupportTimelineProps {
 	tickets: SupportTicket[];
 }
 
-const PriorityBadge = ({ priority }: { priority: SupportTicket['priority'] }) => {
+const PriorityBadge = ({
+	priority,
+}: {
+	priority: SupportTicket['priority'];
+}) => {
 	const config = {
 		low: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
 		medium: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
@@ -53,7 +57,10 @@ const PriorityBadge = ({ priority }: { priority: SupportTicket['priority'] }) =>
 };
 
 const StatusIcon = ({ status }: { status: SupportTicket['status'] }) => {
-	const config: Record<SupportTicket['status'], { icon: LucideIcon; className: string }> = {
+	const config: Record<
+		SupportTicket['status'],
+		{ icon: LucideIcon; className: string }
+	> = {
 		open: { icon: AlertCircle, className: 'text-blue-400' },
 		'in-progress': { icon: Clock, className: 'text-amber-400' },
 		resolved: { icon: CheckCircle, className: 'text-emerald-400' },
@@ -122,13 +129,15 @@ const TicketCard = ({ ticket }: { ticket: SupportTicket }) => (
 	</div>
 );
 
-const SupportTimeline = ({ title, subtitle, tickets }: SupportTimelineProps) => (
+const SupportTimeline = ({
+	title,
+	subtitle,
+	tickets,
+}: SupportTimelineProps) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardHeader>
 			<CardTitle className="text-lg font-semibold">{title}</CardTitle>
-			{subtitle && (
-				<p className="text-sm text-muted-foreground">{subtitle}</p>
-			)}
+			{subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
 		</CardHeader>
 		<CardContent>
 			<div className="relative border-l-2 border-border pl-4 space-y-6">

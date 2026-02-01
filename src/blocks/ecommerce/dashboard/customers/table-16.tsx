@@ -61,7 +61,13 @@ interface CustomerReferral {
 const ReferralStats = ({
 	stats,
 }: {
-	stats: { title: string; value: string; change: string; changeType: 'up' | 'down'; icon: React.ElementType }[];
+	stats: {
+		title: string;
+		value: string;
+		change: string;
+		changeType: 'up' | 'down';
+		icon: React.ElementType;
+	}[];
 }) => (
 	<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 		{stats.map((stat, i) => (
@@ -90,11 +96,7 @@ const ReferralStats = ({
 	</div>
 );
 
-const FilterBar = ({
-	searchPlaceholder,
-}: {
-	searchPlaceholder: string;
-}) => (
+const FilterBar = ({ searchPlaceholder }: { searchPlaceholder: string }) => (
 	<div className="flex flex-col gap-3 border-b px-6 py-4 @lg:flex-row @lg:items-center @lg:justify-between">
 		<div className="relative">
 			<Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
@@ -126,10 +128,22 @@ const FilterBar = ({
 
 const TierBadge = ({ tier }: { tier: CustomerReferral['tier'] }) => {
 	const config = {
-		bronze: { label: 'Bronze', className: 'bg-amber-700/10 text-amber-700 border-amber-700/20' },
-		silver: { label: 'Silver', className: 'bg-slate-400/10 text-slate-400 border-slate-400/20' },
-		gold: { label: 'Gold', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		platinum: { label: 'Platinum', className: 'bg-violet-500/10 text-violet-500 border-violet-500/20' },
+		bronze: {
+			label: 'Bronze',
+			className: 'bg-amber-700/10 text-amber-700 border-amber-700/20',
+		},
+		silver: {
+			label: 'Silver',
+			className: 'bg-slate-400/10 text-slate-400 border-slate-400/20',
+		},
+		gold: {
+			label: 'Gold',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		platinum: {
+			label: 'Platinum',
+			className: 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={`${config[tier].className} gap-1`}>
@@ -141,7 +155,9 @@ const TierBadge = ({ tier }: { tier: CustomerReferral['tier'] }) => {
 
 const ReferralCode = ({ code }: { code: string }) => (
 	<div className="flex items-center gap-2">
-		<code className="bg-muted rounded px-2 py-1 text-xs font-medium">{code}</code>
+		<code className="bg-muted rounded px-2 py-1 text-xs font-medium">
+			{code}
+		</code>
 		<Button variant="ghost" size="icon-sm">
 			<Copy className="size-3.5" />
 		</Button>
@@ -160,9 +176,7 @@ const ReferralStats2 = ({
 			<Check className="size-3.5" />
 			{successful}
 		</span>
-		<span className="text-muted-foreground">
-			{pending} pending
-		</span>
+		<span className="text-muted-foreground">{pending} pending</span>
 	</div>
 );
 
@@ -178,14 +192,19 @@ const ReferralRow = ({ referral }: { referral: CustomerReferral }) => (
 		<TableCell>
 			<div className="flex items-center gap-3">
 				<Avatar className="size-9">
-					<AvatarImage src={referral.referrer.avatar} alt={referral.referrer.name} />
+					<AvatarImage
+						src={referral.referrer.avatar}
+						alt={referral.referrer.name}
+					/>
 					<AvatarFallback className="bg-primary/10 text-primary text-xs">
 						{referral.referrer.initials}
 					</AvatarFallback>
 				</Avatar>
 				<div>
 					<p className="font-medium">{referral.referrer.name}</p>
-					<p className="text-muted-foreground text-xs">{referral.referrer.email}</p>
+					<p className="text-muted-foreground text-xs">
+						{referral.referrer.email}
+					</p>
 				</div>
 			</div>
 		</TableCell>
@@ -208,7 +227,9 @@ const ReferralRow = ({ referral }: { referral: CustomerReferral }) => (
 			<div>
 				<p className="font-semibold text-emerald-500">{referral.earnings}</p>
 				{referral.pendingEarnings !== '$0' && (
-					<p className="text-muted-foreground text-xs">{referral.pendingEarnings} pending</p>
+					<p className="text-muted-foreground text-xs">
+						{referral.pendingEarnings} pending
+					</p>
 				)}
 			</div>
 		</TableCell>
@@ -249,16 +270,44 @@ const ReferralRow = ({ referral }: { referral: CustomerReferral }) => (
 
 export default function Main() {
 	const stats = [
-		{ title: 'Total Referrers', value: '2,456', change: '+18%', changeType: 'up' as const, icon: Users },
-		{ title: 'Successful Referrals', value: '8,234', change: '+24%', changeType: 'up' as const, icon: UserPlus },
-		{ title: 'Total Payouts', value: '$45.2K', change: '+15%', changeType: 'up' as const, icon: Gift },
-		{ title: 'Conversion Rate', value: '34%', change: '+5%', changeType: 'up' as const, icon: Share2 },
+		{
+			title: 'Total Referrers',
+			value: '2,456',
+			change: '+18%',
+			changeType: 'up' as const,
+			icon: Users,
+		},
+		{
+			title: 'Successful Referrals',
+			value: '8,234',
+			change: '+24%',
+			changeType: 'up' as const,
+			icon: UserPlus,
+		},
+		{
+			title: 'Total Payouts',
+			value: '$45.2K',
+			change: '+15%',
+			changeType: 'up' as const,
+			icon: Gift,
+		},
+		{
+			title: 'Conversion Rate',
+			value: '34%',
+			change: '+5%',
+			changeType: 'up' as const,
+			icon: Share2,
+		},
 	];
 
 	const referrals: CustomerReferral[] = [
 		{
 			id: '1',
-			referrer: { name: 'Quinn Adams', email: 'quinn.a@email.com', initials: 'QA' },
+			referrer: {
+				name: 'Quinn Adams',
+				email: 'quinn.a@email.com',
+				initials: 'QA',
+			},
 			referralCode: 'QUINN2024',
 			totalReferrals: 45,
 			successfulReferrals: 38,
@@ -271,7 +320,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			referrer: { name: 'Rachel Brown', email: 'rachel.b@email.com', initials: 'RB' },
+			referrer: {
+				name: 'Rachel Brown',
+				email: 'rachel.b@email.com',
+				initials: 'RB',
+			},
 			referralCode: 'RACHEL100',
 			totalReferrals: 28,
 			successfulReferrals: 22,
@@ -284,7 +337,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			referrer: { name: 'Samuel Lee', email: 'samuel.l@email.com', initials: 'SL' },
+			referrer: {
+				name: 'Samuel Lee',
+				email: 'samuel.l@email.com',
+				initials: 'SL',
+			},
 			referralCode: 'SAMREF',
 			totalReferrals: 15,
 			successfulReferrals: 10,
@@ -297,7 +354,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			referrer: { name: 'Tina Wilson', email: 'tina.w@email.com', initials: 'TW' },
+			referrer: {
+				name: 'Tina Wilson',
+				email: 'tina.w@email.com',
+				initials: 'TW',
+			},
 			referralCode: 'TINAW',
 			totalReferrals: 8,
 			successfulReferrals: 5,
@@ -327,7 +388,9 @@ export default function Main() {
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
 				<div>
-					<h1 className="text-2xl font-bold tracking-tight">Referral Program</h1>
+					<h1 className="text-2xl font-bold tracking-tight">
+						Referral Program
+					</h1>
 					<p className="text-muted-foreground text-sm">
 						Manage customer referrals and track affiliate performance
 					</p>
@@ -343,10 +406,16 @@ export default function Main() {
 								<TableHead>Referrer</TableHead>
 								<TableHead className="hidden @md:table-cell">Code</TableHead>
 								<TableHead className="hidden @lg:table-cell">Tier</TableHead>
-								<TableHead className="hidden @lg:table-cell">Referrals</TableHead>
-								<TableHead className="hidden @xl:table-cell">Conv. Rate</TableHead>
+								<TableHead className="hidden @lg:table-cell">
+									Referrals
+								</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Conv. Rate
+								</TableHead>
 								<TableHead>Earnings</TableHead>
-								<TableHead className="hidden @2xl:table-cell">Last Referral</TableHead>
+								<TableHead className="hidden @2xl:table-cell">
+									Last Referral
+								</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>

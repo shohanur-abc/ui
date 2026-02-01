@@ -50,7 +50,9 @@ const GamerProfileCard = ({
 				<div className="relative">
 					<Avatar className="size-20 ring-4 ring-purple-500">
 						<AvatarImage src={src} alt={username} />
-						<AvatarFallback className="text-xl bg-purple-500 text-white">{fallback}</AvatarFallback>
+						<AvatarFallback className="text-xl bg-purple-500 text-white">
+							{fallback}
+						</AvatarFallback>
 					</Avatar>
 					<div className="absolute -bottom-1 -right-1 bg-amber-500 text-white text-xs font-bold size-7 rounded-full flex items-center justify-center border-2 border-background">
 						{level}
@@ -67,9 +69,14 @@ const GamerProfileCard = ({
 				<div className="mt-4">
 					<div className="flex items-center justify-between text-sm mb-1">
 						<span>Level {level}</span>
-						<span className="text-muted-foreground">{xp.toLocaleString()} / {nextLevelXp.toLocaleString()} XP</span>
+						<span className="text-muted-foreground">
+							{xp.toLocaleString()} / {nextLevelXp.toLocaleString()} XP
+						</span>
 					</div>
-					<Progress value={(xp / nextLevelXp) * 100} className="h-3 bg-purple-500/20" />
+					<Progress
+						value={(xp / nextLevelXp) * 100}
+						className="h-3 bg-purple-500/20"
+					/>
 				</div>
 			</div>
 			<div className="flex gap-2 mt-4">
@@ -129,7 +136,9 @@ const RankedStatsCard = ({
 					<Trophy className="size-5 text-amber-500" />
 					<span className="font-semibold">{mode}</span>
 				</div>
-				<Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white">{rank}</Badge>
+				<Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+					{rank}
+				</Badge>
 			</div>
 			<div className="grid grid-cols-4 gap-2 text-center">
 				<div>
@@ -187,7 +196,9 @@ const AchievementCard = ({
 					<div className="flex-1 min-w-0">
 						<div className="flex items-center gap-2">
 							<p className="font-medium truncate">{name}</p>
-							<Badge className={`${rarityBadge[rarity]} text-xs`}>{rarity}</Badge>
+							<Badge className={`${rarityBadge[rarity]} text-xs`}>
+								{rarity}
+							</Badge>
 						</div>
 						<p className="text-xs text-muted-foreground mt-1">{description}</p>
 						<p className="text-xs text-muted-foreground mt-1">{unlockedDate}</p>
@@ -202,7 +213,12 @@ const FriendsCard = ({
 	friends,
 	onlineCount,
 }: {
-	friends: { name: string; avatar: string; status: 'online' | 'in-game' | 'offline'; game?: string }[];
+	friends: {
+		name: string;
+		avatar: string;
+		status: 'online' | 'in-game' | 'offline';
+		game?: string;
+	}[];
 	onlineCount: number;
 }) => (
 	<Card className="col-span-2">
@@ -220,25 +236,37 @@ const FriendsCard = ({
 		</CardHeader>
 		<CardContent className="space-y-2">
 			{friends.map((friend, i) => (
-				<div key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors">
+				<div
+					key={i}
+					className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
+				>
 					<div className="relative">
 						<Avatar className="size-10">
 							<AvatarImage src={friend.avatar} />
 							<AvatarFallback>{friend.name[0]}</AvatarFallback>
 						</Avatar>
-						<div className={`absolute bottom-0 right-0 size-3 rounded-full border-2 border-background ${
-							friend.status === 'online' ? 'bg-green-500' :
-							friend.status === 'in-game' ? 'bg-blue-500' : 'bg-gray-500'
-						}`} />
+						<div
+							className={`absolute bottom-0 right-0 size-3 rounded-full border-2 border-background ${
+								friend.status === 'online'
+									? 'bg-green-500'
+									: friend.status === 'in-game'
+										? 'bg-blue-500'
+										: 'bg-gray-500'
+							}`}
+						/>
 					</div>
 					<div className="flex-1 min-w-0">
 						<p className="font-medium text-sm">{friend.name}</p>
 						<p className="text-xs text-muted-foreground">
-							{friend.status === 'in-game' ? `Playing ${friend.game}` : friend.status}
+							{friend.status === 'in-game'
+								? `Playing ${friend.game}`
+								: friend.status}
 						</p>
 					</div>
 					{friend.status !== 'offline' && (
-						<Button variant="ghost" size="sm">Join</Button>
+						<Button variant="ghost" size="sm">
+							Join
+						</Button>
 					)}
 				</div>
 			))}
@@ -259,11 +287,21 @@ const RecentMatchCard = ({
 	duration: string;
 	timeAgo: string;
 }) => (
-	<Card className={result === 'victory' ? 'border-green-500/30' : 'border-red-500/30'}>
+	<Card
+		className={
+			result === 'victory' ? 'border-green-500/30' : 'border-red-500/30'
+		}
+	>
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between mb-2">
 				<span className="text-sm font-medium">{game}</span>
-				<Badge className={result === 'victory' ? 'bg-green-500/20 text-green-500' : 'bg-red-500/20 text-red-500'}>
+				<Badge
+					className={
+						result === 'victory'
+							? 'bg-green-500/20 text-green-500'
+							: 'bg-red-500/20 text-red-500'
+					}
+				>
 					{result}
 				</Badge>
 			</div>
@@ -288,16 +326,25 @@ const InventoryCard = ({
 					<Gift className="size-5" />
 					Recent Items
 				</h3>
-				<Button variant="ghost" size="sm">View All</Button>
+				<Button variant="ghost" size="sm">
+					View All
+				</Button>
 			</div>
 		</CardHeader>
 		<CardContent>
 			<div className="flex gap-3">
 				{items.map((item, i) => (
-					<div key={i} className="flex flex-col items-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
+					<div
+						key={i}
+						className="flex flex-col items-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer"
+					>
 						<span className="text-3xl">{item.icon}</span>
-						<p className="text-xs font-medium mt-1 truncate w-16 text-center">{item.name}</p>
-						<Badge variant="outline" className="text-xs mt-1">{item.rarity}</Badge>
+						<p className="text-xs font-medium mt-1 truncate w-16 text-center">
+							{item.name}
+						</p>
+						<Badge variant="outline" className="text-xs mt-1">
+							{item.rarity}
+						</Badge>
 					</div>
 				))}
 			</div>
@@ -318,10 +365,34 @@ export default function Main() {
 			rank: 'Diamond',
 		},
 		stats: [
-			{ icon: Sword, label: 'Matches', value: '1,247', color: 'text-red-500', bgColor: 'bg-red-500/5' },
-			{ icon: Trophy, label: 'Victories', value: '723', color: 'text-amber-500', bgColor: 'bg-amber-500/5' },
-			{ icon: Target, label: 'K/D Ratio', value: '2.4', color: 'text-blue-500', bgColor: 'bg-blue-500/5' },
-			{ icon: Clock, label: 'Play Time', value: '842h', color: 'text-purple-500', bgColor: 'bg-purple-500/5' },
+			{
+				icon: Sword,
+				label: 'Matches',
+				value: '1,247',
+				color: 'text-red-500',
+				bgColor: 'bg-red-500/5',
+			},
+			{
+				icon: Trophy,
+				label: 'Victories',
+				value: '723',
+				color: 'text-amber-500',
+				bgColor: 'bg-amber-500/5',
+			},
+			{
+				icon: Target,
+				label: 'K/D Ratio',
+				value: '2.4',
+				color: 'text-blue-500',
+				bgColor: 'bg-blue-500/5',
+			},
+			{
+				icon: Clock,
+				label: 'Play Time',
+				value: '842h',
+				color: 'text-purple-500',
+				bgColor: 'bg-purple-500/5',
+			},
 		],
 		rankedStats: {
 			mode: 'Competitive',
@@ -332,18 +403,55 @@ export default function Main() {
 			winRate: 64,
 		},
 		achievements: [
-			{ name: 'First Blood', description: 'Get the first kill in 100 matches', icon: '🩸', rarity: 'rare' as const, unlockedDate: 'Jan 15, 2024' },
-			{ name: 'Untouchable', description: 'Win a match without dying', icon: '🛡️', rarity: 'legendary' as const, unlockedDate: 'Jan 10, 2024' },
+			{
+				name: 'First Blood',
+				description: 'Get the first kill in 100 matches',
+				icon: '🩸',
+				rarity: 'rare' as const,
+				unlockedDate: 'Jan 15, 2024',
+			},
+			{
+				name: 'Untouchable',
+				description: 'Win a match without dying',
+				icon: '🛡️',
+				rarity: 'legendary' as const,
+				unlockedDate: 'Jan 10, 2024',
+			},
 		],
 		friends: [
-			{ name: 'DragonSlayer', avatar: 'https://i.pravatar.cc/40?img=11', status: 'in-game' as const, game: 'Valorant' },
-			{ name: 'NightHawk', avatar: 'https://i.pravatar.cc/40?img=12', status: 'online' as const },
-			{ name: 'PhoenixRise', avatar: 'https://i.pravatar.cc/40?img=13', status: 'offline' as const },
+			{
+				name: 'DragonSlayer',
+				avatar: 'https://i.pravatar.cc/40?img=11',
+				status: 'in-game' as const,
+				game: 'Valorant',
+			},
+			{
+				name: 'NightHawk',
+				avatar: 'https://i.pravatar.cc/40?img=12',
+				status: 'online' as const,
+			},
+			{
+				name: 'PhoenixRise',
+				avatar: 'https://i.pravatar.cc/40?img=13',
+				status: 'offline' as const,
+			},
 		],
 		onlineCount: 5,
 		recentMatches: [
-			{ game: 'Ranked', result: 'victory' as const, kda: '24 / 8 / 12', duration: '34m', timeAgo: '2h ago' },
-			{ game: 'Quick Play', result: 'defeat' as const, kda: '15 / 14 / 9', duration: '28m', timeAgo: '4h ago' },
+			{
+				game: 'Ranked',
+				result: 'victory' as const,
+				kda: '24 / 8 / 12',
+				duration: '34m',
+				timeAgo: '2h ago',
+			},
+			{
+				game: 'Quick Play',
+				result: 'defeat' as const,
+				kda: '15 / 14 / 9',
+				duration: '28m',
+				timeAgo: '4h ago',
+			},
 		],
 		inventory: [
 			{ name: 'Dragon Blade', rarity: 'Legendary', icon: '⚔️' },
@@ -364,7 +472,10 @@ export default function Main() {
 					{profileData.achievements.map((achievement, i) => (
 						<AchievementCard key={i} {...achievement} />
 					))}
-					<FriendsCard friends={profileData.friends} onlineCount={profileData.onlineCount} />
+					<FriendsCard
+						friends={profileData.friends}
+						onlineCount={profileData.onlineCount}
+					/>
 					{profileData.recentMatches.map((match, i) => (
 						<RecentMatchCard key={i} {...match} />
 					))}

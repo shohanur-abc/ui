@@ -82,7 +82,15 @@ const ResumeHeader = ({
 const ExperienceTab = ({
 	experiences,
 }: {
-	experiences: { company: string; logo: string; role: string; period: string; location: string; description: string; skills: string[] }[];
+	experiences: {
+		company: string;
+		logo: string;
+		role: string;
+		period: string;
+		location: string;
+		description: string;
+		skills: string[];
+	}[];
 }) => (
 	<div className="space-y-4">
 		{experiences.map((exp, i) => (
@@ -91,7 +99,9 @@ const ExperienceTab = ({
 					<div className="flex flex-col @sm:flex-row gap-4">
 						<Avatar className="size-14 rounded-lg shrink-0">
 							<AvatarImage src={exp.logo} alt={exp.company} />
-							<AvatarFallback className="rounded-lg">{exp.company[0]}</AvatarFallback>
+							<AvatarFallback className="rounded-lg">
+								{exp.company[0]}
+							</AvatarFallback>
 						</Avatar>
 						<div className="flex-1">
 							<div className="flex flex-col @md:flex-row @md:items-center @md:justify-between">
@@ -107,7 +117,9 @@ const ExperienceTab = ({
 							<p className="text-sm mt-3">{exp.description}</p>
 							<div className="flex flex-wrap gap-2 mt-3">
 								{exp.skills.map((skill, j) => (
-									<Badge key={j} variant="secondary">{skill}</Badge>
+									<Badge key={j} variant="secondary">
+										{skill}
+									</Badge>
 								))}
 							</div>
 						</div>
@@ -121,7 +133,15 @@ const ExperienceTab = ({
 const EducationTab = ({
 	education,
 }: {
-	education: { school: string; logo: string; degree: string; field: string; period: string; gpa?: string; achievements?: string[] }[];
+	education: {
+		school: string;
+		logo: string;
+		degree: string;
+		field: string;
+		period: string;
+		gpa?: string;
+		achievements?: string[];
+	}[];
 }) => (
 	<div className="space-y-4">
 		{education.map((edu, i) => (
@@ -130,7 +150,9 @@ const EducationTab = ({
 					<div className="flex flex-col @sm:flex-row gap-4">
 						<Avatar className="size-14 rounded-lg shrink-0">
 							<AvatarImage src={edu.logo} alt={edu.school} />
-							<AvatarFallback className="rounded-lg">{edu.school[0]}</AvatarFallback>
+							<AvatarFallback className="rounded-lg">
+								{edu.school[0]}
+							</AvatarFallback>
 						</Avatar>
 						<div className="flex-1">
 							<div className="flex flex-col @md:flex-row @md:items-center @md:justify-between">
@@ -165,7 +187,10 @@ const EducationTab = ({
 const SkillsTab = ({
 	skillCategories,
 }: {
-	skillCategories: { category: string; skills: { name: string; level: number }[] }[];
+	skillCategories: {
+		category: string;
+		skills: { name: string; level: number }[];
+	}[];
 }) => (
 	<div className="grid @md:grid-cols-2 gap-6">
 		{skillCategories.map((cat, i) => (
@@ -192,20 +217,34 @@ const SkillsTab = ({
 const ProjectsTab = ({
 	projects,
 }: {
-	projects: { name: string; description: string; image: string; technologies: string[]; links: { label: string; href: string }[] }[];
+	projects: {
+		name: string;
+		description: string;
+		image: string;
+		technologies: string[];
+		links: { label: string; href: string }[];
+	}[];
 }) => (
 	<div className="grid @md:grid-cols-2 gap-4">
 		{projects.map((project, i) => (
 			<Card key={i}>
 				<CardContent className="p-4">
 					<div className="aspect-video rounded-lg bg-muted overflow-hidden mb-4">
-						<img src={project.image} alt={project.name} className="w-full h-full object-cover" />
+						<img
+							src={project.image}
+							alt={project.name}
+							className="w-full h-full object-cover"
+						/>
 					</div>
 					<h4 className="font-semibold">{project.name}</h4>
-					<p className="text-sm text-muted-foreground mt-1">{project.description}</p>
+					<p className="text-sm text-muted-foreground mt-1">
+						{project.description}
+					</p>
 					<div className="flex flex-wrap gap-2 mt-3">
 						{project.technologies.map((tech, j) => (
-							<Badge key={j} variant="secondary">{tech}</Badge>
+							<Badge key={j} variant="secondary">
+								{tech}
+							</Badge>
 						))}
 					</div>
 					<div className="flex gap-2 mt-4">
@@ -227,7 +266,13 @@ const ProjectsTab = ({
 const CertificationsTab = ({
 	certifications,
 }: {
-	certifications: { name: string; issuer: string; date: string; credentialId: string; logo: string }[];
+	certifications: {
+		name: string;
+		issuer: string;
+		date: string;
+		credentialId: string;
+		logo: string;
+	}[];
 }) => (
 	<div className="grid @md:grid-cols-2 gap-4">
 		{certifications.map((cert, i) => (
@@ -236,13 +281,19 @@ const CertificationsTab = ({
 					<div className="flex items-start gap-4">
 						<Avatar className="size-12 rounded-lg shrink-0">
 							<AvatarImage src={cert.logo} alt={cert.issuer} />
-							<AvatarFallback className="rounded-lg">{cert.issuer[0]}</AvatarFallback>
+							<AvatarFallback className="rounded-lg">
+								{cert.issuer[0]}
+							</AvatarFallback>
 						</Avatar>
 						<div className="flex-1">
 							<h4 className="font-semibold">{cert.name}</h4>
 							<p className="text-sm text-muted-foreground">{cert.issuer}</p>
-							<p className="text-sm text-muted-foreground">Issued {cert.date}</p>
-							<p className="text-xs text-muted-foreground mt-1">ID: {cert.credentialId}</p>
+							<p className="text-sm text-muted-foreground">
+								Issued {cert.date}
+							</p>
+							<p className="text-xs text-muted-foreground mt-1">
+								ID: {cert.credentialId}
+							</p>
 						</div>
 						<Button variant="outline" size="sm">
 							<FileText className="size-4" />
@@ -272,7 +323,8 @@ export default function Main() {
 				role: 'Senior Software Engineer',
 				period: 'Jan 2022 - Present',
 				location: 'San Francisco, CA',
-				description: 'Lead developer for the core platform team. Architected and implemented microservices infrastructure serving 1M+ users.',
+				description:
+					'Lead developer for the core platform team. Architected and implemented microservices infrastructure serving 1M+ users.',
 				skills: ['React', 'Node.js', 'AWS', 'Kubernetes'],
 			},
 			{
@@ -281,7 +333,8 @@ export default function Main() {
 				role: 'Full Stack Developer',
 				period: 'Jun 2019 - Dec 2021',
 				location: 'Remote',
-				description: 'Built and maintained multiple client-facing applications. Reduced page load time by 40% through optimization.',
+				description:
+					'Built and maintained multiple client-facing applications. Reduced page load time by 40% through optimization.',
 				skills: ['Vue.js', 'Python', 'PostgreSQL', 'Docker'],
 			},
 		],
@@ -293,7 +346,7 @@ export default function Main() {
 				field: 'Computer Science',
 				period: '2017 - 2019',
 				gpa: '3.9/4.0',
-				achievements: ['Dean\'s List', 'Research Assistant'],
+				achievements: ["Dean's List", 'Research Assistant'],
 			},
 			{
 				school: 'UC Berkeley',
@@ -324,22 +377,41 @@ export default function Main() {
 		projects: [
 			{
 				name: 'E-commerce Platform',
-				description: 'Full-stack e-commerce solution with real-time inventory management',
-				image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400',
+				description:
+					'Full-stack e-commerce solution with real-time inventory management',
+				image:
+					'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400',
 				technologies: ['Next.js', 'Stripe', 'PostgreSQL'],
-				links: [{ label: 'Live', href: '#' }, { label: 'GitHub', href: '#' }],
+				links: [
+					{ label: 'Live', href: '#' },
+					{ label: 'GitHub', href: '#' },
+				],
 			},
 			{
 				name: 'AI Chat Assistant',
-				description: 'GPT-powered customer support chatbot with knowledge base integration',
-				image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400',
+				description:
+					'GPT-powered customer support chatbot with knowledge base integration',
+				image:
+					'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400',
 				technologies: ['Python', 'OpenAI', 'FastAPI'],
 				links: [{ label: 'Demo', href: '#' }],
 			},
 		],
 		certifications: [
-			{ name: 'AWS Solutions Architect', issuer: 'Amazon Web Services', date: 'Mar 2023', credentialId: 'AWS-SAA-001', logo: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=100' },
-			{ name: 'Google Cloud Professional', issuer: 'Google', date: 'Jan 2023', credentialId: 'GCP-PCA-002', logo: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=100' },
+			{
+				name: 'AWS Solutions Architect',
+				issuer: 'Amazon Web Services',
+				date: 'Mar 2023',
+				credentialId: 'AWS-SAA-001',
+				logo: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=100',
+			},
+			{
+				name: 'Google Cloud Professional',
+				issuer: 'Google',
+				date: 'Jan 2023',
+				credentialId: 'GCP-PCA-002',
+				logo: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=100',
+			},
 		],
 	};
 

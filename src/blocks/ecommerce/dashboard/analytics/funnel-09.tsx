@@ -40,22 +40,29 @@ const funnelData: FunnelData[] = [
 
 const FunnelChart = ({ data }: { data: FunnelData }) => {
 	const maxValue = data.steps[0].value;
-	
+
 	return (
 		<div className="space-y-3">
 			{data.steps.map((step, i) => {
 				const width = (step.value / maxValue) * 100;
-				const convRate = i > 0 ? ((step.value / data.steps[i - 1].value) * 100).toFixed(1) : null;
-				
+				const convRate =
+					i > 0
+						? ((step.value / data.steps[i - 1].value) * 100).toFixed(1)
+						: null;
+
 				return (
 					<div key={i}>
 						<div className="flex items-center justify-between mb-1 text-sm">
 							<span className="font-medium">{step.label}</span>
 							<div className="flex items-center gap-3">
 								{convRate && (
-									<span className="text-xs text-muted-foreground">{convRate}% from prev</span>
+									<span className="text-xs text-muted-foreground">
+										{convRate}% from prev
+									</span>
 								)}
-								<span className="font-medium">{step.value.toLocaleString()}</span>
+								<span className="font-medium">
+									{step.value.toLocaleString()}
+								</span>
 							</div>
 						</div>
 						<div className="h-8 bg-muted/30 rounded-sm overflow-hidden">
@@ -67,7 +74,7 @@ const FunnelChart = ({ data }: { data: FunnelData }) => {
 					</div>
 				);
 			})}
-			
+
 			<div className="pt-4 border-t border-border/50 grid grid-cols-3 gap-4 text-center">
 				<div>
 					<p className="text-xs text-muted-foreground">Engagement Rate</p>
@@ -98,8 +105,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Funnel by Period</CardTitle>
-						<p className="text-xs text-muted-foreground">Conversion trends over time</p>
+						<CardTitle className="text-sm font-medium">
+							Funnel by Period
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Conversion trends over time
+						</p>
 					</CardHeader>
 					<CardContent className="pt-4">
 						<Tabs defaultValue="month" className="w-full">

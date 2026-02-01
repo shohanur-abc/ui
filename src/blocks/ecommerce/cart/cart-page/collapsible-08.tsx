@@ -3,9 +3,22 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import {
+	Collapsible,
+	CollapsibleContent,
+	CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, Trash2, ChevronDown, Store, Truck, MapPin, CreditCard } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	Trash2,
+	ChevronDown,
+	Store,
+	Truck,
+	MapPin,
+	CreditCard,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -60,7 +73,15 @@ const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 	</div>
 );
 
-const ItemInfo = ({ name, variant, price }: { name: string; variant: string; price: number }) => (
+const ItemInfo = ({
+	name,
+	variant,
+	price,
+}: {
+	name: string;
+	variant: string;
+	price: number;
+}) => (
 	<div className="min-w-0 flex-1">
 		<h4 className="font-medium text-sm line-clamp-1">{name}</h4>
 		<p className="text-xs text-muted-foreground">{variant}</p>
@@ -81,7 +102,11 @@ const QuantityInput = ({ quantity }: { quantity: number }) => (
 );
 
 const RemoveIcon = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<Trash2 className="size-4" />
 	</Button>
 );
@@ -101,7 +126,10 @@ const SellerCard = ({ seller }: { seller: Seller }) => (
 	<Card className="overflow-hidden">
 		<Collapsible defaultOpen className="group">
 			<CollapsibleTrigger asChild>
-				<button type="button" className="w-full px-4 hover:bg-muted/50 transition-colors">
+				<button
+					type="button"
+					className="w-full px-4 hover:bg-muted/50 transition-colors"
+				>
 					<SellerHeader
 						name={seller.name}
 						itemCount={seller.items.length}
@@ -130,8 +158,12 @@ const SummaryEntry = ({
 	value: string;
 	variant?: 'default' | 'highlight' | 'success';
 }) => (
-	<div className={`flex justify-between ${variant === 'highlight' ? 'text-lg font-bold' : ''}`}>
-		<span className={variant === 'highlight' ? '' : 'text-muted-foreground'}>{label}</span>
+	<div
+		className={`flex justify-between ${variant === 'highlight' ? 'text-lg font-bold' : ''}`}
+	>
+		<span className={variant === 'highlight' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span
 			className={
 				variant === 'highlight'
@@ -163,7 +195,9 @@ const DeliveryOption = ({
 			selected ? 'border-primary bg-primary/5' : 'hover:border-primary/50'
 		}`}
 	>
-		<Icon className={`size-5 shrink-0 ${selected ? 'text-primary' : 'text-muted-foreground'}`} />
+		<Icon
+			className={`size-5 shrink-0 ${selected ? 'text-primary' : 'text-muted-foreground'}`}
+		/>
 		<div>
 			<p className="font-medium">{title}</p>
 			<p className="text-sm text-muted-foreground">{description}</p>
@@ -216,7 +250,11 @@ const OrderPanel = ({
 				/>
 				<SummaryEntry label="Tax" value={`$${tax.toFixed(2)}`} />
 				<Separator />
-				<SummaryEntry label="Total" value={`$${total.toFixed(2)}`} variant="highlight" />
+				<SummaryEntry
+					label="Total"
+					value={`$${total.toFixed(2)}`}
+					variant="highlight"
+				/>
 			</div>
 
 			<Button className="w-full gap-2" size="lg" asChild>
@@ -238,7 +276,8 @@ export default function Main() {
 			items: [
 				{
 					id: '1a',
-					image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=150&h=150&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=150&h=150&fit=crop',
 					name: 'Wireless Gaming Mouse',
 					variant: 'RGB / Black',
 					price: 79.99,
@@ -246,7 +285,8 @@ export default function Main() {
 				},
 				{
 					id: '1b',
-					image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=150&h=150&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=150&h=150&fit=crop',
 					name: 'Mechanical Keyboard TKL',
 					variant: 'Blue Switches',
 					price: 149.99,
@@ -261,7 +301,8 @@ export default function Main() {
 			items: [
 				{
 					id: '2a',
-					image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=150&h=150&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=150&h=150&fit=crop',
 					name: 'Modern Table Lamp',
 					variant: 'Brass / White Shade',
 					price: 89.99,
@@ -276,7 +317,8 @@ export default function Main() {
 			items: [
 				{
 					id: '3a',
-					image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=150&h=150&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=150&h=150&fit=crop',
 					name: 'Oversized Denim Jacket',
 					variant: 'Size: L / Washed Blue',
 					price: 129.99,
@@ -286,7 +328,9 @@ export default function Main() {
 		},
 	];
 
-	const subtotal = sellers.flatMap((s) => s.items).reduce((sum, i) => sum + i.price * i.quantity, 0);
+	const subtotal = sellers
+		.flatMap((s) => s.items)
+		.reduce((sum, i) => sum + i.price * i.quantity, 0);
 	const shipping = sellers.reduce((sum, s) => sum + s.shippingCost, 0);
 	const tax = subtotal * 0.08;
 	const total = subtotal + shipping + tax;
@@ -297,7 +341,8 @@ export default function Main() {
 				<div className="flex items-center justify-between">
 					<h1 className="text-2xl font-bold @md:text-3xl">Shopping Cart</h1>
 					<p className="text-muted-foreground">
-						{sellers.length} sellers • {sellers.flatMap((s) => s.items).length} items
+						{sellers.length} sellers • {sellers.flatMap((s) => s.items).length}{' '}
+						items
 					</p>
 				</div>
 

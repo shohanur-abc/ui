@@ -33,7 +33,15 @@ const PolarAreaChart = ({ data }: { data: PolarData[] }) => {
 			<div className="relative w-56 h-56">
 				<svg viewBox="0 0 100 100" className="w-full h-full">
 					{[10, 20, 30, 40].map((r) => (
-						<circle key={r} cx="50" cy="50" r={r} fill="none" stroke="hsl(var(--border))" strokeWidth="0.2" />
+						<circle
+							key={r}
+							cx="50"
+							cy="50"
+							r={r}
+							fill="none"
+							stroke="hsl(var(--border))"
+							strokeWidth="0.2"
+						/>
 					))}
 					{slices.map((slice, i) => (
 						<path
@@ -51,7 +59,10 @@ const PolarAreaChart = ({ data }: { data: PolarData[] }) => {
 			<div className="grid grid-cols-2 gap-x-6 gap-y-2">
 				{data.map((item, i) => (
 					<div key={i} className="flex items-center gap-2">
-						<div className="w-3 h-3 rounded" style={{ backgroundColor: item.color }} />
+						<div
+							className="w-3 h-3 rounded"
+							style={{ backgroundColor: item.color }}
+						/>
 						<span className="text-sm">{item.label}</span>
 						<span className="text-sm font-medium ml-auto">{item.value}</span>
 					</div>
@@ -76,8 +87,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Marketing Channel Performance</CardTitle>
-						<p className="text-xs text-muted-foreground">Effectiveness score by channel</p>
+						<CardTitle className="text-sm font-medium">
+							Marketing Channel Performance
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Effectiveness score by channel
+						</p>
 					</CardHeader>
 					<CardContent>
 						<PolarAreaChart data={skillData} />

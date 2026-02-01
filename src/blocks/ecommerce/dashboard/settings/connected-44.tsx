@@ -87,7 +87,9 @@ const ConnectedAccountCard = ({
 						<p className="text-sm text-muted-foreground">@{username}</p>
 					)}
 					{connected && lastSync && (
-						<p className="text-xs text-muted-foreground">Last sync: {lastSync}</p>
+						<p className="text-xs text-muted-foreground">
+							Last sync: {lastSync}
+						</p>
 					)}
 				</div>
 			</div>
@@ -130,11 +132,7 @@ const ConnectedAccountCard = ({
 	</div>
 );
 
-const DataSharingRow = ({
-	service,
-	description,
-	enabled,
-}: DataSharing) => (
+const DataSharingRow = ({ service, description, enabled }: DataSharing) => (
 	<div className="flex items-center justify-between py-3">
 		<div>
 			<h4 className="font-medium">{service}</h4>
@@ -253,8 +251,9 @@ export default function Main() {
 							<div>
 								<h4 className="font-medium">Third-Party Access</h4>
 								<p className="mt-1 text-sm text-muted-foreground">
-									Connected accounts may have access to your personal information.
-									Review permissions regularly and disconnect unused accounts.
+									Connected accounts may have access to your personal
+									information. Review permissions regularly and disconnect
+									unused accounts.
 								</p>
 								<Button variant="link" size="sm" className="mt-2 h-auto p-0">
 									Review all permissions

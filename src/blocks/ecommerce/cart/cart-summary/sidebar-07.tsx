@@ -1,7 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
-import { Gift, Package, MessageSquare, Sparkles, type LucideIcon } from 'lucide-react';
+import {
+	Gift,
+	Package,
+	MessageSquare,
+	Sparkles,
+	type LucideIcon,
+} from 'lucide-react';
 import Link from 'next/link';
 
 type SummaryRowProps = {

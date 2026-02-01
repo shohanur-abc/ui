@@ -37,7 +37,9 @@ const PageHeader = ({ confirmationNumber }: { confirmationNumber: string }) => (
 		</div>
 		<div>
 			<h1 className="text-2xl @lg:text-4xl font-bold">Booking Confirmed!</h1>
-			<p className="text-muted-foreground">Confirmation #{confirmationNumber}</p>
+			<p className="text-muted-foreground">
+				Confirmation #{confirmationNumber}
+			</p>
 		</div>
 	</div>
 );
@@ -112,7 +114,10 @@ const ProviderCard = ({
 		<CardContent className="pt-6">
 			<div className="flex items-center gap-4">
 				<div className="size-16 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white text-xl font-bold">
-					{name.split(' ').map(n => n[0]).join('')}
+					{name
+						.split(' ')
+						.map((n) => n[0])
+						.join('')}
 				</div>
 				<div>
 					<p className="font-semibold">{name}</p>
@@ -168,7 +173,10 @@ const ReminderCard = ({
 			</div>
 			<div className="grid @sm:grid-cols-2 gap-3">
 				{reminders.map((reminder, i) => (
-					<div key={i} className="flex items-center justify-between p-2 rounded-lg bg-background">
+					<div
+						key={i}
+						className="flex items-center justify-between p-2 rounded-lg bg-background"
+					>
 						<span className="text-sm">{reminder.time}</span>
 						<Badge variant="outline" className="text-xs">
 							{reminder.type}
@@ -183,7 +191,13 @@ const ReminderCard = ({
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 justify-center">
 		{items.map(({ label, href, variant, icon: Icon }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="gap-2" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="gap-2"
+				asChild
+			>
 				<Link href={href}>
 					{label}
 					{Icon && <Icon className="size-4" />}
@@ -195,7 +209,12 @@ const CTA = ({ items }: CTAProps) => (
 
 export default function Main() {
 	const infoCards: AppointmentInfoProps[] = [
-		{ icon: Calendar, label: 'Date', value: 'Saturday, Jan 20', subvalue: '2024' },
+		{
+			icon: Calendar,
+			label: 'Date',
+			value: 'Saturday, Jan 20',
+			subvalue: '2024',
+		},
 		{ icon: Clock, label: 'Time', value: '10:00 AM', subvalue: 'Eastern Time' },
 		{ icon: Clock, label: 'Duration', value: '60 minutes' },
 		{ icon: User, label: 'Attendees', value: '1 person' },
@@ -232,7 +251,10 @@ export default function Main() {
 						title="Clinical Psychologist"
 						rating={4.9}
 					/>
-					<MeetingTypeCard type="video" details="Zoom link will be sent 15 min before" />
+					<MeetingTypeCard
+						type="video"
+						details="Zoom link will be sent 15 min before"
+					/>
 				</div>
 
 				<ReminderCard reminders={reminders} />
@@ -240,7 +262,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'Add to Calendar', href: '/calendar', icon: Calendar },
-						{ label: 'Manage Booking', href: '/bookings', variant: 'outline', icon: ArrowRight },
+						{
+							label: 'Manage Booking',
+							href: '/bookings',
+							variant: 'outline',
+							icon: ArrowRight,
+						},
 					]}
 				/>
 			</div>

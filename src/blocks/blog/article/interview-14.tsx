@@ -73,7 +73,9 @@ const InterviewParticipants = ({
 				</AvatarFallback>
 			</Avatar>
 			<div>
-				<p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Featured</p>
+				<p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+					Featured
+				</p>
 				<p className="font-semibold">{interviewee.name}</p>
 				<p className="text-sm text-muted-foreground">
 					{interviewee.title}, {interviewee.company}
@@ -88,7 +90,9 @@ const InterviewParticipants = ({
 				</AvatarFallback>
 			</Avatar>
 			<div>
-				<p className="text-xs text-muted-foreground uppercase tracking-wider">Interview by</p>
+				<p className="text-xs text-muted-foreground uppercase tracking-wider">
+					Interview by
+				</p>
 				<p className="text-sm font-medium">{interviewer.name}</p>
 				<div className="flex items-center gap-2 text-xs text-muted-foreground">
 					<span>{publishDate}</span>
@@ -143,19 +147,22 @@ export default function Main() {
 	const articleData: ArticleProps = {
 		category: 'Interview',
 		categoryHref: '/blog/category/interviews',
-		title: 'Building Products That Matter: A Conversation with the Future of Tech',
+		title:
+			'Building Products That Matter: A Conversation with the Future of Tech',
 		introduction:
 			'We sat down with one of the most influential voices in product development to discuss the changing landscape of technology, the responsibility of builders, and what comes next.',
 		interviewer: {
 			name: 'David Chen',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'DC',
 		},
 		interviewee: {
 			name: 'Amanda Foster',
 			title: 'Chief Product Officer',
 			company: 'Nexus Technologies',
-			avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop',
 			initials: 'AF',
 		},
 		publishDate: 'January 20, 2026',
@@ -165,16 +172,22 @@ export default function Main() {
 		heroAlt: 'Professional headshot of Amanda Foster',
 		qa: [
 			{
-				question: 'You\'ve been at the forefront of product development for over a decade. How has your philosophy evolved?',
-				answer: 'Early in my career, I was obsessed with features—shipping more, shipping faster. Over time, I\'ve come to believe that restraint is the harder and more valuable skill. The best products aren\'t the ones that do everything; they\'re the ones that do a few things extraordinarily well. Every feature is a commitment, a complexity cost that compounds over time.',
+				question:
+					"You've been at the forefront of product development for over a decade. How has your philosophy evolved?",
+				answer:
+					"Early in my career, I was obsessed with features—shipping more, shipping faster. Over time, I've come to believe that restraint is the harder and more valuable skill. The best products aren't the ones that do everything; they're the ones that do a few things extraordinarily well. Every feature is a commitment, a complexity cost that compounds over time.",
 			},
 			{
-				question: 'There\'s been a lot of discussion about AI and its impact on product development. Where do you see the biggest opportunities?',
-				answer: 'The obvious applications are automation and personalization, and those are valuable. But I\'m most excited about AI as a tool for understanding. We\'ve always struggled to truly know our users—their contexts, their frustrations, their unarticulated needs. AI gives us new ways to synthesize information and surface patterns that would be invisible otherwise.',
+				question:
+					"There's been a lot of discussion about AI and its impact on product development. Where do you see the biggest opportunities?",
+				answer:
+					"The obvious applications are automation and personalization, and those are valuable. But I'm most excited about AI as a tool for understanding. We've always struggled to truly know our users—their contexts, their frustrations, their unarticulated needs. AI gives us new ways to synthesize information and surface patterns that would be invisible otherwise.",
 			},
 			{
-				question: 'What advice would you give to someone just starting out in product?',
-				answer: 'Fall in love with problems, not solutions. It\'s so easy to get attached to a particular approach or technology. But the job is to serve users, and that requires the humility to admit when your initial ideas aren\'t working. The best product people I know are relentlessly curious and genuinely excited about being proven wrong.',
+				question:
+					'What advice would you give to someone just starting out in product?',
+				answer:
+					"Fall in love with problems, not solutions. It's so easy to get attached to a particular approach or technology. But the job is to serve users, and that requires the humility to admit when your initial ideas aren't working. The best product people I know are relentlessly curious and genuinely excited about being proven wrong.",
 			},
 		],
 	};
@@ -183,7 +196,10 @@ export default function Main() {
 		<section className="@container relative" data-theme="article">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-6 @md:gap-8">
-					<InterviewBadge text={articleData.category} href={articleData.categoryHref} />
+					<InterviewBadge
+						text={articleData.category}
+						href={articleData.categoryHref}
+					/>
 					<Title text={articleData.title} />
 					<Introduction text={articleData.introduction} />
 					<InterviewParticipants

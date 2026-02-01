@@ -1,13 +1,36 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowLeft, ShoppingBag, Check, Shirt, Home, Sparkles, Gift, Laptop, Dumbbell } from 'lucide-react';
+import {
+	ArrowRight,
+	ArrowLeft,
+	ShoppingBag,
+	Check,
+	Shirt,
+	Home,
+	Sparkles,
+	Gift,
+	Laptop,
+	Dumbbell,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -25,7 +48,9 @@ const StepIndicator = ({
 }) => (
 	<div className="space-y-2 mb-6">
 		<div className="flex justify-between text-sm">
-			<span className="text-muted-foreground">Step {currentStep} of {steps.length}</span>
+			<span className="text-muted-foreground">
+				Step {currentStep} of {steps.length}
+			</span>
 			<span className="font-medium">{steps[currentStep - 1]}</span>
 		</div>
 		<Progress value={(currentStep / steps.length) * 100} className="h-2" />
@@ -70,7 +95,9 @@ const NavigationButtons = ({
 		)}
 		<Button type="submit" className="flex-1 gap-2 group">
 			{nextLabel}
-			{NextIcon && <NextIcon className="size-4 transition-transform group-hover:translate-x-0.5" />}
+			{NextIcon && (
+				<NextIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
+			)}
 		</Button>
 	</div>
 );
@@ -88,7 +115,8 @@ const PreferencesStep = () => {
 	return (
 		<form className="space-y-4">
 			<p className="text-sm text-muted-foreground">
-				Select categories you&apos;re interested in to personalize your shopping experience.
+				Select categories you&apos;re interested in to personalize your shopping
+				experience.
 			</p>
 			<div className="space-y-2">
 				{categories.map((category) => (
@@ -100,7 +128,11 @@ const PreferencesStep = () => {
 					/>
 				))}
 			</div>
-			<NavigationButtons showBack={true} nextLabel="Complete Setup" nextIcon={Check} />
+			<NavigationButtons
+				showBack={true}
+				nextLabel="Complete Setup"
+				nextIcon={Check}
+			/>
 		</form>
 	);
 };

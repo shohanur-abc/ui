@@ -67,10 +67,7 @@ const StatsRow = ({
 }) => (
 	<div className="grid grid-cols-3 gap-4 mb-8">
 		{stats.map(({ label, value }, i) => (
-			<div
-				key={i}
-				className="text-center p-4 bg-primary/5 rounded-lg"
-			>
+			<div key={i} className="text-center p-4 bg-primary/5 rounded-lg">
 				<div className="flex items-center justify-center gap-1 text-primary mb-1">
 					<TrendingUp className="size-4" />
 				</div>

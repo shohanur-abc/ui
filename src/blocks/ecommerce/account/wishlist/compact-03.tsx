@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, Star, TrendingDown, TrendingUp } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	Star,
+	TrendingDown,
+	TrendingUp,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -30,11 +37,17 @@ const PriceChangeIndicator = ({ change }: { change?: 'up' | 'down' }) => {
 const CompactItem = ({ item }: { item: WishlistItem }) => (
 	<div className="flex items-center gap-2 py-2 border-b last:border-0">
 		<div className="size-8 flex-shrink-0 rounded overflow-hidden bg-muted">
-			<img src={item.image} alt={item.name} className="size-full object-cover" />
+			<img
+				src={item.image}
+				alt={item.name}
+				className="size-full object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<Link href={item.href}>
-				<p className="text-sm truncate hover:text-primary transition-colors">{item.name}</p>
+				<p className="text-sm truncate hover:text-primary transition-colors">
+					{item.name}
+				</p>
 			</Link>
 		</div>
 		<div className="flex items-center gap-0.5 text-xs text-muted-foreground flex-shrink-0">
@@ -83,11 +96,54 @@ const QuickStats = ({ items }: { items: WishlistItem[] }) => {
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Wireless Mouse', price: 49, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=100&h=100&fit=crop', rating: 4.8, priceChange: 'down', href: '/product/1' },
-		{ id: '2', name: 'USB-C Hub', price: 79, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop', rating: 4.5, href: '/product/2' },
-		{ id: '3', name: 'Webcam HD', price: 89, image: 'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=100&h=100&fit=crop', rating: 4.3, priceChange: 'up', href: '/product/3' },
-		{ id: '4', name: 'Desk Lamp', price: 59, image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=100&h=100&fit=crop', rating: 4.7, priceChange: 'down', href: '/product/4' },
-		{ id: '5', name: 'Monitor Stand', price: 45, image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=100&h=100&fit=crop', rating: 4.6, href: '/product/5' },
+		{
+			id: '1',
+			name: 'Wireless Mouse',
+			price: 49,
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=100&h=100&fit=crop',
+			rating: 4.8,
+			priceChange: 'down',
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'USB-C Hub',
+			price: 79,
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100&h=100&fit=crop',
+			rating: 4.5,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Webcam HD',
+			price: 89,
+			image:
+				'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=100&h=100&fit=crop',
+			rating: 4.3,
+			priceChange: 'up',
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Desk Lamp',
+			price: 59,
+			image:
+				'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=100&h=100&fit=crop',
+			rating: 4.7,
+			priceChange: 'down',
+			href: '/product/4',
+		},
+		{
+			id: '5',
+			name: 'Monitor Stand',
+			price: 45,
+			image:
+				'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=100&h=100&fit=crop',
+			rating: 4.6,
+			href: '/product/5',
+		},
 	];
 
 	return (

@@ -37,7 +37,9 @@ const channels: FunnelChannel[] = [
 	},
 ];
 
-const maxValue = Math.max(...channels.flatMap((c) => c.steps.map((s) => s.value)));
+const maxValue = Math.max(
+	...channels.flatMap((c) => c.steps.map((s) => s.value)),
+);
 const colors = ['bg-cyan-500', 'bg-purple-500', 'bg-amber-500'];
 
 export default function Main() {
@@ -48,8 +50,12 @@ export default function Main() {
 					<CardHeader className="pb-2">
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-sm font-medium">Channel Funnels</CardTitle>
-								<p className="text-xs text-muted-foreground">Conversion by traffic source</p>
+								<CardTitle className="text-sm font-medium">
+									Channel Funnels
+								</CardTitle>
+								<p className="text-xs text-muted-foreground">
+									Conversion by traffic source
+								</p>
 							</div>
 							<div className="flex items-center gap-4 text-xs">
 								{channels.map((c, i) => (
@@ -65,25 +71,39 @@ export default function Main() {
 						<div className="space-y-6">
 							{channels[0].steps.map((_, stepIndex) => (
 								<div key={stepIndex}>
-									<p className="text-xs text-muted-foreground mb-2">{channels[0].steps[stepIndex].label}</p>
+									<p className="text-xs text-muted-foreground mb-2">
+										{channels[0].steps[stepIndex].label}
+									</p>
 									<div className="space-y-2">
 										{channels.map((channel, channelIndex) => {
 											const step = channel.steps[stepIndex];
 											const width = (step.value / maxValue) * 100;
-											const convRate = stepIndex > 0
-												? ((step.value / channel.steps[stepIndex - 1].value) * 100).toFixed(1)
-												: '100';
-											
+											const convRate =
+												stepIndex > 0
+													? (
+															(step.value /
+																channel.steps[stepIndex - 1].value) *
+															100
+														).toFixed(1)
+													: '100';
+
 											return (
-												<div key={channelIndex} className="flex items-center gap-3">
-													<span className="text-xs w-14">{channel.channel}</span>
+												<div
+													key={channelIndex}
+													className="flex items-center gap-3"
+												>
+													<span className="text-xs w-14">
+														{channel.channel}
+													</span>
 													<div className="flex-1 h-5 bg-muted/30 rounded-sm overflow-hidden">
 														<div
 															className={`h-full ${colors[channelIndex]}`}
 															style={{ width: `${width}%` }}
 														/>
 													</div>
-													<span className="text-xs w-16 text-right">{step.value.toLocaleString()}</span>
+													<span className="text-xs w-16 text-right">
+														{step.value.toLocaleString()}
+													</span>
 													<span className="text-xs w-12 text-right text-muted-foreground">
 														{convRate}%
 													</span>
@@ -96,11 +116,18 @@ export default function Main() {
 						</div>
 						<div className="mt-6 grid grid-cols-3 gap-4 pt-4 border-t border-border/50">
 							{channels.map((channel, i) => {
-								const overallConv = ((channel.steps[3].value / channel.steps[0].value) * 100).toFixed(2);
+								const overallConv = (
+									(channel.steps[3].value / channel.steps[0].value) *
+									100
+								).toFixed(2);
 								return (
 									<div key={i} className="text-center">
-										<p className="text-xs text-muted-foreground">{channel.channel} Conv.</p>
-										<p className={`text-lg font-semibold ${i === 0 ? 'text-cyan-500' : i === 1 ? 'text-purple-500' : 'text-amber-500'}`}>
+										<p className="text-xs text-muted-foreground">
+											{channel.channel} Conv.
+										</p>
+										<p
+											className={`text-lg font-semibold ${i === 0 ? 'text-cyan-500' : i === 1 ? 'text-purple-500' : 'text-amber-500'}`}
+										>
 											{overallConv}%
 										</p>
 									</div>

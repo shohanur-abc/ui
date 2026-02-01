@@ -50,11 +50,7 @@ const Description = ({ text }: DescriptionProps) => (
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 	<form className="flex flex-col @sm:flex-row gap-3 w-full">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="flex-1 h-10"
-		/>
+		<Input type="email" placeholder={placeholder} className="flex-1 h-10" />
 		<Button className="gap-2 h-10">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}
@@ -67,7 +63,10 @@ const Benefits = ({ items }: BenefitsProps) => (
 		{items.map((item, i) => {
 			const Icon = item.icon;
 			return (
-				<div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+				<div
+					key={i}
+					className="flex items-center gap-2 text-sm text-muted-foreground"
+				>
 					<Icon className="size-4 text-primary" />
 					<span>{item.text}</span>
 				</div>

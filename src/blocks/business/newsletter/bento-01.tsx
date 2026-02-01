@@ -1,4 +1,13 @@
-import { Mail, ArrowRight, Zap, BarChart3, Users, Shield, Sparkles, TrendingUp } from 'lucide-react';
+import {
+	Mail,
+	ArrowRight,
+	Zap,
+	BarChart3,
+	Users,
+	Shield,
+	Sparkles,
+	TrendingUp,
+} from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -49,7 +58,9 @@ const Title = ({ text, highlight }: TitleProps) => (
 );
 
 const Description = ({ text }: DescriptionProps) => (
-	<p className="text-muted-foreground text-sm @md:text-base leading-relaxed">{text}</p>
+	<p className="text-muted-foreground text-sm @md:text-base leading-relaxed">
+		{text}
+	</p>
 );
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
@@ -68,7 +79,9 @@ const FeatureCard = ({ icon: Icon, title, description }: FeatureCardProps) => (
 			<Icon className="size-5 text-primary" />
 		</div>
 		<span className="font-medium">{title}</span>
-		<span className="text-xs text-muted-foreground leading-relaxed">{description}</span>
+		<span className="text-xs text-muted-foreground leading-relaxed">
+			{description}
+		</span>
 	</div>
 );
 
@@ -92,9 +105,16 @@ export default function Main() {
 					{/* Main newsletter card - spans 2 columns */}
 					<div className="@lg:col-span-2 @lg:row-span-2 flex flex-col gap-6 p-6 @md:p-8 rounded-2xl border bg-card">
 						<Eyebrow icon={Mail} text="Business Newsletter" />
-						<Title text="Strategic insights for" highlight="growth-focused leaders" />
+						<Title
+							text="Strategic insights for"
+							highlight="growth-focused leaders"
+						/>
 						<Description text="Join thousands of executives and entrepreneurs who receive our weekly newsletter packed with market analysis, growth strategies, and leadership insights." />
-						<Form placeholder="Enter your work email" buttonText="Subscribe" buttonIcon={ArrowRight} />
+						<Form
+							placeholder="Enter your work email"
+							buttonText="Subscribe"
+							buttonIcon={ArrowRight}
+						/>
 					</div>
 
 					{/* Stats cards */}

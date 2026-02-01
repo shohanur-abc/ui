@@ -124,7 +124,9 @@ const ImportNotice = ({
 }) => (
 	<Alert className="border-amber-500/50 bg-amber-500/10">
 		<AlertTriangle className="size-4 text-amber-500" />
-		<AlertTitle className="text-amber-700 dark:text-amber-400">{title}</AlertTitle>
+		<AlertTitle className="text-amber-700 dark:text-amber-400">
+			{title}
+		</AlertTitle>
 		<AlertDescription className="text-amber-700/80 dark:text-amber-400/80">
 			{description}
 		</AlertDescription>
@@ -174,7 +176,9 @@ export default function Main() {
 					<Globe className="size-8 text-primary" />
 					<div>
 						<h1 className="text-2xl font-bold">International Shipping</h1>
-						<p className="text-muted-foreground">Shipping to 150+ countries worldwide</p>
+						<p className="text-muted-foreground">
+							Shipping to 150+ countries worldwide
+						</p>
 					</div>
 				</div>
 
@@ -195,7 +199,10 @@ export default function Main() {
 							</div>
 
 							<FormField label="Address Line 1" placeholder="Street address" />
-							<FormField label="Address Line 2" placeholder="Apartment, suite, unit" />
+							<FormField
+								label="Address Line 2"
+								placeholder="Apartment, suite, unit"
+							/>
 
 							<div className="grid @sm:grid-cols-3 gap-4">
 								<FormField label="City" placeholder="City" />
@@ -232,7 +239,9 @@ export default function Main() {
 						</div>
 
 						<div className="flex gap-3">
-							<Button variant="outline" className="flex-1">Back</Button>
+							<Button variant="outline" className="flex-1">
+								Back
+							</Button>
 							<Button className="flex-1">Continue to Payment</Button>
 						</div>
 					</div>

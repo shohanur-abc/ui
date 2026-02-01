@@ -36,7 +36,12 @@ interface Product {
 const ProductRow = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-3 py-2">
 		<div className="relative size-12 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="text-sm font-medium">{product.name}</p>
@@ -44,7 +49,9 @@ const ProductRow = ({ product }: { product: Product }) => (
 		</div>
 		<div className="text-right">
 			<p className="text-sm font-bold">${product.price.toFixed(2)}</p>
-			<Badge variant="secondary" className="text-xs">×{product.qty}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				×{product.qty}
+			</Badge>
 		</div>
 	</div>
 );
@@ -77,9 +84,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -93,7 +104,8 @@ export default function Main() {
 			variant: 'Running / White',
 			price: 129.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -101,12 +113,16 @@ export default function Main() {
 			variant: 'Athletic / 6-Pack',
 			price: 24.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=200&h=200&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative min-h-[500px] overflow-hidden" data-theme="neon">
+		<section
+			className="@container relative min-h-[500px] overflow-hidden"
+			data-theme="neon"
+		>
 			<div className="mx-auto max-w-4xl px-4 py-12 @sm:px-6 @md:py-16">
 				<div className="text-center">
 					<h1 className="text-2xl font-bold tracking-tight @md:text-3xl">
@@ -160,7 +176,11 @@ export default function Main() {
 						</div>
 
 						<DialogFooter className="flex-col gap-3 sm:flex-col">
-							<Button size="lg" className="w-full gap-2" onClick={() => setOpen(false)}>
+							<Button
+								size="lg"
+								className="w-full gap-2"
+								onClick={() => setOpen(false)}
+							>
 								<Lock className="size-4" />
 								Complete Order
 								<ArrowRight className="size-4" />

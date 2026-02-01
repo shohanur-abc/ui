@@ -14,13 +14,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import {
-	Globe,
-	MapPin,
-	Building,
-	ArrowRight,
-	AlertCircle,
-} from 'lucide-react';
+import { Globe, MapPin, Building, ArrowRight, AlertCircle } from 'lucide-react';
 
 interface FieldProps {
 	label: string;
@@ -154,8 +148,8 @@ const PoBoxForm = ({
 		</div>
 		<div className="p-4 rounded-lg bg-muted/50 border border-border">
 			<p className="text-sm text-muted-foreground">
-				⚠️ Some items may not be eligible for P.O. Box delivery. 
-				We&apos;ll notify you if any items require a street address.
+				⚠️ Some items may not be eligible for P.O. Box delivery. We&apos;ll
+				notify you if any items require a street address.
 			</p>
 		</div>
 	</div>
@@ -181,9 +175,7 @@ export default function Main() {
 					<h1 className="text-2xl @md:text-3xl font-bold mb-2">
 						Delivery Address
 					</h1>
-					<p className="text-muted-foreground">
-						Choose your address type
-					</p>
+					<p className="text-muted-foreground">Choose your address type</p>
 				</div>
 
 				<Card>

@@ -11,7 +11,13 @@ import {
 	TrendingDown,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -42,10 +48,22 @@ const ZoneCard = ({ zone }: ZoneCardProps) => {
 	};
 
 	const typeConfig = {
-		storage: { icon: <Warehouse className="size-5" />, color: 'bg-blue-500/10 text-blue-500' },
-		picking: { icon: <Package className="size-5" />, color: 'bg-green-500/10 text-green-500' },
-		receiving: { icon: <Box className="size-5" />, color: 'bg-purple-500/10 text-purple-500' },
-		shipping: { icon: <MapPin className="size-5" />, color: 'bg-orange-500/10 text-orange-500' },
+		storage: {
+			icon: <Warehouse className="size-5" />,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
+		picking: {
+			icon: <Package className="size-5" />,
+			color: 'bg-green-500/10 text-green-500',
+		},
+		receiving: {
+			icon: <Box className="size-5" />,
+			color: 'bg-purple-500/10 text-purple-500',
+		},
+		shipping: {
+			icon: <MapPin className="size-5" />,
+			color: 'bg-orange-500/10 text-orange-500',
+		},
 	};
 
 	const { color: statusColor, text: statusText } = statusConfig[zone.status];
@@ -55,10 +73,20 @@ const ZoneCard = ({ zone }: ZoneCardProps) => {
 		<Card>
 			<CardContent className="p-6">
 				<div className="flex items-start justify-between">
-					<div className={`flex size-12 items-center justify-center rounded-xl ${typeColor}`}>
+					<div
+						className={`flex size-12 items-center justify-center rounded-xl ${typeColor}`}
+					>
 						{icon}
 					</div>
-					<Badge variant={zone.status === 'optimal' ? 'outline' : zone.status === 'near-full' ? 'secondary' : 'destructive'}>
+					<Badge
+						variant={
+							zone.status === 'optimal'
+								? 'outline'
+								: zone.status === 'near-full'
+									? 'secondary'
+									: 'destructive'
+						}
+					>
 						{statusText}
 					</Badge>
 				</div>
@@ -68,7 +96,9 @@ const ZoneCard = ({ zone }: ZoneCardProps) => {
 						<h3 className="font-semibold">{zone.name}</h3>
 						<span className="text-xs text-muted-foreground">({zone.code})</span>
 					</div>
-					<p className="mt-1 text-sm capitalize text-muted-foreground">{zone.type} zone</p>
+					<p className="mt-1 text-sm capitalize text-muted-foreground">
+						{zone.type} zone
+					</p>
 				</div>
 
 				<div className="mt-4 space-y-2">
@@ -78,7 +108,8 @@ const ZoneCard = ({ zone }: ZoneCardProps) => {
 					</div>
 					<Progress value={utilization} indicatorClassName={statusColor} />
 					<p className="text-xs text-muted-foreground">
-						{zone.used.toLocaleString()} / {zone.capacity.toLocaleString()} units
+						{zone.used.toLocaleString()} / {zone.capacity.toLocaleString()}{' '}
+						units
 					</p>
 				</div>
 
@@ -106,12 +137,72 @@ const ZoneCard = ({ zone }: ZoneCardProps) => {
 
 export default function Main() {
 	const zones: Zone[] = [
-		{ id: '1', name: 'Zone A', code: 'A1-A20', type: 'storage', capacity: 10000, used: 7500, itemCount: 1250, status: 'optimal', activity: 'high' },
-		{ id: '2', name: 'Zone B', code: 'B1-B15', type: 'storage', capacity: 8000, used: 7200, itemCount: 980, status: 'near-full', activity: 'medium' },
-		{ id: '3', name: 'Picking Area 1', code: 'P1', type: 'picking', capacity: 2000, used: 1200, itemCount: 450, status: 'optimal', activity: 'high' },
-		{ id: '4', name: 'Receiving Dock', code: 'RD-1', type: 'receiving', capacity: 3000, used: 3000, itemCount: 180, status: 'full', activity: 'high' },
-		{ id: '5', name: 'Shipping Bay', code: 'SB-1', type: 'shipping', capacity: 2500, used: 800, itemCount: 95, status: 'optimal', activity: 'medium' },
-		{ id: '6', name: 'Zone C', code: 'C1-C10', type: 'storage', capacity: 5000, used: 2100, itemCount: 620, status: 'optimal', activity: 'low' },
+		{
+			id: '1',
+			name: 'Zone A',
+			code: 'A1-A20',
+			type: 'storage',
+			capacity: 10000,
+			used: 7500,
+			itemCount: 1250,
+			status: 'optimal',
+			activity: 'high',
+		},
+		{
+			id: '2',
+			name: 'Zone B',
+			code: 'B1-B15',
+			type: 'storage',
+			capacity: 8000,
+			used: 7200,
+			itemCount: 980,
+			status: 'near-full',
+			activity: 'medium',
+		},
+		{
+			id: '3',
+			name: 'Picking Area 1',
+			code: 'P1',
+			type: 'picking',
+			capacity: 2000,
+			used: 1200,
+			itemCount: 450,
+			status: 'optimal',
+			activity: 'high',
+		},
+		{
+			id: '4',
+			name: 'Receiving Dock',
+			code: 'RD-1',
+			type: 'receiving',
+			capacity: 3000,
+			used: 3000,
+			itemCount: 180,
+			status: 'full',
+			activity: 'high',
+		},
+		{
+			id: '5',
+			name: 'Shipping Bay',
+			code: 'SB-1',
+			type: 'shipping',
+			capacity: 2500,
+			used: 800,
+			itemCount: 95,
+			status: 'optimal',
+			activity: 'medium',
+		},
+		{
+			id: '6',
+			name: 'Zone C',
+			code: 'C1-C10',
+			type: 'storage',
+			capacity: 5000,
+			used: 2100,
+			itemCount: 620,
+			status: 'optimal',
+			activity: 'low',
+		},
 	];
 
 	return (
@@ -120,8 +211,12 @@ export default function Main() {
 				<div className="space-y-6">
 					<div className="flex items-center justify-between">
 						<div>
-							<h2 className="text-xl font-semibold @lg:text-2xl">Warehouse Zones</h2>
-							<p className="text-sm text-muted-foreground">Capacity and activity by zone</p>
+							<h2 className="text-xl font-semibold @lg:text-2xl">
+								Warehouse Zones
+							</h2>
+							<p className="text-sm text-muted-foreground">
+								Capacity and activity by zone
+							</p>
 						</div>
 						<Button variant="outline">
 							<MapPin className="mr-2 size-4" />

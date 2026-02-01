@@ -38,13 +38,7 @@ interface ShippingOptionProps {
 	}[];
 }
 
-const SectionLabel = ({
-	step,
-	title,
-}: {
-	step: string;
-	title: string;
-}) => (
+const SectionLabel = ({ step, title }: { step: string; title: string }) => (
 	<div className="flex items-center gap-3 mb-5">
 		<span className="flex size-7 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-medium">
 			{step}
@@ -161,7 +155,11 @@ export default function Main() {
 								<Field label="First Name" placeholder="John" />
 								<Field label="Last Name" placeholder="Doe" />
 							</div>
-							<Field label="Email" placeholder="john@example.com" type="email" />
+							<Field
+								label="Email"
+								placeholder="john@example.com"
+								type="email"
+							/>
 							<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 							<SelectField
 								label="Country"

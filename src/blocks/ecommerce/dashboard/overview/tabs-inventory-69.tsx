@@ -1,13 +1,13 @@
-import {
-	AlertCircle,
-	Box,
-	CheckCircle2,
-	Package,
-	Truck,
-} from 'lucide-react';
+import { AlertCircle, Box, CheckCircle2, Package, Truck } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -43,7 +43,10 @@ const getStatusStyle = (status: InventoryItem['status']) => {
 };
 
 const InventoryCard = (item: InventoryItem) => {
-	const stockLevel = Math.min((item.quantity / (item.reorderLevel * 2)) * 100, 100);
+	const stockLevel = Math.min(
+		(item.quantity / (item.reorderLevel * 2)) * 100,
+		100,
+	);
 
 	return (
 		<div className="rounded-xl border bg-card p-4">
@@ -65,7 +68,9 @@ const InventoryCard = (item: InventoryItem) => {
 					<span className="font-medium">{item.quantity} units</span>
 				</div>
 				<Progress value={stockLevel} className="h-2" />
-				<p className="text-xs text-muted-foreground">Reorder at {item.reorderLevel} units</p>
+				<p className="text-xs text-muted-foreground">
+					Reorder at {item.reorderLevel} units
+				</p>
 			</div>
 			<div className="mt-3 flex items-center gap-1 text-xs text-muted-foreground">
 				<Truck className="size-3" />
@@ -77,12 +82,54 @@ const InventoryCard = (item: InventoryItem) => {
 
 export default function Main() {
 	const allItems: InventoryItem[] = [
-		{ sku: 'SKU-001', name: 'Wireless Headphones Pro', quantity: 45, reorderLevel: 20, status: 'in-stock', location: 'Warehouse A' },
-		{ sku: 'SKU-002', name: 'Smart Watch Ultra', quantity: 12, reorderLevel: 15, status: 'low-stock', location: 'Warehouse A' },
-		{ sku: 'SKU-003', name: 'Ergonomic Laptop Stand', quantity: 78, reorderLevel: 25, status: 'in-stock', location: 'Warehouse B' },
-		{ sku: 'SKU-004', name: 'Mechanical Keyboard', quantity: 0, reorderLevel: 30, status: 'out-of-stock', location: 'Warehouse A' },
-		{ sku: 'SKU-005', name: 'USB-C Hub 7-in-1', quantity: 234, reorderLevel: 50, status: 'in-stock', location: 'Warehouse C' },
-		{ sku: 'SKU-006', name: 'Noise Cancelling Earbuds', quantity: 8, reorderLevel: 20, status: 'low-stock', location: 'Warehouse A' },
+		{
+			sku: 'SKU-001',
+			name: 'Wireless Headphones Pro',
+			quantity: 45,
+			reorderLevel: 20,
+			status: 'in-stock',
+			location: 'Warehouse A',
+		},
+		{
+			sku: 'SKU-002',
+			name: 'Smart Watch Ultra',
+			quantity: 12,
+			reorderLevel: 15,
+			status: 'low-stock',
+			location: 'Warehouse A',
+		},
+		{
+			sku: 'SKU-003',
+			name: 'Ergonomic Laptop Stand',
+			quantity: 78,
+			reorderLevel: 25,
+			status: 'in-stock',
+			location: 'Warehouse B',
+		},
+		{
+			sku: 'SKU-004',
+			name: 'Mechanical Keyboard',
+			quantity: 0,
+			reorderLevel: 30,
+			status: 'out-of-stock',
+			location: 'Warehouse A',
+		},
+		{
+			sku: 'SKU-005',
+			name: 'USB-C Hub 7-in-1',
+			quantity: 234,
+			reorderLevel: 50,
+			status: 'in-stock',
+			location: 'Warehouse C',
+		},
+		{
+			sku: 'SKU-006',
+			name: 'Noise Cancelling Earbuds',
+			quantity: 8,
+			reorderLevel: 20,
+			status: 'low-stock',
+			location: 'Warehouse A',
+		},
 	];
 
 	const inStock = allItems.filter((i) => i.status === 'in-stock');
@@ -103,7 +150,9 @@ export default function Main() {
 					<CardContent>
 						<Tabs defaultValue="all" className="w-full">
 							<TabsList className="mb-4">
-								<TabsTrigger value="all">All Items ({allItems.length})</TabsTrigger>
+								<TabsTrigger value="all">
+									All Items ({allItems.length})
+								</TabsTrigger>
 								<TabsTrigger value="in-stock">
 									<CheckCircle2 className="mr-1 size-3 text-emerald-500" />
 									In Stock ({inStock.length})

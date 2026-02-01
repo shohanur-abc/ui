@@ -57,7 +57,9 @@ const QuickActions = ({
 	<div className="flex justify-center gap-6">
 		{actions.map((action, i) => (
 			<button key={i} className="flex flex-col items-center gap-2 group">
-				<div className={`p-4 rounded-full ${action.color} group-hover:scale-110 transition-transform`}>
+				<div
+					className={`p-4 rounded-full ${action.color} group-hover:scale-110 transition-transform`}
+				>
 					<action.icon className="size-6" />
 				</div>
 				<span className="text-sm font-medium">{action.label}</span>
@@ -69,13 +71,21 @@ const QuickActions = ({
 const BalanceBreakdown = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; amount: string; color: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		amount: string;
+		color: string;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<h3 className="text-sm font-semibold text-center">Balance Breakdown</h3>
 		<div className="space-y-2">
 			{items.map((item, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+				>
 					<div className="flex items-center gap-3">
 						<div className={`p-2 rounded-lg ${item.color}`}>
 							<item.icon className="size-4" />
@@ -92,7 +102,12 @@ const BalanceBreakdown = ({
 const RecentTransactions = ({
 	transactions,
 }: {
-	transactions: { type: 'credit' | 'debit'; description: string; amount: string; date: string }[];
+	transactions: {
+		type: 'credit' | 'debit';
+		description: string;
+		amount: string;
+		date: string;
+	}[];
 }) => (
 	<div className="space-y-3">
 		<div className="flex items-center justify-between">
@@ -103,9 +118,14 @@ const RecentTransactions = ({
 		</div>
 		<div className="space-y-2">
 			{transactions.map((tx, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/30 transition-colors">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/30 transition-colors"
+				>
 					<div className="flex items-center gap-3">
-						<div className={`p-2 rounded-full ${tx.type === 'credit' ? 'bg-green-500/20' : 'bg-red-500/20'}`}>
+						<div
+							className={`p-2 rounded-full ${tx.type === 'credit' ? 'bg-green-500/20' : 'bg-red-500/20'}`}
+						>
 							{tx.type === 'credit' ? (
 								<ArrowDownRight className="size-4 text-green-500" />
 							) : (
@@ -117,8 +137,11 @@ const RecentTransactions = ({
 							<p className="text-xs text-muted-foreground">{tx.date}</p>
 						</div>
 					</div>
-					<span className={`font-semibold ${tx.type === 'credit' ? 'text-green-500' : 'text-red-500'}`}>
-						{tx.type === 'credit' ? '+' : '-'}{tx.amount}
+					<span
+						className={`font-semibold ${tx.type === 'credit' ? 'text-green-500' : 'text-red-500'}`}
+					>
+						{tx.type === 'credit' ? '+' : '-'}
+						{tx.amount}
 					</span>
 				</div>
 			))}
@@ -140,11 +163,16 @@ const PaymentMethods = ({
 		</div>
 		<div className="space-y-2">
 			{methods.map((method, i) => (
-				<div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center gap-3 p-3 rounded-lg bg-muted/30"
+				>
 					<CreditCard className="size-5 text-muted-foreground" />
 					<div className="flex-1">
 						<p className="text-sm font-medium">•••• {method.last4}</p>
-						<p className="text-xs text-muted-foreground">{method.type} • Expires {method.expiry}</p>
+						<p className="text-xs text-muted-foreground">
+							{method.type} • Expires {method.expiry}
+						</p>
 					</div>
 					<Badge variant="outline">Default</Badge>
 				</div>
@@ -165,21 +193,53 @@ export default function Main() {
 		quickActions: [
 			{ icon: Plus, label: 'Add', color: 'bg-green-500/20 text-green-500' },
 			{ icon: Send, label: 'Send', color: 'bg-blue-500/20 text-blue-500' },
-			{ icon: History, label: 'History', color: 'bg-purple-500/20 text-purple-500' },
+			{
+				icon: History,
+				label: 'History',
+				color: 'bg-purple-500/20 text-purple-500',
+			},
 		],
 		breakdown: [
-			{ icon: Wallet, label: 'Available Balance', amount: '$1,197.50', color: 'bg-primary/20 text-primary' },
-			{ icon: Gift, label: 'Store Credit', amount: '$50.00', color: 'bg-green-500/20 text-green-500' },
-			{ icon: DollarSign, label: 'Pending Refunds', amount: '$0.00', color: 'bg-amber-500/20 text-amber-500' },
+			{
+				icon: Wallet,
+				label: 'Available Balance',
+				amount: '$1,197.50',
+				color: 'bg-primary/20 text-primary',
+			},
+			{
+				icon: Gift,
+				label: 'Store Credit',
+				amount: '$50.00',
+				color: 'bg-green-500/20 text-green-500',
+			},
+			{
+				icon: DollarSign,
+				label: 'Pending Refunds',
+				amount: '$0.00',
+				color: 'bg-amber-500/20 text-amber-500',
+			},
 		],
 		transactions: [
-			{ type: 'debit' as const, description: 'Order #48291', amount: '$85.00', date: 'Today' },
-			{ type: 'credit' as const, description: 'Refund #47892', amount: '$24.50', date: 'Yesterday' },
-			{ type: 'credit' as const, description: 'Added funds', amount: '$200.00', date: '3 days ago' },
+			{
+				type: 'debit' as const,
+				description: 'Order #48291',
+				amount: '$85.00',
+				date: 'Today',
+			},
+			{
+				type: 'credit' as const,
+				description: 'Refund #47892',
+				amount: '$24.50',
+				date: 'Yesterday',
+			},
+			{
+				type: 'credit' as const,
+				description: 'Added funds',
+				amount: '$200.00',
+				date: '3 days ago',
+			},
 		],
-		methods: [
-			{ last4: '4242', type: 'Visa', expiry: '12/25' },
-		],
+		methods: [{ last4: '4242', type: 'Visa', expiry: '12/25' }],
 	};
 
 	return (

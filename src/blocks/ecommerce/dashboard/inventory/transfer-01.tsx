@@ -11,7 +11,13 @@ import {
 	CheckCircle2,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -33,7 +39,10 @@ type StatusBadgeProps = {
 };
 
 const StatusBadge = ({ status }: StatusBadgeProps) => {
-	const config: Record<TransferStatus, { label: string; variant: 'secondary' | 'default' | 'outline' }> = {
+	const config: Record<
+		TransferStatus,
+		{ label: string; variant: 'secondary' | 'default' | 'outline' }
+	> = {
 		pending: { label: 'Pending', variant: 'secondary' },
 		'in-transit': { label: 'In Transit', variant: 'default' },
 		delivered: { label: 'Delivered', variant: 'outline' },
@@ -93,16 +102,29 @@ type TransferStatusStepProps = {
 	isCompleted: boolean;
 };
 
-const TransferStatusStep = ({ step, label, isActive, isCompleted }: TransferStatusStepProps) => (
+const TransferStatusStep = ({
+	step,
+	label,
+	isActive,
+	isCompleted,
+}: TransferStatusStepProps) => (
 	<div className="flex flex-col items-center">
 		<div
 			className={`flex size-8 items-center justify-center rounded-full ${
-				isCompleted ? 'bg-primary text-primary-foreground' : isActive ? 'border-2 border-primary bg-primary/10' : 'border-2 border-muted bg-background'
+				isCompleted
+					? 'bg-primary text-primary-foreground'
+					: isActive
+						? 'border-2 border-primary bg-primary/10'
+						: 'border-2 border-muted bg-background'
 			}`}
 		>
 			{isCompleted ? <CheckCircle2 className="size-5" /> : step}
 		</div>
-		<span className={`mt-2 text-xs ${isActive ? 'font-medium' : 'text-muted-foreground'}`}>{label}</span>
+		<span
+			className={`mt-2 text-xs ${isActive ? 'font-medium' : 'text-muted-foreground'}`}
+		>
+			{label}
+		</span>
 	</div>
 );
 
@@ -130,7 +152,9 @@ const TransferProgress = ({ status }: TransferProgressProps) => {
 						isCompleted={index < currentIndex || status === 'delivered'}
 					/>
 					{index < steps.length - 1 && (
-						<div className={`h-0.5 flex-1 ${index < currentIndex ? 'bg-primary' : 'bg-muted'}`} />
+						<div
+							className={`h-0.5 flex-1 ${index < currentIndex ? 'bg-primary' : 'bg-muted'}`}
+						/>
 					)}
 				</React.Fragment>
 			))}
@@ -176,8 +200,12 @@ export default function Main() {
 				<div className="space-y-6">
 					<div className="flex items-center justify-between">
 						<div>
-							<h2 className="text-xl font-semibold @lg:text-2xl">Stock Transfers</h2>
-							<p className="text-sm text-muted-foreground">Track inventory movements between locations</p>
+							<h2 className="text-xl font-semibold @lg:text-2xl">
+								Stock Transfers
+							</h2>
+							<p className="text-sm text-muted-foreground">
+								Track inventory movements between locations
+							</p>
 						</div>
 						<Button>
 							New Transfer
@@ -188,7 +216,9 @@ export default function Main() {
 					{/* Transfer Progress */}
 					<Card>
 						<CardHeader>
-							<CardTitle className="text-lg">Transfer Progress: TRF-2024-001</CardTitle>
+							<CardTitle className="text-lg">
+								Transfer Progress: TRF-2024-001
+							</CardTitle>
 						</CardHeader>
 						<CardContent>
 							<TransferProgress status="in-transit" />

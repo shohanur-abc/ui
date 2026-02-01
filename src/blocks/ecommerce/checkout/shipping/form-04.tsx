@@ -40,7 +40,9 @@ const TextField = ({
 	type?: string;
 }) => (
 	<div className="space-y-1.5">
-		<Label className="text-xs uppercase tracking-wider text-muted-foreground">{label}</Label>
+		<Label className="text-xs uppercase tracking-wider text-muted-foreground">
+			{label}
+		</Label>
 		<Input type={type} placeholder={placeholder} className="h-12" />
 	</div>
 );
@@ -55,7 +57,9 @@ const SelectInput = ({
 	options: { value: string; label: string }[];
 }) => (
 	<div className="space-y-1.5">
-		<Label className="text-xs uppercase tracking-wider text-muted-foreground">{label}</Label>
+		<Label className="text-xs uppercase tracking-wider text-muted-foreground">
+			{label}
+		</Label>
 		<Select>
 			<SelectTrigger className="h-12 w-full">
 				<SelectValue placeholder={placeholder} />
@@ -89,7 +93,9 @@ const SubmitSection = ({
 }) => (
 	<div className="space-y-4 pt-6 border-t">
 		<CheckboxField id="save-address" label={checkboxLabel} />
-		<Button className="w-full h-12 text-base font-semibold">{buttonLabel}</Button>
+		<Button className="w-full h-12 text-base font-semibold">
+			{buttonLabel}
+		</Button>
 	</div>
 );
 
@@ -110,8 +116,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Where should we ship?</h1>
-					<p className="text-muted-foreground">Enter your delivery address below</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Where should we ship?
+					</h1>
+					<p className="text-muted-foreground">
+						Enter your delivery address below
+					</p>
 				</div>
 
 				<div className="rounded-2xl bg-card border shadow-sm p-6 @md:p-8 space-y-8">
@@ -123,11 +133,19 @@ export default function Main() {
 					</FormSection>
 
 					<FormSection icon={Mail} title="Email">
-						<TextField label="Email Address" placeholder="john@example.com" type="email" />
+						<TextField
+							label="Email Address"
+							placeholder="john@example.com"
+							type="email"
+						/>
 					</FormSection>
 
 					<FormSection icon={Phone} title="Phone">
-						<TextField label="Phone Number" placeholder="+1 (555) 123-4567" type="tel" />
+						<TextField
+							label="Phone Number"
+							placeholder="+1 (555) 123-4567"
+							type="tel"
+						/>
 					</FormSection>
 
 					<FormSection icon={MapPinned} title="Delivery Address">
@@ -139,8 +157,16 @@ export default function Main() {
 								<TextField label="Postal Code" placeholder="94102" />
 							</div>
 							<div className="grid @sm:grid-cols-2 gap-4">
-								<SelectInput label="State" placeholder="Select state" options={states} />
-								<SelectInput label="Country" placeholder="Select country" options={countries} />
+								<SelectInput
+									label="State"
+									placeholder="Select state"
+									options={states}
+								/>
+								<SelectInput
+									label="Country"
+									placeholder="Select country"
+									options={countries}
+								/>
 							</div>
 						</div>
 					</FormSection>

@@ -2,8 +2,18 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
+import {
+	Collapsible,
+	CollapsibleContent,
+	CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -88,13 +98,7 @@ const ItemCard = ({ item }: { item: CartItem }) => (
 	</div>
 );
 
-const AddressRow = ({
-	name,
-	address,
-}: {
-	name: string;
-	address: string;
-}) => (
+const AddressRow = ({ name, address }: { name: string; address: string }) => (
 	<div>
 		<p className="font-medium">{name}</p>
 		<p className="text-sm text-muted-foreground">{address}</p>
@@ -129,7 +133,9 @@ const PaymentRow = ({
 	exp: string;
 }) => (
 	<div>
-		<p className="font-medium">{brand} •••• {last4}</p>
+		<p className="font-medium">
+			{brand} •••• {last4}
+		</p>
 		<p className="text-sm text-muted-foreground">Expires {exp}</p>
 	</div>
 );
@@ -145,9 +151,13 @@ const TotalLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -159,7 +169,8 @@ export default function Main() {
 			variant: 'Extra Thick / Purple',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -167,7 +178,8 @@ export default function Main() {
 			variant: 'Set of 5 / Multi',
 			price: 24.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1598632640487-6ea4a4e8b963?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1598632640487-6ea4a4e8b963?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -175,7 +187,8 @@ export default function Main() {
 			variant: 'High Density / Blue',
 			price: 29.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -193,7 +206,12 @@ export default function Main() {
 
 				<div className="grid gap-6 @lg:grid-cols-[1fr_340px]">
 					<div className="space-y-3">
-						<CollapsibleSection title="Order Items (3)" icon={Package} defaultOpen verified>
+						<CollapsibleSection
+							title="Order Items (3)"
+							icon={Package}
+							defaultOpen
+							verified
+						>
 							<div className="space-y-2">
 								{items.map((item) => (
 									<ItemCard key={item.id} item={item} />
@@ -202,18 +220,32 @@ export default function Main() {
 						</CollapsibleSection>
 
 						<CollapsibleSection title="Shipping Address" icon={MapPin} verified>
-							<AddressRow name="Jessica M." address="555 Fitness Blvd, Miami, FL 33101" />
+							<AddressRow
+								name="Jessica M."
+								address="555 Fitness Blvd, Miami, FL 33101"
+							/>
 						</CollapsibleSection>
 
 						<CollapsibleSection title="Billing Address" icon={MapPin} verified>
-							<AddressRow name="Jessica M." address="555 Fitness Blvd, Miami, FL 33101" />
+							<AddressRow
+								name="Jessica M."
+								address="555 Fitness Blvd, Miami, FL 33101"
+							/>
 						</CollapsibleSection>
 
 						<CollapsibleSection title="Delivery Method" icon={Truck} verified>
-							<DeliveryRow method="Standard Shipping" date="Dec 26-28, 2025" price="Free" />
+							<DeliveryRow
+								method="Standard Shipping"
+								date="Dec 26-28, 2025"
+								price="Free"
+							/>
 						</CollapsibleSection>
 
-						<CollapsibleSection title="Payment Method" icon={CreditCard} verified>
+						<CollapsibleSection
+							title="Payment Method"
+							icon={CreditCard}
+							verified
+						>
 							<PaymentRow brand="Visa" last4="3456" exp="05/26" />
 						</CollapsibleSection>
 					</div>

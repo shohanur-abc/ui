@@ -61,7 +61,13 @@ const MenuGroup = ({
 	items,
 }: {
 	title: string;
-	items: { icon: React.ElementType; label: string; href: string; badge?: string; external?: boolean }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+		external?: boolean;
+	}[];
 }) => (
 	<div className="space-y-1">
 		{title && (
@@ -95,7 +101,10 @@ const AccountStats = ({
 }) => (
 	<div className="grid grid-cols-2 gap-4">
 		{items.map((stat, i) => (
-			<div key={i} className="text-center p-4 rounded-xl bg-gradient-to-br from-primary/10 to-transparent">
+			<div
+				key={i}
+				className="text-center p-4 rounded-xl bg-gradient-to-br from-primary/10 to-transparent"
+			>
 				<p className="text-2xl font-bold">{stat.value}</p>
 				<p className="text-sm text-muted-foreground">{stat.label}</p>
 			</div>
@@ -116,17 +125,38 @@ export default function Main() {
 			{
 				title: 'Account',
 				items: [
-					{ icon: User, label: 'Personal Information', href: '/account/personal' },
-					{ icon: MapPin, label: 'Addresses', href: '/account/addresses', badge: '3' },
-					{ icon: CreditCard, label: 'Payment Methods', href: '/account/payment' },
+					{
+						icon: User,
+						label: 'Personal Information',
+						href: '/account/personal',
+					},
+					{
+						icon: MapPin,
+						label: 'Addresses',
+						href: '/account/addresses',
+						badge: '3',
+					},
+					{
+						icon: CreditCard,
+						label: 'Payment Methods',
+						href: '/account/payment',
+					},
 					{ icon: Key, label: 'Security', href: '/account/security' },
 				],
 			},
 			{
 				title: 'Preferences',
 				items: [
-					{ icon: Bell, label: 'Notifications', href: '/preferences/notifications' },
-					{ icon: Globe, label: 'Language & Region', href: '/preferences/language' },
+					{
+						icon: Bell,
+						label: 'Notifications',
+						href: '/preferences/notifications',
+					},
+					{
+						icon: Globe,
+						label: 'Language & Region',
+						href: '/preferences/language',
+					},
 					{ icon: Moon, label: 'Appearance', href: '/preferences/appearance' },
 				],
 			},

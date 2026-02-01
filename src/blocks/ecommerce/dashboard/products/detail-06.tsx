@@ -23,12 +23,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
-} from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
 interface RelatedProduct {
@@ -84,7 +79,12 @@ const RelationSection = ({
 				<h4 className="font-medium">{relation.label}</h4>
 				<p className="text-sm text-muted-foreground">{relation.description}</p>
 			</div>
-			<Button variant="outline" size="sm" className="gap-1" onClick={onAddProduct}>
+			<Button
+				variant="outline"
+				size="sm"
+				className="gap-1"
+				onClick={onAddProduct}
+			>
 				<Plus className="size-3.5" />
 				Add
 			</Button>
@@ -204,8 +204,22 @@ export default function Main() {
 			label: 'Related Products',
 			description: 'Products shown alongside this item',
 			products: [
-				{ id: '1', name: 'Headphone Stand', sku: 'HS-001', price: 29.99, image: '', category: 'Accessories' },
-				{ id: '2', name: 'Carrying Case', sku: 'CC-001', price: 24.99, image: '', category: 'Accessories' },
+				{
+					id: '1',
+					name: 'Headphone Stand',
+					sku: 'HS-001',
+					price: 29.99,
+					image: '',
+					category: 'Accessories',
+				},
+				{
+					id: '2',
+					name: 'Carrying Case',
+					sku: 'CC-001',
+					price: 24.99,
+					image: '',
+					category: 'Accessories',
+				},
 			],
 		},
 		{
@@ -213,7 +227,14 @@ export default function Main() {
 			label: 'Upsell Products',
 			description: 'Higher-tier products to suggest',
 			products: [
-				{ id: '3', name: 'Premium Headphones Pro Max', sku: 'WHP-PRO-MAX', price: 349.99, image: '', category: 'Audio' },
+				{
+					id: '3',
+					name: 'Premium Headphones Pro Max',
+					sku: 'WHP-PRO-MAX',
+					price: 349.99,
+					image: '',
+					category: 'Audio',
+				},
 			],
 		},
 		{
@@ -225,15 +246,57 @@ export default function Main() {
 	];
 
 	const searchResults: RelatedProduct[] = [
-		{ id: '10', name: 'Replacement Ear Cushions', sku: 'REC-001', price: 19.99, image: '', category: 'Parts' },
-		{ id: '11', name: 'Audio Cable 3.5mm', sku: 'AC-001', price: 14.99, image: '', category: 'Cables' },
-		{ id: '12', name: 'USB-C Charging Cable', sku: 'UC-001', price: 12.99, image: '', category: 'Cables' },
+		{
+			id: '10',
+			name: 'Replacement Ear Cushions',
+			sku: 'REC-001',
+			price: 19.99,
+			image: '',
+			category: 'Parts',
+		},
+		{
+			id: '11',
+			name: 'Audio Cable 3.5mm',
+			sku: 'AC-001',
+			price: 14.99,
+			image: '',
+			category: 'Cables',
+		},
+		{
+			id: '12',
+			name: 'USB-C Charging Cable',
+			sku: 'UC-001',
+			price: 12.99,
+			image: '',
+			category: 'Cables',
+		},
 	];
 
 	const suggestions: RelatedProduct[] = [
-		{ id: '20', name: 'DAC/Amp Combo', sku: 'DAC-001', price: 149.99, image: '', category: 'Audio' },
-		{ id: '21', name: 'Headphone Amplifier', sku: 'AMP-001', price: 199.99, image: '', category: 'Audio' },
-		{ id: '22', name: 'Wireless Adapter', sku: 'WA-001', price: 39.99, image: '', category: 'Accessories' },
+		{
+			id: '20',
+			name: 'DAC/Amp Combo',
+			sku: 'DAC-001',
+			price: 149.99,
+			image: '',
+			category: 'Audio',
+		},
+		{
+			id: '21',
+			name: 'Headphone Amplifier',
+			sku: 'AMP-001',
+			price: 199.99,
+			image: '',
+			category: 'Audio',
+		},
+		{
+			id: '22',
+			name: 'Wireless Adapter',
+			sku: 'WA-001',
+			price: 39.99,
+			image: '',
+			category: 'Accessories',
+		},
 	];
 
 	const handleRemoveProduct = (relationId: string, productId: string) => {

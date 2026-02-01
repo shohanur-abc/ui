@@ -14,13 +14,7 @@ const SuccessIcon = () => (
 	</div>
 );
 
-const SuccessMessage = ({
-	title,
-	plan,
-}: {
-	title: string;
-	plan: string;
-}) => (
+const SuccessMessage = ({ title, plan }: { title: string; plan: string }) => (
 	<div className="text-center">
 		<h1 className="text-2xl @lg:text-3xl font-bold">{title}</h1>
 		<Badge className="mt-3 bg-indigo-500">{plan}</Badge>

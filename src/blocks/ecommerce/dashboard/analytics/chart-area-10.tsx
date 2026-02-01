@@ -7,8 +7,17 @@ type DataPoint = { label: string; value: number };
 
 type RangeData = { min: number; max: number; avg: number };
 
-const RangeAreaChart = ({ data, ranges }: { data: DataPoint[]; ranges: RangeData[] }) => {
-	const allValues = [...data.map((d) => d.value), ...ranges.flatMap((r) => [r.min, r.max])];
+const RangeAreaChart = ({
+	data,
+	ranges,
+}: {
+	data: DataPoint[];
+	ranges: RangeData[];
+}) => {
+	const allValues = [
+		...data.map((d) => d.value),
+		...ranges.flatMap((r) => [r.min, r.max]),
+	];
 	const max = Math.max(...allValues);
 
 	const valuePoints = data.map((d, i) => ({
@@ -32,10 +41,18 @@ const RangeAreaChart = ({ data, ranges }: { data: DataPoint[]; ranges: RangeData
 	}));
 
 	const createPath = (points: { x: number; y: number }[]) =>
-		points.reduce((acc, p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `${acc} L ${p.x} ${p.y}`), '');
+		points.reduce(
+			(acc, p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `${acc} L ${p.x} ${p.y}`),
+			'',
+		);
 
 	const maxPath = createPath(maxPoints);
-	const minPathReverse = [...minPoints].reverse().reduce((acc, p, i) => (i === 0 ? `L ${p.x} ${p.y}` : `${acc} L ${p.x} ${p.y}`), '');
+	const minPathReverse = [...minPoints]
+		.reverse()
+		.reduce(
+			(acc, p, i) => (i === 0 ? `L ${p.x} ${p.y}` : `${acc} L ${p.x} ${p.y}`),
+			'',
+		);
 	const rangePath = `${maxPath} ${minPathReverse} Z`;
 
 	const valuePath = createPath(valuePoints);
@@ -43,7 +60,11 @@ const RangeAreaChart = ({ data, ranges }: { data: DataPoint[]; ranges: RangeData
 
 	return (
 		<div className="relative h-64 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				<defs>
 					<linearGradient id="rangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
 						<stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
@@ -51,16 +72,35 @@ const RangeAreaChart = ({ data, ranges }: { data: DataPoint[]; ranges: RangeData
 					</linearGradient>
 				</defs>
 				<path d={rangePath} fill="url(#rangeGrad)" />
-				<path d={avgPath} fill="none" stroke="#3b82f6" strokeWidth="0.3" strokeDasharray="2,1" />
-				<path d={valuePath} fill="none" stroke="hsl(var(--primary))" strokeWidth="0.6" />
+				<path
+					d={avgPath}
+					fill="none"
+					stroke="#3b82f6"
+					strokeWidth="0.3"
+					strokeDasharray="2,1"
+				/>
+				<path
+					d={valuePath}
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="0.6"
+				/>
 				{valuePoints.map((p, i) => (
-					<circle key={i} cx={p.x} cy={p.y} r="0.8" fill="hsl(var(--primary))" />
+					<circle
+						key={i}
+						cx={p.x}
+						cy={p.y}
+						r="0.8"
+						fill="hsl(var(--primary))"
+					/>
 				))}
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
-				{data.filter((_, i) => i % 2 === 0).map((d, i) => (
-					<span key={i}>{d.label}</span>
-				))}
+				{data
+					.filter((_, i) => i % 2 === 0)
+					.map((d, i) => (
+						<span key={i}>{d.label}</span>
+					))}
 			</div>
 		</div>
 	);
@@ -94,13 +134,19 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="flex flex-row items-start justify-between pb-2">
 						<div>
-							<CardTitle className="text-sm font-medium">Performance with Confidence Interval</CardTitle>
-							<p className="text-xs text-muted-foreground">Actual performance vs expected range</p>
+							<CardTitle className="text-sm font-medium">
+								Performance with Confidence Interval
+							</CardTitle>
+							<p className="text-xs text-muted-foreground">
+								Actual performance vs expected range
+							</p>
 						</div>
 						<div className="flex items-center gap-4">
 							<div className="flex items-center gap-2">
 								<div className="w-4 h-3 rounded bg-blue-500/20 border border-blue-500/40" />
-								<span className="text-xs text-muted-foreground">Expected Range</span>
+								<span className="text-xs text-muted-foreground">
+									Expected Range
+								</span>
 							</div>
 							<div className="flex items-center gap-2">
 								<div className="w-4 h-0.5 bg-primary" />
@@ -111,7 +157,9 @@ export default function Main() {
 					<CardContent>
 						<div className="flex items-baseline gap-4 mb-6">
 							<p className="text-3xl font-bold">120</p>
-							<Badge variant="secondary" className="text-emerald-500">+8.5% above avg</Badge>
+							<Badge variant="secondary" className="text-emerald-500">
+								+8.5% above avg
+							</Badge>
 						</div>
 						<RangeAreaChart data={performanceData} ranges={rangeData} />
 					</CardContent>

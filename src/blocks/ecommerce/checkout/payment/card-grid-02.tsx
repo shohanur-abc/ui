@@ -1,6 +1,17 @@
 'use client';
 
-import { BadgeCheck, Bitcoin, Building2, CreditCard, DollarSign, Lock, Shield, Smartphone, Wallet, Zap } from 'lucide-react';
+import {
+	BadgeCheck,
+	Bitcoin,
+	Building2,
+	CreditCard,
+	DollarSign,
+	Lock,
+	Shield,
+	Smartphone,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -28,22 +39,22 @@ const SectionHeader = ({ title, badge }: { title: string; badge: string }) => (
 	</div>
 );
 
-const PaymentOptionCard = ({ 
-	id, 
-	name, 
-	fee, 
-	icon: Icon, 
-	color, 
-	fast, 
-	selected, 
-	onSelect 
+const PaymentOptionCard = ({
+	id,
+	name,
+	fee,
+	icon: Icon,
+	color,
+	fast,
+	selected,
+	onSelect,
 }: PaymentOption & { selected: boolean; onSelect: (id: string) => void }) => (
 	<button
 		type="button"
 		onClick={() => onSelect(id)}
 		className={`relative flex flex-col items-center p-4 rounded-xl border-2 transition-all ${
-			selected 
-				? 'border-primary bg-primary/5' 
+			selected
+				? 'border-primary bg-primary/5'
 				: 'border-border/50 hover:border-primary/30 hover:bg-muted/30'
 		}`}
 	>
@@ -53,7 +64,9 @@ const PaymentOptionCard = ({
 				Fast
 			</Badge>
 		)}
-		<div className={`size-12 rounded-xl flex items-center justify-center mb-2 ${color}`}>
+		<div
+			className={`size-12 rounded-xl flex items-center justify-center mb-2 ${color}`}
+		>
 			<Icon className="size-6" />
 		</div>
 		<span className="font-medium text-sm">{name}</span>
@@ -66,12 +79,20 @@ const PaymentOptionCard = ({
 	</button>
 );
 
-const PaymentGrid = ({ options, selected, onSelect }: { options: PaymentOption[]; selected: string; onSelect: (id: string) => void }) => (
+const PaymentGrid = ({
+	options,
+	selected,
+	onSelect,
+}: {
+	options: PaymentOption[];
+	selected: string;
+	onSelect: (id: string) => void;
+}) => (
 	<div className="grid grid-cols-3 @md:grid-cols-6 gap-3">
 		{options.map((option) => (
-			<PaymentOptionCard 
-				key={option.id} 
-				{...option} 
+			<PaymentOptionCard
+				key={option.id}
+				{...option}
 				selected={selected === option.id}
 				onSelect={onSelect}
 			/>
@@ -105,7 +126,15 @@ const CardInputForm = () => (
 	</div>
 );
 
-const PriceSummary = ({ subtotal, fee, total }: { subtotal: string; fee: string; total: string }) => (
+const PriceSummary = ({
+	subtotal,
+	fee,
+	total,
+}: {
+	subtotal: string;
+	fee: string;
+	total: string;
+}) => (
 	<div className="space-y-2">
 		<div className="flex justify-between text-sm">
 			<span className="text-muted-foreground">Subtotal</span>
@@ -132,12 +161,49 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const paymentOptions: PaymentOption[] = [
-		{ id: 'visa', name: 'Visa', fee: 'No fee', icon: CreditCard, color: 'bg-blue-500/10 text-blue-500' },
-		{ id: 'mastercard', name: 'Mastercard', fee: 'No fee', icon: CreditCard, color: 'bg-orange-500/10 text-orange-500' },
-		{ id: 'apple', name: 'Apple Pay', fee: 'No fee', icon: Smartphone, color: 'bg-slate-500/10 text-slate-500', fast: true },
-		{ id: 'paypal', name: 'PayPal', fee: '2.9%', icon: Wallet, color: 'bg-sky-500/10 text-sky-500' },
-		{ id: 'bank', name: 'Bank', fee: 'No fee', icon: Building2, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ id: 'crypto', name: 'Crypto', fee: '-5%', icon: Bitcoin, color: 'bg-amber-500/10 text-amber-500' },
+		{
+			id: 'visa',
+			name: 'Visa',
+			fee: 'No fee',
+			icon: CreditCard,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
+		{
+			id: 'mastercard',
+			name: 'Mastercard',
+			fee: 'No fee',
+			icon: CreditCard,
+			color: 'bg-orange-500/10 text-orange-500',
+		},
+		{
+			id: 'apple',
+			name: 'Apple Pay',
+			fee: 'No fee',
+			icon: Smartphone,
+			color: 'bg-slate-500/10 text-slate-500',
+			fast: true,
+		},
+		{
+			id: 'paypal',
+			name: 'PayPal',
+			fee: '2.9%',
+			icon: Wallet,
+			color: 'bg-sky-500/10 text-sky-500',
+		},
+		{
+			id: 'bank',
+			name: 'Bank',
+			fee: 'No fee',
+			icon: Building2,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			id: 'crypto',
+			name: 'Crypto',
+			fee: '-5%',
+			icon: Bitcoin,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
 	];
 
 	return (
@@ -146,10 +212,10 @@ export default function Main() {
 				<SectionHeader title="Payment" badge="Secure" />
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardContent className="pt-6">
-						<PaymentGrid 
-							options={paymentOptions} 
-							selected="visa" 
-							onSelect={() => {}} 
+						<PaymentGrid
+							options={paymentOptions}
+							selected="visa"
+							onSelect={() => {}}
 						/>
 						<CardInputForm />
 					</CardContent>

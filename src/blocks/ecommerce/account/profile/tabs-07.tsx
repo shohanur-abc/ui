@@ -71,7 +71,13 @@ const OverviewTab = ({
 	recentTransactions,
 }: {
 	quickActions: { icon: React.ElementType; label: string; color: string }[];
-	recentTransactions: { type: 'in' | 'out'; title: string; description: string; amount: string; date: string }[];
+	recentTransactions: {
+		type: 'in' | 'out';
+		title: string;
+		description: string;
+		amount: string;
+		date: string;
+	}[];
 }) => (
 	<div className="space-y-6">
 		<Card>
@@ -81,7 +87,10 @@ const OverviewTab = ({
 			<CardContent>
 				<div className="grid grid-cols-4 gap-4">
 					{quickActions.map((action, i) => (
-						<button key={i} className="flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-muted transition-colors">
+						<button
+							key={i}
+							className="flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-muted transition-colors"
+						>
 							<div className={`p-3 rounded-full ${action.color}`}>
 								<action.icon className="size-5 text-white" />
 							</div>
@@ -102,9 +111,14 @@ const OverviewTab = ({
 			</CardHeader>
 			<CardContent className="space-y-3">
 				{recentTransactions.map((tx, i) => (
-					<div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50">
+					<div
+						key={i}
+						className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50"
+					>
 						<div className="flex items-center gap-3">
-							<div className={`p-2 rounded-lg ${tx.type === 'in' ? 'bg-green-500/10' : 'bg-red-500/10'}`}>
+							<div
+								className={`p-2 rounded-lg ${tx.type === 'in' ? 'bg-green-500/10' : 'bg-red-500/10'}`}
+							>
 								{tx.type === 'in' ? (
 									<ArrowDownToLine className="size-5 text-green-500" />
 								) : (
@@ -113,12 +127,17 @@ const OverviewTab = ({
 							</div>
 							<div>
 								<p className="font-medium">{tx.title}</p>
-								<p className="text-sm text-muted-foreground">{tx.description}</p>
+								<p className="text-sm text-muted-foreground">
+									{tx.description}
+								</p>
 							</div>
 						</div>
 						<div className="text-right">
-							<p className={`font-medium ${tx.type === 'in' ? 'text-green-500' : ''}`}>
-								{tx.type === 'in' ? '+' : '-'}{tx.amount}
+							<p
+								className={`font-medium ${tx.type === 'in' ? 'text-green-500' : ''}`}
+							>
+								{tx.type === 'in' ? '+' : '-'}
+								{tx.amount}
 							</p>
 							<p className="text-xs text-muted-foreground">{tx.date}</p>
 						</div>
@@ -132,7 +151,13 @@ const OverviewTab = ({
 const CardsTab = ({
 	cards,
 }: {
-	cards: { type: string; last4: string; expiry: string; balance: string; color: string }[];
+	cards: {
+		type: string;
+		last4: string;
+		expiry: string;
+		balance: string;
+		color: string;
+	}[];
 }) => (
 	<div className="space-y-4">
 		<div className="flex justify-end">
@@ -148,7 +173,9 @@ const CardsTab = ({
 						<CreditCard className="size-10" />
 						<span className="font-medium">{card.type}</span>
 					</div>
-					<p className="font-mono text-xl tracking-widest mb-4">•••• •••• •••• {card.last4}</p>
+					<p className="font-mono text-xl tracking-widest mb-4">
+						•••• •••• •••• {card.last4}
+					</p>
 					<div className="flex justify-between">
 						<div>
 							<p className="text-xs opacity-70">Expires</p>
@@ -169,7 +196,12 @@ const AnalyticsTab = ({
 	spending,
 	monthlyTrend,
 }: {
-	spending: { category: string; amount: string; percentage: number; color: string }[];
+	spending: {
+		category: string;
+		amount: string;
+		percentage: number;
+		color: string;
+	}[];
 	monthlyTrend: { month: string; income: number; expense: number }[];
 }) => (
 	<div className="space-y-6">
@@ -188,7 +220,10 @@ const AnalyticsTab = ({
 							<span className="font-medium">{cat.amount}</span>
 						</div>
 						<div className="h-2 rounded-full bg-muted overflow-hidden">
-							<div className={`h-full rounded-full ${cat.color}`} style={{ width: `${cat.percentage}%` }} />
+							<div
+								className={`h-full rounded-full ${cat.color}`}
+								style={{ width: `${cat.percentage}%` }}
+							/>
 						</div>
 					</div>
 				))}
@@ -207,13 +242,21 @@ const AnalyticsTab = ({
 						<div key={i} className="flex-1 flex flex-col items-center gap-2">
 							<div className="w-full flex gap-1 h-36">
 								<div className="flex-1 flex flex-col justify-end">
-									<div className="bg-green-500 rounded-t" style={{ height: `${month.income}%` }} />
+									<div
+										className="bg-green-500 rounded-t"
+										style={{ height: `${month.income}%` }}
+									/>
 								</div>
 								<div className="flex-1 flex flex-col justify-end">
-									<div className="bg-red-400 rounded-t" style={{ height: `${month.expense}%` }} />
+									<div
+										className="bg-red-400 rounded-t"
+										style={{ height: `${month.expense}%` }}
+									/>
 								</div>
 							</div>
-							<span className="text-xs text-muted-foreground">{month.month}</span>
+							<span className="text-xs text-muted-foreground">
+								{month.month}
+							</span>
 						</div>
 					))}
 				</div>
@@ -235,14 +278,26 @@ const AnalyticsTab = ({
 const HistoryTab = ({
 	transactions,
 }: {
-	transactions: { type: 'in' | 'out'; title: string; category: string; amount: string; date: string; time: string }[];
+	transactions: {
+		type: 'in' | 'out';
+		title: string;
+		category: string;
+		amount: string;
+		date: string;
+		time: string;
+	}[];
 }) => (
 	<Card>
 		<CardContent className="p-6 space-y-3">
 			{transactions.map((tx, i) => (
-				<div key={i} className="flex items-center justify-between p-4 rounded-lg border">
+				<div
+					key={i}
+					className="flex items-center justify-between p-4 rounded-lg border"
+				>
 					<div className="flex items-center gap-3">
-						<div className={`p-2 rounded-lg ${tx.type === 'in' ? 'bg-green-500/10' : 'bg-red-500/10'}`}>
+						<div
+							className={`p-2 rounded-lg ${tx.type === 'in' ? 'bg-green-500/10' : 'bg-red-500/10'}`}
+						>
 							{tx.type === 'in' ? (
 								<ArrowDownToLine className="size-5 text-green-500" />
 							) : (
@@ -251,14 +306,21 @@ const HistoryTab = ({
 						</div>
 						<div>
 							<p className="font-medium">{tx.title}</p>
-							<Badge variant="secondary" className="mt-1">{tx.category}</Badge>
+							<Badge variant="secondary" className="mt-1">
+								{tx.category}
+							</Badge>
 						</div>
 					</div>
 					<div className="text-right">
-						<p className={`font-semibold ${tx.type === 'in' ? 'text-green-500' : ''}`}>
-							{tx.type === 'in' ? '+' : '-'}{tx.amount}
+						<p
+							className={`font-semibold ${tx.type === 'in' ? 'text-green-500' : ''}`}
+						>
+							{tx.type === 'in' ? '+' : '-'}
+							{tx.amount}
 						</p>
-						<p className="text-sm text-muted-foreground">{tx.date} • {tx.time}</p>
+						<p className="text-sm text-muted-foreground">
+							{tx.date} • {tx.time}
+						</p>
 					</div>
 				</div>
 			))}
@@ -283,20 +345,75 @@ export default function Main() {
 			{ icon: Plus, label: 'Add Money', color: 'bg-orange-500' },
 		],
 		recentTransactions: [
-			{ type: 'in' as const, title: 'Salary', description: 'Monthly salary', amount: '$5,200.00', date: 'Today' },
-			{ type: 'out' as const, title: 'Netflix', description: 'Subscription', amount: '$15.99', date: 'Yesterday' },
-			{ type: 'out' as const, title: 'Amazon', description: 'Shopping', amount: '$89.50', date: 'Jan 28' },
+			{
+				type: 'in' as const,
+				title: 'Salary',
+				description: 'Monthly salary',
+				amount: '$5,200.00',
+				date: 'Today',
+			},
+			{
+				type: 'out' as const,
+				title: 'Netflix',
+				description: 'Subscription',
+				amount: '$15.99',
+				date: 'Yesterday',
+			},
+			{
+				type: 'out' as const,
+				title: 'Amazon',
+				description: 'Shopping',
+				amount: '$89.50',
+				date: 'Jan 28',
+			},
 		],
 		cards: [
-			{ type: 'VISA', last4: '4829', expiry: '12/26', balance: '$8,245.00', color: 'bg-gradient-to-br from-blue-600 to-blue-800' },
-			{ type: 'Mastercard', last4: '3156', expiry: '08/25', balance: '$4,240.50', color: 'bg-gradient-to-br from-orange-500 to-red-600' },
+			{
+				type: 'VISA',
+				last4: '4829',
+				expiry: '12/26',
+				balance: '$8,245.00',
+				color: 'bg-gradient-to-br from-blue-600 to-blue-800',
+			},
+			{
+				type: 'Mastercard',
+				last4: '3156',
+				expiry: '08/25',
+				balance: '$4,240.50',
+				color: 'bg-gradient-to-br from-orange-500 to-red-600',
+			},
 		],
 		spending: [
-			{ category: 'Shopping', amount: '$456', percentage: 35, color: 'bg-blue-500' },
-			{ category: 'Food & Dining', amount: '$284', percentage: 22, color: 'bg-green-500' },
-			{ category: 'Entertainment', amount: '$171', percentage: 13, color: 'bg-purple-500' },
-			{ category: 'Transport', amount: '$114', percentage: 9, color: 'bg-orange-500' },
-			{ category: 'Others', amount: '$275', percentage: 21, color: 'bg-gray-500' },
+			{
+				category: 'Shopping',
+				amount: '$456',
+				percentage: 35,
+				color: 'bg-blue-500',
+			},
+			{
+				category: 'Food & Dining',
+				amount: '$284',
+				percentage: 22,
+				color: 'bg-green-500',
+			},
+			{
+				category: 'Entertainment',
+				amount: '$171',
+				percentage: 13,
+				color: 'bg-purple-500',
+			},
+			{
+				category: 'Transport',
+				amount: '$114',
+				percentage: 9,
+				color: 'bg-orange-500',
+			},
+			{
+				category: 'Others',
+				amount: '$275',
+				percentage: 21,
+				color: 'bg-gray-500',
+			},
 		],
 		monthlyTrend: [
 			{ month: 'Aug', income: 80, expense: 60 },
@@ -307,11 +424,46 @@ export default function Main() {
 			{ month: 'Jan', income: 100, expense: 45 },
 		],
 		allTransactions: [
-			{ type: 'in' as const, title: 'Salary', category: 'Income', amount: '$5,200.00', date: 'Jan 30', time: '9:00 AM' },
-			{ type: 'out' as const, title: 'Netflix', category: 'Entertainment', amount: '$15.99', date: 'Jan 29', time: '3:45 PM' },
-			{ type: 'out' as const, title: 'Uber Eats', category: 'Food', amount: '$28.50', date: 'Jan 28', time: '7:30 PM' },
-			{ type: 'out' as const, title: 'Amazon', category: 'Shopping', amount: '$89.50', date: 'Jan 28', time: '2:15 PM' },
-			{ type: 'in' as const, title: 'Refund', category: 'Refund', amount: '$34.00', date: 'Jan 27', time: '11:00 AM' },
+			{
+				type: 'in' as const,
+				title: 'Salary',
+				category: 'Income',
+				amount: '$5,200.00',
+				date: 'Jan 30',
+				time: '9:00 AM',
+			},
+			{
+				type: 'out' as const,
+				title: 'Netflix',
+				category: 'Entertainment',
+				amount: '$15.99',
+				date: 'Jan 29',
+				time: '3:45 PM',
+			},
+			{
+				type: 'out' as const,
+				title: 'Uber Eats',
+				category: 'Food',
+				amount: '$28.50',
+				date: 'Jan 28',
+				time: '7:30 PM',
+			},
+			{
+				type: 'out' as const,
+				title: 'Amazon',
+				category: 'Shopping',
+				amount: '$89.50',
+				date: 'Jan 28',
+				time: '2:15 PM',
+			},
+			{
+				type: 'in' as const,
+				title: 'Refund',
+				category: 'Refund',
+				amount: '$34.00',
+				date: 'Jan 27',
+				time: '11:00 AM',
+			},
 		],
 	};
 
@@ -339,13 +491,19 @@ export default function Main() {
 						</TabsTrigger>
 					</TabsList>
 					<TabsContent value="overview" className="mt-6">
-						<OverviewTab quickActions={profileData.quickActions} recentTransactions={profileData.recentTransactions} />
+						<OverviewTab
+							quickActions={profileData.quickActions}
+							recentTransactions={profileData.recentTransactions}
+						/>
 					</TabsContent>
 					<TabsContent value="cards" className="mt-6">
 						<CardsTab cards={profileData.cards} />
 					</TabsContent>
 					<TabsContent value="analytics" className="mt-6">
-						<AnalyticsTab spending={profileData.spending} monthlyTrend={profileData.monthlyTrend} />
+						<AnalyticsTab
+							spending={profileData.spending}
+							monthlyTrend={profileData.monthlyTrend}
+						/>
 					</TabsContent>
 					<TabsContent value="history" className="mt-6">
 						<HistoryTab transactions={profileData.allTransactions} />

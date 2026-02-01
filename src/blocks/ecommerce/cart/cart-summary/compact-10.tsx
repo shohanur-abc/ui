@@ -14,16 +14,23 @@ const AppliedCoupon = ({ icon: Icon, code, discount }: CouponDisplayProps) => (
 	<div className="flex items-center gap-2 rounded-lg border border-green-500/30 bg-green-500/10 px-3 py-2">
 		<Check className="size-4 text-green-500" />
 		<span className="font-mono text-sm">{code}</span>
-		<span className="text-sm text-green-600 dark:text-green-400">{discount}</span>
+		<span className="text-sm text-green-600 dark:text-green-400">
+			{discount}
+		</span>
 	</div>
 );
 
 const PriceDisplay = ({
 	original,
 	final,
-}: { original: string; final: string }) => (
+}: {
+	original: string;
+	final: string;
+}) => (
 	<div className="flex items-baseline gap-2">
-		<span className="text-sm text-muted-foreground line-through">{original}</span>
+		<span className="text-sm text-muted-foreground line-through">
+			{original}
+		</span>
 		<span className="text-xl font-bold">{final}</span>
 	</div>
 );

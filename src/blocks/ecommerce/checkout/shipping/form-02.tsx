@@ -64,7 +64,11 @@ const FormInput = ({
 	</div>
 );
 
-const ActionButtons = ({ items }: { items: { label: string; variant?: 'default' | 'outline' }[] }) => (
+const ActionButtons = ({
+	items,
+}: {
+	items: { label: string; variant?: 'default' | 'outline' }[];
+}) => (
 	<div className="flex flex-col @sm:flex-row gap-3">
 		{items.map((item, i) => (
 			<Button key={i} variant={item.variant || 'default'} className="flex-1">
@@ -108,23 +112,46 @@ export default function Main() {
 						</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-8">
-						<RadioGroup defaultValue="residential" className="grid @sm:grid-cols-2 gap-4">
+						<RadioGroup
+							defaultValue="residential"
+							className="grid @sm:grid-cols-2 gap-4"
+						>
 							{addressTypes.map((type) => (
 								<AddressTypeCard key={type.value} {...type} />
 							))}
 						</RadioGroup>
 
 						<div className="space-y-4">
-							<FormInput label="Full Name" placeholder="Enter your full name" required />
-							<FormInput label="Company Name" placeholder="Company (optional)" />
-							<FormInput label="Street Address" placeholder="Street address" required />
+							<FormInput
+								label="Full Name"
+								placeholder="Enter your full name"
+								required
+							/>
+							<FormInput
+								label="Company Name"
+								placeholder="Company (optional)"
+							/>
+							<FormInput
+								label="Street Address"
+								placeholder="Street address"
+								required
+							/>
 
 							<div className="grid @sm:grid-cols-2 gap-4">
 								<FormInput label="City" placeholder="City" required />
-								<FormInput label="ZIP / Postal Code" placeholder="Postal code" required />
+								<FormInput
+									label="ZIP / Postal Code"
+									placeholder="Postal code"
+									required
+								/>
 							</div>
 
-							<FormInput label="Phone" placeholder="Phone number" type="tel" required />
+							<FormInput
+								label="Phone"
+								placeholder="Phone number"
+								type="tel"
+								required
+							/>
 						</div>
 
 						<ActionButtons items={actions} />

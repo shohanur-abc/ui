@@ -70,7 +70,10 @@ const SecurityToggle = ({
 const PasswordStrength = ({
 	strength,
 	requirements,
-}: { strength: number; requirements: PasswordRequirement[] }) => (
+}: {
+	strength: number;
+	requirements: PasswordRequirement[];
+}) => (
 	<div className="space-y-3">
 		<div className="space-y-2">
 			<div className="flex items-center justify-between text-sm">
@@ -94,12 +97,16 @@ const PasswordStrength = ({
 				<div key={req.label} className="flex items-center gap-2 text-sm">
 					<div
 						className={`flex size-4 items-center justify-center rounded-full ${
-							req.met ? 'bg-emerald-500/10 text-emerald-500' : 'bg-muted text-muted-foreground'
+							req.met
+								? 'bg-emerald-500/10 text-emerald-500'
+								: 'bg-muted text-muted-foreground'
 						}`}
 					>
 						{req.met && <Check className="size-3" />}
 					</div>
-					<span className={req.met ? 'text-foreground' : 'text-muted-foreground'}>
+					<span
+						className={req.met ? 'text-foreground' : 'text-muted-foreground'}
+					>
 						{req.label}
 					</span>
 				</div>
@@ -157,23 +164,37 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Change Password</CardTitle>
-									<CardDescription>Update your password regularly for better security</CardDescription>
+									<CardDescription>
+										Update your password regularly for better security
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>
 						<CardContent className="space-y-4 pt-6">
 							<div className="space-y-2">
 								<Label htmlFor="currentPassword">Current Password</Label>
-								<Input id="currentPassword" type="password" placeholder="Enter current password" />
+								<Input
+									id="currentPassword"
+									type="password"
+									placeholder="Enter current password"
+								/>
 							</div>
 							<div className="grid gap-4 @sm:grid-cols-2">
 								<div className="space-y-2">
 									<Label htmlFor="newPassword">New Password</Label>
-									<Input id="newPassword" type="password" placeholder="Enter new password" />
+									<Input
+										id="newPassword"
+										type="password"
+										placeholder="Enter new password"
+									/>
 								</div>
 								<div className="space-y-2">
 									<Label htmlFor="confirmPassword">Confirm Password</Label>
-									<Input id="confirmPassword" type="password" placeholder="Confirm new password" />
+									<Input
+										id="confirmPassword"
+										type="password"
+										placeholder="Confirm new password"
+									/>
 								</div>
 							</div>
 							<PasswordStrength strength={75} requirements={requirements} />
@@ -191,7 +212,9 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Security Options</CardTitle>
-									<CardDescription>Manage your account security settings</CardDescription>
+									<CardDescription>
+										Manage your account security settings
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>

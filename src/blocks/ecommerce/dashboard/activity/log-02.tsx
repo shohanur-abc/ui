@@ -103,11 +103,7 @@ const LogEntry = ({ log }: { log: UserActivityLog }) => (
 			{log.metadata && (
 				<div className="flex flex-wrap gap-1.5 mt-2">
 					{Object.entries(log.metadata).map(([key, value]) => (
-						<Badge
-							key={key}
-							variant="outline"
-							className="text-xs bg-muted/50"
-						>
+						<Badge key={key} variant="outline" className="text-xs bg-muted/50">
 							{key}: {value}
 						</Badge>
 					))}

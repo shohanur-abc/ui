@@ -146,13 +146,21 @@ export default function Main() {
 								<Field label="First Name" placeholder="John" />
 								<Field label="Last Name" placeholder="Doe" />
 							</div>
-							<Field label="Email" placeholder="john@example.com" type="email" />
+							<Field
+								label="Email"
+								placeholder="john@example.com"
+								type="email"
+							/>
 							<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 							<Field label="Street Address" placeholder="123 Main Street" />
 							<Field label="Apt / Suite" placeholder="Optional" />
 							<div className="grid @sm:grid-cols-3 gap-4">
 								<Field label="City" placeholder="City" />
-								<SelectField label="State" placeholder="State" options={states} />
+								<SelectField
+									label="State"
+									placeholder="State"
+									options={states}
+								/>
 								<Field label="ZIP" placeholder="12345" />
 							</div>
 							<SelectField

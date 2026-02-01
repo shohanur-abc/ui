@@ -1,13 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Search,
-	SlidersHorizontal,
-	X,
-	ChevronDown,
-	Check,
-} from 'lucide-react';
+import { Search, SlidersHorizontal, X, ChevronDown, Check } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -41,7 +35,12 @@ type FilterDropdownProps = {
 	onChange: (values: string[]) => void;
 };
 
-const FilterDropdown = ({ label, options, selected, onChange }: FilterDropdownProps) => (
+const FilterDropdown = ({
+	label,
+	options,
+	selected,
+	onChange,
+}: FilterDropdownProps) => (
 	<DropdownMenu>
 		<DropdownMenuTrigger asChild>
 			<Button variant="outline" className="gap-2">
@@ -71,7 +70,9 @@ const FilterDropdown = ({ label, options, selected, onChange }: FilterDropdownPr
 				>
 					<span className="flex-1">{option.label}</span>
 					{option.count !== undefined && (
-						<span className="text-xs text-muted-foreground">{option.count}</span>
+						<span className="text-xs text-muted-foreground">
+							{option.count}
+						</span>
 					)}
 				</DropdownMenuCheckboxItem>
 			))}
@@ -86,10 +87,19 @@ type ActiveFiltersProps = {
 	clearAllLabel: string;
 };
 
-const ActiveFilters = ({ filters, onRemove, onClearAll, clearAllLabel }: ActiveFiltersProps) => (
+const ActiveFilters = ({
+	filters,
+	onRemove,
+	onClearAll,
+	clearAllLabel,
+}: ActiveFiltersProps) => (
 	<div className="flex flex-wrap items-center gap-2">
 		{filters.map((filter) => (
-			<Badge key={`${filter.type}-${filter.value}`} variant="secondary" className="gap-1 pr-1">
+			<Badge
+				key={`${filter.type}-${filter.value}`}
+				variant="secondary"
+				className="gap-1 pr-1"
+			>
 				<span className="text-xs text-muted-foreground">{filter.type}:</span>
 				{filter.label}
 				<Button
@@ -103,7 +113,12 @@ const ActiveFilters = ({ filters, onRemove, onClearAll, clearAllLabel }: ActiveF
 			</Badge>
 		))}
 		{filters.length > 1 && (
-			<Button variant="ghost" size="sm" onClick={onClearAll} className="text-xs">
+			<Button
+				variant="ghost"
+				size="sm"
+				onClick={onClearAll}
+				className="text-xs"
+			>
 				{clearAllLabel}
 			</Button>
 		)}
@@ -140,9 +155,13 @@ const SearchBar = ({ placeholder, value, onChange }: SearchBarProps) => (
 
 export default function Main() {
 	const [search, setSearch] = React.useState('');
-	const [selectedCategories, setSelectedCategories] = React.useState<string[]>([]);
+	const [selectedCategories, setSelectedCategories] = React.useState<string[]>(
+		[],
+	);
 	const [selectedStatus, setSelectedStatus] = React.useState<string[]>([]);
-	const [selectedLocations, setSelectedLocations] = React.useState<string[]>([]);
+	const [selectedLocations, setSelectedLocations] = React.useState<string[]>(
+		[],
+	);
 
 	const categoryOptions: FilterOption[] = [
 		{ value: 'electronics', label: 'Electronics', count: 245 },
@@ -204,7 +223,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Filter Inventory</CardTitle>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Filter Inventory
+						</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-4">
 						<div className="flex flex-col gap-3 @lg:flex-row">

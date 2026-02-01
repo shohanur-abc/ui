@@ -86,8 +86,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Select Shipping Method</h1>
-					<p className="text-muted-foreground">Choose how fast you want your order</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Select Shipping Method
+					</h1>
+					<p className="text-muted-foreground">
+						Choose how fast you want your order
+					</p>
 				</div>
 
 				<Card>
@@ -107,7 +111,9 @@ export default function Main() {
 				</Card>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

@@ -35,7 +35,10 @@ export default function Main() {
 						<div key={i} className="flex flex-1 items-center gap-8 @md:gap-12">
 							<StatItem {...stat} />
 							{i < stats.length - 1 && (
-								<Separator orientation="vertical" className="hidden h-20 @md:block" />
+								<Separator
+									orientation="vertical"
+									className="hidden h-20 @md:block"
+								/>
 							)}
 						</div>
 					))}

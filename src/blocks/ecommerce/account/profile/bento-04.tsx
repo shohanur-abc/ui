@@ -55,10 +55,19 @@ const UserProfileCard = ({
 			</div>
 			<div className="grid grid-cols-2 gap-3 flex-1">
 				<MenuLink icon={User} label="Personal Info" href="/account/personal" />
-				<MenuLink icon={MapPin} label="Addresses" href="/account/addresses" badge="3" />
+				<MenuLink
+					icon={MapPin}
+					label="Addresses"
+					href="/account/addresses"
+					badge="3"
+				/>
 				<MenuLink icon={CreditCard} label="Payment" href="/account/payment" />
 				<MenuLink icon={Key} label="Security" href="/account/security" />
-				<MenuLink icon={Bell} label="Notifications" href="/account/notifications" />
+				<MenuLink
+					icon={Bell}
+					label="Notifications"
+					href="/account/notifications"
+				/>
 				<MenuLink icon={Moon} label="Preferences" href="/account/preferences" />
 			</div>
 		</CardContent>
@@ -83,7 +92,9 @@ const MenuLink = ({
 		<Icon className="size-5 text-muted-foreground group-hover:text-foreground transition-colors" />
 		<span className="flex-1 text-sm font-medium">{label}</span>
 		{badge && (
-			<Badge variant="secondary" className="text-xs">{badge}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				{badge}
+			</Badge>
 		)}
 	</Link>
 );
@@ -104,7 +115,9 @@ const QuickStatCard = ({
 	<Link href={href}>
 		<Card className="h-full hover:bg-muted/50 transition-colors group">
 			<CardContent className="p-4 h-full flex flex-col items-center justify-center text-center">
-				<div className={`p-3 rounded-xl ${color} mb-2 group-hover:scale-110 transition-transform`}>
+				<div
+					className={`p-3 rounded-xl ${color} mb-2 group-hover:scale-110 transition-transform`}
+				>
 					<Icon className="size-5" />
 				</div>
 				<p className="text-2xl font-bold">{value}</p>
@@ -134,7 +147,9 @@ const ActivityCard = ({
 							<activity.icon className="size-4 text-muted-foreground" />
 						</div>
 						<span className="flex-1 text-sm">{activity.title}</span>
-						<span className="text-xs text-muted-foreground">{activity.time}</span>
+						<span className="text-xs text-muted-foreground">
+							{activity.time}
+						</span>
 					</div>
 				))}
 			</div>
@@ -159,7 +174,9 @@ const LogoutCard = () => (
 	<Card className="hover:bg-destructive/5 transition-colors group cursor-pointer">
 		<CardContent className="p-4 flex flex-col items-center text-center">
 			<LogOut className="size-8 text-muted-foreground group-hover:text-destructive mb-2 transition-colors" />
-			<h3 className="font-medium group-hover:text-destructive transition-colors">Sign Out</h3>
+			<h3 className="font-medium group-hover:text-destructive transition-colors">
+				Sign Out
+			</h3>
 			<p className="text-xs text-muted-foreground">Log out of your account</p>
 		</CardContent>
 	</Card>
@@ -175,8 +192,20 @@ export default function Main() {
 			verified: true,
 		},
 		stats: [
-			{ icon: Package, label: 'Orders', value: '67', color: 'bg-blue-500/20 text-blue-500', href: '/orders' },
-			{ icon: Gift, label: 'Rewards', value: '5', color: 'bg-purple-500/20 text-purple-500', href: '/rewards' },
+			{
+				icon: Package,
+				label: 'Orders',
+				value: '67',
+				color: 'bg-blue-500/20 text-blue-500',
+				href: '/orders',
+			},
+			{
+				icon: Gift,
+				label: 'Rewards',
+				value: '5',
+				color: 'bg-purple-500/20 text-purple-500',
+				href: '/rewards',
+			},
 		],
 		activity: [
 			{ icon: Package, title: 'Order #48291 delivered', time: '2h ago' },

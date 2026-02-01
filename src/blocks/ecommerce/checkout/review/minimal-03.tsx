@@ -27,7 +27,9 @@ const MinimalProduct = ({ item }: { item: OrderItem }) => (
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="text-sm font-medium">{item.name}</p>
-			<p className="text-xs text-muted-foreground">{item.variant} · ×{item.qty}</p>
+			<p className="text-xs text-muted-foreground">
+				{item.variant} · ×{item.qty}
+			</p>
 		</div>
 		<span className="font-medium">${item.price.toFixed(2)}</span>
 	</div>
@@ -60,9 +62,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -74,7 +80,8 @@ export default function Main() {
 			variant: 'Lavender / 3-Pack',
 			price: 34.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1602523961358-f9f03dd557db?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1602523961358-f9f03dd557db?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -82,7 +89,8 @@ export default function Main() {
 			variant: 'Ceramic / White',
 			price: 49.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1608571423539-e951b16a0a86?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608571423539-e951b16a0a86?w=200&h=200&fit=crop',
 		},
 	];
 

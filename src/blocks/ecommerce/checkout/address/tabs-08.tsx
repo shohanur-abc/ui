@@ -122,7 +122,10 @@ const ContactTab = () => (
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="newsletter" />
-			<Label htmlFor="newsletter" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="newsletter"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Subscribe to newsletter for exclusive offers
 			</Label>
 		</div>
@@ -137,7 +140,11 @@ const AddressTab = ({
 	states: { value: string; label: string }[];
 }) => (
 	<div className="space-y-4">
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -147,7 +154,10 @@ const AddressTab = ({
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="billing-same" defaultChecked />
-			<Label htmlFor="billing-same" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="billing-same"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Billing address same as shipping
 			</Label>
 		</div>
@@ -218,7 +228,9 @@ export default function Main() {
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-8">
 					<h1 className="text-2xl @md:text-3xl font-bold mb-2">Checkout</h1>
-					<p className="text-muted-foreground">Complete your shipping details</p>
+					<p className="text-muted-foreground">
+						Complete your shipping details
+					</p>
 				</div>
 
 				<Card>

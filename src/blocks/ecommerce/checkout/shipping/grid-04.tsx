@@ -1,7 +1,23 @@
-import { Truck, Shield, Gift, Leaf, Recycle, Heart, Clock, Check, Plus } from 'lucide-react';
+import {
+	Truck,
+	Shield,
+	Gift,
+	Leaf,
+	Recycle,
+	Heart,
+	Clock,
+	Check,
+	Plus,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
@@ -86,20 +102,61 @@ const ShippingOption = ({
 
 export default function Main() {
 	const addons = [
-		{ id: 'insurance', icon: Shield, title: 'Shipping Insurance', description: 'Protection up to $200', price: '+$3.99', popular: true },
-		{ id: 'gift', icon: Gift, title: 'Gift Wrapping', description: 'Premium gift wrap with ribbon', price: '+$4.99' },
-		{ id: 'carbon', icon: Leaf, title: 'Carbon Neutral', description: 'Offset shipping emissions', price: '+$0.99' },
-		{ id: 'recycle', icon: Recycle, title: 'Eco Packaging', description: '100% recyclable materials', price: '+$1.99' },
-		{ id: 'priority', icon: Truck, title: 'Priority Handling', description: 'Your order ships first', price: '+$2.99' },
-		{ id: 'charity', icon: Heart, title: 'Round Up for Charity', description: 'Donate to a good cause', price: '+$1.00' },
+		{
+			id: 'insurance',
+			icon: Shield,
+			title: 'Shipping Insurance',
+			description: 'Protection up to $200',
+			price: '+$3.99',
+			popular: true,
+		},
+		{
+			id: 'gift',
+			icon: Gift,
+			title: 'Gift Wrapping',
+			description: 'Premium gift wrap with ribbon',
+			price: '+$4.99',
+		},
+		{
+			id: 'carbon',
+			icon: Leaf,
+			title: 'Carbon Neutral',
+			description: 'Offset shipping emissions',
+			price: '+$0.99',
+		},
+		{
+			id: 'recycle',
+			icon: Recycle,
+			title: 'Eco Packaging',
+			description: '100% recyclable materials',
+			price: '+$1.99',
+		},
+		{
+			id: 'priority',
+			icon: Truck,
+			title: 'Priority Handling',
+			description: 'Your order ships first',
+			price: '+$2.99',
+		},
+		{
+			id: 'charity',
+			icon: Heart,
+			title: 'Round Up for Charity',
+			description: 'Donate to a good cause',
+			price: '+$1.00',
+		},
 	];
 
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Shipping Add-ons</h1>
-					<p className="text-muted-foreground">Enhance your shipping experience</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Shipping Add-ons
+					</h1>
+					<p className="text-muted-foreground">
+						Enhance your shipping experience
+					</p>
 				</div>
 
 				<Card className="mb-8">
@@ -107,9 +164,25 @@ export default function Main() {
 						<CardTitle>Shipping Speed</CardTitle>
 					</CardHeader>
 					<CardContent className="grid @sm:grid-cols-3 gap-3">
-						<ShippingOption id="standard" name="Standard" time="5-7 days" price="$5.99" />
-						<ShippingOption id="express" name="Express" time="2-3 days" price="$12.99" selected />
-						<ShippingOption id="overnight" name="Overnight" time="1 day" price="$24.99" />
+						<ShippingOption
+							id="standard"
+							name="Standard"
+							time="5-7 days"
+							price="$5.99"
+						/>
+						<ShippingOption
+							id="express"
+							name="Express"
+							time="2-3 days"
+							price="$12.99"
+							selected
+						/>
+						<ShippingOption
+							id="overnight"
+							name="Overnight"
+							time="1 day"
+							price="$24.99"
+						/>
 					</CardContent>
 				</Card>
 
@@ -129,7 +202,9 @@ export default function Main() {
 
 				<div className="flex items-center justify-between">
 					<div>
-						<span className="text-sm text-muted-foreground">Estimated Total</span>
+						<span className="text-sm text-muted-foreground">
+							Estimated Total
+						</span>
 						<p className="text-2xl font-bold">$16.98</p>
 					</div>
 					<div className="flex gap-3">

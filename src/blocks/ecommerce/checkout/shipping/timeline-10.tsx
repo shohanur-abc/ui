@@ -1,4 +1,15 @@
-import { Package, Truck, Clock, Check, MapPin, CreditCard, Gift, ChevronRight, Edit2, Star } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	Clock,
+	Check,
+	MapPin,
+	CreditCard,
+	Gift,
+	ChevronRight,
+	Edit2,
+	Star,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,7 +32,9 @@ const CheckoutStep = ({
 	summary?: React.ReactNode;
 	onEdit?: () => void;
 }) => (
-	<div className={`relative pl-10 pb-8 ${status === 'upcoming' ? 'opacity-50' : ''}`}>
+	<div
+		className={`relative pl-10 pb-8 ${status === 'upcoming' ? 'opacity-50' : ''}`}
+	>
 		<div className="absolute left-0 top-0 flex flex-col items-center h-full">
 			<div
 				className={`
@@ -31,15 +44,25 @@ const CheckoutStep = ({
 					${status === 'upcoming' ? 'border-muted text-muted-foreground' : ''}
 				`}
 			>
-				{status === 'completed' ? <Check className="size-4" /> : <Icon className="size-4" />}
+				{status === 'completed' ? (
+					<Check className="size-4" />
+				) : (
+					<Icon className="size-4" />
+				)}
 			</div>
-			<div className={`w-0.5 flex-1 ${status === 'completed' ? 'bg-primary' : 'bg-muted'}`} />
+			<div
+				className={`w-0.5 flex-1 ${status === 'completed' ? 'bg-primary' : 'bg-muted'}`}
+			/>
 		</div>
 		<div className="flex items-start justify-between">
 			<div>
 				<div className="flex items-center gap-2 mb-1">
 					<h3 className="font-semibold">{title}</h3>
-					{status === 'completed' && <Badge variant="secondary" className="text-xs">Done</Badge>}
+					{status === 'completed' && (
+						<Badge variant="secondary" className="text-xs">
+							Done
+						</Badge>
+					)}
 					{status === 'current' && <Badge className="text-xs">Current</Badge>}
 				</div>
 				{summary}
@@ -88,15 +111,29 @@ const SummaryRow = ({
 	highlight?: boolean;
 }) => (
 	<div className="flex items-center justify-between">
-		<span className={highlight ? 'font-semibold' : 'text-muted-foreground'}>{label}</span>
-		<span className={highlight ? 'font-bold text-lg' : 'font-medium'}>{value}</span>
+		<span className={highlight ? 'font-semibold' : 'text-muted-foreground'}>
+			{label}
+		</span>
+		<span className={highlight ? 'font-bold text-lg' : 'font-medium'}>
+			{value}
+		</span>
 	</div>
 );
 
 export default function Main() {
 	const items = [
-		{ name: 'Wireless Earbuds Pro', image: '/products/earbuds.jpg', price: '$129.99', qty: 1 },
-		{ name: 'Smart Watch Series 5', image: '/products/watch.jpg', price: '$299.99', qty: 1 },
+		{
+			name: 'Wireless Earbuds Pro',
+			image: '/products/earbuds.jpg',
+			price: '$129.99',
+			qty: 1,
+		},
+		{
+			name: 'Smart Watch Series 5',
+			image: '/products/watch.jpg',
+			price: '$299.99',
+			qty: 1,
+		},
 	];
 
 	return (
@@ -133,7 +170,9 @@ export default function Main() {
 										<span className="font-medium">Express Shipping</span>
 										<Badge variant="secondary">2-3 days</Badge>
 									</div>
-									<p className="text-muted-foreground">$12.99 • Arrives Jan 17</p>
+									<p className="text-muted-foreground">
+										$12.99 • Arrives Jan 17
+									</p>
 								</div>
 							}
 						/>
@@ -147,13 +186,21 @@ export default function Main() {
 								<div className="mt-3">
 									<Card>
 										<CardContent className="p-4">
-											<p className="text-sm text-muted-foreground mb-4">Select a payment method to continue</p>
+											<p className="text-sm text-muted-foreground mb-4">
+												Select a payment method to continue
+											</p>
 											<div className="space-y-2">
-												{['Credit Card', 'PayPal', 'Apple Pay'].map((method) => (
-													<Button key={method} variant="outline" className="w-full justify-start">
-														{method}
-													</Button>
-												))}
+												{['Credit Card', 'PayPal', 'Apple Pay'].map(
+													(method) => (
+														<Button
+															key={method}
+															variant="outline"
+															className="w-full justify-start"
+														>
+															{method}
+														</Button>
+													),
+												)}
 											</div>
 										</CardContent>
 									</Card>

@@ -71,7 +71,9 @@ const StatCell = ({
 	<Link href={href}>
 		<Card className="h-full hover:bg-muted/50 transition-colors group">
 			<CardContent className="p-4 flex flex-col items-center justify-center text-center h-full">
-				<div className={`p-3 rounded-xl ${color} mb-2 group-hover:scale-110 transition-transform`}>
+				<div
+					className={`p-3 rounded-xl ${color} mb-2 group-hover:scale-110 transition-transform`}
+				>
 					<Icon className="size-5" />
 				</div>
 				<p className="text-2xl font-bold">{value}</p>
@@ -102,7 +104,9 @@ const LoyaltyCell = ({
 			<div className="space-y-1">
 				<div className="flex justify-between text-sm">
 					<span>{points.toLocaleString()} pts</span>
-					<span className="text-muted-foreground">{maxPoints.toLocaleString()}</span>
+					<span className="text-muted-foreground">
+						{maxPoints.toLocaleString()}
+					</span>
 				</div>
 				<Progress value={(points / maxPoints) * 100} className="h-2" />
 			</div>
@@ -144,10 +148,34 @@ export default function Main() {
 			memberSince: 'Jan 2023',
 		},
 		stats: [
-			{ icon: Package, label: 'Orders', value: '47', color: 'bg-blue-500/20 text-blue-500', href: '/orders' },
-			{ icon: Heart, label: 'Wishlist', value: '12', color: 'bg-pink-500/20 text-pink-500', href: '/wishlist' },
-			{ icon: Star, label: 'Reviews', value: '28', color: 'bg-amber-500/20 text-amber-500', href: '/reviews' },
-			{ icon: TrendingUp, label: 'Savings', value: '$340', color: 'bg-green-500/20 text-green-500', href: '/savings' },
+			{
+				icon: Package,
+				label: 'Orders',
+				value: '47',
+				color: 'bg-blue-500/20 text-blue-500',
+				href: '/orders',
+			},
+			{
+				icon: Heart,
+				label: 'Wishlist',
+				value: '12',
+				color: 'bg-pink-500/20 text-pink-500',
+				href: '/wishlist',
+			},
+			{
+				icon: Star,
+				label: 'Reviews',
+				value: '28',
+				color: 'bg-amber-500/20 text-amber-500',
+				href: '/reviews',
+			},
+			{
+				icon: TrendingUp,
+				label: 'Savings',
+				value: '$340',
+				color: 'bg-green-500/20 text-green-500',
+				href: '/savings',
+			},
 		],
 		loyalty: {
 			points: 7500,
@@ -155,9 +183,24 @@ export default function Main() {
 			tier: 'Gold',
 		},
 		quickActions: [
-			{ icon: MapPin, label: 'Addresses', href: '/addresses', color: 'bg-purple-500/20 text-purple-500' },
-			{ icon: CreditCard, label: 'Payment', href: '/payment', color: 'bg-cyan-500/20 text-cyan-500' },
-			{ icon: Gift, label: 'Rewards', href: '/rewards', color: 'bg-orange-500/20 text-orange-500' },
+			{
+				icon: MapPin,
+				label: 'Addresses',
+				href: '/addresses',
+				color: 'bg-purple-500/20 text-purple-500',
+			},
+			{
+				icon: CreditCard,
+				label: 'Payment',
+				href: '/payment',
+				color: 'bg-cyan-500/20 text-cyan-500',
+			},
+			{
+				icon: Gift,
+				label: 'Rewards',
+				href: '/rewards',
+				color: 'bg-orange-500/20 text-orange-500',
+			},
 		],
 	};
 

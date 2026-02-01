@@ -76,15 +76,23 @@ export default function Main() {
 		author: 'Wendy Chen',
 		role: 'Chief Executive Officer',
 		company: 'GlobalTech Solutions',
-		avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 		initials: 'WC',
 		rating: 5,
 	};
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
-				<SectionHeader badge="Featured Quote" title="Words That" highlight="Matter" />
+				<SectionHeader
+					badge="Featured Quote"
+					title="Words That"
+					highlight="Matter"
+				/>
 				<QuoteCard item={testimonial} />
 			</div>
 		</section>

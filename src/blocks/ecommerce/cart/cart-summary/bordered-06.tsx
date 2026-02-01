@@ -13,7 +13,10 @@ type SummaryRowProps = {
 const LeftBorderBox = ({
 	accentColor,
 	children,
-}: { accentColor: string; children: React.ReactNode }) => (
+}: {
+	accentColor: string;
+	children: React.ReactNode;
+}) => (
 	<div className={`border-l-4 ${accentColor} bg-card pl-6 pr-4 py-6`}>
 		{children}
 	</div>
@@ -23,7 +26,11 @@ const DiscountHeader = ({
 	icon: Icon,
 	code,
 	percentage,
-}: { icon: LucideIcon; code: string; percentage: string }) => (
+}: {
+	icon: LucideIcon;
+	code: string;
+	percentage: string;
+}) => (
 	<div className="mb-4 flex items-center gap-2">
 		<Icon className="size-5 text-green-500" />
 		<span className="font-mono font-bold">{code}</span>
@@ -48,7 +55,11 @@ const TotalRow = ({
 	label,
 	value,
 	savings,
-}: { label: string; value: string; savings: string }) => (
+}: {
+	label: string;
+	value: string;
+	savings: string;
+}) => (
 	<div className="space-y-1">
 		<div className="flex items-center justify-between">
 			<span className="font-semibold">{label}</span>

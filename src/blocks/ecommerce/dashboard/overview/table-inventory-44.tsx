@@ -95,19 +95,107 @@ const getStatusStyle = (status: InventoryRow['status']) => {
 
 export default function Main() {
 	const kpis: InventoryKpi[] = [
-		{ title: 'Total SKUs', value: '1,247', change: '+12', trend: 'up', icon: Package, color: 'bg-primary/10 text-primary' },
-		{ title: 'In Stock', value: '1,089', change: '+24', trend: 'up', icon: CheckCircle2, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'Low Stock', value: '126', change: '-8', trend: 'up', icon: AlertTriangle, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Out of Stock', value: '32', change: '+5', trend: 'down', icon: Box, color: 'bg-red-500/10 text-red-500' },
+		{
+			title: 'Total SKUs',
+			value: '1,247',
+			change: '+12',
+			trend: 'up',
+			icon: Package,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'In Stock',
+			value: '1,089',
+			change: '+24',
+			trend: 'up',
+			icon: CheckCircle2,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'Low Stock',
+			value: '126',
+			change: '-8',
+			trend: 'up',
+			icon: AlertTriangle,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Out of Stock',
+			value: '32',
+			change: '+5',
+			trend: 'down',
+			icon: Box,
+			color: 'bg-red-500/10 text-red-500',
+		},
 	];
 
 	const inventory: InventoryRow[] = [
-		{ sku: 'SKU-001', name: 'Wireless Headphones Pro', category: 'Electronics', inStock: 45, reserved: 12, available: 33, reorderLevel: 20, status: 'in-stock', location: 'Warehouse A' },
-		{ sku: 'SKU-002', name: 'Smart Watch Ultra', category: 'Electronics', inStock: 12, reserved: 5, available: 7, reorderLevel: 15, status: 'low-stock', location: 'Warehouse A' },
-		{ sku: 'SKU-003', name: 'Ergonomic Laptop Stand', category: 'Accessories', inStock: 78, reserved: 8, available: 70, reorderLevel: 25, status: 'in-stock', location: 'Warehouse B' },
-		{ sku: 'SKU-004', name: 'Mechanical Keyboard', category: 'Electronics', inStock: 0, reserved: 0, available: 0, reorderLevel: 30, status: 'out-of-stock', location: 'Warehouse A' },
-		{ sku: 'SKU-005', name: 'USB-C Hub 7-in-1', category: 'Accessories', inStock: 234, reserved: 45, available: 189, reorderLevel: 50, status: 'in-stock', location: 'Warehouse C' },
-		{ sku: 'SKU-006', name: 'Noise Cancelling Earbuds', category: 'Electronics', inStock: 18, reserved: 10, available: 8, reorderLevel: 20, status: 'reorder', location: 'Warehouse A' },
+		{
+			sku: 'SKU-001',
+			name: 'Wireless Headphones Pro',
+			category: 'Electronics',
+			inStock: 45,
+			reserved: 12,
+			available: 33,
+			reorderLevel: 20,
+			status: 'in-stock',
+			location: 'Warehouse A',
+		},
+		{
+			sku: 'SKU-002',
+			name: 'Smart Watch Ultra',
+			category: 'Electronics',
+			inStock: 12,
+			reserved: 5,
+			available: 7,
+			reorderLevel: 15,
+			status: 'low-stock',
+			location: 'Warehouse A',
+		},
+		{
+			sku: 'SKU-003',
+			name: 'Ergonomic Laptop Stand',
+			category: 'Accessories',
+			inStock: 78,
+			reserved: 8,
+			available: 70,
+			reorderLevel: 25,
+			status: 'in-stock',
+			location: 'Warehouse B',
+		},
+		{
+			sku: 'SKU-004',
+			name: 'Mechanical Keyboard',
+			category: 'Electronics',
+			inStock: 0,
+			reserved: 0,
+			available: 0,
+			reorderLevel: 30,
+			status: 'out-of-stock',
+			location: 'Warehouse A',
+		},
+		{
+			sku: 'SKU-005',
+			name: 'USB-C Hub 7-in-1',
+			category: 'Accessories',
+			inStock: 234,
+			reserved: 45,
+			available: 189,
+			reorderLevel: 50,
+			status: 'in-stock',
+			location: 'Warehouse C',
+		},
+		{
+			sku: 'SKU-006',
+			name: 'Noise Cancelling Earbuds',
+			category: 'Electronics',
+			inStock: 18,
+			reserved: 10,
+			available: 8,
+			reorderLevel: 20,
+			status: 'reorder',
+			location: 'Warehouse A',
+		},
 	];
 
 	return (
@@ -134,11 +222,17 @@ export default function Main() {
 								<TableHeader>
 									<TableRow>
 										<TableHead>Product</TableHead>
-										<TableHead className="hidden @lg:table-cell">Category</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Category
+										</TableHead>
 										<TableHead>In Stock</TableHead>
-										<TableHead className="hidden @xl:table-cell">Reserved</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Reserved
+										</TableHead>
 										<TableHead>Available</TableHead>
-										<TableHead className="hidden @lg:table-cell">Stock Level</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Stock Level
+										</TableHead>
 										<TableHead>Status</TableHead>
 										<TableHead className="w-10"></TableHead>
 									</TableRow>
@@ -147,35 +241,47 @@ export default function Main() {
 									{inventory.map((item) => {
 										const stockPercentage = Math.min(
 											(item.inStock / (item.reorderLevel * 2)) * 100,
-											100
+											100,
 										);
 										return (
 											<TableRow key={item.sku}>
 												<TableCell>
 													<div>
 														<p className="font-medium">{item.name}</p>
-														<p className="text-xs text-muted-foreground">{item.sku}</p>
+														<p className="text-xs text-muted-foreground">
+															{item.sku}
+														</p>
 													</div>
 												</TableCell>
-												<TableCell className="hidden @lg:table-cell">{item.category}</TableCell>
+												<TableCell className="hidden @lg:table-cell">
+													{item.category}
+												</TableCell>
 												<TableCell>{item.inStock}</TableCell>
-												<TableCell className="hidden @xl:table-cell">{item.reserved}</TableCell>
-												<TableCell className="font-medium">{item.available}</TableCell>
+												<TableCell className="hidden @xl:table-cell">
+													{item.reserved}
+												</TableCell>
+												<TableCell className="font-medium">
+													{item.available}
+												</TableCell>
 												<TableCell className="hidden @lg:table-cell">
 													<div className="w-24">
-														<Progress
-															value={stockPercentage}
-															className="h-2"
-														/>
+														<Progress value={stockPercentage} className="h-2" />
 													</div>
 												</TableCell>
 												<TableCell>
-													<Badge variant="secondary" className={getStatusStyle(item.status)}>
+													<Badge
+														variant="secondary"
+														className={getStatusStyle(item.status)}
+													>
 														{item.status.replace('-', ' ')}
 													</Badge>
 												</TableCell>
 												<TableCell>
-													<Button variant="ghost" size="icon" className="size-8">
+													<Button
+														variant="ghost"
+														size="icon"
+														className="size-8"
+													>
 														<MoreHorizontal className="size-4" />
 													</Button>
 												</TableCell>

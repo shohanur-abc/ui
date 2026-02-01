@@ -1,13 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Warehouse,
-	TrendingUp,
-	TrendingDown,
-} from 'lucide-react';
+import { Warehouse, TrendingUp, TrendingDown } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 
@@ -50,15 +52,22 @@ const LocationBar = ({ location, maxValue }: LocationBarProps) => {
 				</div>
 				<div className="flex items-center gap-4">
 					<div className="text-right">
-						<p className="text-sm font-semibold">${(location.value / 1000).toFixed(0)}K</p>
+						<p className="text-sm font-semibold">
+							${(location.value / 1000).toFixed(0)}K
+						</p>
 						<div className="flex items-center gap-1 text-xs">
 							{location.change >= 0 ? (
 								<TrendingUp className="size-3 text-emerald-500" />
 							) : (
 								<TrendingDown className="size-3 text-destructive" />
 							)}
-							<span className={location.change >= 0 ? 'text-emerald-500' : 'text-destructive'}>
-								{location.change >= 0 ? '+' : ''}{location.change}%
+							<span
+								className={
+									location.change >= 0 ? 'text-emerald-500' : 'text-destructive'
+								}
+							>
+								{location.change >= 0 ? '+' : ''}
+								{location.change}%
 							</span>
 						</div>
 					</div>
@@ -68,7 +77,9 @@ const LocationBar = ({ location, maxValue }: LocationBarProps) => {
 				<div>
 					<div className="flex justify-between text-xs mb-1">
 						<span className="text-muted-foreground">Inventory Value</span>
-						<span className="font-medium">${location.value.toLocaleString()}</span>
+						<span className="font-medium">
+							${location.value.toLocaleString()}
+						</span>
 					</div>
 					<div className="relative h-3 overflow-hidden rounded-full bg-muted">
 						<div
@@ -96,11 +107,51 @@ const LocationBar = ({ location, maxValue }: LocationBarProps) => {
 
 export default function Main() {
 	const locations: Location[] = [
-		{ id: '1', name: 'Main Warehouse', code: 'WH-001', capacity: 20000, used: 15840, value: 856000, change: 8 },
-		{ id: '2', name: 'East Distribution', code: 'WH-002', capacity: 10000, used: 9200, value: 425000, change: 12 },
-		{ id: '3', name: 'West Fulfillment', code: 'FC-001', capacity: 15000, used: 11250, value: 523000, change: -3 },
-		{ id: '4', name: 'NYC Retail Store', code: 'ST-NYC', capacity: 3000, used: 2340, value: 145000, change: 15 },
-		{ id: '5', name: 'LA Retail Store', code: 'ST-LA', capacity: 2500, used: 1890, value: 112000, change: 5 },
+		{
+			id: '1',
+			name: 'Main Warehouse',
+			code: 'WH-001',
+			capacity: 20000,
+			used: 15840,
+			value: 856000,
+			change: 8,
+		},
+		{
+			id: '2',
+			name: 'East Distribution',
+			code: 'WH-002',
+			capacity: 10000,
+			used: 9200,
+			value: 425000,
+			change: 12,
+		},
+		{
+			id: '3',
+			name: 'West Fulfillment',
+			code: 'FC-001',
+			capacity: 15000,
+			used: 11250,
+			value: 523000,
+			change: -3,
+		},
+		{
+			id: '4',
+			name: 'NYC Retail Store',
+			code: 'ST-NYC',
+			capacity: 3000,
+			used: 2340,
+			value: 145000,
+			change: 15,
+		},
+		{
+			id: '5',
+			name: 'LA Retail Store',
+			code: 'ST-LA',
+			capacity: 2500,
+			used: 1890,
+			value: 112000,
+			change: 5,
+		},
 	];
 
 	const maxValue = Math.max(...locations.map((l) => l.value));
@@ -113,18 +164,28 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Location Comparison</CardTitle>
-								<CardDescription>Inventory value and capacity by location</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Location Comparison
+								</CardTitle>
+								<CardDescription>
+									Inventory value and capacity by location
+								</CardDescription>
 							</div>
 							<div className="text-right">
 								<p className="text-sm text-muted-foreground">Total Value</p>
-								<p className="text-2xl font-bold">${(totalValue / 1000000).toFixed(2)}M</p>
+								<p className="text-2xl font-bold">
+									${(totalValue / 1000000).toFixed(2)}M
+								</p>
 							</div>
 						</div>
 					</CardHeader>
 					<CardContent>
 						{locations.map((location) => (
-							<LocationBar key={location.id} location={location} maxValue={maxValue} />
+							<LocationBar
+								key={location.id}
+								location={location}
+								maxValue={maxValue}
+							/>
 						))}
 					</CardContent>
 				</Card>

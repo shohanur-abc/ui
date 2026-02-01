@@ -85,19 +85,105 @@ const getStatusStyle = (status: TicketRow['status']) => {
 
 export default function Main() {
 	const kpis: SupportKpi[] = [
-		{ title: 'Open Tickets', value: '24', icon: HelpCircle, color: 'bg-primary/10 text-primary' },
-		{ title: 'In Progress', value: '12', icon: Clock, color: 'bg-amber-500/10 text-amber-500' },
-		{ title: 'Resolved Today', value: '18', icon: CheckCircle2, color: 'bg-emerald-500/10 text-emerald-500' },
-		{ title: 'Avg Response', value: '2.4h', icon: MessageSquare, color: 'bg-blue-500/10 text-blue-500' },
+		{
+			title: 'Open Tickets',
+			value: '24',
+			icon: HelpCircle,
+			color: 'bg-primary/10 text-primary',
+		},
+		{
+			title: 'In Progress',
+			value: '12',
+			icon: Clock,
+			color: 'bg-amber-500/10 text-amber-500',
+		},
+		{
+			title: 'Resolved Today',
+			value: '18',
+			icon: CheckCircle2,
+			color: 'bg-emerald-500/10 text-emerald-500',
+		},
+		{
+			title: 'Avg Response',
+			value: '2.4h',
+			icon: MessageSquare,
+			color: 'bg-blue-500/10 text-blue-500',
+		},
 	];
 
 	const tickets: TicketRow[] = [
-		{ id: 'TKT-892', subject: 'Shipping delay on order #4521', customer: 'John Doe', customerEmail: 'john@example.com', customerInitials: 'JD', priority: 'high', status: 'in-progress', category: 'Shipping', created: 'Dec 12, 2024', lastUpdate: '2 hours ago' },
-		{ id: 'TKT-891', subject: 'Wrong item received', customer: 'Jane Smith', customerEmail: 'jane@example.com', customerInitials: 'JS', priority: 'urgent', status: 'open', category: 'Orders', created: 'Dec 12, 2024', lastUpdate: '30 min ago' },
-		{ id: 'TKT-890', subject: 'Request for refund', customer: 'Bob Wilson', customerEmail: 'bob@example.com', customerInitials: 'BW', priority: 'medium', status: 'in-progress', category: 'Refunds', created: 'Dec 11, 2024', lastUpdate: '1 day ago' },
-		{ id: 'TKT-889', subject: 'Product not as described', customer: 'Alice Brown', customerEmail: 'alice@example.com', customerInitials: 'AB', priority: 'medium', status: 'resolved', category: 'Products', created: 'Dec 11, 2024', lastUpdate: '1 day ago' },
-		{ id: 'TKT-888', subject: 'Account access issue', customer: 'Mike Johnson', customerEmail: 'mike@example.com', customerInitials: 'MJ', priority: 'low', status: 'closed', category: 'Account', created: 'Dec 10, 2024', lastUpdate: '2 days ago' },
-		{ id: 'TKT-887', subject: 'Payment failed', customer: 'Sarah Davis', customerEmail: 'sarah@example.com', customerInitials: 'SD', priority: 'high', status: 'open', category: 'Payments', created: 'Dec 12, 2024', lastUpdate: '1 hour ago' },
+		{
+			id: 'TKT-892',
+			subject: 'Shipping delay on order #4521',
+			customer: 'John Doe',
+			customerEmail: 'john@example.com',
+			customerInitials: 'JD',
+			priority: 'high',
+			status: 'in-progress',
+			category: 'Shipping',
+			created: 'Dec 12, 2024',
+			lastUpdate: '2 hours ago',
+		},
+		{
+			id: 'TKT-891',
+			subject: 'Wrong item received',
+			customer: 'Jane Smith',
+			customerEmail: 'jane@example.com',
+			customerInitials: 'JS',
+			priority: 'urgent',
+			status: 'open',
+			category: 'Orders',
+			created: 'Dec 12, 2024',
+			lastUpdate: '30 min ago',
+		},
+		{
+			id: 'TKT-890',
+			subject: 'Request for refund',
+			customer: 'Bob Wilson',
+			customerEmail: 'bob@example.com',
+			customerInitials: 'BW',
+			priority: 'medium',
+			status: 'in-progress',
+			category: 'Refunds',
+			created: 'Dec 11, 2024',
+			lastUpdate: '1 day ago',
+		},
+		{
+			id: 'TKT-889',
+			subject: 'Product not as described',
+			customer: 'Alice Brown',
+			customerEmail: 'alice@example.com',
+			customerInitials: 'AB',
+			priority: 'medium',
+			status: 'resolved',
+			category: 'Products',
+			created: 'Dec 11, 2024',
+			lastUpdate: '1 day ago',
+		},
+		{
+			id: 'TKT-888',
+			subject: 'Account access issue',
+			customer: 'Mike Johnson',
+			customerEmail: 'mike@example.com',
+			customerInitials: 'MJ',
+			priority: 'low',
+			status: 'closed',
+			category: 'Account',
+			created: 'Dec 10, 2024',
+			lastUpdate: '2 days ago',
+		},
+		{
+			id: 'TKT-887',
+			subject: 'Payment failed',
+			customer: 'Sarah Davis',
+			customerEmail: 'sarah@example.com',
+			customerInitials: 'SD',
+			priority: 'high',
+			status: 'open',
+			category: 'Payments',
+			created: 'Dec 12, 2024',
+			lastUpdate: '1 hour ago',
+		},
 	];
 
 	return (
@@ -124,11 +210,17 @@ export default function Main() {
 								<TableHeader>
 									<TableRow>
 										<TableHead>Ticket</TableHead>
-										<TableHead className="hidden @lg:table-cell">Customer</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Customer
+										</TableHead>
 										<TableHead>Priority</TableHead>
 										<TableHead>Status</TableHead>
-										<TableHead className="hidden @xl:table-cell">Category</TableHead>
-										<TableHead className="hidden @lg:table-cell">Last Update</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Category
+										</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Last Update
+										</TableHead>
 										<TableHead className="w-10"></TableHead>
 									</TableRow>
 								</TableHeader>
@@ -138,32 +230,48 @@ export default function Main() {
 											<TableCell>
 												<div>
 													<p className="font-medium">{ticket.subject}</p>
-													<p className="text-xs text-muted-foreground">{ticket.id}</p>
+													<p className="text-xs text-muted-foreground">
+														{ticket.id}
+													</p>
 												</div>
 											</TableCell>
 											<TableCell className="hidden @lg:table-cell">
 												<div className="flex items-center gap-2">
 													<Avatar className="size-7">
-														<AvatarFallback className="text-xs">{ticket.customerInitials}</AvatarFallback>
+														<AvatarFallback className="text-xs">
+															{ticket.customerInitials}
+														</AvatarFallback>
 													</Avatar>
 													<div>
 														<p className="text-sm">{ticket.customer}</p>
-														<p className="text-xs text-muted-foreground">{ticket.customerEmail}</p>
+														<p className="text-xs text-muted-foreground">
+															{ticket.customerEmail}
+														</p>
 													</div>
 												</div>
 											</TableCell>
 											<TableCell>
-												<Badge variant="secondary" className={getPriorityStyle(ticket.priority)}>
+												<Badge
+													variant="secondary"
+													className={getPriorityStyle(ticket.priority)}
+												>
 													{ticket.priority}
 												</Badge>
 											</TableCell>
 											<TableCell>
-												<Badge variant="secondary" className={getStatusStyle(ticket.status)}>
+												<Badge
+													variant="secondary"
+													className={getStatusStyle(ticket.status)}
+												>
 													{ticket.status.replace('-', ' ')}
 												</Badge>
 											</TableCell>
-											<TableCell className="hidden @xl:table-cell text-muted-foreground">{ticket.category}</TableCell>
-											<TableCell className="hidden @lg:table-cell text-muted-foreground">{ticket.lastUpdate}</TableCell>
+											<TableCell className="hidden @xl:table-cell text-muted-foreground">
+												{ticket.category}
+											</TableCell>
+											<TableCell className="hidden @lg:table-cell text-muted-foreground">
+												{ticket.lastUpdate}
+											</TableCell>
 											<TableCell>
 												<Button variant="ghost" size="icon" className="size-8">
 													<MoreHorizontal className="size-4" />

@@ -2,7 +2,13 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -31,7 +37,9 @@ interface OrderItem {
 const WizardProgress = ({ step, total }: { step: number; total: number }) => (
 	<div className="space-y-2">
 		<div className="flex justify-between text-sm">
-			<span className="text-muted-foreground">Step {step} of {total}</span>
+			<span className="text-muted-foreground">
+				Step {step} of {total}
+			</span>
 			<span className="font-medium">{Math.round((step / total) * 100)}%</span>
 		</div>
 		<Progress value={(step / total) * 100} />
@@ -61,9 +69,15 @@ const StepIndicator = ({
 									: 'bg-muted text-muted-foreground'
 						}`}
 					>
-						{completed ? <Check className="size-5" /> : <Icon className="size-5" />}
+						{completed ? (
+							<Check className="size-5" />
+						) : (
+							<Icon className="size-5" />
+						)}
 					</div>
-					<span className={`text-xs ${active ? 'font-medium' : 'text-muted-foreground'}`}>
+					<span
+						className={`text-xs ${active ? 'font-medium' : 'text-muted-foreground'}`}
+					>
 						{s.label}
 					</span>
 				</div>
@@ -135,7 +149,9 @@ const PaymentCard = ({
 	<div className="flex items-center gap-4 rounded-xl border bg-card p-4">
 		<CreditCard className="size-6 text-primary" />
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -152,9 +168,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -176,7 +196,8 @@ export default function Main() {
 			variant: 'Series Pro / Titanium',
 			price: 799.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -184,7 +205,8 @@ export default function Main() {
 			variant: 'Leather / 3-Pack',
 			price: 99.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -195,9 +217,7 @@ export default function Main() {
 					<h1 className="text-2xl font-bold tracking-tight @md:text-3xl">
 						Checkout
 					</h1>
-					<p className="mt-1 text-muted-foreground">
-						Complete your purchase
-					</p>
+					<p className="mt-1 text-muted-foreground">Complete your purchase</p>
 				</div>
 
 				<div className="mb-8 space-y-6">
@@ -212,15 +232,30 @@ export default function Main() {
 						))}
 
 						<div className="grid gap-4 @sm:grid-cols-2">
-							<AddressCard type="Shipping" name="Alex M." address="123 Tech Drive, Cupertino, CA 95014" />
-							<AddressCard type="Billing" name="Alex M." address="123 Tech Drive, Cupertino, CA 95014" />
+							<AddressCard
+								type="Shipping"
+								name="Alex M."
+								address="123 Tech Drive, Cupertino, CA 95014"
+							/>
+							<AddressCard
+								type="Billing"
+								name="Alex M."
+								address="123 Tech Drive, Cupertino, CA 95014"
+							/>
 						</div>
 
-						<DeliveryCard method="Priority" date="Dec 17-18, 2025" price="$19.99" />
+						<DeliveryCard
+							method="Priority"
+							date="Dec 17-18, 2025"
+							price="$19.99"
+						/>
 						<PaymentCard brand="Visa" last4="4242" exp="10/27" />
 
 						<div className="flex justify-between pt-4">
-							<Button variant="outline" onClick={() => setStep((s) => Math.max(1, s - 1))}>
+							<Button
+								variant="outline"
+								onClick={() => setStep((s) => Math.max(1, s - 1))}
+							>
 								<ArrowLeft className="mr-2 size-4" />
 								Back
 							</Button>

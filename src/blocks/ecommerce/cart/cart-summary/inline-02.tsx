@@ -12,7 +12,9 @@ type InfoTagProps = {
 const InfoTag = ({ icon: Icon, text, variant = 'default' }: InfoTagProps) => (
 	<span
 		className={`inline-flex items-center gap-1 text-sm ${
-			variant === 'success' ? 'text-green-600 dark:text-green-400' : 'text-muted-foreground'
+			variant === 'success'
+				? 'text-green-600 dark:text-green-400'
+				: 'text-muted-foreground'
 		}`}
 	>
 		<Icon className="size-3" />

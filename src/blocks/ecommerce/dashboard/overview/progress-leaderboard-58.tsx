@@ -15,7 +15,13 @@ import {
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	ChartConfig,
 	ChartContainer,
@@ -42,7 +48,15 @@ type AchievementItem = {
 	unlocked: boolean;
 };
 
-const TeamMemberRow = ({ name, role, initials, progress, target, completed, rank }: TeamMember) => (
+const TeamMemberRow = ({
+	name,
+	role,
+	initials,
+	progress,
+	target,
+	completed,
+	rank,
+}: TeamMember) => (
 	<div className="flex items-center gap-4">
 		<span className="flex size-6 items-center justify-center rounded-full bg-muted text-xs font-bold">
 			{rank}
@@ -66,8 +80,16 @@ const TeamMemberRow = ({ name, role, initials, progress, target, completed, rank
 	</div>
 );
 
-const AchievementCard = ({ title, description, icon: Icon, color, unlocked }: AchievementItem) => (
-	<div className={`flex items-center gap-3 rounded-xl border p-3 ${unlocked ? 'bg-card' : 'bg-muted/50 opacity-60'}`}>
+const AchievementCard = ({
+	title,
+	description,
+	icon: Icon,
+	color,
+	unlocked,
+}: AchievementItem) => (
+	<div
+		className={`flex items-center gap-3 rounded-xl border p-3 ${unlocked ? 'bg-card' : 'bg-muted/50 opacity-60'}`}
+	>
 		<div className={`rounded-lg p-2 ${color}`}>
 			<Icon className="size-4" />
 		</div>
@@ -85,18 +107,82 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const teamMembers: TeamMember[] = [
-		{ name: 'Sarah Wilson', role: 'Sales Lead', initials: 'SW', progress: 95, target: '$50K', completed: '$47.5K', rank: 1 },
-		{ name: 'Michael Chen', role: 'Account Executive', initials: 'MC', progress: 88, target: '$40K', completed: '$35.2K', rank: 2 },
-		{ name: 'Emma Johnson', role: 'Account Executive', initials: 'EJ', progress: 82, target: '$40K', completed: '$32.8K', rank: 3 },
-		{ name: 'James Brown', role: 'Sales Rep', initials: 'JB', progress: 75, target: '$30K', completed: '$22.5K', rank: 4 },
-		{ name: 'Lisa Davis', role: 'Sales Rep', initials: 'LD', progress: 68, target: '$30K', completed: '$20.4K', rank: 5 },
+		{
+			name: 'Sarah Wilson',
+			role: 'Sales Lead',
+			initials: 'SW',
+			progress: 95,
+			target: '$50K',
+			completed: '$47.5K',
+			rank: 1,
+		},
+		{
+			name: 'Michael Chen',
+			role: 'Account Executive',
+			initials: 'MC',
+			progress: 88,
+			target: '$40K',
+			completed: '$35.2K',
+			rank: 2,
+		},
+		{
+			name: 'Emma Johnson',
+			role: 'Account Executive',
+			initials: 'EJ',
+			progress: 82,
+			target: '$40K',
+			completed: '$32.8K',
+			rank: 3,
+		},
+		{
+			name: 'James Brown',
+			role: 'Sales Rep',
+			initials: 'JB',
+			progress: 75,
+			target: '$30K',
+			completed: '$22.5K',
+			rank: 4,
+		},
+		{
+			name: 'Lisa Davis',
+			role: 'Sales Rep',
+			initials: 'LD',
+			progress: 68,
+			target: '$30K',
+			completed: '$20.4K',
+			rank: 5,
+		},
 	];
 
 	const achievements: AchievementItem[] = [
-		{ title: 'First Sale', description: 'Close your first deal', icon: Star, color: 'bg-amber-500/10 text-amber-500', unlocked: true },
-		{ title: 'Top Performer', description: 'Reach 100% of target', icon: Trophy, color: 'bg-primary/10 text-primary', unlocked: true },
-		{ title: 'Team Player', description: 'Help 5 colleagues', icon: Users, color: 'bg-emerald-500/10 text-emerald-500', unlocked: true },
-		{ title: 'Overachiever', description: 'Exceed target by 20%', icon: Medal, color: 'bg-purple-500/10 text-purple-500', unlocked: false },
+		{
+			title: 'First Sale',
+			description: 'Close your first deal',
+			icon: Star,
+			color: 'bg-amber-500/10 text-amber-500',
+			unlocked: true,
+		},
+		{
+			title: 'Top Performer',
+			description: 'Reach 100% of target',
+			icon: Trophy,
+			color: 'bg-primary/10 text-primary',
+			unlocked: true,
+		},
+		{
+			title: 'Team Player',
+			description: 'Help 5 colleagues',
+			icon: Users,
+			color: 'bg-emerald-500/10 text-emerald-500',
+			unlocked: true,
+		},
+		{
+			title: 'Overachiever',
+			description: 'Exceed target by 20%',
+			icon: Medal,
+			color: 'bg-purple-500/10 text-purple-500',
+			unlocked: false,
+		},
 	];
 
 	const chartData = teamMembers.map((member) => ({
@@ -128,12 +214,29 @@ export default function Main() {
 								<CardTitle className="text-sm">Progress Chart</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<ChartContainer config={chartConfig} className="h-[160px] w-full">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[160px] w-full"
+								>
 									<BarChart data={chartData} layout="vertical">
-										<XAxis type="number" domain={[0, 100]} tickLine={false} axisLine={false} />
-										<YAxis dataKey="name" type="category" tickLine={false} axisLine={false} />
+										<XAxis
+											type="number"
+											domain={[0, 100]}
+											tickLine={false}
+											axisLine={false}
+										/>
+										<YAxis
+											dataKey="name"
+											type="category"
+											tickLine={false}
+											axisLine={false}
+										/>
 										<ChartTooltip content={<ChartTooltipContent />} />
-										<Bar dataKey="progress" fill="var(--color-progress)" radius={[0, 4, 4, 0]} />
+										<Bar
+											dataKey="progress"
+											fill="var(--color-progress)"
+											radius={[0, 4, 4, 0]}
+										/>
 									</BarChart>
 								</ChartContainer>
 							</CardContent>

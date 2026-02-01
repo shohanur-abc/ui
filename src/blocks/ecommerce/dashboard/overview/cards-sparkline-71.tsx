@@ -13,11 +13,14 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
-	ChartConfig,
-	ChartContainer,
-} from '@/components/ui/chart';
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
+import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 
 type StatCard = {
 	title: string;
@@ -33,7 +36,15 @@ const chartConfig: ChartConfig = {
 	value: { label: 'Value', color: 'var(--chart-1)' },
 };
 
-const StatCardComponent = ({ title, value, change, trend, icon: Icon, sparkline, color }: StatCard) => (
+const StatCardComponent = ({
+	title,
+	value,
+	change,
+	trend,
+	icon: Icon,
+	sparkline,
+	color,
+}: StatCard) => (
 	<Card className="overflow-hidden">
 		<CardContent className="p-0">
 			<div className="p-4">
@@ -43,9 +54,17 @@ const StatCardComponent = ({ title, value, change, trend, icon: Icon, sparkline,
 					</div>
 					<Badge
 						variant="secondary"
-						className={trend === 'up' ? 'bg-emerald-500/10 text-emerald-500' : 'bg-red-500/10 text-red-500'}
+						className={
+							trend === 'up'
+								? 'bg-emerald-500/10 text-emerald-500'
+								: 'bg-red-500/10 text-red-500'
+						}
 					>
-						{trend === 'up' ? <ArrowUpRight className="mr-0.5 size-3" /> : <ArrowDownRight className="mr-0.5 size-3" />}
+						{trend === 'up' ? (
+							<ArrowUpRight className="mr-0.5 size-3" />
+						) : (
+							<ArrowDownRight className="mr-0.5 size-3" />
+						)}
 						{change}
 					</Badge>
 				</div>
@@ -55,9 +74,18 @@ const StatCardComponent = ({ title, value, change, trend, icon: Icon, sparkline,
 				</div>
 			</div>
 			<ChartContainer config={chartConfig} className="h-[60px] w-full">
-				<AreaChart data={sparkline.map((v, i) => ({ name: i, value: v }))} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+				<AreaChart
+					data={sparkline.map((v, i) => ({ name: i, value: v }))}
+					margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+				>
 					<defs>
-						<linearGradient id={`sparkline-${title.replace(/\s/g, '')}`} x1="0" y1="0" x2="0" y2="1">
+						<linearGradient
+							id={`sparkline-${title.replace(/\s/g, '')}`}
+							x1="0"
+							y1="0"
+							x2="0"
+							y2="1"
+						>
 							<stop offset="5%" stopColor="var(--chart-1)" stopOpacity={0.3} />
 							<stop offset="95%" stopColor="var(--chart-1)" stopOpacity={0} />
 						</linearGradient>

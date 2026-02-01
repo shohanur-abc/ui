@@ -111,10 +111,21 @@ export default function Main() {
 						<FormField label="Last Name" placeholder="Doe" />
 					</div>
 
-					<FormField label="Email Address" placeholder="john@example.com" type="email" />
-					<FormField label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
+					<FormField
+						label="Email Address"
+						placeholder="john@example.com"
+						type="email"
+					/>
+					<FormField
+						label="Phone Number"
+						placeholder="+1 (555) 000-0000"
+						type="tel"
+					/>
 					<FormField label="Street Address" placeholder="123 Main Street" />
-					<FormField label="Apartment, Suite, etc." placeholder="Apt 4B (optional)" />
+					<FormField
+						label="Apartment, Suite, etc."
+						placeholder="Apt 4B (optional)"
+					/>
 
 					<div className="grid @sm:grid-cols-3 gap-4">
 						<FormField label="City" placeholder="New York" />
@@ -128,7 +139,10 @@ export default function Main() {
 						options={countries}
 					/>
 
-					<FormActions backLabel="Back to Cart" continueLabel="Continue to Delivery" />
+					<FormActions
+						backLabel="Back to Cart"
+						continueLabel="Continue to Delivery"
+					/>
 				</div>
 			</div>
 		</section>

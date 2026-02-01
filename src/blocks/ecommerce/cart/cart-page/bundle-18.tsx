@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Minus, Plus, X, Box, Layers, Check, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
@@ -75,8 +81,12 @@ const BundleItemRow = ({ item }: { item: BundleItem }) => (
 			<p className="text-sm font-medium line-clamp-1">{item.name}</p>
 		</div>
 		<div className="text-right text-sm">
-			<p className="text-muted-foreground line-through">${item.originalPrice.toFixed(2)}</p>
-			<p className="font-medium text-green-600">${item.bundlePrice.toFixed(2)}</p>
+			<p className="text-muted-foreground line-through">
+				${item.originalPrice.toFixed(2)}
+			</p>
+			<p className="font-medium text-green-600">
+				${item.bundlePrice.toFixed(2)}
+			</p>
 		</div>
 	</div>
 );
@@ -103,13 +113,21 @@ const BundleTotal = ({
 	quantity: number;
 }) => (
 	<div className="text-right">
-		<p className="text-sm text-muted-foreground line-through">${(original * quantity).toFixed(2)}</p>
-		<p className="text-xl font-bold text-primary">${(discounted * quantity).toFixed(2)}</p>
+		<p className="text-sm text-muted-foreground line-through">
+			${(original * quantity).toFixed(2)}
+		</p>
+		<p className="text-xl font-bold text-primary">
+			${(discounted * quantity).toFixed(2)}
+		</p>
 	</div>
 );
 
 const RemoveBundle = () => (
-	<Button size="sm" variant="ghost" className="text-muted-foreground hover:text-destructive gap-1">
+	<Button
+		size="sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive gap-1"
+	>
 		<X className="size-3" />
 		Remove
 	</Button>
@@ -174,10 +192,20 @@ const SingleItemInfo = ({
 const SingleItemRow = ({ item }: { item: SingleItem }) => (
 	<div className="flex items-center gap-4 py-3">
 		<SingleItemImage src={item.image} alt={item.name} />
-		<SingleItemInfo name={item.name} variant={item.variant} price={item.price} />
+		<SingleItemInfo
+			name={item.name}
+			variant={item.variant}
+			price={item.price}
+		/>
 		<QuantityButton quantity={item.quantity} />
-		<p className="font-bold w-20 text-right">${(item.price * item.quantity).toFixed(2)}</p>
-		<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+		<p className="font-bold w-20 text-right">
+			${(item.price * item.quantity).toFixed(2)}
+		</p>
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="text-muted-foreground hover:text-destructive"
+		>
 			<X className="size-4" />
 		</Button>
 	</div>
@@ -192,8 +220,12 @@ const PriceLine = ({
 	value: string;
 	variant?: 'default' | 'savings' | 'total';
 }) => (
-	<div className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}>
-		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>{label}</span>
+	<div
+		className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}
+	>
+		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
 		<span
 			className={
 				variant === 'total'
@@ -208,7 +240,11 @@ const PriceLine = ({
 	</div>
 );
 
-const SavingsSummary = ({ items }: { items: { label: string; value: string }[] }) => (
+const SavingsSummary = ({
+	items,
+}: {
+	items: { label: string; value: string }[];
+}) => (
 	<Card className="border-green-500/20 bg-green-500/5">
 		<CardContent className="p-4 space-y-2">
 			<div className="flex items-center gap-2 text-green-600 font-medium mb-3">
@@ -232,7 +268,11 @@ const OrderSummary = ({
 	checkoutHref,
 }: {
 	title: string;
-	lines: { label: string; value: string; variant?: 'default' | 'savings' | 'total' }[];
+	lines: {
+		label: string;
+		value: string;
+		variant?: 'default' | 'savings' | 'total';
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
 }) => (
@@ -271,21 +311,24 @@ export default function Main() {
 			items: [
 				{
 					id: 'b1-1',
-					image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=100&h=100&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=100&h=100&fit=crop',
 					name: 'LED Desk Lamp',
 					originalPrice: 79.99,
 					bundlePrice: 59.99,
 				},
 				{
 					id: 'b1-2',
-					image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=100&h=100&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=100&h=100&fit=crop',
 					name: 'Monitor Stand',
 					originalPrice: 149.99,
 					bundlePrice: 119.99,
 				},
 				{
 					id: 'b1-3',
-					image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=100&h=100&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=100&h=100&fit=crop',
 					name: 'Wireless Keyboard',
 					originalPrice: 219.99,
 					bundlePrice: 170.01,
@@ -297,7 +340,8 @@ export default function Main() {
 	const singleItems: SingleItem[] = [
 		{
 			id: 's1',
-			image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=100&h=100&fit=crop',
 			name: 'Ergonomic Mouse Pad',
 			variant: 'Black • Large',
 			price: 24.99,
@@ -321,7 +365,13 @@ export default function Main() {
 	return (
 		<section className="@container">
 			<div className="mx-auto max-w-6xl px-4 py-8 @md:py-12 @xl:py-16">
-				<PageHeader title="Your Cart" count={bundles.reduce((sum, b) => sum + b.items.length, 0) + singleItems.length} />
+				<PageHeader
+					title="Your Cart"
+					count={
+						bundles.reduce((sum, b) => sum + b.items.length, 0) +
+						singleItems.length
+					}
+				/>
 
 				<div className="mt-8 grid gap-8 @xl:grid-cols-5">
 					<div className="space-y-6 @xl:col-span-3">

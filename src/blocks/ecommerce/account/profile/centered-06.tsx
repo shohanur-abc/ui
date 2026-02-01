@@ -42,7 +42,11 @@ const ReferralHeader = ({
 		<div className="max-w-xs mx-auto">
 			<p className="text-xs text-muted-foreground mb-2">Your Referral Code</p>
 			<div className="flex gap-2">
-				<Input value={referralCode} readOnly className="text-center font-mono font-bold" />
+				<Input
+					value={referralCode}
+					readOnly
+					className="text-center font-mono font-bold"
+				/>
 				<Button variant="outline" size="icon">
 					<Copy className="size-4" />
 				</Button>
@@ -118,16 +122,27 @@ const RecentReferrals = ({
 		<h3 className="font-semibold text-center">Recent Referrals</h3>
 		<div className="space-y-3">
 			{referrals.map((referral, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg bg-muted/30"
+				>
 					<div>
 						<p className="text-sm font-medium">{referral.name}</p>
 						<p className="text-xs text-muted-foreground">{referral.date}</p>
 					</div>
 					<div className="text-right">
-						<Badge className={referral.status === 'Completed' ? 'bg-green-500/20 text-green-600' : 'bg-amber-500/20 text-amber-600'}>
+						<Badge
+							className={
+								referral.status === 'Completed'
+									? 'bg-green-500/20 text-green-600'
+									: 'bg-amber-500/20 text-amber-600'
+							}
+						>
 							{referral.status}
 						</Badge>
-						<p className="text-xs text-muted-foreground mt-1">{referral.reward}</p>
+						<p className="text-xs text-muted-foreground mt-1">
+							{referral.reward}
+						</p>
 					</div>
 				</div>
 			))}
@@ -168,14 +183,41 @@ export default function Main() {
 			conversionRate: '68%',
 		},
 		steps: [
-			{ icon: Share2, title: 'Share your code', description: 'Send your unique code to friends' },
-			{ icon: Users, title: 'Friends sign up', description: 'They get $10 off their first order' },
-			{ icon: DollarSign, title: 'You earn rewards', description: 'Get $20 for each successful referral' },
+			{
+				icon: Share2,
+				title: 'Share your code',
+				description: 'Send your unique code to friends',
+			},
+			{
+				icon: Users,
+				title: 'Friends sign up',
+				description: 'They get $10 off their first order',
+			},
+			{
+				icon: DollarSign,
+				title: 'You earn rewards',
+				description: 'Get $20 for each successful referral',
+			},
 		],
 		referrals: [
-			{ name: 'John D.', status: 'Completed', reward: '+$20', date: '2 days ago' },
-			{ name: 'Sarah M.', status: 'Pending', reward: '$20', date: '5 days ago' },
-			{ name: 'Mike R.', status: 'Completed', reward: '+$20', date: '1 week ago' },
+			{
+				name: 'John D.',
+				status: 'Completed',
+				reward: '+$20',
+				date: '2 days ago',
+			},
+			{
+				name: 'Sarah M.',
+				status: 'Pending',
+				reward: '$20',
+				date: '5 days ago',
+			},
+			{
+				name: 'Mike R.',
+				status: 'Completed',
+				reward: '+$20',
+				date: '1 week ago',
+			},
 		],
 	};
 

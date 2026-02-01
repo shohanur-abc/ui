@@ -1,4 +1,12 @@
-import { Home, Building2, MapPin, Plus, Check, Edit, Trash2 } from 'lucide-react';
+import {
+	Home,
+	Building2,
+	MapPin,
+	Plus,
+	Check,
+	Edit,
+	Trash2,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -42,7 +50,11 @@ const AddressCard = ({
 					<Button variant="ghost" size="icon" className="size-8">
 						<Edit className="size-4" />
 					</Button>
-					<Button variant="ghost" size="icon" className="size-8 text-destructive">
+					<Button
+						variant="ghost"
+						size="icon"
+						className="size-8 text-destructive"
+					>
 						<Trash2 className="size-4" />
 					</Button>
 				</div>
@@ -55,13 +67,19 @@ const AddressCard = ({
 					<div className="flex-1 min-w-0 pr-16">
 						<div className="flex items-center gap-2 mb-1">
 							<span className="font-semibold">{type}</span>
-							{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+							{isDefault && (
+								<Badge variant="secondary" className="text-xs">
+									Default
+								</Badge>
+							)}
 						</div>
 						<p className="text-sm font-medium">{name}</p>
 						<div className="text-sm text-muted-foreground mt-1">
 							<p>{line1}</p>
 							{line2 && <p>{line2}</p>}
-							<p>{city}, {state} {zip}</p>
+							<p>
+								{city}, {state} {zip}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -77,7 +95,9 @@ const NewAddressCard = () => (
 				<Plus className="size-6" />
 			</div>
 			<span className="font-medium">Add New Address</span>
-			<span className="text-sm text-muted-foreground">Ship to a different location</span>
+			<span className="text-sm text-muted-foreground">
+				Ship to a different location
+			</span>
 		</CardContent>
 	</Card>
 );
@@ -111,7 +131,7 @@ export default function Main() {
 			value: 'parents',
 			icon: Home,
 			type: 'Parents',
-			name: "Jane Doe",
+			name: 'Jane Doe',
 			line1: '789 Family Lane',
 			city: 'Brooklyn',
 			state: 'NY',
@@ -133,11 +153,18 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Shipping Address</h1>
-					<p className="text-muted-foreground">Select or add a delivery address</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Shipping Address
+					</h1>
+					<p className="text-muted-foreground">
+						Select or add a delivery address
+					</p>
 				</div>
 
-				<RadioGroup defaultValue="home" className="grid @sm:grid-cols-2 @lg:grid-cols-3 gap-4 mb-8">
+				<RadioGroup
+					defaultValue="home"
+					className="grid @sm:grid-cols-2 @lg:grid-cols-3 gap-4 mb-8"
+				>
 					{addresses.map((addr) => (
 						<AddressCard key={addr.value} {...addr} />
 					))}

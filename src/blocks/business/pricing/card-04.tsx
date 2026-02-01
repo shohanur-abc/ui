@@ -1,6 +1,11 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Check, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -71,7 +76,9 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => (
 								<X className="size-3 text-muted-foreground" />
 							</div>
 						)}
-						<span className={`text-sm ${!feature.included && 'text-muted-foreground'}`}>
+						<span
+							className={`text-sm ${!feature.included && 'text-muted-foreground'}`}
+						>
 							{feature.text}
 						</span>
 					</li>

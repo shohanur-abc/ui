@@ -10,7 +10,13 @@ import {
 	Eye,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -63,13 +69,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
 							className={`size-3 ${i < Math.floor(product.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-muted'}`}
 						/>
 					))}
-					<span className="ml-1 text-xs text-muted-foreground">{product.rating}</span>
+					<span className="ml-1 text-xs text-muted-foreground">
+						{product.rating}
+					</span>
 				</div>
 
 				<div className="mt-4 space-y-2">
 					<div className="flex justify-between text-sm">
 						<span className="text-muted-foreground">Stock Level</span>
-						<span className="font-medium">{product.stock}/{product.maxStock}</span>
+						<span className="font-medium">
+							{product.stock}/{product.maxStock}
+						</span>
 					</div>
 					<Progress value={stockPercent} />
 				</div>
@@ -109,12 +119,78 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
 export default function Main() {
 	const products: Product[] = [
-		{ id: '1', name: 'Wireless Pro Earbuds', sku: 'WPE-001', stock: 234, maxStock: 500, sales: 1245, revenue: 62250, trend: 'up', rating: 4.8, rank: 1 },
-		{ id: '2', name: 'Smart Watch Series X', sku: 'SWX-001', stock: 89, maxStock: 200, sales: 892, revenue: 178400, trend: 'up', rating: 4.6, rank: 2 },
-		{ id: '3', name: 'Premium Leather Case', sku: 'PLC-001', stock: 567, maxStock: 800, sales: 756, revenue: 22680, trend: 'stable', rating: 4.4, rank: 3 },
-		{ id: '4', name: 'Fast Charger 65W', sku: 'FC65-001', stock: 123, maxStock: 300, sales: 634, revenue: 25360, trend: 'down', rating: 4.5, rank: 4 },
-		{ id: '5', name: 'Bluetooth Speaker Max', sku: 'BSM-001', stock: 45, maxStock: 150, sales: 521, revenue: 52100, trend: 'up', rating: 4.7, rank: 5 },
-		{ id: '6', name: 'USB Hub 7-Port', sku: 'UH7P-001', stock: 312, maxStock: 400, sales: 445, revenue: 17800, trend: 'stable', rating: 4.3, rank: 6 },
+		{
+			id: '1',
+			name: 'Wireless Pro Earbuds',
+			sku: 'WPE-001',
+			stock: 234,
+			maxStock: 500,
+			sales: 1245,
+			revenue: 62250,
+			trend: 'up',
+			rating: 4.8,
+			rank: 1,
+		},
+		{
+			id: '2',
+			name: 'Smart Watch Series X',
+			sku: 'SWX-001',
+			stock: 89,
+			maxStock: 200,
+			sales: 892,
+			revenue: 178400,
+			trend: 'up',
+			rating: 4.6,
+			rank: 2,
+		},
+		{
+			id: '3',
+			name: 'Premium Leather Case',
+			sku: 'PLC-001',
+			stock: 567,
+			maxStock: 800,
+			sales: 756,
+			revenue: 22680,
+			trend: 'stable',
+			rating: 4.4,
+			rank: 3,
+		},
+		{
+			id: '4',
+			name: 'Fast Charger 65W',
+			sku: 'FC65-001',
+			stock: 123,
+			maxStock: 300,
+			sales: 634,
+			revenue: 25360,
+			trend: 'down',
+			rating: 4.5,
+			rank: 4,
+		},
+		{
+			id: '5',
+			name: 'Bluetooth Speaker Max',
+			sku: 'BSM-001',
+			stock: 45,
+			maxStock: 150,
+			sales: 521,
+			revenue: 52100,
+			trend: 'up',
+			rating: 4.7,
+			rank: 5,
+		},
+		{
+			id: '6',
+			name: 'USB Hub 7-Port',
+			sku: 'UH7P-001',
+			stock: 312,
+			maxStock: 400,
+			sales: 445,
+			revenue: 17800,
+			trend: 'stable',
+			rating: 4.3,
+			rank: 6,
+		},
 	];
 
 	return (
@@ -122,8 +198,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<div className="space-y-6">
 					<div>
-						<h2 className="text-xl font-semibold @lg:text-2xl">Top Performing Products</h2>
-						<p className="text-sm text-muted-foreground">Ranked by sales volume this month</p>
+						<h2 className="text-xl font-semibold @lg:text-2xl">
+							Top Performing Products
+						</h2>
+						<p className="text-sm text-muted-foreground">
+							Ranked by sales volume this month
+						</p>
 					</div>
 					<div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-3">
 						{products.map((product) => (

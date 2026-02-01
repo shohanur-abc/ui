@@ -22,16 +22,36 @@ const Sparkline = ({ data, color }: { data: number[]; color: string }) => {
 		y: 100 - ((v - min) / range) * 90 - 5,
 	}));
 
-	const pathD = points.reduce((acc, p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `${acc} L ${p.x} ${p.y}`), '');
+	const pathD = points.reduce(
+		(acc, p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `${acc} L ${p.x} ${p.y}`),
+		'',
+	);
 
 	return (
-		<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-12">
-			<path d={pathD} fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		<svg
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+			className="w-full h-12"
+		>
+			<path
+				d={pathD}
+				fill="none"
+				stroke={color}
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			/>
 		</svg>
 	);
 };
 
-const SparklineCard = ({ title, value, change, data, color }: SparklineData) => (
+const SparklineCard = ({
+	title,
+	value,
+	change,
+	data,
+	color,
+}: SparklineData) => (
 	<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between mb-2">
@@ -40,8 +60,13 @@ const SparklineCard = ({ title, value, change, data, color }: SparklineData) => 
 					variant="outline"
 					className={`text-xs ${change >= 0 ? 'text-emerald-500 border-emerald-500/30' : 'text-rose-500 border-rose-500/30'}`}
 				>
-					{change >= 0 ? <TrendingUp className="size-3 mr-1" /> : <TrendingDown className="size-3 mr-1" />}
-					{change >= 0 ? '+' : ''}{change}%
+					{change >= 0 ? (
+						<TrendingUp className="size-3 mr-1" />
+					) : (
+						<TrendingDown className="size-3 mr-1" />
+					)}
+					{change >= 0 ? '+' : ''}
+					{change}%
 				</Badge>
 			</div>
 			<p className="text-2xl font-bold mb-3">{value}</p>

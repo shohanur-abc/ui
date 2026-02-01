@@ -62,7 +62,9 @@ const ShippingOption = ({
 			<div className="flex items-center gap-2">
 				<span className="font-medium">{name}</span>
 				{recommended && (
-					<Badge variant="secondary" className="text-xs">Recommended</Badge>
+					<Badge variant="secondary" className="text-xs">
+						Recommended
+					</Badge>
 				)}
 			</div>
 			<p className="text-xs text-muted-foreground">{estimate}</p>

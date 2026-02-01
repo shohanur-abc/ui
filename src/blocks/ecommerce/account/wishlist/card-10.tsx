@@ -1,5 +1,11 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, Trash2, Bookmark, FolderPlus } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	Trash2,
+	Bookmark,
+	FolderPlus,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -25,7 +31,13 @@ interface CardGridProps {
 	collections: string[];
 }
 
-const CollectionDropdown = ({ currentCollection, collections }: { currentCollection?: string; collections: string[] }) => (
+const CollectionDropdown = ({
+	currentCollection,
+	collections,
+}: {
+	currentCollection?: string;
+	collections: string[];
+}) => (
 	<DropdownMenu>
 		<DropdownMenuTrigger asChild>
 			<Button variant="ghost" size="sm" className="gap-1.5 h-7 text-xs">
@@ -46,7 +58,13 @@ const CollectionDropdown = ({ currentCollection, collections }: { currentCollect
 	</DropdownMenu>
 );
 
-const ProductCard = ({ item, collections }: { item: WishlistItem; collections: string[] }) => (
+const ProductCard = ({
+	item,
+	collections,
+}: {
+	item: WishlistItem;
+	collections: string[];
+}) => (
 	<Card className="group overflow-hidden transition-all duration-300 hover:shadow-lg">
 		<CardHeader className="p-0">
 			<div className="relative aspect-square overflow-hidden bg-muted">
@@ -79,7 +97,10 @@ const ProductCard = ({ item, collections }: { item: WishlistItem; collections: s
 				</h3>
 			</Link>
 			<p className="text-lg font-bold mt-2">${item.price.toFixed(2)}</p>
-			<CollectionDropdown currentCollection={item.collection} collections={collections} />
+			<CollectionDropdown
+				currentCollection={item.collection}
+				collections={collections}
+			/>
 			<Button className="w-full mt-3 gap-2">
 				<ShoppingCart className="size-4" />
 				Add to Cart
@@ -96,13 +117,23 @@ const CardGrid = ({ items, collections }: CardGridProps) => (
 	</div>
 );
 
-const CollectionTabs = ({ collections, activeCollection }: { collections: string[]; activeCollection?: string }) => (
+const CollectionTabs = ({
+	collections,
+	activeCollection,
+}: {
+	collections: string[];
+	activeCollection?: string;
+}) => (
 	<div className="flex flex-wrap gap-2 mb-6">
 		<Button variant={!activeCollection ? 'default' : 'outline'} size="sm">
 			All Items
 		</Button>
 		{collections.map((collection) => (
-			<Button key={collection} variant={activeCollection === collection ? 'default' : 'outline'} size="sm">
+			<Button
+				key={collection}
+				variant={activeCollection === collection ? 'default' : 'outline'}
+				size="sm"
+			>
 				{collection}
 			</Button>
 		))}
@@ -117,12 +148,59 @@ export default function Main() {
 	const collections = ['Summer Picks', 'Gift Ideas', 'Home Office'];
 
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Linen Beach Shirt', price: 79.00, image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop', collection: 'Summer Picks', href: '/product/1' },
-		{ id: '2', name: 'Straw Sun Hat', price: 45.00, image: 'https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&h=400&fit=crop', collection: 'Summer Picks', href: '/product/2' },
-		{ id: '3', name: 'Desk Organizer Set', price: 55.00, image: 'https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=400&h=400&fit=crop', collection: 'Home Office', href: '/product/3' },
-		{ id: '4', name: 'Leather Journal', price: 35.00, image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&h=400&fit=crop', collection: 'Gift Ideas', href: '/product/4' },
-		{ id: '5', name: 'Wireless Earbuds', price: 129.00, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop', href: '/product/5' },
-		{ id: '6', name: 'Ceramic Mug Set', price: 42.00, image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop', collection: 'Gift Ideas', href: '/product/6' },
+		{
+			id: '1',
+			name: 'Linen Beach Shirt',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop',
+			collection: 'Summer Picks',
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Straw Sun Hat',
+			price: 45.0,
+			image:
+				'https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&h=400&fit=crop',
+			collection: 'Summer Picks',
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Desk Organizer Set',
+			price: 55.0,
+			image:
+				'https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=400&h=400&fit=crop',
+			collection: 'Home Office',
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Leather Journal',
+			price: 35.0,
+			image:
+				'https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&h=400&fit=crop',
+			collection: 'Gift Ideas',
+			href: '/product/4',
+		},
+		{
+			id: '5',
+			name: 'Wireless Earbuds',
+			price: 129.0,
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop',
+			href: '/product/5',
+		},
+		{
+			id: '6',
+			name: 'Ceramic Mug Set',
+			price: 42.0,
+			image:
+				'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop',
+			collection: 'Gift Ideas',
+			href: '/product/6',
+		},
 	];
 
 	return (

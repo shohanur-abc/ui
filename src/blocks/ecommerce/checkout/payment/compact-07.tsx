@@ -15,7 +15,13 @@ interface PaymentMethod {
 	icon: React.ComponentType<{ className?: string }>;
 }
 
-const PaymentMethodRadio = ({ methods, selected }: { methods: PaymentMethod[]; selected: string }) => (
+const PaymentMethodRadio = ({
+	methods,
+	selected,
+}: {
+	methods: PaymentMethod[];
+	selected: string;
+}) => (
 	<RadioGroup defaultValue={selected} className="flex gap-2">
 		{methods.map((method) => (
 			<Label
@@ -44,7 +50,13 @@ const DynamicCardForm = () => (
 	</div>
 );
 
-const AmountDisplay = ({ amount, label }: { amount: string; label: string }) => (
+const AmountDisplay = ({
+	amount,
+	label,
+}: {
+	amount: string;
+	label: string;
+}) => (
 	<div className="flex items-center justify-between p-2.5 rounded-lg bg-muted/30">
 		<span className="text-xs text-muted-foreground">{label}</span>
 		<span className="font-bold">{amount}</span>

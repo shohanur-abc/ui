@@ -11,7 +11,14 @@ import {
 	Trash2,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -42,8 +49,12 @@ type AlertRuleRowProps = {
 
 const AlertRuleRow = ({ rule, onToggle, onDelete }: AlertRuleRowProps) => (
 	<div className="flex items-center gap-4 rounded-lg border p-4">
-		<div className={`flex size-10 items-center justify-center rounded-lg ${rule.enabled ? 'bg-primary/10' : 'bg-muted'}`}>
-			<AlertTriangle className={`size-5 ${rule.enabled ? 'text-primary' : 'text-muted-foreground'}`} />
+		<div
+			className={`flex size-10 items-center justify-center rounded-lg ${rule.enabled ? 'bg-primary/10' : 'bg-muted'}`}
+		>
+			<AlertTriangle
+				className={`size-5 ${rule.enabled ? 'text-primary' : 'text-muted-foreground'}`}
+			/>
 		</div>
 		<div className="min-w-0 flex-1">
 			<p className="font-medium">{rule.name}</p>
@@ -52,9 +63,15 @@ const AlertRuleRow = ({ rule, onToggle, onDelete }: AlertRuleRowProps) => (
 			</p>
 		</div>
 		<div className="flex items-center gap-2">
-			{rule.channels.includes('email') && <Mail className="size-4 text-muted-foreground" />}
-			{rule.channels.includes('push') && <Bell className="size-4 text-muted-foreground" />}
-			{rule.channels.includes('sms') && <MessageSquare className="size-4 text-muted-foreground" />}
+			{rule.channels.includes('email') && (
+				<Mail className="size-4 text-muted-foreground" />
+			)}
+			{rule.channels.includes('push') && (
+				<Bell className="size-4 text-muted-foreground" />
+			)}
+			{rule.channels.includes('sms') && (
+				<MessageSquare className="size-4 text-muted-foreground" />
+			)}
 		</div>
 		<Switch checked={rule.enabled} onCheckedChange={() => onToggle(rule.id)} />
 		<Button variant="ghost" size="icon-sm" onClick={() => onDelete(rule.id)}>
@@ -71,7 +88,9 @@ const NewRuleForm = ({ onAdd }: NewRuleFormProps) => {
 	const [name, setName] = React.useState('');
 	const [condition, setCondition] = React.useState('stock-below');
 	const [threshold, setThreshold] = React.useState(10);
-	const [channels, setChannels] = React.useState<AlertRule['channels']>(['email']);
+	const [channels, setChannels] = React.useState<AlertRule['channels']>([
+		'email',
+	]);
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -87,7 +106,10 @@ const NewRuleForm = ({ onAdd }: NewRuleFormProps) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="rounded-lg border border-dashed p-4 space-y-4">
+		<form
+			onSubmit={handleSubmit}
+			className="rounded-lg border border-dashed p-4 space-y-4"
+		>
 			<p className="font-medium">Add New Alert Rule</p>
 			<div className="grid gap-4 @lg:grid-cols-4">
 				<div className="space-y-2">
@@ -135,14 +157,44 @@ const NewRuleForm = ({ onAdd }: NewRuleFormProps) => {
 
 export default function Main() {
 	const [rules, setRules] = React.useState<AlertRule[]>([
-		{ id: '1', name: 'Critical Low Stock', condition: 'Stock falls below', threshold: 10, enabled: true, channels: ['email', 'push'] },
-		{ id: '2', name: 'Reorder Point Alert', condition: 'Stock falls below', threshold: 50, enabled: true, channels: ['email'] },
-		{ id: '3', name: 'Overstock Warning', condition: 'Stock exceeds', threshold: 500, enabled: false, channels: ['email'] },
-		{ id: '4', name: 'Dead Stock Alert', condition: 'No movement for days', threshold: 90, enabled: true, channels: ['email', 'sms'] },
+		{
+			id: '1',
+			name: 'Critical Low Stock',
+			condition: 'Stock falls below',
+			threshold: 10,
+			enabled: true,
+			channels: ['email', 'push'],
+		},
+		{
+			id: '2',
+			name: 'Reorder Point Alert',
+			condition: 'Stock falls below',
+			threshold: 50,
+			enabled: true,
+			channels: ['email'],
+		},
+		{
+			id: '3',
+			name: 'Overstock Warning',
+			condition: 'Stock exceeds',
+			threshold: 500,
+			enabled: false,
+			channels: ['email'],
+		},
+		{
+			id: '4',
+			name: 'Dead Stock Alert',
+			condition: 'No movement for days',
+			threshold: 90,
+			enabled: true,
+			channels: ['email', 'sms'],
+		},
 	]);
 
 	const handleToggle = (id: string) => {
-		setRules((prev) => prev.map((r) => (r.id === id ? { ...r, enabled: !r.enabled } : r)));
+		setRules((prev) =>
+			prev.map((r) => (r.id === id ? { ...r, enabled: !r.enabled } : r)),
+		);
 	};
 
 	const handleDelete = (id: string) => {
@@ -162,12 +214,14 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Alert Rules</CardTitle>
-								<CardDescription>Configure inventory alert notifications</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Alert Rules
+								</CardTitle>
+								<CardDescription>
+									Configure inventory alert notifications
+								</CardDescription>
 							</div>
-							<Badge variant="secondary">
-								{activeRules} Active Rules
-							</Badge>
+							<Badge variant="secondary">{activeRules} Active Rules</Badge>
 						</div>
 					</CardHeader>
 					<CardContent className="space-y-4">

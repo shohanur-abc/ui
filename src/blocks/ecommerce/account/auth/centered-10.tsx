@@ -13,9 +13,13 @@ const SuccessIcon = ({ icon: Icon }: { icon: React.ElementType }) => (
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-6">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-3">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-3">
+			{text}
+		</h1>
 		{subtitle && (
-			<p className="text-muted-foreground leading-relaxed max-w-sm mx-auto">{subtitle}</p>
+			<p className="text-muted-foreground leading-relaxed max-w-sm mx-auto">
+				{subtitle}
+			</p>
 		)}
 	</div>
 );
@@ -50,11 +54,7 @@ const ActionButton = ({
 	</Button>
 );
 
-const Steps = ({
-	items,
-}: {
-	items: Array<{ step: number; text: string }>;
-}) => (
+const Steps = ({ items }: { items: Array<{ step: number; text: string }> }) => (
 	<div className="space-y-3 text-left mb-8">
 		{items.map((item) => (
 			<div key={item.step} className="flex items-start gap-3">
@@ -67,13 +67,7 @@ const Steps = ({
 	</div>
 );
 
-const ResendText = ({
-	text,
-	linkText,
-}: {
-	text: string;
-	linkText: string;
-}) => (
+const ResendText = ({ text, linkText }: { text: string; linkText: string }) => (
 	<p className="text-center text-sm text-muted-foreground mt-6">
 		{text}{' '}
 		<button type="button" className="text-primary font-medium hover:underline">
@@ -100,13 +94,9 @@ export default function Main() {
 					/>
 					<EmailSent email="user@example.com" />
 					<Steps items={steps} />
-					
+
 					<div className="space-y-3">
-						<ActionButton
-							label="Open email app"
-							icon={Mail}
-							href="mailto:"
-						/>
+						<ActionButton label="Open email app" icon={Mail} href="mailto:" />
 						<ActionButton
 							label="Back to homepage"
 							icon={Package2}

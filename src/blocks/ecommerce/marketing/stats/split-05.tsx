@@ -15,7 +15,13 @@ interface StatItemProps {
 	label: string;
 }
 
-const Testimonial = ({ quote, author, role, avatar, rating }: TestimonialProps) => (
+const Testimonial = ({
+	quote,
+	author,
+	role,
+	avatar,
+	rating,
+}: TestimonialProps) => (
 	<Card className="relative overflow-hidden p-6 @md:p-8">
 		<Quote className="absolute -right-4 -top-4 size-24 text-primary/5" />
 		<div className="relative space-y-4">
@@ -48,7 +54,8 @@ const StatItem = ({ value, label }: StatItemProps) => (
 
 export default function Main() {
 	const testimonial: TestimonialProps = {
-		quote: "This platform transformed our business. We've seen a 300% increase in sales since switching, and the customer support has been exceptional.",
+		quote:
+			"This platform transformed our business. We've seen a 300% increase in sales since switching, and the customer support has been exceptional.",
 		author: 'Sarah Chen',
 		role: 'CEO, TechStyle',
 		avatar: '/placeholder.svg',

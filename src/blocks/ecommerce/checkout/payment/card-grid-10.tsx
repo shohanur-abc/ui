@@ -1,10 +1,29 @@
 'use client';
 
-import { ArrowRight, Building2, Check, CreditCard, Download, Globe, Key, Lock, Mail, Shield, Smartphone, Wallet, Zap } from 'lucide-react';
+import {
+	ArrowRight,
+	Building2,
+	Check,
+	CreditCard,
+	Download,
+	Globe,
+	Key,
+	Lock,
+	Mail,
+	Shield,
+	Smartphone,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -26,14 +45,22 @@ interface PaymentOption {
 	instant?: boolean;
 }
 
-const ProductHeader = ({ name, type, size, price, icon: Icon }: DigitalProduct) => (
+const ProductHeader = ({
+	name,
+	type,
+	size,
+	price,
+	icon: Icon,
+}: DigitalProduct) => (
 	<div className="flex gap-4 p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
 		<div className="size-16 rounded-xl bg-primary/20 flex items-center justify-center">
 			<Icon className="size-8 text-primary" />
 		</div>
 		<div className="flex-1">
 			<h3 className="font-semibold text-lg">{name}</h3>
-			<p className="text-sm text-muted-foreground">{type} • {size}</p>
+			<p className="text-sm text-muted-foreground">
+				{type} • {size}
+			</p>
 			<div className="flex items-center gap-2 mt-2">
 				<span className="text-xl font-bold">{price}</span>
 				<Badge variant="secondary" className="text-xs gap-1">
@@ -45,21 +72,21 @@ const ProductHeader = ({ name, type, size, price, icon: Icon }: DigitalProduct) 
 	</div>
 );
 
-const PaymentOptionCard = ({ 
-	id, 
-	name, 
-	description, 
-	icon: Icon, 
+const PaymentOptionCard = ({
+	id,
+	name,
+	description,
+	icon: Icon,
 	instant,
-	selected, 
-	onSelect 
+	selected,
+	onSelect,
 }: PaymentOption & { selected: boolean; onSelect: (id: string) => void }) => (
 	<button
 		type="button"
 		onClick={() => onSelect(id)}
 		className={`relative w-full flex items-center gap-4 p-4 rounded-xl border-2 transition-all text-left ${
-			selected 
-				? 'border-primary bg-primary/5' 
+			selected
+				? 'border-primary bg-primary/5'
 				: 'border-border/50 hover:border-primary/30'
 		}`}
 	>
@@ -86,22 +113,22 @@ const PaymentOptionCard = ({
 	</button>
 );
 
-const PaymentOptions = ({ 
-	options, 
-	selected, 
-	onSelect 
-}: { 
-	options: PaymentOption[]; 
-	selected: string; 
-	onSelect: (id: string) => void 
+const PaymentOptions = ({
+	options,
+	selected,
+	onSelect,
+}: {
+	options: PaymentOption[];
+	selected: string;
+	onSelect: (id: string) => void;
 }) => (
 	<div className="space-y-3">
 		<h3 className="font-medium">Select Payment</h3>
 		<div className="space-y-2">
 			{options.map((option) => (
-				<PaymentOptionCard 
-					key={option.id} 
-					{...option} 
+				<PaymentOptionCard
+					key={option.id}
+					{...option}
 					selected={selected === option.id}
 					onSelect={onSelect}
 				/>
@@ -149,7 +176,9 @@ const TermsCheckbox = () => (
 	<div className="flex items-start gap-3 p-3 rounded-lg bg-muted/30">
 		<Checkbox id="terms" className="mt-0.5" />
 		<Label htmlFor="terms" className="text-sm cursor-pointer leading-relaxed">
-			I agree to the <span className="text-primary underline">Terms of Service</span> and <span className="text-primary underline">License Agreement</span>
+			I agree to the{' '}
+			<span className="text-primary underline">Terms of Service</span> and{' '}
+			<span className="text-primary underline">License Agreement</span>
 		</Label>
 	</div>
 );
@@ -195,9 +224,27 @@ export default function Main() {
 	};
 
 	const paymentOptions: PaymentOption[] = [
-		{ id: 'card', name: 'Credit Card', description: 'Visa, Mastercard, Amex', icon: CreditCard, instant: true },
-		{ id: 'wallet', name: 'Digital Wallet', description: 'Apple Pay, Google Pay', icon: Smartphone, instant: true },
-		{ id: 'paypal', name: 'PayPal', description: 'Pay with your PayPal account', icon: Wallet, instant: true },
+		{
+			id: 'card',
+			name: 'Credit Card',
+			description: 'Visa, Mastercard, Amex',
+			icon: CreditCard,
+			instant: true,
+		},
+		{
+			id: 'wallet',
+			name: 'Digital Wallet',
+			description: 'Apple Pay, Google Pay',
+			icon: Smartphone,
+			instant: true,
+		},
+		{
+			id: 'paypal',
+			name: 'PayPal',
+			description: 'Pay with your PayPal account',
+			icon: Wallet,
+			instant: true,
+		},
 	];
 
 	return (
@@ -208,10 +255,10 @@ export default function Main() {
 						<ProductHeader {...product} />
 					</CardHeader>
 					<CardContent className="space-y-6">
-						<PaymentOptions 
-							options={paymentOptions} 
-							selected="card" 
-							onSelect={() => {}} 
+						<PaymentOptions
+							options={paymentOptions}
+							selected="card"
+							onSelect={() => {}}
 						/>
 						<CardInputForm />
 						<Separator />

@@ -1,10 +1,26 @@
 'use client';
 
-import { ArrowLeft, ArrowRight, Check, Circle, CreditCard, Lock, MapPin, Shield, Truck, User } from 'lucide-react';
+import {
+	ArrowLeft,
+	ArrowRight,
+	Check,
+	Circle,
+	CreditCard,
+	Lock,
+	MapPin,
+	Shield,
+	Truck,
+	User,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -17,7 +33,13 @@ interface TimelineStep {
 	status: 'completed' | 'current' | 'upcoming';
 }
 
-const VerticalTimeline = ({ steps, currentStep }: { steps: TimelineStep[]; currentStep: number }) => (
+const VerticalTimeline = ({
+	steps,
+	currentStep,
+}: {
+	steps: TimelineStep[];
+	currentStep: number;
+}) => (
 	<div className="relative">
 		{steps.map((step, index) => (
 			<div key={index} className="flex gap-4 pb-6 last:pb-0">
@@ -31,15 +53,29 @@ const VerticalTimeline = ({ steps, currentStep }: { steps: TimelineStep[]; curre
 									: 'bg-muted text-muted-foreground border-2 border-dashed'
 						}`}
 					>
-						{step.status === 'completed' ? <Check className="size-4" /> : step.number}
+						{step.status === 'completed' ? (
+							<Check className="size-4" />
+						) : (
+							step.number
+						)}
 					</div>
 					{index < steps.length - 1 && (
-						<div className={`absolute top-8 w-0.5 h-full ${step.status === 'completed' ? 'bg-primary' : 'bg-muted'}`} />
+						<div
+							className={`absolute top-8 w-0.5 h-full ${step.status === 'completed' ? 'bg-primary' : 'bg-muted'}`}
+						/>
 					)}
 				</div>
 				<div className="flex-1 pt-1">
-					<span className={`font-medium ${step.status === 'current' ? 'text-primary' : ''}`}>{step.title}</span>
-					{step.summary && <p className="text-xs text-muted-foreground mt-0.5">{step.summary}</p>}
+					<span
+						className={`font-medium ${step.status === 'current' ? 'text-primary' : ''}`}
+					>
+						{step.title}
+					</span>
+					{step.summary && (
+						<p className="text-xs text-muted-foreground mt-0.5">
+							{step.summary}
+						</p>
+					)}
 				</div>
 			</div>
 		))}
@@ -60,7 +96,11 @@ const CustomerInfoForm = () => (
 		</div>
 		<div className="space-y-2">
 			<Label className="text-sm">Email</Label>
-			<Input type="email" placeholder="john@example.com" defaultValue="john@example.com" />
+			<Input
+				type="email"
+				placeholder="john@example.com"
+				defaultValue="john@example.com"
+			/>
 		</div>
 		<div className="space-y-2">
 			<Label className="text-sm">Phone</Label>
@@ -96,7 +136,13 @@ const DeliveryOptions = () => (
 	<div className="space-y-3">
 		{[
 			{ id: 'express', name: 'Express', time: '1-2 days', price: '$14.99' },
-			{ id: 'standard', name: 'Standard', time: '3-5 days', price: '$7.99', selected: true },
+			{
+				id: 'standard',
+				name: 'Standard',
+				time: '3-5 days',
+				price: '$7.99',
+				selected: true,
+			},
 			{ id: 'economy', name: 'Economy', time: '7-10 days', price: 'Free' },
 		].map((option) => (
 			<Label
@@ -106,16 +152,32 @@ const DeliveryOptions = () => (
 					option.selected ? 'border-primary bg-primary/5' : ''
 				}`}
 			>
-				<input type="radio" name="delivery" id={option.id} className="sr-only" defaultChecked={option.selected} />
-				<div className={`size-4 rounded-full border-2 flex items-center justify-center ${option.selected ? 'border-primary' : 'border-muted-foreground'}`}>
-					{option.selected && <div className="size-2 rounded-full bg-primary" />}
+				<input
+					type="radio"
+					name="delivery"
+					id={option.id}
+					className="sr-only"
+					defaultChecked={option.selected}
+				/>
+				<div
+					className={`size-4 rounded-full border-2 flex items-center justify-center ${option.selected ? 'border-primary' : 'border-muted-foreground'}`}
+				>
+					{option.selected && (
+						<div className="size-2 rounded-full bg-primary" />
+					)}
 				</div>
 				<Truck className="size-4 text-muted-foreground" />
 				<div className="flex-1">
 					<span className="font-medium text-sm">{option.name}</span>
-					<span className="text-xs text-muted-foreground ml-2">{option.time}</span>
+					<span className="text-xs text-muted-foreground ml-2">
+						{option.time}
+					</span>
 				</div>
-				<span className={`text-sm font-medium ${option.price === 'Free' ? 'text-primary' : ''}`}>{option.price}</span>
+				<span
+					className={`text-sm font-medium ${option.price === 'Free' ? 'text-primary' : ''}`}
+				>
+					{option.price}
+				</span>
 			</Label>
 		))}
 	</div>
@@ -143,13 +205,21 @@ const PaymentForm = () => (
 	</div>
 );
 
-const OrderTotal = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean }[] }) => (
+const OrderTotal = ({
+	lines,
+}: {
+	lines: { label: string; value: string; isTotal?: boolean }[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold' : 'text-sm'}`}>
-					<span className={line.isTotal ? '' : 'text-muted-foreground'}>{line.label}</span>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold' : 'text-sm'}`}
+				>
+					<span className={line.isTotal ? '' : 'text-muted-foreground'}>
+						{line.label}
+					</span>
 					<span>{line.value}</span>
 				</div>
 			</div>
@@ -157,7 +227,15 @@ const OrderTotal = ({ lines }: { lines: { label: string; value: string; isTotal?
 	</div>
 );
 
-const WizardNavigation = ({ step, onPrev, onNext }: { step: number; onPrev: () => void; onNext: () => void }) => (
+const WizardNavigation = ({
+	step,
+	onPrev,
+	onNext,
+}: {
+	step: number;
+	onPrev: () => void;
+	onNext: () => void;
+}) => (
 	<div className="flex gap-3">
 		{step > 1 && (
 			<Button variant="outline" onClick={onPrev} className="gap-2">
@@ -184,7 +262,12 @@ export default function Main() {
 	const currentStep = 2;
 
 	const steps: TimelineStep[] = [
-		{ number: 1, title: 'Contact Information', summary: 'john@example.com', status: 'completed' },
+		{
+			number: 1,
+			title: 'Contact Information',
+			summary: 'john@example.com',
+			status: 'completed',
+		},
 		{ number: 2, title: 'Shipping Address', status: 'current' },
 		{ number: 3, title: 'Delivery Method', status: 'upcoming' },
 		{ number: 4, title: 'Payment', status: 'upcoming' },
@@ -221,7 +304,9 @@ export default function Main() {
 										<MapPin className="size-5" />
 										Shipping Address
 									</h3>
-									<p className="text-sm text-muted-foreground">Where should we deliver?</p>
+									<p className="text-sm text-muted-foreground">
+										Where should we deliver?
+									</p>
 								</div>
 								<Separator />
 								<ShippingForm />
@@ -230,7 +315,11 @@ export default function Main() {
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
 						<OrderTotal lines={orderLines} />
-						<WizardNavigation step={currentStep} onPrev={() => {}} onNext={() => {}} />
+						<WizardNavigation
+							step={currentStep}
+							onPrev={() => {}}
+							onNext={() => {}}
+						/>
 					</CardFooter>
 				</Card>
 			</div>

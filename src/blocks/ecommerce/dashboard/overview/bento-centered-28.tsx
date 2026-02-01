@@ -51,7 +51,10 @@ const CenterKpiCard = ({ title, value, change, icon: Icon }: CenterKpi) => (
 			</div>
 			<p className="mt-4 text-3xl font-bold">{value}</p>
 			<p className="text-sm text-muted-foreground">{title}</p>
-			<Badge variant="secondary" className="mt-2 bg-emerald-500/10 text-emerald-500">
+			<Badge
+				variant="secondary"
+				className="mt-2 bg-emerald-500/10 text-emerald-500"
+			>
 				<ArrowUpRight className="mr-1 size-3" />
 				{change}
 			</Badge>
@@ -84,7 +87,12 @@ const pieConfig: ChartConfig = {
 
 export default function Main() {
 	const centerKpis: CenterKpi[] = [
-		{ title: 'Today Revenue', value: '$12,847', change: '+28%', icon: DollarSign },
+		{
+			title: 'Today Revenue',
+			value: '$12,847',
+			change: '+28%',
+			icon: DollarSign,
+		},
 		{ title: 'Today Orders', value: '342', change: '+18%', icon: ShoppingCart },
 		{ title: 'Today Visitors', value: '8,234', change: '+24%', icon: Eye },
 		{ title: 'Conversion', value: '4.15%', change: '+0.8%', icon: Target },
@@ -130,9 +138,18 @@ export default function Main() {
 						<CardContent>
 							<ChartContainer config={barConfig} className="h-[160px] w-full">
 								<BarChart data={hourlyData}>
-									<XAxis dataKey="hour" tickLine={false} axisLine={false} fontSize={11} />
+									<XAxis
+										dataKey="hour"
+										tickLine={false}
+										axisLine={false}
+										fontSize={11}
+									/>
 									<ChartTooltip content={<ChartTooltipContent hideLabel />} />
-									<Bar dataKey="sales" fill="var(--color-sales)" radius={[4, 4, 0, 0]} />
+									<Bar
+										dataKey="sales"
+										fill="var(--color-sales)"
+										radius={[4, 4, 0, 0]}
+									/>
 								</BarChart>
 							</ChartContainer>
 						</CardContent>

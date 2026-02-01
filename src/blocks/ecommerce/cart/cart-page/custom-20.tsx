@@ -1,9 +1,24 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
-import { Minus, Plus, X, Ruler, Palette, Type, ArrowRight, Wand2 } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	Ruler,
+	Palette,
+	Type,
+	ArrowRight,
+	Wand2,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -22,7 +37,13 @@ interface CartItem {
 	customizations: Customization[];
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="flex items-center gap-4">
 		<div className="rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 p-3">
 			<Wand2 className="size-6 text-primary" />
@@ -89,8 +110,19 @@ const EditCustomization = ({ label }: { label: string }) => (
 	</Button>
 );
 
-const ItemPricing = ({ basePrice, customizations, quantity }: { basePrice: number; customizations: Customization[]; quantity: number }) => {
-	const customizationTotal = customizations.reduce((sum, c) => sum + (c.price || 0), 0);
+const ItemPricing = ({
+	basePrice,
+	customizations,
+	quantity,
+}: {
+	basePrice: number;
+	customizations: Customization[];
+	quantity: number;
+}) => {
+	const customizationTotal = customizations.reduce(
+		(sum, c) => sum + (c.price || 0),
+		0,
+	);
 	const unitPrice = basePrice + customizationTotal;
 	const total = unitPrice * quantity;
 
@@ -105,13 +137,19 @@ const ItemPricing = ({ basePrice, customizations, quantity }: { basePrice: numbe
 };
 
 const RemoveItem = () => (
-	<Button size="icon-sm" variant="ghost" className="absolute top-2 right-2 text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="absolute top-2 right-2 text-muted-foreground hover:text-destructive"
+	>
 		<X className="size-4" />
 	</Button>
 );
 
 const CartItemCard = ({ item }: { item: CartItem }) => {
-	const engravingCustomization = item.customizations.find((c) => c.type === 'Text');
+	const engravingCustomization = item.customizations.find(
+		(c) => c.type === 'Text',
+	);
 
 	return (
 		<Card className="relative overflow-hidden">
@@ -173,9 +211,21 @@ const PriceLine = ({
 	value: string;
 	variant?: 'default' | 'secondary' | 'total';
 }) => (
-	<div className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}>
-		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={variant === 'total' ? 'text-primary' : variant === 'secondary' ? 'text-sm' : ''}>
+	<div
+		className={`flex justify-between ${variant === 'total' ? 'text-xl font-bold' : ''}`}
+	>
+		<span className={variant === 'total' ? '' : 'text-muted-foreground'}>
+			{label}
+		</span>
+		<span
+			className={
+				variant === 'total'
+					? 'text-primary'
+					: variant === 'secondary'
+						? 'text-sm'
+						: ''
+			}
+		>
 			{value}
 		</span>
 	</div>
@@ -189,7 +239,11 @@ const OrderSummary = ({
 	note,
 }: {
 	title: string;
-	lines: { label: string; value: string; variant?: 'default' | 'secondary' | 'total' }[];
+	lines: {
+		label: string;
+		value: string;
+		variant?: 'default' | 'secondary' | 'total';
+	}[];
 	checkoutLabel: string;
 	checkoutHref: string;
 	note: string;
@@ -222,7 +276,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=300&h=300&fit=crop',
 			name: 'Custom Engraved Watch',
 			basePrice: 299.99,
 			quantity: 1,
@@ -234,7 +289,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=300&h=300&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=300&h=300&fit=crop',
 			name: 'Personalized Leather Wallet',
 			basePrice: 89.99,
 			quantity: 1,
@@ -246,17 +302,28 @@ export default function Main() {
 	];
 
 	const subtotal = items.reduce((sum, item) => {
-		const customTotal = item.customizations.reduce((s, c) => s + (c.price || 0), 0);
+		const customTotal = item.customizations.reduce(
+			(s, c) => s + (c.price || 0),
+			0,
+		);
 		return sum + (item.basePrice + customTotal) * item.quantity;
 	}, 0);
 
 	const summaryLines = [
 		{ label: 'Base Products', value: '$389.98' },
-		{ label: 'Customizations', value: '+$50.00', variant: 'secondary' as const },
+		{
+			label: 'Customizations',
+			value: '+$50.00',
+			variant: 'secondary' as const,
+		},
 		{ label: 'Subtotal', value: `$${subtotal.toFixed(2)}` },
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax', value: `$${(subtotal * 0.08).toFixed(2)}` },
-		{ label: 'Total', value: `$${(subtotal * 1.08).toFixed(2)}`, variant: 'total' as const },
+		{
+			label: 'Total',
+			value: `$${(subtotal * 1.08).toFixed(2)}`,
+			variant: 'total' as const,
+		},
 	];
 
 	return (

@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Clock, ArrowLeft, Heart, Bookmark, Send, MoreHorizontal } from 'lucide-react';
+import {
+	Clock,
+	ArrowLeft,
+	Heart,
+	Bookmark,
+	Send,
+	MoreHorizontal,
+} from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -81,7 +88,11 @@ const AuthorSection = ({
 		<div className="text-left">
 			<div className="flex items-center gap-2">
 				<span className="font-semibold">{author.name}</span>
-				<Button variant="link" size="sm" className="h-auto p-0 text-primary text-xs">
+				<Button
+					variant="link"
+					size="sm"
+					className="h-auto p-0 text-primary text-xs"
+				>
 					Follow
 				</Button>
 			</div>
@@ -123,7 +134,11 @@ const ArticleBody = ({ paragraphs }: { paragraphs: string[] }) => (
 const FloatingActions = ({ likes }: { likes: number }) => (
 	<div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
 		<div className="flex items-center gap-1 bg-card/95 backdrop-blur-md border border-border rounded-full px-2 py-1.5 shadow-2xl">
-			<Button variant="ghost" size="sm" className="gap-1.5 rounded-full hover:bg-destructive/10 hover:text-destructive">
+			<Button
+				variant="ghost"
+				size="sm"
+				className="gap-1.5 rounded-full hover:bg-destructive/10 hover:text-destructive"
+			>
 				<Heart className="size-4" />
 				<span className="text-xs">{likes}</span>
 			</Button>
@@ -146,7 +161,8 @@ export default function Main() {
 			'Reclaiming focus, presence, and meaning in an age of infinite distraction.',
 		author: {
 			name: 'Marcus Chen',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'MC',
 			followers: '45.2k',
 		},
@@ -157,9 +173,9 @@ export default function Main() {
 		heroAlt: 'Peaceful mountain landscape at sunrise',
 		content: [
 			'We live in an age of unprecedented abundance—of information, entertainment, and connection. Yet paradoxically, many of us feel more distracted, anxious, and disconnected than ever before. The constant ping of notifications, the endless scroll of feeds, and the pressure to be always available have left us perpetually fragmented.',
-			'Intentional living offers an alternative. It\'s not about rejecting technology or retreating from modern life. Rather, it\'s about consciously choosing how we spend our attention—our most precious and finite resource. It\'s about designing our environment, habits, and relationships to align with what truly matters.',
+			"Intentional living offers an alternative. It's not about rejecting technology or retreating from modern life. Rather, it's about consciously choosing how we spend our attention—our most precious and finite resource. It's about designing our environment, habits, and relationships to align with what truly matters.",
 			'The journey begins with awareness. Notice how you spend your time. Observe which activities energize you and which leave you depleted. Pay attention to the moments when you reach for your phone out of habit rather than necessity. This awareness, uncomfortable as it may be, is the foundation of change.',
-			'From awareness comes action: curating your digital environment, establishing boundaries, creating rituals that anchor your day. The goal isn\'t perfection—it\'s progress. Small, consistent steps toward a life that reflects your values rather than defaulting to the paths of least resistance.',
+			"From awareness comes action: curating your digital environment, establishing boundaries, creating rituals that anchor your day. The goal isn't perfection—it's progress. Small, consistent steps toward a life that reflects your values rather than defaulting to the paths of least resistance.",
 		],
 		likes: 1847,
 		backHref: '/blog',
@@ -172,7 +188,10 @@ export default function Main() {
 
 				<div className="flex flex-col gap-6 @md:gap-8 py-8 @md:py-12">
 					<div className="flex flex-col items-center gap-6">
-						<CategoryPill text={articleData.category} href={articleData.categoryHref} />
+						<CategoryPill
+							text={articleData.category}
+							href={articleData.categoryHref}
+						/>
 						<Title text={articleData.title} />
 						<Subtitle text={articleData.subtitle} />
 						<AuthorSection

@@ -45,10 +45,7 @@ export default function Main() {
 			<div className="mx-auto max-w-xs px-4 space-y-8 text-center">
 				<CelebrationIcon />
 
-				<SuccessMessage
-					title="Woohoo!"
-					subtitle="Your order is on its way"
-				/>
+				<SuccessMessage title="Woohoo!" subtitle="Your order is on its way" />
 
 				<CTA label="Track Your Order" href="/track" />
 			</div>

@@ -86,17 +86,23 @@ const SecurityContent = () => (
 					<p className="text-sm text-muted-foreground">Add extra security</p>
 				</div>
 			</div>
-			<Button variant="outline" size="sm">Enable</Button>
+			<Button variant="outline" size="sm">
+				Enable
+			</Button>
 		</div>
 		<div className="flex items-center justify-between rounded-lg border p-4">
 			<div className="flex items-center gap-3">
 				<Key className="size-5 text-muted-foreground" />
 				<div>
 					<p className="font-medium">Change Password</p>
-					<p className="text-sm text-muted-foreground">Last changed 30 days ago</p>
+					<p className="text-sm text-muted-foreground">
+						Last changed 30 days ago
+					</p>
 				</div>
 			</div>
-			<Button variant="outline" size="sm">Update</Button>
+			<Button variant="outline" size="sm">
+				Update
+			</Button>
 		</div>
 	</div>
 );

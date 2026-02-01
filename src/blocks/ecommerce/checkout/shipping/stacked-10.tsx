@@ -1,7 +1,22 @@
-import { Truck, Check, MapPin, Clock, Package, ChevronRight, Shield, Leaf } from 'lucide-react';
+import {
+	Truck,
+	Check,
+	MapPin,
+	Clock,
+	Package,
+	ChevronRight,
+	Shield,
+	Leaf,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
@@ -66,8 +81,14 @@ const ShippingTier = ({
 				${popular ? 'ring-2 ring-primary/30' : ''}
 			`}
 		>
-			{popular && <Badge className="absolute -top-2.5 left-4">Most Popular</Badge>}
-			{eco && <Badge variant="secondary" className="absolute -top-2.5 left-4 gap-1"><Leaf className="size-3" /> Eco</Badge>}
+			{popular && (
+				<Badge className="absolute -top-2.5 left-4">Most Popular</Badge>
+			)}
+			{eco && (
+				<Badge variant="secondary" className="absolute -top-2.5 left-4 gap-1">
+					<Leaf className="size-3" /> Eco
+				</Badge>
+			)}
 			<CardContent className="p-5">
 				<div className="flex items-start gap-4">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
@@ -139,7 +160,11 @@ export default function Main() {
 			time: '6-8 business days',
 			price: '$5.99',
 			eco: true,
-			features: ['Carbon neutral', 'Recyclable packaging', 'Consolidated shipping'],
+			features: [
+				'Carbon neutral',
+				'Recyclable packaging',
+				'Consolidated shipping',
+			],
 		},
 		{
 			value: 'standard',
@@ -147,20 +172,42 @@ export default function Main() {
 			time: '5-7 business days',
 			price: '$7.99',
 			popular: true,
-			features: ['Full tracking', 'Secure packaging', 'Email updates', 'Insurance up to $100'],
+			features: [
+				'Full tracking',
+				'Secure packaging',
+				'Email updates',
+				'Insurance up to $100',
+			],
 		},
 		{
 			value: 'express',
 			name: 'Express',
 			time: '2-3 business days',
 			price: '$14.99',
-			features: ['Priority handling', 'Real-time tracking', 'Full insurance', 'SMS notifications'],
+			features: [
+				'Priority handling',
+				'Real-time tracking',
+				'Full insurance',
+				'SMS notifications',
+			],
 		},
 	];
 
 	const addons = [
-		{ id: 'insurance', icon: Shield, title: 'Extended Insurance', description: 'Full coverage up to $500', price: '+$4.99' },
-		{ id: 'carbon', icon: Leaf, title: 'Carbon Offset', description: 'Offset your delivery emissions', price: '+$0.99' },
+		{
+			id: 'insurance',
+			icon: Shield,
+			title: 'Extended Insurance',
+			description: 'Full coverage up to $500',
+			price: '+$4.99',
+		},
+		{
+			id: 'carbon',
+			icon: Leaf,
+			title: 'Carbon Offset',
+			description: 'Offset your delivery emissions',
+			price: '+$0.99',
+		},
 	];
 
 	return (
@@ -174,7 +221,9 @@ export default function Main() {
 
 				<div className="mt-8 mb-6">
 					<h2 className="text-xl font-bold mb-2">Choose Shipping Speed</h2>
-					<p className="text-muted-foreground">Select your preferred delivery option</p>
+					<p className="text-muted-foreground">
+						Select your preferred delivery option
+					</p>
 				</div>
 
 				<RadioGroup defaultValue="standard" className="space-y-4 mb-8">

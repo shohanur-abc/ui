@@ -38,7 +38,8 @@ export default function Main() {
 	const content: ContentProps = {
 		badge: 'Why Choose Us',
 		title: 'Built for scale, designed for success',
-		description: 'Our platform handles millions of transactions daily while maintaining the highest standards of reliability and customer satisfaction.',
+		description:
+			'Our platform handles millions of transactions daily while maintaining the highest standards of reliability and customer satisfaction.',
 	};
 
 	const stats: StatItemProps[] = [

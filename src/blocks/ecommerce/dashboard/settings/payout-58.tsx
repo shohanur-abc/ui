@@ -109,12 +109,7 @@ const PayoutAccountCard = ({
 	);
 };
 
-const PayoutHistoryRow = ({
-	date,
-	amount,
-	status,
-	method,
-}: PayoutHistory) => {
+const PayoutHistoryRow = ({ date, amount, status, method }: PayoutHistory) => {
 	const statusStyles = {
 		completed: 'bg-emerald-500/10 text-emerald-500',
 		pending: 'bg-amber-500/10 text-amber-500',
@@ -157,9 +152,27 @@ export default function Main() {
 	];
 
 	const payoutHistory: PayoutHistory[] = [
-		{ id: '1', date: 'Jan 20, 2026', amount: '$2,450.00', status: 'completed', method: 'Bank Transfer' },
-		{ id: '2', date: 'Jan 18, 2026', amount: '$1,890.50', status: 'processing', method: 'Bank Transfer' },
-		{ id: '3', date: 'Jan 15, 2026', amount: '$3,210.00', status: 'completed', method: 'PayPal' },
+		{
+			id: '1',
+			date: 'Jan 20, 2026',
+			amount: '$2,450.00',
+			status: 'completed',
+			method: 'Bank Transfer',
+		},
+		{
+			id: '2',
+			date: 'Jan 18, 2026',
+			amount: '$1,890.50',
+			status: 'processing',
+			method: 'Bank Transfer',
+		},
+		{
+			id: '3',
+			date: 'Jan 15, 2026',
+			amount: '$3,210.00',
+			status: 'completed',
+			method: 'PayPal',
+		},
 	];
 
 	return (
@@ -264,8 +277,12 @@ export default function Main() {
 					<div className="space-y-6">
 						<Card className="border-primary/20 bg-primary/5">
 							<CardContent className="pt-6 text-center">
-								<p className="text-sm text-muted-foreground">Available Balance</p>
-								<p className="text-3xl font-bold text-primary mt-1">$4,892.50</p>
+								<p className="text-sm text-muted-foreground">
+									Available Balance
+								</p>
+								<p className="text-3xl font-bold text-primary mt-1">
+									$4,892.50
+								</p>
 								<Button className="mt-4 w-full">Request Payout</Button>
 							</CardContent>
 						</Card>

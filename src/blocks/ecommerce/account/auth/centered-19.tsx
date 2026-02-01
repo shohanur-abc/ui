@@ -1,12 +1,26 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Truck, Clock, Shield, Zap } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Truck,
+	Clock,
+	Shield,
+	Zap,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-6">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -17,7 +31,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-6">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -29,7 +45,10 @@ const DeliveryBenefits = ({
 }) => (
 	<div className="grid gap-3 mb-8">
 		{items.map((item, i) => (
-			<div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/30 border border-border/50">
+			<div
+				key={i}
+				className="flex items-start gap-3 p-3 rounded-lg bg-muted/30 border border-border/50"
+			>
 				<div className="flex size-9 items-center justify-center rounded-lg bg-primary/10 shrink-0">
 					<item.icon className="size-4 text-primary" />
 				</div>
@@ -124,7 +143,11 @@ const FooterLink = ({
 export default function Main() {
 	const benefits = [
 		{ icon: Truck, title: 'Free 2-Day Shipping', desc: 'On orders over $50' },
-		{ icon: Clock, title: 'Same Day Delivery', desc: 'Available in select areas' },
+		{
+			icon: Clock,
+			title: 'Same Day Delivery',
+			desc: 'Available in select areas',
+		},
 		{ icon: Shield, title: 'Secure Checkout', desc: '256-bit SSL encryption' },
 	];
 
@@ -133,12 +156,25 @@ export default function Main() {
 			<div className="min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo name="FastShip" icon={Zap} />
-					<Title text="Sign in for faster delivery" subtitle="Unlock exclusive shipping benefits" />
+					<Title
+						text="Sign in for faster delivery"
+						subtitle="Unlock exclusive shipping benefits"
+					/>
 					<DeliveryBenefits items={benefits} />
 
 					<form className="space-y-5">
-						<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-						<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+						<FormField
+							label="Email"
+							type="email"
+							placeholder="you@example.com"
+							icon={Mail}
+						/>
+						<FormField
+							label="Password"
+							type="password"
+							placeholder="••••••••"
+							icon={Lock}
+						/>
 						<RememberForgot
 							rememberLabel="Keep me signed in"
 							forgotLabel="Forgot password?"
@@ -148,7 +184,11 @@ export default function Main() {
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="New to FastShip?" linkText="Create account" href="/signup" />
+						<FooterLink
+							text="New to FastShip?"
+							linkText="Create account"
+							href="/signup"
+						/>
 					</div>
 				</div>
 			</div>

@@ -22,7 +22,12 @@ const DiscountCard = ({
 	code,
 	percentage,
 	savings,
-}: { icon: LucideIcon; code: string; percentage: string; savings: string }) => (
+}: {
+	icon: LucideIcon;
+	code: string;
+	percentage: string;
+	savings: string;
+}) => (
 	<Card className="mb-4 border-green-500/30 bg-green-500/5">
 		<CardContent className="flex items-center justify-between py-4">
 			<div className="flex items-center gap-3">

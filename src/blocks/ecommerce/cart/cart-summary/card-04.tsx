@@ -60,7 +60,9 @@ const CountdownCard = ({
 const SummaryRow = ({ label, value, strike }: SummaryRowProps) => (
 	<div className="flex items-center justify-between text-sm">
 		<span className="text-muted-foreground">{label}</span>
-		<span className={strike ? 'text-muted-foreground line-through' : 'font-medium'}>
+		<span
+			className={strike ? 'text-muted-foreground line-through' : 'font-medium'}
+		>
 			{value}
 		</span>
 	</div>

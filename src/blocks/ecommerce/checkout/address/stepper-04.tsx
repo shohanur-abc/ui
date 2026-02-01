@@ -106,7 +106,10 @@ const InformationStep = () => (
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 		<div className="flex items-center gap-2">
 			<Checkbox id="newsletter" />
-			<Label htmlFor="newsletter" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="newsletter"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Subscribe to newsletter for exclusive offers
 			</Label>
 		</div>
@@ -127,7 +130,11 @@ const AddressStepForm = ({
 				Enter your delivery address
 			</p>
 		</div>
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt, Suite, etc." placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -138,7 +145,10 @@ const AddressStepForm = ({
 		<Separator />
 		<div className="flex items-center gap-2">
 			<Checkbox id="billing-same" defaultChecked />
-			<Label htmlFor="billing-same" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="billing-same"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Use same address for billing
 			</Label>
 		</div>
@@ -174,7 +184,9 @@ export default function Main() {
 				<Card>
 					<CardContent className="pt-6">
 						{step === 1 && <InformationStep />}
-						{step === 2 && <AddressStepForm countries={countries} states={states} />}
+						{step === 2 && (
+							<AddressStepForm countries={countries} states={states} />
+						)}
 					</CardContent>
 				</Card>
 

@@ -165,10 +165,34 @@ export default function Main() {
 	];
 
 	const securityEvents: SecurityEvent[] = [
-		{ id: '1', type: 'Login Attempt', location: 'Unknown Location', timestamp: '10 mins ago', blocked: true },
-		{ id: '2', type: 'API Request', location: 'Russia', timestamp: '1 hour ago', blocked: true },
-		{ id: '3', type: 'Password Reset', location: 'China', timestamp: '3 hours ago', blocked: true },
-		{ id: '4', type: 'Login', location: 'San Francisco, CA', timestamp: '5 hours ago', blocked: false },
+		{
+			id: '1',
+			type: 'Login Attempt',
+			location: 'Unknown Location',
+			timestamp: '10 mins ago',
+			blocked: true,
+		},
+		{
+			id: '2',
+			type: 'API Request',
+			location: 'Russia',
+			timestamp: '1 hour ago',
+			blocked: true,
+		},
+		{
+			id: '3',
+			type: 'Password Reset',
+			location: 'China',
+			timestamp: '3 hours ago',
+			blocked: true,
+		},
+		{
+			id: '4',
+			type: 'Login',
+			location: 'San Francisco, CA',
+			timestamp: '5 hours ago',
+			blocked: false,
+		},
 	];
 
 	return (

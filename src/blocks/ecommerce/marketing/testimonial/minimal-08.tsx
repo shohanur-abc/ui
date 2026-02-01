@@ -37,21 +37,24 @@ export default function Main() {
 		{
 			quote: 'Simple and elegant. Love the attention to detail.',
 			author: 'Leo Chen',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'LC',
 			rating: 5,
 		},
 		{
 			quote: 'Exactly what we needed. No bloat, just functionality.',
 			author: 'Maria Park',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'MP',
 			rating: 5,
 		},
 		{
 			quote: 'Clean code, clean design, clean experience.',
 			author: 'Nathan Lee',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'NL',
 			rating: 5,
 		},

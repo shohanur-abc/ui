@@ -14,7 +14,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import {
 	DropdownMenu,
@@ -110,12 +115,20 @@ const SearchAndFilter = ({
 
 const StatusBadge = ({ status }: { status: CustomerCard['status'] }) => {
 	const config = {
-		active: { label: 'Active', className: 'bg-emerald-500/10 text-emerald-500' },
-		inactive: { label: 'Inactive', className: 'bg-slate-500/10 text-slate-400' },
+		active: {
+			label: 'Active',
+			className: 'bg-emerald-500/10 text-emerald-500',
+		},
+		inactive: {
+			label: 'Inactive',
+			className: 'bg-slate-500/10 text-slate-400',
+		},
 		pending: { label: 'Pending', className: 'bg-amber-500/10 text-amber-500' },
 	};
 	return (
-		<div className={`rounded-full px-2 py-0.5 text-xs font-medium ${config[status].className}`}>
+		<div
+			className={`rounded-full px-2 py-0.5 text-xs font-medium ${config[status].className}`}
+		>
 			{config[status].label}
 		</div>
 	);
@@ -123,8 +136,14 @@ const StatusBadge = ({ status }: { status: CustomerCard['status'] }) => {
 
 const TierBadge = ({ tier }: { tier: CustomerCard['tier'] }) => {
 	const config = {
-		standard: { label: 'Standard', className: 'border-slate-500/20 text-slate-400' },
-		premium: { label: 'Premium', className: 'border-amber-500/20 text-amber-500' },
+		standard: {
+			label: 'Standard',
+			className: 'border-slate-500/20 text-slate-400',
+		},
+		premium: {
+			label: 'Premium',
+			className: 'border-amber-500/20 text-amber-500',
+		},
 		vip: { label: 'VIP', className: 'border-violet-500/20 text-violet-500' },
 	};
 	return (
@@ -156,7 +175,11 @@ const CustomerCardItem = ({ customer }: { customer: CustomerCard }) => (
 				</div>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100">
+						<Button
+							variant="ghost"
+							size="icon-sm"
+							className="opacity-0 group-hover:opacity-100"
+						>
 							<MoreHorizontal className="size-4" />
 						</Button>
 					</DropdownMenuTrigger>
@@ -165,7 +188,9 @@ const CustomerCardItem = ({ customer }: { customer: CustomerCard }) => (
 						<DropdownMenuItem>Edit customer</DropdownMenuItem>
 						<DropdownMenuSeparator />
 						<DropdownMenuItem>Send email</DropdownMenuItem>
-						<DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
+						<DropdownMenuItem className="text-destructive">
+							Delete
+						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
 			</div>

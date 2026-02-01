@@ -20,7 +20,11 @@ const GiftHeader = ({
 	icon: Icon,
 	title,
 	subtitle,
-}: { icon: LucideIcon; title: string; subtitle: string }) => (
+}: {
+	icon: LucideIcon;
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="mb-4 flex items-center gap-3 rounded-lg bg-gradient-to-r from-pink-500/10 to-purple-500/10 p-3">
 		<div className="flex size-10 items-center justify-center rounded-lg bg-pink-500/20">
 			<Icon className="size-5 text-pink-500" />

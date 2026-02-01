@@ -22,7 +22,13 @@ type DeviceStatProps = {
 	change: number;
 };
 
-const DeviceCard = ({ icon: Icon, device, sessions, percentage, change }: DeviceStatProps) => (
+const DeviceCard = ({
+	icon: Icon,
+	device,
+	sessions,
+	percentage,
+	change,
+}: DeviceStatProps) => (
 	<Card className="group border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<CardContent className="p-5">
 			<div className="flex items-center gap-4">
@@ -35,8 +41,14 @@ const DeviceCard = ({ icon: Icon, device, sessions, percentage, change }: Device
 				</div>
 				<div className="text-right">
 					<p className="text-lg font-semibold">{percentage}%</p>
-					<span className={`flex items-center justify-end gap-0.5 text-xs font-medium ${change >= 0 ? 'text-emerald-500' : 'text-rose-500'}`}>
-						{change >= 0 ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
+					<span
+						className={`flex items-center justify-end gap-0.5 text-xs font-medium ${change >= 0 ? 'text-emerald-500' : 'text-rose-500'}`}
+					>
+						{change >= 0 ? (
+							<ArrowUpRight className="size-3" />
+						) : (
+							<ArrowDownRight className="size-3" />
+						)}
 						{Math.abs(change)}%
 					</span>
 				</div>
@@ -69,7 +81,9 @@ const GeoCard = ({ countries }: { countries: CountryRowProps[] }) => (
 						<span className="text-lg">{country.flag}</span>
 						<span className="flex-1 text-sm">{country.country}</span>
 						<span className="text-sm font-semibold">{country.visitors}</span>
-						<span className="text-xs text-muted-foreground w-10 text-right">{country.percentage}%</span>
+						<span className="text-xs text-muted-foreground w-10 text-right">
+							{country.percentage}%
+						</span>
 					</div>
 					<Progress value={country.percentage} className="h-1" />
 				</div>
@@ -102,8 +116,12 @@ const BrowserCard = ({ browsers }: { browsers: BrowserRowProps[] }) => (
 					<div key={i} className="grid grid-cols-4 gap-4 text-sm">
 						<span className="font-medium">{browser.name}</span>
 						<span className="text-right">{browser.sessions}</span>
-						<span className="text-right text-muted-foreground">{browser.bounceRate}</span>
-						<span className="text-right text-muted-foreground">{browser.avgDuration}</span>
+						<span className="text-right text-muted-foreground">
+							{browser.bounceRate}
+						</span>
+						<span className="text-right text-muted-foreground">
+							{browser.avgDuration}
+						</span>
 					</div>
 				))}
 			</div>
@@ -135,8 +153,12 @@ const PagesCard = ({ pages }: { pages: PageViewProps[] }) => (
 					<div key={i} className="grid grid-cols-4 gap-4 text-sm">
 						<span className="font-medium truncate">{page.page}</span>
 						<span className="text-right">{page.views}</span>
-						<span className="text-right text-muted-foreground">{page.unique}</span>
-						<span className="text-right text-muted-foreground">{page.time}</span>
+						<span className="text-right text-muted-foreground">
+							{page.unique}
+						</span>
+						<span className="text-right text-muted-foreground">
+							{page.time}
+						</span>
 					</div>
 				))}
 			</div>
@@ -145,9 +167,27 @@ const PagesCard = ({ pages }: { pages: PageViewProps[] }) => (
 );
 
 const devices: DeviceStatProps[] = [
-	{ icon: Monitor, device: 'Desktop', sessions: '12,456', percentage: 58, change: 5.2 },
-	{ icon: Smartphone, device: 'Mobile', sessions: '7,234', percentage: 34, change: 12.8 },
-	{ icon: Tablet, device: 'Tablet', sessions: '1,890', percentage: 8, change: -2.3 },
+	{
+		icon: Monitor,
+		device: 'Desktop',
+		sessions: '12,456',
+		percentage: 58,
+		change: 5.2,
+	},
+	{
+		icon: Smartphone,
+		device: 'Mobile',
+		sessions: '7,234',
+		percentage: 34,
+		change: 12.8,
+	},
+	{
+		icon: Tablet,
+		device: 'Tablet',
+		sessions: '1,890',
+		percentage: 8,
+		change: -2.3,
+	},
 ];
 
 const countries: CountryRowProps[] = [
@@ -161,7 +201,12 @@ const countries: CountryRowProps[] = [
 const browsers: BrowserRowProps[] = [
 	{ name: 'Chrome', sessions: '9,234', bounceRate: '32%', avgDuration: '4:23' },
 	{ name: 'Safari', sessions: '4,567', bounceRate: '28%', avgDuration: '5:12' },
-	{ name: 'Firefox', sessions: '2,345', bounceRate: '35%', avgDuration: '3:45' },
+	{
+		name: 'Firefox',
+		sessions: '2,345',
+		bounceRate: '35%',
+		avgDuration: '3:45',
+	},
 	{ name: 'Edge', sessions: '1,234', bounceRate: '38%', avgDuration: '3:21' },
 ];
 

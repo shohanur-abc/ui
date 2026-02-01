@@ -27,8 +27,14 @@ const RankedItem = ({ rank, label, value, change }: RankedItemProps) => (
 		</span>
 		<span className="flex-1 text-sm truncate">{label}</span>
 		<span className="text-sm font-semibold">{value}</span>
-		<span className={`flex items-center gap-0.5 text-xs font-medium ${change >= 0 ? 'text-emerald-500' : 'text-rose-500'}`}>
-			{change >= 0 ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
+		<span
+			className={`flex items-center gap-0.5 text-xs font-medium ${change >= 0 ? 'text-emerald-500' : 'text-rose-500'}`}
+		>
+			{change >= 0 ? (
+				<ArrowUpRight className="size-3" />
+			) : (
+				<ArrowDownRight className="size-3" />
+			)}
 			{Math.abs(change)}%
 		</span>
 	</div>

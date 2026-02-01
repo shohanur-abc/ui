@@ -34,7 +34,9 @@ interface SelectFieldProps {
 const ProgressHeader = ({ step, total }: { step: number; total: number }) => (
 	<div className="mb-8">
 		<div className="flex items-center justify-between mb-2">
-			<Badge variant="outline">Step {step} of {total}</Badge>
+			<Badge variant="outline">
+				Step {step} of {total}
+			</Badge>
 			<span className="text-sm text-muted-foreground">
 				{Math.round((step / total) * 100)}% Complete
 			</span>
@@ -107,9 +109,7 @@ const StepIndicator = ({
 				>
 					{step}
 				</span>
-				{i < steps.length - 1 && (
-					<div className="w-8 h-px bg-border" />
-				)}
+				{i < steps.length - 1 && <div className="w-8 h-px bg-border" />}
 			</div>
 		))}
 	</div>
@@ -155,7 +155,12 @@ const AddressStep = ({
 		<Field label="Apartment, Suite, etc." placeholder="Apt 4B" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="San Francisco" required />
-			<SelectField label="State" placeholder="Select" options={states} required />
+			<SelectField
+				label="State"
+				placeholder="Select"
+				options={states}
+				required
+			/>
 			<Field label="ZIP Code" placeholder="94102" required />
 		</div>
 	</div>
@@ -173,8 +178,18 @@ const ContactStep = () => (
 			<Field label="First Name" placeholder="John" required />
 			<Field label="Last Name" placeholder="Doe" required />
 		</div>
-		<Field label="Email Address" placeholder="john@example.com" type="email" required />
-		<Field label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" required />
+		<Field
+			label="Email Address"
+			placeholder="john@example.com"
+			type="email"
+			required
+		/>
+		<Field
+			label="Phone Number"
+			placeholder="+1 (555) 000-0000"
+			type="tel"
+			required
+		/>
 		<div className="flex items-start gap-2 pt-2">
 			<Checkbox id="updates" />
 			<Label htmlFor="updates" className="text-sm font-normal cursor-pointer">

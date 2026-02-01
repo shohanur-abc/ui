@@ -10,7 +10,13 @@ import {
 	RefreshCw,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -70,8 +76,12 @@ const ForecastRow = ({ item }: ForecastRowProps) => {
 			</div>
 			<div className="text-center">
 				<p className="text-xs text-muted-foreground">Stockout in</p>
-				<p className={`font-semibold tabular-nums ${getStockoutColor(item.daysUntilStockout)}`}>
-					{item.daysUntilStockout === null ? 'Safe' : `${item.daysUntilStockout}d`}
+				<p
+					className={`font-semibold tabular-nums ${getStockoutColor(item.daysUntilStockout)}`}
+				>
+					{item.daysUntilStockout === null
+						? 'Safe'
+						: `${item.daysUntilStockout}d`}
 				</p>
 			</div>
 			<div className="text-center">
@@ -80,7 +90,9 @@ const ForecastRow = ({ item }: ForecastRowProps) => {
 			</div>
 			<div className="text-center">
 				<p className="text-xs text-muted-foreground">Reorder Qty</p>
-				<p className="font-semibold text-primary tabular-nums">{item.suggestedReorder}</p>
+				<p className="font-semibold text-primary tabular-nums">
+					{item.suggestedReorder}
+				</p>
 			</div>
 			<Button size="sm">
 				<ShoppingCart className="mr-2 size-4" />
@@ -117,22 +129,78 @@ const Summary = ({ totalItems, atRisk, avgConfidence }: SummaryProps) => (
 				<BarChart3 className="size-5 text-emerald-500" />
 				<span className="text-sm text-muted-foreground">Avg. Confidence</span>
 			</div>
-			<p className="mt-2 text-2xl font-bold text-emerald-500">{avgConfidence}%</p>
+			<p className="mt-2 text-2xl font-bold text-emerald-500">
+				{avgConfidence}%
+			</p>
 		</div>
 	</div>
 );
 
 export default function Main() {
 	const items: ForecastItem[] = [
-		{ id: '1', name: 'Wireless Earbuds Pro', sku: 'WEP-001', currentStock: 245, predictedDemand: 320, suggestedReorder: 150, confidence: 92, trend: 'up', daysUntilStockout: 23 },
-		{ id: '2', name: 'USB-C Fast Charger', sku: 'UFC-001', currentStock: 89, predictedDemand: 180, suggestedReorder: 200, confidence: 88, trend: 'up', daysUntilStockout: 12 },
-		{ id: '3', name: 'Bluetooth Speaker', sku: 'BS-001', currentStock: 156, predictedDemand: 95, suggestedReorder: 0, confidence: 85, trend: 'down', daysUntilStockout: null },
-		{ id: '4', name: 'Power Bank 20000mAh', sku: 'PB-001', currentStock: 34, predictedDemand: 120, suggestedReorder: 150, confidence: 78, trend: 'stable', daysUntilStockout: 6 },
-		{ id: '5', name: 'Phone Case Premium', sku: 'PCP-001', currentStock: 567, predictedDemand: 280, suggestedReorder: 0, confidence: 91, trend: 'stable', daysUntilStockout: null },
+		{
+			id: '1',
+			name: 'Wireless Earbuds Pro',
+			sku: 'WEP-001',
+			currentStock: 245,
+			predictedDemand: 320,
+			suggestedReorder: 150,
+			confidence: 92,
+			trend: 'up',
+			daysUntilStockout: 23,
+		},
+		{
+			id: '2',
+			name: 'USB-C Fast Charger',
+			sku: 'UFC-001',
+			currentStock: 89,
+			predictedDemand: 180,
+			suggestedReorder: 200,
+			confidence: 88,
+			trend: 'up',
+			daysUntilStockout: 12,
+		},
+		{
+			id: '3',
+			name: 'Bluetooth Speaker',
+			sku: 'BS-001',
+			currentStock: 156,
+			predictedDemand: 95,
+			suggestedReorder: 0,
+			confidence: 85,
+			trend: 'down',
+			daysUntilStockout: null,
+		},
+		{
+			id: '4',
+			name: 'Power Bank 20000mAh',
+			sku: 'PB-001',
+			currentStock: 34,
+			predictedDemand: 120,
+			suggestedReorder: 150,
+			confidence: 78,
+			trend: 'stable',
+			daysUntilStockout: 6,
+		},
+		{
+			id: '5',
+			name: 'Phone Case Premium',
+			sku: 'PCP-001',
+			currentStock: 567,
+			predictedDemand: 280,
+			suggestedReorder: 0,
+			confidence: 91,
+			trend: 'stable',
+			daysUntilStockout: null,
+		},
 	];
 
-	const atRiskCount = items.filter((i) => i.daysUntilStockout !== null && i.daysUntilStockout <= 14).length;
-	const avgConfidence = Math.round(items.reduce((sum, i) => sum + i.confidence, 0) / items.length);
+	const atRiskCount = items.filter(
+		(i) => i.daysUntilStockout !== null && i.daysUntilStockout <= 14,
+	).length;
+	const avgConfidence = Math.round(
+		items.reduce((sum, i) => sum + i.confidence, 0) / items.length,
+	);
 
 	return (
 		<section className="@container" data-theme="dashboard">
@@ -141,8 +209,12 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex items-center justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Demand Forecast</CardTitle>
-								<CardDescription>AI-powered inventory predictions for the next 30 days</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Demand Forecast
+								</CardTitle>
+								<CardDescription>
+									AI-powered inventory predictions for the next 30 days
+								</CardDescription>
 							</div>
 							<Button variant="outline">
 								<RefreshCw className="mr-2 size-4" />
@@ -151,7 +223,11 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent className="space-y-6">
-						<Summary totalItems={items.length} atRisk={atRiskCount} avgConfidence={avgConfidence} />
+						<Summary
+							totalItems={items.length}
+							atRisk={atRiskCount}
+							avgConfidence={avgConfidence}
+						/>
 						<div className="space-y-2">
 							{items.map((item) => (
 								<ForecastRow key={item.id} item={item} />

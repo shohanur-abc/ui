@@ -25,7 +25,12 @@ interface Product {
 const GlassProduct = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-4 rounded-xl bg-white/10 p-4 shadow-lg backdrop-blur-md dark:bg-white/5">
 		<div className="relative size-16 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="font-medium">{product.name}</p>
@@ -71,7 +76,9 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
 		<span className={green ? 'text-green-400' : ''}>{value}</span>
 	</div>
@@ -85,7 +92,8 @@ export default function Main() {
 			variant: 'Pro / 4K Display',
 			price: 499.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -93,12 +101,16 @@ export default function Main() {
 			variant: 'Haptic / Pair',
 			price: 149.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=200&h=200&fit=crop',
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" data-theme="neon">
+		<section
+			className="@container relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+			data-theme="neon"
+		>
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(120,119,198,0.3),transparent_50%)]" />
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(255,0,128,0.2),transparent_50%)]" />
 
@@ -111,9 +123,7 @@ export default function Main() {
 					<h1 className="text-2xl font-bold tracking-tight text-white @md:text-3xl">
 						Review Your Order
 					</h1>
-					<p className="mt-1 text-purple-200">
-						Step into virtual reality
-					</p>
+					<p className="mt-1 text-purple-200">Step into virtual reality</p>
 				</div>
 
 				<div className="space-y-6">
@@ -158,7 +168,10 @@ export default function Main() {
 							<SummaryLine label="Total" value="$655.22" bold />
 						</div>
 
-						<Button size="lg" className="mt-6 w-full gap-2 bg-purple-600 hover:bg-purple-700">
+						<Button
+							size="lg"
+							className="mt-6 w-full gap-2 bg-purple-600 hover:bg-purple-700"
+						>
 							<Lock className="size-4" />
 							Complete Order
 							<ArrowRight className="size-4" />

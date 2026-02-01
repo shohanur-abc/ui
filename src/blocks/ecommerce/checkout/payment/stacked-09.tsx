@@ -1,4 +1,12 @@
-import { Banknote, Building2, CreditCard, Lock, QrCode, Smartphone, Zap } from 'lucide-react';
+import {
+	Banknote,
+	Building2,
+	CreditCard,
+	Lock,
+	QrCode,
+	Smartphone,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -21,7 +29,13 @@ interface FormFieldProps {
 	type?: string;
 }
 
-const HeaderBadge = ({ icon: Icon, text }: { icon: React.ComponentType<{ className?: string }>; text: string }) => (
+const HeaderBadge = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	text: string;
+}) => (
 	<Badge variant="outline" className="gap-1.5 mb-4">
 		<Icon className="size-3" />
 		{text}
@@ -35,7 +49,11 @@ const PageTitle = ({ text, subtitle }: { text: string; subtitle: string }) => (
 	</div>
 );
 
-const QuickPayButton = ({ icon: Icon, label, sublabel }: QuickPayOptionProps) => (
+const QuickPayButton = ({
+	icon: Icon,
+	label,
+	sublabel,
+}: QuickPayOptionProps) => (
 	<Button variant="outline" className="h-auto py-4 flex-col gap-2 flex-1">
 		<div className="size-10 rounded-lg bg-muted flex items-center justify-center">
 			<Icon className="size-5" />
@@ -62,9 +80,16 @@ const OrDivider = ({ text }: { text: string }) => (
 	</div>
 );
 
-const FormInput = ({ id, label, placeholder, type = 'text' }: FormFieldProps) => (
+const FormInput = ({
+	id,
+	label,
+	placeholder,
+	type = 'text',
+}: FormFieldProps) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<Input id={id} type={type} placeholder={placeholder} />
 	</div>
 );
@@ -91,12 +116,20 @@ const QRCodeDisplay = ({ text }: { text: string }) => (
 	</div>
 );
 
-const BankTransferInfo = ({ banks }: { banks: { name: string; code: string }[] }) => (
+const BankTransferInfo = ({
+	banks,
+}: {
+	banks: { name: string; code: string }[];
+}) => (
 	<div className="space-y-3">
 		<Label className="text-sm">Select Bank</Label>
 		<div className="grid grid-cols-2 gap-2">
 			{banks.map((bank) => (
-				<Button key={bank.code} variant="outline" className="h-12 justify-start gap-3">
+				<Button
+					key={bank.code}
+					variant="outline"
+					className="h-12 justify-start gap-3"
+				>
 					<div className="size-6 rounded bg-muted flex items-center justify-center">
 						<Building2 className="size-3.5" />
 					</div>
@@ -124,7 +157,12 @@ const PayButton = ({ label }: { label: string }) => (
 export default function Main() {
 	const quickPayOptions: QuickPayOptionProps[] = [
 		{ id: 'apple', icon: Smartphone, label: 'Apple Pay', sublabel: 'Instant' },
-		{ id: 'google', icon: Smartphone, label: 'Google Pay', sublabel: 'Instant' },
+		{
+			id: 'google',
+			icon: Smartphone,
+			label: 'Google Pay',
+			sublabel: 'Instant',
+		},
 		{ id: 'paypal', icon: Banknote, label: 'PayPal', sublabel: '2.9% fee' },
 	];
 
@@ -147,7 +185,10 @@ export default function Main() {
 			<div className="mx-auto max-w-md px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<div className="flex flex-col items-center">
 					<HeaderBadge icon={Zap} text="Express Checkout" />
-					<PageTitle text="Quick Payment" subtitle="Choose your preferred payment method" />
+					<PageTitle
+						text="Quick Payment"
+						subtitle="Choose your preferred payment method"
+					/>
 				</div>
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm mt-6">
 					<CardContent className="pt-6 space-y-6">

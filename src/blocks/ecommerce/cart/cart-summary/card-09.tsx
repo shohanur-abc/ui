@@ -36,9 +36,7 @@ const ShippingOptionCard = ({
 	price,
 	recommended,
 }: ShippingOptionCardProps) => (
-	<Card
-		className="cursor-pointer transition-all has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
-	>
+	<Card className="cursor-pointer transition-all has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5">
 		<label htmlFor={id} className="cursor-pointer">
 			<CardContent className="flex items-center gap-3 py-3">
 				<RadioGroupItem value={id} id={id} className="sr-only" />
@@ -49,7 +47,9 @@ const ShippingOptionCard = ({
 					<div className="flex items-center gap-2">
 						<span className="font-medium">{name}</span>
 						{recommended && (
-							<Badge variant="secondary" className="text-xs">Best</Badge>
+							<Badge variant="secondary" className="text-xs">
+								Best
+							</Badge>
 						)}
 					</div>
 					<p className="text-xs text-muted-foreground">{estimate}</p>

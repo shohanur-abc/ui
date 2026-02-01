@@ -186,11 +186,7 @@ const PaymentStats = ({ stats }: { stats: PaymentAlertsProps['stats'] }) => (
 	</div>
 );
 
-const PaymentAlerts = ({
-	title,
-	notifications,
-	stats,
-}: PaymentAlertsProps) => (
+const PaymentAlerts = ({ title, notifications, stats }: PaymentAlertsProps) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardHeader className="flex-row items-center justify-between border-b border-border/50">
 			<CardTitle className="text-lg font-semibold flex items-center gap-2">
@@ -221,7 +217,11 @@ export default function Main() {
 			type: 'success',
 			orderId: 'ORD-2024-0892',
 			amount: '$249.99',
-			customer: { name: 'Sarah Chen', email: 'sarah@email.com', initials: 'SC' },
+			customer: {
+				name: 'Sarah Chen',
+				email: 'sarah@email.com',
+				initials: 'SC',
+			},
 			paymentMethod: 'Visa •••• 4242',
 			message: 'Payment received for Premium Wireless Headphones',
 			timestamp: '2 min ago',
@@ -231,7 +231,11 @@ export default function Main() {
 			type: 'failed',
 			orderId: 'ORD-2024-0893',
 			amount: '$89.99',
-			customer: { name: 'Mike Johnson', email: 'mike@email.com', initials: 'MJ' },
+			customer: {
+				name: 'Mike Johnson',
+				email: 'mike@email.com',
+				initials: 'MJ',
+			},
 			paymentMethod: 'Mastercard •••• 5555',
 			message: 'Payment declined - Insufficient funds',
 			timestamp: '15 min ago',
@@ -241,7 +245,11 @@ export default function Main() {
 			type: 'refund',
 			orderId: 'ORD-2024-0845',
 			amount: '$159.00',
-			customer: { name: 'Emily Davis', email: 'emily@email.com', initials: 'ED' },
+			customer: {
+				name: 'Emily Davis',
+				email: 'emily@email.com',
+				initials: 'ED',
+			},
 			paymentMethod: 'PayPal',
 			message: 'Refund processed for returned item',
 			timestamp: '1 hour ago',
@@ -261,7 +269,11 @@ export default function Main() {
 			type: 'dispute',
 			orderId: 'ORD-2024-0820',
 			amount: '$349.99',
-			customer: { name: 'Jordan Lee', email: 'jordan@email.com', initials: 'JL' },
+			customer: {
+				name: 'Jordan Lee',
+				email: 'jordan@email.com',
+				initials: 'JL',
+			},
 			paymentMethod: 'Amex •••• 1234',
 			message: 'Customer opened a dispute - Item not received',
 			timestamp: '3 hours ago',
@@ -271,7 +283,11 @@ export default function Main() {
 			type: 'success',
 			orderId: 'ORD-2024-0891',
 			amount: '$79.99',
-			customer: { name: 'Lisa Anderson', email: 'lisa@email.com', initials: 'LA' },
+			customer: {
+				name: 'Lisa Anderson',
+				email: 'lisa@email.com',
+				initials: 'LA',
+			},
 			paymentMethod: 'Apple Pay',
 			message: 'Payment received for Gaming Mouse',
 			timestamp: '4 hours ago',

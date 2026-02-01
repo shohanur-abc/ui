@@ -84,9 +84,17 @@ interface SeoCheckItemProps {
 
 const SeoCheckItem = ({ status, title, description }: SeoCheckItemProps) => {
 	const config = {
-		pass: { icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+		pass: {
+			icon: CheckCircle2,
+			color: 'text-emerald-500',
+			bg: 'bg-emerald-500/10',
+		},
 		fail: { icon: XCircle, color: 'text-red-500', bg: 'bg-red-500/10' },
-		warning: { icon: AlertTriangle, color: 'text-amber-500', bg: 'bg-amber-500/10' },
+		warning: {
+			icon: AlertTriangle,
+			color: 'text-amber-500',
+			bg: 'bg-amber-500/10',
+		},
 	};
 
 	const { icon: Icon, color, bg } = config[status];
@@ -111,7 +119,9 @@ interface MetaPreviewProps {
 const MetaPreview = ({ title, description, url }: MetaPreviewProps) => (
 	<div className="rounded-lg border bg-white p-4 text-left dark:bg-zinc-900">
 		<p className="text-sm text-muted-foreground">{url}</p>
-		<p className="text-lg text-blue-600 hover:underline dark:text-blue-400">{title}</p>
+		<p className="text-lg text-blue-600 hover:underline dark:text-blue-400">
+			{title}
+		</p>
 		<p className="line-clamp-2 text-sm text-muted-foreground">{description}</p>
 	</div>
 );
@@ -123,7 +133,12 @@ interface KeywordAnalysisProps {
 	status: 'optimal' | 'low' | 'high';
 }
 
-const KeywordAnalysis = ({ keyword, density, count, status }: KeywordAnalysisProps) => {
+const KeywordAnalysis = ({
+	keyword,
+	density,
+	count,
+	status,
+}: KeywordAnalysisProps) => {
 	const colors = {
 		optimal: 'bg-emerald-500',
 		low: 'bg-amber-500',
@@ -172,13 +187,16 @@ const MetaField = ({
 	type = 'input',
 }: MetaFieldProps) => {
 	const isOverLimit = currentLength > maxLength;
-	const isOptimal = currentLength >= maxLength * 0.7 && currentLength <= maxLength;
+	const isOptimal =
+		currentLength >= maxLength * 0.7 && currentLength <= maxLength;
 
 	return (
 		<div className="space-y-2">
 			<div className="flex items-center justify-between">
 				<Label>{label}</Label>
-				<span className={`text-xs ${isOverLimit ? 'text-red-500' : isOptimal ? 'text-emerald-500' : 'text-muted-foreground'}`}>
+				<span
+					className={`text-xs ${isOverLimit ? 'text-red-500' : isOptimal ? 'text-emerald-500' : 'text-muted-foreground'}`}
+				>
 					{currentLength}/{maxLength}
 				</span>
 			</div>
@@ -193,32 +211,79 @@ const MetaField = ({
 			)}
 			<Progress
 				value={(currentLength / maxLength) * 100}
-				className={isOverLimit ? '[&>div]:bg-red-500' : isOptimal ? '[&>div]:bg-emerald-500' : ''}
+				className={
+					isOverLimit
+						? '[&>div]:bg-red-500'
+						: isOptimal
+							? '[&>div]:bg-emerald-500'
+							: ''
+				}
 			/>
 		</div>
 	);
 };
 
 export default function Main() {
-	const [metaTitle, setMetaTitle] = React.useState('Premium Wireless Headphones | Best Audio Quality - MyStore');
+	const [metaTitle, setMetaTitle] = React.useState(
+		'Premium Wireless Headphones | Best Audio Quality - MyStore',
+	);
 	const [metaDescription, setMetaDescription] = React.useState(
-		'Experience crystal-clear audio with our premium wireless headphones. Featuring active noise cancellation, 30-hour battery life, and premium comfort. Free shipping on orders over $50.'
+		'Experience crystal-clear audio with our premium wireless headphones. Featuring active noise cancellation, 30-hour battery life, and premium comfort. Free shipping on orders over $50.',
 	);
 	const [urlSlug, setUrlSlug] = React.useState('premium-wireless-headphones');
 
 	const seoChecks = [
-		{ status: 'pass' as const, title: 'Meta title length', description: 'Title is 54 characters (recommended: 50-60)' },
-		{ status: 'pass' as const, title: 'Meta description length', description: 'Description is 158 characters (recommended: 150-160)' },
-		{ status: 'warning' as const, title: 'Keyword in title', description: 'Primary keyword appears once in the title' },
-		{ status: 'pass' as const, title: 'URL structure', description: 'URL is clean and contains the primary keyword' },
-		{ status: 'fail' as const, title: 'Image alt texts', description: '2 of 5 images are missing alt text' },
-		{ status: 'pass' as const, title: 'Internal links', description: 'Product has 3 internal links to related items' },
+		{
+			status: 'pass' as const,
+			title: 'Meta title length',
+			description: 'Title is 54 characters (recommended: 50-60)',
+		},
+		{
+			status: 'pass' as const,
+			title: 'Meta description length',
+			description: 'Description is 158 characters (recommended: 150-160)',
+		},
+		{
+			status: 'warning' as const,
+			title: 'Keyword in title',
+			description: 'Primary keyword appears once in the title',
+		},
+		{
+			status: 'pass' as const,
+			title: 'URL structure',
+			description: 'URL is clean and contains the primary keyword',
+		},
+		{
+			status: 'fail' as const,
+			title: 'Image alt texts',
+			description: '2 of 5 images are missing alt text',
+		},
+		{
+			status: 'pass' as const,
+			title: 'Internal links',
+			description: 'Product has 3 internal links to related items',
+		},
 	];
 
 	const keywords = [
-		{ keyword: 'wireless headphones', density: 2.1, count: 4, status: 'optimal' as const },
-		{ keyword: 'noise cancellation', density: 1.5, count: 3, status: 'optimal' as const },
-		{ keyword: 'premium audio', density: 0.8, count: 2, status: 'low' as const },
+		{
+			keyword: 'wireless headphones',
+			density: 2.1,
+			count: 4,
+			status: 'optimal' as const,
+		},
+		{
+			keyword: 'noise cancellation',
+			density: 1.5,
+			count: 3,
+			status: 'optimal' as const,
+		},
+		{
+			keyword: 'premium audio',
+			density: 0.8,
+			count: 2,
+			status: 'low' as const,
+		},
 	];
 
 	return (
@@ -238,7 +303,7 @@ export default function Main() {
 				<div className="grid gap-6 @lg:grid-cols-2">
 					<div className="space-y-6 rounded-lg border bg-card p-6">
 						<h3 className="font-semibold">Meta Information</h3>
-						
+
 						<MetaField
 							label="Meta Title"
 							value={metaTitle}
@@ -259,7 +324,9 @@ export default function Main() {
 						<div className="space-y-2">
 							<Label>URL Slug</Label>
 							<div className="flex items-center gap-2 rounded-md border bg-muted/30 px-3 py-2 text-sm">
-								<span className="text-muted-foreground">mystore.com/products/</span>
+								<span className="text-muted-foreground">
+									mystore.com/products/
+								</span>
 								<Input
 									value={urlSlug}
 									onChange={(e) => setUrlSlug(e.target.value)}

@@ -8,7 +8,13 @@ import {
 } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -57,7 +63,12 @@ const SectionIcon = ({
 const ProductEntry = ({ product }: { product: Product }) => (
 	<div className="flex gap-4 py-3">
 		<div className="relative size-20 shrink-0 overflow-hidden rounded-xl bg-muted">
-			<Image src={product.img} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.img}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex flex-1 flex-col justify-between">
 			<div>
@@ -73,7 +84,9 @@ const ProductEntry = ({ product }: { product: Product }) => (
 				</div>
 			</div>
 			<div className="flex items-center justify-between">
-				<span className="text-sm text-muted-foreground">Qty: {product.qty}</span>
+				<span className="text-sm text-muted-foreground">
+					Qty: {product.qty}
+				</span>
 				<span className="font-semibold">${product.price.toFixed(2)}</span>
 			</div>
 		</div>
@@ -90,7 +103,9 @@ const AddressCard = ({
 	address: string[];
 }) => (
 	<div className="rounded-xl border bg-card p-4">
-		<p className="mb-2 text-xs font-medium uppercase text-muted-foreground">{title}</p>
+		<p className="mb-2 text-xs font-medium uppercase text-muted-foreground">
+			{title}
+		</p>
 		<p className="font-medium">{name}</p>
 		{address.map((line, i) => (
 			<p key={i} className="text-sm text-muted-foreground">
@@ -133,7 +148,9 @@ const PaymentDetail = ({
 			<CreditCard className="size-6 text-white" />
 		</div>
 		<div>
-			<p className="font-medium">{brand} •••• {last4}</p>
+			<p className="font-medium">
+				{brand} •••• {last4}
+			</p>
 			<p className="text-sm text-muted-foreground">Expires {exp}</p>
 		</div>
 	</div>
@@ -151,11 +168,19 @@ const PromoApplied = ({
 			<Percent className="size-5 text-green-600 dark:text-green-400" />
 			<span className="font-mono font-medium">{code}</span>
 		</div>
-		<span className="font-semibold text-green-600 dark:text-green-400">{discount}</span>
+		<span className="font-semibold text-green-600 dark:text-green-400">
+			{discount}
+		</span>
 	</div>
 );
 
-const RewardPoints = ({ points, progress }: { points: number; progress: number }) => (
+const RewardPoints = ({
+	points,
+	progress,
+}: {
+	points: number;
+	progress: number;
+}) => (
 	<div className="space-y-3 rounded-xl border bg-card p-4">
 		<div className="flex items-center justify-between">
 			<div className="flex items-center gap-2">
@@ -182,9 +207,13 @@ const PriceLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -229,10 +258,19 @@ export default function Main() {
 				<div className="grid gap-6 @lg:grid-cols-[1fr_340px]">
 					<Accordion
 						type="multiple"
-						defaultValue={['items', 'addresses', 'delivery', 'payment', 'promos']}
+						defaultValue={[
+							'items',
+							'addresses',
+							'delivery',
+							'payment',
+							'promos',
+						]}
 						className="space-y-3"
 					>
-						<AccordionItem value="items" className="rounded-2xl border bg-card px-5">
+						<AccordionItem
+							value="items"
+							className="rounded-2xl border bg-card px-5"
+						>
 							<AccordionTrigger className="gap-3 hover:no-underline">
 								<SectionIcon icon={Package} verified />
 								<div className="flex-1 text-left">
@@ -247,12 +285,17 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="addresses" className="rounded-2xl border bg-card px-5">
+						<AccordionItem
+							value="addresses"
+							className="rounded-2xl border bg-card px-5"
+						>
 							<AccordionTrigger className="gap-3 hover:no-underline">
 								<SectionIcon icon={MapPin} verified />
 								<div className="flex-1 text-left">
 									<p className="font-semibold">Addresses</p>
-									<p className="text-sm text-muted-foreground">Shipping & billing</p>
+									<p className="text-sm text-muted-foreground">
+										Shipping & billing
+									</p>
 								</div>
 							</AccordionTrigger>
 							<AccordionContent className="grid gap-4 pb-4 @sm:grid-cols-2">
@@ -269,12 +312,17 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="delivery" className="rounded-2xl border bg-card px-5">
+						<AccordionItem
+							value="delivery"
+							className="rounded-2xl border bg-card px-5"
+						>
 							<AccordionTrigger className="gap-3 hover:no-underline">
 								<SectionIcon icon={Truck} verified />
 								<div className="flex-1 text-left">
 									<p className="font-semibold">Delivery</p>
-									<p className="text-sm text-muted-foreground">Priority shipping</p>
+									<p className="text-sm text-muted-foreground">
+										Priority shipping
+									</p>
 								</div>
 							</AccordionTrigger>
 							<AccordionContent className="pb-4">
@@ -286,12 +334,17 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="payment" className="rounded-2xl border bg-card px-5">
+						<AccordionItem
+							value="payment"
+							className="rounded-2xl border bg-card px-5"
+						>
 							<AccordionTrigger className="gap-3 hover:no-underline">
 								<SectionIcon icon={CreditCard} verified />
 								<div className="flex-1 text-left">
 									<p className="font-semibold">Payment</p>
-									<p className="text-sm text-muted-foreground">Visa ending 7890</p>
+									<p className="text-sm text-muted-foreground">
+										Visa ending 7890
+									</p>
 								</div>
 							</AccordionTrigger>
 							<AccordionContent className="pb-4">
@@ -299,12 +352,17 @@ export default function Main() {
 							</AccordionContent>
 						</AccordionItem>
 
-						<AccordionItem value="promos" className="rounded-2xl border bg-card px-5">
+						<AccordionItem
+							value="promos"
+							className="rounded-2xl border bg-card px-5"
+						>
 							<AccordionTrigger className="gap-3 hover:no-underline">
 								<SectionIcon icon={Percent} verified />
 								<div className="flex-1 text-left">
 									<p className="font-semibold">Promotions</p>
-									<p className="text-sm text-muted-foreground">1 code applied</p>
+									<p className="text-sm text-muted-foreground">
+										1 code applied
+									</p>
 								</div>
 							</AccordionTrigger>
 							<AccordionContent className="pb-4">

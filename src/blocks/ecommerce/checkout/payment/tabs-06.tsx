@@ -1,6 +1,17 @@
 'use client';
 
-import { Building2, CalendarDays, CreditCard, Lock, PiggyBank, Shield, Smartphone, Star, Timer, Wallet } from 'lucide-react';
+import {
+	Building2,
+	CalendarDays,
+	CreditCard,
+	Lock,
+	PiggyBank,
+	Shield,
+	Smartphone,
+	Star,
+	Timer,
+	Wallet,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -20,14 +31,27 @@ interface InstallmentPlanProps {
 	popular?: boolean;
 }
 
-const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+const PageHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center mb-8">
 		<h1 className="text-2xl @md:text-3xl font-bold">{title}</h1>
 		<p className="text-muted-foreground mt-2">{subtitle}</p>
 	</div>
 );
 
-const InstallmentPlan = ({ id, months, monthlyAmount, total, interest, popular }: InstallmentPlanProps) => (
+const InstallmentPlan = ({
+	id,
+	months,
+	monthlyAmount,
+	total,
+	interest,
+	popular,
+}: InstallmentPlanProps) => (
 	<Label
 		htmlFor={id}
 		className="relative flex flex-col p-4 rounded-xl border border-border/50 cursor-pointer transition-all hover:border-primary/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
@@ -43,7 +67,12 @@ const InstallmentPlan = ({ id, months, monthlyAmount, total, interest, popular }
 			<div className="flex-1">
 				<div className="flex items-center justify-between">
 					<span className="font-semibold">{months} Months</span>
-					<span className="text-lg font-bold">{monthlyAmount}<span className="text-sm font-normal text-muted-foreground">/mo</span></span>
+					<span className="text-lg font-bold">
+						{monthlyAmount}
+						<span className="text-sm font-normal text-muted-foreground">
+							/mo
+						</span>
+					</span>
 				</div>
 				<div className="flex items-center justify-between mt-1 text-xs text-muted-foreground">
 					<span>Total: {total}</span>
@@ -60,7 +89,10 @@ const InstallmentContent = ({ plans }: { plans: InstallmentPlanProps[] }) => (
 			<CalendarDays className="size-4 text-primary" />
 			<span className="text-sm">Pay in flexible installments with 0% APR</span>
 		</div>
-		<RadioGroup defaultValue={plans.find(p => p.popular)?.id || plans[0]?.id} className="space-y-3">
+		<RadioGroup
+			defaultValue={plans.find((p) => p.popular)?.id || plans[0]?.id}
+			className="space-y-3"
+		>
 			{plans.map((plan) => (
 				<InstallmentPlan key={plan.id} {...plan} />
 			))}
@@ -72,7 +104,9 @@ const FullPaymentContent = () => (
 	<div className="space-y-4">
 		<div className="flex items-center gap-2 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
 			<PiggyBank className="size-4 text-emerald-500" />
-			<span className="text-sm text-emerald-600 dark:text-emerald-400">Save 5% by paying in full</span>
+			<span className="text-sm text-emerald-600 dark:text-emerald-400">
+				Save 5% by paying in full
+			</span>
 		</div>
 		<div className="grid gap-4">
 			<div className="space-y-2">
@@ -106,12 +140,16 @@ const WalletContent = () => (
 			<Button variant="outline" className="w-full h-14 gap-3">
 				<Smartphone className="size-5" />
 				Apple Pay
-				<Badge variant="secondary" className="ml-auto">Instant</Badge>
+				<Badge variant="secondary" className="ml-auto">
+					Instant
+				</Badge>
 			</Button>
 			<Button variant="outline" className="w-full h-14 gap-3">
 				<Smartphone className="size-5" />
 				Google Pay
-				<Badge variant="secondary" className="ml-auto">Instant</Badge>
+				<Badge variant="secondary" className="ml-auto">
+					Instant
+				</Badge>
 			</Button>
 			<Button variant="outline" className="w-full h-14 gap-3">
 				<Wallet className="size-5" />
@@ -128,7 +166,9 @@ const BankContent = () => (
 				<Timer className="size-4 text-muted-foreground" />
 				<span className="text-sm font-medium">Processing Time</span>
 			</div>
-			<p className="text-xs text-muted-foreground">1-3 business days for bank transfers</p>
+			<p className="text-xs text-muted-foreground">
+				1-3 business days for bank transfers
+			</p>
 		</div>
 		<div className="grid gap-4">
 			<div className="space-y-2">
@@ -164,13 +204,21 @@ const SecurityBadges = () => (
 	</div>
 );
 
-const OrderSummary = ({ items }: { items: { label: string; value: string; isTotal?: boolean }[] }) => (
+const OrderSummary = ({
+	items,
+}: {
+	items: { label: string; value: string; isTotal?: boolean }[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{items.map((item, index) => (
 			<div key={index}>
 				{item.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${item.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={item.isTotal ? '' : 'text-muted-foreground'}>{item.label}</span>
+				<div
+					className={`flex justify-between ${item.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span className={item.isTotal ? '' : 'text-muted-foreground'}>
+						{item.label}
+					</span>
 					<span>{item.value}</span>
 				</div>
 			</div>
@@ -187,9 +235,28 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const installmentPlans: InstallmentPlanProps[] = [
-		{ id: '3mo', months: 3, monthlyAmount: '$166.33', total: '$499.00', interest: '0% APR' },
-		{ id: '6mo', months: 6, monthlyAmount: '$83.17', total: '$499.00', interest: '0% APR', popular: true },
-		{ id: '12mo', months: 12, monthlyAmount: '$44.08', total: '$529.00', interest: '6% APR' },
+		{
+			id: '3mo',
+			months: 3,
+			monthlyAmount: '$166.33',
+			total: '$499.00',
+			interest: '0% APR',
+		},
+		{
+			id: '6mo',
+			months: 6,
+			monthlyAmount: '$83.17',
+			total: '$499.00',
+			interest: '0% APR',
+			popular: true,
+		},
+		{
+			id: '12mo',
+			months: 12,
+			monthlyAmount: '$44.08',
+			total: '$529.00',
+			interest: '6% APR',
+		},
 	];
 
 	const orderItems = [
@@ -202,15 +269,29 @@ export default function Main() {
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-md px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<PageHeader title="Flexible Payment" subtitle="Choose how you'd like to pay" />
+				<PageHeader
+					title="Flexible Payment"
+					subtitle="Choose how you'd like to pay"
+				/>
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardContent className="pt-6">
 						<Tabs defaultValue="installment" className="w-full">
 							<TabsList className="w-full grid grid-cols-4 h-11 mb-6">
-								<TabsTrigger value="installment" className="text-xs @sm:text-sm">Split Pay</TabsTrigger>
-								<TabsTrigger value="full" className="text-xs @sm:text-sm">Full</TabsTrigger>
-								<TabsTrigger value="wallet" className="text-xs @sm:text-sm">Wallet</TabsTrigger>
-								<TabsTrigger value="bank" className="text-xs @sm:text-sm">Bank</TabsTrigger>
+								<TabsTrigger
+									value="installment"
+									className="text-xs @sm:text-sm"
+								>
+									Split Pay
+								</TabsTrigger>
+								<TabsTrigger value="full" className="text-xs @sm:text-sm">
+									Full
+								</TabsTrigger>
+								<TabsTrigger value="wallet" className="text-xs @sm:text-sm">
+									Wallet
+								</TabsTrigger>
+								<TabsTrigger value="bank" className="text-xs @sm:text-sm">
+									Bank
+								</TabsTrigger>
 							</TabsList>
 							<TabsContent value="installment">
 								<InstallmentContent plans={installmentPlans} />

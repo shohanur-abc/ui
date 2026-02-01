@@ -14,7 +14,13 @@ import {
 
 interface InventoryEvent {
 	id: string;
-	type: 'restock' | 'low-stock' | 'out-of-stock' | 'return' | 'transfer' | 'adjustment';
+	type:
+		| 'restock'
+		| 'low-stock'
+		| 'out-of-stock'
+		| 'return'
+		| 'transfer'
+		| 'adjustment';
 	productName: string;
 	sku: string;
 	quantity: number;
@@ -68,7 +74,10 @@ const EventTypeConfig: Record<
 const EventIcon = ({
 	type,
 	isUrgent,
-}: { type: InventoryEvent['type']; isUrgent?: boolean }) => {
+}: {
+	type: InventoryEvent['type'];
+	isUrgent?: boolean;
+}) => {
 	const config = EventTypeConfig[type];
 	const Icon = config.icon;
 
@@ -93,8 +102,7 @@ const QuantityChange = ({
 	quantity: number;
 	previousQuantity?: number;
 }) => {
-	const isIncrease =
-		type === 'restock' || type === 'return';
+	const isIncrease = type === 'restock' || type === 'return';
 	const showDelta =
 		previousQuantity !== undefined &&
 		(type === 'adjustment' || type === 'transfer');

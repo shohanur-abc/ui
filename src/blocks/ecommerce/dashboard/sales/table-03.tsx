@@ -59,13 +59,18 @@ const RegionTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{regions.map((region, idx) => (
-							<TableRow key={idx} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={idx}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell>
 									<div className="flex items-center gap-3">
 										<span className="text-2xl">{region.flag}</span>
 										<div>
 											<p className="font-medium">{region.country}</p>
-											<p className="text-xs text-muted-foreground">{region.region}</p>
+											<p className="text-xs text-muted-foreground">
+												{region.region}
+											</p>
 										</div>
 									</div>
 								</TableCell>
@@ -80,7 +85,9 @@ const RegionTableCard = ({
 								</TableCell>
 								<TableCell className="text-right">
 									<span
-										className={region.growth >= 0 ? 'text-primary' : 'text-destructive'}
+										className={
+											region.growth >= 0 ? 'text-primary' : 'text-destructive'
+										}
 									>
 										{region.growth >= 0 ? '+' : ''}
 										{region.growth}%
@@ -105,11 +112,56 @@ const RegionTableCard = ({
 
 export default function Main() {
 	const regions: RegionData[] = [
-		{ region: 'North America', country: 'United States', flag: '🇺🇸', revenue: 425000, orders: 3200, avgOrderValue: 133, growth: 15.2, targetProgress: 92 },
-		{ region: 'Europe', country: 'United Kingdom', flag: '🇬🇧', revenue: 285000, orders: 2100, avgOrderValue: 136, growth: 8.5, targetProgress: 78 },
-		{ region: 'Europe', country: 'Germany', flag: '🇩🇪', revenue: 198000, orders: 1650, avgOrderValue: 120, growth: 12.3, targetProgress: 85 },
-		{ region: 'Asia Pacific', country: 'Japan', flag: '🇯🇵', revenue: 156000, orders: 980, avgOrderValue: 159, growth: -2.1, targetProgress: 65 },
-		{ region: 'Asia Pacific', country: 'Australia', flag: '🇦🇺', revenue: 112000, orders: 820, avgOrderValue: 137, growth: 18.7, targetProgress: 88 },
+		{
+			region: 'North America',
+			country: 'United States',
+			flag: '🇺🇸',
+			revenue: 425000,
+			orders: 3200,
+			avgOrderValue: 133,
+			growth: 15.2,
+			targetProgress: 92,
+		},
+		{
+			region: 'Europe',
+			country: 'United Kingdom',
+			flag: '🇬🇧',
+			revenue: 285000,
+			orders: 2100,
+			avgOrderValue: 136,
+			growth: 8.5,
+			targetProgress: 78,
+		},
+		{
+			region: 'Europe',
+			country: 'Germany',
+			flag: '🇩🇪',
+			revenue: 198000,
+			orders: 1650,
+			avgOrderValue: 120,
+			growth: 12.3,
+			targetProgress: 85,
+		},
+		{
+			region: 'Asia Pacific',
+			country: 'Japan',
+			flag: '🇯🇵',
+			revenue: 156000,
+			orders: 980,
+			avgOrderValue: 159,
+			growth: -2.1,
+			targetProgress: 65,
+		},
+		{
+			region: 'Asia Pacific',
+			country: 'Australia',
+			flag: '🇦🇺',
+			revenue: 112000,
+			orders: 820,
+			avgOrderValue: 137,
+			growth: 18.7,
+			targetProgress: 88,
+		},
 	];
 
 	return (

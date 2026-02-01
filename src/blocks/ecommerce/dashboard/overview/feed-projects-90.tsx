@@ -10,7 +10,13 @@ import {
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 type ProjectCard = {
@@ -37,7 +43,17 @@ const getStatusStyle = (status: ProjectCard['status']) => {
 	}
 };
 
-const ProjectCardComponent = ({ name, description, status, progress, dueDate, team, comments, attachments, category }: ProjectCard) => (
+const ProjectCardComponent = ({
+	name,
+	description,
+	status,
+	progress,
+	dueDate,
+	team,
+	comments,
+	attachments,
+	category,
+}: ProjectCard) => (
 	<Card className="overflow-hidden">
 		<CardContent className="p-4">
 			<div className="flex items-start justify-between gap-4">
@@ -46,7 +62,9 @@ const ProjectCardComponent = ({ name, description, status, progress, dueDate, te
 						{category}
 					</Badge>
 					<p className="font-medium">{name}</p>
-					<p className="mt-1 text-sm text-muted-foreground line-clamp-2">{description}</p>
+					<p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+						{description}
+					</p>
 				</div>
 				<Badge variant="secondary" className={getStatusStyle(status)}>
 					{status}
@@ -77,7 +95,9 @@ const ProjectCardComponent = ({ name, description, status, progress, dueDate, te
 				<div className="flex -space-x-2">
 					{team.slice(0, 4).map((member, i) => (
 						<Avatar key={i} className="size-8 border-2 border-background">
-							<AvatarFallback className="text-xs">{member.initials}</AvatarFallback>
+							<AvatarFallback className="text-xs">
+								{member.initials}
+							</AvatarFallback>
 						</Avatar>
 					))}
 					{team.length > 4 && (
@@ -97,12 +117,85 @@ const ProjectCardComponent = ({ name, description, status, progress, dueDate, te
 
 export default function Main() {
 	const projects: ProjectCard[] = [
-		{ id: '1', name: 'Website Redesign', description: 'Complete overhaul of the e-commerce website with improved UX', status: 'active', progress: 75, dueDate: 'Dec 20', team: [{ initials: 'SW' }, { initials: 'MC' }, { initials: 'EJ' }, { initials: 'BW' }, { initials: 'LD' }], comments: 24, attachments: 12, category: 'Development' },
-		{ id: '2', name: 'Mobile App V2', description: 'Major update with new features including AR try-on', status: 'active', progress: 45, dueDate: 'Jan 15', team: [{ initials: 'MJ' }, { initials: 'AB' }, { initials: 'JB' }], comments: 18, attachments: 8, category: 'Development' },
-		{ id: '3', name: 'Holiday Marketing', description: 'Multi-channel marketing campaign for holiday season', status: 'completed', progress: 100, dueDate: 'Dec 10', team: [{ initials: 'LD' }, { initials: 'SW' }], comments: 32, attachments: 15, category: 'Marketing' },
-		{ id: '4', name: 'Inventory System', description: 'Implement new AI-powered inventory management system', status: 'on-hold', progress: 30, dueDate: 'Feb 1', team: [{ initials: 'BW' }, { initials: 'MC' }, { initials: 'AB' }], comments: 8, attachments: 5, category: 'Operations' },
-		{ id: '5', name: 'Customer Portal', description: 'Self-service customer portal with order tracking', status: 'active', progress: 60, dueDate: 'Dec 28', team: [{ initials: 'EJ' }, { initials: 'JB' }], comments: 15, attachments: 7, category: 'Development' },
-		{ id: '6', name: 'Analytics Dashboard', description: 'Real-time analytics and reporting dashboard', status: 'active', progress: 85, dueDate: 'Dec 18', team: [{ initials: 'MC' }, { initials: 'SW' }, { initials: 'MJ' }], comments: 21, attachments: 10, category: 'Data' },
+		{
+			id: '1',
+			name: 'Website Redesign',
+			description:
+				'Complete overhaul of the e-commerce website with improved UX',
+			status: 'active',
+			progress: 75,
+			dueDate: 'Dec 20',
+			team: [
+				{ initials: 'SW' },
+				{ initials: 'MC' },
+				{ initials: 'EJ' },
+				{ initials: 'BW' },
+				{ initials: 'LD' },
+			],
+			comments: 24,
+			attachments: 12,
+			category: 'Development',
+		},
+		{
+			id: '2',
+			name: 'Mobile App V2',
+			description: 'Major update with new features including AR try-on',
+			status: 'active',
+			progress: 45,
+			dueDate: 'Jan 15',
+			team: [{ initials: 'MJ' }, { initials: 'AB' }, { initials: 'JB' }],
+			comments: 18,
+			attachments: 8,
+			category: 'Development',
+		},
+		{
+			id: '3',
+			name: 'Holiday Marketing',
+			description: 'Multi-channel marketing campaign for holiday season',
+			status: 'completed',
+			progress: 100,
+			dueDate: 'Dec 10',
+			team: [{ initials: 'LD' }, { initials: 'SW' }],
+			comments: 32,
+			attachments: 15,
+			category: 'Marketing',
+		},
+		{
+			id: '4',
+			name: 'Inventory System',
+			description: 'Implement new AI-powered inventory management system',
+			status: 'on-hold',
+			progress: 30,
+			dueDate: 'Feb 1',
+			team: [{ initials: 'BW' }, { initials: 'MC' }, { initials: 'AB' }],
+			comments: 8,
+			attachments: 5,
+			category: 'Operations',
+		},
+		{
+			id: '5',
+			name: 'Customer Portal',
+			description: 'Self-service customer portal with order tracking',
+			status: 'active',
+			progress: 60,
+			dueDate: 'Dec 28',
+			team: [{ initials: 'EJ' }, { initials: 'JB' }],
+			comments: 15,
+			attachments: 7,
+			category: 'Development',
+		},
+		{
+			id: '6',
+			name: 'Analytics Dashboard',
+			description: 'Real-time analytics and reporting dashboard',
+			status: 'active',
+			progress: 85,
+			dueDate: 'Dec 18',
+			team: [{ initials: 'MC' }, { initials: 'SW' }, { initials: 'MJ' }],
+			comments: 21,
+			attachments: 10,
+			category: 'Data',
+		},
 	];
 
 	return (
@@ -116,7 +209,8 @@ export default function Main() {
 								Active Projects
 							</CardTitle>
 							<CardDescription>
-								{projects.filter((p) => p.status === 'active').length} projects in progress
+								{projects.filter((p) => p.status === 'active').length} projects
+								in progress
 							</CardDescription>
 						</div>
 						<Button size="sm" className="gap-1">

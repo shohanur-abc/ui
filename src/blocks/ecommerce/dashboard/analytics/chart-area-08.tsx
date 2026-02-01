@@ -31,22 +31,60 @@ const ComparisonAreaChart = ({ data }: { data: ComparisonData[] }) => {
 
 	return (
 		<div className="relative h-64 w-full">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
+			<svg
+				viewBox="0 0 100 100"
+				preserveAspectRatio="none"
+				className="w-full h-full"
+			>
 				<defs>
-					<linearGradient id="currentGradComp" x1="0%" y1="0%" x2="0%" y2="100%">
-						<stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
-						<stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+					<linearGradient
+						id="currentGradComp"
+						x1="0%"
+						y1="0%"
+						x2="0%"
+						y2="100%"
+					>
+						<stop
+							offset="0%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0.4"
+						/>
+						<stop
+							offset="100%"
+							stopColor="hsl(var(--primary))"
+							stopOpacity="0"
+						/>
 					</linearGradient>
 				</defs>
-				<path d={`${previousPath} L 100 100 L 0 100 Z`} fill="hsl(var(--muted))" fillOpacity="0.3" />
-				<path d={previousPath} fill="none" stroke="hsl(var(--muted-foreground))" strokeWidth="0.3" strokeDasharray="1,1" />
-				<path d={`${currentPath} L 100 100 L 0 100 Z`} fill="url(#currentGradComp)" />
-				<path d={currentPath} fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+				<path
+					d={`${previousPath} L 100 100 L 0 100 Z`}
+					fill="hsl(var(--muted))"
+					fillOpacity="0.3"
+				/>
+				<path
+					d={previousPath}
+					fill="none"
+					stroke="hsl(var(--muted-foreground))"
+					strokeWidth="0.3"
+					strokeDasharray="1,1"
+				/>
+				<path
+					d={`${currentPath} L 100 100 L 0 100 Z`}
+					fill="url(#currentGradComp)"
+				/>
+				<path
+					d={currentPath}
+					fill="none"
+					stroke="hsl(var(--primary))"
+					strokeWidth="0.5"
+				/>
 			</svg>
 			<div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground px-1">
-				{data.filter((_, i) => i % 2 === 0).map((d, i) => (
-					<span key={i}>{d.label}</span>
-				))}
+				{data
+					.filter((_, i) => i % 2 === 0)
+					.map((d, i) => (
+						<span key={i}>{d.label}</span>
+					))}
 			</div>
 		</div>
 	);
@@ -64,7 +102,10 @@ const comparisonData: ComparisonData[] = [
 
 const currentTotal = comparisonData.reduce((a, b) => a + b.current, 0);
 const previousTotal = comparisonData.reduce((a, b) => a + b.previous, 0);
-const changePercent = ((currentTotal - previousTotal) / previousTotal * 100).toFixed(1);
+const changePercent = (
+	((currentTotal - previousTotal) / previousTotal) *
+	100
+).toFixed(1);
 
 export default function Main() {
 	return (
@@ -73,8 +114,12 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="flex flex-row items-start justify-between pb-2">
 						<div>
-							<CardTitle className="text-sm font-medium">Weekly Comparison</CardTitle>
-							<p className="text-xs text-muted-foreground">This week vs Last week</p>
+							<CardTitle className="text-sm font-medium">
+								Weekly Comparison
+							</CardTitle>
+							<p className="text-xs text-muted-foreground">
+								This week vs Last week
+							</p>
 						</div>
 						<div className="flex items-center gap-4">
 							<div className="flex items-center gap-2">
@@ -91,15 +136,21 @@ export default function Main() {
 						<div className="grid grid-cols-3 gap-4 mb-6">
 							<div className="p-4 rounded-lg bg-primary/10 border border-primary/20">
 								<p className="text-xs text-muted-foreground">This Week</p>
-								<p className="text-2xl font-bold">${(currentTotal / 1000).toFixed(1)}K</p>
+								<p className="text-2xl font-bold">
+									${(currentTotal / 1000).toFixed(1)}K
+								</p>
 							</div>
 							<div className="p-4 rounded-lg bg-muted/30">
 								<p className="text-xs text-muted-foreground">Last Week</p>
-								<p className="text-2xl font-bold">${(previousTotal / 1000).toFixed(1)}K</p>
+								<p className="text-2xl font-bold">
+									${(previousTotal / 1000).toFixed(1)}K
+								</p>
 							</div>
 							<div className="p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
 								<p className="text-xs text-muted-foreground">Change</p>
-								<p className="text-2xl font-bold text-emerald-500">+{changePercent}%</p>
+								<p className="text-2xl font-bold text-emerald-500">
+									+{changePercent}%
+								</p>
 							</div>
 						</div>
 						<ComparisonAreaChart data={comparisonData} />

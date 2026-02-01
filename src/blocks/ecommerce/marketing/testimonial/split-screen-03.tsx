@@ -97,7 +97,8 @@ export default function Main() {
 		author: 'Frank Martinez',
 		role: 'CEO',
 		company: 'GrowthFirst',
-		avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 		initials: 'FM',
 		rating: 5,
 		hasVideo: true,
@@ -109,13 +110,17 @@ export default function Main() {
 		author: 'Frank Martinez',
 		role: 'CEO',
 		company: 'GrowthFirst',
-		avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 		initials: 'FM',
 		rating: 5,
 	};
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<div className="grid grid-cols-1 @lg:grid-cols-2 gap-8 @lg:gap-12 items-stretch min-h-[500px]">
 					<VideoSection item={videoTestimonial} />

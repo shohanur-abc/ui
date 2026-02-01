@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowLeft,
@@ -27,7 +33,12 @@ interface CartProduct {
 const SplitItem = ({ product }: { product: CartProduct }) => (
 	<div className="flex items-center gap-4 rounded-xl bg-muted/30 p-4">
 		<div className="relative size-20 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="font-medium">{product.name}</p>
@@ -54,7 +65,9 @@ const DetailBlock = ({
 	<div className="rounded-xl bg-muted/30 p-4">
 		<div className="mb-2 flex items-center gap-2">
 			<Icon className="size-4 text-primary" />
-			<span className="text-xs font-medium uppercase text-muted-foreground">{title}</span>
+			<span className="text-xs font-medium uppercase text-muted-foreground">
+				{title}
+			</span>
 		</div>
 		<p className="font-medium">{line1}</p>
 		{line2 && <p className="text-sm text-muted-foreground">{line2}</p>}
@@ -79,9 +92,13 @@ const PriceLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -93,7 +110,8 @@ export default function Main() {
 			variant: 'Over-Ear / Midnight',
 			price: 279.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -101,7 +119,8 @@ export default function Main() {
 			variant: 'Aluminum / Matte Black',
 			price: 44.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
 		},
 	];
 

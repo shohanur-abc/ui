@@ -83,13 +83,24 @@ const CreatorHeader = ({
 const PostsTab = ({
 	posts,
 }: {
-	posts: { image: string; title: string; likes: number; comments: number; date: string }[];
+	posts: {
+		image: string;
+		title: string;
+		likes: number;
+		comments: number;
+		date: string;
+	}[];
 }) => (
 	<div className="grid @sm:grid-cols-2 @lg:grid-cols-3 gap-4">
 		{posts.map((post, i) => (
 			<Card key={i} className="overflow-hidden group cursor-pointer">
 				<div className="relative aspect-square">
-					<Image src={post.image} alt={post.title} fill className="object-cover" />
+					<Image
+						src={post.image}
+						alt={post.title}
+						fill
+						className="object-cover"
+					/>
 					<div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 text-white">
 						<div className="flex items-center gap-1">
 							<Heart className="size-5" />
@@ -109,20 +120,33 @@ const PostsTab = ({
 const VideosTab = ({
 	videos,
 }: {
-	videos: { thumbnail: string; title: string; views: string; duration: string; date: string }[];
+	videos: {
+		thumbnail: string;
+		title: string;
+		views: string;
+		duration: string;
+		date: string;
+	}[];
 }) => (
 	<div className="grid @sm:grid-cols-2 gap-4">
 		{videos.map((video, i) => (
 			<Card key={i}>
 				<CardContent className="p-4">
 					<div className="relative aspect-video rounded-lg overflow-hidden bg-muted group cursor-pointer">
-						<Image src={video.thumbnail} alt={video.title} fill className="object-cover" />
+						<Image
+							src={video.thumbnail}
+							alt={video.title}
+							fill
+							className="object-cover"
+						/>
 						<div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
 							<Button size="icon" className="rounded-full size-12">
 								<Play className="size-6" />
 							</Button>
 						</div>
-						<Badge className="absolute bottom-2 right-2 bg-black/70">{video.duration}</Badge>
+						<Badge className="absolute bottom-2 right-2 bg-black/70">
+							{video.duration}
+						</Badge>
 					</div>
 					<h4 className="font-medium mt-3 line-clamp-2">{video.title}</h4>
 					<div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
@@ -140,7 +164,14 @@ const VideosTab = ({
 const ArticlesTab = ({
 	articles,
 }: {
-	articles: { image: string; title: string; excerpt: string; readTime: string; date: string; tags: string[] }[];
+	articles: {
+		image: string;
+		title: string;
+		excerpt: string;
+		readTime: string;
+		date: string;
+		tags: string[];
+	}[];
 }) => (
 	<div className="space-y-4">
 		{articles.map((article, i) => (
@@ -148,14 +179,23 @@ const ArticlesTab = ({
 				<CardContent className="p-4">
 					<div className="flex flex-col @md:flex-row gap-4">
 						<div className="relative w-full @md:w-48 aspect-video rounded-lg overflow-hidden bg-muted shrink-0">
-							<Image src={article.image} alt={article.title} fill className="object-cover" />
+							<Image
+								src={article.image}
+								alt={article.title}
+								fill
+								className="object-cover"
+							/>
 						</div>
 						<div className="flex-1">
 							<h4 className="font-semibold line-clamp-2">{article.title}</h4>
-							<p className="text-sm text-muted-foreground mt-1 line-clamp-2">{article.excerpt}</p>
+							<p className="text-sm text-muted-foreground mt-1 line-clamp-2">
+								{article.excerpt}
+							</p>
 							<div className="flex flex-wrap gap-2 mt-2">
 								{article.tags.map((tag, j) => (
-									<Badge key={j} variant="secondary">{tag}</Badge>
+									<Badge key={j} variant="secondary">
+										{tag}
+									</Badge>
 								))}
 							</div>
 							<div className="flex items-center gap-2 mt-3 text-sm text-muted-foreground">
@@ -175,19 +215,35 @@ const ArticlesTab = ({
 const SavedTab = ({
 	saved,
 }: {
-	saved: { type: 'post' | 'video' | 'article'; image: string; title: string; author: string }[];
+	saved: {
+		type: 'post' | 'video' | 'article';
+		image: string;
+		title: string;
+		author: string;
+	}[];
 }) => (
 	<div className="grid @sm:grid-cols-2 @lg:grid-cols-3 gap-4">
 		{saved.map((item, i) => (
 			<Card key={i}>
 				<CardContent className="p-4">
 					<div className="relative aspect-video rounded-lg overflow-hidden bg-muted">
-						<Image src={item.image} alt={item.title} fill className="object-cover" />
-						<Button variant="ghost" size="icon" className="absolute top-2 right-2 bg-background/80">
+						<Image
+							src={item.image}
+							alt={item.title}
+							fill
+							className="object-cover"
+						/>
+						<Button
+							variant="ghost"
+							size="icon"
+							className="absolute top-2 right-2 bg-background/80"
+						>
 							<Bookmark className="size-4 fill-current" />
 						</Button>
 					</div>
-					<Badge variant="secondary" className="mt-3">{item.type}</Badge>
+					<Badge variant="secondary" className="mt-3">
+						{item.type}
+					</Badge>
 					<h4 className="font-medium mt-2 line-clamp-2">{item.title}</h4>
 					<p className="text-sm text-muted-foreground mt-1">by {item.author}</p>
 				</CardContent>
@@ -199,7 +255,13 @@ const SavedTab = ({
 const AboutTab = ({
 	about,
 }: {
-	about: { bio: string; location: string; website: string; joined: string; socials: { icon: React.ElementType; label: string; href: string }[] };
+	about: {
+		bio: string;
+		location: string;
+		website: string;
+		joined: string;
+		socials: { icon: React.ElementType; label: string; href: string }[];
+	};
 }) => (
 	<Card>
 		<CardContent className="p-6 space-y-6">
@@ -214,7 +276,9 @@ const AboutTab = ({
 				</div>
 				<div className="flex items-center gap-3 text-sm">
 					<Globe className="size-4 text-muted-foreground" />
-					<a href={about.website} className="text-primary hover:underline">{about.website}</a>
+					<a href={about.website} className="text-primary hover:underline">
+						{about.website}
+					</a>
 				</div>
 				<div className="flex items-center gap-3 text-sm">
 					<Calendar className="size-4 text-muted-foreground" />
@@ -251,29 +315,128 @@ export default function Main() {
 			likes: '2.4M',
 		},
 		posts: [
-			{ image: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=300', title: 'Sunset vibes', likes: 4521, comments: 234, date: '2 days ago' },
-			{ image: 'https://images.unsplash.com/photo-1682687221038-404670f01d03?w=300', title: 'City lights', likes: 3892, comments: 156, date: '5 days ago' },
-			{ image: 'https://images.unsplash.com/photo-1682687982501-1e58ab814714?w=300', title: 'Morning coffee', likes: 5123, comments: 312, date: '1 week ago' },
-			{ image: 'https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=300', title: 'Travel mood', likes: 6234, comments: 428, date: '2 weeks ago' },
-			{ image: 'https://images.unsplash.com/photo-1682695796954-bad0d0f59ff1?w=300', title: 'Fashion week', likes: 7891, comments: 521, date: '3 weeks ago' },
-			{ image: 'https://images.unsplash.com/photo-1682686580003-22d3d65399a8?w=300', title: 'Studio session', likes: 4123, comments: 189, date: '1 month ago' },
+			{
+				image:
+					'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=300',
+				title: 'Sunset vibes',
+				likes: 4521,
+				comments: 234,
+				date: '2 days ago',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1682687221038-404670f01d03?w=300',
+				title: 'City lights',
+				likes: 3892,
+				comments: 156,
+				date: '5 days ago',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1682687982501-1e58ab814714?w=300',
+				title: 'Morning coffee',
+				likes: 5123,
+				comments: 312,
+				date: '1 week ago',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?w=300',
+				title: 'Travel mood',
+				likes: 6234,
+				comments: 428,
+				date: '2 weeks ago',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1682695796954-bad0d0f59ff1?w=300',
+				title: 'Fashion week',
+				likes: 7891,
+				comments: 521,
+				date: '3 weeks ago',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1682686580003-22d3d65399a8?w=300',
+				title: 'Studio session',
+				likes: 4123,
+				comments: 189,
+				date: '1 month ago',
+			},
 		],
 		videos: [
-			{ thumbnail: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400', title: 'Day in my life as a content creator', views: '245K', duration: '12:34', date: '3 days ago' },
-			{ thumbnail: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400', title: 'Photography tips for beginners', views: '189K', duration: '18:45', date: '1 week ago' },
-			{ thumbnail: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400', title: 'Travel vlog: Iceland adventure', views: '312K', duration: '24:12', date: '2 weeks ago' },
+			{
+				thumbnail:
+					'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400',
+				title: 'Day in my life as a content creator',
+				views: '245K',
+				duration: '12:34',
+				date: '3 days ago',
+			},
+			{
+				thumbnail:
+					'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400',
+				title: 'Photography tips for beginners',
+				views: '189K',
+				duration: '18:45',
+				date: '1 week ago',
+			},
+			{
+				thumbnail:
+					'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400',
+				title: 'Travel vlog: Iceland adventure',
+				views: '312K',
+				duration: '24:12',
+				date: '2 weeks ago',
+			},
 		],
 		articles: [
-			{ image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=300', title: 'How I Built My Personal Brand from Scratch', excerpt: 'A comprehensive guide on building your personal brand in the digital age...', readTime: '8 min', date: 'Jan 15, 2024', tags: ['Personal Branding', 'Career'] },
-			{ image: 'https://images.unsplash.com/photo-1542435503-956c469947f6?w=300', title: '10 Photography Tips That Changed My Game', excerpt: 'These simple photography techniques will elevate your content...', readTime: '5 min', date: 'Jan 8, 2024', tags: ['Photography', 'Tips'] },
+			{
+				image:
+					'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=300',
+				title: 'How I Built My Personal Brand from Scratch',
+				excerpt:
+					'A comprehensive guide on building your personal brand in the digital age...',
+				readTime: '8 min',
+				date: 'Jan 15, 2024',
+				tags: ['Personal Branding', 'Career'],
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1542435503-956c469947f6?w=300',
+				title: '10 Photography Tips That Changed My Game',
+				excerpt:
+					'These simple photography techniques will elevate your content...',
+				readTime: '5 min',
+				date: 'Jan 8, 2024',
+				tags: ['Photography', 'Tips'],
+			},
 		],
 		saved: [
-			{ type: 'post' as const, image: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=300', title: 'Amazing sunset photography', author: 'John Smith' },
-			{ type: 'video' as const, image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300', title: 'Camera settings explained', author: 'Tech Reviews' },
-			{ type: 'article' as const, image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=300', title: 'Creative workflow tips', author: 'Design Weekly' },
+			{
+				type: 'post' as const,
+				image:
+					'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=300',
+				title: 'Amazing sunset photography',
+				author: 'John Smith',
+			},
+			{
+				type: 'video' as const,
+				image:
+					'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300',
+				title: 'Camera settings explained',
+				author: 'Tech Reviews',
+			},
+			{
+				type: 'article' as const,
+				image:
+					'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=300',
+				title: 'Creative workflow tips',
+				author: 'Design Weekly',
+			},
 		],
 		about: {
-			bio: 'Hi! I\'m Sophia, a digital creator and photography enthusiast based in Los Angeles. I love capturing beautiful moments and sharing my creative journey with the world. When I\'m not behind the camera, you can find me exploring new coffee shops or planning my next adventure.',
+			bio: "Hi! I'm Sophia, a digital creator and photography enthusiast based in Los Angeles. I love capturing beautiful moments and sharing my creative journey with the world. When I'm not behind the camera, you can find me exploring new coffee shops or planning my next adventure.",
 			location: 'Los Angeles, CA',
 			website: 'sophialaurent.com',
 			joined: 'March 2020',

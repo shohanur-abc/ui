@@ -1,13 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-	X,
-	Eye,
-	EyeOff,
-	CheckCircle2,
-	Loader2,
-} from 'lucide-react';
+import { X, Eye, EyeOff, CheckCircle2, Loader2 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -183,7 +177,11 @@ const StatusChangeModal = ({
 					<Button variant="outline" onClick={onClose} disabled={isChanging}>
 						{labels.cancel}
 					</Button>
-					<Button onClick={handleConfirm} disabled={isChanging} className="gap-2">
+					<Button
+						onClick={handleConfirm}
+						disabled={isChanging}
+						className="gap-2"
+					>
 						{isChanging && <Loader2 className="size-4 animate-spin" />}
 						{labels.confirm}
 					</Button>
@@ -212,9 +210,7 @@ const SuccessModal = ({
 				<CheckCircle2 className="size-8 text-emerald-500" />
 			</div>
 			<DialogTitle>{message}</DialogTitle>
-			{subMessage && (
-				<DialogDescription>{subMessage}</DialogDescription>
-			)}
+			{subMessage && <DialogDescription>{subMessage}</DialogDescription>}
 			<Button onClick={onClose} className="w-full">
 				Continue
 			</Button>
@@ -239,7 +235,10 @@ const ProgressModal = ({
 
 	return (
 		<Dialog open={isOpen}>
-			<DialogContent className="max-w-sm" onInteractOutside={(e) => e.preventDefault()}>
+			<DialogContent
+				className="max-w-sm"
+				onInteractOutside={(e) => e.preventDefault()}
+			>
 				<DialogHeader>
 					<DialogTitle className="flex items-center gap-2">
 						<Loader2 className="size-5 animate-spin" />
@@ -299,7 +298,10 @@ export default function Main() {
 						<p className="mb-4 text-sm text-muted-foreground">
 							Confirms destructive actions with product preview
 						</p>
-						<Button variant="destructive" onClick={() => setDeleteModalOpen(true)}>
+						<Button
+							variant="destructive"
+							onClick={() => setDeleteModalOpen(true)}
+						>
 							Open Delete Modal
 						</Button>
 					</div>
@@ -329,9 +331,7 @@ export default function Main() {
 						<p className="mb-4 text-sm text-muted-foreground">
 							Shows bulk operation progress
 						</p>
-						<Button onClick={startProgress}>
-							Start Progress
-						</Button>
+						<Button onClick={startProgress}>Start Progress</Button>
 					</div>
 				</div>
 
@@ -343,7 +343,8 @@ export default function Main() {
 					labels={{
 						title: 'Delete Product',
 						description: 'Are you sure you want to delete this product?',
-						warning: 'This action cannot be undone. The product will be permanently removed.',
+						warning:
+							'This action cannot be undone. The product will be permanently removed.',
 						cancel: 'Cancel',
 						confirm: 'Delete Product',
 					}}
@@ -356,9 +357,18 @@ export default function Main() {
 					product={sampleProduct}
 					targetStatus="draft"
 					labels={{
-						publish: { title: 'Publish Product', description: 'Make this product visible to customers' },
-						unpublish: { title: 'Unpublish Product', description: 'Hide this product from your store' },
-						archive: { title: 'Archive Product', description: 'Move this product to archive' },
+						publish: {
+							title: 'Publish Product',
+							description: 'Make this product visible to customers',
+						},
+						unpublish: {
+							title: 'Unpublish Product',
+							description: 'Hide this product from your store',
+						},
+						archive: {
+							title: 'Archive Product',
+							description: 'Move this product to archive',
+						},
 						cancel: 'Cancel',
 						confirm: 'Confirm',
 					}}

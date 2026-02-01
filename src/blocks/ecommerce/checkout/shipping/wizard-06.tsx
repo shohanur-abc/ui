@@ -1,4 +1,13 @@
-import { Check, ChevronLeft, ChevronRight, Home, Truck, CreditCard, PartyPopper, Clock } from 'lucide-react';
+import {
+	Check,
+	ChevronLeft,
+	ChevronRight,
+	Home,
+	Truck,
+	CreditCard,
+	PartyPopper,
+	Clock,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -129,9 +138,28 @@ const OrderSummary = ({
 
 export default function Main() {
 	const shippingOptions = [
-		{ value: 'free', icon: Truck, label: 'Free Shipping', time: '5-7 days', price: '$0.00' },
-		{ value: 'express', icon: Truck, label: 'Express', time: '2-3 days', price: '$12.99', best: true },
-		{ value: 'overnight', icon: Truck, label: 'Overnight', time: '1 day', price: '$29.99' },
+		{
+			value: 'free',
+			icon: Truck,
+			label: 'Free Shipping',
+			time: '5-7 days',
+			price: '$0.00',
+		},
+		{
+			value: 'express',
+			icon: Truck,
+			label: 'Express',
+			time: '2-3 days',
+			price: '$12.99',
+			best: true,
+		},
+		{
+			value: 'overnight',
+			icon: Truck,
+			label: 'Overnight',
+			time: '1 day',
+			price: '$29.99',
+		},
 	];
 
 	const summaryItems = [

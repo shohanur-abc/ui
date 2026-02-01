@@ -19,7 +19,9 @@ const Header = ({ badge, title, subtitle }: HeaderProps) => (
 			<Sparkles className="size-3" />
 			{badge}
 		</Badge>
-		<h2 className="text-3xl font-bold tracking-tight @sm:text-4xl @lg:text-5xl">{title}</h2>
+		<h2 className="text-3xl font-bold tracking-tight @sm:text-4xl @lg:text-5xl">
+			{title}
+		</h2>
 		<p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{subtitle}</p>
 	</div>
 );
@@ -40,13 +42,18 @@ export default function Main() {
 	const header: HeaderProps = {
 		badge: 'By the Numbers',
 		title: 'Trusted by Millions',
-		subtitle: 'Our platform has helped businesses of all sizes achieve their e-commerce goals.',
+		subtitle:
+			'Our platform has helped businesses of all sizes achieve their e-commerce goals.',
 	};
 
 	const stats: CounterStatProps[] = [
 		{ value: '250K+', label: 'Active Merchants', subtext: 'Growing every day' },
 		{ value: '$12B', label: 'Annual Sales', subtext: 'Processed securely' },
-		{ value: '99.99%', label: 'Uptime SLA', subtext: 'Enterprise-grade reliability' },
+		{
+			value: '99.99%',
+			label: 'Uptime SLA',
+			subtext: 'Enterprise-grade reliability',
+		},
 		{ value: '150+', label: 'Integrations', subtext: 'Connect your tools' },
 	];
 

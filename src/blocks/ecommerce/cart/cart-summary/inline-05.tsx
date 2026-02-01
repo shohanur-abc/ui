@@ -22,9 +22,14 @@ const DiscountBadge = ({ icon: Icon, text }: DiscountBadgeProps) => (
 const PriceStack = ({
 	original,
 	final,
-}: { original: string; final: string }) => (
+}: {
+	original: string;
+	final: string;
+}) => (
 	<div className="flex items-baseline gap-2">
-		<span className="text-sm text-muted-foreground line-through">{original}</span>
+		<span className="text-sm text-muted-foreground line-through">
+			{original}
+		</span>
 		<span className="text-xl font-bold">{final}</span>
 	</div>
 );

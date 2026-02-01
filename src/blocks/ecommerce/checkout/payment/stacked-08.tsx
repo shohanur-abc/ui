@@ -1,4 +1,11 @@
-import { Calendar, CreditCard, DollarSign, Lock, Percent, Split } from 'lucide-react';
+import {
+	Calendar,
+	CreditCard,
+	DollarSign,
+	Lock,
+	Percent,
+	Split,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -26,7 +33,13 @@ interface CardFieldProps {
 	icon?: React.ComponentType<{ className?: string }>;
 }
 
-const SectionTitle = ({ icon: Icon, text }: { icon: React.ComponentType<{ className?: string }>; text: string }) => (
+const SectionTitle = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	text: string;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
 			<Icon className="size-4 text-primary" />
@@ -35,7 +48,14 @@ const SectionTitle = ({ icon: Icon, text }: { icon: React.ComponentType<{ classN
 	</div>
 );
 
-const InstallmentPlan = ({ id, months, monthlyAmount, totalAmount, interestRate, recommended }: InstallmentPlanProps) => (
+const InstallmentPlan = ({
+	id,
+	months,
+	monthlyAmount,
+	totalAmount,
+	interestRate,
+	recommended,
+}: InstallmentPlanProps) => (
 	<Label
 		htmlFor={id}
 		className="relative flex items-center gap-4 p-4 rounded-xl border border-border/50 cursor-pointer transition-all hover:border-primary/30 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
@@ -57,25 +77,45 @@ const InstallmentPlan = ({ id, months, monthlyAmount, totalAmount, interestRate,
 );
 
 const InstallmentPlans = ({ plans }: { plans: InstallmentPlanProps[] }) => (
-	<RadioGroup defaultValue={plans.find(p => p.recommended)?.id || plans[0]?.id} className="space-y-3">
+	<RadioGroup
+		defaultValue={plans.find((p) => p.recommended)?.id || plans[0]?.id}
+		className="space-y-3"
+	>
 		{plans.map((plan) => (
 			<InstallmentPlan key={plan.id} {...plan} />
 		))}
 	</RadioGroup>
 );
 
-const PaymentBreakdown = ({ items }: { items: { label: string; value: string; highlight?: boolean }[] }) => (
+const PaymentBreakdown = ({
+	items,
+}: {
+	items: { label: string; value: string; highlight?: boolean }[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/50 space-y-3">
 		{items.map((item, index) => (
-			<div key={index} className={`flex justify-between ${item.highlight ? 'font-semibold text-primary' : 'text-sm'}`}>
-				<span className={item.highlight ? '' : 'text-muted-foreground'}>{item.label}</span>
+			<div
+				key={index}
+				className={`flex justify-between ${item.highlight ? 'font-semibold text-primary' : 'text-sm'}`}
+			>
+				<span className={item.highlight ? '' : 'text-muted-foreground'}>
+					{item.label}
+				</span>
 				<span>{item.value}</span>
 			</div>
 		))}
 	</div>
 );
 
-const DownPaymentSlider = ({ label, value, max }: { label: string; value: number; max: number }) => (
+const DownPaymentSlider = ({
+	label,
+	value,
+	max,
+}: {
+	label: string;
+	value: number;
+	max: number;
+}) => (
 	<div className="space-y-4">
 		<div className="flex items-center justify-between">
 			<Label className="text-sm">{label}</Label>
@@ -89,12 +129,27 @@ const DownPaymentSlider = ({ label, value, max }: { label: string; value: number
 	</div>
 );
 
-const CardInputField = ({ id, label, placeholder, type = 'text', icon: Icon }: CardFieldProps) => (
+const CardInputField = ({
+	id,
+	label,
+	placeholder,
+	type = 'text',
+	icon: Icon,
+}: CardFieldProps) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
@@ -128,9 +183,28 @@ const SubmitButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const installmentPlans: InstallmentPlanProps[] = [
-		{ id: '3m', months: 3, monthlyAmount: '$83.33', totalAmount: '$250.00', interestRate: '0%' },
-		{ id: '6m', months: 6, monthlyAmount: '$42.50', totalAmount: '$255.00', interestRate: '2%', recommended: true },
-		{ id: '12m', months: 12, monthlyAmount: '$22.08', totalAmount: '$265.00', interestRate: '6%' },
+		{
+			id: '3m',
+			months: 3,
+			monthlyAmount: '$83.33',
+			totalAmount: '$250.00',
+			interestRate: '0%',
+		},
+		{
+			id: '6m',
+			months: 6,
+			monthlyAmount: '$42.50',
+			totalAmount: '$255.00',
+			interestRate: '2%',
+			recommended: true,
+		},
+		{
+			id: '12m',
+			months: 12,
+			monthlyAmount: '$22.08',
+			totalAmount: '$265.00',
+			interestRate: '6%',
+		},
 	];
 
 	const breakdownItems = [
@@ -142,7 +216,12 @@ export default function Main() {
 	];
 
 	const cardFields: CardFieldProps[] = [
-		{ id: 'card', label: 'Card Number', placeholder: '1234 5678 9012 3456', icon: CreditCard },
+		{
+			id: 'card',
+			label: 'Card Number',
+			placeholder: '1234 5678 9012 3456',
+			icon: CreditCard,
+		},
 		{ id: 'name', label: 'Cardholder Name', placeholder: 'John Doe' },
 		{ id: 'expiry', label: 'Expiry', placeholder: 'MM/YY' },
 		{ id: 'cvv', label: 'CVV', placeholder: '123', type: 'password' },
@@ -154,7 +233,9 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 					<CardHeader className="space-y-1 pb-4">
 						<SectionTitle icon={Split} text="Installment Payment" />
-						<p className="text-sm text-muted-foreground">Split your purchase into easy monthly payments</p>
+						<p className="text-sm text-muted-foreground">
+							Split your purchase into easy monthly payments
+						</p>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<InstallmentPlans plans={installmentPlans} />

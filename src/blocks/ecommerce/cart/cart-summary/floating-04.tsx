@@ -27,7 +27,9 @@ type CountdownProps = {
 const SummaryRow = ({ label, value, strike }: SummaryRowProps) => (
 	<div className="flex items-center justify-between text-sm">
 		<span className="text-muted-foreground">{label}</span>
-		<span className={strike ? 'text-muted-foreground line-through' : 'font-medium'}>
+		<span
+			className={strike ? 'text-muted-foreground line-through' : 'font-medium'}
+		>
 			{value}
 		</span>
 	</div>
@@ -37,7 +39,11 @@ const TotalRow = ({
 	label,
 	value,
 	savings,
-}: { label: string; value: string; savings: string }) => (
+}: {
+	label: string;
+	value: string;
+	savings: string;
+}) => (
 	<div className="space-y-1">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>
@@ -60,11 +66,17 @@ const CountdownBanner = ({
 				<span className="text-sm font-medium">{message}</span>
 			</div>
 			<div className="flex gap-1 font-mono text-lg font-bold">
-				<span className="rounded bg-background/80 px-2 py-0.5">{String(hours).padStart(2, '0')}</span>
+				<span className="rounded bg-background/80 px-2 py-0.5">
+					{String(hours).padStart(2, '0')}
+				</span>
 				<span>:</span>
-				<span className="rounded bg-background/80 px-2 py-0.5">{String(minutes).padStart(2, '0')}</span>
+				<span className="rounded bg-background/80 px-2 py-0.5">
+					{String(minutes).padStart(2, '0')}
+				</span>
 				<span>:</span>
-				<span className="rounded bg-background/80 px-2 py-0.5">{String(seconds).padStart(2, '0')}</span>
+				<span className="rounded bg-background/80 px-2 py-0.5">
+					{String(seconds).padStart(2, '0')}
+				</span>
 			</div>
 		</div>
 	</div>

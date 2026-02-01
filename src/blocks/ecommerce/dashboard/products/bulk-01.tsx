@@ -65,7 +65,9 @@ const SelectionBar = ({
 	onAction,
 	labels,
 }: SelectionBarProps) => {
-	const [confirmAction, setConfirmAction] = React.useState<BulkAction | null>(null);
+	const [confirmAction, setConfirmAction] = React.useState<BulkAction | null>(
+		null,
+	);
 
 	if (selectedCount === 0) return null;
 
@@ -88,11 +90,21 @@ const SelectionBar = ({
 						{labels.selected} {selectedCount < totalCount && `of ${totalCount}`}
 					</span>
 					{selectedCount < totalCount ? (
-						<Button variant="link" size="sm" onClick={onSelectAll} className="h-auto p-0">
+						<Button
+							variant="link"
+							size="sm"
+							onClick={onSelectAll}
+							className="h-auto p-0"
+						>
 							{labels.selectAll}
 						</Button>
 					) : (
-						<Button variant="link" size="sm" onClick={onDeselectAll} className="h-auto p-0">
+						<Button
+							variant="link"
+							size="sm"
+							onClick={onDeselectAll}
+							className="h-auto p-0"
+						>
 							{labels.clear}
 						</Button>
 					)}
@@ -102,7 +114,9 @@ const SelectionBar = ({
 					{actions.slice(0, 4).map((action) => (
 						<Button
 							key={action.id}
-							variant={action.variant === 'destructive' ? 'destructive' : 'outline'}
+							variant={
+								action.variant === 'destructive' ? 'destructive' : 'outline'
+							}
 							size="sm"
 							className="gap-1.5"
 							onClick={() => handleAction(action)}
@@ -125,7 +139,9 @@ const SelectionBar = ({
 									<DropdownMenuItem
 										key={action.id}
 										onClick={() => handleAction(action)}
-										className={action.variant === 'destructive' ? 'text-destructive' : ''}
+										className={
+											action.variant === 'destructive' ? 'text-destructive' : ''
+										}
 									>
 										<action.icon className="mr-2 size-4" />
 										{action.label}
@@ -140,7 +156,10 @@ const SelectionBar = ({
 				</div>
 			</div>
 
-			<AlertDialog open={!!confirmAction} onOpenChange={() => setConfirmAction(null)}>
+			<AlertDialog
+				open={!!confirmAction}
+				onOpenChange={() => setConfirmAction(null)}
+			>
 				<AlertDialogContent>
 					<AlertDialogHeader>
 						<AlertDialogTitle className="flex items-center gap-2">
@@ -148,8 +167,8 @@ const SelectionBar = ({
 							Confirm {confirmAction?.label}
 						</AlertDialogTitle>
 						<AlertDialogDescription>
-							Are you sure you want to {confirmAction?.label.toLowerCase()} {selectedCount} selected products?
-							This action cannot be undone.
+							Are you sure you want to {confirmAction?.label.toLowerCase()}{' '}
+							{selectedCount} selected products? This action cannot be undone.
 						</AlertDialogDescription>
 					</AlertDialogHeader>
 					<AlertDialogFooter>
@@ -161,7 +180,11 @@ const SelectionBar = ({
 									setConfirmAction(null);
 								}
 							}}
-							className={confirmAction?.variant === 'destructive' ? 'bg-destructive text-destructive-foreground hover:bg-destructive/90' : ''}
+							className={
+								confirmAction?.variant === 'destructive'
+									? 'bg-destructive text-destructive-foreground hover:bg-destructive/90'
+									: ''
+							}
 						>
 							{confirmAction?.label}
 						</AlertDialogAction>
@@ -180,7 +203,13 @@ interface ProgressModalProps {
 	onCancel: () => void;
 }
 
-const ProgressModal = ({ isOpen, action, current, total, onCancel }: ProgressModalProps) => {
+const ProgressModal = ({
+	isOpen,
+	action,
+	current,
+	total,
+	onCancel,
+}: ProgressModalProps) => {
 	if (!isOpen) return null;
 
 	const progress = (current / total) * 100;
@@ -244,28 +273,74 @@ const ProductRow = ({ product, isSelected, onToggle }: ProductRowProps) => {
 			</div>
 			<div className="text-right">
 				<p className="font-semibold">${product.price.toFixed(2)}</p>
-				<p className="text-sm text-muted-foreground">{product.stock} in stock</p>
+				<p className="text-sm text-muted-foreground">
+					{product.stock} in stock
+				</p>
 			</div>
-			<Badge className={statusColors[product.status]}>
-				{product.status}
-			</Badge>
+			<Badge className={statusColors[product.status]}>{product.status}</Badge>
 		</div>
 	);
 };
 
 export default function Main() {
 	const [products] = React.useState<ProductItem[]>([
-		{ id: '1', name: 'Wireless Headphones Pro', sku: 'WHP-001', price: 149.99, status: 'active', stock: 45 },
-		{ id: '2', name: 'Mechanical Keyboard RGB', sku: 'MKB-002', price: 199.99, status: 'active', stock: 23 },
-		{ id: '3', name: 'Gaming Mouse Elite', sku: 'GME-003', price: 79.99, status: 'draft', stock: 0 },
-		{ id: '4', name: 'USB-C Hub 7-in-1', sku: 'UCH-004', price: 49.99, status: 'active', stock: 156 },
-		{ id: '5', name: 'Webcam 4K Ultra', sku: 'WCU-005', price: 129.99, status: 'archived', stock: 12 },
-		{ id: '6', name: 'Portable SSD 1TB', sku: 'SSD-006', price: 89.99, status: 'active', stock: 78 },
+		{
+			id: '1',
+			name: 'Wireless Headphones Pro',
+			sku: 'WHP-001',
+			price: 149.99,
+			status: 'active',
+			stock: 45,
+		},
+		{
+			id: '2',
+			name: 'Mechanical Keyboard RGB',
+			sku: 'MKB-002',
+			price: 199.99,
+			status: 'active',
+			stock: 23,
+		},
+		{
+			id: '3',
+			name: 'Gaming Mouse Elite',
+			sku: 'GME-003',
+			price: 79.99,
+			status: 'draft',
+			stock: 0,
+		},
+		{
+			id: '4',
+			name: 'USB-C Hub 7-in-1',
+			sku: 'UCH-004',
+			price: 49.99,
+			status: 'active',
+			stock: 156,
+		},
+		{
+			id: '5',
+			name: 'Webcam 4K Ultra',
+			sku: 'WCU-005',
+			price: 129.99,
+			status: 'archived',
+			stock: 12,
+		},
+		{
+			id: '6',
+			name: 'Portable SSD 1TB',
+			sku: 'SSD-006',
+			price: 89.99,
+			status: 'active',
+			stock: 78,
+		},
 	]);
 
 	const [selectedIds, setSelectedIds] = React.useState<string[]>([]);
 	const [isProcessing, setIsProcessing] = React.useState(false);
-	const [processProgress, setProcessProgress] = React.useState({ current: 0, total: 0, action: '' });
+	const [processProgress, setProcessProgress] = React.useState({
+		current: 0,
+		total: 0,
+		action: '',
+	});
 
 	const bulkActions: BulkAction[] = [
 		{ id: 'edit', label: 'Edit', icon: Edit },
@@ -274,13 +349,24 @@ export default function Main() {
 		{ id: 'duplicate', label: 'Duplicate', icon: Copy },
 		{ id: 'add-tags', label: 'Add Tags', icon: Tag },
 		{ id: 'export', label: 'Export', icon: Download },
-		{ id: 'archive', label: 'Archive', icon: Archive, requiresConfirmation: true },
-		{ id: 'delete', label: 'Delete', icon: Trash2, variant: 'destructive', requiresConfirmation: true },
+		{
+			id: 'archive',
+			label: 'Archive',
+			icon: Archive,
+			requiresConfirmation: true,
+		},
+		{
+			id: 'delete',
+			label: 'Delete',
+			icon: Trash2,
+			variant: 'destructive',
+			requiresConfirmation: true,
+		},
 	];
 
 	const toggleSelection = (id: string) => {
 		setSelectedIds((prev) =>
-			prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+			prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id],
 		);
 	};
 
@@ -297,7 +383,11 @@ export default function Main() {
 		if (!action) return;
 
 		setIsProcessing(true);
-		setProcessProgress({ current: 0, total: selectedIds.length, action: action.label });
+		setProcessProgress({
+			current: 0,
+			total: selectedIds.length,
+			action: action.label,
+		});
 
 		// Simulate processing
 		let current = 0;
@@ -322,7 +412,11 @@ export default function Main() {
 					onDeselectAll={deselectAll}
 					actions={bulkActions}
 					onAction={handleAction}
-					labels={{ selected: 'products selected', selectAll: 'Select all', clear: 'Clear selection' }}
+					labels={{
+						selected: 'products selected',
+						selectAll: 'Select all',
+						clear: 'Clear selection',
+					}}
 				/>
 
 				<div className="space-y-2">

@@ -1,14 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	AlertTriangle,
-	CheckCircle,
-	XCircle,
-} from 'lucide-react';
+import { Package, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 type StockLevel = 'in-stock' | 'low-stock' | 'out-of-stock';
@@ -75,7 +76,9 @@ const StatusCard = ({ data, icon, color }: StatusCardProps) => (
 	<div className={`rounded-lg border p-4 ${color}`}>
 		<div className="flex items-center gap-2">
 			{icon}
-			<span className="text-sm font-medium capitalize">{data.status.replace('-', ' ')}</span>
+			<span className="text-sm font-medium capitalize">
+				{data.status.replace('-', ' ')}
+			</span>
 		</div>
 		<div className="mt-3 grid grid-cols-2 gap-4">
 			<div>
@@ -109,15 +112,21 @@ export default function Main() {
 		{ status: 'out-of-stock', count: 198, value: 78000, percentage: 7 },
 	];
 
-	const healthScore = Math.round((statusData[0].percentage + statusData[1].percentage * 0.5) / 1.5);
+	const healthScore = Math.round(
+		(statusData[0].percentage + statusData[1].percentage * 0.5) / 1.5,
+	);
 
 	return (
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Inventory Health</CardTitle>
-						<CardDescription>Stock level distribution and health score</CardDescription>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Inventory Health
+						</CardTitle>
+						<CardDescription>
+							Stock level distribution and health score
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<div className="grid gap-6 @lg:grid-cols-4">

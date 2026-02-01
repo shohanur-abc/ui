@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Lock, User, ArrowRight, Gift, Calendar, Cake, Bell } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	ArrowRight,
+	Gift,
+	Calendar,
+	Cake,
+	Bell,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -32,7 +41,10 @@ const BirthdayPanel = ({
 			</p>
 			<div className="space-y-3 text-left">
 				{perks.map((perk, i) => (
-					<div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-card/80 border border-border/50">
+					<div
+						key={i}
+						className="flex items-center gap-3 p-3 rounded-lg bg-card/80 border border-border/50"
+					>
 						<div className="flex size-8 items-center justify-center rounded-lg bg-primary/10">
 							<perk.icon className="size-4 text-primary" />
 						</div>
@@ -44,7 +56,13 @@ const BirthdayPanel = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -55,7 +73,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -86,7 +106,20 @@ const FormField = ({
 );
 
 const BirthdaySelect = () => {
-	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	const months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December',
+	];
 	const days = Array.from({ length: 31 }, (_, i) => i + 1);
 
 	return (
@@ -125,7 +158,10 @@ const BirthdaySelect = () => {
 const NotificationCheckbox = ({ label }: { label: string }) => (
 	<div className="flex items-center gap-2">
 		<Checkbox id="notifications" defaultChecked />
-		<Label htmlFor="notifications" className="text-sm font-normal cursor-pointer">
+		<Label
+			htmlFor="notifications"
+			className="text-sm font-normal cursor-pointer"
+		>
 			{label}
 		</Label>
 	</div>
@@ -176,19 +212,41 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="GiftBox" icon={Gift} />
-						<Title text="Join GiftBox" subtitle="Create an account to unlock birthday rewards" />
+						<Title
+							text="Join GiftBox"
+							subtitle="Create an account to unlock birthday rewards"
+						/>
 
 						<form className="space-y-5">
-							<FormField label="Full Name" type="text" placeholder="John Doe" icon={User} />
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Full Name"
+								type="text"
+								placeholder="John Doe"
+								icon={User}
+							/>
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<BirthdaySelect />
 							<NotificationCheckbox label="Send me birthday surprises and offers" />
 							<SubmitButton label="Create Account" icon={ArrowRight} />
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="Already a member?" linkText="Sign in" href="/login" />
+							<FooterLink
+								text="Already a member?"
+								linkText="Sign in"
+								href="/login"
+							/>
 						</div>
 					</div>
 				</div>

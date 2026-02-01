@@ -12,7 +12,9 @@ type RewardInfoProps = {
 const RewardInfo = ({ icon: Icon, points, label }: RewardInfoProps) => (
 	<Badge variant="secondary" className="gap-1 py-1">
 		<Icon className="size-3 text-amber-500" />
-		<span>Earn {points} {label}</span>
+		<span>
+			Earn {points} {label}
+		</span>
 	</Badge>
 );
 
@@ -23,7 +25,10 @@ const PriceTotal = ({ value }: { value: string }) => (
 const MemberBadge = ({
 	icon: Icon,
 	tier,
-}: { icon: LucideIcon; tier: string }) => (
+}: {
+	icon: LucideIcon;
+	tier: string;
+}) => (
 	<Badge className="gap-1 bg-gradient-to-r from-amber-500 to-orange-500">
 		<Icon className="size-3" />
 		{tier}

@@ -23,8 +23,14 @@ interface CardGridProps {
 const NotificationToggle = ({ enabled }: { enabled: boolean }) => (
 	<div className="flex items-center justify-between p-2 rounded-lg bg-muted/50 mt-3">
 		<div className="flex items-center gap-2 text-xs">
-			{enabled ? <Bell className="size-3 text-primary" /> : <BellOff className="size-3 text-muted-foreground" />}
-			<span className={enabled ? 'text-foreground' : 'text-muted-foreground'}>Price Alerts</span>
+			{enabled ? (
+				<Bell className="size-3 text-primary" />
+			) : (
+				<BellOff className="size-3 text-muted-foreground" />
+			)}
+			<span className={enabled ? 'text-foreground' : 'text-muted-foreground'}>
+				Price Alerts
+			</span>
 		</div>
 		<Switch checked={enabled} />
 	</div>
@@ -67,11 +73,15 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			</Link>
 			<DateBadge date={item.addedDate} />
 			<div className="mt-2 flex items-center gap-2">
-				<span className={`text-xl font-bold ${item.priceDropped ? 'text-destructive' : ''}`}>
+				<span
+					className={`text-xl font-bold ${item.priceDropped ? 'text-destructive' : ''}`}
+				>
 					${item.price.toFixed(2)}
 				</span>
 				{item.priceDropped && (
-					<span className="text-xs text-green-600 font-medium">↓ 15% lower</span>
+					<span className="text-xs text-green-600 font-medium">
+						↓ 15% lower
+					</span>
 				)}
 			</div>
 			<NotificationToggle enabled={item.notificationsEnabled} />
@@ -112,10 +122,48 @@ const NotificationSummary = ({ items }: { items: WishlistItem[] }) => {
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Ergonomic Office Chair', price: 399.00, image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=400&fit=crop', addedDate: 'Oct 15', notificationsEnabled: true, priceDropped: true, href: '/product/1' },
-		{ id: '2', name: 'Standing Desk Converter', price: 249.00, image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=400&fit=crop', addedDate: 'Oct 18', notificationsEnabled: true, href: '/product/2' },
-		{ id: '3', name: 'Monitor Light Bar', price: 79.00, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop', addedDate: 'Oct 20', notificationsEnabled: false, href: '/product/3' },
-		{ id: '4', name: 'Wireless Keyboard', price: 149.00, image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop', addedDate: 'Oct 22', notificationsEnabled: true, priceDropped: true, href: '/product/4' },
+		{
+			id: '1',
+			name: 'Ergonomic Office Chair',
+			price: 399.0,
+			image:
+				'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=400&fit=crop',
+			addedDate: 'Oct 15',
+			notificationsEnabled: true,
+			priceDropped: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Standing Desk Converter',
+			price: 249.0,
+			image:
+				'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=400&fit=crop',
+			addedDate: 'Oct 18',
+			notificationsEnabled: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Monitor Light Bar',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop',
+			addedDate: 'Oct 20',
+			notificationsEnabled: false,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Wireless Keyboard',
+			price: 149.0,
+			image:
+				'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=400&fit=crop',
+			addedDate: 'Oct 22',
+			notificationsEnabled: true,
+			priceDropped: true,
+			href: '/product/4',
+		},
 	];
 
 	return (

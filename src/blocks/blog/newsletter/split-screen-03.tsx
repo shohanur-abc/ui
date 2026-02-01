@@ -1,7 +1,13 @@
 import { Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 
 interface TestimonialProps {
 	quote: string;
@@ -29,7 +35,13 @@ const Testimonial = ({ quote, author, role }: TestimonialProps) => (
 	</div>
 );
 
-const FormCard = ({ title, description, placeholder, buttonText, features }: FormCardProps) => (
+const FormCard = ({
+	title,
+	description,
+	placeholder,
+	buttonText,
+	features,
+}: FormCardProps) => (
 	<Card className="h-full">
 		<CardHeader>
 			<CardTitle className="text-xl @md:text-2xl">{title}</CardTitle>
@@ -37,11 +49,7 @@ const FormCard = ({ title, description, placeholder, buttonText, features }: For
 		</CardHeader>
 		<CardContent className="flex flex-col gap-6">
 			<form className="flex flex-col gap-3">
-				<Input
-					type="email"
-					placeholder={placeholder}
-					className="h-11"
-				/>
+				<Input type="email" placeholder={placeholder} className="h-11" />
 				<Button size="lg" className="gap-2 w-full h-11">
 					{buttonText}
 					<ArrowRight className="size-4" />
@@ -49,7 +57,10 @@ const FormCard = ({ title, description, placeholder, buttonText, features }: For
 			</form>
 			<ul className="space-y-2">
 				{features.map((feature, i) => (
-					<li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+					<li
+						key={i}
+						className="flex items-center gap-2 text-sm text-muted-foreground"
+					>
 						<CheckCircle2 className="size-4 text-primary shrink-0" />
 						<span>{feature}</span>
 					</li>

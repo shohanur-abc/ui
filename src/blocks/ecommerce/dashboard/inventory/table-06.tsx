@@ -54,7 +54,12 @@ type SortableHeaderProps = {
 	onSort: (key: keyof InventoryItem) => void;
 };
 
-const SortableHeader = ({ label, sortKey, currentSort, onSort }: SortableHeaderProps) => {
+const SortableHeader = ({
+	label,
+	sortKey,
+	currentSort,
+	onSort,
+}: SortableHeaderProps) => {
 	const isActive = currentSort?.key === sortKey;
 	const direction = currentSort?.direction;
 
@@ -85,7 +90,10 @@ const Header = ({ title, searchPlaceholder, advancedLabel }: HeaderProps) => (
 		<div className="flex gap-2">
 			<div className="relative">
 				<Search className="absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-				<Input placeholder={searchPlaceholder} className="w-full pl-9 @sm:w-64" />
+				<Input
+					placeholder={searchPlaceholder}
+					className="w-full pl-9 @sm:w-64"
+				/>
 			</div>
 			<Button variant="outline" size="default">
 				<SlidersHorizontal className="size-4" />
@@ -126,12 +134,72 @@ export default function Main() {
 	const [sortConfig, setSortConfig] = React.useState<SortConfig>(null);
 
 	const inventory: InventoryItem[] = [
-		{ id: '1', name: 'Premium Headphones', sku: 'PH-001', image: '', quantity: 150, value: 14985.00, turnoverRate: 6.2, lastRestocked: '2024-01-15', category: 'Electronics' },
-		{ id: '2', name: 'Wireless Keyboard', sku: 'WK-002', image: '', quantity: 89, value: 5340.00, turnoverRate: 3.8, lastRestocked: '2024-01-10', category: 'Peripherals' },
-		{ id: '3', name: 'Monitor Stand Pro', sku: 'MSP-003', image: '', quantity: 42, value: 3358.00, turnoverRate: 1.5, lastRestocked: '2023-12-20', category: 'Accessories' },
-		{ id: '4', name: 'USB Hub 7-Port', sku: 'UH-004', image: '', quantity: 200, value: 5980.00, turnoverRate: 8.1, lastRestocked: '2024-01-18', category: 'Electronics' },
-		{ id: '5', name: 'Desk Organizer', sku: 'DO-005', image: '', quantity: 65, value: 1625.00, turnoverRate: 2.3, lastRestocked: '2024-01-05', category: 'Accessories' },
-		{ id: '6', name: 'Webcam 4K', sku: 'W4K-006', image: '', quantity: 28, value: 4196.00, turnoverRate: 4.7, lastRestocked: '2024-01-12', category: 'Electronics' },
+		{
+			id: '1',
+			name: 'Premium Headphones',
+			sku: 'PH-001',
+			image: '',
+			quantity: 150,
+			value: 14985.0,
+			turnoverRate: 6.2,
+			lastRestocked: '2024-01-15',
+			category: 'Electronics',
+		},
+		{
+			id: '2',
+			name: 'Wireless Keyboard',
+			sku: 'WK-002',
+			image: '',
+			quantity: 89,
+			value: 5340.0,
+			turnoverRate: 3.8,
+			lastRestocked: '2024-01-10',
+			category: 'Peripherals',
+		},
+		{
+			id: '3',
+			name: 'Monitor Stand Pro',
+			sku: 'MSP-003',
+			image: '',
+			quantity: 42,
+			value: 3358.0,
+			turnoverRate: 1.5,
+			lastRestocked: '2023-12-20',
+			category: 'Accessories',
+		},
+		{
+			id: '4',
+			name: 'USB Hub 7-Port',
+			sku: 'UH-004',
+			image: '',
+			quantity: 200,
+			value: 5980.0,
+			turnoverRate: 8.1,
+			lastRestocked: '2024-01-18',
+			category: 'Electronics',
+		},
+		{
+			id: '5',
+			name: 'Desk Organizer',
+			sku: 'DO-005',
+			image: '',
+			quantity: 65,
+			value: 1625.0,
+			turnoverRate: 2.3,
+			lastRestocked: '2024-01-05',
+			category: 'Accessories',
+		},
+		{
+			id: '6',
+			name: 'Webcam 4K',
+			sku: 'W4K-006',
+			image: '',
+			quantity: 28,
+			value: 4196.0,
+			turnoverRate: 4.7,
+			lastRestocked: '2024-01-12',
+			category: 'Electronics',
+		},
 	];
 
 	const handleSort = (key: keyof InventoryItem) => {
@@ -235,7 +303,11 @@ export default function Main() {
 											<div className="flex items-center gap-3">
 												<div className="relative size-10 overflow-hidden rounded-lg border bg-muted">
 													{item.image ? (
-														<img src={item.image} alt={item.name} className="size-full object-cover" />
+														<img
+															src={item.image}
+															alt={item.name}
+															className="size-full object-cover"
+														/>
 													) : (
 														<div className="flex size-full items-center justify-center">
 															<Package className="size-5 text-muted-foreground" />
@@ -244,15 +316,21 @@ export default function Main() {
 												</div>
 												<div>
 													<div className="font-medium">{item.name}</div>
-													<div className="text-xs text-muted-foreground">{item.sku}</div>
+													<div className="text-xs text-muted-foreground">
+														{item.sku}
+													</div>
 												</div>
 											</div>
 										</TableCell>
 										<TableCell>
 											<Badge variant="outline">{item.category}</Badge>
 										</TableCell>
-										<TableCell className="font-medium tabular-nums">{item.quantity}</TableCell>
-										<TableCell className="font-medium tabular-nums">${item.value.toLocaleString()}</TableCell>
+										<TableCell className="font-medium tabular-nums">
+											{item.quantity}
+										</TableCell>
+										<TableCell className="font-medium tabular-nums">
+											${item.value.toLocaleString()}
+										</TableCell>
 										<TableCell>
 											<TurnoverBadge rate={item.turnoverRate} />
 										</TableCell>

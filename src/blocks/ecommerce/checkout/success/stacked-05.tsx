@@ -228,7 +228,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'Add to Calendar', href: '/calendar', icon: Calendar },
-						{ label: 'Get Directions', href: '/directions', variant: 'outline', icon: MapPin },
+						{
+							label: 'Get Directions',
+							href: '/directions',
+							variant: 'outline',
+							icon: MapPin,
+						},
 					]}
 				/>
 			</div>

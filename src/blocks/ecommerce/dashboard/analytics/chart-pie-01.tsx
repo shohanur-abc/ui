@@ -26,7 +26,11 @@ const PieChart = ({ data }: { data: PieSlice[] }) => {
 
 		const d = `M 50 50 L ${x1} ${y1} A 40 40 0 ${largeArc} 1 ${x2} ${y2} Z`;
 
-		return { ...slice, d, percentage: ((slice.value / total) * 100).toFixed(1) };
+		return {
+			...slice,
+			d,
+			percentage: ((slice.value / total) * 100).toFixed(1),
+		};
 	});
 
 	return (
@@ -48,9 +52,14 @@ const PieChart = ({ data }: { data: PieSlice[] }) => {
 			<div className="flex flex-col gap-3">
 				{slices.map((slice, i) => (
 					<div key={i} className="flex items-center gap-3">
-						<div className="w-3 h-3 rounded-full" style={{ backgroundColor: slice.color }} />
+						<div
+							className="w-3 h-3 rounded-full"
+							style={{ backgroundColor: slice.color }}
+						/>
 						<span className="text-sm">{slice.label}</span>
-						<span className="text-sm text-muted-foreground ml-auto">{slice.percentage}%</span>
+						<span className="text-sm text-muted-foreground ml-auto">
+							{slice.percentage}%
+						</span>
 					</div>
 				))}
 			</div>
@@ -71,8 +80,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Revenue by Source</CardTitle>
-						<p className="text-xs text-muted-foreground">Distribution across sales channels</p>
+						<CardTitle className="text-sm font-medium">
+							Revenue by Source
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Distribution across sales channels
+						</p>
 					</CardHeader>
 					<CardContent>
 						<PieChart data={revenueBySource} />

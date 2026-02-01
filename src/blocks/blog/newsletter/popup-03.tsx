@@ -34,23 +34,22 @@ const ContentSide = ({ title, subtitle, features }: ContentSideProps) => (
 	</div>
 );
 
-const FormSide = ({ title, placeholder, buttonText, buttonIcon: Icon, disclaimer, dismissLabel }: FormSideProps) => (
+const FormSide = ({
+	title,
+	placeholder,
+	buttonText,
+	buttonIcon: Icon,
+	disclaimer,
+	dismissLabel,
+}: FormSideProps) => (
 	<div className="relative flex flex-col gap-5 p-6 @md:p-8">
-		<Button
-			variant="ghost"
-			size="icon-sm"
-			className="absolute top-4 right-4"
-		>
+		<Button variant="ghost" size="icon-sm" className="absolute top-4 right-4">
 			<X className="size-4" />
 			<span className="sr-only">{dismissLabel}</span>
 		</Button>
 		<h3 className="text-lg font-semibold pr-8">{title}</h3>
 		<form className="flex flex-col gap-3">
-			<Input
-				type="email"
-				placeholder={placeholder}
-				className="h-11"
-			/>
+			<Input type="email" placeholder={placeholder} className="h-11" />
 			<Button size="lg" className="gap-2 w-full h-11">
 				{buttonText}
 				{Icon && <Icon className="size-4" />}

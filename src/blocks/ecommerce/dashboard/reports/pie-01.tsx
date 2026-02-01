@@ -69,7 +69,11 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const chartData: CategoryData[] = [
-		{ category: 'electronics', revenue: 425000, fill: 'var(--color-electronics)' },
+		{
+			category: 'electronics',
+			revenue: 425000,
+			fill: 'var(--color-electronics)',
+		},
 		{ category: 'clothing', revenue: 312000, fill: 'var(--color-clothing)' },
 		{ category: 'home', revenue: 198000, fill: 'var(--color-home)' },
 		{ category: 'sports', revenue: 145000, fill: 'var(--color-sports)' },
@@ -77,11 +81,36 @@ export default function Main() {
 	];
 
 	const legendItems: LegendItemProps[] = [
-		{ color: 'bg-[oklch(0.7_0.2_280)]', label: 'Electronics', value: '$425K', percentage: '35.4%' },
-		{ color: 'bg-[oklch(0.7_0.18_160)]', label: 'Clothing', value: '$312K', percentage: '26.0%' },
-		{ color: 'bg-[oklch(0.72_0.16_200)]', label: 'Home & Garden', value: '$198K', percentage: '16.5%' },
-		{ color: 'bg-[oklch(0.65_0.2_320)]', label: 'Sports', value: '$145K', percentage: '12.1%' },
-		{ color: 'bg-[oklch(0.75_0.15_55)]', label: 'Beauty', value: '$120K', percentage: '10.0%' },
+		{
+			color: 'bg-[oklch(0.7_0.2_280)]',
+			label: 'Electronics',
+			value: '$425K',
+			percentage: '35.4%',
+		},
+		{
+			color: 'bg-[oklch(0.7_0.18_160)]',
+			label: 'Clothing',
+			value: '$312K',
+			percentage: '26.0%',
+		},
+		{
+			color: 'bg-[oklch(0.72_0.16_200)]',
+			label: 'Home & Garden',
+			value: '$198K',
+			percentage: '16.5%',
+		},
+		{
+			color: 'bg-[oklch(0.65_0.2_320)]',
+			label: 'Sports',
+			value: '$145K',
+			percentage: '12.1%',
+		},
+		{
+			color: 'bg-[oklch(0.75_0.15_55)]',
+			label: 'Beauty',
+			value: '$120K',
+			percentage: '10.0%',
+		},
 	];
 
 	const totalRevenue = chartData.reduce((sum, item) => sum + item.revenue, 0);
@@ -100,7 +129,10 @@ export default function Main() {
 					</CardHeader>
 					<CardContent>
 						<div className="grid gap-8 @lg:grid-cols-[1fr,280px]">
-							<ChartContainer config={chartConfig} className="mx-auto aspect-square h-[320px]">
+							<ChartContainer
+								config={chartConfig}
+								className="mx-auto aspect-square h-[320px]"
+							>
 								<PieChart>
 									<ChartTooltip content={<ChartTooltipContent />} />
 									<Pie

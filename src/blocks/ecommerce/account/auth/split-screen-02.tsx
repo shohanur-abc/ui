@@ -7,25 +7,20 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 
-const ImagePanel = ({
-	imageUrl,
-	alt,
-}: {
-	imageUrl: string;
-	alt: string;
-}) => (
+const ImagePanel = ({ imageUrl, alt }: { imageUrl: string; alt: string }) => (
 	<div className="relative hidden @lg:block">
-		<Image
-			src={imageUrl}
-			alt={alt}
-			fill
-			className="object-cover"
-		/>
+		<Image src={imageUrl} alt={alt} fill className="object-cover" />
 		<div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -36,7 +31,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -75,7 +72,10 @@ const TermsCheckbox = ({
 }) => (
 	<div className="flex items-start gap-2">
 		<Checkbox id="terms" className="mt-0.5" />
-		<Label htmlFor="terms" className="text-sm font-normal cursor-pointer leading-relaxed">
+		<Label
+			htmlFor="terms"
+			className="text-sm font-normal cursor-pointer leading-relaxed"
+		>
 			I agree to the{' '}
 			<Link href={termsHref} className="text-primary hover:underline">
 				Terms of Service
@@ -127,18 +127,40 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="PackageHub" icon={Package} />
-						<Title text="Create your account" subtitle="Start shopping with us today" />
+						<Title
+							text="Create your account"
+							subtitle="Start shopping with us today"
+						/>
 
 						<form className="space-y-5">
-							<FormField label="Full Name" type="text" placeholder="John Doe" icon={User} />
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Full Name"
+								type="text"
+								placeholder="John Doe"
+								icon={User}
+							/>
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<TermsCheckbox termsHref="/terms" privacyHref="/privacy" />
 							<SubmitButton label="Create Account" icon={ArrowRight} />
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="Already have an account?" linkText="Sign in" href="/login" />
+							<FooterLink
+								text="Already have an account?"
+								linkText="Sign in"
+								href="/login"
+							/>
 						</div>
 					</div>
 				</div>

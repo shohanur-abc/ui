@@ -5,9 +5,22 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -105,12 +118,24 @@ export default function Main() {
 							<Logo name="ShopNow" icon={ShoppingBag} />
 						</div>
 						<CardTitle className="text-2xl">Welcome back</CardTitle>
-						<CardDescription>Sign in to your account to continue shopping</CardDescription>
+						<CardDescription>
+							Sign in to your account to continue shopping
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<form className="space-y-4">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<RememberForgot
 								rememberLabel="Remember me"
 								forgotLabel="Forgot password?"
@@ -120,7 +145,11 @@ export default function Main() {
 						</form>
 					</CardContent>
 					<CardFooter>
-						<FooterLink text="Don't have an account?" linkText="Sign up" href="/signup" />
+						<FooterLink
+							text="Don't have an account?"
+							linkText="Sign up"
+							href="/signup"
+						/>
 					</CardFooter>
 				</Card>
 			</div>

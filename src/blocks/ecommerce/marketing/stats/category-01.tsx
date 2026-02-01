@@ -11,7 +11,14 @@ interface CategoryStatProps {
 	positive: boolean;
 }
 
-const CategoryStat = ({ category, revenue, items, percentage, growth, positive }: CategoryStatProps) => (
+const CategoryStat = ({
+	category,
+	revenue,
+	items,
+	percentage,
+	growth,
+	positive,
+}: CategoryStatProps) => (
 	<Card className="group overflow-hidden transition-all duration-300 hover:shadow-md">
 		<div className="p-5">
 			<div className="flex items-start justify-between">
@@ -19,7 +26,10 @@ const CategoryStat = ({ category, revenue, items, percentage, growth, positive }
 					<p className="font-medium">{category}</p>
 					<p className="text-xs text-muted-foreground">{items} items</p>
 				</div>
-				<Badge variant={positive ? 'default' : 'destructive'} className="text-[10px]">
+				<Badge
+					variant={positive ? 'default' : 'destructive'}
+					className="text-[10px]"
+				>
 					{growth}
 				</Badge>
 			</div>
@@ -36,12 +46,54 @@ const CategoryStat = ({ category, revenue, items, percentage, growth, positive }
 
 export default function Main() {
 	const stats: CategoryStatProps[] = [
-		{ category: 'Electronics', revenue: '$428K', items: '2,847', percentage: 34, growth: '+24%', positive: true },
-		{ category: 'Fashion', revenue: '$312K', items: '4,294', percentage: 25, growth: '+18%', positive: true },
-		{ category: 'Home & Garden', revenue: '$248K', items: '1,847', percentage: 20, growth: '+12%', positive: true },
-		{ category: 'Sports', revenue: '$156K', items: '984', percentage: 12, growth: '-4%', positive: false },
-		{ category: 'Beauty', revenue: '$98K', items: '1,284', percentage: 8, growth: '+8%', positive: true },
-		{ category: 'Books', revenue: '$12K', items: '428', percentage: 1, growth: '-12%', positive: false },
+		{
+			category: 'Electronics',
+			revenue: '$428K',
+			items: '2,847',
+			percentage: 34,
+			growth: '+24%',
+			positive: true,
+		},
+		{
+			category: 'Fashion',
+			revenue: '$312K',
+			items: '4,294',
+			percentage: 25,
+			growth: '+18%',
+			positive: true,
+		},
+		{
+			category: 'Home & Garden',
+			revenue: '$248K',
+			items: '1,847',
+			percentage: 20,
+			growth: '+12%',
+			positive: true,
+		},
+		{
+			category: 'Sports',
+			revenue: '$156K',
+			items: '984',
+			percentage: 12,
+			growth: '-4%',
+			positive: false,
+		},
+		{
+			category: 'Beauty',
+			revenue: '$98K',
+			items: '1,284',
+			percentage: 8,
+			growth: '+8%',
+			positive: true,
+		},
+		{
+			category: 'Books',
+			revenue: '$12K',
+			items: '428',
+			percentage: 1,
+			growth: '-12%',
+			positive: false,
+		},
 	];
 
 	return (

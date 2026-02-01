@@ -43,7 +43,9 @@ const StatusCard = ({ title, total, items }: StatusCardProps) => (
 						<div className="flex-1">
 							<div className="flex items-center justify-between">
 								<span className="text-sm font-medium">{item.label}</span>
-								<span className="text-sm font-semibold tabular-nums">{item.count.toLocaleString()}</span>
+								<span className="text-sm font-semibold tabular-nums">
+									{item.count.toLocaleString()}
+								</span>
 							</div>
 							<div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-muted">
 								<div
@@ -68,7 +70,14 @@ type SummaryCardProps = {
 	bgColor: string;
 };
 
-const SummaryCard = ({ icon: Icon, title, value, subtitle, color, bgColor }: SummaryCardProps) => (
+const SummaryCard = ({
+	icon: Icon,
+	title,
+	value,
+	subtitle,
+	color,
+	bgColor,
+}: SummaryCardProps) => (
 	<Card className="overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
 		<CardContent className="flex items-center gap-4 p-6">
 			<div className={`rounded-xl p-4 ${bgColor}`}>
@@ -85,17 +94,65 @@ const SummaryCard = ({ icon: Icon, title, value, subtitle, color, bgColor }: Sum
 
 export default function Main() {
 	const stockStatus: StatusItem[] = [
-		{ label: 'In Stock', count: 1245, icon: CheckCircle2, color: 'text-emerald-500', bgColor: 'bg-emerald-500/10' },
-		{ label: 'Low Stock', count: 89, icon: AlertTriangle, color: 'text-yellow-500', bgColor: 'bg-yellow-500/10' },
-		{ label: 'Out of Stock', count: 23, icon: XCircle, color: 'text-red-500', bgColor: 'bg-red-500/10' },
-		{ label: 'Incoming', count: 156, icon: Clock, color: 'text-blue-500', bgColor: 'bg-blue-500/10' },
+		{
+			label: 'In Stock',
+			count: 1245,
+			icon: CheckCircle2,
+			color: 'text-emerald-500',
+			bgColor: 'bg-emerald-500/10',
+		},
+		{
+			label: 'Low Stock',
+			count: 89,
+			icon: AlertTriangle,
+			color: 'text-yellow-500',
+			bgColor: 'bg-yellow-500/10',
+		},
+		{
+			label: 'Out of Stock',
+			count: 23,
+			icon: XCircle,
+			color: 'text-red-500',
+			bgColor: 'bg-red-500/10',
+		},
+		{
+			label: 'Incoming',
+			count: 156,
+			icon: Clock,
+			color: 'text-blue-500',
+			bgColor: 'bg-blue-500/10',
+		},
 	];
 
 	const orderStatus: StatusItem[] = [
-		{ label: 'Pending', count: 45, icon: Clock, color: 'text-yellow-500', bgColor: 'bg-yellow-500/10' },
-		{ label: 'Processing', count: 128, icon: Package, color: 'text-blue-500', bgColor: 'bg-blue-500/10' },
-		{ label: 'Completed', count: 892, icon: CheckCircle2, color: 'text-emerald-500', bgColor: 'bg-emerald-500/10' },
-		{ label: 'Cancelled', count: 12, icon: XCircle, color: 'text-red-500', bgColor: 'bg-red-500/10' },
+		{
+			label: 'Pending',
+			count: 45,
+			icon: Clock,
+			color: 'text-yellow-500',
+			bgColor: 'bg-yellow-500/10',
+		},
+		{
+			label: 'Processing',
+			count: 128,
+			icon: Package,
+			color: 'text-blue-500',
+			bgColor: 'bg-blue-500/10',
+		},
+		{
+			label: 'Completed',
+			count: 892,
+			icon: CheckCircle2,
+			color: 'text-emerald-500',
+			bgColor: 'bg-emerald-500/10',
+		},
+		{
+			label: 'Cancelled',
+			count: 12,
+			icon: XCircle,
+			color: 'text-red-500',
+			bgColor: 'bg-red-500/10',
+		},
 	];
 
 	return (

@@ -1,14 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import {
-	ArrowUpDown,
-	Package,
-	TrendingUp,
-	TrendingDown,
-} from 'lucide-react';
+import { ArrowUpDown, Package, TrendingUp, TrendingDown } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
 	Select,
@@ -52,10 +53,19 @@ const TurnoverBar = ({ item, maxRate }: TurnoverBarProps) => {
 					<p className="text-xs text-muted-foreground">{item.sku}</p>
 				</div>
 				<div className="flex items-center gap-2">
-					<span className="text-xl font-bold tabular-nums">{item.turnoverRate.toFixed(1)}x</span>
+					<span className="text-xl font-bold tabular-nums">
+						{item.turnoverRate.toFixed(1)}x
+					</span>
 					{item.trend !== 0 && (
-						<Badge variant={item.trend > 0 ? 'default' : 'destructive'} className="gap-0.5 px-1">
-							{item.trend > 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+						<Badge
+							variant={item.trend > 0 ? 'default' : 'destructive'}
+							className="gap-0.5 px-1"
+						>
+							{item.trend > 0 ? (
+								<TrendingUp className="size-3" />
+							) : (
+								<TrendingDown className="size-3" />
+							)}
 							{Math.abs(item.trend)}%
 						</Badge>
 					)}
@@ -93,17 +103,72 @@ export default function Main() {
 	const [sortBy, setSortBy] = React.useState<SortField>('turnoverRate');
 
 	const items: TurnoverItem[] = [
-		{ id: '1', name: 'USB-C Cable', sku: 'USB-001', category: 'Accessories', sold: 4520, avgStock: 350, turnoverRate: 12.9, trend: 15 },
-		{ id: '2', name: 'Phone Case', sku: 'PHC-002', category: 'Accessories', sold: 3890, avgStock: 420, turnoverRate: 9.3, trend: 8 },
-		{ id: '3', name: 'Wireless Earbuds', sku: 'WE-003', category: 'Audio', sold: 2450, avgStock: 380, turnoverRate: 6.4, trend: -5 },
-		{ id: '4', name: 'Power Bank', sku: 'PB-004', category: 'Electronics', sold: 1890, avgStock: 450, turnoverRate: 4.2, trend: 12 },
-		{ id: '5', name: 'Bluetooth Speaker', sku: 'BS-005', category: 'Audio', sold: 1250, avgStock: 520, turnoverRate: 2.4, trend: -8 },
-		{ id: '6', name: 'Smart Watch', sku: 'SW-006', category: 'Wearables', sold: 890, avgStock: 620, turnoverRate: 1.4, trend: 3 },
+		{
+			id: '1',
+			name: 'USB-C Cable',
+			sku: 'USB-001',
+			category: 'Accessories',
+			sold: 4520,
+			avgStock: 350,
+			turnoverRate: 12.9,
+			trend: 15,
+		},
+		{
+			id: '2',
+			name: 'Phone Case',
+			sku: 'PHC-002',
+			category: 'Accessories',
+			sold: 3890,
+			avgStock: 420,
+			turnoverRate: 9.3,
+			trend: 8,
+		},
+		{
+			id: '3',
+			name: 'Wireless Earbuds',
+			sku: 'WE-003',
+			category: 'Audio',
+			sold: 2450,
+			avgStock: 380,
+			turnoverRate: 6.4,
+			trend: -5,
+		},
+		{
+			id: '4',
+			name: 'Power Bank',
+			sku: 'PB-004',
+			category: 'Electronics',
+			sold: 1890,
+			avgStock: 450,
+			turnoverRate: 4.2,
+			trend: 12,
+		},
+		{
+			id: '5',
+			name: 'Bluetooth Speaker',
+			sku: 'BS-005',
+			category: 'Audio',
+			sold: 1250,
+			avgStock: 520,
+			turnoverRate: 2.4,
+			trend: -8,
+		},
+		{
+			id: '6',
+			name: 'Smart Watch',
+			sku: 'SW-006',
+			category: 'Wearables',
+			sold: 890,
+			avgStock: 620,
+			turnoverRate: 1.4,
+			trend: 3,
+		},
 	];
 
 	const sortedItems = [...items].sort((a, b) => b[sortBy] - a[sortBy]);
 	const maxRate = Math.max(...items.map((i) => i.turnoverRate));
-	const avgTurnover = items.reduce((sum, i) => sum + i.turnoverRate, 0) / items.length;
+	const avgTurnover =
+		items.reduce((sum, i) => sum + i.turnoverRate, 0) / items.length;
 	const totalSold = items.reduce((sum, i) => sum + i.sold, 0);
 
 	return (
@@ -113,10 +178,17 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex flex-col gap-4 @sm:flex-row @sm:items-center @sm:justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Inventory Turnover</CardTitle>
-								<CardDescription>How quickly stock is sold and replaced</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Inventory Turnover
+								</CardTitle>
+								<CardDescription>
+									How quickly stock is sold and replaced
+								</CardDescription>
 							</div>
-							<Select value={sortBy} onValueChange={(v) => setSortBy(v as SortField)}>
+							<Select
+								value={sortBy}
+								onValueChange={(v) => setSortBy(v as SortField)}
+							>
 								<SelectTrigger className="w-40">
 									<ArrowUpDown className="mr-2 size-4" />
 									<SelectValue />

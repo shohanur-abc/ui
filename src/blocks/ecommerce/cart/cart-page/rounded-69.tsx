@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Minus, Plus, X, ArrowRight, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
@@ -34,9 +40,7 @@ const RoundedCard = ({
 	children: React.ReactNode;
 	className?: string;
 }) => (
-	<Card className={`rounded-3xl overflow-hidden ${className}`}>
-		{children}
-	</Card>
+	<Card className={`rounded-3xl overflow-hidden ${className}`}>{children}</Card>
 );
 
 const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
@@ -47,11 +51,19 @@ const ItemImage = ({ src, alt }: { src: string; alt: string }) => (
 
 const QuantityControl = ({ quantity }: { quantity: number }) => (
 	<div className="flex items-center rounded-full bg-muted">
-		<Button size="icon-sm" variant="ghost" className="size-8 rounded-full hover:bg-muted-foreground/20">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 rounded-full hover:bg-muted-foreground/20"
+		>
 			<Minus className="size-3" />
 		</Button>
 		<span className="w-6 text-center text-sm font-medium">{quantity}</span>
-		<Button size="icon-sm" variant="ghost" className="size-8 rounded-full hover:bg-muted-foreground/20">
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-8 rounded-full hover:bg-muted-foreground/20"
+		>
 			<Plus className="size-3" />
 		</Button>
 	</div>
@@ -76,7 +88,9 @@ const RoundedItem = ({ item }: { item: CartItem }) => (
 			</div>
 			<div className="flex items-center justify-between mt-3">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-bold text-lg">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-bold text-lg">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -98,7 +112,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span className={bold ? 'text-foreground' : ''}>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -108,7 +124,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 			name: 'Studio Headphones Pro',
 			variant: 'Black • Wireless',
 			price: 299.99,
@@ -116,7 +133,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 			name: 'Wireless Earbuds',
 			variant: 'White • ANC',
 			price: 179.99,
@@ -124,7 +142,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -189,10 +208,13 @@ export default function Main() {
 										<ArrowRight className="size-4" />
 									</Link>
 								</Button>
-								<Button variant="outline" className="w-full rounded-full" size="lg" asChild>
-									<Link href="/shop">
-										Continue Shopping
-									</Link>
+								<Button
+									variant="outline"
+									className="w-full rounded-full"
+									size="lg"
+									asChild
+								>
+									<Link href="/shop">Continue Shopping</Link>
 								</Button>
 							</CardFooter>
 						</RoundedCard>

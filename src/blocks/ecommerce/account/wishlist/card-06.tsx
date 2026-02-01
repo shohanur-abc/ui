@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, Package, RefreshCw, Shield } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	Package,
+	RefreshCw,
+	Shield,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -71,7 +78,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 			</div>
 		</CardHeader>
 		<CardContent className="p-4">
-			<p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{item.brand}</p>
+			<p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+				{item.brand}
+			</p>
 			<Link href={item.href}>
 				<h3 className="mt-1 font-semibold line-clamp-2 leading-snug group-hover:text-primary transition-colors">
 					{item.name}
@@ -82,7 +91,9 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 				<div className="flex items-baseline gap-2">
 					<span className="text-xl font-bold">${item.price.toFixed(2)}</span>
 					{item.originalPrice && (
-						<span className="text-sm text-muted-foreground line-through">${item.originalPrice.toFixed(2)}</span>
+						<span className="text-sm text-muted-foreground line-through">
+							${item.originalPrice.toFixed(2)}
+						</span>
 					)}
 				</div>
 			</div>
@@ -104,10 +115,61 @@ const CardGrid = ({ items }: CardGridProps) => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Wireless Noise Cancelling Earbuds', price: 179.99, originalPrice: 249.99, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop', brand: 'Sony', features: [{ icon: 'package', label: 'Free Shipping' }, { icon: 'refresh', label: '30-Day Returns' }], href: '/product/1' },
-		{ id: '2', name: 'Premium Leather Wallet', price: 89.00, image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=400&fit=crop', brand: 'Bellroy', features: [{ icon: 'shield', label: '3-Year Warranty' }, { icon: 'package', label: 'Gift Box' }], href: '/product/2' },
-		{ id: '3', name: 'Mechanical Keyboard', price: 159.99, originalPrice: 199.99, image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=400&fit=crop', brand: 'Keychron', features: [{ icon: 'package', label: 'Free Shipping' }, { icon: 'shield', label: '1-Year Warranty' }, { icon: 'refresh', label: 'Easy Returns' }], href: '/product/3' },
-		{ id: '4', name: 'Smart Home Hub', price: 129.00, image: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=400&h=400&fit=crop', brand: 'Google', features: [{ icon: 'package', label: 'Fast Delivery' }, { icon: 'shield', label: '2-Year Warranty' }], href: '/product/4' },
+		{
+			id: '1',
+			name: 'Wireless Noise Cancelling Earbuds',
+			price: 179.99,
+			originalPrice: 249.99,
+			image:
+				'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop',
+			brand: 'Sony',
+			features: [
+				{ icon: 'package', label: 'Free Shipping' },
+				{ icon: 'refresh', label: '30-Day Returns' },
+			],
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Premium Leather Wallet',
+			price: 89.0,
+			image:
+				'https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=400&fit=crop',
+			brand: 'Bellroy',
+			features: [
+				{ icon: 'shield', label: '3-Year Warranty' },
+				{ icon: 'package', label: 'Gift Box' },
+			],
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Mechanical Keyboard',
+			price: 159.99,
+			originalPrice: 199.99,
+			image:
+				'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=400&fit=crop',
+			brand: 'Keychron',
+			features: [
+				{ icon: 'package', label: 'Free Shipping' },
+				{ icon: 'shield', label: '1-Year Warranty' },
+				{ icon: 'refresh', label: 'Easy Returns' },
+			],
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Smart Home Hub',
+			price: 129.0,
+			image:
+				'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=400&h=400&fit=crop',
+			brand: 'Google',
+			features: [
+				{ icon: 'package', label: 'Fast Delivery' },
+				{ icon: 'shield', label: '2-Year Warranty' },
+			],
+			href: '/product/4',
+		},
 	];
 
 	return (
@@ -116,7 +178,9 @@ export default function Main() {
 				<div className="flex items-center justify-between mb-6 @md:mb-8">
 					<div>
 						<h1 className="text-2xl @md:text-3xl font-bold">My Wishlist</h1>
-						<p className="text-muted-foreground mt-1">{wishlistItems.length} items saved</p>
+						<p className="text-muted-foreground mt-1">
+							{wishlistItems.length} items saved
+						</p>
 					</div>
 					<Button variant="outline" className="gap-2">
 						<ShoppingCart className="size-4" />

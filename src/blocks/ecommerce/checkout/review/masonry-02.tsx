@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -33,7 +39,9 @@ const MasonryItem = ({ item }: { item: OrderItem }) => {
 
 	return (
 		<div className="group relative overflow-hidden rounded-2xl border bg-card">
-			<div className={`relative w-full ${heights[item.height]} overflow-hidden`}>
+			<div
+				className={`relative w-full ${heights[item.height]} overflow-hidden`}
+			>
 				<Image
 					src={item.image}
 					alt={item.name}
@@ -88,9 +96,13 @@ const SummaryRow = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -102,7 +114,8 @@ export default function Main() {
 			variant: 'Abstract / 24x36"',
 			price: 79.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1549887534-1541e9326642?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1549887534-1541e9326642?w=400&h=400&fit=crop',
 			height: 'tall',
 		},
 		{
@@ -111,7 +124,8 @@ export default function Main() {
 			variant: 'Oak / 8x10"',
 			price: 34.99,
 			qty: 2,
-			image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400&h=400&fit=crop',
 			height: 'short',
 		},
 		{
@@ -120,7 +134,8 @@ export default function Main() {
 			variant: 'Landscape / 16x20"',
 			price: 59.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop',
 			height: 'medium',
 		},
 		{
@@ -129,7 +144,8 @@ export default function Main() {
 			variant: 'Set of 4 / 5x7"',
 			price: 24.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&h=400&fit=crop',
 			height: 'short',
 		},
 	];

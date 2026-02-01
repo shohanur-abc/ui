@@ -4,9 +4,22 @@ import { Mail, ArrowRight, ArrowLeft, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -56,7 +69,10 @@ const SubmitButton = ({
 );
 
 const BackLink = ({ href, label }: { href: string; label: string }) => (
-	<Link href={href} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+	<Link
+		href={href}
+		className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+	>
 		<ArrowLeft className="size-4" />
 		{label}
 	</Link>
@@ -73,12 +89,18 @@ export default function Main() {
 						</div>
 						<CardTitle className="text-2xl">Forgot password?</CardTitle>
 						<CardDescription>
-							Enter your email and we&apos;ll send you a link to reset your password.
+							Enter your email and we&apos;ll send you a link to reset your
+							password.
 						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<form className="space-y-4">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
 							<SubmitButton label="Send Reset Link" icon={ArrowRight} />
 						</form>
 					</CardContent>

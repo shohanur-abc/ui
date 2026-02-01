@@ -13,10 +13,14 @@ const CounterStat = ({ value, label, suffix }: CounterStatProps) => (
 				{value}
 			</span>
 			{suffix && (
-				<span className="ml-1 text-2xl font-semibold text-primary @sm:text-3xl @lg:text-4xl">{suffix}</span>
+				<span className="ml-1 text-2xl font-semibold text-primary @sm:text-3xl @lg:text-4xl">
+					{suffix}
+				</span>
 			)}
 		</div>
-		<p className="mt-2 text-sm font-medium text-muted-foreground @sm:text-base">{label}</p>
+		<p className="mt-2 text-sm font-medium text-muted-foreground @sm:text-base">
+			{label}
+		</p>
 	</div>
 );
 

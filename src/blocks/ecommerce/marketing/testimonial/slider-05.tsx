@@ -61,7 +61,9 @@ const SlideCard = ({ item }: { item: TestimonialItem }) => (
 				{item.verified && <VerifiedBadge />}
 			</div>
 			<StarRating rating={item.rating} />
-			<p className="text-foreground leading-relaxed mt-3 mb-5 line-clamp-4">"{item.quote}"</p>
+			<p className="text-foreground leading-relaxed mt-3 mb-5 line-clamp-4">
+				"{item.quote}"
+			</p>
 			<div className="flex items-center gap-3 pt-4 border-t border-border/50">
 				<Avatar className="size-10 ring-2 ring-primary/10 group-hover:ring-primary/30 transition-all">
 					<AvatarImage src={item.avatar} alt={item.author} />
@@ -97,7 +99,8 @@ export default function Main() {
 			author: 'Una Martinez',
 			role: 'Ops Manager',
 			company: 'QuickStart',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'UM',
 			rating: 5,
 			verified: true,
@@ -108,7 +111,8 @@ export default function Main() {
 			author: 'Victor Lee',
 			role: 'IT Director',
 			company: 'MigratePro',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'VL',
 			rating: 5,
 			verified: true,
@@ -119,7 +123,8 @@ export default function Main() {
 			author: 'Wendy Chen',
 			role: 'Data Lead',
 			company: 'InsightCorp',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'WC',
 			rating: 5,
 			verified: true,
@@ -130,7 +135,8 @@ export default function Main() {
 			author: 'Xavier Brown',
 			role: 'Security Lead',
 			company: 'SecureFirst',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'XB',
 			rating: 5,
 			verified: false,
@@ -141,7 +147,8 @@ export default function Main() {
 			author: 'Yolanda Kim',
 			role: 'VP Engineering',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'YK',
 			rating: 5,
 			verified: true,
@@ -152,7 +159,8 @@ export default function Main() {
 			author: 'Zack Davis',
 			role: 'CFO',
 			company: 'ROI Masters',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'ZD',
 			rating: 5,
 			verified: true,
@@ -160,7 +168,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8">
 					<SectionHeader

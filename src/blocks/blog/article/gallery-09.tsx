@@ -1,5 +1,11 @@
 import Link from 'next/link';
-import { Clock, ImageIcon, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
+import {
+	Clock,
+	ImageIcon,
+	ZoomIn,
+	ChevronLeft,
+	ChevronRight,
+} from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -86,10 +92,13 @@ const ImageGallery = ({ images }: { images: GalleryImage[] }) => (
 				{images.length} Photos
 			</span>
 		</div>
-		
+
 		<div className="grid grid-cols-1 @md:grid-cols-2 gap-4">
 			{images.map((image, index) => (
-				<div key={index} className={`group relative overflow-hidden rounded-xl ${index === 0 ? '@md:col-span-2' : ''}`}>
+				<div
+					key={index}
+					className={`group relative overflow-hidden rounded-xl ${index === 0 ? '@md:col-span-2' : ''}`}
+				>
 					<AspectRatio ratio={index === 0 ? 16 / 9 : 4 / 3}>
 						<img
 							src={image.src}
@@ -152,10 +161,11 @@ export default function Main() {
 		categoryHref: '/blog/category/travel',
 		title: 'Hidden Gems of the Pacific Northwest',
 		subtitle:
-			'Discover lesser-known destinations that showcase the region\'s stunning natural beauty and unique culture.',
+			"Discover lesser-known destinations that showcase the region's stunning natural beauty and unique culture.",
 		author: {
 			name: 'Elena Vasquez',
-			avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
 			initials: 'EV',
 		},
 		publishDate: 'January 28, 2026',
@@ -178,7 +188,7 @@ export default function Main() {
 			},
 		],
 		content: [
-			'The Pacific Northwest is known for its iconic destinations—Seattle\'s Space Needle, Portland\'s quirky neighborhoods, the dramatic Oregon coast. But venture off the beaten path, and you\'ll discover landscapes and experiences that rival anything in the guidebooks.',
+			"The Pacific Northwest is known for its iconic destinations—Seattle's Space Needle, Portland's quirky neighborhoods, the dramatic Oregon coast. But venture off the beaten path, and you'll discover landscapes and experiences that rival anything in the guidebooks.",
 			'Our journey begins in the Methow Valley, a remote corner of north-central Washington that transforms dramatically with the seasons. In winter, it hosts one of the largest cross-country ski trail networks in North America. Come summer, those same trails become hiking and mountain biking paradises.',
 			'Further south, the Wallowa Mountains of eastern Oregon offer alpine scenery to match anything in the Rockies. Known as the "Switzerland of Oregon," this range features granite peaks, glacial lakes, and wilderness that sees a fraction of the visitors that crowd the more famous Cascades.',
 			'These hidden gems remind us that adventure often lies just beyond the familiar. Sometimes the most memorable experiences come not from ticking off bucket list items, but from embracing the unknown and letting curiosity guide the way.',
@@ -190,7 +200,10 @@ export default function Main() {
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-24">
 				<div className="flex flex-col gap-6 @md:gap-8">
 					<div className="flex flex-col items-center gap-4 @md:gap-6">
-						<CategoryBadge text={articleData.category} href={articleData.categoryHref} />
+						<CategoryBadge
+							text={articleData.category}
+							href={articleData.categoryHref}
+						/>
 						<Title text={articleData.title} />
 						<Subtitle text={articleData.subtitle} />
 						<AuthorMeta

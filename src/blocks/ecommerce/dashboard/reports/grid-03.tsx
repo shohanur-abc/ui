@@ -83,12 +83,54 @@ export default function Main() {
 	};
 
 	const summaryItems: SummaryCardItem[] = [
-		{ title: 'Total Revenue', value: '$284,500', change: '+24.5%', trend: 'up', icon: DollarSign, description: 'vs last year' },
-		{ title: 'Total Orders', value: '12,847', change: '+18.2%', trend: 'up', icon: ShoppingBag, description: 'vs last year' },
-		{ title: 'Products Sold', value: '45,231', change: '+32.1%', trend: 'up', icon: Package, description: 'vs last year' },
-		{ title: 'Average Order Value', value: '$22.15', change: '+5.3%', trend: 'up', icon: TrendingUp, description: 'vs last year' },
-		{ title: 'Return Rate', value: '3.2%', change: '-1.8%', trend: 'up', icon: Box, description: 'improvement' },
-		{ title: 'Profit Margin', value: '34.8%', change: '+2.1%', trend: 'up', icon: Percent, description: 'vs last year' },
+		{
+			title: 'Total Revenue',
+			value: '$284,500',
+			change: '+24.5%',
+			trend: 'up',
+			icon: DollarSign,
+			description: 'vs last year',
+		},
+		{
+			title: 'Total Orders',
+			value: '12,847',
+			change: '+18.2%',
+			trend: 'up',
+			icon: ShoppingBag,
+			description: 'vs last year',
+		},
+		{
+			title: 'Products Sold',
+			value: '45,231',
+			change: '+32.1%',
+			trend: 'up',
+			icon: Package,
+			description: 'vs last year',
+		},
+		{
+			title: 'Average Order Value',
+			value: '$22.15',
+			change: '+5.3%',
+			trend: 'up',
+			icon: TrendingUp,
+			description: 'vs last year',
+		},
+		{
+			title: 'Return Rate',
+			value: '3.2%',
+			change: '-1.8%',
+			trend: 'up',
+			icon: Box,
+			description: 'improvement',
+		},
+		{
+			title: 'Profit Margin',
+			value: '34.8%',
+			change: '+2.1%',
+			trend: 'up',
+			icon: Percent,
+			description: 'vs last year',
+		},
 	];
 
 	return (

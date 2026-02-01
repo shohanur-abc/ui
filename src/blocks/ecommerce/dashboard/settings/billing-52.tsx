@@ -77,9 +77,7 @@ const BillingAddressCard = ({
 						</Badge>
 					)}
 				</div>
-				{company && (
-					<p className="text-sm text-muted-foreground">{company}</p>
-				)}
+				{company && <p className="text-sm text-muted-foreground">{company}</p>}
 				<div className="mt-2 text-sm text-muted-foreground">
 					<p>{address}</p>
 					<p>
@@ -185,11 +183,17 @@ export default function Main() {
 							<CardContent className="space-y-4 pt-6">
 								<div className="space-y-2">
 									<Label>Tax ID / VAT Number</Label>
-									<Input placeholder="Enter your tax ID" defaultValue="US123456789" />
+									<Input
+										placeholder="Enter your tax ID"
+										defaultValue="US123456789"
+									/>
 								</div>
 								<div className="space-y-2">
 									<Label>Company Name (for invoices)</Label>
-									<Input placeholder="Enter company name" defaultValue="Acme Corp" />
+									<Input
+										placeholder="Enter company name"
+										defaultValue="Acme Corp"
+									/>
 								</div>
 								<div className="space-y-2">
 									<Label>Invoice Email</Label>
@@ -250,7 +254,9 @@ export default function Main() {
 											</div>
 										</div>
 										<div className="flex items-center gap-2">
-											<span className="text-sm font-medium">{invoice.amount}</span>
+											<span className="text-sm font-medium">
+												{invoice.amount}
+											</span>
 											<Button variant="ghost" size="icon-sm">
 												<Download className="size-4" />
 											</Button>

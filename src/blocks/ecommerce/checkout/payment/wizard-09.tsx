@@ -1,10 +1,28 @@
 'use client';
 
-import { ArrowLeft, ArrowRight, Award, Check, CreditCard, Gift, Lock, Percent, Shield, Star, Wallet, Zap } from 'lucide-react';
+import {
+	ArrowLeft,
+	ArrowRight,
+	Award,
+	Check,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	Shield,
+	Star,
+	Wallet,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -19,7 +37,13 @@ interface RewardOption {
 	description: string;
 }
 
-const HorizontalStepIndicator = ({ steps, currentStep }: { steps: string[]; currentStep: number }) => (
+const HorizontalStepIndicator = ({
+	steps,
+	currentStep,
+}: {
+	steps: string[];
+	currentStep: number;
+}) => (
 	<div className="flex items-center gap-1 mb-6">
 		{steps.map((step, index) => (
 			<div key={index} className="flex-1 flex flex-col items-center">
@@ -36,10 +60,14 @@ const HorizontalStepIndicator = ({ steps, currentStep }: { steps: string[]; curr
 						{index < currentStep ? <Check className="size-3" /> : index + 1}
 					</div>
 					{index < steps.length - 1 && (
-						<div className={`flex-1 h-0.5 mx-1 ${index < currentStep ? 'bg-primary' : 'bg-muted'}`} />
+						<div
+							className={`flex-1 h-0.5 mx-1 ${index < currentStep ? 'bg-primary' : 'bg-muted'}`}
+						/>
 					)}
 				</div>
-				<span className={`text-xs mt-1 ${index === currentStep ? 'font-medium text-primary' : 'text-muted-foreground'}`}>
+				<span
+					className={`text-xs mt-1 ${index === currentStep ? 'font-medium text-primary' : 'text-muted-foreground'}`}
+				>
 					{step}
 				</span>
 			</div>
@@ -47,14 +75,22 @@ const HorizontalStepIndicator = ({ steps, currentStep }: { steps: string[]; curr
 	</div>
 );
 
-const RewardBalanceDisplay = ({ balance, tier }: { balance: number; tier: { name: string; color: string; multiplier: string } }) => (
+const RewardBalanceDisplay = ({
+	balance,
+	tier,
+}: {
+	balance: number;
+	tier: { name: string; color: string; multiplier: string };
+}) => (
 	<div className="p-4 rounded-xl bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20">
 		<div className="flex items-center justify-between mb-3">
 			<div className="flex items-center gap-2">
 				<Award className={`size-5 ${tier.color}`} />
 				<span className="font-medium">{tier.name} Member</span>
 			</div>
-			<Badge variant="outline" className="gap-1">{tier.multiplier}</Badge>
+			<Badge variant="outline" className="gap-1">
+				{tier.multiplier}
+			</Badge>
 		</div>
 		<div className="flex items-end gap-4">
 			<div>
@@ -62,21 +98,34 @@ const RewardBalanceDisplay = ({ balance, tier }: { balance: number; tier: { name
 				<p className="text-sm text-muted-foreground">Available points</p>
 			</div>
 			<div className="text-right">
-				<span className="text-lg font-medium">${(balance / 100).toFixed(2)}</span>
+				<span className="text-lg font-medium">
+					${(balance / 100).toFixed(2)}
+				</span>
 				<p className="text-xs text-muted-foreground">Value</p>
 			</div>
 		</div>
 	</div>
 );
 
-const PointsRedemptionContent = ({ options, maxPoints }: { options: RewardOption[]; maxPoints: number }) => (
+const PointsRedemptionContent = ({
+	options,
+	maxPoints,
+}: {
+	options: RewardOption[];
+	maxPoints: number;
+}) => (
 	<div className="space-y-4">
 		<div className="space-y-3">
 			<div className="flex items-center justify-between text-sm">
 				<span>Apply points</span>
 				<span className="font-medium">0 / {maxPoints.toLocaleString()}</span>
 			</div>
-			<Slider defaultValue={[0]} max={maxPoints} step={100} className="w-full" />
+			<Slider
+				defaultValue={[0]}
+				max={maxPoints}
+				step={100}
+				className="w-full"
+			/>
 		</div>
 		<Separator />
 		<RadioGroup defaultValue="none" className="space-y-2">
@@ -88,8 +137,12 @@ const PointsRedemptionContent = ({ options, maxPoints }: { options: RewardOption
 				>
 					<RadioGroupItem value={option.id} id={option.id} />
 					<div className="flex-1">
-						<span className="text-sm font-medium">{option.points.toLocaleString()} points</span>
-						<p className="text-xs text-muted-foreground">{option.description}</p>
+						<span className="text-sm font-medium">
+							{option.points.toLocaleString()} points
+						</span>
+						<p className="text-xs text-muted-foreground">
+							{option.description}
+						</p>
 					</div>
 					<span className="font-medium text-emerald-600">-{option.value}</span>
 				</Label>
@@ -124,7 +177,9 @@ const PaymentMethodContent = () => (
 	<div className="space-y-4">
 		<div className="p-3 rounded-lg bg-primary/5 border border-primary/20 flex items-center gap-3">
 			<Star className="size-4 text-primary" />
-			<span className="text-sm">Use your <strong>Gold Rewards Card</strong> for 2x points!</span>
+			<span className="text-sm">
+				Use your <strong>Gold Rewards Card</strong> for 2x points!
+			</span>
 		</div>
 		<div className="space-y-2">
 			<Label className="text-sm">Card Number</Label>
@@ -157,24 +212,50 @@ const EarnSummary = ({ earnablePoints }: { earnablePoints: number }) => (
 	</div>
 );
 
-const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isDiscount?: boolean; isPoints?: boolean }[] }) => (
+const OrderSummary = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isDiscount?: boolean;
+		isPoints?: boolean;
+	}[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={`${line.isDiscount ? 'text-emerald-600' : ''} ${line.isPoints ? 'flex items-center gap-1' : ''} ${!line.isTotal && !line.isDiscount ? 'text-muted-foreground' : ''}`}>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={`${line.isDiscount ? 'text-emerald-600' : ''} ${line.isPoints ? 'flex items-center gap-1' : ''} ${!line.isTotal && !line.isDiscount ? 'text-muted-foreground' : ''}`}
+					>
 						{line.isPoints && <Star className="size-3 text-amber-500" />}
 						{line.label}
 					</span>
-					<span className={line.isDiscount ? 'text-emerald-600' : ''}>{line.value}</span>
+					<span className={line.isDiscount ? 'text-emerald-600' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
 	</div>
 );
 
-const NavigationButtons = ({ step, totalSteps, onPrev, onNext }: { step: number; totalSteps: number; onPrev: () => void; onNext: () => void }) => (
+const NavigationButtons = ({
+	step,
+	totalSteps,
+	onPrev,
+	onNext,
+}: {
+	step: number;
+	totalSteps: number;
+	onPrev: () => void;
+	onNext: () => void;
+}) => (
 	<div className="flex gap-3">
 		{step > 0 && (
 			<Button variant="outline" onClick={onPrev} className="gap-2">
@@ -201,13 +282,27 @@ export default function Main() {
 	const currentStep = 2;
 	const steps = ['Rewards', 'Gift Cards', 'Payment', 'Review'];
 
-	const tier = { name: 'Gold', color: 'text-amber-500', multiplier: '2x Points' };
+	const tier = {
+		name: 'Gold',
+		color: 'text-amber-500',
+		multiplier: '2x Points',
+	};
 	const pointsBalance = 15000;
 
 	const rewardOptions: RewardOption[] = [
-		{ id: 'none', points: 0, value: '$0.00', description: 'Don\'t use points' },
-		{ id: 'partial', points: 5000, value: '$50.00', description: 'Use 5,000 points' },
-		{ id: 'max', points: 15000, value: '$150.00', description: 'Use all points' },
+		{ id: 'none', points: 0, value: '$0.00', description: "Don't use points" },
+		{
+			id: 'partial',
+			points: 5000,
+			value: '$50.00',
+			description: 'Use 5,000 points',
+		},
+		{
+			id: 'max',
+			points: 15000,
+			value: '$150.00',
+			description: 'Use all points',
+		},
 	];
 
 	const orderLines = [
@@ -227,7 +322,9 @@ export default function Main() {
 						<HorizontalStepIndicator steps={steps} currentStep={currentStep} />
 						<div className="text-center">
 							<h2 className="text-xl font-semibold">Payment Method</h2>
-							<p className="text-sm text-muted-foreground">Add your card details</p>
+							<p className="text-sm text-muted-foreground">
+								Add your card details
+							</p>
 						</div>
 					</CardHeader>
 					<CardContent className="space-y-4">
@@ -236,7 +333,12 @@ export default function Main() {
 					</CardContent>
 					<CardFooter className="flex-col gap-4">
 						<OrderSummary lines={orderLines} />
-						<NavigationButtons step={currentStep} totalSteps={steps.length} onPrev={() => {}} onNext={() => {}} />
+						<NavigationButtons
+							step={currentStep}
+							totalSteps={steps.length}
+							onPrev={() => {}}
+							onNext={() => {}}
+						/>
 					</CardFooter>
 				</Card>
 			</div>

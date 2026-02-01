@@ -1,6 +1,11 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Minus, Plus, X, ArrowRight, Layers } from 'lucide-react';
 import Image from 'next/image';
@@ -21,7 +26,9 @@ const PageHeader = ({ title, count }: { title: string; count: number }) => (
 			<Layers className="size-5 text-primary" />
 			<h1 className="text-xl font-bold @md:text-2xl">{title}</h1>
 		</div>
-		<Badge variant="secondary" className="text-xs px-2 py-0.5">{count}</Badge>
+		<Badge variant="secondary" className="text-xs px-2 py-0.5">
+			{count}
+		</Badge>
 	</div>
 );
 
@@ -51,15 +58,31 @@ const DenseItem = ({ item }: { item: CartItem }) => (
 			<p className="text-[10px] text-muted-foreground">{item.variant}</p>
 		</div>
 		<QuantityControl quantity={item.quantity} />
-		<p className="font-semibold text-xs w-14 text-right">${(item.price * item.quantity).toFixed(2)}</p>
-		<Button size="icon-sm" variant="ghost" className="size-5 text-muted-foreground hover:text-destructive">
+		<p className="font-semibold text-xs w-14 text-right">
+			${(item.price * item.quantity).toFixed(2)}
+		</p>
+		<Button
+			size="icon-sm"
+			variant="ghost"
+			className="size-5 text-muted-foreground hover:text-destructive"
+		>
 			<X className="size-2" />
 		</Button>
 	</div>
 );
 
-const SummaryLine = ({ label, value, bold }: { label: string; value: string; bold?: boolean }) => (
-	<div className={`flex justify-between text-xs ${bold ? 'font-bold' : 'text-muted-foreground'}`}>
+const SummaryLine = ({
+	label,
+	value,
+	bold,
+}: {
+	label: string;
+	value: string;
+	bold?: boolean;
+}) => (
+	<div
+		className={`flex justify-between text-xs ${bold ? 'font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span>{value}</span>
 	</div>
@@ -67,11 +90,51 @@ const SummaryLine = ({ label, value, bold }: { label: string; value: string; bol
 
 export default function Main() {
 	const items: CartItem[] = [
-		{ id: '1', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80&h=80&fit=crop', name: 'Headphones Pro', variant: 'Black', price: 299.99, quantity: 1 },
-		{ id: '2', image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=80&h=80&fit=crop', name: 'Earbuds', variant: 'White', price: 179.99, quantity: 1 },
-		{ id: '3', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=80&h=80&fit=crop', name: 'Shoes', variant: 'Red', price: 149.99, quantity: 1 },
-		{ id: '4', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80&h=80&fit=crop', name: 'Watch', variant: 'Silver', price: 249.99, quantity: 1 },
-		{ id: '5', image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=80&h=80&fit=crop', name: 'Scarf', variant: 'Navy', price: 89.99, quantity: 2 },
+		{
+			id: '1',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80&h=80&fit=crop',
+			name: 'Headphones Pro',
+			variant: 'Black',
+			price: 299.99,
+			quantity: 1,
+		},
+		{
+			id: '2',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=80&h=80&fit=crop',
+			name: 'Earbuds',
+			variant: 'White',
+			price: 179.99,
+			quantity: 1,
+		},
+		{
+			id: '3',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=80&h=80&fit=crop',
+			name: 'Shoes',
+			variant: 'Red',
+			price: 149.99,
+			quantity: 1,
+		},
+		{
+			id: '4',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80&h=80&fit=crop',
+			name: 'Watch',
+			variant: 'Silver',
+			price: 249.99,
+			quantity: 1,
+		},
+		{
+			id: '5',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=80&h=80&fit=crop',
+			name: 'Scarf',
+			variant: 'Navy',
+			price: 89.99,
+			quantity: 2,
+		},
 	];
 
 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);

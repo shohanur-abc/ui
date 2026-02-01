@@ -1,13 +1,34 @@
 import Link from 'next/link';
-import { Mail, Lock, User, ArrowRight, ArrowLeft, ShoppingBag, Check } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	ArrowRight,
+	ArrowLeft,
+	ShoppingBag,
+	Check,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -25,20 +46,16 @@ const StepIndicator = ({
 }) => (
 	<div className="space-y-2 mb-6">
 		<div className="flex justify-between text-sm">
-			<span className="text-muted-foreground">Step {currentStep} of {steps.length}</span>
+			<span className="text-muted-foreground">
+				Step {currentStep} of {steps.length}
+			</span>
 			<span className="font-medium">{steps[currentStep - 1]}</span>
 		</div>
 		<Progress value={(currentStep / steps.length) * 100} className="h-2" />
 	</div>
 );
 
-const StepDots = ({
-	total,
-	current,
-}: {
-	total: number;
-	current: number;
-}) => (
+const StepDots = ({ total, current }: { total: number; current: number }) => (
 	<div className="flex items-center justify-center gap-2 mb-6">
 		{Array.from({ length: total }).map((_, i) => (
 			<div
@@ -98,9 +115,27 @@ const NavigationButtons = ({
 
 const AccountStep = () => (
 	<form className="space-y-4">
-		<FormField id="wizard-name" label="Full Name" type="text" placeholder="John Doe" icon={User} />
-		<FormField id="wizard-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField id="wizard-password" label="Create Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			id="wizard-name"
+			label="Full Name"
+			type="text"
+			placeholder="John Doe"
+			icon={User}
+		/>
+		<FormField
+			id="wizard-email"
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="wizard-password"
+			label="Create Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<NavigationButtons showBack={false} nextLabel="Continue" />
 	</form>
 );
@@ -117,7 +152,9 @@ export default function Main() {
 							<Logo name="ShopNow" icon={ShoppingBag} />
 						</div>
 						<CardTitle className="text-2xl">Create your account</CardTitle>
-						<CardDescription>Let&apos;s get started with a few details</CardDescription>
+						<CardDescription>
+							Let&apos;s get started with a few details
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<StepIndicator steps={steps} currentStep={1} />
@@ -126,7 +163,10 @@ export default function Main() {
 					<CardFooter className="justify-center">
 						<p className="text-sm text-muted-foreground">
 							Already have an account?{' '}
-							<Link href="/login" className="text-primary font-medium hover:underline">
+							<Link
+								href="/login"
+								className="text-primary font-medium hover:underline"
+							>
 								Sign in
 							</Link>
 						</p>

@@ -56,7 +56,13 @@ const Description = ({ text }: { text: string }) => (
 	</p>
 );
 
-const StarRating = ({ rating, size = 'default' }: { rating: number; size?: 'sm' | 'default' | 'lg' }) => {
+const StarRating = ({
+	rating,
+	size = 'default',
+}: {
+	rating: number;
+	size?: 'sm' | 'default' | 'lg';
+}) => {
 	const sizeClasses = {
 		sm: 'size-4',
 		default: 'size-5',

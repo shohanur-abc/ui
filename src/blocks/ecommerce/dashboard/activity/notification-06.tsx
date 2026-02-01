@@ -50,9 +50,7 @@ const StarDisplay = ({ rating }: { rating: number }) => (
 			<Star
 				key={i}
 				className={`size-3.5 ${
-					i < rating
-						? 'fill-amber-400 text-amber-400'
-						: 'fill-muted text-muted'
+					i < rating ? 'fill-amber-400 text-amber-400' : 'fill-muted text-muted'
 				}`}
 			/>
 		))}
@@ -82,18 +80,17 @@ const SentimentBadge = ({
 	const { icon: Icon, className } = config[sentiment];
 
 	return (
-		<Badge variant="outline" className={`gap-1 text-xs capitalize ${className}`}>
+		<Badge
+			variant="outline"
+			className={`gap-1 text-xs capitalize ${className}`}
+		>
 			<Icon className="size-3" />
 			{sentiment}
 		</Badge>
 	);
 };
 
-const StatusBadge = ({
-	status,
-}: {
-	status: ReviewNotification['status'];
-}) => {
+const StatusBadge = ({ status }: { status: ReviewNotification['status'] }) => {
 	const config = {
 		pending: {
 			icon: null,

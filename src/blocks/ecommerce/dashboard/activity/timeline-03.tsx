@@ -32,7 +32,10 @@ interface OrderTimelineProps {
 const StageIcon = ({
 	icon: Icon,
 	status,
-}: { icon: LucideIcon; status: OrderStage['status'] }) => {
+}: {
+	icon: LucideIcon;
+	status: OrderStage['status'];
+}) => {
 	const statusStyles = {
 		completed:
 			'bg-emerald-500/20 border-emerald-500/50 text-emerald-400 shadow-emerald-500/20',
@@ -51,8 +54,7 @@ const StageIcon = ({
 };
 
 const StageConnector = ({ status }: { status: OrderStage['status'] }) => {
-	const lineColor =
-		status === 'completed' ? 'bg-emerald-500/50' : 'bg-border';
+	const lineColor = status === 'completed' ? 'bg-emerald-500/50' : 'bg-border';
 
 	return (
 		<div className="absolute left-6 top-12 h-[calc(100%-3rem)] w-0.5">
@@ -64,7 +66,10 @@ const StageConnector = ({ status }: { status: OrderStage['status'] }) => {
 const StageItem = ({
 	stage,
 	isLast,
-}: { stage: OrderStage; isLast: boolean }) => (
+}: {
+	stage: OrderStage;
+	isLast: boolean;
+}) => (
 	<div className="group relative flex gap-4 pb-8 last:pb-0">
 		<div className="relative">
 			<StageIcon icon={stage.icon} status={stage.status} />

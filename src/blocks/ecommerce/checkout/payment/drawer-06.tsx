@@ -1,10 +1,27 @@
 'use client';
 
-import { Calendar, Check, Clock, CreditCard, Lock, Package, RefreshCcw, Shield, Star, X, Zap } from 'lucide-react';
+import {
+	Calendar,
+	Check,
+	Clock,
+	CreditCard,
+	Lock,
+	Package,
+	RefreshCcw,
+	Shield,
+	Star,
+	X,
+	Zap,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -20,7 +37,13 @@ interface SubscriptionPlan {
 	popular?: boolean;
 }
 
-const DrawerHeader = ({ title, onClose }: { title: string; onClose: () => void }) => (
+const DrawerHeader = ({
+	title,
+	onClose,
+}: {
+	title: string;
+	onClose: () => void;
+}) => (
 	<div className="flex items-center justify-between">
 		<div className="flex items-center gap-2">
 			<RefreshCcw className="size-5 text-primary" />
@@ -33,7 +56,10 @@ const DrawerHeader = ({ title, onClose }: { title: string; onClose: () => void }
 );
 
 const SubscriptionPlanSelector = ({ plans }: { plans: SubscriptionPlan[] }) => (
-	<RadioGroup defaultValue={plans.find(p => p.popular)?.id || plans[0].id} className="space-y-3">
+	<RadioGroup
+		defaultValue={plans.find((p) => p.popular)?.id || plans[0].id}
+		className="space-y-3"
+	>
 		{plans.map((plan) => (
 			<Label
 				key={plan.id}
@@ -52,7 +78,11 @@ const SubscriptionPlanSelector = ({ plans }: { plans: SubscriptionPlan[] }) => (
 				<div className="flex-1">
 					<div className="flex items-center gap-2">
 						<span className="font-medium">{plan.name}</span>
-						{plan.savings && <Badge variant="secondary" className="text-xs text-emerald-600">{plan.savings}</Badge>}
+						{plan.savings && (
+							<Badge variant="secondary" className="text-xs text-emerald-600">
+								{plan.savings}
+							</Badge>
+						)}
 					</div>
 					<p className="text-xs text-muted-foreground">{plan.interval}</p>
 				</div>
@@ -62,7 +92,13 @@ const SubscriptionPlanSelector = ({ plans }: { plans: SubscriptionPlan[] }) => (
 	</RadioGroup>
 );
 
-const BillingCycleInfo = ({ startDate, nextBilling }: { startDate: string; nextBilling: string }) => (
+const BillingCycleInfo = ({
+	startDate,
+	nextBilling,
+}: {
+	startDate: string;
+	nextBilling: string;
+}) => (
 	<div className="grid grid-cols-2 gap-3">
 		<div className="p-3 rounded-lg bg-muted/30 text-center">
 			<Calendar className="size-4 mx-auto mb-1 text-muted-foreground" />
@@ -113,8 +149,15 @@ const SubscriptionFeatures = ({ features }: { features: string[] }) => (
 const TermsCheckbox = () => (
 	<div className="flex items-start gap-3">
 		<Checkbox id="terms" className="mt-0.5" />
-		<Label htmlFor="terms" className="text-xs cursor-pointer text-muted-foreground">
-			I agree to the <a href="#" className="text-primary underline">Subscription Terms</a> and authorize recurring charges
+		<Label
+			htmlFor="terms"
+			className="text-xs cursor-pointer text-muted-foreground"
+		>
+			I agree to the{' '}
+			<a href="#" className="text-primary underline">
+				Subscription Terms
+			</a>{' '}
+			and authorize recurring charges
 		</Label>
 	</div>
 );
@@ -127,8 +170,20 @@ const CancelPolicy = () => (
 
 export default function Main() {
 	const plans: SubscriptionPlan[] = [
-		{ id: 'monthly', name: 'Monthly', price: '$19.99', interval: 'Billed monthly' },
-		{ id: 'annual', name: 'Annual', price: '$9.99', interval: 'Billed yearly at $119.88', savings: 'Save 50%', popular: true },
+		{
+			id: 'monthly',
+			name: 'Monthly',
+			price: '$19.99',
+			interval: 'Billed monthly',
+		},
+		{
+			id: 'annual',
+			name: 'Annual',
+			price: '$9.99',
+			interval: 'Billed yearly at $119.88',
+			savings: 'Save 50%',
+			popular: true,
+		},
 	];
 
 	const features = [

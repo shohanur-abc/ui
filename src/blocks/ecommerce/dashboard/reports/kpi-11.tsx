@@ -1,6 +1,13 @@
 'use client';
 
-import { ShoppingBag, CreditCard, Truck, RotateCcw, Check, AlertCircle } from 'lucide-react';
+import {
+	ShoppingBag,
+	CreditCard,
+	Truck,
+	RotateCcw,
+	Check,
+	AlertCircle,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 import {
@@ -21,7 +28,15 @@ type FunnelStepProps = {
 	iconColor: string;
 };
 
-const FunnelStep = ({ icon: Icon, step, count, rate, dropoff, iconBg, iconColor }: FunnelStepProps) => (
+const FunnelStep = ({
+	icon: Icon,
+	step,
+	count,
+	rate,
+	dropoff,
+	iconBg,
+	iconColor,
+}: FunnelStepProps) => (
 	<div className="relative">
 		<div className="flex items-center gap-4 rounded-xl border border-border/30 bg-card/60 p-4">
 			<div className={`rounded-lg p-2.5 ${iconBg}`}>

@@ -2,7 +2,12 @@ import { CreditCard, Lock, ShieldCheck } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -37,14 +42,27 @@ interface OrderSummaryProps {
 	items: OrderSummaryItemProps[];
 }
 
-const SectionHeader = ({ title, description }: { title: string; description: string }) => (
+const SectionHeader = ({
+	title,
+	description,
+}: {
+	title: string;
+	description: string;
+}) => (
 	<div className="space-y-1">
-		<h2 className="text-xl @md:text-2xl font-semibold tracking-tight">{title}</h2>
+		<h2 className="text-xl @md:text-2xl font-semibold tracking-tight">
+			{title}
+		</h2>
 		<p className="text-sm text-muted-foreground">{description}</p>
 	</div>
 );
 
-const PaymentField = ({ label, placeholder, type = 'text', icon: Icon }: PaymentFieldProps) => (
+const PaymentField = ({
+	label,
+	placeholder,
+	type = 'text',
+	icon: Icon,
+}: PaymentFieldProps) => (
 	<div className="space-y-2">
 		<Label className="text-sm font-medium">{label}</Label>
 		<div className="relative">
@@ -67,7 +85,12 @@ const TrustBadge = ({ icon: Icon, text }: TrustBadgeProps) => (
 	</div>
 );
 
-const PaymentForm = ({ title, description, fields, submitLabel }: PaymentFormProps) => (
+const PaymentForm = ({
+	title,
+	description,
+	fields,
+	submitLabel,
+}: PaymentFormProps) => (
 	<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
 		<CardHeader className="pb-4">
 			<SectionHeader title={title} description={description} />
@@ -99,8 +122,12 @@ const OrderSummary = ({ title, items }: OrderSummaryProps) => (
 			{items.map((item, index) => (
 				<div key={index}>
 					{item.isTotal && <Separator className="mb-3" />}
-					<div className={`flex justify-between ${item.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-						<span className={item.isTotal ? '' : 'text-muted-foreground'}>{item.label}</span>
+					<div
+						className={`flex justify-between ${item.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+					>
+						<span className={item.isTotal ? '' : 'text-muted-foreground'}>
+							{item.label}
+						</span>
 						<span>{item.value}</span>
 					</div>
 				</div>
@@ -118,7 +145,11 @@ const SecureBadge = ({ text }: { text: string }) => (
 
 export default function Main() {
 	const paymentFields: PaymentFieldProps[] = [
-		{ label: 'Card Number', placeholder: '4242 4242 4242 4242', icon: CreditCard },
+		{
+			label: 'Card Number',
+			placeholder: '4242 4242 4242 4242',
+			icon: CreditCard,
+		},
 		{ label: 'Cardholder Name', placeholder: 'John Doe' },
 		{ label: 'Expiry Date', placeholder: 'MM/YY' },
 		{ label: 'CVV', placeholder: '123', type: 'password' },

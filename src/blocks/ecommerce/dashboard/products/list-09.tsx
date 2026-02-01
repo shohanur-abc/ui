@@ -71,8 +71,12 @@ const MarginDisplay = ({ margin, marginPercent }: MarginDisplayProps) => {
 
 	return (
 		<div className="text-center">
-			<div className={`text-lg font-bold ${getColor()}`}>${margin.toFixed(2)}</div>
-			<div className={`text-xs ${getColor()}`}>{marginPercent.toFixed(1)}% margin</div>
+			<div className={`text-lg font-bold ${getColor()}`}>
+				${margin.toFixed(2)}
+			</div>
+			<div className={`text-xs ${getColor()}`}>
+				{marginPercent.toFixed(1)}% margin
+			</div>
 		</div>
 	);
 };
@@ -112,9 +116,16 @@ const PriceHistory = ({ history, maxShow = 3 }: PriceHistoryProps) => {
 						<TooltipTrigger asChild>
 							<div className="flex items-center gap-2 text-xs">
 								<span className="text-muted-foreground">{change.date}</span>
-								<span className={isIncrease ? 'text-emerald-500' : 'text-red-500'}>
-									{isIncrease ? <TrendingUp className="inline size-3" /> : <TrendingDown className="inline size-3" />}
-									{isIncrease ? '+' : ''}{diffPercent.toFixed(1)}%
+								<span
+									className={isIncrease ? 'text-emerald-500' : 'text-red-500'}
+								>
+									{isIncrease ? (
+										<TrendingUp className="inline size-3" />
+									) : (
+										<TrendingDown className="inline size-3" />
+									)}
+									{isIncrease ? '+' : ''}
+									{diffPercent.toFixed(1)}%
 								</span>
 								<span className="text-muted-foreground">
 									${change.oldPrice.toFixed(2)} → ${change.newPrice.toFixed(2)}
@@ -126,7 +137,9 @@ const PriceHistory = ({ history, maxShow = 3 }: PriceHistoryProps) => {
 				);
 			})}
 			{history.length > maxShow && (
-				<span className="text-xs text-muted-foreground">+{history.length - maxShow} more changes</span>
+				<span className="text-xs text-muted-foreground">
+					+{history.length - maxShow} more changes
+				</span>
 			)}
 		</div>
 	);
@@ -137,19 +150,26 @@ interface CompetitorPricesProps {
 	currentPrice: number;
 }
 
-const CompetitorPrices = ({ competitors, currentPrice }: CompetitorPricesProps) => (
+const CompetitorPrices = ({
+	competitors,
+	currentPrice,
+}: CompetitorPricesProps) => (
 	<div className="grid gap-1 @sm:grid-cols-2 @md:grid-cols-3">
 		{competitors.map((comp) => {
 			const diff = currentPrice - comp.price;
 			const isLower = diff < 0;
 
 			return (
-				<div key={comp.name} className="flex items-center justify-between rounded-lg border bg-muted/30 px-2 py-1.5 text-xs">
+				<div
+					key={comp.name}
+					className="flex items-center justify-between rounded-lg border bg-muted/30 px-2 py-1.5 text-xs"
+				>
 					<span className="truncate font-medium">{comp.name}</span>
 					<div className="flex items-center gap-1">
 						<span className="font-bold">${comp.price.toFixed(2)}</span>
 						<span className={isLower ? 'text-red-500' : 'text-emerald-500'}>
-							({isLower ? '' : '+'}{diff.toFixed(2)})
+							({isLower ? '' : '+'}
+							{diff.toFixed(2)})
 						</span>
 					</div>
 				</div>
@@ -160,7 +180,11 @@ const CompetitorPrices = ({ competitors, currentPrice }: CompetitorPricesProps) 
 
 interface ProductRowProps {
 	product: ProductPricing;
-	actions: { label: string; icon: React.ElementType; onClick: (id: string) => void }[];
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		onClick: (id: string) => void;
+	}[];
 	labels: {
 		pricePosition: Record<'lowest' | 'competitive' | 'highest', string>;
 		cost: string;
@@ -174,7 +198,11 @@ const ProductRow = ({ product, actions, labels }: ProductRowProps) => (
 		<div className="mb-4 flex items-start gap-4">
 			<div className="size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
 				{product.image ? (
-					<img src={product.image} alt={product.name} className="size-full object-cover" />
+					<img
+						src={product.image}
+						alt={product.name}
+						className="size-full object-cover"
+					/>
 				) : (
 					<div className="flex size-full items-center justify-center">
 						<Package className="size-8 text-muted-foreground" />
@@ -188,7 +216,10 @@ const ProductRow = ({ product, actions, labels }: ProductRowProps) => (
 						<p className="text-sm text-muted-foreground">{product.sku}</p>
 					</div>
 					<div className="flex items-center gap-2">
-						<PricePositionBadge position={product.pricePosition} labels={labels.pricePosition} />
+						<PricePositionBadge
+							position={product.pricePosition}
+							labels={labels.pricePosition}
+						/>
 						<DropdownMenu>
 							<DropdownMenuTrigger asChild>
 								<Button variant="ghost" size="icon-sm">
@@ -214,20 +245,29 @@ const ProductRow = ({ product, actions, labels }: ProductRowProps) => (
 
 		<div className="mb-4 grid gap-4 @sm:grid-cols-5">
 			<div className="rounded-lg border bg-primary/5 p-3 text-center">
-				<div className="text-2xl font-bold text-primary">${product.currentPrice.toFixed(2)}</div>
+				<div className="text-2xl font-bold text-primary">
+					${product.currentPrice.toFixed(2)}
+				</div>
 				<div className="text-xs text-muted-foreground">Current Price</div>
 			</div>
 			<div className="rounded-lg border bg-muted/30 p-3 text-center">
-				<div className="text-lg font-semibold">${product.costPrice.toFixed(2)}</div>
+				<div className="text-lg font-semibold">
+					${product.costPrice.toFixed(2)}
+				</div>
 				<div className="text-xs text-muted-foreground">{labels.cost}</div>
 			</div>
-			<MarginDisplay margin={product.margin} marginPercent={product.marginPercent} />
+			<MarginDisplay
+				margin={product.margin}
+				marginPercent={product.marginPercent}
+			/>
 			<div className="rounded-lg border bg-muted/30 p-3 text-center">
 				<div className="text-lg font-semibold">${product.msrp.toFixed(2)}</div>
 				<div className="text-xs text-muted-foreground">{labels.msrp}</div>
 			</div>
 			<div className="rounded-lg border bg-muted/30 p-3 text-center">
-				<div className="text-lg font-semibold">${product.minPrice.toFixed(2)}</div>
+				<div className="text-lg font-semibold">
+					${product.minPrice.toFixed(2)}
+				</div>
 				<div className="text-xs text-muted-foreground">{labels.minPrice}</div>
 				{product.currentPrice < product.minPrice && (
 					<AlertCircle className="mx-auto mt-1 size-4 text-red-500" />
@@ -248,7 +288,10 @@ const ProductRow = ({ product, actions, labels }: ProductRowProps) => (
 					<BarChart2 className="size-4 text-muted-foreground" />
 					Competitor Prices
 				</div>
-				<CompetitorPrices competitors={product.competitors} currentPrice={product.currentPrice} />
+				<CompetitorPrices
+					competitors={product.competitors}
+					currentPrice={product.currentPrice}
+				/>
 			</div>
 		</div>
 	</div>
@@ -260,17 +303,33 @@ export default function Main() {
 			id: '1',
 			name: 'Professional Camera Lens',
 			sku: 'CAM-LNS-001',
-			image: 'https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=100&h=100&fit=crop',
 			currentPrice: 899.99,
-			costPrice: 540.00,
+			costPrice: 540.0,
 			margin: 359.99,
 			marginPercent: 40.0,
 			msrp: 999.99,
 			minPrice: 799.99,
 			priceHistory: [
-				{ date: 'Mar 1', oldPrice: 949.99, newPrice: 899.99, reason: 'Spring sale promotion' },
-				{ date: 'Feb 15', oldPrice: 899.99, newPrice: 949.99, reason: 'Price optimization' },
-				{ date: 'Jan 20', oldPrice: 849.99, newPrice: 899.99, reason: 'Supplier cost increase' },
+				{
+					date: 'Mar 1',
+					oldPrice: 949.99,
+					newPrice: 899.99,
+					reason: 'Spring sale promotion',
+				},
+				{
+					date: 'Feb 15',
+					oldPrice: 899.99,
+					newPrice: 949.99,
+					reason: 'Price optimization',
+				},
+				{
+					date: 'Jan 20',
+					oldPrice: 849.99,
+					newPrice: 899.99,
+					reason: 'Supplier cost increase',
+				},
 			],
 			competitors: [
 				{ name: 'Amazon', price: 879.99, lastUpdated: '2h ago' },
@@ -283,15 +342,21 @@ export default function Main() {
 			id: '2',
 			name: 'Wireless Microphone Kit',
 			sku: 'AUD-MIC-002',
-			image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=100&h=100&fit=crop',
 			currentPrice: 249.99,
-			costPrice: 125.00,
+			costPrice: 125.0,
 			margin: 124.99,
 			marginPercent: 50.0,
 			msrp: 299.99,
 			minPrice: 229.99,
 			priceHistory: [
-				{ date: 'Mar 5', oldPrice: 279.99, newPrice: 249.99, reason: 'Competitive price match' },
+				{
+					date: 'Mar 5',
+					oldPrice: 279.99,
+					newPrice: 249.99,
+					reason: 'Competitive price match',
+				},
 			],
 			competitors: [
 				{ name: 'Amazon', price: 269.99, lastUpdated: '1h ago' },
@@ -304,34 +369,61 @@ export default function Main() {
 			id: '3',
 			name: 'Studio Monitor Speakers',
 			sku: 'AUD-SPK-003',
-			image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100&h=100&fit=crop',
 			currentPrice: 449.99,
-			costPrice: 320.00,
+			costPrice: 320.0,
 			margin: 129.99,
 			marginPercent: 28.9,
 			msrp: 499.99,
 			minPrice: 399.99,
 			priceHistory: [
-				{ date: 'Mar 8', oldPrice: 429.99, newPrice: 449.99, reason: 'Price increase test' },
-				{ date: 'Feb 28', oldPrice: 399.99, newPrice: 429.99, reason: 'Stock limitation' },
+				{
+					date: 'Mar 8',
+					oldPrice: 429.99,
+					newPrice: 449.99,
+					reason: 'Price increase test',
+				},
+				{
+					date: 'Feb 28',
+					oldPrice: 399.99,
+					newPrice: 429.99,
+					reason: 'Stock limitation',
+				},
 			],
 			competitors: [
 				{ name: 'Amazon', price: 419.99, lastUpdated: '30m ago' },
 				{ name: 'Guitar Center', price: 429.99, lastUpdated: '2h ago' },
-				{ name: 'Musician\'s Friend', price: 439.99, lastUpdated: '1d ago' },
+				{ name: "Musician's Friend", price: 439.99, lastUpdated: '1d ago' },
 			],
 			pricePosition: 'highest',
 		},
 	];
 
 	const actions = [
-		{ label: 'Edit Pricing', icon: Pencil, onClick: (id: string) => console.log('Edit', id) },
-		{ label: 'Price History', icon: History, onClick: (id: string) => console.log('History', id) },
-		{ label: 'Competitor Analysis', icon: BarChart2, onClick: (id: string) => console.log('Analysis', id) },
+		{
+			label: 'Edit Pricing',
+			icon: Pencil,
+			onClick: (id: string) => console.log('Edit', id),
+		},
+		{
+			label: 'Price History',
+			icon: History,
+			onClick: (id: string) => console.log('History', id),
+		},
+		{
+			label: 'Competitor Analysis',
+			icon: BarChart2,
+			onClick: (id: string) => console.log('Analysis', id),
+		},
 	];
 
 	const labels = {
-		pricePosition: { lowest: 'Lowest Price', competitive: 'Competitive', highest: 'Above Market' },
+		pricePosition: {
+			lowest: 'Lowest Price',
+			competitive: 'Competitive',
+			highest: 'Above Market',
+		},
 		cost: 'Cost',
 		msrp: 'MSRP',
 		minPrice: 'Min Price',

@@ -141,7 +141,11 @@ export default function Main() {
 								placeholder="john@example.com"
 								type="email"
 							/>
-							<Field label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
+							<Field
+								label="Phone Number"
+								placeholder="+1 (555) 000-0000"
+								type="tel"
+							/>
 							<Field label="Street Address" placeholder="123 Main Street" />
 							<Field
 								label="Apt / Suite / Unit"

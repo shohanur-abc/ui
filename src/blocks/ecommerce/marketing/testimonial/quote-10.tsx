@@ -47,7 +47,13 @@ const StarRating = ({ rating }: { rating: number }) => (
 	</div>
 );
 
-const EditorialQuote = ({ item, featured }: { item: TestimonialItem; featured: boolean }) => (
+const EditorialQuote = ({
+	item,
+	featured,
+}: {
+	item: TestimonialItem;
+	featured: boolean;
+}) => (
 	<div
 		className={`relative ${
 			featured
@@ -60,7 +66,9 @@ const EditorialQuote = ({ item, featured }: { item: TestimonialItem; featured: b
 				Featured Quote
 			</Badge>
 		)}
-		<Quote className={`${featured ? 'size-12' : 'size-8'} text-primary/20 mb-4`} />
+		<Quote
+			className={`${featured ? 'size-12' : 'size-8'} text-primary/20 mb-4`}
+		/>
 		<StarRating rating={item.rating} />
 		<blockquote
 			className={`${
@@ -70,17 +78,23 @@ const EditorialQuote = ({ item, featured }: { item: TestimonialItem; featured: b
 			"{item.quote}"
 		</blockquote>
 		<div className="flex items-center gap-3">
-			<Avatar className={`${featured ? 'size-12' : 'size-9'} ring-2 ring-primary/10`}>
+			<Avatar
+				className={`${featured ? 'size-12' : 'size-9'} ring-2 ring-primary/10`}
+			>
 				<AvatarImage src={item.avatar} alt={item.author} />
 				<AvatarFallback className="bg-primary/10 text-primary font-semibold">
 					{item.initials}
 				</AvatarFallback>
 			</Avatar>
 			<div>
-				<p className={`font-semibold text-foreground ${featured ? 'text-base' : 'text-sm'}`}>
+				<p
+					className={`font-semibold text-foreground ${featured ? 'text-base' : 'text-sm'}`}
+				>
 					{item.author}
 				</p>
-				<p className={`text-muted-foreground ${featured ? 'text-sm' : 'text-xs'}`}>
+				<p
+					className={`text-muted-foreground ${featured ? 'text-sm' : 'text-xs'}`}
+				>
 					{item.role} · {item.company}
 				</p>
 			</div>
@@ -105,7 +119,8 @@ export default function Main() {
 		author: 'Victoria Chen',
 		role: 'VP Strategy',
 		company: 'StrategicMind',
-		avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 		initials: 'VC',
 		rating: 5,
 	};
@@ -116,7 +131,8 @@ export default function Main() {
 			author: 'William Park',
 			role: 'Operations',
 			company: 'AutomateFlow',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'WP',
 			rating: 5,
 		},
@@ -125,14 +141,18 @@ export default function Main() {
 			author: 'Xena Lee',
 			role: 'CISO',
 			company: 'SecureFirst',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'XL',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-6xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Editorial"

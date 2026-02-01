@@ -73,11 +73,19 @@ const StatusConfig: Record<
 	},
 };
 
-const VelocityIndicator = ({ velocity }: { velocity: InventoryItem['velocity'] }) => {
+const VelocityIndicator = ({
+	velocity,
+}: {
+	velocity: InventoryItem['velocity'];
+}) => {
 	const config = {
 		fast: { icon: TrendingUp, className: 'text-emerald-400', label: 'Fast' },
 		medium: { icon: TrendingUp, className: 'text-amber-400', label: 'Medium' },
-		slow: { icon: TrendingDown, className: 'text-muted-foreground', label: 'Slow' },
+		slow: {
+			icon: TrendingDown,
+			className: 'text-muted-foreground',
+			label: 'Slow',
+		},
 	};
 
 	const { icon: Icon, className, label } = config[velocity];
@@ -175,9 +183,7 @@ const InventoryCard = ({ item }: { item: InventoryItem }) => {
 					<span>Reorder at: {item.reorderPoint}</span>
 					{item.daysUntilStockout !== undefined && (
 						<span
-							className={
-								item.daysUntilStockout <= 7 ? 'text-rose-400' : ''
-							}
+							className={item.daysUntilStockout <= 7 ? 'text-rose-400' : ''}
 						>
 							{item.daysUntilStockout} days until stockout
 						</span>
@@ -191,24 +197,31 @@ const InventoryCard = ({ item }: { item: InventoryItem }) => {
 						<Truck className="size-3" />
 						{item.incomingStock} units incoming
 					</span>
-					<span className="text-muted-foreground">ETA: {item.incomingDate}</span>
+					<span className="text-muted-foreground">
+						ETA: {item.incomingDate}
+					</span>
 				</div>
 			)}
 
-			{(item.status === 'critical' || item.status === 'low') && !item.incomingStock && (
-				<Button
-					size="sm"
-					className="w-full h-8 mt-2 gap-1 bg-primary/20 text-primary hover:bg-primary/30"
-				>
-					<RotateCcw className="size-3" />
-					Reorder Now
-				</Button>
-			)}
+			{(item.status === 'critical' || item.status === 'low') &&
+				!item.incomingStock && (
+					<Button
+						size="sm"
+						className="w-full h-8 mt-2 gap-1 bg-primary/20 text-primary hover:bg-primary/30"
+					>
+						<RotateCcw className="size-3" />
+						Reorder Now
+					</Button>
+				)}
 		</div>
 	);
 };
 
-const InventoryStats = ({ stats }: { stats: InventoryTrackerProps['stats'] }) => (
+const InventoryStats = ({
+	stats,
+}: {
+	stats: InventoryTrackerProps['stats'];
+}) => (
 	<div className="grid grid-cols-4 gap-2">
 		<div className="p-3 rounded-lg bg-muted/30 border border-border/50 text-center">
 			<Package className="size-4 text-muted-foreground mx-auto mb-1" />

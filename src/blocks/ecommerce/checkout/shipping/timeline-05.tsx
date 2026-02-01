@@ -1,4 +1,13 @@
-import { Package, Truck, MapPin, Clock, Check, ChevronRight, Edit2, Calendar } from 'lucide-react';
+import {
+	Package,
+	Truck,
+	MapPin,
+	Clock,
+	Check,
+	ChevronRight,
+	Edit2,
+	Calendar,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,7 +19,11 @@ import { Separator } from '@/components/ui/separator';
 const MilestoneTimeline = ({
 	milestones,
 }: {
-	milestones: { title: string; date: string; status: 'completed' | 'current' | 'upcoming' }[];
+	milestones: {
+		title: string;
+		date: string;
+		status: 'completed' | 'current' | 'upcoming';
+	}[];
 }) => (
 	<div className="flex items-center justify-between py-4">
 		{milestones.map((milestone, i) => (
@@ -24,17 +37,25 @@ const MilestoneTimeline = ({
 							${milestone.status === 'upcoming' ? 'border-muted bg-background text-muted-foreground' : ''}
 						`}
 					>
-						{milestone.status === 'completed' ? <Check className="size-5" /> : (i + 1)}
+						{milestone.status === 'completed' ? (
+							<Check className="size-5" />
+						) : (
+							i + 1
+						)}
 					</div>
 					<div className="text-center mt-2">
-						<p className={`text-sm font-medium ${milestone.status === 'upcoming' ? 'text-muted-foreground' : ''}`}>
+						<p
+							className={`text-sm font-medium ${milestone.status === 'upcoming' ? 'text-muted-foreground' : ''}`}
+						>
 							{milestone.title}
 						</p>
 						<p className="text-xs text-muted-foreground">{milestone.date}</p>
 					</div>
 				</div>
 				{i < milestones.length - 1 && (
-					<div className={`h-0.5 flex-1 mx-4 ${milestone.status === 'completed' ? 'bg-primary' : 'bg-muted'}`} />
+					<div
+						className={`h-0.5 flex-1 mx-4 ${milestone.status === 'completed' ? 'bg-primary' : 'bg-muted'}`}
+					/>
 				)}
 			</div>
 		))}
@@ -59,7 +80,9 @@ const ShippingRow = ({
 		<div className="flex items-center gap-3">
 			<RadioGroupItem value={value} id={value} />
 			<span className="font-medium">{name}</span>
-			<Badge variant="secondary" className="text-xs">{time}</Badge>
+			<Badge variant="secondary" className="text-xs">
+				{time}
+			</Badge>
 		</div>
 		<span className="font-bold text-primary">{price}</span>
 	</Label>
@@ -126,9 +149,18 @@ export default function Main() {
 
 				<Card className="mb-6">
 					<CardContent className="p-4">
-						<SummarySection icon={MapPin} title="Shipping To" content="123 Main St, Apt 4B, New York, NY 10001" action="Change" />
+						<SummarySection
+							icon={MapPin}
+							title="Shipping To"
+							content="123 Main St, Apt 4B, New York, NY 10001"
+							action="Change"
+						/>
 						<Separator />
-						<SummarySection icon={Package} title="Items" content="3 items • 2.5 lbs total" />
+						<SummarySection
+							icon={Package}
+							title="Items"
+							content="3 items • 2.5 lbs total"
+						/>
 					</CardContent>
 				</Card>
 
@@ -149,7 +181,9 @@ export default function Main() {
 				</Card>
 
 				<div className="flex gap-3">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">
 						Continue to Payment
 						<ChevronRight className="size-5 ml-2" />

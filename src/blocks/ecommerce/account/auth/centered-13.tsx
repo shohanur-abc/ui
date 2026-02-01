@@ -23,7 +23,13 @@ const StarsDecorative = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -34,7 +40,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-6">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -56,7 +64,9 @@ const Testimonial = ({
 				<Star key={i} className="size-4 fill-primary text-primary" />
 			))}
 		</div>
-		<p className="text-sm text-muted-foreground mb-3 italic">&ldquo;{quote}&rdquo;</p>
+		<p className="text-sm text-muted-foreground mb-3 italic">
+			&ldquo;{quote}&rdquo;
+		</p>
 		<div className="flex items-center gap-3">
 			<Avatar className="size-8">
 				<AvatarImage src={avatar} />
@@ -134,7 +144,10 @@ export default function Main() {
 			<div className="relative min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo name="LaunchPad" icon={Rocket} />
-					<Title text="Join the revolution" subtitle="Create your account and start exploring" />
+					<Title
+						text="Join the revolution"
+						subtitle="Create your account and start exploring"
+					/>
 
 					<Testimonial
 						quote="This platform completely changed how I shop online. The experience is simply unmatched!"
@@ -144,14 +157,33 @@ export default function Main() {
 					/>
 
 					<form className="space-y-5">
-						<FormField label="Full Name" type="text" placeholder="John Doe" icon={User} />
-						<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-						<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+						<FormField
+							label="Full Name"
+							type="text"
+							placeholder="John Doe"
+							icon={User}
+						/>
+						<FormField
+							label="Email"
+							type="email"
+							placeholder="you@example.com"
+							icon={Mail}
+						/>
+						<FormField
+							label="Password"
+							type="password"
+							placeholder="••••••••"
+							icon={Lock}
+						/>
 						<SubmitButton label="Get Started Free" icon={ArrowRight} />
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="Already have an account?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already have an account?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</div>
 				</div>
 			</div>

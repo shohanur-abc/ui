@@ -11,7 +11,13 @@ import {
 	Settings,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
@@ -33,11 +39,26 @@ type AlertItemProps = {
 };
 
 const AlertItem = ({ alert }: AlertItemProps) => {
-	const config: Record<AlertType, { icon: React.ElementType; color: string; bgColor: string }> = {
-		critical: { icon: XCircle, color: 'text-destructive', bgColor: 'bg-destructive/10' },
-		warning: { icon: AlertTriangle, color: 'text-amber-500', bgColor: 'bg-amber-500/10' },
+	const config: Record<
+		AlertType,
+		{ icon: React.ElementType; color: string; bgColor: string }
+	> = {
+		critical: {
+			icon: XCircle,
+			color: 'text-destructive',
+			bgColor: 'bg-destructive/10',
+		},
+		warning: {
+			icon: AlertTriangle,
+			color: 'text-amber-500',
+			bgColor: 'bg-amber-500/10',
+		},
 		info: { icon: Clock, color: 'text-blue-500', bgColor: 'bg-blue-500/10' },
-		success: { icon: CheckCircle2, color: 'text-emerald-500', bgColor: 'bg-emerald-500/10' },
+		success: {
+			icon: CheckCircle2,
+			color: 'text-emerald-500',
+			bgColor: 'bg-emerald-500/10',
+		},
 	};
 
 	const { icon: Icon, color, bgColor } = config[alert.type];
@@ -95,7 +116,9 @@ const AlertSummary = ({ counts, labels }: AlertSummaryProps) => (
 
 			return (
 				<div key={type} className={`rounded-lg border p-3 ${colors[type]}`}>
-					<p className={`text-2xl font-bold ${textColors[type]}`}>{counts[type]}</p>
+					<p className={`text-2xl font-bold ${textColors[type]}`}>
+						{counts[type]}
+					</p>
 					<p className="text-sm text-muted-foreground">{labels[type]}</p>
 				</div>
 			);
@@ -161,8 +184,12 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex flex-col gap-4 @sm:flex-row @sm:items-center @sm:justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Inventory Alerts</CardTitle>
-								<CardDescription>Real-time notifications for stock issues</CardDescription>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Inventory Alerts
+								</CardTitle>
+								<CardDescription>
+									Real-time notifications for stock issues
+								</CardDescription>
 							</div>
 							<div className="flex gap-2">
 								<Button variant="outline" size="sm">

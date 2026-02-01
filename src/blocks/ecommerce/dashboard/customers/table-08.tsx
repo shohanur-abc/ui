@@ -115,10 +115,26 @@ const FilterBar = ({
 
 const RoleBadge = ({ role }: { role: Customer['role'] }) => {
 	const config = {
-		customer: { label: 'Customer', icon: User, className: 'bg-slate-500/10 text-slate-500 border-slate-500/20' },
-		vip: { label: 'VIP', icon: Shield, className: 'bg-violet-500/10 text-violet-500 border-violet-500/20' },
-		wholesale: { label: 'Wholesale', icon: ShieldCheck, className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
-		admin: { label: 'Admin', icon: ShieldAlert, className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
+		customer: {
+			label: 'Customer',
+			icon: User,
+			className: 'bg-slate-500/10 text-slate-500 border-slate-500/20',
+		},
+		vip: {
+			label: 'VIP',
+			icon: Shield,
+			className: 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+		},
+		wholesale: {
+			label: 'Wholesale',
+			icon: ShieldCheck,
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
+		admin: {
+			label: 'Admin',
+			icon: ShieldAlert,
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
 	};
 	const Icon = config[role].icon;
 	return (
@@ -233,7 +249,9 @@ const CustomerRow = ({ customer }: { customer: Customer }) => (
 
 const BulkActions = ({ selectedCount }: { selectedCount: number }) => (
 	<div className="flex items-center gap-3 border-t px-6 py-3 bg-muted/50">
-		<span className="text-muted-foreground text-sm">{selectedCount} selected</span>
+		<span className="text-muted-foreground text-sm">
+			{selectedCount} selected
+		</span>
 		<div className="flex gap-2">
 			<Button variant="outline" size="sm" className="gap-2">
 				<Mail className="size-4" />
@@ -243,7 +261,11 @@ const BulkActions = ({ selectedCount }: { selectedCount: number }) => (
 				<UserCog className="size-4" />
 				Change Role
 			</Button>
-			<Button variant="outline" size="sm" className="gap-2 text-destructive hover:text-destructive">
+			<Button
+				variant="outline"
+				size="sm"
+				className="gap-2 text-destructive hover:text-destructive"
+			>
 				<Trash2 className="size-4" />
 				Delete
 			</Button>
@@ -316,8 +338,14 @@ export default function Main() {
 	];
 
 	const filters = [
-		{ label: 'Role', options: ['All Roles', 'Customer', 'VIP', 'Wholesale', 'Admin'] },
-		{ label: 'Status', options: ['All Status', 'Active', 'Suspended', 'Pending', 'Banned'] },
+		{
+			label: 'Role',
+			options: ['All Roles', 'Customer', 'VIP', 'Wholesale', 'Admin'],
+		},
+		{
+			label: 'Status',
+			options: ['All Status', 'Active', 'Suspended', 'Pending', 'Banned'],
+		},
 	];
 
 	return (
@@ -342,7 +370,9 @@ export default function Main() {
 								<TableHead className="hidden @lg:table-cell">Role</TableHead>
 								<TableHead className="hidden @xl:table-cell">Status</TableHead>
 								<TableHead className="hidden @xl:table-cell">Created</TableHead>
-								<TableHead className="hidden @2xl:table-cell">Last Login</TableHead>
+								<TableHead className="hidden @2xl:table-cell">
+									Last Login
+								</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>

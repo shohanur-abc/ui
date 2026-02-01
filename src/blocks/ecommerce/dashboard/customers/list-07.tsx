@@ -62,7 +62,9 @@ const PreferenceIndicator = ({
 	enabled: boolean;
 	icon: React.ElementType;
 }) => (
-	<div className={`flex items-center gap-1.5 rounded-full px-2 py-1 text-xs ${enabled ? 'bg-emerald-500/10 text-emerald-500' : 'bg-muted text-muted-foreground'}`}>
+	<div
+		className={`flex items-center gap-1.5 rounded-full px-2 py-1 text-xs ${enabled ? 'bg-emerald-500/10 text-emerald-500' : 'bg-muted text-muted-foreground'}`}
+	>
 		<Icon className="size-3" />
 		<span className="hidden @md:inline">{label}</span>
 	</div>
@@ -86,8 +88,14 @@ const PageHeader = ({
 	</div>
 );
 
-const PreferencesListItem = ({ customer }: { customer: PreferencesCustomer }) => {
-	const activePrefs = Object.values(customer.preferences).filter(Boolean).length;
+const PreferencesListItem = ({
+	customer,
+}: {
+	customer: PreferencesCustomer;
+}) => {
+	const activePrefs = Object.values(customer.preferences).filter(
+		Boolean,
+	).length;
 	const totalPrefs = Object.values(customer.preferences).length;
 	return (
 		<div className="group flex flex-col @lg:flex-row @lg:items-center gap-4 rounded-lg border bg-card p-4 transition-colors hover:bg-muted/50">
@@ -135,7 +143,9 @@ const PreferencesListItem = ({ customer }: { customer: PreferencesCustomer }) =>
 			<div className="flex items-center gap-4 @lg:gap-6">
 				<div className="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-1.5">
 					<ChannelIcon channel={customer.preferredChannel} />
-					<span className="text-sm font-medium capitalize">{customer.preferredChannel}</span>
+					<span className="text-sm font-medium capitalize">
+						{customer.preferredChannel}
+					</span>
 				</div>
 				<div className="hidden @md:flex items-center gap-2">
 					<Globe className="text-muted-foreground size-4" />
@@ -145,10 +155,16 @@ const PreferencesListItem = ({ customer }: { customer: PreferencesCustomer }) =>
 					<Badge variant="secondary" className="text-xs">
 						{activePrefs}/{totalPrefs} active
 					</Badge>
-					<p className="text-muted-foreground text-xs mt-1">Updated {customer.lastUpdated}</p>
+					<p className="text-muted-foreground text-xs mt-1">
+						Updated {customer.lastUpdated}
+					</p>
 				</div>
 				<div className="flex items-center gap-2">
-					<Button variant="outline" size="sm" className="hidden @md:flex gap-1.5">
+					<Button
+						variant="outline"
+						size="sm"
+						className="hidden @md:flex gap-1.5"
+					>
 						<Settings className="size-3.5" />
 						Edit
 					</Button>
@@ -179,7 +195,13 @@ export default function Main() {
 			email: 'rachel.k@email.com',
 			phone: '+1 555-0401',
 			initials: 'RK',
-			preferences: { emailMarketing: true, smsNotifications: false, pushNotifications: true, orderUpdates: true, promotions: true },
+			preferences: {
+				emailMarketing: true,
+				smsNotifications: false,
+				pushNotifications: true,
+				orderUpdates: true,
+				promotions: true,
+			},
 			preferredChannel: 'email',
 			language: 'English',
 			lastUpdated: '2d ago',
@@ -191,7 +213,13 @@ export default function Main() {
 			email: 'steven.c@email.com',
 			phone: '+1 555-0402',
 			initials: 'SC',
-			preferences: { emailMarketing: true, smsNotifications: true, pushNotifications: true, orderUpdates: true, promotions: false },
+			preferences: {
+				emailMarketing: true,
+				smsNotifications: true,
+				pushNotifications: true,
+				orderUpdates: true,
+				promotions: false,
+			},
 			preferredChannel: 'sms',
 			language: 'English',
 			lastUpdated: '1w ago',
@@ -203,7 +231,13 @@ export default function Main() {
 			email: 'tiffany.w@email.com',
 			phone: '+1 555-0403',
 			initials: 'TW',
-			preferences: { emailMarketing: false, smsNotifications: false, pushNotifications: false, orderUpdates: true, promotions: false },
+			preferences: {
+				emailMarketing: false,
+				smsNotifications: false,
+				pushNotifications: false,
+				orderUpdates: true,
+				promotions: false,
+			},
 			preferredChannel: 'app',
 			language: 'Mandarin',
 			lastUpdated: '3d ago',
@@ -214,7 +248,13 @@ export default function Main() {
 			email: 'ulysses.g@email.com',
 			phone: '+1 555-0404',
 			initials: 'UG',
-			preferences: { emailMarketing: true, smsNotifications: true, pushNotifications: true, orderUpdates: true, promotions: true },
+			preferences: {
+				emailMarketing: true,
+				smsNotifications: true,
+				pushNotifications: true,
+				orderUpdates: true,
+				promotions: true,
+			},
 			preferredChannel: 'email',
 			language: 'English',
 			lastUpdated: '1d ago',
@@ -226,7 +266,13 @@ export default function Main() {
 			email: 'valerie.s@email.com',
 			phone: '+1 555-0405',
 			initials: 'VS',
-			preferences: { emailMarketing: true, smsNotifications: false, pushNotifications: true, orderUpdates: true, promotions: true },
+			preferences: {
+				emailMarketing: true,
+				smsNotifications: false,
+				pushNotifications: true,
+				orderUpdates: true,
+				promotions: true,
+			},
 			preferredChannel: 'phone',
 			language: 'Spanish',
 			lastUpdated: '5d ago',
@@ -238,7 +284,13 @@ export default function Main() {
 			email: 'william.p@email.com',
 			phone: '+1 555-0406',
 			initials: 'WP',
-			preferences: { emailMarketing: false, smsNotifications: true, pushNotifications: false, orderUpdates: true, promotions: false },
+			preferences: {
+				emailMarketing: false,
+				smsNotifications: true,
+				pushNotifications: false,
+				orderUpdates: true,
+				promotions: false,
+			},
 			preferredChannel: 'sms',
 			language: 'Korean',
 			lastUpdated: '2w ago',
@@ -249,7 +301,13 @@ export default function Main() {
 			email: 'xena.r@email.com',
 			phone: '+1 555-0407',
 			initials: 'XR',
-			preferences: { emailMarketing: true, smsNotifications: true, pushNotifications: true, orderUpdates: true, promotions: true },
+			preferences: {
+				emailMarketing: true,
+				smsNotifications: true,
+				pushNotifications: true,
+				orderUpdates: true,
+				promotions: true,
+			},
 			preferredChannel: 'app',
 			language: 'English',
 			lastUpdated: '1d ago',
@@ -261,7 +319,13 @@ export default function Main() {
 			email: 'yusuf.a@email.com',
 			phone: '+1 555-0408',
 			initials: 'YA',
-			preferences: { emailMarketing: false, smsNotifications: false, pushNotifications: true, orderUpdates: true, promotions: false },
+			preferences: {
+				emailMarketing: false,
+				smsNotifications: false,
+				pushNotifications: true,
+				orderUpdates: true,
+				promotions: false,
+			},
 			preferredChannel: 'app',
 			language: 'Arabic',
 			lastUpdated: '4d ago',

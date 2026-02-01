@@ -1,14 +1,36 @@
 import Link from 'next/link';
-import { Mail, Lock, ArrowRight, Package, MapPin, Clock, Search, User } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	ArrowRight,
+	Package,
+	MapPin,
+	Clock,
+	Search,
+	User,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -56,16 +78,40 @@ const SubmitButton = ({
 
 const OrderTracking = () => (
 	<form className="space-y-4">
-		<FormField id="order-number" label="Order Number" type="text" placeholder="ORD-123456789" icon={Package} />
-		<FormField id="order-email" label="Email used for order" type="email" placeholder="you@example.com" icon={Mail} />
+		<FormField
+			id="order-number"
+			label="Order Number"
+			type="text"
+			placeholder="ORD-123456789"
+			icon={Package}
+		/>
+		<FormField
+			id="order-email"
+			label="Email used for order"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
 		<SubmitButton label="Track Order" icon={Search} />
 	</form>
 );
 
 const AccountSignIn = () => (
 	<form className="space-y-4">
-		<FormField id="account-email" label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-		<FormField id="account-password" label="Password" type="password" placeholder="••••••••" icon={Lock} />
+		<FormField
+			id="account-email"
+			label="Email"
+			type="email"
+			placeholder="you@example.com"
+			icon={Mail}
+		/>
+		<FormField
+			id="account-password"
+			label="Password"
+			type="password"
+			placeholder="••••••••"
+			icon={Lock}
+		/>
 		<SubmitButton label="Sign in" icon={ArrowRight} />
 		<p className="text-sm text-muted-foreground text-center">
 			<Link href="/forgot-password" className="text-primary hover:underline">
@@ -106,7 +152,9 @@ export default function Main() {
 							<Logo name="TrackShip" icon={Package} />
 						</div>
 						<CardTitle className="text-2xl">Order Status</CardTitle>
-						<CardDescription>Track your order or sign in to your account</CardDescription>
+						<CardDescription>
+							Track your order or sign in to your account
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Tabs defaultValue="track" className="w-full">
@@ -126,8 +174,16 @@ export default function Main() {
 								<div>
 									<h4 className="text-sm font-medium mb-3">Recently tracked</h4>
 									<div className="space-y-2">
-										<RecentOrder orderNumber="ORD-987654321" status="In Transit" date="2 hours ago" />
-										<RecentOrder orderNumber="ORD-123456789" status="Delivered" date="1 day ago" />
+										<RecentOrder
+											orderNumber="ORD-987654321"
+											status="In Transit"
+											date="2 hours ago"
+										/>
+										<RecentOrder
+											orderNumber="ORD-123456789"
+											status="Delivered"
+											date="1 day ago"
+										/>
 									</div>
 								</div>
 							</TabsContent>

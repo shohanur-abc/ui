@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Minus, Plus, X, ArrowRight, Box, ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
@@ -15,7 +21,13 @@ interface CartItem {
 	quantity: number;
 }
 
-const ContentBlock = ({ children, title }: { children: React.ReactNode; title?: string }) => (
+const ContentBlock = ({
+	children,
+	title,
+}: {
+	children: React.ReactNode;
+	title?: string;
+}) => (
 	<div className="p-6 border rounded-xl bg-card">
 		{title && <h2 className="text-lg font-semibold mb-4">{title}</h2>}
 		{children}
@@ -49,13 +61,19 @@ const EmbeddedItem = ({ item }: { item: CartItem }) => (
 					<h4 className="font-medium text-sm line-clamp-1">{item.name}</h4>
 					<p className="text-xs text-muted-foreground">{item.variant}</p>
 				</div>
-				<Button size="icon-sm" variant="ghost" className="size-6 text-muted-foreground hover:text-destructive shrink-0">
+				<Button
+					size="icon-sm"
+					variant="ghost"
+					className="size-6 text-muted-foreground hover:text-destructive shrink-0"
+				>
 					<X className="size-3" />
 				</Button>
 			</div>
 			<div className="flex items-center justify-between mt-2">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-semibold text-sm">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-semibold text-sm">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -70,7 +88,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between text-sm ${bold ? 'font-bold text-base' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between text-sm ${bold ? 'font-bold text-base' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -103,7 +123,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
 			name: 'Running Shoes Pro',
 			variant: 'Red • US 10',
 			price: 149.99,
@@ -111,7 +132,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
 			name: 'Studio Headphones',
 			variant: 'Black',
 			price: 299.99,
@@ -119,7 +141,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver',
 			price: 249.99,
@@ -129,12 +152,14 @@ export default function Main() {
 
 	const recommended = [
 		{
-			image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=100&h=100&fit=crop',
 			name: 'Wireless Earbuds',
 			price: 179.99,
 		},
 		{
-			image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=100&h=100&fit=crop',
 			name: 'Silk Scarf',
 			price: 89.99,
 		},
@@ -162,7 +187,8 @@ export default function Main() {
 					</div>
 
 					<p className="text-muted-foreground mb-6">
-						Review your items below. This cart is embedded within the product page for easy access.
+						Review your items below. This cart is embedded within the product
+						page for easy access.
 					</p>
 
 					<div className="grid gap-6 @lg:grid-cols-5">
@@ -172,7 +198,9 @@ export default function Main() {
 								<div className="flex items-center gap-2 mb-3">
 									<ShoppingCart className="size-4 text-primary" />
 									<h3 className="font-medium">Cart Items</h3>
-									<Badge variant="secondary" className="ml-auto">{items.length}</Badge>
+									<Badge variant="secondary" className="ml-auto">
+										{items.length}
+									</Badge>
 								</div>
 								{items.map((item) => (
 									<EmbeddedItem key={item.id} item={item} />
@@ -217,15 +245,15 @@ export default function Main() {
 				<div className="mt-8 grid gap-6 @md:grid-cols-2">
 					<ContentBlock title="Shipping Information">
 						<p className="text-sm text-muted-foreground">
-							Your items will be shipped within 3-5 business days after order confirmation.
-							Free shipping is available for orders over $100.
+							Your items will be shipped within 3-5 business days after order
+							confirmation. Free shipping is available for orders over $100.
 						</p>
 					</ContentBlock>
 
 					<ContentBlock title="Return Policy">
 						<p className="text-sm text-muted-foreground">
-							30-day hassle-free returns on all orders. Items must be in original condition
-							with tags attached.
+							30-day hassle-free returns on all orders. Items must be in
+							original condition with tags attached.
 						</p>
 					</ContentBlock>
 				</div>

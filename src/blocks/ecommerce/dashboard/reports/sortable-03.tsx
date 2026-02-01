@@ -153,7 +153,7 @@ const SalesRepRow = ({
 							</div>
 						</TooltipTrigger>
 						<TooltipContent>
-							{isOverTarget ? 'Target exceeded!' : `${(100 - quota)}% remaining`}
+							{isOverTarget ? 'Target exceeded!' : `${100 - quota}% remaining`}
 						</TooltipContent>
 					</Tooltip>
 				</TooltipProvider>
@@ -176,12 +176,72 @@ export default function Main() {
 	};
 
 	const salesReps: SalesRepItem[] = [
-		{ id: '1', name: 'Jessica Martinez', avatar: '', initials: 'JM', region: 'North America', deals: 34, revenue: 425000, target: 400000, quota: 106 },
-		{ id: '2', name: 'Robert Chen', avatar: '', initials: 'RC', region: 'Asia Pacific', deals: 28, revenue: 312000, target: 350000, quota: 89 },
-		{ id: '3', name: 'Emma Thompson', avatar: '', initials: 'ET', region: 'Europe', deals: 31, revenue: 389000, target: 380000, quota: 102 },
-		{ id: '4', name: 'Michael Brown', avatar: '', initials: 'MB', region: 'Latin America', deals: 19, revenue: 178000, target: 250000, quota: 71 },
-		{ id: '5', name: 'Sarah Williams', avatar: '', initials: 'SW', region: 'Middle East', deals: 22, revenue: 245000, target: 280000, quota: 88 },
-		{ id: '6', name: 'David Lee', avatar: '', initials: 'DL', region: 'Australia', deals: 15, revenue: 156000, target: 200000, quota: 78 },
+		{
+			id: '1',
+			name: 'Jessica Martinez',
+			avatar: '',
+			initials: 'JM',
+			region: 'North America',
+			deals: 34,
+			revenue: 425000,
+			target: 400000,
+			quota: 106,
+		},
+		{
+			id: '2',
+			name: 'Robert Chen',
+			avatar: '',
+			initials: 'RC',
+			region: 'Asia Pacific',
+			deals: 28,
+			revenue: 312000,
+			target: 350000,
+			quota: 89,
+		},
+		{
+			id: '3',
+			name: 'Emma Thompson',
+			avatar: '',
+			initials: 'ET',
+			region: 'Europe',
+			deals: 31,
+			revenue: 389000,
+			target: 380000,
+			quota: 102,
+		},
+		{
+			id: '4',
+			name: 'Michael Brown',
+			avatar: '',
+			initials: 'MB',
+			region: 'Latin America',
+			deals: 19,
+			revenue: 178000,
+			target: 250000,
+			quota: 71,
+		},
+		{
+			id: '5',
+			name: 'Sarah Williams',
+			avatar: '',
+			initials: 'SW',
+			region: 'Middle East',
+			deals: 22,
+			revenue: 245000,
+			target: 280000,
+			quota: 88,
+		},
+		{
+			id: '6',
+			name: 'David Lee',
+			avatar: '',
+			initials: 'DL',
+			region: 'Australia',
+			deals: 15,
+			revenue: 156000,
+			target: 200000,
+			quota: 78,
+		},
 	];
 
 	const sortedReps = [...salesReps].sort((a, b) => {
@@ -212,7 +272,9 @@ export default function Main() {
 							<Button
 								variant="ghost"
 								size="sm"
-								onClick={() => setSortConfig({ key: 'revenue', direction: 'desc' })}
+								onClick={() =>
+									setSortConfig({ key: 'revenue', direction: 'desc' })
+								}
 							>
 								<RotateCcw className="size-4" />
 							</Button>

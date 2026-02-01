@@ -11,12 +11,7 @@ import {
 	Camera,
 } from 'lucide-react';
 
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 interface RatingDistribution {
@@ -71,10 +66,19 @@ const OverallRating = ({ rating, total, trend }: OverallRatingProps) => {
 						</p>
 					</div>
 					<div className="h-16 w-px bg-border" />
-					<div className={`flex items-center gap-2 ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}>
-						{isPositive ? <TrendingUp className="size-5" /> : <TrendingDown className="size-5" />}
+					<div
+						className={`flex items-center gap-2 ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}
+					>
+						{isPositive ? (
+							<TrendingUp className="size-5" />
+						) : (
+							<TrendingDown className="size-5" />
+						)}
 						<div>
-							<p className="text-lg font-bold">{isPositive ? '+' : ''}{trend}%</p>
+							<p className="text-lg font-bold">
+								{isPositive ? '+' : ''}
+								{trend}%
+							</p>
 							<p className="text-xs text-muted-foreground">vs last period</p>
 						</div>
 					</div>
@@ -90,7 +94,11 @@ interface RatingDistributionChartProps {
 	total: number;
 }
 
-const RatingDistributionChart = ({ title, distribution, total }: RatingDistributionChartProps) => {
+const RatingDistributionChart = ({
+	title,
+	distribution,
+	total,
+}: RatingDistributionChartProps) => {
 	const ratings = [5, 4, 3, 2, 1] as const;
 
 	return (
@@ -131,7 +139,13 @@ interface ReviewQualityCardProps {
 	labels: { photos: string; verified: string };
 }
 
-const ReviewQualityCard = ({ title, withPhotos, verified, total, labels }: ReviewQualityCardProps) => (
+const ReviewQualityCard = ({
+	title,
+	withPhotos,
+	verified,
+	total,
+	labels,
+}: ReviewQualityCardProps) => (
 	<Card>
 		<CardHeader>
 			<CardTitle className="text-base">{title}</CardTitle>
@@ -140,15 +154,23 @@ const ReviewQualityCard = ({ title, withPhotos, verified, total, labels }: Revie
 			<div className="grid gap-4 @sm:grid-cols-2">
 				<div className="rounded-lg border bg-muted/30 p-4 text-center">
 					<Camera className="mx-auto mb-2 size-6 text-muted-foreground" />
-					<div className="text-2xl font-bold">{((withPhotos / total) * 100).toFixed(0)}%</div>
+					<div className="text-2xl font-bold">
+						{((withPhotos / total) * 100).toFixed(0)}%
+					</div>
 					<p className="text-sm text-muted-foreground">{labels.photos}</p>
-					<p className="text-xs text-muted-foreground">({withPhotos.toLocaleString()} reviews)</p>
+					<p className="text-xs text-muted-foreground">
+						({withPhotos.toLocaleString()} reviews)
+					</p>
 				</div>
 				<div className="rounded-lg border bg-muted/30 p-4 text-center">
 					<MessageSquare className="mx-auto mb-2 size-6 text-muted-foreground" />
-					<div className="text-2xl font-bold">{((verified / total) * 100).toFixed(0)}%</div>
+					<div className="text-2xl font-bold">
+						{((verified / total) * 100).toFixed(0)}%
+					</div>
 					<p className="text-sm text-muted-foreground">{labels.verified}</p>
-					<p className="text-xs text-muted-foreground">({verified.toLocaleString()} reviews)</p>
+					<p className="text-xs text-muted-foreground">
+						({verified.toLocaleString()} reviews)
+					</p>
 				</div>
 			</div>
 		</CardContent>
@@ -163,7 +185,13 @@ interface SentimentCardProps {
 	labels: { positive: string; negative: string; neutral: string };
 }
 
-const SentimentCard = ({ title, positive, negative, neutral, labels }: SentimentCardProps) => {
+const SentimentCard = ({
+	title,
+	positive,
+	negative,
+	neutral,
+	labels,
+}: SentimentCardProps) => {
 	const total = positive + negative + neutral;
 
 	return (
@@ -190,20 +218,26 @@ const SentimentCard = ({ title, positive, negative, neutral, labels }: Sentiment
 					<div>
 						<div className="flex items-center justify-center gap-1 text-emerald-500">
 							<ThumbsUp className="size-4" />
-							<span className="text-xl font-bold">{((positive / total) * 100).toFixed(0)}%</span>
+							<span className="text-xl font-bold">
+								{((positive / total) * 100).toFixed(0)}%
+							</span>
 						</div>
 						<p className="text-xs text-muted-foreground">{labels.positive}</p>
 					</div>
 					<div>
 						<div className="flex items-center justify-center gap-1 text-gray-400">
-							<span className="text-xl font-bold">{((neutral / total) * 100).toFixed(0)}%</span>
+							<span className="text-xl font-bold">
+								{((neutral / total) * 100).toFixed(0)}%
+							</span>
 						</div>
 						<p className="text-xs text-muted-foreground">{labels.neutral}</p>
 					</div>
 					<div>
 						<div className="flex items-center justify-center gap-1 text-red-500">
 							<ThumbsDown className="size-4" />
-							<span className="text-xl font-bold">{((negative / total) * 100).toFixed(0)}%</span>
+							<span className="text-xl font-bold">
+								{((negative / total) * 100).toFixed(0)}%
+							</span>
 						</div>
 						<p className="text-xs text-muted-foreground">{labels.negative}</p>
 					</div>
@@ -220,7 +254,12 @@ interface ResponseMetricsCardProps {
 	labels: { rate: string; time: string; hours: string };
 }
 
-const ResponseMetricsCard = ({ title, responseRate, avgTime, labels }: ResponseMetricsCardProps) => (
+const ResponseMetricsCard = ({
+	title,
+	responseRate,
+	avgTime,
+	labels,
+}: ResponseMetricsCardProps) => (
 	<Card>
 		<CardHeader>
 			<CardTitle className="text-base">{title}</CardTitle>
@@ -271,7 +310,11 @@ export default function Main() {
 						positive={stats.sentimentPositive}
 						negative={stats.sentimentNegative}
 						neutral={stats.sentimentNeutral}
-						labels={{ positive: 'Positive', negative: 'Negative', neutral: 'Neutral' }}
+						labels={{
+							positive: 'Positive',
+							negative: 'Negative',
+							neutral: 'Neutral',
+						}}
 					/>
 				</div>
 
@@ -293,7 +336,11 @@ export default function Main() {
 						title="Response Metrics"
 						responseRate={stats.responseRate}
 						avgTime={stats.avgResponseTime}
-						labels={{ rate: 'Response Rate', time: 'Avg Response Time', hours: 'hours' }}
+						labels={{
+							rate: 'Response Rate',
+							time: 'Avg Response Time',
+							hours: 'hours',
+						}}
 					/>
 				</div>
 			</div>

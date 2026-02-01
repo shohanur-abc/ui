@@ -12,7 +12,14 @@ interface MetricStatProps {
 	status: 'above' | 'below' | 'on-target';
 }
 
-const MetricStat = ({ icon: Icon, label, value, unit, benchmark, status }: MetricStatProps) => {
+const MetricStat = ({
+	icon: Icon,
+	label,
+	value,
+	unit,
+	benchmark,
+	status,
+}: MetricStatProps) => {
 	const statusConfig = {
 		above: { color: 'text-accent', label: 'Above target' },
 		below: { color: 'text-destructive', label: 'Below target' },
@@ -25,7 +32,10 @@ const MetricStat = ({ icon: Icon, label, value, unit, benchmark, status }: Metri
 				<div className="rounded-lg bg-primary/10 p-2">
 					<Icon className="size-4 text-primary" />
 				</div>
-				<Badge variant="outline" className={`text-[10px] ${statusConfig[status].color}`}>
+				<Badge
+					variant="outline"
+					className={`text-[10px] ${statusConfig[status].color}`}
+				>
 					{statusConfig[status].label}
 				</Badge>
 			</div>
@@ -38,7 +48,8 @@ const MetricStat = ({ icon: Icon, label, value, unit, benchmark, status }: Metri
 			</div>
 			<Separator className="my-4" />
 			<p className="text-xs text-muted-foreground">
-				Benchmark: <span className="font-medium text-foreground">{benchmark}</span>
+				Benchmark:{' '}
+				<span className="font-medium text-foreground">{benchmark}</span>
 			</p>
 		</Card>
 	);
@@ -46,10 +57,38 @@ const MetricStat = ({ icon: Icon, label, value, unit, benchmark, status }: Metri
 
 export default function Main() {
 	const stats: MetricStatProps[] = [
-		{ icon: Activity, label: 'Page Load Time', value: '1.2', unit: 'seconds', benchmark: '< 2.0s', status: 'above' },
-		{ icon: Zap, label: 'Time to First Byte', value: '284', unit: 'ms', benchmark: '< 300ms', status: 'on-target' },
-		{ icon: Target, label: 'Bounce Rate', value: '42', unit: '%', benchmark: '< 40%', status: 'below' },
-		{ icon: TrendingUp, label: 'Core Web Vitals', value: '92', unit: '/100', benchmark: '> 90', status: 'above' },
+		{
+			icon: Activity,
+			label: 'Page Load Time',
+			value: '1.2',
+			unit: 'seconds',
+			benchmark: '< 2.0s',
+			status: 'above',
+		},
+		{
+			icon: Zap,
+			label: 'Time to First Byte',
+			value: '284',
+			unit: 'ms',
+			benchmark: '< 300ms',
+			status: 'on-target',
+		},
+		{
+			icon: Target,
+			label: 'Bounce Rate',
+			value: '42',
+			unit: '%',
+			benchmark: '< 40%',
+			status: 'below',
+		},
+		{
+			icon: TrendingUp,
+			label: 'Core Web Vitals',
+			value: '92',
+			unit: '/100',
+			benchmark: '> 90',
+			status: 'above',
+		},
 	];
 
 	return (

@@ -34,7 +34,11 @@ interface TableHeaderCellProps {
 interface OrderRowProps {
 	order: Order;
 	onSelect?: (id: string) => void;
-	actions: { label: string; icon: React.ComponentType<{ className?: string }>; onClick: () => void }[];
+	actions: {
+		label: string;
+		icon: React.ComponentType<{ className?: string }>;
+		onClick: () => void;
+	}[];
 }
 
 interface StatusBadgeProps {
@@ -51,7 +55,10 @@ const TableHeaderCell = ({ children, className }: TableHeaderCellProps) => (
 );
 
 const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
-	const variants: Record<Order['status'], 'default' | 'secondary' | 'destructive' | 'outline'> = {
+	const variants: Record<
+		Order['status'],
+		'default' | 'secondary' | 'destructive' | 'outline'
+	> = {
 		pending: 'outline',
 		processing: 'secondary',
 		shipped: 'default',
@@ -117,11 +124,46 @@ const OrderRow = ({ order, onSelect, actions }: OrderRowProps) => (
 
 export default function Main() {
 	const orders: Order[] = [
-		{ id: 'ORD-001', customer: 'John Smith', email: 'john@email.com', amount: '$299.00', status: 'delivered', date: 'Jan 28, 2026' },
-		{ id: 'ORD-002', customer: 'Sarah Johnson', email: 'sarah@email.com', amount: '$149.50', status: 'shipped', date: 'Jan 27, 2026' },
-		{ id: 'ORD-003', customer: 'Mike Wilson', email: 'mike@email.com', amount: '$89.99', status: 'processing', date: 'Jan 27, 2026' },
-		{ id: 'ORD-004', customer: 'Emily Brown', email: 'emily@email.com', amount: '$459.00', status: 'pending', date: 'Jan 26, 2026' },
-		{ id: 'ORD-005', customer: 'David Lee', email: 'david@email.com', amount: '$199.00', status: 'cancelled', date: 'Jan 25, 2026' },
+		{
+			id: 'ORD-001',
+			customer: 'John Smith',
+			email: 'john@email.com',
+			amount: '$299.00',
+			status: 'delivered',
+			date: 'Jan 28, 2026',
+		},
+		{
+			id: 'ORD-002',
+			customer: 'Sarah Johnson',
+			email: 'sarah@email.com',
+			amount: '$149.50',
+			status: 'shipped',
+			date: 'Jan 27, 2026',
+		},
+		{
+			id: 'ORD-003',
+			customer: 'Mike Wilson',
+			email: 'mike@email.com',
+			amount: '$89.99',
+			status: 'processing',
+			date: 'Jan 27, 2026',
+		},
+		{
+			id: 'ORD-004',
+			customer: 'Emily Brown',
+			email: 'emily@email.com',
+			amount: '$459.00',
+			status: 'pending',
+			date: 'Jan 26, 2026',
+		},
+		{
+			id: 'ORD-005',
+			customer: 'David Lee',
+			email: 'david@email.com',
+			amount: '$199.00',
+			status: 'cancelled',
+			date: 'Jan 25, 2026',
+		},
 	];
 
 	const actions = [

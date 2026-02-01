@@ -22,13 +22,21 @@ const TotalCard = ({ label, value, subtitle }: TotalStatProps) => (
 		<div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-primary/80" />
 		<div className="relative flex h-full flex-col justify-center text-primary-foreground">
 			<p className="text-sm font-medium opacity-80">{label}</p>
-			<p className="mt-2 text-5xl font-bold tracking-tighter @lg:text-6xl">{value}</p>
+			<p className="mt-2 text-5xl font-bold tracking-tighter @lg:text-6xl">
+				{value}
+			</p>
 			<p className="mt-4 text-sm opacity-70">{subtitle}</p>
 		</div>
 	</Card>
 );
 
-const ChannelCard = ({ icon: Icon, channel, revenue, percentage, orders }: ChannelStatProps) => (
+const ChannelCard = ({
+	icon: Icon,
+	channel,
+	revenue,
+	percentage,
+	orders,
+}: ChannelStatProps) => (
 	<Card className="group relative overflow-hidden p-5 transition-all duration-300 hover:shadow-md">
 		<div className="flex flex-col gap-4">
 			<div className="flex items-center gap-3">
@@ -58,10 +66,34 @@ export default function Main() {
 	};
 
 	const channels: ChannelStatProps[] = [
-		{ icon: Globe, channel: 'Website', revenue: '$1.84M', percentage: 58, orders: '12,847' },
-		{ icon: Smartphone, channel: 'Mobile App', revenue: '$896K', percentage: 28, orders: '6,492' },
-		{ icon: Store, channel: 'In-Store', revenue: '$320K', percentage: 10, orders: '2,184' },
-		{ icon: Laptop, channel: 'Marketplace', revenue: '$128K', percentage: 4, orders: '847' },
+		{
+			icon: Globe,
+			channel: 'Website',
+			revenue: '$1.84M',
+			percentage: 58,
+			orders: '12,847',
+		},
+		{
+			icon: Smartphone,
+			channel: 'Mobile App',
+			revenue: '$896K',
+			percentage: 28,
+			orders: '6,492',
+		},
+		{
+			icon: Store,
+			channel: 'In-Store',
+			revenue: '$320K',
+			percentage: 10,
+			orders: '2,184',
+		},
+		{
+			icon: Laptop,
+			channel: 'Marketplace',
+			revenue: '$128K',
+			percentage: 4,
+			orders: '847',
+		},
 	];
 
 	return (

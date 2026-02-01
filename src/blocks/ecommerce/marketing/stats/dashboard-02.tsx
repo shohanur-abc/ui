@@ -1,7 +1,15 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { TrendingUp, DollarSign, ShoppingCart, Users, Clock, Target, BarChart3 } from 'lucide-react';
+import {
+	TrendingUp,
+	DollarSign,
+	ShoppingCart,
+	Users,
+	Clock,
+	Target,
+	BarChart3,
+} from 'lucide-react';
 
 interface MainStatProps {
 	icon: React.ElementType;
@@ -16,7 +24,13 @@ interface SmallStatProps {
 	value: string;
 }
 
-const MainStat = ({ icon: Icon, label, value, change, progress }: MainStatProps) => (
+const MainStat = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	progress,
+}: MainStatProps) => (
 	<Card className="p-6">
 		<div className="flex items-start justify-between">
 			<div className="rounded-lg bg-primary/10 p-2.5">
@@ -46,9 +60,27 @@ const SmallStat = ({ label, value }: SmallStatProps) => (
 
 export default function Main() {
 	const mainStats: MainStatProps[] = [
-		{ icon: DollarSign, label: 'Total Revenue', value: '$1.24M', change: '+24%', progress: 78 },
-		{ icon: ShoppingCart, label: 'Total Orders', value: '48,294', change: '+18%', progress: 65 },
-		{ icon: Users, label: 'Customers', value: '124,847', change: '+32%', progress: 82 },
+		{
+			icon: DollarSign,
+			label: 'Total Revenue',
+			value: '$1.24M',
+			change: '+24%',
+			progress: 78,
+		},
+		{
+			icon: ShoppingCart,
+			label: 'Total Orders',
+			value: '48,294',
+			change: '+18%',
+			progress: 65,
+		},
+		{
+			icon: Users,
+			label: 'Customers',
+			value: '124,847',
+			change: '+32%',
+			progress: 82,
+		},
 	];
 
 	const smallStats: SmallStatProps[] = [

@@ -1,8 +1,20 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, Trash2, Eye, Clock, TrendingDown } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	Trash2,
+	Eye,
+	Clock,
+	TrendingDown,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface PriceHistory {
 	date: string;
@@ -24,7 +36,13 @@ interface WishlistGridProps {
 	items: WishlistItem[];
 }
 
-const PriceChart = ({ history, currentPrice }: { history: PriceHistory[]; currentPrice: number }) => {
+const PriceChart = ({
+	history,
+	currentPrice,
+}: {
+	history: PriceHistory[];
+	currentPrice: number;
+}) => {
 	const maxPrice = Math.max(...history.map((h) => h.price));
 	const minPrice = Math.min(...history.map((h) => h.price));
 	const range = maxPrice - minPrice || 1;
@@ -40,13 +58,17 @@ const PriceChart = ({ history, currentPrice }: { history: PriceHistory[]; curren
 							<TooltipTrigger asChild>
 								<div
 									className={`flex-1 rounded-t transition-colors ${
-										isCurrentPrice ? 'bg-primary' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+										isCurrentPrice
+											? 'bg-primary'
+											: 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
 									}`}
 									style={{ height: `${Math.max(height, 10)}%` }}
 								/>
 							</TooltipTrigger>
 							<TooltipContent>
-								<p className="text-xs">{point.date}: ${point.price.toFixed(2)}</p>
+								<p className="text-xs">
+									{point.date}: ${point.price.toFixed(2)}
+								</p>
 							</TooltipContent>
 						</Tooltip>
 					</TooltipProvider>
@@ -56,7 +78,15 @@ const PriceChart = ({ history, currentPrice }: { history: PriceHistory[]; curren
 	);
 };
 
-const PriceStats = ({ lowest, highest, current }: { lowest: number; highest: number; current: number }) => {
+const PriceStats = ({
+	lowest,
+	highest,
+	current,
+}: {
+	lowest: number;
+	highest: number;
+	current: number;
+}) => {
 	const isLowest = current <= lowest;
 	return (
 		<div className="flex items-center justify-between text-xs mt-2">
@@ -85,10 +115,18 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 				className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
 			/>
 			<div className="absolute top-2 right-2 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-				<Button size="icon-sm" variant="secondary" className="rounded-full shadow-md">
+				<Button
+					size="icon-sm"
+					variant="secondary"
+					className="rounded-full shadow-md"
+				>
 					<Eye className="size-3.5" />
 				</Button>
-				<Button size="icon-sm" variant="secondary" className="rounded-full shadow-md text-destructive">
+				<Button
+					size="icon-sm"
+					variant="secondary"
+					className="rounded-full shadow-md text-destructive"
+				>
 					<Trash2 className="size-3.5" />
 				</Button>
 			</div>
@@ -108,7 +146,11 @@ const ProductCard = ({ item }: { item: WishlistItem }) => (
 					Price History (30 days)
 				</div>
 				<PriceChart history={item.priceHistory} currentPrice={item.price} />
-				<PriceStats lowest={item.lowestPrice} highest={item.highestPrice} current={item.price} />
+				<PriceStats
+					lowest={item.lowestPrice}
+					highest={item.highestPrice}
+					current={item.price}
+				/>
 			</div>
 			<Button className="w-full mt-4 gap-2">
 				<ShoppingCart className="size-4" />
@@ -136,10 +178,74 @@ export default function Main() {
 	];
 
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Smart LED Light Bulbs (4-Pack)', price: 39.99, lowestPrice: 34.99, highestPrice: 49.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop', priceHistory: [{ date: 'Jan 1', price: 49.99 }, { date: 'Jan 8', price: 44.99 }, { date: 'Jan 15', price: 42.99 }, { date: 'Jan 22', price: 39.99 }, { date: 'Jan 29', price: 39.99 }], href: '/product/1' },
-		{ id: '2', name: 'Ergonomic Office Chair', price: 299.00, lowestPrice: 279.00, highestPrice: 349.00, image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=400&fit=crop', priceHistory: [{ date: 'Jan 1', price: 349.00 }, { date: 'Jan 8', price: 329.00 }, { date: 'Jan 15', price: 299.00 }, { date: 'Jan 22', price: 309.00 }, { date: 'Jan 29', price: 299.00 }], href: '/product/2' },
-		{ id: '3', name: 'Standing Desk Converter', price: 189.99, lowestPrice: 189.99, highestPrice: 229.99, image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=400&fit=crop', priceHistory: [{ date: 'Jan 1', price: 229.99 }, { date: 'Jan 8', price: 219.99 }, { date: 'Jan 15', price: 209.99 }, { date: 'Jan 22', price: 199.99 }, { date: 'Jan 29', price: 189.99 }], href: '/product/3' },
-		{ id: '4', name: 'Noise Cancelling Earbuds', price: 179.99, lowestPrice: 149.99, highestPrice: 199.99, image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&h=400&fit=crop', priceHistory: [{ date: 'Jan 1', price: 199.99 }, { date: 'Jan 8', price: 189.99 }, { date: 'Jan 15', price: 179.99 }, { date: 'Jan 22', price: 169.99 }, { date: 'Jan 29', price: 179.99 }], href: '/product/4' },
+		{
+			id: '1',
+			name: 'Smart LED Light Bulbs (4-Pack)',
+			price: 39.99,
+			lowestPrice: 34.99,
+			highestPrice: 49.99,
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop',
+			priceHistory: [
+				{ date: 'Jan 1', price: 49.99 },
+				{ date: 'Jan 8', price: 44.99 },
+				{ date: 'Jan 15', price: 42.99 },
+				{ date: 'Jan 22', price: 39.99 },
+				{ date: 'Jan 29', price: 39.99 },
+			],
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Ergonomic Office Chair',
+			price: 299.0,
+			lowestPrice: 279.0,
+			highestPrice: 349.0,
+			image:
+				'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=400&fit=crop',
+			priceHistory: [
+				{ date: 'Jan 1', price: 349.0 },
+				{ date: 'Jan 8', price: 329.0 },
+				{ date: 'Jan 15', price: 299.0 },
+				{ date: 'Jan 22', price: 309.0 },
+				{ date: 'Jan 29', price: 299.0 },
+			],
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Standing Desk Converter',
+			price: 189.99,
+			lowestPrice: 189.99,
+			highestPrice: 229.99,
+			image:
+				'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=400&fit=crop',
+			priceHistory: [
+				{ date: 'Jan 1', price: 229.99 },
+				{ date: 'Jan 8', price: 219.99 },
+				{ date: 'Jan 15', price: 209.99 },
+				{ date: 'Jan 22', price: 199.99 },
+				{ date: 'Jan 29', price: 189.99 },
+			],
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Noise Cancelling Earbuds',
+			price: 179.99,
+			lowestPrice: 149.99,
+			highestPrice: 199.99,
+			image:
+				'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&h=400&fit=crop',
+			priceHistory: [
+				{ date: 'Jan 1', price: 199.99 },
+				{ date: 'Jan 8', price: 189.99 },
+				{ date: 'Jan 15', price: 179.99 },
+				{ date: 'Jan 22', price: 169.99 },
+				{ date: 'Jan 29', price: 179.99 },
+			],
+			href: '/product/4',
+		},
 	];
 
 	return (
@@ -147,7 +253,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<div className="mb-6 @md:mb-8">
 					<h1 className="text-2xl @md:text-3xl font-bold">Price Tracker</h1>
-					<p className="text-muted-foreground mt-1">Track prices of your saved items</p>
+					<p className="text-muted-foreground mt-1">
+						Track prices of your saved items
+					</p>
 				</div>
 				<WishlistGrid items={wishlistItems} />
 			</div>

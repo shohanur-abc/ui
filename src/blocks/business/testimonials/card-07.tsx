@@ -29,9 +29,9 @@ export default function Main() {
 					company="StreamlineOps"
 					avatar="https://i.pravatar.cc/100?img=20"
 					highlights={[
-						"50% reduction in processing time",
-						"99.9% system uptime",
-						"Team productivity increased 3x",
+						'50% reduction in processing time',
+						'99.9% system uptime',
+						'Team productivity increased 3x',
 					]}
 				/>
 			</div>

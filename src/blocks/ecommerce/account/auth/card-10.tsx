@@ -5,10 +5,23 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -27,7 +40,10 @@ const PromoHeader = ({
 	description: string;
 }) => (
 	<div className="p-4 rounded-xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 mb-6">
-		<Badge variant="secondary" className="mb-2 bg-primary/20 text-primary border-0">
+		<Badge
+			variant="secondary"
+			className="mb-2 bg-primary/20 text-primary border-0"
+		>
 			<Gift className="size-3 mr-1" />
 			{badge}
 		</Badge>
@@ -121,15 +137,37 @@ export default function Main() {
 							description="Use code WELCOME20 at checkout"
 						/>
 						<form className="space-y-4">
-							<FormField label="Full Name" type="text" placeholder="John Doe" icon={User} />
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Full Name"
+								type="text"
+								placeholder="John Doe"
+								icon={User}
+							/>
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<NewsletterCheckbox label="Send me exclusive deals and promotions" />
-							<SubmitButton label="Create Account & Get 20% Off" icon={ArrowRight} />
+							<SubmitButton
+								label="Create Account & Get 20% Off"
+								icon={ArrowRight}
+							/>
 						</form>
 					</CardContent>
 					<CardFooter>
-						<FooterLink text="Already have an account?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already have an account?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</CardFooter>
 				</Card>
 			</div>

@@ -79,17 +79,88 @@ export default function Main() {
 	const kpis: KpiItem[] = [
 		{ title: 'Total Customers', value: '3,847', change: '+18%', icon: Users },
 		{ title: 'New This Month', value: '234', change: '+24%', icon: TrendingUp },
-		{ title: 'Avg Lifetime Value', value: '$456', change: '+12%', icon: DollarSign },
+		{
+			title: 'Avg Lifetime Value',
+			value: '$456',
+			change: '+12%',
+			icon: DollarSign,
+		},
 		{ title: 'VIP Customers', value: '156', change: '+8%', icon: Star },
 	];
 
 	const customers: CustomerRow[] = [
-		{ id: 'CUS-001', name: 'Sarah Wilson', email: 'sarah@example.com', avatar: '', initials: 'SW', location: 'New York, US', orders: 45, spent: '$4,521', lastOrder: 'Dec 12, 2024', segment: 'vip' },
-		{ id: 'CUS-002', name: 'Michael Chen', email: 'michael@example.com', avatar: '', initials: 'MC', location: 'San Francisco, US', orders: 38, spent: '$3,892', lastOrder: 'Dec 11, 2024', segment: 'vip' },
-		{ id: 'CUS-003', name: 'Emma Johnson', email: 'emma@example.com', avatar: '', initials: 'EJ', location: 'London, UK', orders: 32, spent: '$3,245', lastOrder: 'Dec 10, 2024', segment: 'regular' },
-		{ id: 'CUS-004', name: 'James Brown', email: 'james@example.com', avatar: '', initials: 'JB', location: 'Toronto, CA', orders: 12, spent: '$987', lastOrder: 'Dec 08, 2024', segment: 'regular' },
-		{ id: 'CUS-005', name: 'Lisa Davis', email: 'lisa@example.com', avatar: '', initials: 'LD', location: 'Sydney, AU', orders: 2, spent: '$234', lastOrder: 'Dec 12, 2024', segment: 'new' },
-		{ id: 'CUS-006', name: 'Robert Miller', email: 'robert@example.com', avatar: '', initials: 'RM', location: 'Berlin, DE', orders: 8, spent: '$456', lastOrder: 'Oct 15, 2024', segment: 'inactive' },
+		{
+			id: 'CUS-001',
+			name: 'Sarah Wilson',
+			email: 'sarah@example.com',
+			avatar: '',
+			initials: 'SW',
+			location: 'New York, US',
+			orders: 45,
+			spent: '$4,521',
+			lastOrder: 'Dec 12, 2024',
+			segment: 'vip',
+		},
+		{
+			id: 'CUS-002',
+			name: 'Michael Chen',
+			email: 'michael@example.com',
+			avatar: '',
+			initials: 'MC',
+			location: 'San Francisco, US',
+			orders: 38,
+			spent: '$3,892',
+			lastOrder: 'Dec 11, 2024',
+			segment: 'vip',
+		},
+		{
+			id: 'CUS-003',
+			name: 'Emma Johnson',
+			email: 'emma@example.com',
+			avatar: '',
+			initials: 'EJ',
+			location: 'London, UK',
+			orders: 32,
+			spent: '$3,245',
+			lastOrder: 'Dec 10, 2024',
+			segment: 'regular',
+		},
+		{
+			id: 'CUS-004',
+			name: 'James Brown',
+			email: 'james@example.com',
+			avatar: '',
+			initials: 'JB',
+			location: 'Toronto, CA',
+			orders: 12,
+			spent: '$987',
+			lastOrder: 'Dec 08, 2024',
+			segment: 'regular',
+		},
+		{
+			id: 'CUS-005',
+			name: 'Lisa Davis',
+			email: 'lisa@example.com',
+			avatar: '',
+			initials: 'LD',
+			location: 'Sydney, AU',
+			orders: 2,
+			spent: '$234',
+			lastOrder: 'Dec 12, 2024',
+			segment: 'new',
+		},
+		{
+			id: 'CUS-006',
+			name: 'Robert Miller',
+			email: 'robert@example.com',
+			avatar: '',
+			initials: 'RM',
+			location: 'Berlin, DE',
+			orders: 8,
+			spent: '$456',
+			lastOrder: 'Oct 15, 2024',
+			segment: 'inactive',
+		},
 	];
 
 	return (
@@ -116,10 +187,14 @@ export default function Main() {
 								<TableHeader>
 									<TableRow>
 										<TableHead>Customer</TableHead>
-										<TableHead className="hidden @lg:table-cell">Location</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Location
+										</TableHead>
 										<TableHead>Orders</TableHead>
 										<TableHead>Total Spent</TableHead>
-										<TableHead className="hidden @xl:table-cell">Last Order</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Last Order
+										</TableHead>
 										<TableHead>Segment</TableHead>
 										<TableHead className="w-10"></TableHead>
 									</TableRow>
@@ -131,11 +206,15 @@ export default function Main() {
 												<div className="flex items-center gap-3">
 													<Avatar className="size-9">
 														<AvatarImage src={customer.avatar} />
-														<AvatarFallback className="text-xs">{customer.initials}</AvatarFallback>
+														<AvatarFallback className="text-xs">
+															{customer.initials}
+														</AvatarFallback>
 													</Avatar>
 													<div>
 														<p className="font-medium">{customer.name}</p>
-														<p className="text-xs text-muted-foreground">{customer.email}</p>
+														<p className="text-xs text-muted-foreground">
+															{customer.email}
+														</p>
 													</div>
 												</div>
 											</TableCell>
@@ -146,10 +225,17 @@ export default function Main() {
 												</div>
 											</TableCell>
 											<TableCell>{customer.orders}</TableCell>
-											<TableCell className="font-medium">{customer.spent}</TableCell>
-											<TableCell className="hidden @xl:table-cell text-muted-foreground">{customer.lastOrder}</TableCell>
+											<TableCell className="font-medium">
+												{customer.spent}
+											</TableCell>
+											<TableCell className="hidden @xl:table-cell text-muted-foreground">
+												{customer.lastOrder}
+											</TableCell>
 											<TableCell>
-												<Badge variant="secondary" className={getSegmentStyle(customer.segment)}>
+												<Badge
+													variant="secondary"
+													className={getSegmentStyle(customer.segment)}
+												>
 													{customer.segment}
 												</Badge>
 											</TableCell>

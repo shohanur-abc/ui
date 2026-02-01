@@ -154,7 +154,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 				name: 'Premium Headphones',
 				sku: 'HP-001',
 				price: 299.99,
@@ -163,7 +164,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
 				name: 'Phone Case Pro',
 				sku: 'PC-042',
 				price: 29.99,
@@ -172,7 +174,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=200&fit=crop',
 				name: 'Portable Charger',
 				sku: 'CH-103',
 				price: 49.99,
@@ -187,7 +190,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const totalQuantity = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const totalQuantity = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

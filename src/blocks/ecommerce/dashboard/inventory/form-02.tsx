@@ -14,7 +14,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import {
 	Select,
 	SelectContent,
@@ -61,7 +68,12 @@ type SwitchFieldProps = {
 	onChange: (checked: boolean) => void;
 };
 
-const SwitchField = ({ label, description, checked, onChange }: SwitchFieldProps) => (
+const SwitchField = ({
+	label,
+	description,
+	checked,
+	onChange,
+}: SwitchFieldProps) => (
 	<div className="flex items-center justify-between rounded-lg border p-4">
 		<div>
 			<p className="font-medium">{label}</p>
@@ -85,8 +97,9 @@ export default function Main() {
 		name: 'Wireless Bluetooth Headphones',
 		sku: 'WBH-001',
 		category: 'electronics',
-		description: 'High-quality wireless headphones with noise cancellation and 30-hour battery life.',
-		costPrice: 45.00,
+		description:
+			'High-quality wireless headphones with noise cancellation and 30-hour battery life.',
+		costPrice: 45.0,
 		salePrice: 79.99,
 		stock: 245,
 		minStock: 50,
@@ -110,7 +123,9 @@ export default function Main() {
 					<CardHeader>
 						<div className="flex items-start justify-between">
 							<div>
-								<CardTitle className="text-xl @lg:text-2xl">Edit Product</CardTitle>
+								<CardTitle className="text-xl @lg:text-2xl">
+									Edit Product
+								</CardTitle>
 								<CardDescription className="flex items-center gap-2">
 									<span>{product.sku}</span>
 									<Badge variant="secondary">{product.status}</Badge>
@@ -142,20 +157,26 @@ export default function Main() {
 										<FormField label="Product Name">
 											<Input
 												value={product.name}
-												onChange={(e) => setProduct({ ...product, name: e.target.value })}
+												onChange={(e) =>
+													setProduct({ ...product, name: e.target.value })
+												}
 											/>
 										</FormField>
 										<FormField label="SKU">
 											<Input
 												value={product.sku}
-												onChange={(e) => setProduct({ ...product, sku: e.target.value })}
+												onChange={(e) =>
+													setProduct({ ...product, sku: e.target.value })
+												}
 											/>
 										</FormField>
 									</div>
 									<FormField label="Category">
 										<Select
 											value={product.category}
-											onValueChange={(value) => setProduct({ ...product, category: value })}
+											onValueChange={(value) =>
+												setProduct({ ...product, category: value })
+											}
 										>
 											<SelectTrigger>
 												<SelectValue />
@@ -172,7 +193,9 @@ export default function Main() {
 									<FormField label="Description">
 										<Textarea
 											value={product.description}
-											onChange={(e) => setProduct({ ...product, description: e.target.value })}
+											onChange={(e) =>
+												setProduct({ ...product, description: e.target.value })
+											}
 											className="min-h-24"
 										/>
 									</FormField>
@@ -191,22 +214,36 @@ export default function Main() {
 									<div className="grid gap-6 @sm:grid-cols-2">
 										<FormField label="Cost Price">
 											<div className="relative">
-												<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+												<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+													$
+												</span>
 												<Input
 													type="number"
 													value={product.costPrice}
-													onChange={(e) => setProduct({ ...product, costPrice: parseFloat(e.target.value) })}
+													onChange={(e) =>
+														setProduct({
+															...product,
+															costPrice: parseFloat(e.target.value),
+														})
+													}
 													className="pl-7"
 												/>
 											</div>
 										</FormField>
 										<FormField label="Sale Price">
 											<div className="relative">
-												<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+												<span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+													$
+												</span>
 												<Input
 													type="number"
 													value={product.salePrice}
-													onChange={(e) => setProduct({ ...product, salePrice: parseFloat(e.target.value) })}
+													onChange={(e) =>
+														setProduct({
+															...product,
+															salePrice: parseFloat(e.target.value),
+														})
+													}
 													className="pl-7"
 												/>
 											</div>
@@ -214,9 +251,16 @@ export default function Main() {
 									</div>
 									<div className="rounded-lg border bg-muted/50 p-4">
 										<div className="flex items-center justify-between">
-											<span className="text-muted-foreground">Profit Margin</span>
+											<span className="text-muted-foreground">
+												Profit Margin
+											</span>
 											<span className="font-semibold text-emerald-500">
-												{(((product.salePrice - product.costPrice) / product.salePrice) * 100).toFixed(1)}%
+												{(
+													((product.salePrice - product.costPrice) /
+														product.salePrice) *
+													100
+												).toFixed(1)}
+												%
 											</span>
 										</div>
 									</div>
@@ -228,28 +272,45 @@ export default function Main() {
 										label="Track Inventory"
 										description="Enable inventory tracking for this product"
 										checked={product.trackInventory}
-										onChange={(checked) => setProduct({ ...product, trackInventory: checked })}
+										onChange={(checked) =>
+											setProduct({ ...product, trackInventory: checked })
+										}
 									/>
 									<div className="grid gap-6 @sm:grid-cols-3">
 										<FormField label="Current Stock">
 											<Input
 												type="number"
 												value={product.stock}
-												onChange={(e) => setProduct({ ...product, stock: parseInt(e.target.value) })}
+												onChange={(e) =>
+													setProduct({
+														...product,
+														stock: parseInt(e.target.value),
+													})
+												}
 											/>
 										</FormField>
 										<FormField label="Min Stock Level">
 											<Input
 												type="number"
 												value={product.minStock}
-												onChange={(e) => setProduct({ ...product, minStock: parseInt(e.target.value) })}
+												onChange={(e) =>
+													setProduct({
+														...product,
+														minStock: parseInt(e.target.value),
+													})
+												}
 											/>
 										</FormField>
 										<FormField label="Max Stock Level">
 											<Input
 												type="number"
 												value={product.maxStock}
-												onChange={(e) => setProduct({ ...product, maxStock: parseInt(e.target.value) })}
+												onChange={(e) =>
+													setProduct({
+														...product,
+														maxStock: parseInt(e.target.value),
+													})
+												}
 											/>
 										</FormField>
 									</div>
@@ -261,7 +322,12 @@ export default function Main() {
 										<Input
 											type="number"
 											value={product.weight}
-											onChange={(e) => setProduct({ ...product, weight: parseFloat(e.target.value) })}
+											onChange={(e) =>
+												setProduct({
+													...product,
+													weight: parseFloat(e.target.value),
+												})
+											}
 										/>
 									</FormField>
 									<div className="grid gap-6 @sm:grid-cols-3">
@@ -269,30 +335,45 @@ export default function Main() {
 											<Input
 												type="number"
 												value={product.dimensions.length}
-												onChange={(e) => setProduct({
-													...product,
-													dimensions: { ...product.dimensions, length: parseFloat(e.target.value) }
-												})}
+												onChange={(e) =>
+													setProduct({
+														...product,
+														dimensions: {
+															...product.dimensions,
+															length: parseFloat(e.target.value),
+														},
+													})
+												}
 											/>
 										</FormField>
 										<FormField label="Width (cm)">
 											<Input
 												type="number"
 												value={product.dimensions.width}
-												onChange={(e) => setProduct({
-													...product,
-													dimensions: { ...product.dimensions, width: parseFloat(e.target.value) }
-												})}
+												onChange={(e) =>
+													setProduct({
+														...product,
+														dimensions: {
+															...product.dimensions,
+															width: parseFloat(e.target.value),
+														},
+													})
+												}
 											/>
 										</FormField>
 										<FormField label="Height (cm)">
 											<Input
 												type="number"
 												value={product.dimensions.height}
-												onChange={(e) => setProduct({
-													...product,
-													dimensions: { ...product.dimensions, height: parseFloat(e.target.value) }
-												})}
+												onChange={(e) =>
+													setProduct({
+														...product,
+														dimensions: {
+															...product.dimensions,
+															height: parseFloat(e.target.value),
+														},
+													})
+												}
 											/>
 										</FormField>
 									</div>

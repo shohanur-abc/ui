@@ -24,8 +24,15 @@ const ShareablePreview = ({ items }: CompactProps) => (
 		</div>
 		<div className="flex gap-2 overflow-x-auto pb-2">
 			{items.slice(0, 6).map((item) => (
-				<div key={item.id} className="size-12 rounded-lg overflow-hidden bg-muted flex-shrink-0">
-					<img src={item.image} alt={item.name} className="size-full object-cover" />
+				<div
+					key={item.id}
+					className="size-12 rounded-lg overflow-hidden bg-muted flex-shrink-0"
+				>
+					<img
+						src={item.image}
+						alt={item.name}
+						className="size-full object-cover"
+					/>
 				</div>
 			))}
 			{items.length > 6 && (
@@ -35,7 +42,8 @@ const ShareablePreview = ({ items }: CompactProps) => (
 			)}
 		</div>
 		<p className="text-sm text-muted-foreground mt-2">
-			Total value: ${items.reduce((sum, item) => sum + item.price, 0).toFixed(2)}
+			Total value: $
+			{items.reduce((sum, item) => sum + item.price, 0).toFixed(2)}
 		</p>
 	</div>
 );
@@ -46,7 +54,11 @@ const ShareLink = () => (
 		<div className="flex gap-2">
 			<div className="flex-1 relative">
 				<Link2 className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-				<Input value="wishlist.co/share/abc123" readOnly className="pl-9 text-sm" />
+				<Input
+					value="wishlist.co/share/abc123"
+					readOnly
+					className="pl-9 text-sm"
+				/>
 			</div>
 			<Button variant="outline" size="icon">
 				<Copy className="size-4" />
@@ -80,11 +92,46 @@ const ShareButtons = () => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Yoga Mat', price: 45, image: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=100&h=100&fit=crop', href: '/product/1' },
-		{ id: '2', name: 'Dumbbells', price: 89, image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=100&h=100&fit=crop', href: '/product/2' },
-		{ id: '3', name: 'Resistance Bands', price: 25, image: 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=100&h=100&fit=crop', href: '/product/3' },
-		{ id: '4', name: 'Foam Roller', price: 35, image: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=100&h=100&fit=crop', href: '/product/4' },
-		{ id: '5', name: 'Jump Rope', price: 15, image: 'https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=100&h=100&fit=crop', href: '/product/5' },
+		{
+			id: '1',
+			name: 'Yoga Mat',
+			price: 45,
+			image:
+				'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=100&h=100&fit=crop',
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Dumbbells',
+			price: 89,
+			image:
+				'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=100&h=100&fit=crop',
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Resistance Bands',
+			price: 25,
+			image:
+				'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=100&h=100&fit=crop',
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Foam Roller',
+			price: 35,
+			image:
+				'https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=100&h=100&fit=crop',
+			href: '/product/4',
+		},
+		{
+			id: '5',
+			name: 'Jump Rope',
+			price: 15,
+			image:
+				'https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=100&h=100&fit=crop',
+			href: '/product/5',
+		},
 	];
 
 	return (

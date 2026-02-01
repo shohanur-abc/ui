@@ -12,7 +12,14 @@ interface FloatingCardProps {
 	dismissLabel: string;
 }
 
-const FloatingCard = ({ icon: Icon, title, description, placeholder, buttonText, dismissLabel }: FloatingCardProps) => (
+const FloatingCard = ({
+	icon: Icon,
+	title,
+	description,
+	placeholder,
+	buttonText,
+	dismissLabel,
+}: FloatingCardProps) => (
 	<Card className="shadow-lg border-2">
 		<CardContent className="p-4 @md:p-5">
 			<div className="flex flex-col gap-4">
@@ -26,7 +33,11 @@ const FloatingCard = ({ icon: Icon, title, description, placeholder, buttonText,
 							<p className="text-sm text-muted-foreground">{description}</p>
 						</div>
 					</div>
-					<Button variant="ghost" size="icon-sm" className="shrink-0 -mt-1 -mr-1">
+					<Button
+						variant="ghost"
+						size="icon-sm"
+						className="shrink-0 -mt-1 -mr-1"
+					>
 						<X className="size-4" />
 						<span className="sr-only">{dismissLabel}</span>
 					</Button>

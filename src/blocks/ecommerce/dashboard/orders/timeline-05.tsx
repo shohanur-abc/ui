@@ -2,7 +2,16 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { CreditCard, DollarSign, ArrowDownLeft, ArrowUpRight, CheckCircle, Clock, AlertCircle, XCircle } from 'lucide-react';
+import {
+	CreditCard,
+	DollarSign,
+	ArrowDownLeft,
+	ArrowUpRight,
+	CheckCircle,
+	Clock,
+	AlertCircle,
+	XCircle,
+} from 'lucide-react';
 
 interface PaymentEvent {
 	id: string;
@@ -28,19 +37,59 @@ interface PaymentEventRowProps {
 	isLast: boolean;
 }
 
-const TypeConfig: Record<PaymentEvent['type'], { icon: typeof DollarSign; color: string; bg: string; label: string }> = {
-	charge: { icon: ArrowDownLeft, color: 'text-accent', bg: 'bg-accent/10', label: 'Payment' },
-	refund: { icon: ArrowUpRight, color: 'text-destructive', bg: 'bg-destructive/10', label: 'Refund' },
-	partial_refund: { icon: ArrowUpRight, color: 'text-yellow-500', bg: 'bg-yellow-500/10', label: 'Partial Refund' },
-	chargeback: { icon: AlertCircle, color: 'text-destructive', bg: 'bg-destructive/10', label: 'Chargeback' },
-	payout: { icon: DollarSign, color: 'text-blue-500', bg: 'bg-blue-500/10', label: 'Payout' },
+const TypeConfig: Record<
+	PaymentEvent['type'],
+	{ icon: typeof DollarSign; color: string; bg: string; label: string }
+> = {
+	charge: {
+		icon: ArrowDownLeft,
+		color: 'text-accent',
+		bg: 'bg-accent/10',
+		label: 'Payment',
+	},
+	refund: {
+		icon: ArrowUpRight,
+		color: 'text-destructive',
+		bg: 'bg-destructive/10',
+		label: 'Refund',
+	},
+	partial_refund: {
+		icon: ArrowUpRight,
+		color: 'text-yellow-500',
+		bg: 'bg-yellow-500/10',
+		label: 'Partial Refund',
+	},
+	chargeback: {
+		icon: AlertCircle,
+		color: 'text-destructive',
+		bg: 'bg-destructive/10',
+		label: 'Chargeback',
+	},
+	payout: {
+		icon: DollarSign,
+		color: 'text-blue-500',
+		bg: 'bg-blue-500/10',
+		label: 'Payout',
+	},
 };
 
 const StatusBadge = ({ status }: { status: PaymentEvent['status'] }) => {
-	const config: Record<PaymentEvent['status'], { icon: typeof CheckCircle; className: string }> = {
-		completed: { icon: CheckCircle, className: 'text-accent bg-accent/10 border-accent/30' },
-		pending: { icon: Clock, className: 'text-yellow-500 bg-yellow-500/10 border-yellow-500/30' },
-		failed: { icon: XCircle, className: 'text-destructive bg-destructive/10 border-destructive/30' },
+	const config: Record<
+		PaymentEvent['status'],
+		{ icon: typeof CheckCircle; className: string }
+	> = {
+		completed: {
+			icon: CheckCircle,
+			className: 'text-accent bg-accent/10 border-accent/30',
+		},
+		pending: {
+			icon: Clock,
+			className: 'text-yellow-500 bg-yellow-500/10 border-yellow-500/30',
+		},
+		failed: {
+			icon: XCircle,
+			className: 'text-destructive bg-destructive/10 border-destructive/30',
+		},
 	};
 	const { icon: Icon, className } = config[status];
 	return (
@@ -53,12 +102,17 @@ const StatusBadge = ({ status }: { status: PaymentEvent['status'] }) => {
 
 const PaymentEventRow = ({ event, isLast }: PaymentEventRowProps) => {
 	const { icon: Icon, color, bg, label } = TypeConfig[event.type];
-	const isNegative = event.type === 'refund' || event.type === 'partial_refund' || event.type === 'chargeback';
+	const isNegative =
+		event.type === 'refund' ||
+		event.type === 'partial_refund' ||
+		event.type === 'chargeback';
 
 	return (
 		<div className="flex gap-4">
 			<div className="flex flex-col items-center">
-				<div className={`size-10 rounded-full flex items-center justify-center ${bg}`}>
+				<div
+					className={`size-10 rounded-full flex items-center justify-center ${bg}`}
+				>
 					<Icon className={`size-5 ${color}`} />
 				</div>
 				{!isLast && <div className="w-0.5 flex-1 bg-border my-2" />}
@@ -71,8 +125,11 @@ const PaymentEventRow = ({ event, isLast }: PaymentEventRowProps) => {
 						<p className="text-sm text-muted-foreground">{event.description}</p>
 					</div>
 					<div className="text-right">
-						<p className={`font-bold ${isNegative ? 'text-destructive' : 'text-accent'}`}>
-							{isNegative ? '-' : '+'}{event.amount}
+						<p
+							className={`font-bold ${isNegative ? 'text-destructive' : 'text-accent'}`}
+						>
+							{isNegative ? '-' : '+'}
+							{event.amount}
 						</p>
 						<p className="text-xs text-muted-foreground">{event.timestamp}</p>
 					</div>
@@ -87,7 +144,9 @@ const PaymentEventRow = ({ event, isLast }: PaymentEventRowProps) => {
 						</Badge>
 					)}
 					{event.reference && (
-						<span className="text-xs text-muted-foreground font-mono">{event.reference}</span>
+						<span className="text-xs text-muted-foreground font-mono">
+							{event.reference}
+						</span>
 					)}
 				</div>
 			</div>
@@ -97,8 +156,26 @@ const PaymentEventRow = ({ event, isLast }: PaymentEventRowProps) => {
 
 export default function Main() {
 	const events: PaymentEvent[] = [
-		{ id: '1', type: 'refund', status: 'completed', amount: '$24.99', description: 'Partial refund for damaged item', timestamp: 'Jan 30', reference: 'REF-001', method: 'Visa ••4242' },
-		{ id: '2', type: 'charge', status: 'completed', amount: '$249.00', description: 'Order payment processed', timestamp: 'Jan 26', reference: 'CHG-001', method: 'Visa ••4242' },
+		{
+			id: '1',
+			type: 'refund',
+			status: 'completed',
+			amount: '$24.99',
+			description: 'Partial refund for damaged item',
+			timestamp: 'Jan 30',
+			reference: 'REF-001',
+			method: 'Visa ••4242',
+		},
+		{
+			id: '2',
+			type: 'charge',
+			status: 'completed',
+			amount: '$249.00',
+			description: 'Order payment processed',
+			timestamp: 'Jan 26',
+			reference: 'CHG-001',
+			method: 'Visa ••4242',
+		},
 	];
 
 	return (
@@ -108,12 +185,18 @@ export default function Main() {
 					<CardHeader className="pb-4">
 						<div className="flex items-center justify-between">
 							<CardTitle className="text-lg">Payment History</CardTitle>
-							<Badge variant="outline" className="font-mono">ORD-2024-001</Badge>
+							<Badge variant="outline" className="font-mono">
+								ORD-2024-001
+							</Badge>
 						</div>
 					</CardHeader>
 					<CardContent>
 						{events.map((event, i) => (
-							<PaymentEventRow key={event.id} event={event} isLast={i === events.length - 1} />
+							<PaymentEventRow
+								key={event.id}
+								event={event}
+								isLast={i === events.length - 1}
+							/>
 						))}
 
 						<Separator className="my-4" />

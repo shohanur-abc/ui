@@ -14,7 +14,11 @@ const PromoCodeInline = ({ applied }: { applied?: boolean }) => (
 	<div className="flex gap-2">
 		<div className="relative flex-1">
 			<Gift className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" />
-			<Input placeholder="Promo code" className="h-8 text-sm pl-8" defaultValue={applied ? 'SAVE20' : ''} />
+			<Input
+				placeholder="Promo code"
+				className="h-8 text-sm pl-8"
+				defaultValue={applied ? 'SAVE20' : ''}
+			/>
 		</div>
 		<Button variant="outline" size="sm" className="h-8 text-xs">
 			{applied ? 'Applied' : 'Apply'}
@@ -48,11 +52,24 @@ const CompactCardForm = () => (
 const SaveCardOption = () => (
 	<div className="flex items-center gap-2">
 		<Checkbox id="save" className="size-3.5" />
-		<Label htmlFor="save" className="text-xs text-muted-foreground cursor-pointer">Save card for future</Label>
+		<Label
+			htmlFor="save"
+			className="text-xs text-muted-foreground cursor-pointer"
+		>
+			Save card for future
+		</Label>
 	</div>
 );
 
-const PriceSummary = ({ original, discount, total }: { original: string; discount: string; total: string }) => (
+const PriceSummary = ({
+	original,
+	discount,
+	total,
+}: {
+	original: string;
+	discount: string;
+	total: string;
+}) => (
 	<div className="space-y-1.5">
 		<div className="flex justify-between text-xs">
 			<span className="text-muted-foreground">Subtotal</span>

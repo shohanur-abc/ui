@@ -23,7 +23,11 @@ interface BenefitsListProps {
 	items: { icon: React.ElementType; text: string }[];
 }
 
-const SidebarContent = ({ icon: Icon, title, description }: SidebarContentProps) => (
+const SidebarContent = ({
+	icon: Icon,
+	title,
+	description,
+}: SidebarContentProps) => (
 	<div className="flex flex-col gap-3">
 		<div className="size-10 rounded-lg bg-primary flex items-center justify-center">
 			<Icon className="size-5 text-primary-foreground" />
@@ -35,11 +39,7 @@ const SidebarContent = ({ icon: Icon, title, description }: SidebarContentProps)
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
 	<form className="flex flex-col gap-2">
-		<Input
-			type="email"
-			placeholder={placeholder}
-			className="h-10"
-		/>
+		<Input type="email" placeholder={placeholder} className="h-10" />
 		<Button className="w-full gap-1.5">
 			{buttonText}
 			{Icon && <Icon className="size-4" />}

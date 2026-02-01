@@ -1,6 +1,15 @@
 'use client';
 
-import { Area, AreaChart, Bar, BarChart, Cell, Pie, PieChart, XAxis } from 'recharts';
+import {
+	Area,
+	AreaChart,
+	Bar,
+	BarChart,
+	Cell,
+	Pie,
+	PieChart,
+	XAxis,
+} from 'recharts';
 import {
 	ArrowDownRight,
 	ArrowRight,
@@ -117,16 +126,44 @@ const TopProductRow = ({ name, sold, revenue, rating }: TopProduct) => (
 	</div>
 );
 
-const areaConfig: ChartConfig = { value: { label: 'Value', color: 'var(--chart-1)' } };
+const areaConfig: ChartConfig = {
+	value: { label: 'Value', color: 'var(--chart-1)' },
+};
 const pieConfig: ChartConfig = { value: { label: 'Value' } };
-const barConfig: ChartConfig = { orders: { label: 'Orders', color: 'var(--chart-2)' } };
+const barConfig: ChartConfig = {
+	orders: { label: 'Orders', color: 'var(--chart-2)' },
+};
 
 export default function Main() {
 	const heroKpis: HeroKpi[] = [
-		{ title: 'Total Revenue', value: '$312,847', change: '+32%', trend: 'up', icon: DollarSign },
-		{ title: 'Total Orders', value: '8,432', change: '+24%', trend: 'up', icon: ShoppingCart },
-		{ title: 'Customers', value: '3,847', change: '+18%', trend: 'up', icon: Users },
-		{ title: 'Avg Order', value: '$37.12', change: '-2%', trend: 'down', icon: CreditCard },
+		{
+			title: 'Total Revenue',
+			value: '$312,847',
+			change: '+32%',
+			trend: 'up',
+			icon: DollarSign,
+		},
+		{
+			title: 'Total Orders',
+			value: '8,432',
+			change: '+24%',
+			trend: 'up',
+			icon: ShoppingCart,
+		},
+		{
+			title: 'Customers',
+			value: '3,847',
+			change: '+18%',
+			trend: 'up',
+			icon: Users,
+		},
+		{
+			title: 'Avg Order',
+			value: '$37.12',
+			change: '-2%',
+			trend: 'down',
+			icon: CreditCard,
+		},
 	];
 
 	const miniKpis: MiniKpi[] = [
@@ -137,9 +174,19 @@ export default function Main() {
 	];
 
 	const topProducts: TopProduct[] = [
-		{ name: 'Wireless Headphones Pro', sold: 432, revenue: '$25.9k', rating: 4.8 },
+		{
+			name: 'Wireless Headphones Pro',
+			sold: 432,
+			revenue: '$25.9k',
+			rating: 4.8,
+		},
 		{ name: 'Smart Watch Ultra', sold: 324, revenue: '$19.4k', rating: 4.7 },
-		{ name: 'Laptop Stand Ergonomic', sold: 287, revenue: '$14.3k', rating: 4.9 },
+		{
+			name: 'Laptop Stand Ergonomic',
+			sold: 287,
+			revenue: '$14.3k',
+			rating: 4.9,
+		},
 	];
 
 	const revenueData = [
@@ -189,9 +236,23 @@ export default function Main() {
 							<ChartContainer config={areaConfig} className="h-[220px] w-full">
 								<AreaChart data={revenueData}>
 									<defs>
-										<linearGradient id="bento30fill" x1="0" y1="0" x2="0" y2="1">
-											<stop offset="5%" stopColor="var(--color-value)" stopOpacity={0.3} />
-											<stop offset="95%" stopColor="var(--color-value)" stopOpacity={0} />
+										<linearGradient
+											id="bento30fill"
+											x1="0"
+											y1="0"
+											x2="0"
+											y2="1"
+										>
+											<stop
+												offset="5%"
+												stopColor="var(--color-value)"
+												stopOpacity={0.3}
+											/>
+											<stop
+												offset="95%"
+												stopColor="var(--color-value)"
+												stopOpacity={0}
+											/>
 										</linearGradient>
 									</defs>
 									<XAxis dataKey="name" tickLine={false} axisLine={false} />
@@ -250,7 +311,10 @@ export default function Main() {
 							<div className="flex-1 space-y-1.5">
 								{regionData.map((item, i) => (
 									<div key={i} className="flex items-center gap-2 text-xs">
-										<div className="size-2 rounded-full" style={{ backgroundColor: item.fill }} />
+										<div
+											className="size-2 rounded-full"
+											style={{ backgroundColor: item.fill }}
+										/>
 										<span className="flex-1">{item.name}</span>
 										<span className="font-medium">{item.value}%</span>
 									</div>
@@ -267,7 +331,11 @@ export default function Main() {
 								<BarChart data={ordersData}>
 									<XAxis dataKey="day" tickLine={false} axisLine={false} />
 									<ChartTooltip content={<ChartTooltipContent hideLabel />} />
-									<Bar dataKey="orders" fill="var(--color-orders)" radius={[4, 4, 0, 0]} />
+									<Bar
+										dataKey="orders"
+										fill="var(--color-orders)"
+										radius={[4, 4, 0, 0]}
+									/>
 								</BarChart>
 							</ChartContainer>
 						</CardContent>

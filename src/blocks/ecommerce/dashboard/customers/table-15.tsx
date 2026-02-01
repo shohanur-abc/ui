@@ -64,7 +64,12 @@ interface CustomerSubscription {
 const MetricCards = ({
 	metrics,
 }: {
-	metrics: { label: string; value: string; subtext: string; icon: React.ElementType }[];
+	metrics: {
+		label: string;
+		value: string;
+		subtext: string;
+		icon: React.ElementType;
+	}[];
 }) => (
 	<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-4">
 		{metrics.map((metric, i) => (
@@ -87,11 +92,7 @@ const MetricCards = ({
 	</div>
 );
 
-const TableActions = ({
-	searchPlaceholder,
-}: {
-	searchPlaceholder: string;
-}) => (
+const TableActions = ({ searchPlaceholder }: { searchPlaceholder: string }) => (
 	<div className="flex flex-col gap-3 border-b px-6 py-4 @lg:flex-row @lg:items-center @lg:justify-between">
 		<div className="relative">
 			<Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
@@ -135,13 +136,37 @@ const TableActions = ({
 	</div>
 );
 
-const StatusBadge = ({ status }: { status: CustomerSubscription['status'] }) => {
+const StatusBadge = ({
+	status,
+}: {
+	status: CustomerSubscription['status'];
+}) => {
 	const config = {
-		active: { label: 'Active', icon: Play, className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		paused: { label: 'Paused', icon: Pause, className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		cancelled: { label: 'Cancelled', icon: XCircle, className: 'bg-slate-500/10 text-slate-500 border-slate-500/20' },
-		past_due: { label: 'Past Due', icon: Clock, className: 'bg-red-500/10 text-red-500 border-red-500/20' },
-		trial: { label: 'Trial', icon: Clock, className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
+		active: {
+			label: 'Active',
+			icon: Play,
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		paused: {
+			label: 'Paused',
+			icon: Pause,
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		cancelled: {
+			label: 'Cancelled',
+			icon: XCircle,
+			className: 'bg-slate-500/10 text-slate-500 border-slate-500/20',
+		},
+		past_due: {
+			label: 'Past Due',
+			icon: Clock,
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
+		trial: {
+			label: 'Trial',
+			icon: Clock,
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
 	};
 	const Icon = config[status].icon;
 	return (
@@ -162,19 +187,28 @@ const UsageBar = ({ usage }: { usage: number }) => (
 	</div>
 );
 
-const SubscriptionRow = ({ subscription }: { subscription: CustomerSubscription }) => (
+const SubscriptionRow = ({
+	subscription,
+}: {
+	subscription: CustomerSubscription;
+}) => (
 	<TableRow className="group">
 		<TableCell>
 			<div className="flex items-center gap-3">
 				<Avatar className="size-9">
-					<AvatarImage src={subscription.customer.avatar} alt={subscription.customer.name} />
+					<AvatarImage
+						src={subscription.customer.avatar}
+						alt={subscription.customer.name}
+					/>
 					<AvatarFallback className="bg-primary/10 text-primary text-xs">
 						{subscription.customer.initials}
 					</AvatarFallback>
 				</Avatar>
 				<div>
 					<p className="font-medium">{subscription.customer.name}</p>
-					<p className="text-muted-foreground text-xs">{subscription.customer.email}</p>
+					<p className="text-muted-foreground text-xs">
+						{subscription.customer.email}
+					</p>
 				</div>
 			</div>
 		</TableCell>
@@ -182,14 +216,17 @@ const SubscriptionRow = ({ subscription }: { subscription: CustomerSubscription 
 			<div>
 				<p className="font-medium">{subscription.plan.name}</p>
 				<p className="text-muted-foreground text-xs">
-					{subscription.plan.price}/{subscription.plan.interval === 'monthly' ? 'mo' : 'yr'}
+					{subscription.plan.price}/
+					{subscription.plan.interval === 'monthly' ? 'mo' : 'yr'}
 				</p>
 			</div>
 		</TableCell>
 		<TableCell className="hidden @md:table-cell">
 			<StatusBadge status={subscription.status} />
 		</TableCell>
-		<TableCell className="hidden @lg:table-cell font-semibold">{subscription.mrr}</TableCell>
+		<TableCell className="hidden @lg:table-cell font-semibold">
+			{subscription.mrr}
+		</TableCell>
 		<TableCell className="hidden @lg:table-cell">
 			<UsageBar usage={subscription.usage} />
 		</TableCell>
@@ -250,16 +287,40 @@ const SubscriptionRow = ({ subscription }: { subscription: CustomerSubscription 
 
 export default function Main() {
 	const metrics = [
-		{ label: 'Active Subscriptions', value: '1,234', subtext: '+12% this month', icon: RefreshCw },
-		{ label: 'Monthly Revenue', value: '$45.6K', subtext: '+8% this month', icon: CreditCard },
-		{ label: 'Avg. Revenue/User', value: '$36.97', subtext: '+5% this month', icon: Package },
-		{ label: 'Churn Rate', value: '2.4%', subtext: '-0.5% this month', icon: Bell },
+		{
+			label: 'Active Subscriptions',
+			value: '1,234',
+			subtext: '+12% this month',
+			icon: RefreshCw,
+		},
+		{
+			label: 'Monthly Revenue',
+			value: '$45.6K',
+			subtext: '+8% this month',
+			icon: CreditCard,
+		},
+		{
+			label: 'Avg. Revenue/User',
+			value: '$36.97',
+			subtext: '+5% this month',
+			icon: Package,
+		},
+		{
+			label: 'Churn Rate',
+			value: '2.4%',
+			subtext: '-0.5% this month',
+			icon: Bell,
+		},
 	];
 
 	const subscriptions: CustomerSubscription[] = [
 		{
 			id: '1',
-			customer: { name: 'Laura Miller', email: 'laura.m@email.com', initials: 'LM' },
+			customer: {
+				name: 'Laura Miller',
+				email: 'laura.m@email.com',
+				initials: 'LM',
+			},
 			plan: { name: 'Enterprise', price: '$299', interval: 'monthly' },
 			status: 'active',
 			startDate: 'Jan 1, 2023',
@@ -270,7 +331,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'Martin Davis', email: 'martin.d@email.com', initials: 'MD' },
+			customer: {
+				name: 'Martin Davis',
+				email: 'martin.d@email.com',
+				initials: 'MD',
+			},
 			plan: { name: 'Pro', price: '$99', interval: 'monthly' },
 			status: 'active',
 			startDate: 'Mar 15, 2023',
@@ -281,7 +346,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Nina Patel', email: 'nina.p@email.com', initials: 'NP' },
+			customer: {
+				name: 'Nina Patel',
+				email: 'nina.p@email.com',
+				initials: 'NP',
+			},
 			plan: { name: 'Pro', price: '$99', interval: 'monthly' },
 			status: 'past_due',
 			startDate: 'Jun 1, 2023',
@@ -292,7 +361,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'Oscar Wong', email: 'oscar.w@email.com', initials: 'OW' },
+			customer: {
+				name: 'Oscar Wong',
+				email: 'oscar.w@email.com',
+				initials: 'OW',
+			},
 			plan: { name: 'Basic', price: '$29', interval: 'monthly' },
 			status: 'paused',
 			startDate: 'Sep 10, 2023',
@@ -303,7 +376,11 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Paula Jones', email: 'paula.j@email.com', initials: 'PJ' },
+			customer: {
+				name: 'Paula Jones',
+				email: 'paula.j@email.com',
+				initials: 'PJ',
+			},
 			plan: { name: 'Pro', price: '$99', interval: 'monthly' },
 			status: 'trial',
 			startDate: 'Jan 20, 2024',
@@ -336,14 +413,19 @@ export default function Main() {
 								<TableHead className="hidden @md:table-cell">Status</TableHead>
 								<TableHead className="hidden @lg:table-cell">MRR</TableHead>
 								<TableHead className="hidden @lg:table-cell">Usage</TableHead>
-								<TableHead className="hidden @xl:table-cell">Next Billing</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Next Billing
+								</TableHead>
 								<TableHead className="hidden @xl:table-cell">Payment</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>
 						<TableBody>
 							{subscriptions.map((subscription) => (
-								<SubscriptionRow key={subscription.id} subscription={subscription} />
+								<SubscriptionRow
+									key={subscription.id}
+									subscription={subscription}
+								/>
 							))}
 						</TableBody>
 					</Table>

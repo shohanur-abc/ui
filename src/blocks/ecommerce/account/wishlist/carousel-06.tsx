@@ -1,5 +1,14 @@
 import Link from 'next/link';
-import { Heart, ShoppingCart, X, ChevronLeft, ChevronRight, Package, Truck, RotateCcw } from 'lucide-react';
+import {
+	Heart,
+	ShoppingCart,
+	X,
+	ChevronLeft,
+	ChevronRight,
+	Package,
+	Truck,
+	RotateCcw,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -24,10 +33,19 @@ interface CarouselProps {
 	items: WishlistItem[];
 }
 
-const ShippingBadges = ({ shipping, inStock }: { shipping: ShippingInfo; inStock: boolean }) => (
+const ShippingBadges = ({
+	shipping,
+	inStock,
+}: {
+	shipping: ShippingInfo;
+	inStock: boolean;
+}) => (
 	<div className="flex flex-wrap gap-1 mt-2">
 		{shipping.freeShipping && (
-			<Badge variant="outline" className="text-[10px] gap-1 bg-green-50 text-green-700 border-green-200">
+			<Badge
+				variant="outline"
+				className="text-[10px] gap-1 bg-green-50 text-green-700 border-green-200"
+			>
 				<Truck className="size-2.5" />
 				Free Shipping
 			</Badge>
@@ -44,18 +62,32 @@ const ShippingBadges = ({ shipping, inStock }: { shipping: ShippingInfo; inStock
 );
 
 const StockStatus = ({ inStock }: { inStock: boolean }) => (
-	<div className={`flex items-center gap-1 text-xs ${inStock ? 'text-green-600' : 'text-destructive'}`}>
-		<div className={`size-2 rounded-full ${inStock ? 'bg-green-500' : 'bg-destructive'}`} />
+	<div
+		className={`flex items-center gap-1 text-xs ${inStock ? 'text-green-600' : 'text-destructive'}`}
+	>
+		<div
+			className={`size-2 rounded-full ${inStock ? 'bg-green-500' : 'bg-destructive'}`}
+		/>
 		<span>{inStock ? 'In Stock' : 'Out of Stock'}</span>
 	</div>
 );
 
 const CarouselItem = ({ item }: { item: WishlistItem }) => (
 	<div className="flex-shrink-0 w-64 @sm:w-72 @md:w-80">
-		<Card className={`overflow-hidden group h-full ${!item.inStock ? 'opacity-75' : ''}`}>
+		<Card
+			className={`overflow-hidden group h-full ${!item.inStock ? 'opacity-75' : ''}`}
+		>
 			<div className="relative aspect-[4/3] bg-muted">
-				<img src={item.image} alt={item.name} className="size-full object-cover" />
-				<Button variant="ghost" size="icon-sm" className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm">
+				<img
+					src={item.image}
+					alt={item.name}
+					className="size-full object-cover"
+				/>
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm"
+				>
 					<Heart className="size-4 fill-primary text-primary" />
 				</Button>
 				{item.shipping.freeShipping && (
@@ -66,7 +98,9 @@ const CarouselItem = ({ item }: { item: WishlistItem }) => (
 				)}
 				{!item.inStock && (
 					<div className="absolute inset-0 bg-background/60 flex items-center justify-center">
-						<Badge variant="destructive" className="text-sm">Out of Stock</Badge>
+						<Badge variant="destructive" className="text-sm">
+							Out of Stock
+						</Badge>
 					</div>
 				)}
 			</div>
@@ -74,7 +108,9 @@ const CarouselItem = ({ item }: { item: WishlistItem }) => (
 				<div className="flex items-start justify-between gap-2">
 					<div className="flex-1 min-w-0">
 						<Link href={item.href}>
-							<h3 className="font-semibold line-clamp-1 hover:text-primary transition-colors">{item.name}</h3>
+							<h3 className="font-semibold line-clamp-1 hover:text-primary transition-colors">
+								{item.name}
+							</h3>
 						</Link>
 						<StockStatus inStock={item.inStock} />
 					</div>
@@ -86,7 +122,11 @@ const CarouselItem = ({ item }: { item: WishlistItem }) => (
 						<ShoppingCart className="size-4" />
 						{item.inStock ? 'Add to Cart' : 'Notify Me'}
 					</Button>
-					<Button variant="ghost" size="icon-sm" className="text-destructive hover:text-destructive">
+					<Button
+						variant="ghost"
+						size="icon-sm"
+						className="text-destructive hover:text-destructive"
+					>
 						<X className="size-4" />
 					</Button>
 				</div>
@@ -104,10 +144,18 @@ const CarouselSlider = ({ items }: CarouselProps) => (
 				</div>
 			))}
 		</div>
-		<Button variant="outline" size="icon" className="absolute left-0 top-1/3 -translate-x-1/2 hidden @md:flex bg-background shadow-lg">
+		<Button
+			variant="outline"
+			size="icon"
+			className="absolute left-0 top-1/3 -translate-x-1/2 hidden @md:flex bg-background shadow-lg"
+		>
 			<ChevronLeft className="size-5" />
 		</Button>
-		<Button variant="outline" size="icon" className="absolute right-0 top-1/3 translate-x-1/2 hidden @md:flex bg-background shadow-lg">
+		<Button
+			variant="outline"
+			size="icon"
+			className="absolute right-0 top-1/3 translate-x-1/2 hidden @md:flex bg-background shadow-lg"
+		>
 			<ChevronRight className="size-5" />
 		</Button>
 	</div>
@@ -132,17 +180,64 @@ const ShippingLegend = () => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Ergonomic Office Chair', price: 449.00, image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400&h=300&fit=crop', shipping: { freeShipping: true, estimatedDays: 3, returnsWindow: 30 }, inStock: true, href: '/product/1' },
-		{ id: '2', name: 'Standing Desk', price: 599.00, image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=400&h=300&fit=crop', shipping: { freeShipping: true, estimatedDays: 5, returnsWindow: 30 }, inStock: true, href: '/product/2' },
-		{ id: '3', name: 'Monitor Light Bar', price: 79.00, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop', shipping: { freeShipping: false, estimatedDays: 2, returnsWindow: 14 }, inStock: false, href: '/product/3' },
-		{ id: '4', name: 'Wireless Keyboard', price: 149.00, image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?w=400&h=300&fit=crop', shipping: { freeShipping: true, estimatedDays: 2, returnsWindow: 30 }, inStock: true, href: '/product/4' },
-		{ id: '5', name: 'Desk Mat XL', price: 45.00, image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop', shipping: { freeShipping: false, estimatedDays: 4, returnsWindow: 14 }, inStock: true, href: '/product/5' },
+		{
+			id: '1',
+			name: 'Ergonomic Office Chair',
+			price: 449.0,
+			image:
+				'https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400&h=300&fit=crop',
+			shipping: { freeShipping: true, estimatedDays: 3, returnsWindow: 30 },
+			inStock: true,
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Standing Desk',
+			price: 599.0,
+			image:
+				'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=400&h=300&fit=crop',
+			shipping: { freeShipping: true, estimatedDays: 5, returnsWindow: 30 },
+			inStock: true,
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Monitor Light Bar',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop',
+			shipping: { freeShipping: false, estimatedDays: 2, returnsWindow: 14 },
+			inStock: false,
+			href: '/product/3',
+		},
+		{
+			id: '4',
+			name: 'Wireless Keyboard',
+			price: 149.0,
+			image:
+				'https://images.unsplash.com/photo-1595225476474-87563907a212?w=400&h=300&fit=crop',
+			shipping: { freeShipping: true, estimatedDays: 2, returnsWindow: 30 },
+			inStock: true,
+			href: '/product/4',
+		},
+		{
+			id: '5',
+			name: 'Desk Mat XL',
+			price: 45.0,
+			image:
+				'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop',
+			shipping: { freeShipping: false, estimatedDays: 4, returnsWindow: 14 },
+			inStock: true,
+			href: '/product/5',
+		},
 	];
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-6xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<h1 className="text-2xl @md:text-3xl font-bold mb-4">Wishlist Delivery</h1>
+				<h1 className="text-2xl @md:text-3xl font-bold mb-4">
+					Wishlist Delivery
+				</h1>
 				<ShippingLegend />
 				<CarouselSlider items={wishlistItems} />
 			</div>

@@ -25,9 +25,17 @@ interface ListProps {
 	items: WishlistItem[];
 }
 
-const ShareStatus = ({ isPublic, sharedWith }: { isPublic: boolean; sharedWith: SharedWith[] }) => (
+const ShareStatus = ({
+	isPublic,
+	sharedWith,
+}: {
+	isPublic: boolean;
+	sharedWith: SharedWith[];
+}) => (
 	<div className="flex items-center gap-3 mt-2">
-		<div className={`flex items-center gap-1 text-xs ${isPublic ? 'text-green-600' : 'text-muted-foreground'}`}>
+		<div
+			className={`flex items-center gap-1 text-xs ${isPublic ? 'text-green-600' : 'text-muted-foreground'}`}
+		>
 			{isPublic ? <Globe className="size-3" /> : <Lock className="size-3" />}
 			<span>{isPublic ? 'Public' : 'Private'}</span>
 		</div>
@@ -37,17 +45,27 @@ const ShareStatus = ({ isPublic, sharedWith }: { isPublic: boolean; sharedWith: 
 					{sharedWith.slice(0, 3).map((person, i) => (
 						<Avatar key={i} className="size-5 border border-background">
 							<AvatarImage src={person.avatar} alt={person.name} />
-							<AvatarFallback className="text-[8px]">{person.name[0]}</AvatarFallback>
+							<AvatarFallback className="text-[8px]">
+								{person.name[0]}
+							</AvatarFallback>
 						</Avatar>
 					))}
 				</div>
-				<span className="text-xs text-muted-foreground">+{sharedWith.length}</span>
+				<span className="text-xs text-muted-foreground">
+					+{sharedWith.length}
+				</span>
 			</div>
 		)}
 	</div>
 );
 
-const VisibilityToggle = ({ isPublic, itemId }: { isPublic: boolean; itemId: string }) => (
+const VisibilityToggle = ({
+	isPublic,
+	itemId,
+}: {
+	isPublic: boolean;
+	itemId: string;
+}) => (
 	<div className="flex items-center gap-2 p-2 rounded-lg bg-muted/50">
 		<Lock className="size-3 text-muted-foreground" />
 		<span className="text-xs">Private</span>
@@ -61,16 +79,25 @@ const ListItem = ({ item }: { item: WishlistItem }) => (
 	<Card className="p-4">
 		<div className="flex gap-4">
 			<div className="relative size-20 @sm:size-24 flex-shrink-0 rounded-lg overflow-hidden bg-muted">
-				<img src={item.image} alt={item.name} className="size-full object-cover" />
+				<img
+					src={item.image}
+					alt={item.name}
+					className="size-full object-cover"
+				/>
 				<Heart className="absolute top-2 left-2 size-4 fill-primary text-primary" />
 			</div>
 			<div className="flex-1 min-w-0">
 				<div className="flex items-start justify-between gap-2">
 					<div>
 						<Link href={item.href}>
-							<h3 className="font-semibold line-clamp-1 hover:text-primary transition-colors">{item.name}</h3>
+							<h3 className="font-semibold line-clamp-1 hover:text-primary transition-colors">
+								{item.name}
+							</h3>
 						</Link>
-						<ShareStatus isPublic={item.isPublic} sharedWith={item.sharedWith} />
+						<ShareStatus
+							isPublic={item.isPublic}
+							sharedWith={item.sharedWith}
+						/>
 					</div>
 					<div className="flex gap-1">
 						<Button variant="ghost" size="icon-sm">
@@ -108,7 +135,9 @@ const SharingHeader = () => (
 			<Share2 className="size-5 text-primary" />
 			<div>
 				<p className="font-medium">Share Your Wishlist</p>
-				<p className="text-sm text-muted-foreground">Control visibility for each item</p>
+				<p className="text-sm text-muted-foreground">
+					Control visibility for each item
+				</p>
 			</div>
 		</div>
 		<Button variant="outline" className="gap-2">
@@ -120,15 +149,49 @@ const SharingHeader = () => (
 
 export default function Main() {
 	const wishlistItems: WishlistItem[] = [
-		{ id: '1', name: 'Minimalist Watch', price: 249.00, image: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=200&h=200&fit=crop', isPublic: true, sharedWith: [{ name: 'Alex', avatar: 'https://i.pravatar.cc/100?img=1' }, { name: 'Sam', avatar: 'https://i.pravatar.cc/100?img=2' }], href: '/product/1' },
-		{ id: '2', name: 'Leather Wallet', price: 89.00, image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop', isPublic: false, sharedWith: [], href: '/product/2' },
-		{ id: '3', name: 'Sunglasses', price: 175.00, image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&h=200&fit=crop', isPublic: true, sharedWith: [{ name: 'Jordan', avatar: 'https://i.pravatar.cc/100?img=3' }], href: '/product/3' },
+		{
+			id: '1',
+			name: 'Minimalist Watch',
+			price: 249.0,
+			image:
+				'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=200&h=200&fit=crop',
+			isPublic: true,
+			sharedWith: [
+				{ name: 'Alex', avatar: 'https://i.pravatar.cc/100?img=1' },
+				{ name: 'Sam', avatar: 'https://i.pravatar.cc/100?img=2' },
+			],
+			href: '/product/1',
+		},
+		{
+			id: '2',
+			name: 'Leather Wallet',
+			price: 89.0,
+			image:
+				'https://images.unsplash.com/photo-1627123424574-724758594e93?w=200&h=200&fit=crop',
+			isPublic: false,
+			sharedWith: [],
+			href: '/product/2',
+		},
+		{
+			id: '3',
+			name: 'Sunglasses',
+			price: 175.0,
+			image:
+				'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=200&h=200&fit=crop',
+			isPublic: true,
+			sharedWith: [
+				{ name: 'Jordan', avatar: 'https://i.pravatar.cc/100?img=3' },
+			],
+			href: '/product/3',
+		},
 	];
 
 	return (
 		<section className="@container" data-theme="wishlist">
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
-				<h1 className="text-2xl @md:text-3xl font-bold mb-6">Shareable Wishlist</h1>
+				<h1 className="text-2xl @md:text-3xl font-bold mb-6">
+					Shareable Wishlist
+				</h1>
 				<SharingHeader />
 				<WishlistList items={wishlistItems} />
 			</div>

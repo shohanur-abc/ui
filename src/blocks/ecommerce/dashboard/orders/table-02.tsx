@@ -9,8 +9,20 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowUpRight, Package, Clock, CheckCircle2, Truck } from 'lucide-react';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
+import {
+	ArrowUpRight,
+	Package,
+	Clock,
+	CheckCircle2,
+	Truck,
+} from 'lucide-react';
 
 interface Order {
 	id: string;
@@ -62,7 +74,14 @@ const CustomerCell = ({ customer }: CustomerCellProps) => (
 );
 
 const StatusBadge = ({ status }: StatusBadgeProps) => {
-	const config: Record<Order['status'], { icon: typeof Package; label: string; variant: 'default' | 'secondary' | 'outline' }> = {
+	const config: Record<
+		Order['status'],
+		{
+			icon: typeof Package;
+			label: string;
+			variant: 'default' | 'secondary' | 'outline';
+		}
+	> = {
 		pending: { icon: Clock, label: 'Pending', variant: 'outline' },
 		processing: { icon: Package, label: 'Processing', variant: 'secondary' },
 		shipped: { icon: Truck, label: 'Shipped', variant: 'default' },
@@ -79,7 +98,9 @@ const StatusBadge = ({ status }: StatusBadgeProps) => {
 
 const OrderRow = ({ order }: { order: Order }) => (
 	<TableRow className="hover:bg-muted/30 transition-colors">
-		<TableCell className="font-mono text-sm text-muted-foreground">{order.id}</TableCell>
+		<TableCell className="font-mono text-sm text-muted-foreground">
+			{order.id}
+		</TableCell>
 		<TableCell>
 			<CustomerCell customer={order.customer} />
 		</TableCell>
@@ -88,17 +109,54 @@ const OrderRow = ({ order }: { order: Order }) => (
 		<TableCell>
 			<StatusBadge status={order.status} />
 		</TableCell>
-		<TableCell className="text-muted-foreground text-sm">{order.date}</TableCell>
+		<TableCell className="text-muted-foreground text-sm">
+			{order.date}
+		</TableCell>
 	</TableRow>
 );
 
 export default function Main() {
 	const orders: Order[] = [
-		{ id: '#8294', customer: { name: 'Alice Cooper', avatar: '', initials: 'AC' }, items: 3, total: '$342.00', status: 'delivered', date: 'Today' },
-		{ id: '#8293', customer: { name: 'Bob Martin', avatar: '', initials: 'BM' }, items: 1, total: '$89.99', status: 'shipped', date: 'Today' },
-		{ id: '#8292', customer: { name: 'Carol White', avatar: '', initials: 'CW' }, items: 5, total: '$567.50', status: 'processing', date: 'Yesterday' },
-		{ id: '#8291', customer: { name: 'Dan Brown', avatar: '', initials: 'DB' }, items: 2, total: '$199.00', status: 'pending', date: 'Yesterday' },
-		{ id: '#8290', customer: { name: 'Eve Davis', avatar: '', initials: 'ED' }, items: 4, total: '$445.00', status: 'delivered', date: 'Jan 29' },
+		{
+			id: '#8294',
+			customer: { name: 'Alice Cooper', avatar: '', initials: 'AC' },
+			items: 3,
+			total: '$342.00',
+			status: 'delivered',
+			date: 'Today',
+		},
+		{
+			id: '#8293',
+			customer: { name: 'Bob Martin', avatar: '', initials: 'BM' },
+			items: 1,
+			total: '$89.99',
+			status: 'shipped',
+			date: 'Today',
+		},
+		{
+			id: '#8292',
+			customer: { name: 'Carol White', avatar: '', initials: 'CW' },
+			items: 5,
+			total: '$567.50',
+			status: 'processing',
+			date: 'Yesterday',
+		},
+		{
+			id: '#8291',
+			customer: { name: 'Dan Brown', avatar: '', initials: 'DB' },
+			items: 2,
+			total: '$199.00',
+			status: 'pending',
+			date: 'Yesterday',
+		},
+		{
+			id: '#8290',
+			customer: { name: 'Eve Davis', avatar: '', initials: 'ED' },
+			items: 4,
+			total: '$445.00',
+			status: 'delivered',
+			date: 'Jan 29',
+		},
 	];
 
 	const headers = ['Order', 'Customer', 'Items', 'Total', 'Status', 'Date'];
@@ -107,13 +165,19 @@ export default function Main() {
 		<section className="@container" data-theme="orders">
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-10 @xl:py-12">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-					<Header title="Recent Orders" description="Latest orders from your store" />
+					<Header
+						title="Recent Orders"
+						description="Latest orders from your store"
+					/>
 					<CardContent className="p-0">
 						<Table>
 							<TableHeader>
 								<TableRow className="border-border/50 hover:bg-transparent">
 									{headers.map((header) => (
-										<TableHead key={header} className={header === 'Items' ? 'text-center' : ''}>
+										<TableHead
+											key={header}
+											className={header === 'Items' ? 'text-center' : ''}
+										>
 											{header}
 										</TableHead>
 									))}

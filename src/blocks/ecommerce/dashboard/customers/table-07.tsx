@@ -65,13 +65,22 @@ const PageHeader = ({
 	actions,
 }: {
 	title: string;
-	actions: { label: string; icon: React.ElementType; variant?: 'outline' | 'default' }[];
+	actions: {
+		label: string;
+		icon: React.ElementType;
+		variant?: 'outline' | 'default';
+	}[];
 }) => (
 	<div className="flex flex-col gap-4 @lg:flex-row @lg:items-center @lg:justify-between">
 		<h1 className="text-2xl font-bold tracking-tight">{title}</h1>
 		<div className="flex items-center gap-2">
 			{actions.map((action, i) => (
-				<Button key={i} variant={action.variant || 'outline'} size="sm" className="gap-2">
+				<Button
+					key={i}
+					variant={action.variant || 'outline'}
+					size="sm"
+					className="gap-2"
+				>
 					<action.icon className="size-4" />
 					{action.label}
 				</Button>
@@ -93,11 +102,24 @@ const SearchBar = ({ placeholder }: { placeholder: string }) => (
 	</div>
 );
 
-const EngagementBadge = ({ score }: { score: CustomerBehavior['engagementScore'] }) => {
+const EngagementBadge = ({
+	score,
+}: {
+	score: CustomerBehavior['engagementScore'];
+}) => {
 	const config = {
-		high: { label: 'High', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
-		medium: { label: 'Medium', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20' },
-		low: { label: 'Low', className: 'bg-red-500/10 text-red-500 border-red-500/20' },
+		high: {
+			label: 'High',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
+		medium: {
+			label: 'Medium',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+		},
+		low: {
+			label: 'Low',
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[score].className}>
@@ -135,14 +157,19 @@ const CustomerRow = ({ customer }: { customer: CustomerBehavior }) => (
 		<TableCell>
 			<div className="flex items-center gap-3">
 				<Avatar className="size-9">
-					<AvatarImage src={customer.customer.avatar} alt={customer.customer.name} />
+					<AvatarImage
+						src={customer.customer.avatar}
+						alt={customer.customer.name}
+					/>
 					<AvatarFallback className="bg-primary/10 text-primary text-xs">
 						{customer.customer.initials}
 					</AvatarFallback>
 				</Avatar>
 				<div>
 					<p className="font-medium">{customer.customer.name}</p>
-					<p className="text-muted-foreground text-xs">{customer.customer.email}</p>
+					<p className="text-muted-foreground text-xs">
+						{customer.customer.email}
+					</p>
 				</div>
 			</div>
 		</TableCell>
@@ -156,19 +183,39 @@ const CustomerRow = ({ customer }: { customer: CustomerBehavior }) => (
 			<MetricCell icon={Eye} value={customer.pageViews} tooltip="Page views" />
 		</TableCell>
 		<TableCell className="hidden @lg:table-cell text-center">
-			<MetricCell icon={Clock} value={customer.timeOnSite} tooltip="Time on site" />
+			<MetricCell
+				icon={Clock}
+				value={customer.timeOnSite}
+				tooltip="Time on site"
+			/>
 		</TableCell>
 		<TableCell className="hidden @xl:table-cell text-center">
-			<MetricCell icon={ShoppingBag} value={customer.cartAbandoned} tooltip="Cart abandons" />
+			<MetricCell
+				icon={ShoppingBag}
+				value={customer.cartAbandoned}
+				tooltip="Cart abandons"
+			/>
 		</TableCell>
 		<TableCell className="hidden @xl:table-cell text-center">
-			<MetricCell icon={Heart} value={customer.wishlistItems} tooltip="Wishlist items" />
+			<MetricCell
+				icon={Heart}
+				value={customer.wishlistItems}
+				tooltip="Wishlist items"
+			/>
 		</TableCell>
 		<TableCell className="hidden @2xl:table-cell text-center">
-			<MetricCell icon={Star} value={customer.reviewsGiven} tooltip="Reviews given" />
+			<MetricCell
+				icon={Star}
+				value={customer.reviewsGiven}
+				tooltip="Reviews given"
+			/>
 		</TableCell>
 		<TableCell className="hidden @2xl:table-cell text-center">
-			<MetricCell icon={Repeat} value={customer.repeatPurchases} tooltip="Repeat purchases" />
+			<MetricCell
+				icon={Repeat}
+				value={customer.repeatPurchases}
+				tooltip="Repeat purchases"
+			/>
 		</TableCell>
 		<TableCell>
 			<EngagementBadge score={customer.engagementScore} />
@@ -202,7 +249,11 @@ export default function Main() {
 	const customers: CustomerBehavior[] = [
 		{
 			id: '1',
-			customer: { name: 'Jennifer Lopez', email: 'jennifer.l@email.com', initials: 'JL' },
+			customer: {
+				name: 'Jennifer Lopez',
+				email: 'jennifer.l@email.com',
+				initials: 'JL',
+			},
 			lastVisit: '2 hours ago',
 			pageViews: 145,
 			timeOnSite: '24m',
@@ -214,7 +265,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'Robert Smith', email: 'robert.s@email.com', initials: 'RS' },
+			customer: {
+				name: 'Robert Smith',
+				email: 'robert.s@email.com',
+				initials: 'RS',
+			},
 			lastVisit: '1 day ago',
 			pageViews: 67,
 			timeOnSite: '12m',
@@ -226,7 +281,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Maria Garcia', email: 'maria.g@email.com', initials: 'MG' },
+			customer: {
+				name: 'Maria Garcia',
+				email: 'maria.g@email.com',
+				initials: 'MG',
+			},
 			lastVisit: '3 days ago',
 			pageViews: 234,
 			timeOnSite: '45m',
@@ -238,7 +297,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'David Brown', email: 'david.b@email.com', initials: 'DB' },
+			customer: {
+				name: 'David Brown',
+				email: 'david.b@email.com',
+				initials: 'DB',
+			},
 			lastVisit: '2 weeks ago',
 			pageViews: 23,
 			timeOnSite: '5m',
@@ -250,7 +313,11 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Sarah Johnson', email: 'sarah.j@email.com', initials: 'SJ' },
+			customer: {
+				name: 'Sarah Johnson',
+				email: 'sarah.j@email.com',
+				initials: 'SJ',
+			},
 			lastVisit: '5 hours ago',
 			pageViews: 89,
 			timeOnSite: '18m',
@@ -270,7 +337,10 @@ export default function Main() {
 	return (
 		<section className="@container" data-theme="dashboard">
 			<div className="mx-auto max-w-7xl space-y-6 px-4 py-8 @sm:px-6 @2xl:px-8">
-				<PageHeader title="Customer Behavior Analytics" actions={headerActions} />
+				<PageHeader
+					title="Customer Behavior Analytics"
+					actions={headerActions}
+				/>
 
 				<div className="overflow-hidden rounded-xl border bg-card">
 					<SearchBar placeholder="Search by name or email..." />
@@ -278,13 +348,27 @@ export default function Main() {
 						<TableHeader>
 							<TableRow className="hover:bg-transparent">
 								<TableHead>Customer</TableHead>
-								<TableHead className="hidden @md:table-cell">Last Visit</TableHead>
-								<TableHead className="hidden @lg:table-cell text-center">Views</TableHead>
-								<TableHead className="hidden @lg:table-cell text-center">Time</TableHead>
-								<TableHead className="hidden @xl:table-cell text-center">Abandoned</TableHead>
-								<TableHead className="hidden @xl:table-cell text-center">Wishlist</TableHead>
-								<TableHead className="hidden @2xl:table-cell text-center">Reviews</TableHead>
-								<TableHead className="hidden @2xl:table-cell text-center">Repeat</TableHead>
+								<TableHead className="hidden @md:table-cell">
+									Last Visit
+								</TableHead>
+								<TableHead className="hidden @lg:table-cell text-center">
+									Views
+								</TableHead>
+								<TableHead className="hidden @lg:table-cell text-center">
+									Time
+								</TableHead>
+								<TableHead className="hidden @xl:table-cell text-center">
+									Abandoned
+								</TableHead>
+								<TableHead className="hidden @xl:table-cell text-center">
+									Wishlist
+								</TableHead>
+								<TableHead className="hidden @2xl:table-cell text-center">
+									Reviews
+								</TableHead>
+								<TableHead className="hidden @2xl:table-cell text-center">
+									Repeat
+								</TableHead>
 								<TableHead>Engagement</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>

@@ -5,14 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import {
-	MapPin,
-	Zap,
-	Leaf,
-	Shield,
-	Clock,
-	ArrowRight,
-} from 'lucide-react';
+import { MapPin, Zap, Leaf, Shield, Clock, ArrowRight } from 'lucide-react';
 
 interface FeatureProps {
 	icon: React.ElementType;
@@ -37,7 +30,8 @@ const PageHeader = () => (
 			Where should we ship?
 		</h1>
 		<p className="text-muted-foreground max-w-lg mx-auto">
-			Select your preferred delivery address from saved locations or add a new one
+			Select your preferred delivery address from saved locations or add a new
+			one
 		</p>
 	</div>
 );
@@ -58,9 +52,7 @@ const AddressCard = ({ id, label, name, address, features }: AddressProps) => (
 					<div className="flex-1">
 						<div className="flex items-center gap-2 mb-2">
 							<span className="font-semibold text-lg">{label}</span>
-							{id === '1' && (
-								<Badge className="text-xs">Default</Badge>
-							)}
+							{id === '1' && <Badge className="text-xs">Default</Badge>}
 						</div>
 						<div className="flex items-start gap-2 text-sm text-muted-foreground mb-4">
 							<MapPin className="size-4 shrink-0 mt-0.5 text-primary" />
@@ -108,7 +100,11 @@ export default function Main() {
 			features: [
 				{ icon: Zap, iconColor: 'text-amber-500', text: 'Express available' },
 				{ icon: Leaf, iconColor: 'text-green-500', text: 'Carbon neutral' },
-				{ icon: Shield, iconColor: 'text-blue-500', text: 'Signature required' },
+				{
+					icon: Shield,
+					iconColor: 'text-blue-500',
+					text: 'Signature required',
+				},
 				{ icon: Clock, iconColor: 'text-purple-500', text: '2-day delivery' },
 			],
 		},
@@ -119,7 +115,11 @@ export default function Main() {
 			address: '456 Market Street, Suite 100, San Francisco, CA 94103',
 			features: [
 				{ icon: Zap, iconColor: 'text-amber-500', text: 'Same-day possible' },
-				{ icon: Clock, iconColor: 'text-purple-500', text: 'Next-day delivery' },
+				{
+					icon: Clock,
+					iconColor: 'text-purple-500',
+					text: 'Next-day delivery',
+				},
 				{ icon: Shield, iconColor: 'text-blue-500', text: 'Secure reception' },
 				{ icon: Leaf, iconColor: 'text-green-500', text: 'Green delivery' },
 			],

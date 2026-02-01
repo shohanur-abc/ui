@@ -1,11 +1,32 @@
 'use client';
 
-import { Building2, CreditCard, Gift, Lock, MapPin, Shield, Smartphone, Truck, User, Wallet } from 'lucide-react';
+import {
+	Building2,
+	CreditCard,
+	Gift,
+	Lock,
+	MapPin,
+	Shield,
+	Smartphone,
+	Truck,
+	User,
+	Wallet,
+} from 'lucide-react';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -18,7 +39,15 @@ interface AccordionSection {
 	subtitle: string;
 }
 
-const SectionHeader = ({ icon: Icon, title, subtitle }: { icon: React.ComponentType<{ className?: string }>; title: string; subtitle: string }) => (
+const SectionHeader = ({
+	icon: Icon,
+	title,
+	subtitle,
+}: {
+	icon: React.ComponentType<{ className?: string }>;
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="flex items-center gap-3">
 		<div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
 			<Icon className="size-5 text-primary" />
@@ -83,7 +112,10 @@ const ShippingForm = () => (
 const DeliveryOptions = () => (
 	<div className="space-y-3 pt-4">
 		<RadioGroup defaultValue="express" className="space-y-2">
-			<Label htmlFor="express" className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			<Label
+				htmlFor="express"
+				className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+			>
 				<RadioGroupItem value="express" id="express" />
 				<div className="flex-1">
 					<span className="font-medium">Express Delivery</span>
@@ -91,7 +123,10 @@ const DeliveryOptions = () => (
 				</div>
 				<span className="font-medium">$12.99</span>
 			</Label>
-			<Label htmlFor="standard" className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			<Label
+				htmlFor="standard"
+				className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+			>
 				<RadioGroupItem value="standard" id="standard" />
 				<div className="flex-1">
 					<span className="font-medium">Standard Delivery</span>
@@ -99,7 +134,10 @@ const DeliveryOptions = () => (
 				</div>
 				<span className="font-medium">$5.99</span>
 			</Label>
-			<Label htmlFor="free" className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+			<Label
+				htmlFor="free"
+				className="flex items-center gap-3 p-3 rounded-lg border cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+			>
 				<RadioGroupItem value="free" id="free" />
 				<div className="flex-1">
 					<span className="font-medium">Economy</span>
@@ -149,13 +187,21 @@ const PromoCodeInput = () => (
 	</div>
 );
 
-const OrderSummary = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean }[] }) => (
+const OrderSummary = ({
+	lines,
+}: {
+	lines: { label: string; value: string; isTotal?: boolean }[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={line.isTotal ? '' : 'text-muted-foreground'}>{line.label}</span>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span className={line.isTotal ? '' : 'text-muted-foreground'}>
+						{line.label}
+					</span>
 					<span>{line.value}</span>
 				</div>
 			</div>
@@ -172,10 +218,30 @@ const PayButton = ({ label }: { label: string }) => (
 
 export default function Main() {
 	const sections: AccordionSection[] = [
-		{ id: 'billing', icon: User, title: 'Billing Information', subtitle: 'Enter your details' },
-		{ id: 'shipping', icon: MapPin, title: 'Shipping Address', subtitle: 'Where to deliver' },
-		{ id: 'delivery', icon: Truck, title: 'Delivery Method', subtitle: 'Choose shipping speed' },
-		{ id: 'payment', icon: CreditCard, title: 'Payment', subtitle: 'Card details' },
+		{
+			id: 'billing',
+			icon: User,
+			title: 'Billing Information',
+			subtitle: 'Enter your details',
+		},
+		{
+			id: 'shipping',
+			icon: MapPin,
+			title: 'Shipping Address',
+			subtitle: 'Where to deliver',
+		},
+		{
+			id: 'delivery',
+			icon: Truck,
+			title: 'Delivery Method',
+			subtitle: 'Choose shipping speed',
+		},
+		{
+			id: 'payment',
+			icon: CreditCard,
+			title: 'Payment',
+			subtitle: 'Card details',
+		},
 		{ id: 'promo', icon: Gift, title: 'Promo Code', subtitle: 'Have a code?' },
 	];
 
@@ -200,10 +266,19 @@ export default function Main() {
 						</div>
 					</CardHeader>
 					<CardContent>
-						<Accordion type="single" collapsible defaultValue="billing" className="w-full">
+						<Accordion
+							type="single"
+							collapsible
+							defaultValue="billing"
+							className="w-full"
+						>
 							<AccordionItem value="billing">
 								<AccordionTrigger className="hover:no-underline">
-									<SectionHeader icon={User} title="Billing Information" subtitle="Enter your details" />
+									<SectionHeader
+										icon={User}
+										title="Billing Information"
+										subtitle="Enter your details"
+									/>
 								</AccordionTrigger>
 								<AccordionContent>
 									<BillingForm />
@@ -211,7 +286,11 @@ export default function Main() {
 							</AccordionItem>
 							<AccordionItem value="shipping">
 								<AccordionTrigger className="hover:no-underline">
-									<SectionHeader icon={MapPin} title="Shipping Address" subtitle="Where to deliver" />
+									<SectionHeader
+										icon={MapPin}
+										title="Shipping Address"
+										subtitle="Where to deliver"
+									/>
 								</AccordionTrigger>
 								<AccordionContent>
 									<ShippingForm />
@@ -219,7 +298,11 @@ export default function Main() {
 							</AccordionItem>
 							<AccordionItem value="delivery">
 								<AccordionTrigger className="hover:no-underline">
-									<SectionHeader icon={Truck} title="Delivery Method" subtitle="Choose shipping speed" />
+									<SectionHeader
+										icon={Truck}
+										title="Delivery Method"
+										subtitle="Choose shipping speed"
+									/>
 								</AccordionTrigger>
 								<AccordionContent>
 									<DeliveryOptions />
@@ -227,7 +310,11 @@ export default function Main() {
 							</AccordionItem>
 							<AccordionItem value="payment">
 								<AccordionTrigger className="hover:no-underline">
-									<SectionHeader icon={CreditCard} title="Payment" subtitle="Card details" />
+									<SectionHeader
+										icon={CreditCard}
+										title="Payment"
+										subtitle="Card details"
+									/>
 								</AccordionTrigger>
 								<AccordionContent>
 									<PaymentForm />
@@ -235,7 +322,11 @@ export default function Main() {
 							</AccordionItem>
 							<AccordionItem value="promo">
 								<AccordionTrigger className="hover:no-underline">
-									<SectionHeader icon={Gift} title="Promo Code" subtitle="Have a code?" />
+									<SectionHeader
+										icon={Gift}
+										title="Promo Code"
+										subtitle="Have a code?"
+									/>
 								</AccordionTrigger>
 								<AccordionContent>
 									<PromoCodeInput />

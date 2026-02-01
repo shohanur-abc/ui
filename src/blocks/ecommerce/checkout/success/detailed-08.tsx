@@ -87,7 +87,9 @@ const GiftPreviewCard = ({
 			<div className="size-20 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-4">
 				<Gift className="size-10" />
 			</div>
-			<h3 className="text-2xl font-bold mb-2">A Gift for You, {recipientName}!</h3>
+			<h3 className="text-2xl font-bold mb-2">
+				A Gift for You, {recipientName}!
+			</h3>
 			<p className="opacity-90">From {senderName}</p>
 		</div>
 		<CardContent className="pt-6">
@@ -118,7 +120,10 @@ const RecipientCard = ({
 				<Avatar className="size-14">
 					<AvatarImage src={avatar} />
 					<AvatarFallback className="text-lg font-bold bg-pink-100 text-pink-600">
-						{name.split(' ').map(n => n[0]).join('')}
+						{name
+							.split(' ')
+							.map((n) => n[0])
+							.join('')}
 					</AvatarFallback>
 				</Avatar>
 				<div>
@@ -226,9 +231,7 @@ const DeliveryStatusCard = ({
 						>
 							{item.completed ? '✓' : i + 1}
 						</div>
-						<span
-							className={item.completed ? '' : 'text-muted-foreground'}
-						>
+						<span className={item.completed ? '' : 'text-muted-foreground'}>
 							{item.step}
 						</span>
 					</div>

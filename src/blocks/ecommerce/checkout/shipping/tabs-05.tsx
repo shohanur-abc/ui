@@ -1,4 +1,12 @@
-import { Package, Leaf, Sparkles, Shield, Clock, Check, Truck } from 'lucide-react';
+import {
+	Package,
+	Leaf,
+	Sparkles,
+	Shield,
+	Clock,
+	Check,
+	Truck,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -26,9 +34,7 @@ const ShippingCard = ({
 	badgeVariant?: 'default' | 'secondary' | 'outline';
 }) => (
 	<Label htmlFor={value} className="cursor-pointer block h-full">
-		<Card
-			className="h-full transition-all hover:shadow-md hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
-		>
+		<Card className="h-full transition-all hover:shadow-md hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
 			{badge && (
 				<Badge variant={badgeVariant} className="absolute -top-2.5 right-4">
 					{badge}
@@ -105,14 +111,22 @@ export default function Main() {
 			name: 'Eco Standard',
 			time: '6-8 days',
 			price: '$6.99',
-			features: ['100% recyclable packaging', 'Carbon-neutral delivery', 'Consolidated shipping'],
+			features: [
+				'100% recyclable packaging',
+				'Carbon-neutral delivery',
+				'Consolidated shipping',
+			],
 		},
 		{
 			value: 'eco-express',
 			name: 'Eco Express',
 			time: '3-4 days',
 			price: '$11.99',
-			features: ['Sustainable packaging', 'Lower emissions', 'Tree planting contribution'],
+			features: [
+				'Sustainable packaging',
+				'Lower emissions',
+				'Tree planting contribution',
+			],
 			badge: 'Green Choice',
 			badgeVariant: 'secondary' as const,
 		},
@@ -124,29 +138,51 @@ export default function Main() {
 			name: 'Premium',
 			time: '2-3 days',
 			price: '$19.99',
-			features: ['Priority handling', 'Gift packaging', 'White glove delivery', 'Photo confirmation'],
+			features: [
+				'Priority handling',
+				'Gift packaging',
+				'White glove delivery',
+				'Photo confirmation',
+			],
 		},
 		{
 			value: 'vip',
 			name: 'VIP Service',
 			time: 'Next day',
 			price: '$34.99',
-			features: ['Same-day dispatch', 'Concierge service', 'Time-specific delivery', 'Full insurance'],
+			features: [
+				'Same-day dispatch',
+				'Concierge service',
+				'Time-specific delivery',
+				'Full insurance',
+			],
 			badge: 'Premium',
 		},
 	];
 
 	const ecoFeatures = [
-		{ icon: Leaf, title: 'Carbon Neutral', description: 'We offset all shipping emissions' },
-		{ icon: Package, title: 'Sustainable Packaging', description: '100% recyclable materials' },
+		{
+			icon: Leaf,
+			title: 'Carbon Neutral',
+			description: 'We offset all shipping emissions',
+		},
+		{
+			icon: Package,
+			title: 'Sustainable Packaging',
+			description: '100% recyclable materials',
+		},
 	];
 
 	return (
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-4xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Shipping Options</h1>
-					<p className="text-muted-foreground">Choose the perfect shipping experience for your needs</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Shipping Options
+					</h1>
+					<p className="text-muted-foreground">
+						Choose the perfect shipping experience for your needs
+					</p>
 				</div>
 
 				<Tabs defaultValue="standard" className="w-full">
@@ -166,7 +202,10 @@ export default function Main() {
 					</TabsList>
 
 					<TabsContent value="standard">
-						<RadioGroup defaultValue="standard" className="grid @md:grid-cols-2 gap-4">
+						<RadioGroup
+							defaultValue="standard"
+							className="grid @md:grid-cols-2 gap-4"
+						>
 							{standardOptions.map((option) => (
 								<ShippingCard key={option.value} {...option} />
 							))}
@@ -183,7 +222,10 @@ export default function Main() {
 								</div>
 							</CardContent>
 						</Card>
-						<RadioGroup defaultValue="eco-standard" className="grid @md:grid-cols-2 gap-4">
+						<RadioGroup
+							defaultValue="eco-standard"
+							className="grid @md:grid-cols-2 gap-4"
+						>
 							{ecoOptions.map((option) => (
 								<ShippingCard key={option.value} {...option} />
 							))}
@@ -191,7 +233,10 @@ export default function Main() {
 					</TabsContent>
 
 					<TabsContent value="premium">
-						<RadioGroup defaultValue="premium" className="grid @md:grid-cols-2 gap-4">
+						<RadioGroup
+							defaultValue="premium"
+							className="grid @md:grid-cols-2 gap-4"
+						>
 							{premiumOptions.map((option) => (
 								<ShippingCard key={option.value} {...option} />
 							))}
@@ -200,7 +245,9 @@ export default function Main() {
 				</Tabs>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

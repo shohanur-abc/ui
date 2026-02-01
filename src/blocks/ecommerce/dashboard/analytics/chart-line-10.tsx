@@ -48,16 +48,34 @@ const DualAxisLineChart = ({ data }: { data: DualAxisData[] }) => {
 				<span>{ordersMin}</span>
 			</div>
 			<div className="mx-10">
-				<svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-56">
+				<svg
+					viewBox="0 0 100 100"
+					preserveAspectRatio="none"
+					className="w-full h-56"
+				>
 					<defs>
 						<linearGradient id="revenueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
 							<stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
 							<stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
 						</linearGradient>
 					</defs>
-					<path d={`${revenuePath} L 100 100 L 0 100 Z`} fill="url(#revenueGrad)" />
-					<path d={revenuePath} fill="none" stroke="#3b82f6" strokeWidth="0.5" />
-					<path d={ordersPath} fill="none" stroke="#22c55e" strokeWidth="0.5" strokeDasharray="1,0.5" />
+					<path
+						d={`${revenuePath} L 100 100 L 0 100 Z`}
+						fill="url(#revenueGrad)"
+					/>
+					<path
+						d={revenuePath}
+						fill="none"
+						stroke="#3b82f6"
+						strokeWidth="0.5"
+					/>
+					<path
+						d={ordersPath}
+						fill="none"
+						stroke="#22c55e"
+						strokeWidth="0.5"
+						strokeDasharray="1,0.5"
+					/>
 					{revenuePoints.map((p, i) => (
 						<circle key={`r-${i}`} cx={p.x} cy={p.y} r="0.6" fill="#3b82f6" />
 					))}
@@ -67,9 +85,11 @@ const DualAxisLineChart = ({ data }: { data: DualAxisData[] }) => {
 				</svg>
 			</div>
 			<div className="absolute bottom-0 left-10 right-10 flex justify-between text-xs text-muted-foreground">
-				{data.filter((_, i) => i % 2 === 0).map((d, i) => (
-					<span key={i}>{d.label}</span>
-				))}
+				{data
+					.filter((_, i) => i % 2 === 0)
+					.map((d, i) => (
+						<span key={i}>{d.label}</span>
+					))}
 			</div>
 		</div>
 	);
@@ -97,8 +117,12 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="flex flex-row items-start justify-between pb-2">
 						<div>
-							<CardTitle className="text-sm font-medium">Revenue vs Orders Correlation</CardTitle>
-							<p className="text-xs text-muted-foreground">Dual axis comparison over time</p>
+							<CardTitle className="text-sm font-medium">
+								Revenue vs Orders Correlation
+							</CardTitle>
+							<p className="text-xs text-muted-foreground">
+								Dual axis comparison over time
+							</p>
 						</div>
 						<div className="flex items-center gap-4">
 							<div className="flex items-center gap-2">

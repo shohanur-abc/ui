@@ -12,7 +12,15 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Check, Edit2, Minus, Plus, ShoppingCart, Trash2, X } from 'lucide-react';
+import {
+	Check,
+	Edit2,
+	Minus,
+	Plus,
+	ShoppingCart,
+	Trash2,
+	X,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -110,7 +118,9 @@ const ProductRow = ({ item }: { item: CartItem }) => (
 			</div>
 			<div className="flex items-center justify-between">
 				<QuantityInput quantity={item.quantity} max={item.maxQuantity} />
-				<span className="font-bold">${(item.price * item.quantity).toFixed(2)}</span>
+				<span className="font-bold">
+					${(item.price * item.quantity).toFixed(2)}
+				</span>
 			</div>
 		</div>
 	</div>
@@ -123,7 +133,10 @@ const OrderFooter = ({
 	items: CartItem[];
 	checkoutLabel: string;
 }) => {
-	const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const subtotal = items.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0,
+	);
 
 	return (
 		<div className="space-y-4 border-t border-border pt-4">
@@ -145,7 +158,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes Pro',
 				variant: 'US 10 / Red',
 				price: 129.99,
@@ -154,7 +168,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Classic Sneakers',
 				variant: 'US 9 / White',
 				price: 89.99,
@@ -163,7 +178,8 @@ export default function Main() {
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200&h=200&fit=crop',
 				name: 'Sport Sandals',
 				variant: 'US 11 / Black',
 				price: 59.99,
@@ -173,7 +189,10 @@ export default function Main() {
 		],
 	};
 
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

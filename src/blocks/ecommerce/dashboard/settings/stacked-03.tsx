@@ -140,7 +140,9 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Notification Channels</CardTitle>
-									<CardDescription>Choose how you want to receive notifications</CardDescription>
+									<CardDescription>
+										Choose how you want to receive notifications
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>
@@ -161,7 +163,9 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Notification Preferences</CardTitle>
-									<CardDescription>Configure what notifications you receive</CardDescription>
+									<CardDescription>
+										Configure what notifications you receive
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>

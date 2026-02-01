@@ -64,7 +64,10 @@ const BlockedUserCard = ({
 		<Avatar>
 			<AvatarImage src={avatar} />
 			<AvatarFallback>
-				{name.split(' ').map((n) => n[0]).join('')}
+				{name
+					.split(' ')
+					.map((n) => n[0])
+					.join('')}
 			</AvatarFallback>
 		</Avatar>
 		<div className="flex-1 min-w-0">
@@ -116,7 +119,10 @@ const MutedUserCard = ({
 		<Avatar>
 			<AvatarImage src={avatar} />
 			<AvatarFallback>
-				{name.split(' ').map((n) => n[0]).join('')}
+				{name
+					.split(' ')
+					.map((n) => n[0])
+					.join('')}
 			</AvatarFallback>
 		</Avatar>
 		<div className="flex-1 min-w-0">
@@ -128,7 +134,9 @@ const MutedUserCard = ({
 			</div>
 			<p className="text-sm text-muted-foreground">@{username}</p>
 			{mutedUntil && (
-				<p className="mt-1 text-xs text-muted-foreground">Until: {mutedUntil}</p>
+				<p className="mt-1 text-xs text-muted-foreground">
+					Until: {mutedUntil}
+				</p>
 			)}
 		</div>
 		<div className="flex items-center gap-2">
@@ -260,9 +268,7 @@ export default function Main() {
 					<Card>
 						<CardHeader className="border-b">
 							<CardTitle className="text-base">Block a User</CardTitle>
-							<CardDescription>
-								Enter a username to block
-							</CardDescription>
+							<CardDescription>Enter a username to block</CardDescription>
 						</CardHeader>
 						<CardContent className="pt-6">
 							<div className="flex gap-2">

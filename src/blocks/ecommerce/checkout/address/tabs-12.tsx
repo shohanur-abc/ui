@@ -16,14 +16,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
-import {
-	Package,
-	Users,
-	Gift,
-	ArrowRight,
-	Plus,
-	Trash2,
-} from 'lucide-react';
+import { Package, Users, Gift, ArrowRight, Plus, Trash2 } from 'lucide-react';
 
 interface FieldProps {
 	label: string;
@@ -85,7 +78,11 @@ const RecipientForm = ({ index, countries, states }: RecipientFormProps) => (
 			<Field label="Last Name" placeholder="Smith" />
 		</div>
 		<Field label="Email" placeholder="jane@example.com" type="email" />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Friend Lane" />
 		<div className="grid @sm:grid-cols-3 gap-4">
 			<Field label="City" placeholder="City" />
@@ -110,7 +107,11 @@ const SingleAddressTab = ({
 		<Field label="Email" placeholder="john@example.com" type="email" />
 		<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
 		<Separator />
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -120,7 +121,10 @@ const SingleAddressTab = ({
 		</div>
 		<div className="flex items-center gap-2 pt-2">
 			<Checkbox id="save-single" />
-			<Label htmlFor="save-single" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="save-single"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Save for future orders
 			</Label>
 		</div>

@@ -121,8 +121,16 @@ const InvoiceRow = ({ id, date, amount, status }: Invoice) => (
 		<div className="flex items-center gap-3">
 			<span className="font-medium">{amount}</span>
 			<Badge
-				variant={status === 'paid' ? 'default' : status === 'pending' ? 'secondary' : 'destructive'}
-				className={status === 'paid' ? 'bg-emerald-500/10 text-emerald-500 border-0' : ''}
+				variant={
+					status === 'paid'
+						? 'default'
+						: status === 'pending'
+							? 'secondary'
+							: 'destructive'
+				}
+				className={
+					status === 'paid' ? 'bg-emerald-500/10 text-emerald-500 border-0' : ''
+				}
 			>
 				{status.charAt(0).toUpperCase() + status.slice(1)}
 			</Badge>
@@ -188,9 +196,24 @@ export default function Main() {
 	];
 
 	const invoices: Invoice[] = [
-		{ id: 'INV-2026-001', date: 'Jan 1, 2026', amount: '$9.00', status: 'paid' },
-		{ id: 'INV-2025-012', date: 'Dec 1, 2025', amount: '$9.00', status: 'paid' },
-		{ id: 'INV-2025-011', date: 'Nov 1, 2025', amount: '$9.00', status: 'paid' },
+		{
+			id: 'INV-2026-001',
+			date: 'Jan 1, 2026',
+			amount: '$9.00',
+			status: 'paid',
+		},
+		{
+			id: 'INV-2025-012',
+			date: 'Dec 1, 2025',
+			amount: '$9.00',
+			status: 'paid',
+		},
+		{
+			id: 'INV-2025-011',
+			date: 'Nov 1, 2025',
+			amount: '$9.00',
+			status: 'paid',
+		},
 	];
 
 	return (
@@ -205,7 +228,9 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Subscription Plans</CardTitle>
-									<CardDescription>Choose the plan that fits your needs</CardDescription>
+									<CardDescription>
+										Choose the plan that fits your needs
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>
@@ -222,7 +247,9 @@ export default function Main() {
 						<Card>
 							<CardHeader className="border-b">
 								<CardTitle>Current Usage</CardTitle>
-								<CardDescription>Your usage this billing period</CardDescription>
+								<CardDescription>
+									Your usage this billing period
+								</CardDescription>
 							</CardHeader>
 							<CardContent className="space-y-4 pt-6">
 								{usage.map((metric) => (
@@ -236,7 +263,9 @@ export default function Main() {
 								<div className="flex items-center justify-between">
 									<div>
 										<CardTitle>Billing History</CardTitle>
-										<CardDescription>Recent invoices and payments</CardDescription>
+										<CardDescription>
+											Recent invoices and payments
+										</CardDescription>
 									</div>
 									<Button variant="outline" size="sm" className="gap-2">
 										<Calendar className="size-4" />

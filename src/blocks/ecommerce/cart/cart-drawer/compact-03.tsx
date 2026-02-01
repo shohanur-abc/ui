@@ -135,21 +135,24 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds Pro',
 				price: 129.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=200&h=200&fit=crop',
 				name: 'Smart Watch Series 5',
 				price: 299.99,
 				quantity: 1,
 			},
 			{
 				id: '3',
-				image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&h=200&fit=crop',
 				name: 'Over-Ear Headphones',
 				price: 199.99,
 				quantity: 2,
@@ -163,7 +166,10 @@ export default function Main() {
 	);
 	const tax = subtotal * cartData.taxRate;
 	const total = subtotal + tax;
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

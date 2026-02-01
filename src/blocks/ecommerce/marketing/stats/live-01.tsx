@@ -10,7 +10,13 @@ interface LiveStatProps {
 	live?: boolean;
 }
 
-const LiveStat = ({ icon: Icon, label, value, subtext, live }: LiveStatProps) => (
+const LiveStat = ({
+	icon: Icon,
+	label,
+	value,
+	subtext,
+	live,
+}: LiveStatProps) => (
 	<Card className="group relative overflow-hidden p-6 transition-all duration-300 hover:shadow-md">
 		{live && (
 			<div className="absolute right-4 top-4">
@@ -35,11 +41,39 @@ const LiveStat = ({ icon: Icon, label, value, subtext, live }: LiveStatProps) =>
 
 export default function Main() {
 	const stats: LiveStatProps[] = [
-		{ icon: Users, label: 'Active Visitors', value: '2,847', subtext: 'On site right now', live: true },
-		{ icon: Activity, label: 'Orders/Hour', value: '142', subtext: 'Last 60 minutes', live: true },
-		{ icon: Zap, label: 'Conversion Rate', value: '4.2%', subtext: 'Today\'s rate', live: true },
-		{ icon: Clock, label: 'Avg. Session', value: '8m 42s', subtext: 'Time on site' },
-		{ icon: TrendingUp, label: 'Today\'s Revenue', value: '$48,294', subtext: '+24% vs yesterday' },
+		{
+			icon: Users,
+			label: 'Active Visitors',
+			value: '2,847',
+			subtext: 'On site right now',
+			live: true,
+		},
+		{
+			icon: Activity,
+			label: 'Orders/Hour',
+			value: '142',
+			subtext: 'Last 60 minutes',
+			live: true,
+		},
+		{
+			icon: Zap,
+			label: 'Conversion Rate',
+			value: '4.2%',
+			subtext: "Today's rate",
+			live: true,
+		},
+		{
+			icon: Clock,
+			label: 'Avg. Session',
+			value: '8m 42s',
+			subtext: 'Time on site',
+		},
+		{
+			icon: TrendingUp,
+			label: "Today's Revenue",
+			value: '$48,294',
+			subtext: '+24% vs yesterday',
+		},
 	];
 
 	return (

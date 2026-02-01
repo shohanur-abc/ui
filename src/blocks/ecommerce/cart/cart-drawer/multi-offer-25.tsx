@@ -102,7 +102,9 @@ const OfferCard = ({
 	>
 		<div className="flex-1">
 			<div className="flex items-center gap-2">
-				<Tag className={`size-4 ${isApplied ? 'text-primary' : 'text-muted-foreground'}`} />
+				<Tag
+					className={`size-4 ${isApplied ? 'text-primary' : 'text-muted-foreground'}`}
+				/>
 				<span className="font-mono text-sm font-medium">{offer.code}</span>
 			</div>
 			<p className="mt-1 text-xs text-muted-foreground">{offer.description}</p>
@@ -181,7 +183,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes',
 				price: 129.99,
 				quantity: 1,
@@ -189,7 +192,8 @@ export default function Main() {
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop',
 				name: 'Casual Sneakers',
 				price: 89.99,
 				quantity: 1,
@@ -220,7 +224,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 	const appliedOffers = cartData.items
 		.filter((item) => item.appliedOffer)
 		.map((item) => item.appliedOffer!);

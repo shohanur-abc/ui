@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -26,7 +32,12 @@ interface Product {
 const LeftProduct = ({ product }: { product: Product }) => (
 	<div className="flex items-center gap-4 rounded-xl border bg-card p-4">
 		<div className="relative size-20 shrink-0 overflow-hidden rounded-lg">
-			<Image src={product.image} alt={product.name} fill className="object-cover" />
+			<Image
+				src={product.image}
+				alt={product.name}
+				fill
+				className="object-cover"
+			/>
 		</div>
 		<div className="flex-1 min-w-0">
 			<p className="font-medium">{product.name}</p>
@@ -76,9 +87,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -90,7 +105,8 @@ export default function Main() {
 			variant: 'Maple / 8.25"',
 			price: 79.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1547447134-cd3f5c716030?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1547447134-cd3f5c716030?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -98,7 +114,8 @@ export default function Main() {
 			variant: 'Thunder / Hollow',
 			price: 64.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1564429238909-3cc4d4193222?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1564429238909-3cc4d4193222?w=200&h=200&fit=crop',
 		},
 		{
 			id: '3',
@@ -106,7 +123,8 @@ export default function Main() {
 			variant: 'Spitfire / 54mm',
 			price: 44.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=200&h=200&fit=crop',
 		},
 	];
 

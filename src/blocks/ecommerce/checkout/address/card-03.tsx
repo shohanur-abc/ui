@@ -185,17 +185,18 @@ export default function Main() {
 						<Card>
 							<CardContent className="pt-6">
 								<h3 className="font-semibold mb-4">New Address</h3>
-								<AddressTypeSelector
-									items={addressTypes}
-									selected="home"
-								/>
+								<AddressTypeSelector items={addressTypes} selected="home" />
 
 								<div className="space-y-4">
 									<div className="grid grid-cols-2 gap-4">
 										<Field label="First Name" placeholder="John" />
 										<Field label="Last Name" placeholder="Doe" />
 									</div>
-									<Field label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
+									<Field
+										label="Phone"
+										placeholder="+1 (555) 000-0000"
+										type="tel"
+									/>
 									<Field label="Street Address" placeholder="123 Main Street" />
 									<Field label="Apt / Suite" placeholder="Optional" />
 									<div className="grid grid-cols-3 gap-4">
@@ -214,9 +215,7 @@ export default function Main() {
 									/>
 
 									<div className="pt-2">
-										<Label className="text-sm mb-2 block">
-											Address Labels
-										</Label>
+										<Label className="text-sm mb-2 block">Address Labels</Label>
 										<div className="flex flex-wrap gap-2">
 											<AddressTag label="Home" />
 											<AddressTag label="Default" />

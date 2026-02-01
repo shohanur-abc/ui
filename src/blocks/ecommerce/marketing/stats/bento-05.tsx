@@ -26,15 +26,24 @@ const TopProductCard = ({ products }: { products: TopProductProps[] }) => (
 		</div>
 		<div className="space-y-4">
 			{products.map((product) => (
-				<div key={product.rank} className="group flex items-center gap-4 rounded-lg p-2 transition-colors hover:bg-secondary/50">
-					<span className="w-6 text-center text-sm font-bold text-muted-foreground">#{product.rank}</span>
+				<div
+					key={product.rank}
+					className="group flex items-center gap-4 rounded-lg p-2 transition-colors hover:bg-secondary/50"
+				>
+					<span className="w-6 text-center text-sm font-bold text-muted-foreground">
+						#{product.rank}
+					</span>
 					<Avatar className="size-10 rounded-lg">
 						<AvatarImage src={product.image} alt={product.name} />
-						<AvatarFallback className="rounded-lg">{product.name[0]}</AvatarFallback>
+						<AvatarFallback className="rounded-lg">
+							{product.name[0]}
+						</AvatarFallback>
 					</Avatar>
 					<div className="flex-1">
 						<p className="text-sm font-medium">{product.name}</p>
-						<p className="text-xs text-muted-foreground">{product.sales} sold</p>
+						<p className="text-xs text-muted-foreground">
+							{product.sales} sold
+						</p>
 					</div>
 					<p className="text-sm font-semibold">{product.revenue}</p>
 				</div>
@@ -43,7 +52,12 @@ const TopProductCard = ({ products }: { products: TopProductProps[] }) => (
 	</Card>
 );
 
-const QuickStatCard = ({ icon: Icon, label, value, change }: QuickStatProps) => (
+const QuickStatCard = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+}: QuickStatProps) => (
 	<Card className="group relative overflow-hidden p-5 transition-all duration-300 hover:border-primary/30">
 		<div className="flex items-start justify-between">
 			<div className="space-y-3">
@@ -65,10 +79,34 @@ const QuickStatCard = ({ icon: Icon, label, value, change }: QuickStatProps) => 
 
 export default function Main() {
 	const topProducts: TopProductProps[] = [
-		{ rank: 1, name: 'Wireless Earbuds Pro', image: '/placeholder.svg', sales: '2,847', revenue: '$142,350' },
-		{ rank: 2, name: 'Smart Watch Elite', image: '/placeholder.svg', sales: '1,923', revenue: '$96,150' },
-		{ rank: 3, name: 'Portable Charger XL', image: '/placeholder.svg', sales: '1,584', revenue: '$47,520' },
-		{ rank: 4, name: 'Bluetooth Speaker', image: '/placeholder.svg', sales: '1,247', revenue: '$43,645' },
+		{
+			rank: 1,
+			name: 'Wireless Earbuds Pro',
+			image: '/placeholder.svg',
+			sales: '2,847',
+			revenue: '$142,350',
+		},
+		{
+			rank: 2,
+			name: 'Smart Watch Elite',
+			image: '/placeholder.svg',
+			sales: '1,923',
+			revenue: '$96,150',
+		},
+		{
+			rank: 3,
+			name: 'Portable Charger XL',
+			image: '/placeholder.svg',
+			sales: '1,584',
+			revenue: '$47,520',
+		},
+		{
+			rank: 4,
+			name: 'Bluetooth Speaker',
+			image: '/placeholder.svg',
+			sales: '1,247',
+			revenue: '$43,645',
+		},
 	];
 
 	const quickStats: QuickStatProps[] = [

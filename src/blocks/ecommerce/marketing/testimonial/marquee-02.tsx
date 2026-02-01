@@ -51,7 +51,10 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 const MetricBadge = ({ metric }: { metric: string }) => (
-	<Badge variant="outline" className="bg-primary/5 border-primary/20 text-primary text-xs">
+	<Badge
+		variant="outline"
+		className="bg-primary/5 border-primary/20 text-primary text-xs"
+	>
 		<TrendingUp className="size-3 mr-1" />
 		{metric}
 	</Badge>
@@ -117,7 +120,8 @@ export default function Main() {
 			author: 'Martin Chen',
 			role: 'CEO',
 			company: 'TechFirst',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'MC',
 			rating: 5,
 			metric: '+45% ROI',
@@ -127,7 +131,8 @@ export default function Main() {
 			author: 'Nina Park',
 			role: 'CFO',
 			company: 'InvestCo',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'NP',
 			rating: 5,
 			metric: '+60% efficiency',
@@ -137,7 +142,8 @@ export default function Main() {
 			author: 'Oscar Lee',
 			role: 'Operations',
 			company: 'SupportPro',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'OL',
 			rating: 5,
 			metric: '24/7 support',
@@ -150,7 +156,8 @@ export default function Main() {
 			author: 'Paula Kim',
 			role: 'CISO',
 			company: 'SecureNet',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'PK',
 			rating: 5,
 			metric: 'SOC 2 ready',
@@ -160,7 +167,8 @@ export default function Main() {
 			author: 'Quinn Foster',
 			role: 'CTO',
 			company: 'IntegrateCorp',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'QF',
 			rating: 5,
 			metric: '50+ integrations',
@@ -170,7 +178,8 @@ export default function Main() {
 			author: 'Rachel Davis',
 			role: 'VP Engineering',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'RD',
 			rating: 5,
 			metric: '10x scale',
@@ -183,7 +192,8 @@ export default function Main() {
 			author: 'Sam Wilson',
 			role: 'IT Director',
 			company: 'OnboardPro',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'SW',
 			rating: 5,
 			metric: '< 1 week setup',
@@ -193,7 +203,8 @@ export default function Main() {
 			author: 'Tina Chen',
 			role: 'Data Lead',
 			company: 'AnalyticsCo',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'TC',
 			rating: 5,
 			metric: 'Real-time data',
@@ -203,7 +214,8 @@ export default function Main() {
 			author: 'Uma Park',
 			role: 'COO',
 			company: 'ProductiveCo',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'UP',
 			rating: 5,
 			metric: '+35% output',
@@ -211,7 +223,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<style jsx>{`
 				@keyframes marquee-up {
 					0% {

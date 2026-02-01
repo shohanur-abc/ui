@@ -40,7 +40,14 @@ type ExpenseRowProps = {
 	color: string;
 };
 
-const ExpenseRow = ({ category, amount, percentage, trend, trendValue, color }: ExpenseRowProps) => {
+const ExpenseRow = ({
+	category,
+	amount,
+	percentage,
+	trend,
+	trendValue,
+	color,
+}: ExpenseRowProps) => {
 	const trendConfig = {
 		up: 'text-rose-500 bg-rose-500/10',
 		down: 'text-emerald-500 bg-emerald-500/10',
@@ -104,12 +111,54 @@ export default function Main() {
 	];
 
 	const expenseRows: ExpenseRowProps[] = [
-		{ category: 'Personnel', amount: '$425K', percentage: '30.4%', trend: 'up', trendValue: '+5.2%', color: 'bg-[oklch(0.75_0.15_55)]' },
-		{ category: 'Marketing', amount: '$285K', percentage: '20.4%', trend: 'down', trendValue: '-8.1%', color: 'bg-[oklch(0.7_0.2_280)]' },
-		{ category: 'Operations', amount: '$245K', percentage: '17.5%', trend: 'stable', trendValue: '+0.5%', color: 'bg-[oklch(0.7_0.18_160)]' },
-		{ category: 'Technology', amount: '$198K', percentage: '14.2%', trend: 'up', trendValue: '+12.3%', color: 'bg-[oklch(0.72_0.16_200)]' },
-		{ category: 'Logistics', amount: '$175K', percentage: '12.5%', trend: 'down', trendValue: '-3.2%', color: 'bg-[oklch(0.65_0.2_320)]' },
-		{ category: 'Other', amount: '$72K', percentage: '5.1%', trend: 'stable', trendValue: '+1.1%', color: 'bg-[oklch(0.6_0.1_240)]' },
+		{
+			category: 'Personnel',
+			amount: '$425K',
+			percentage: '30.4%',
+			trend: 'up',
+			trendValue: '+5.2%',
+			color: 'bg-[oklch(0.75_0.15_55)]',
+		},
+		{
+			category: 'Marketing',
+			amount: '$285K',
+			percentage: '20.4%',
+			trend: 'down',
+			trendValue: '-8.1%',
+			color: 'bg-[oklch(0.7_0.2_280)]',
+		},
+		{
+			category: 'Operations',
+			amount: '$245K',
+			percentage: '17.5%',
+			trend: 'stable',
+			trendValue: '+0.5%',
+			color: 'bg-[oklch(0.7_0.18_160)]',
+		},
+		{
+			category: 'Technology',
+			amount: '$198K',
+			percentage: '14.2%',
+			trend: 'up',
+			trendValue: '+12.3%',
+			color: 'bg-[oklch(0.72_0.16_200)]',
+		},
+		{
+			category: 'Logistics',
+			amount: '$175K',
+			percentage: '12.5%',
+			trend: 'down',
+			trendValue: '-3.2%',
+			color: 'bg-[oklch(0.65_0.2_320)]',
+		},
+		{
+			category: 'Other',
+			amount: '$72K',
+			percentage: '5.1%',
+			trend: 'stable',
+			trendValue: '+1.1%',
+			color: 'bg-[oklch(0.6_0.1_240)]',
+		},
 	];
 
 	const totalExpenses = chartData.reduce((sum, item) => sum + item.amount, 0);
@@ -128,7 +177,10 @@ export default function Main() {
 					</CardHeader>
 					<CardContent>
 						<div className="grid gap-8 @lg:grid-cols-[260px,1fr]">
-							<ChartContainer config={chartConfig} className="mx-auto aspect-square h-[260px]">
+							<ChartContainer
+								config={chartConfig}
+								className="mx-auto aspect-square h-[260px]"
+							>
 								<PieChart>
 									<ChartTooltip content={<ChartTooltipContent />} />
 									<Pie
@@ -179,7 +231,9 @@ export default function Main() {
 											<TableHead>Category</TableHead>
 											<TableHead className="text-right">Amount</TableHead>
 											<TableHead className="text-right">% of Total</TableHead>
-											<TableHead className="text-right">vs Last Month</TableHead>
+											<TableHead className="text-right">
+												vs Last Month
+											</TableHead>
 										</TableRow>
 									</TableHeader>
 									<TableBody>

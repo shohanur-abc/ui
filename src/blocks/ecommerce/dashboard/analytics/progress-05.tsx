@@ -23,7 +23,11 @@ const projects: Project[] = [
 		tasks: [
 			{ label: 'Design mockups', status: 'completed', dueDate: 'Jan 5' },
 			{ label: 'Frontend development', status: 'completed', dueDate: 'Jan 12' },
-			{ label: 'Backend integration', status: 'in-progress', dueDate: 'Jan 20' },
+			{
+				label: 'Backend integration',
+				status: 'in-progress',
+				dueDate: 'Jan 20',
+			},
 			{ label: 'Testing & QA', status: 'pending', dueDate: 'Jan 25' },
 		],
 	},
@@ -40,8 +44,10 @@ const projects: Project[] = [
 ];
 
 const StatusIcon = ({ status }: { status: Task['status'] }) => {
-	if (status === 'completed') return <CheckCircle className="size-4 text-emerald-500" />;
-	if (status === 'in-progress') return <Clock className="size-4 text-amber-500" />;
+	if (status === 'completed')
+		return <CheckCircle className="size-4 text-emerald-500" />;
+	if (status === 'in-progress')
+		return <Clock className="size-4 text-amber-500" />;
 	return <Circle className="size-4 text-muted-foreground" />;
 };
 
@@ -51,10 +57,15 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<div className="grid grid-cols-1 @lg:grid-cols-2 gap-6">
 					{projects.map((project, i) => (
-						<Card key={i} className="border-border/50 bg-card/80 backdrop-blur-sm">
+						<Card
+							key={i}
+							className="border-border/50 bg-card/80 backdrop-blur-sm"
+						>
 							<CardHeader className="pb-2">
 								<div className="flex items-center justify-between">
-									<CardTitle className="text-sm font-medium">{project.name}</CardTitle>
+									<CardTitle className="text-sm font-medium">
+										{project.name}
+									</CardTitle>
 									<Badge variant="outline">{project.progress}%</Badge>
 								</div>
 							</CardHeader>
@@ -65,27 +76,39 @@ export default function Main() {
 										style={{ width: `${project.progress}%` }}
 									/>
 								</div>
-								
+
 								<div className="space-y-3">
 									{project.tasks.map((task, j) => (
 										<div key={j} className="flex items-center justify-between">
 											<div className="flex items-center gap-3">
 												<StatusIcon status={task.status} />
-												<span className={`text-sm ${task.status === 'completed' ? 'line-through text-muted-foreground' : ''}`}>
+												<span
+													className={`text-sm ${task.status === 'completed' ? 'line-through text-muted-foreground' : ''}`}
+												>
 													{task.label}
 												</span>
 											</div>
-											<span className="text-xs text-muted-foreground">{task.dueDate}</span>
+											<span className="text-xs text-muted-foreground">
+												{task.dueDate}
+											</span>
 										</div>
 									))}
 								</div>
-								
+
 								<div className="mt-4 pt-4 border-t border-border/50 flex items-center justify-between text-xs text-muted-foreground">
 									<span>
-										{project.tasks.filter((t) => t.status === 'completed').length} of {project.tasks.length} tasks
+										{
+											project.tasks.filter((t) => t.status === 'completed')
+												.length
+										}{' '}
+										of {project.tasks.length} tasks
 									</span>
 									<span>
-										{project.tasks.filter((t) => t.status === 'in-progress').length} in progress
+										{
+											project.tasks.filter((t) => t.status === 'in-progress')
+												.length
+										}{' '}
+										in progress
 									</span>
 								</div>
 							</CardContent>

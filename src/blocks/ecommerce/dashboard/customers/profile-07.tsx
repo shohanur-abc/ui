@@ -68,11 +68,30 @@ interface ChurnProfile {
 }
 
 const RiskBadge = ({ level }: { level: ChurnProfile['riskLevel'] }) => {
-	const config: Record<string, { label: string; className: string; icon: React.ElementType }> = {
-		low: { label: 'Low Risk', className: 'bg-emerald-500/10 text-emerald-500', icon: TrendingUp },
-		medium: { label: 'Medium Risk', className: 'bg-amber-500/10 text-amber-500', icon: AlertTriangle },
-		high: { label: 'High Risk', className: 'bg-orange-500/10 text-orange-500', icon: TrendingDown },
-		critical: { label: 'Critical', className: 'bg-red-500/10 text-red-500', icon: XCircle },
+	const config: Record<
+		string,
+		{ label: string; className: string; icon: React.ElementType }
+	> = {
+		low: {
+			label: 'Low Risk',
+			className: 'bg-emerald-500/10 text-emerald-500',
+			icon: TrendingUp,
+		},
+		medium: {
+			label: 'Medium Risk',
+			className: 'bg-amber-500/10 text-amber-500',
+			icon: AlertTriangle,
+		},
+		high: {
+			label: 'High Risk',
+			className: 'bg-orange-500/10 text-orange-500',
+			icon: TrendingDown,
+		},
+		critical: {
+			label: 'Critical',
+			className: 'bg-red-500/10 text-red-500',
+			icon: XCircle,
+		},
 	};
 	const { label, className, icon: Icon } = config[level];
 	return (
@@ -116,7 +135,9 @@ const ChurnMeter = ({ probability }: { probability: number }) => {
 					/>
 				</svg>
 				<div className="absolute">
-					<p className={`text-2xl font-bold ${getColor(probability)}`}>{probability}%</p>
+					<p className={`text-2xl font-bold ${getColor(probability)}`}>
+						{probability}%
+					</p>
 					<p className="text-xs text-muted-foreground">Churn Risk</p>
 				</div>
 			</div>
@@ -128,8 +149,14 @@ const MetricChange = ({ value, label }: { value: number; label: string }) => {
 	const isNegative = value < 0;
 	return (
 		<div className="text-center">
-			<div className={`flex items-center justify-center gap-1 ${isNegative ? 'text-red-500' : 'text-emerald-500'}`}>
-				{isNegative ? <ArrowDownRight className="size-4" /> : <ArrowUpRight className="size-4" />}
+			<div
+				className={`flex items-center justify-center gap-1 ${isNegative ? 'text-red-500' : 'text-emerald-500'}`}
+			>
+				{isNegative ? (
+					<ArrowDownRight className="size-4" />
+				) : (
+					<ArrowUpRight className="size-4" />
+				)}
 				<span className="text-xl font-bold">{Math.abs(value)}%</span>
 			</div>
 			<p className="text-xs text-muted-foreground mt-1">{label}</p>
@@ -147,7 +174,11 @@ const ReasonBar = ({ reason }: { reason: ChurnProfile['churnReasons'][0] }) => (
 	</div>
 );
 
-const RecommendationCard = ({ recommendation }: { recommendation: ChurnProfile['recommendations'][0] }) => {
+const RecommendationCard = ({
+	recommendation,
+}: {
+	recommendation: ChurnProfile['recommendations'][0];
+}) => {
 	const priorityConfig: Record<string, string> = {
 		low: 'bg-blue-500/10 text-blue-500',
 		medium: 'bg-amber-500/10 text-amber-500',
@@ -157,9 +188,14 @@ const RecommendationCard = ({ recommendation }: { recommendation: ChurnProfile['
 		<div className="flex items-start gap-3 rounded-lg border p-3">
 			<div className="flex-1 min-w-0">
 				<p className="font-medium text-sm">{recommendation.action}</p>
-				<p className="text-xs text-muted-foreground">Expected impact: {recommendation.impact}</p>
+				<p className="text-xs text-muted-foreground">
+					Expected impact: {recommendation.impact}
+				</p>
 			</div>
-			<Badge variant="outline" className={`${priorityConfig[recommendation.priority]} text-xs capitalize`}>
+			<Badge
+				variant="outline"
+				className={`${priorityConfig[recommendation.priority]} text-xs capitalize`}
+			>
 				{recommendation.priority}
 			</Badge>
 		</div>
@@ -191,10 +227,16 @@ const ProfileHeader = ({ profile }: { profile: ChurnProfile }) => (
 			</div>
 			<div className="flex items-center gap-4 mt-2 text-sm">
 				<span className="text-muted-foreground">
-					Last order: <span className="text-foreground font-medium">{profile.metrics.daysSinceLastOrder} days ago</span>
+					Last order:{' '}
+					<span className="text-foreground font-medium">
+						{profile.metrics.daysSinceLastOrder} days ago
+					</span>
 				</span>
 				<span className="text-muted-foreground">
-					Winback attempts: <span className="text-foreground font-medium">{profile.winbackAttempts}</span>
+					Winback attempts:{' '}
+					<span className="text-foreground font-medium">
+						{profile.winbackAttempts}
+					</span>
 				</span>
 			</div>
 		</div>
@@ -239,13 +281,32 @@ export default function Main() {
 			currentSpending: '$85/month',
 		},
 		recommendations: [
-			{ id: '1', action: 'Send personalized win-back email with 20% discount', priority: 'high', impact: '+35% recovery chance' },
-			{ id: '2', action: 'Schedule a call to understand concerns', priority: 'medium', impact: '+25% recovery chance' },
-			{ id: '3', action: 'Offer free shipping on next order', priority: 'medium', impact: '+20% recovery chance' },
+			{
+				id: '1',
+				action: 'Send personalized win-back email with 20% discount',
+				priority: 'high',
+				impact: '+35% recovery chance',
+			},
+			{
+				id: '2',
+				action: 'Schedule a call to understand concerns',
+				priority: 'medium',
+				impact: '+25% recovery chance',
+			},
+			{
+				id: '3',
+				action: 'Offer free shipping on next order',
+				priority: 'medium',
+				impact: '+20% recovery chance',
+			},
 		],
 		timeline: [
 			{ date: 'Today', event: 'Marked as high risk', type: 'negative' },
-			{ date: '1 week ago', event: 'Opened but ignored win-back email', type: 'neutral' },
+			{
+				date: '1 week ago',
+				event: 'Opened but ignored win-back email',
+				type: 'neutral',
+			},
 			{ date: '3 weeks ago', event: 'Last site visit', type: 'neutral' },
 			{ date: '45 days ago', event: 'Last purchase', type: 'positive' },
 		],
@@ -267,20 +328,33 @@ export default function Main() {
 					<Card className="@lg:col-span-2">
 						<CardContent className="p-6">
 							<div className="grid grid-cols-3 gap-6">
-								<MetricChange value={profile.metrics.orderFrequencyChange} label="Order Frequency" />
-								<MetricChange value={profile.metrics.spendingChange} label="Spending" />
-								<MetricChange value={profile.metrics.engagementChange} label="Engagement" />
+								<MetricChange
+									value={profile.metrics.orderFrequencyChange}
+									label="Order Frequency"
+								/>
+								<MetricChange
+									value={profile.metrics.spendingChange}
+									label="Spending"
+								/>
+								<MetricChange
+									value={profile.metrics.engagementChange}
+									label="Engagement"
+								/>
 							</div>
 							<div className="mt-6 pt-4 border-t flex items-center justify-between text-sm">
 								<div>
 									<span className="text-muted-foreground">Tier change: </span>
-									<span className="text-amber-500">{profile.history.previousTier}</span>
+									<span className="text-amber-500">
+										{profile.history.previousTier}
+									</span>
 									<span className="text-muted-foreground"> → </span>
 									<span>{profile.history.currentTier}</span>
 								</div>
 								<div>
 									<span className="text-muted-foreground">Spending: </span>
-									<span className="text-amber-500">{profile.history.peakSpending}</span>
+									<span className="text-amber-500">
+										{profile.history.peakSpending}
+									</span>
 									<span className="text-muted-foreground"> → </span>
 									<span>{profile.history.currentSpending}</span>
 								</div>

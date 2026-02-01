@@ -97,7 +97,9 @@ const TestimonialBubble = ({
 					>
 						{item.author}
 					</p>
-					<p className={`text-muted-foreground ${size === 'small' ? 'text-[10px]' : 'text-xs'}`}>
+					<p
+						className={`text-muted-foreground ${size === 'small' ? 'text-[10px]' : 'text-xs'}`}
+					>
 						{item.company}
 					</p>
 				</div>
@@ -138,11 +140,13 @@ const MarqueeRow = ({
 export default function Main() {
 	const row1: TestimonialItem[] = [
 		{
-			quote: 'Absolutely incredible. Our productivity has soared since we started using this.',
+			quote:
+				'Absolutely incredible. Our productivity has soared since we started using this.',
 			author: 'Amy Chen',
 			role: 'CEO',
 			company: 'ProductiveCo',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'AC',
 			rating: 5,
 			highlight: true,
@@ -152,7 +156,8 @@ export default function Main() {
 			author: 'Brian Park',
 			role: 'CFO',
 			company: 'InvestSmart',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'BP',
 			rating: 5,
 		},
@@ -161,7 +166,8 @@ export default function Main() {
 			author: 'Carla Lee',
 			role: 'Operations',
 			company: 'SupportFirst',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'CL',
 			rating: 5,
 		},
@@ -173,7 +179,8 @@ export default function Main() {
 			author: 'David Kim',
 			role: 'CTO',
 			company: 'TechFlow',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'DK',
 			rating: 5,
 		},
@@ -182,17 +189,20 @@ export default function Main() {
 			author: 'Emma Foster',
 			role: 'CISO',
 			company: 'SecureCorp',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'EF',
 			rating: 5,
 			highlight: true,
 		},
 		{
-			quote: 'Scales beautifully. We went from 10 to 1000 users without issues.',
+			quote:
+				'Scales beautifully. We went from 10 to 1000 users without issues.',
 			author: 'Frank Davis',
 			role: 'VP Engineering',
 			company: 'ScaleUp',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'FD',
 			rating: 5,
 		},
@@ -204,7 +214,8 @@ export default function Main() {
 			author: 'Grace Wilson',
 			role: 'Director',
 			company: 'WorkflowPro',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'GW',
 			rating: 5,
 		},
@@ -213,16 +224,19 @@ export default function Main() {
 			author: 'Henry Chen',
 			role: 'Data Lead',
 			company: 'AnalyticsCo',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'HC',
 			rating: 5,
 		},
 		{
-			quote: 'Customer satisfaction has improved dramatically since implementation.',
+			quote:
+				'Customer satisfaction has improved dramatically since implementation.',
 			author: 'Iris Park',
 			role: 'CX Director',
 			company: 'HappyCustomers',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'IP',
 			rating: 5,
 			highlight: true,
@@ -230,7 +244,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<style jsx>{`
 				@keyframes scroll-left {
 					0% {

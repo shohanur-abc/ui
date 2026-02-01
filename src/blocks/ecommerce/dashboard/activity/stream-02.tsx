@@ -18,7 +18,13 @@ interface ShipmentUpdate {
 	orderId: string;
 	carrier: string;
 	trackingNumber: string;
-	status: 'processing' | 'picked_up' | 'in_transit' | 'out_for_delivery' | 'delivered' | 'exception';
+	status:
+		| 'processing'
+		| 'picked_up'
+		| 'in_transit'
+		| 'out_for_delivery'
+		| 'delivered'
+		| 'exception';
 	currentLocation: string;
 	eta: string;
 	progress: number;
@@ -133,9 +139,14 @@ const ShipmentCard = ({ shipment }: { shipment: ShipmentUpdate }) => (
 					<div className="text-xs">
 						<span className="text-muted-foreground">To: </span>
 						<span className="text-foreground">{shipment.customer.name}</span>
-						<span className="text-muted-foreground"> • {shipment.customer.destination}</span>
+						<span className="text-muted-foreground">
+							{' '}
+							• {shipment.customer.destination}
+						</span>
 					</div>
-					<span className="text-xs text-muted-foreground">{shipment.lastUpdate}</span>
+					<span className="text-xs text-muted-foreground">
+						{shipment.lastUpdate}
+					</span>
 				</div>
 			</div>
 		</div>

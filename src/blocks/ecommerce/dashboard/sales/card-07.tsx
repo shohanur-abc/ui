@@ -62,7 +62,8 @@ export default function Main() {
 	const products: ProductData[] = [
 		{
 			name: 'Premium Wireless Headphones',
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100',
 			initials: 'PH',
 			category: 'Electronics',
 			sales: 1247,
@@ -70,7 +71,8 @@ export default function Main() {
 		},
 		{
 			name: 'Smart Watch Pro',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100',
 			initials: 'SW',
 			category: 'Electronics',
 			sales: 892,
@@ -78,7 +80,8 @@ export default function Main() {
 		},
 		{
 			name: 'Ergonomic Office Chair',
-			image: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=100',
+			image:
+				'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=100',
 			initials: 'OC',
 			category: 'Furniture',
 			sales: 654,
@@ -86,7 +89,8 @@ export default function Main() {
 		},
 		{
 			name: 'Mechanical Keyboard',
-			image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?w=100',
+			image:
+				'https://images.unsplash.com/photo-1595225476474-87563907a212?w=100',
 			initials: 'MK',
 			category: 'Accessories',
 			sales: 543,
@@ -94,7 +98,8 @@ export default function Main() {
 		},
 		{
 			name: 'USB-C Hub Adapter',
-			image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100',
+			image:
+				'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=100',
 			initials: 'UH',
 			category: 'Accessories',
 			sales: 421,

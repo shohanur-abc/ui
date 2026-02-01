@@ -47,7 +47,10 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 const MetricBadge = ({ metric }: { metric: string }) => (
-	<Badge variant="outline" className="bg-primary/5 border-primary/20 text-primary">
+	<Badge
+		variant="outline"
+		className="bg-primary/5 border-primary/20 text-primary"
+	>
 		<TrendingUp className="size-3 mr-1" />
 		{metric}
 	</Badge>
@@ -85,7 +88,9 @@ const OrbitCard = ({
 						</AvatarFallback>
 					</Avatar>
 					<div>
-						<p className="font-semibold text-sm text-foreground">{item.author}</p>
+						<p className="font-semibold text-sm text-foreground">
+							{item.author}
+						</p>
 						<p className="text-xs text-muted-foreground">
 							{item.role} · {item.company}
 						</p>
@@ -104,7 +109,8 @@ export default function Main() {
 			author: 'Zach Chen',
 			role: 'CEO',
 			company: 'OrbitTech',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'ZC',
 			rating: 5,
 			position: 'left',
@@ -116,7 +122,8 @@ export default function Main() {
 			author: 'Amy Park',
 			role: 'COO',
 			company: 'StarFlow',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'AP',
 			rating: 5,
 			position: 'right',
@@ -128,31 +135,32 @@ export default function Main() {
 			author: 'Brian Lee',
 			role: 'CISO',
 			company: 'SecureOrbit',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'BL',
 			rating: 5,
 			position: 'center',
 			metric: 'SOC 2 Type II',
 		},
 		{
-			quote:
-				'Best investment decision we made. ROI exceeded all projections.',
+			quote: 'Best investment decision we made. ROI exceeded all projections.',
 			author: 'Clara Kim',
 			role: 'CFO',
 			company: 'GrowthPath',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'CK',
 			rating: 5,
 			position: 'left',
 			metric: '200% ROI',
 		},
 		{
-			quote:
-				'Scaled from 10 to 1000 users without any performance issues.',
+			quote: 'Scaled from 10 to 1000 users without any performance issues.',
 			author: 'Derek Foster',
 			role: 'CTO',
 			company: 'ScaleHub',
-			avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
 			initials: 'DF',
 			rating: 5,
 			position: 'right',
@@ -161,11 +169,18 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
 
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32 relative z-10">
-				<SectionHeader badge="Orbital Layout" title="Gravitating" highlight="Towards Excellence" />
+				<SectionHeader
+					badge="Orbital Layout"
+					title="Gravitating"
+					highlight="Towards Excellence"
+				/>
 
 				<div className="max-w-4xl mx-auto space-y-6">
 					{testimonials.map((item, index) => (

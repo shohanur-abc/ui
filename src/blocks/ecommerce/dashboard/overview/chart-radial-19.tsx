@@ -80,11 +80,7 @@ export default function Main() {
 										startAngle={180}
 										endAngle={0}
 									>
-										<RadialBar
-											dataKey="value"
-											cornerRadius={10}
-											background
-										/>
+										<RadialBar dataKey="value" cornerRadius={10} background />
 									</RadialBarChart>
 								</ChartContainer>
 								<div className="absolute inset-0 flex flex-col items-center justify-center pt-8">

@@ -68,7 +68,9 @@ const LearnerHeader = ({
 			<div className="mt-3 max-w-xs mx-auto @md:mx-0">
 				<div className="flex justify-between text-sm mb-1">
 					<span>Level {level}</span>
-					<span className="text-muted-foreground">{xp}/{maxXp}</span>
+					<span className="text-muted-foreground">
+						{xp}/{maxXp}
+					</span>
 				</div>
 				<Progress value={(xp / maxXp) * 100} className="h-2" />
 			</div>
@@ -79,7 +81,13 @@ const LearnerHeader = ({
 const CoursesTab = ({
 	courses,
 }: {
-	courses: { image: string; title: string; instructor: string; progress: number; nextLesson: string }[];
+	courses: {
+		image: string;
+		title: string;
+		instructor: string;
+		progress: number;
+		nextLesson: string;
+	}[];
 }) => (
 	<div className="space-y-4">
 		{courses.map((course, i) => (
@@ -87,7 +95,12 @@ const CoursesTab = ({
 				<CardContent className="p-4">
 					<div className="flex flex-col @sm:flex-row gap-4">
 						<div className="relative w-full @sm:w-40 aspect-video rounded-lg overflow-hidden bg-muted shrink-0">
-							<Image src={course.image} alt={course.title} fill className="object-cover" />
+							<Image
+								src={course.image}
+								alt={course.title}
+								fill
+								className="object-cover"
+							/>
 							<div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
 								<Button size="icon" className="rounded-full">
 									<Play className="size-5" />
@@ -96,8 +109,12 @@ const CoursesTab = ({
 						</div>
 						<div className="flex-1">
 							<h4 className="font-semibold">{course.title}</h4>
-							<p className="text-sm text-muted-foreground">{course.instructor}</p>
-							<p className="text-sm text-muted-foreground mt-1">Next: {course.nextLesson}</p>
+							<p className="text-sm text-muted-foreground">
+								{course.instructor}
+							</p>
+							<p className="text-sm text-muted-foreground mt-1">
+								Next: {course.nextLesson}
+							</p>
 							<div className="mt-3">
 								<div className="flex justify-between text-sm mb-1">
 									<span>Progress</span>
@@ -117,28 +134,47 @@ const CoursesTab = ({
 const AchievementsTab = ({
 	achievements,
 }: {
-	achievements: { icon: React.ElementType; title: string; description: string; xp: number; earned: boolean; progress?: number }[];
+	achievements: {
+		icon: React.ElementType;
+		title: string;
+		description: string;
+		xp: number;
+		earned: boolean;
+		progress?: number;
+	}[];
 }) => (
 	<div className="grid @sm:grid-cols-2 @lg:grid-cols-3 gap-4">
 		{achievements.map((achievement, i) => (
 			<Card key={i} className={achievement.earned ? 'border-amber-500/50' : ''}>
 				<CardContent className="p-5 text-center">
-					<div className={`size-16 mx-auto rounded-full flex items-center justify-center ${
-						achievement.earned ? 'bg-amber-500/20' : 'bg-muted'
-					}`}>
-						<achievement.icon className={`size-8 ${achievement.earned ? 'text-amber-500' : 'text-muted-foreground'}`} />
+					<div
+						className={`size-16 mx-auto rounded-full flex items-center justify-center ${
+							achievement.earned ? 'bg-amber-500/20' : 'bg-muted'
+						}`}
+					>
+						<achievement.icon
+							className={`size-8 ${achievement.earned ? 'text-amber-500' : 'text-muted-foreground'}`}
+						/>
 					</div>
 					<h4 className="font-semibold mt-3">{achievement.title}</h4>
-					<p className="text-sm text-muted-foreground">{achievement.description}</p>
+					<p className="text-sm text-muted-foreground">
+						{achievement.description}
+					</p>
 					{achievement.earned ? (
-						<Badge className="mt-3 bg-amber-500/20 text-amber-600">+{achievement.xp} XP</Badge>
+						<Badge className="mt-3 bg-amber-500/20 text-amber-600">
+							+{achievement.xp} XP
+						</Badge>
 					) : achievement.progress !== undefined ? (
 						<div className="mt-3">
 							<Progress value={achievement.progress} className="h-1.5" />
-							<p className="text-xs text-muted-foreground mt-1">{achievement.progress}% complete</p>
+							<p className="text-xs text-muted-foreground mt-1">
+								{achievement.progress}% complete
+							</p>
 						</div>
 					) : (
-						<Badge variant="secondary" className="mt-3">Locked</Badge>
+						<Badge variant="secondary" className="mt-3">
+							Locked
+						</Badge>
 					)}
 				</CardContent>
 			</Card>
@@ -149,7 +185,12 @@ const AchievementsTab = ({
 const CertificatesTab = ({
 	certificates,
 }: {
-	certificates: { title: string; issuer: string; date: string; credentialId: string }[];
+	certificates: {
+		title: string;
+		issuer: string;
+		date: string;
+		credentialId: string;
+	}[];
 }) => (
 	<div className="grid @md:grid-cols-2 gap-4">
 		{certificates.map((cert, i) => (
@@ -162,8 +203,12 @@ const CertificatesTab = ({
 						<div className="flex-1">
 							<h4 className="font-semibold">{cert.title}</h4>
 							<p className="text-sm text-muted-foreground">{cert.issuer}</p>
-							<p className="text-sm text-muted-foreground">Issued {cert.date}</p>
-							<p className="text-xs text-muted-foreground mt-2">ID: {cert.credentialId}</p>
+							<p className="text-sm text-muted-foreground">
+								Issued {cert.date}
+							</p>
+							<p className="text-xs text-muted-foreground mt-2">
+								ID: {cert.credentialId}
+							</p>
 						</div>
 					</div>
 					<div className="flex gap-2 mt-4">
@@ -171,7 +216,9 @@ const CertificatesTab = ({
 							<Download className="size-4" />
 							Download
 						</Button>
-						<Button variant="ghost" size="sm">Share</Button>
+						<Button variant="ghost" size="sm">
+							Share
+						</Button>
 					</div>
 				</CardContent>
 			</Card>
@@ -206,7 +253,10 @@ const StatsTab = ({
 				<div className="flex items-end justify-between gap-2 h-40">
 					{weeklyActivity.map((day, i) => (
 						<div key={i} className="flex-1 flex flex-col items-center gap-2">
-							<div className="w-full bg-muted rounded-t-lg relative" style={{ height: `${(day.hours / 4) * 100}%` }}>
+							<div
+								className="w-full bg-muted rounded-t-lg relative"
+								style={{ height: `${(day.hours / 4) * 100}%` }}
+							>
 								<div className="absolute inset-0 bg-primary rounded-t-lg" />
 							</div>
 							<span className="text-xs text-muted-foreground">{day.day}</span>
@@ -231,22 +281,96 @@ export default function Main() {
 			streak: 42,
 		},
 		courses: [
-			{ image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=300', title: 'Advanced React Patterns', instructor: 'Dan Abramov', progress: 68, nextLesson: 'Compound Components' },
-			{ image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=300', title: 'Node.js Masterclass', instructor: 'Maximilian S.', progress: 45, nextLesson: 'REST API Design' },
-			{ image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=300', title: 'TypeScript Deep Dive', instructor: 'Matt Pocock', progress: 92, nextLesson: 'Advanced Generics' },
+			{
+				image:
+					'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=300',
+				title: 'Advanced React Patterns',
+				instructor: 'Dan Abramov',
+				progress: 68,
+				nextLesson: 'Compound Components',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=300',
+				title: 'Node.js Masterclass',
+				instructor: 'Maximilian S.',
+				progress: 45,
+				nextLesson: 'REST API Design',
+			},
+			{
+				image:
+					'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=300',
+				title: 'TypeScript Deep Dive',
+				instructor: 'Matt Pocock',
+				progress: 92,
+				nextLesson: 'Advanced Generics',
+			},
 		],
 		achievements: [
-			{ icon: Star, title: 'First Course', description: 'Complete your first course', xp: 100, earned: true },
-			{ icon: Flame, title: '7 Day Streak', description: 'Learn 7 days in a row', xp: 250, earned: true },
-			{ icon: Trophy, title: 'Course Master', description: 'Complete 10 courses', xp: 500, earned: false, progress: 70 },
-			{ icon: Zap, title: 'Speed Learner', description: 'Finish a course in 1 week', xp: 300, earned: true },
-			{ icon: Award, title: 'Top 1%', description: 'Score in top 1% on a quiz', xp: 1000, earned: false },
-			{ icon: Book, title: 'Bookworm', description: 'Read 50 articles', xp: 200, earned: false, progress: 40 },
+			{
+				icon: Star,
+				title: 'First Course',
+				description: 'Complete your first course',
+				xp: 100,
+				earned: true,
+			},
+			{
+				icon: Flame,
+				title: '7 Day Streak',
+				description: 'Learn 7 days in a row',
+				xp: 250,
+				earned: true,
+			},
+			{
+				icon: Trophy,
+				title: 'Course Master',
+				description: 'Complete 10 courses',
+				xp: 500,
+				earned: false,
+				progress: 70,
+			},
+			{
+				icon: Zap,
+				title: 'Speed Learner',
+				description: 'Finish a course in 1 week',
+				xp: 300,
+				earned: true,
+			},
+			{
+				icon: Award,
+				title: 'Top 1%',
+				description: 'Score in top 1% on a quiz',
+				xp: 1000,
+				earned: false,
+			},
+			{
+				icon: Book,
+				title: 'Bookworm',
+				description: 'Read 50 articles',
+				xp: 200,
+				earned: false,
+				progress: 40,
+			},
 		],
 		certificates: [
-			{ title: 'React Developer Professional', issuer: 'Meta', date: 'Jan 2024', credentialId: 'META-RDP-2024-001' },
-			{ title: 'JavaScript Fundamentals', issuer: 'FreeCodeCamp', date: 'Dec 2023', credentialId: 'FCC-JSF-2023-456' },
-			{ title: 'Node.js Backend Developer', issuer: 'OpenJS Foundation', date: 'Nov 2023', credentialId: 'OPENJS-NBD-789' },
+			{
+				title: 'React Developer Professional',
+				issuer: 'Meta',
+				date: 'Jan 2024',
+				credentialId: 'META-RDP-2024-001',
+			},
+			{
+				title: 'JavaScript Fundamentals',
+				issuer: 'FreeCodeCamp',
+				date: 'Dec 2023',
+				credentialId: 'FCC-JSF-2023-456',
+			},
+			{
+				title: 'Node.js Backend Developer',
+				issuer: 'OpenJS Foundation',
+				date: 'Nov 2023',
+				credentialId: 'OPENJS-NBD-789',
+			},
 		],
 		stats: [
 			{ label: 'Courses Completed', value: '12', icon: GraduationCap },
@@ -298,7 +422,10 @@ export default function Main() {
 						<CertificatesTab certificates={profileData.certificates} />
 					</TabsContent>
 					<TabsContent value="stats" className="mt-6">
-						<StatsTab stats={profileData.stats} weeklyActivity={profileData.weeklyActivity} />
+						<StatsTab
+							stats={profileData.stats}
+							weeklyActivity={profileData.weeklyActivity}
+						/>
 					</TabsContent>
 				</Tabs>
 			</div>

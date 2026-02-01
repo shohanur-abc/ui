@@ -1,6 +1,11 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Check, Crown, Star, Gem } from 'lucide-react';
 import Link from 'next/link';
 
@@ -35,7 +40,15 @@ const tierConfig = {
 	},
 };
 
-const Header = ({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle: string }) => (
+const Header = ({
+	eyebrow,
+	title,
+	subtitle,
+}: {
+	eyebrow: string;
+	title: string;
+	subtitle: string;
+}) => (
 	<div className="text-center mb-12 @lg:mb-16">
 		<div className="inline-flex items-center gap-2 text-sm font-medium text-primary mb-4">
 			<Gem className="size-4" />
@@ -58,9 +71,13 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 		<Card
 			className={`relative flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-2 ${config.border} ${config.glow} shadow-xl`}
 		>
-			<div className={`absolute inset-x-0 top-0 h-24 bg-gradient-to-b ${config.gradient} opacity-10`} />
+			<div
+				className={`absolute inset-x-0 top-0 h-24 bg-gradient-to-b ${config.gradient} opacity-10`}
+			/>
 			<CardHeader className="relative text-center pt-8">
-				<div className={`mx-auto size-16 rounded-2xl bg-gradient-to-br ${config.gradient} flex items-center justify-center mb-4 shadow-lg`}>
+				<div
+					className={`mx-auto size-16 rounded-2xl bg-gradient-to-br ${config.gradient} flex items-center justify-center mb-4 shadow-lg`}
+				>
 					<Icon className="size-8 text-white" />
 				</div>
 				<Badge variant="outline" className={config.border}>
@@ -76,7 +93,9 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 				<ul className="space-y-4">
 					{plan.features.map((feature, i) => (
 						<li key={i} className="flex items-start gap-3">
-							<div className={`size-5 rounded-full bg-gradient-to-br ${config.gradient} flex items-center justify-center shrink-0 mt-0.5`}>
+							<div
+								className={`size-5 rounded-full bg-gradient-to-br ${config.gradient} flex items-center justify-center shrink-0 mt-0.5`}
+							>
 								<Check className="size-3 text-white" />
 							</div>
 							<span className="text-sm">{feature}</span>

@@ -9,8 +9,14 @@ interface ComparisonStatProps {
 	trend: 'up' | 'down' | 'neutral';
 }
 
-const ComparisonStat = ({ label, thisMonth, lastMonth, trend }: ComparisonStatProps) => {
-	const TrendIcon = trend === 'up' ? ArrowUp : trend === 'down' ? ArrowDown : Minus;
+const ComparisonStat = ({
+	label,
+	thisMonth,
+	lastMonth,
+	trend,
+}: ComparisonStatProps) => {
+	const TrendIcon =
+		trend === 'up' ? ArrowUp : trend === 'down' ? ArrowDown : Minus;
 	const trendColors = {
 		up: 'text-accent',
 		down: 'text-destructive',
@@ -37,11 +43,31 @@ const ComparisonStat = ({ label, thisMonth, lastMonth, trend }: ComparisonStatPr
 
 export default function Main() {
 	const stats: ComparisonStatProps[] = [
-		{ label: 'Revenue', thisMonth: '$284,847', lastMonth: '$247,294', trend: 'up' },
+		{
+			label: 'Revenue',
+			thisMonth: '$284,847',
+			lastMonth: '$247,294',
+			trend: 'up',
+		},
 		{ label: 'Orders', thisMonth: '8,492', lastMonth: '7,847', trend: 'up' },
-		{ label: 'New Customers', thisMonth: '1,284', lastMonth: '1,284', trend: 'neutral' },
-		{ label: 'Avg. Cart Value', thisMonth: '$147', lastMonth: '$162', trend: 'down' },
-		{ label: 'Conversion Rate', thisMonth: '3.8%', lastMonth: '3.2%', trend: 'up' },
+		{
+			label: 'New Customers',
+			thisMonth: '1,284',
+			lastMonth: '1,284',
+			trend: 'neutral',
+		},
+		{
+			label: 'Avg. Cart Value',
+			thisMonth: '$147',
+			lastMonth: '$162',
+			trend: 'down',
+		},
+		{
+			label: 'Conversion Rate',
+			thisMonth: '3.8%',
+			lastMonth: '3.2%',
+			trend: 'up',
+		},
 	];
 
 	return (

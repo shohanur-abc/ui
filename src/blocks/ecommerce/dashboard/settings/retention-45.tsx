@@ -123,7 +123,7 @@ export default function Main() {
 		{
 			id: 'cart',
 			name: 'Abandoned Carts',
-			description: 'Saved cart items that weren\'t purchased',
+			description: "Saved cart items that weren't purchased",
 			period: '30days',
 			enabled: true,
 		},
@@ -171,7 +171,9 @@ export default function Main() {
 
 						<Card>
 							<CardHeader className="border-b">
-								<CardTitle className="text-base">Auto-Delete Settings</CardTitle>
+								<CardTitle className="text-base">
+									Auto-Delete Settings
+								</CardTitle>
 								<CardDescription>
 									Automatically delete old data based on your preferences
 								</CardDescription>
@@ -190,7 +192,12 @@ export default function Main() {
 								<div className="space-y-4">
 									<Label>Pre-deletion Warning (days)</Label>
 									<div className="flex items-center gap-4">
-										<Slider defaultValue={[7]} max={30} step={1} className="flex-1" />
+										<Slider
+											defaultValue={[7]}
+											max={30}
+											step={1}
+											className="flex-1"
+										/>
 										<span className="w-12 text-right text-sm text-muted-foreground">
 											7 days
 										</span>
@@ -225,11 +232,17 @@ export default function Main() {
 								<CardTitle className="text-base">Quick Actions</CardTitle>
 							</CardHeader>
 							<CardContent className="space-y-3">
-								<Button variant="outline" className="w-full justify-start gap-2">
+								<Button
+									variant="outline"
+									className="w-full justify-start gap-2"
+								>
 									<Archive className="size-4" />
 									Archive Old Data
 								</Button>
-								<Button variant="outline" className="w-full justify-start gap-2">
+								<Button
+									variant="outline"
+									className="w-full justify-start gap-2"
+								>
 									<Download className="size-4" />
 									Download Before Delete
 								</Button>

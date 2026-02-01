@@ -26,13 +26,7 @@ type SummaryRowProps = {
 	value: string;
 };
 
-const CartItem = ({
-	image,
-	name,
-	variant,
-	price,
-	quantity,
-}: CartItemProps) => (
+const CartItem = ({ image, name, variant, price, quantity }: CartItemProps) => (
 	<div className="flex items-center gap-3">
 		<Avatar className="size-16 rounded-lg">
 			<AvatarImage src={image} alt={name} className="object-cover" />
@@ -55,7 +49,11 @@ const CartItem = ({
 		</div>
 		<div className="text-right">
 			<p className="font-semibold">{price}</p>
-			<Button variant="ghost" size="icon-sm" className="size-6 text-destructive">
+			<Button
+				variant="ghost"
+				size="icon-sm"
+				className="size-6 text-destructive"
+			>
 				<Trash2 className="size-3" />
 			</Button>
 		</div>
@@ -79,7 +77,10 @@ const TotalRow = ({ label, value }: { label: string; value: string }) => (
 const Header = ({
 	title,
 	description,
-}: { title: string; description: string }) => (
+}: {
+	title: string;
+	description: string;
+}) => (
 	<CardHeader className="border-b">
 		<CardTitle>{title}</CardTitle>
 		<CardDescription>{description}</CardDescription>
@@ -89,7 +90,8 @@ const Header = ({
 export default function Main() {
 	const cartItems: CartItemProps[] = [
 		{
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200',
 			name: 'Premium Wireless Headphones',
 			variant: 'Matte Black',
 			price: '$249.00',
@@ -114,10 +116,7 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-md px-4 py-16 @sm:px-6 @md:py-20 @xl:py-24 @2xl:px-8">
 				<Card>
-					<Header
-						title="Shopping Cart"
-						description="2 items in your cart"
-					/>
+					<Header title="Shopping Cart" description="2 items in your cart" />
 					<CardContent className="space-y-4">
 						<div className="space-y-4">
 							{cartItems.map((item, i) => (

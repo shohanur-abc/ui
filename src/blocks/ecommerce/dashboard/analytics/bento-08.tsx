@@ -24,15 +24,27 @@ type CustomerMetricProps = {
 	trend: 'up' | 'down';
 };
 
-const CustomerMetric = ({ icon: Icon, label, value, change, trend }: CustomerMetricProps) => (
+const CustomerMetric = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	trend,
+}: CustomerMetricProps) => (
 	<Card className="group border-border/50 bg-card/80 transition-all duration-300 hover:border-primary/30">
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between mb-3">
 				<div className="rounded-lg bg-primary/10 p-2 ring-1 ring-primary/20 group-hover:bg-primary/20 transition-colors">
 					<Icon className="size-4 text-primary" />
 				</div>
-				<span className={`flex items-center gap-0.5 text-xs font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}>
-					{trend === 'up' ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
+				<span
+					className={`flex items-center gap-0.5 text-xs font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}
+				>
+					{trend === 'up' ? (
+						<ArrowUpRight className="size-3" />
+					) : (
+						<ArrowDownRight className="size-3" />
+					)}
 					{Math.abs(change)}%
 				</span>
 			</div>
@@ -64,11 +76,16 @@ const SegmentsCard = ({ segments }: { segments: SegmentProps[] }) => (
 							<span className="text-sm font-medium">{segment.name}</span>
 						</div>
 						<div className="flex items-center gap-4 text-sm">
-							<span className="text-muted-foreground">{segment.count.toLocaleString()} users</span>
+							<span className="text-muted-foreground">
+								{segment.count.toLocaleString()} users
+							</span>
 							<span className="font-semibold">{segment.revenue}</span>
 						</div>
 					</div>
-					<Progress value={segment.percentage} className={`h-1.5 [&>div]:${segment.color}`} />
+					<Progress
+						value={segment.percentage}
+						className={`h-1.5 [&>div]:${segment.color}`}
+					/>
 				</div>
 			))}
 		</CardContent>
@@ -93,18 +110,27 @@ const TopCustomersCard = ({ customers }: { customers: TopCustomerProps[] }) => (
 		</CardHeader>
 		<CardContent className="space-y-4">
 			{customers.map((customer, i) => (
-				<div key={i} className="flex items-center gap-4 p-3 rounded-lg bg-muted/20 hover:bg-muted/40 transition-colors">
+				<div
+					key={i}
+					className="flex items-center gap-4 p-3 rounded-lg bg-muted/20 hover:bg-muted/40 transition-colors"
+				>
 					<Avatar className="size-10 ring-2 ring-primary/20">
 						<AvatarImage src={customer.avatar} />
-						<AvatarFallback className="bg-primary/10 text-primary text-sm">{customer.initials}</AvatarFallback>
+						<AvatarFallback className="bg-primary/10 text-primary text-sm">
+							{customer.initials}
+						</AvatarFallback>
 					</Avatar>
 					<div className="flex-1 min-w-0">
 						<p className="font-medium truncate">{customer.name}</p>
-						<p className="text-xs text-muted-foreground truncate">{customer.email}</p>
+						<p className="text-xs text-muted-foreground truncate">
+							{customer.email}
+						</p>
 					</div>
 					<div className="text-right">
 						<p className="font-semibold">{customer.totalSpent}</p>
-						<p className="text-xs text-muted-foreground">{customer.orders} orders</p>
+						<p className="text-xs text-muted-foreground">
+							{customer.orders} orders
+						</p>
 					</div>
 				</div>
 			))}
@@ -125,7 +151,9 @@ type CohortRowProps = {
 const CohortCard = ({ cohorts }: { cohorts: CohortRowProps[] }) => (
 	<Card className="border-border/50 bg-card/80 col-span-2">
 		<CardHeader className="pb-2">
-			<CardTitle className="text-sm font-medium">Customer Retention Cohort</CardTitle>
+			<CardTitle className="text-sm font-medium">
+				Customer Retention Cohort
+			</CardTitle>
 		</CardHeader>
 		<CardContent>
 			<div className="grid grid-cols-7 gap-1 text-xs text-muted-foreground pb-2">
@@ -161,24 +189,98 @@ const CohortCard = ({ cohorts }: { cohorts: CohortRowProps[] }) => (
 );
 
 const customerMetrics: CustomerMetricProps[] = [
-	{ icon: Users, label: 'Total Customers', value: '12,456', change: 8.2, trend: 'up' },
-	{ icon: Repeat, label: 'Repeat Rate', value: '34.2%', change: 2.5, trend: 'up' },
+	{
+		icon: Users,
+		label: 'Total Customers',
+		value: '12,456',
+		change: 8.2,
+		trend: 'up',
+	},
+	{
+		icon: Repeat,
+		label: 'Repeat Rate',
+		value: '34.2%',
+		change: 2.5,
+		trend: 'up',
+	},
 	{ icon: Wallet, label: 'Avg. LTV', value: '$245', change: 12.3, trend: 'up' },
-	{ icon: CreditCard, label: 'Avg. Order', value: '$87', change: 1.2, trend: 'down' },
+	{
+		icon: CreditCard,
+		label: 'Avg. Order',
+		value: '$87',
+		change: 1.2,
+		trend: 'down',
+	},
 ];
 
 const segments: SegmentProps[] = [
-	{ name: 'VIP Customers', count: 1234, revenue: '$456K', percentage: 45, color: 'bg-violet-500' },
-	{ name: 'Regular Buyers', count: 5678, revenue: '$234K', percentage: 35, color: 'bg-blue-500' },
-	{ name: 'Occasional', count: 3456, revenue: '$89K', percentage: 15, color: 'bg-emerald-500' },
-	{ name: 'One-time', count: 2088, revenue: '$23K', percentage: 5, color: 'bg-amber-500' },
+	{
+		name: 'VIP Customers',
+		count: 1234,
+		revenue: '$456K',
+		percentage: 45,
+		color: 'bg-violet-500',
+	},
+	{
+		name: 'Regular Buyers',
+		count: 5678,
+		revenue: '$234K',
+		percentage: 35,
+		color: 'bg-blue-500',
+	},
+	{
+		name: 'Occasional',
+		count: 3456,
+		revenue: '$89K',
+		percentage: 15,
+		color: 'bg-emerald-500',
+	},
+	{
+		name: 'One-time',
+		count: 2088,
+		revenue: '$23K',
+		percentage: 5,
+		color: 'bg-amber-500',
+	},
 ];
 
 const topCustomers: TopCustomerProps[] = [
-	{ avatar: 'https://i.pravatar.cc/100?img=1', initials: 'JD', name: 'John Doe', email: 'john@example.com', orders: 45, totalSpent: '$12,450', lastOrder: '2 days ago' },
-	{ avatar: 'https://i.pravatar.cc/100?img=2', initials: 'SM', name: 'Sarah Miller', email: 'sarah@example.com', orders: 38, totalSpent: '$9,870', lastOrder: '1 week ago' },
-	{ avatar: 'https://i.pravatar.cc/100?img=3', initials: 'MW', name: 'Mike Wilson', email: 'mike@example.com', orders: 32, totalSpent: '$8,234', lastOrder: '3 days ago' },
-	{ avatar: 'https://i.pravatar.cc/100?img=4', initials: 'EJ', name: 'Emily Johnson', email: 'emily@example.com', orders: 28, totalSpent: '$7,120', lastOrder: '5 days ago' },
+	{
+		avatar: 'https://i.pravatar.cc/100?img=1',
+		initials: 'JD',
+		name: 'John Doe',
+		email: 'john@example.com',
+		orders: 45,
+		totalSpent: '$12,450',
+		lastOrder: '2 days ago',
+	},
+	{
+		avatar: 'https://i.pravatar.cc/100?img=2',
+		initials: 'SM',
+		name: 'Sarah Miller',
+		email: 'sarah@example.com',
+		orders: 38,
+		totalSpent: '$9,870',
+		lastOrder: '1 week ago',
+	},
+	{
+		avatar: 'https://i.pravatar.cc/100?img=3',
+		initials: 'MW',
+		name: 'Mike Wilson',
+		email: 'mike@example.com',
+		orders: 32,
+		totalSpent: '$8,234',
+		lastOrder: '3 days ago',
+	},
+	{
+		avatar: 'https://i.pravatar.cc/100?img=4',
+		initials: 'EJ',
+		name: 'Emily Johnson',
+		email: 'emily@example.com',
+		orders: 28,
+		totalSpent: '$7,120',
+		lastOrder: '5 days ago',
+	},
 ];
 
 const cohorts: CohortRowProps[] = [

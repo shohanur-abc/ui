@@ -34,7 +34,14 @@ type StatusCardProps = {
 	iconColor: string;
 };
 
-const StatusCard = ({ icon: Icon, status, count, percentage, iconBg, iconColor }: StatusCardProps) => (
+const StatusCard = ({
+	icon: Icon,
+	status,
+	count,
+	percentage,
+	iconBg,
+	iconColor,
+}: StatusCardProps) => (
 	<Card className="border-border/30 bg-muted/20">
 		<CardContent className="p-4">
 			<div className="flex items-center gap-3">
@@ -117,10 +124,38 @@ export default function Main() {
 	];
 
 	const statusCards: StatusCardProps[] = [
-		{ icon: Package, status: 'Delivered', count: '8,450', percentage: 82, iconBg: 'bg-emerald-500/10', iconColor: 'text-emerald-500' },
-		{ icon: ShoppingCart, status: 'Processing', count: '1,250', percentage: 12, iconBg: 'bg-primary/10', iconColor: 'text-primary' },
-		{ icon: RotateCcw, status: 'Returned', count: '420', percentage: 4, iconBg: 'bg-amber-500/10', iconColor: 'text-amber-500' },
-		{ icon: XCircle, status: 'Cancelled', count: '180', percentage: 2, iconBg: 'bg-rose-500/10', iconColor: 'text-rose-500' },
+		{
+			icon: Package,
+			status: 'Delivered',
+			count: '8,450',
+			percentage: 82,
+			iconBg: 'bg-emerald-500/10',
+			iconColor: 'text-emerald-500',
+		},
+		{
+			icon: ShoppingCart,
+			status: 'Processing',
+			count: '1,250',
+			percentage: 12,
+			iconBg: 'bg-primary/10',
+			iconColor: 'text-primary',
+		},
+		{
+			icon: RotateCcw,
+			status: 'Returned',
+			count: '420',
+			percentage: 4,
+			iconBg: 'bg-amber-500/10',
+			iconColor: 'text-amber-500',
+		},
+		{
+			icon: XCircle,
+			status: 'Cancelled',
+			count: '180',
+			percentage: 2,
+			iconBg: 'bg-rose-500/10',
+			iconColor: 'text-rose-500',
+		},
 	];
 
 	const weeklyData: OrderData[] = [
@@ -154,7 +189,10 @@ export default function Main() {
 							))}
 						</div>
 						<div className="grid gap-6 @md:grid-cols-[1fr,200px]">
-							<ChartContainer config={chartConfig} className="mx-auto aspect-[2/1] h-[220px] w-full">
+							<ChartContainer
+								config={chartConfig}
+								className="mx-auto aspect-[2/1] h-[220px] w-full"
+							>
 								<PieChart>
 									<ChartTooltip content={<ChartTooltipContent />} />
 									<Pie

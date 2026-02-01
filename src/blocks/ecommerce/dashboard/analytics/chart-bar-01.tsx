@@ -25,7 +25,9 @@ const VerticalBarChart = ({ data }: { data: BarData[] }) => {
 			</div>
 			<div className="flex justify-between text-xs text-muted-foreground">
 				{data.map((item, i) => (
-					<span key={i} className="flex-1 text-center">{item.label}</span>
+					<span key={i} className="flex-1 text-center">
+						{item.label}
+					</span>
 				))}
 			</div>
 		</div>
@@ -49,7 +51,9 @@ export default function Main() {
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
 						<CardTitle className="text-sm font-medium">Weekly Sales</CardTitle>
-						<p className="text-xs text-muted-foreground">Orders per day this week</p>
+						<p className="text-xs text-muted-foreground">
+							Orders per day this week
+						</p>
 					</CardHeader>
 					<CardContent>
 						<VerticalBarChart data={weeklyData} />

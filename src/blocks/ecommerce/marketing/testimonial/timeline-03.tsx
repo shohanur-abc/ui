@@ -123,7 +123,8 @@ export default function Main() {
 			author: 'Tara Johnson',
 			role: 'Tech Lead',
 			company: 'QuickDeploy',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'TJ',
 			rating: 5,
 			milestone: 'Week 1',
@@ -135,7 +136,8 @@ export default function Main() {
 			author: 'Ulrich Park',
 			role: 'Training Lead',
 			company: 'LearnFast',
-			avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
 			initials: 'UP',
 			rating: 5,
 			milestone: 'Week 2',
@@ -147,7 +149,8 @@ export default function Main() {
 			author: 'Victoria Lee',
 			role: 'Ops Manager',
 			company: 'MilestoneInc',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'VL',
 			rating: 5,
 			milestone: 'Month 1',
@@ -159,7 +162,8 @@ export default function Main() {
 			author: 'William Chen',
 			role: 'CFO',
 			company: 'ROITrack',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'WC',
 			rating: 5,
 			milestone: 'Quarter 1',
@@ -171,7 +175,8 @@ export default function Main() {
 			author: 'Xena Davis',
 			role: 'CEO',
 			company: 'AnnualCorp',
-			avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop',
 			initials: 'XD',
 			rating: 5,
 			milestone: 'Year 1',
@@ -180,7 +185,10 @@ export default function Main() {
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Milestones"

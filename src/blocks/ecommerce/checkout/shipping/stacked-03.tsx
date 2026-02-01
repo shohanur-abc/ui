@@ -1,4 +1,12 @@
-import { MapPin, Truck, Calendar, Clock, Check, Edit2, Plus } from 'lucide-react';
+import {
+	MapPin,
+	Truck,
+	Calendar,
+	Clock,
+	Check,
+	Edit2,
+	Plus,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -52,7 +60,11 @@ const AddressCard = ({
 		<div className="flex-1">
 			<div className="flex items-center gap-2 mb-1">
 				<span className="font-medium">{type}</span>
-				{isDefault && <Badge variant="secondary" className="text-xs">Default</Badge>}
+				{isDefault && (
+					<Badge variant="secondary" className="text-xs">
+						Default
+					</Badge>
+				)}
 			</div>
 			<p className="text-sm text-muted-foreground">{name}</p>
 			<p className="text-sm text-muted-foreground">{address}</p>
@@ -84,7 +96,9 @@ const SpeedOption = ({
 			${recommended ? 'ring-2 ring-primary/20' : ''}
 		`}
 	>
-		{recommended && <Badge className="absolute -top-2.5 left-4">Recommended</Badge>}
+		{recommended && (
+			<Badge className="absolute -top-2.5 left-4">Recommended</Badge>
+		)}
 		<div className="flex items-center gap-3">
 			<RadioGroupItem value={value} id={value} />
 			<div>
@@ -119,22 +133,48 @@ const DateSlot = ({
 			${available ? 'hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-primary-foreground' : 'opacity-50 cursor-not-allowed'}
 		`}
 	>
-		<RadioGroupItem value={value} id={value} className="sr-only" disabled={!available} />
-		<span className="text-xs uppercase text-muted-foreground has-[:checked]:text-primary-foreground/70">{day}</span>
+		<RadioGroupItem
+			value={value}
+			id={value}
+			className="sr-only"
+			disabled={!available}
+		/>
+		<span className="text-xs uppercase text-muted-foreground has-[:checked]:text-primary-foreground/70">
+			{day}
+		</span>
 		<span className="text-xl font-bold">{date}</span>
-		<span className="text-xs text-muted-foreground has-[:checked]:text-primary-foreground/70">{month}</span>
+		<span className="text-xs text-muted-foreground has-[:checked]:text-primary-foreground/70">
+			{month}
+		</span>
 	</Label>
 );
 
 export default function Main() {
 	const addresses = [
-		{ value: 'home', type: 'Home', name: 'John Doe', address: '123 Main St, Apt 4B, New York, NY 10001', isDefault: true },
-		{ value: 'work', type: 'Work', name: 'John Doe', address: '456 Business Ave, Floor 12, New York, NY 10002' },
+		{
+			value: 'home',
+			type: 'Home',
+			name: 'John Doe',
+			address: '123 Main St, Apt 4B, New York, NY 10001',
+			isDefault: true,
+		},
+		{
+			value: 'work',
+			type: 'Work',
+			name: 'John Doe',
+			address: '456 Business Ave, Floor 12, New York, NY 10002',
+		},
 	];
 
 	const speedOptions = [
 		{ value: 'standard', name: 'Standard', time: '5-7 days', price: '$5.99' },
-		{ value: 'express', name: 'Express', time: '2-3 days', price: '$12.99', recommended: true },
+		{
+			value: 'express',
+			name: 'Express',
+			time: '2-3 days',
+			price: '$12.99',
+			recommended: true,
+		},
 		{ value: 'overnight', name: 'Overnight', time: '1 day', price: '$24.99' },
 	];
 
@@ -179,7 +219,10 @@ export default function Main() {
 				{/* Delivery Date */}
 				<div className="mb-8">
 					<SectionTitle icon={Calendar} title="Preferred Delivery Date" />
-					<RadioGroup defaultValue="jan-16" className="flex gap-2 overflow-x-auto pb-2">
+					<RadioGroup
+						defaultValue="jan-16"
+						className="flex gap-2 overflow-x-auto pb-2"
+					>
 						{dateSlots.map((slot) => (
 							<DateSlot key={slot.value} {...slot} />
 						))}

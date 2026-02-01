@@ -50,9 +50,21 @@ interface NewCustomer {
 
 const EngagementBadge = ({ level }: { level: NewCustomer['engagement'] }) => {
 	const config = {
-		high: { label: 'High Engagement', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20', icon: TrendingUp },
-		medium: { label: 'Medium', className: 'bg-amber-500/10 text-amber-500 border-amber-500/20', icon: TrendingUp },
-		low: { label: 'Low Engagement', className: 'bg-red-500/10 text-red-500 border-red-500/20', icon: TrendingDown },
+		high: {
+			label: 'High Engagement',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+			icon: TrendingUp,
+		},
+		medium: {
+			label: 'Medium',
+			className: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+			icon: TrendingUp,
+		},
+		low: {
+			label: 'Low Engagement',
+			className: 'bg-red-500/10 text-red-500 border-red-500/20',
+			icon: TrendingDown,
+		},
 	};
 	const Icon = config[level].icon;
 	return (
@@ -100,11 +112,7 @@ const BrowsingStats = ({
 	</div>
 );
 
-const FirstOrderDisplay = ({
-	order,
-}: {
-	order: NewCustomer['firstOrder'];
-}) => {
+const FirstOrderDisplay = ({ order }: { order: NewCustomer['firstOrder'] }) => {
 	if (!order) {
 		return (
 			<div className="rounded-lg border border-dashed bg-muted/20 p-3 text-center">
@@ -123,7 +131,9 @@ const FirstOrderDisplay = ({
 			</div>
 			<div className="mt-1 flex items-center justify-between">
 				<span className="font-semibold">{order.amount}</span>
-				<span className="text-muted-foreground text-xs">{order.items} items</span>
+				<span className="text-muted-foreground text-xs">
+					{order.items} items
+				</span>
 			</div>
 			<p className="text-muted-foreground mt-1 text-xs">{order.date}</p>
 		</div>
@@ -145,7 +155,9 @@ const StatusIndicators = ({
 					: 'bg-muted text-muted-foreground'
 			}`}
 		>
-			<div className={`size-1.5 rounded-full ${welcomeEmailOpened ? 'bg-emerald-500' : 'bg-muted-foreground'}`} />
+			<div
+				className={`size-1.5 rounded-full ${welcomeEmailOpened ? 'bg-emerald-500' : 'bg-muted-foreground'}`}
+			/>
 			Welcome Email
 		</div>
 		<div
@@ -155,7 +167,9 @@ const StatusIndicators = ({
 					: 'bg-muted text-muted-foreground'
 			}`}
 		>
-			<div className={`size-1.5 rounded-full ${hasCompletedProfile ? 'bg-emerald-500' : 'bg-muted-foreground'}`} />
+			<div
+				className={`size-1.5 rounded-full ${hasCompletedProfile ? 'bg-emerald-500' : 'bg-muted-foreground'}`}
+			/>
 			Profile Complete
 		</div>
 	</div>
@@ -184,7 +198,11 @@ const NewCustomerCard = ({ customer }: { customer: NewCustomer }) => (
 				</div>
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100">
+						<Button
+							variant="ghost"
+							size="icon-sm"
+							className="opacity-0 group-hover:opacity-100"
+						>
 							<MoreHorizontal className="size-4" />
 						</Button>
 					</DropdownMenuTrigger>
@@ -203,9 +221,14 @@ const NewCustomerCard = ({ customer }: { customer: NewCustomer }) => (
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-2">
 					<Calendar className="text-muted-foreground size-3.5" />
-					<span className="text-muted-foreground text-xs">Joined {customer.joinDate}</span>
+					<span className="text-muted-foreground text-xs">
+						Joined {customer.joinDate}
+					</span>
 				</div>
-				<Badge variant="outline" className="bg-blue-500/10 text-blue-500 border-blue-500/20">
+				<Badge
+					variant="outline"
+					className="bg-blue-500/10 text-blue-500 border-blue-500/20"
+				>
 					{customer.daysSinceJoin} days ago
 				</Badge>
 			</div>
@@ -243,7 +266,12 @@ export default function Main() {
 			joinDate: 'Jan 22, 2024',
 			daysSinceJoin: 3,
 			source: 'Google Ads',
-			firstOrder: { id: 'ORD-5001', amount: '$156.99', items: 2, date: 'Jan 23, 2024' },
+			firstOrder: {
+				id: 'ORD-5001',
+				amount: '$156.99',
+				items: 2,
+				date: 'Jan 23, 2024',
+			},
 			browsingBehavior: { pageViews: 45, wishlistItems: 8, cartItems: 3 },
 			engagement: 'high',
 			welcomeEmailOpened: true,
@@ -271,7 +299,12 @@ export default function Main() {
 			joinDate: 'Jan 20, 2024',
 			daysSinceJoin: 5,
 			source: 'Instagram',
-			firstOrder: { id: 'ORD-4998', amount: '$89.50', items: 1, date: 'Jan 21, 2024' },
+			firstOrder: {
+				id: 'ORD-4998',
+				amount: '$89.50',
+				items: 1,
+				date: 'Jan 21, 2024',
+			},
 			browsingBehavior: { pageViews: 62, wishlistItems: 12, cartItems: 0 },
 			engagement: 'high',
 			welcomeEmailOpened: true,
@@ -298,7 +331,12 @@ export default function Main() {
 			joinDate: 'Jan 18, 2024',
 			daysSinceJoin: 7,
 			source: 'Email Campaign',
-			firstOrder: { id: 'ORD-4990', amount: '$245.00', items: 3, date: 'Jan 19, 2024' },
+			firstOrder: {
+				id: 'ORD-4990',
+				amount: '$245.00',
+				items: 3,
+				date: 'Jan 19, 2024',
+			},
 			browsingBehavior: { pageViews: 38, wishlistItems: 6, cartItems: 1 },
 			engagement: 'high',
 			welcomeEmailOpened: true,
@@ -329,7 +367,9 @@ export default function Main() {
 					</div>
 					<div>
 						<h1 className="text-2xl font-bold tracking-tight">New Customers</h1>
-						<p className="text-muted-foreground text-sm">Recently joined customers in the last 7 days</p>
+						<p className="text-muted-foreground text-sm">
+							Recently joined customers in the last 7 days
+						</p>
 					</div>
 				</div>
 				<div className="grid gap-4 @sm:grid-cols-2 @xl:grid-cols-3">

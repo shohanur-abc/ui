@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Mail, Lock, User, Building, ArrowRight, Briefcase } from 'lucide-react';
+import {
+	Mail,
+	Lock,
+	User,
+	Building,
+	ArrowRight,
+	Briefcase,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -25,7 +32,13 @@ const GridDecorative = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-6">
 		<div className="flex size-10 items-center justify-center rounded-lg bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -36,7 +49,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -91,7 +106,10 @@ const SelectField = ({
 				</SelectTrigger>
 				<SelectContent>
 					{options.map((option) => (
-						<SelectItem key={option} value={option.toLowerCase().replace(/\s/g, '-')}>
+						<SelectItem
+							key={option}
+							value={option.toLowerCase().replace(/\s/g, '-')}
+						>
 							{option}
 						</SelectItem>
 					))}
@@ -158,28 +176,60 @@ export default function Main() {
 			<div className="relative min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-lg">
 					<Logo name="B2B Supply" icon={Briefcase} />
-					<Title text="Create business account" subtitle="Get wholesale pricing and bulk ordering" />
+					<Title
+						text="Create business account"
+						subtitle="Get wholesale pricing and bulk ordering"
+					/>
 
 					<form className="space-y-5">
 						<FormRow>
-							<FormField label="First Name" type="text" placeholder="John" icon={User} />
-							<FormField label="Last Name" type="text" placeholder="Doe" icon={User} />
+							<FormField
+								label="First Name"
+								type="text"
+								placeholder="John"
+								icon={User}
+							/>
+							<FormField
+								label="Last Name"
+								type="text"
+								placeholder="Doe"
+								icon={User}
+							/>
 						</FormRow>
-						<FormField label="Company Name" type="text" placeholder="Acme Inc." icon={Building} />
-						<FormField label="Work Email" type="email" placeholder="you@company.com" icon={Mail} />
+						<FormField
+							label="Company Name"
+							type="text"
+							placeholder="Acme Inc."
+							icon={Building}
+						/>
+						<FormField
+							label="Work Email"
+							type="email"
+							placeholder="you@company.com"
+							icon={Mail}
+						/>
 						<SelectField
 							label="Industry"
 							placeholder="Select your industry"
 							options={industries}
 							icon={Briefcase}
 						/>
-						<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+						<FormField
+							label="Password"
+							type="password"
+							placeholder="••••••••"
+							icon={Lock}
+						/>
 						<NewsletterCheckbox label="Subscribe to B2B deals and industry updates" />
 						<SubmitButton label="Create Business Account" icon={ArrowRight} />
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="Already have a business account?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already have a business account?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</div>
 				</div>
 			</div>

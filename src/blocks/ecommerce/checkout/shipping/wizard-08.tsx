@@ -1,4 +1,13 @@
-import { Check, MapPin, Truck, CreditCard, ShoppingBag, ArrowLeft, ArrowRight, Package } from 'lucide-react';
+import {
+	Check,
+	MapPin,
+	Truck,
+	CreditCard,
+	ShoppingBag,
+	ArrowLeft,
+	ArrowRight,
+	Package,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -40,7 +49,9 @@ const TabStepper = ({
 					>
 						{isCompleted ? <Check className="size-3" /> : i + 1}
 					</div>
-					<span className="hidden @sm:inline text-sm font-medium">{step.label}</span>
+					<span className="hidden @sm:inline text-sm font-medium">
+						{step.label}
+					</span>
 				</button>
 			);
 		})}
@@ -63,9 +74,7 @@ const ShippingMethodCard = ({
 	logo?: string;
 }) => (
 	<Label htmlFor={value} className="cursor-pointer block">
-		<Card
-			className="transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
-		>
+		<Card className="transition-all hover:border-primary/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
 			<CardContent className="p-4">
 				<div className="flex items-center gap-4">
 					<RadioGroupItem value={value} id={value} />
@@ -119,14 +128,42 @@ export default function Main() {
 	];
 
 	const shippingMethods = [
-		{ value: 'ups-ground', carrier: 'UPS', method: 'Ground', time: '5-7 business days', price: '$8.99' },
-		{ value: 'fedex-express', carrier: 'FedEx', method: 'Express', time: '2-3 business days', price: '$15.99' },
-		{ value: 'usps-priority', carrier: 'USPS', method: 'Priority', time: '3-4 business days', price: '$12.99' },
+		{
+			value: 'ups-ground',
+			carrier: 'UPS',
+			method: 'Ground',
+			time: '5-7 business days',
+			price: '$8.99',
+		},
+		{
+			value: 'fedex-express',
+			carrier: 'FedEx',
+			method: 'Express',
+			time: '2-3 business days',
+			price: '$15.99',
+		},
+		{
+			value: 'usps-priority',
+			carrier: 'USPS',
+			method: 'Priority',
+			time: '3-4 business days',
+			price: '$12.99',
+		},
 	];
 
 	const orderItems = [
-		{ name: 'Wireless Headphones', variant: 'Black / Over-Ear', quantity: 1, price: '$149.99' },
-		{ name: 'Phone Case', variant: 'Clear / iPhone 14', quantity: 2, price: '$29.98' },
+		{
+			name: 'Wireless Headphones',
+			variant: 'Black / Over-Ear',
+			quantity: 1,
+			price: '$149.99',
+		},
+		{
+			name: 'Phone Case',
+			variant: 'Clear / iPhone 14',
+			quantity: 2,
+			price: '$29.98',
+		},
 	];
 
 	return (

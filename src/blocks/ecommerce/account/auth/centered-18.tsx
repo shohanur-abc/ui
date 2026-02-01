@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Mail, ArrowRight, Leaf, Recycle, TreePine, Droplets } from 'lucide-react';
+import {
+	Mail,
+	ArrowRight,
+	Leaf,
+	Recycle,
+	TreePine,
+	Droplets,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,7 +21,13 @@ const LeafDecorative = () => (
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center justify-center gap-2 mb-6">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
 			<Icon className="size-5 text-primary-foreground" />
@@ -25,7 +38,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="text-center mb-6">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -72,7 +87,10 @@ const FormField = ({
 const EcoCheckbox = ({ label }: { label: string }) => (
 	<div className="flex items-start gap-2">
 		<Checkbox id="eco" className="mt-0.5" />
-		<Label htmlFor="eco" className="text-sm font-normal cursor-pointer leading-relaxed">
+		<Label
+			htmlFor="eco"
+			className="text-sm font-normal cursor-pointer leading-relaxed"
+		>
 			{label}
 		</Label>
 	</div>
@@ -85,7 +103,11 @@ const SubmitButton = ({
 	label: string;
 	icon?: React.ElementType;
 }) => (
-	<Button type="submit" size="lg" className="w-full gap-2 group bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
+	<Button
+		type="submit"
+		size="lg"
+		className="w-full gap-2 group bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
+	>
 		{label}
 		{Icon && (
 			<Icon className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -123,18 +145,33 @@ export default function Main() {
 			<div className="relative min-h-screen flex items-center justify-center px-4 @sm:px-6 py-12 @md:py-16">
 				<div className="w-full max-w-md">
 					<Logo name="EcoStore" icon={Leaf} />
-					<Title text="Join the green revolution" subtitle="Shop sustainably, live consciously" />
+					<Title
+						text="Join the green revolution"
+						subtitle="Shop sustainably, live consciously"
+					/>
 					<ImpactStats items={impactStats} />
 
 					<form className="space-y-5">
-						<FormField label="Email" type="email" placeholder="you@example.com" />
-						<FormField label="Password" type="password" placeholder="••••••••" />
+						<FormField
+							label="Email"
+							type="email"
+							placeholder="you@example.com"
+						/>
+						<FormField
+							label="Password"
+							type="password"
+							placeholder="••••••••"
+						/>
 						<EcoCheckbox label="Plant a tree with every order ($1 added to cart)" />
 						<SubmitButton label="Create Eco Account" icon={Leaf} />
 					</form>
 
 					<div className="mt-8">
-						<FooterLink text="Already part of the movement?" linkText="Sign in" href="/login" />
+						<FooterLink
+							text="Already part of the movement?"
+							linkText="Sign in"
+							href="/login"
+						/>
 					</div>
 				</div>
 			</div>

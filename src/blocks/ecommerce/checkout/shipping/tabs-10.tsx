@@ -1,4 +1,12 @@
-import { Truck, Gift, Shield, Package, Check, Sparkles, Heart } from 'lucide-react';
+import {
+	Truck,
+	Gift,
+	Shield,
+	Package,
+	Check,
+	Sparkles,
+	Heart,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -85,7 +93,9 @@ const ProtectionPlan = ({
 				${recommended ? 'ring-2 ring-primary/20' : ''}
 			`}
 		>
-			{recommended && <Badge className="absolute -top-2.5 left-4">Recommended</Badge>}
+			{recommended && (
+				<Badge className="absolute -top-2.5 left-4">Recommended</Badge>
+			)}
 			<CardContent className="p-5">
 				<div className="flex items-start gap-4">
 					<RadioGroupItem value={value} id={value} className="mt-1" />
@@ -96,7 +106,10 @@ const ProtectionPlan = ({
 						</div>
 						<ul className="space-y-1">
 							{coverage.map((item, i) => (
-								<li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+								<li
+									key={i}
+									className="flex items-center gap-2 text-sm text-muted-foreground"
+								>
 									<Check className="size-4 text-primary" />
 									{item}
 								</li>
@@ -149,7 +162,12 @@ export default function Main() {
 		{
 			value: 'premium',
 			name: 'Premium Protection',
-			coverage: ['All basic coverage', 'Theft protection', 'Hassle-free returns', 'Priority support'],
+			coverage: [
+				'All basic coverage',
+				'Theft protection',
+				'Hassle-free returns',
+				'Priority support',
+			],
 			price: '$7.99',
 			recommended: true,
 		},
@@ -159,8 +177,12 @@ export default function Main() {
 		<section className="@container relative overflow-hidden">
 			<div className="mx-auto max-w-3xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
-					<h1 className="text-3xl font-bold tracking-tight mb-2">Customize Your Delivery</h1>
-					<p className="text-muted-foreground">Add shipping options, gift services, and protection</p>
+					<h1 className="text-3xl font-bold tracking-tight mb-2">
+						Customize Your Delivery
+					</h1>
+					<p className="text-muted-foreground">
+						Add shipping options, gift services, and protection
+					</p>
 				</div>
 
 				<Tabs defaultValue="shipping" className="w-full">
@@ -182,7 +204,9 @@ export default function Main() {
 					<TabsContent value="shipping">
 						<Card>
 							<CardHeader>
-								<CardTitle className="text-base">Select Shipping Speed</CardTitle>
+								<CardTitle className="text-base">
+									Select Shipping Speed
+								</CardTitle>
 							</CardHeader>
 							<CardContent>
 								<RadioGroup defaultValue="express" className="space-y-3">
@@ -206,8 +230,13 @@ export default function Main() {
 								<CardTitle className="text-base">Gift Message</CardTitle>
 							</CardHeader>
 							<CardContent>
-								<Textarea placeholder="Write a personal message for the recipient..." rows={4} />
-								<p className="text-sm text-muted-foreground mt-2">200 characters remaining</p>
+								<Textarea
+									placeholder="Write a personal message for the recipient..."
+									rows={4}
+								/>
+								<p className="text-sm text-muted-foreground mt-2">
+									200 characters remaining
+								</p>
 							</CardContent>
 						</Card>
 					</TabsContent>
@@ -222,7 +251,9 @@ export default function Main() {
 				</Tabs>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue to Payment</Button>
 				</div>
 			</div>

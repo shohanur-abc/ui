@@ -69,7 +69,9 @@ const JobSeekerSidebar = ({
 				<span className="font-medium">{profileStrength}%</span>
 			</div>
 			<Progress value={profileStrength} className="h-2" />
-			<p className="text-xs text-muted-foreground">Add projects to reach 100%</p>
+			<p className="text-xs text-muted-foreground">
+				Add projects to reach 100%
+			</p>
 		</div>
 	</div>
 );
@@ -77,7 +79,12 @@ const JobSeekerSidebar = ({
 const SocialLinks = ({
 	links,
 }: {
-	links: { icon: React.ElementType; label: string; href: string; connected: boolean }[];
+	links: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		connected: boolean;
+	}[];
 }) => (
 	<div className="space-y-2">
 		{links.map((link, i) => (
@@ -87,9 +94,13 @@ const SocialLinks = ({
 					<span className="text-sm">{link.label}</span>
 				</div>
 				{link.connected ? (
-					<Badge variant="secondary" className="text-xs">Connected</Badge>
+					<Badge variant="secondary" className="text-xs">
+						Connected
+					</Badge>
 				) : (
-					<Button variant="ghost" size="sm" className="h-7 text-xs">Connect</Button>
+					<Button variant="ghost" size="sm" className="h-7 text-xs">
+						Connect
+					</Button>
 				)}
 			</div>
 		))}
@@ -100,7 +111,12 @@ const JobSeekerNav = ({
 	items,
 	activeHref,
 }: {
-	items: { icon: React.ElementType; label: string; href: string; badge?: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		href: string;
+		badge?: string;
+	}[];
 	activeHref: string;
 }) => (
 	<nav className="space-y-1">
@@ -137,7 +153,9 @@ const JobStats = ({
 				<CardContent className="p-4 text-center">
 					<p className="text-2xl font-bold">{stat.value}</p>
 					<p className="text-sm text-muted-foreground">{stat.label}</p>
-					<p className={`text-xs mt-1 ${stat.positive ? 'text-green-500' : 'text-muted-foreground'}`}>
+					<p
+						className={`text-xs mt-1 ${stat.positive ? 'text-green-500' : 'text-muted-foreground'}`}
+					>
 						{stat.change}
 					</p>
 				</CardContent>
@@ -149,7 +167,13 @@ const JobStats = ({
 const RecentApplications = ({
 	applications,
 }: {
-	applications: { company: string; position: string; status: string; statusColor: string; date: string }[];
+	applications: {
+		company: string;
+		position: string;
+		status: string;
+		statusColor: string;
+		date: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -162,7 +186,10 @@ const RecentApplications = ({
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{applications.map((app, i) => (
-				<div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50">
+				<div
+					key={i}
+					className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50"
+				>
 					<div>
 						<p className="font-medium">{app.position}</p>
 						<p className="text-sm text-muted-foreground">{app.company}</p>
@@ -180,7 +207,13 @@ const RecentApplications = ({
 const SavedJobs = ({
 	jobs,
 }: {
-	jobs: { title: string; company: string; location: string; salary: string; type: string }[];
+	jobs: {
+		title: string;
+		company: string;
+		location: string;
+		salary: string;
+		type: string;
+	}[];
 }) => (
 	<Card>
 		<CardHeader className="pb-3">
@@ -235,25 +268,80 @@ export default function Main() {
 		],
 		nav: [
 			{ icon: User, label: 'Profile', href: '/profile' },
-			{ icon: Briefcase, label: 'Applications', href: '/applications', badge: '8' },
+			{
+				icon: Briefcase,
+				label: 'Applications',
+				href: '/applications',
+				badge: '8',
+			},
 			{ icon: Star, label: 'Saved Jobs', href: '/saved', badge: '12' },
 			{ icon: MessageSquare, label: 'Messages', href: '/messages', badge: '3' },
 			{ icon: Settings, label: 'Settings', href: '/settings' },
 		],
 		stats: [
-			{ label: 'Profile Views', value: '847', change: '+12% this week', positive: true },
-			{ label: 'Applications', value: '23', change: '5 this month', positive: true },
-			{ label: 'Interviews', value: '4', change: '2 scheduled', positive: true },
-			{ label: 'Saved Jobs', value: '12', change: '3 new matches', positive: true },
+			{
+				label: 'Profile Views',
+				value: '847',
+				change: '+12% this week',
+				positive: true,
+			},
+			{
+				label: 'Applications',
+				value: '23',
+				change: '5 this month',
+				positive: true,
+			},
+			{
+				label: 'Interviews',
+				value: '4',
+				change: '2 scheduled',
+				positive: true,
+			},
+			{
+				label: 'Saved Jobs',
+				value: '12',
+				change: '3 new matches',
+				positive: true,
+			},
 		],
 		applications: [
-			{ company: 'Stripe', position: 'Senior Frontend Engineer', status: 'Interview', statusColor: 'bg-green-500/20 text-green-600', date: '2 days ago' },
-			{ company: 'Vercel', position: 'Staff Engineer', status: 'Applied', statusColor: 'bg-blue-500/20 text-blue-600', date: '5 days ago' },
-			{ company: 'Linear', position: 'Frontend Developer', status: 'Reviewing', statusColor: 'bg-amber-500/20 text-amber-600', date: '1 week ago' },
+			{
+				company: 'Stripe',
+				position: 'Senior Frontend Engineer',
+				status: 'Interview',
+				statusColor: 'bg-green-500/20 text-green-600',
+				date: '2 days ago',
+			},
+			{
+				company: 'Vercel',
+				position: 'Staff Engineer',
+				status: 'Applied',
+				statusColor: 'bg-blue-500/20 text-blue-600',
+				date: '5 days ago',
+			},
+			{
+				company: 'Linear',
+				position: 'Frontend Developer',
+				status: 'Reviewing',
+				statusColor: 'bg-amber-500/20 text-amber-600',
+				date: '1 week ago',
+			},
 		],
 		savedJobs: [
-			{ title: 'Lead Frontend Developer', company: 'Notion', location: 'Remote', salary: '$180k - $220k', type: 'Full-time' },
-			{ title: 'Senior React Engineer', company: 'Figma', location: 'San Francisco', salary: '$170k - $200k', type: 'Full-time' },
+			{
+				title: 'Lead Frontend Developer',
+				company: 'Notion',
+				location: 'Remote',
+				salary: '$180k - $220k',
+				type: 'Full-time',
+			},
+			{
+				title: 'Senior React Engineer',
+				company: 'Figma',
+				location: 'San Francisco',
+				salary: '$170k - $200k',
+				type: 'Full-time',
+			},
 		],
 	};
 
@@ -270,7 +358,10 @@ export default function Main() {
 								<Separator />
 								<JobSeekerNav items={profileData.nav} activeHref="/profile" />
 								<Separator />
-								<Button variant="ghost" className="w-full justify-start gap-3 text-destructive">
+								<Button
+									variant="ghost"
+									className="w-full justify-start gap-3 text-destructive"
+								>
 									<LogOut className="size-5" />
 									Sign Out
 								</Button>

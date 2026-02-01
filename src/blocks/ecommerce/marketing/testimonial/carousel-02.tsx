@@ -14,7 +14,13 @@ interface TestimonialItem {
 	verified: boolean;
 }
 
-const Eyebrow = ({ icon: Icon, text }: { icon: React.ElementType; text: string }) => (
+const Eyebrow = ({
+	icon: Icon,
+	text,
+}: {
+	icon: React.ElementType;
+	text: string;
+}) => (
 	<Badge variant="secondary" className="gap-2 px-4 py-2 mb-6">
 		<Icon className="size-4 text-primary" />
 		<span className="font-medium">{text}</span>
@@ -39,7 +45,10 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 const VerifiedBadge = ({ text }: { text: string }) => (
-	<Badge variant="outline" className="text-xs gap-1 text-primary border-primary/30 bg-primary/5">
+	<Badge
+		variant="outline"
+		className="text-xs gap-1 text-primary border-primary/30 bg-primary/5"
+	>
 		<Sparkles className="size-3" />
 		{text}
 	</Badge>
@@ -93,7 +102,9 @@ const CarouselNavigation = ({
 				<button
 					key={i}
 					className={`h-2 rounded-full transition-all duration-300 ${
-						i === current ? 'w-8 bg-primary' : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+						i === current
+							? 'w-8 bg-primary'
+							: 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
 					}`}
 					aria-label={`Go to slide ${i + 1}`}
 				/>
@@ -127,14 +138,18 @@ export default function Main() {
 		author: 'Alexandra Rivera',
 		role: 'Chief Marketing Officer',
 		company: 'Global Dynamics',
-		avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+		avatar:
+			'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 		initials: 'AR',
 		rating: 5,
 		verified: true,
 	};
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-5xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<div className="text-center mb-12 @lg:mb-16">
 					<Eyebrow icon={Sparkles} text="Trusted by Industry Leaders" />

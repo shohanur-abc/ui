@@ -40,13 +40,27 @@ interface CustomerAnalytics {
 	riskScore: number;
 }
 
-const TrendIndicator = ({ value, suffix = '%' }: { value: number; suffix?: string }) => {
-	if (value === 0) return <span className="text-muted-foreground text-xs">0{suffix}</span>;
+const TrendIndicator = ({
+	value,
+	suffix = '%',
+}: {
+	value: number;
+	suffix?: string;
+}) => {
+	if (value === 0)
+		return <span className="text-muted-foreground text-xs">0{suffix}</span>;
 	const isPositive = value > 0;
 	return (
-		<span className={`flex items-center text-xs ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}>
-			{isPositive ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
-			{Math.abs(value)}{suffix}
+		<span
+			className={`flex items-center text-xs ${isPositive ? 'text-emerald-500' : 'text-red-500'}`}
+		>
+			{isPositive ? (
+				<ArrowUpRight className="size-3" />
+			) : (
+				<ArrowDownRight className="size-3" />
+			)}
+			{Math.abs(value)}
+			{suffix}
 		</span>
 	);
 };
@@ -119,7 +133,9 @@ const AnalyticsListItem = ({ customer }: { customer: CustomerAnalytics }) => (
 					{customer.segment}
 				</Badge>
 			</div>
-			<p className="text-muted-foreground mt-0.5 text-sm truncate">{customer.email}</p>
+			<p className="text-muted-foreground mt-0.5 text-sm truncate">
+				{customer.email}
+			</p>
 		</div>
 		<div className="hidden items-center gap-6 @lg:flex">
 			<MetricCell
@@ -169,7 +185,15 @@ export default function Main() {
 			email: 'emma.r@email.com',
 			initials: 'ER',
 			segment: 'VIP',
-			metrics: { ltv: '$8,450', ltvChange: 12, aov: '$245', aovChange: 8, purchaseFrequency: 4.2, frequencyChange: 5, lastPurchase: '2 days ago' },
+			metrics: {
+				ltv: '$8,450',
+				ltvChange: 12,
+				aov: '$245',
+				aovChange: 8,
+				purchaseFrequency: 4.2,
+				frequencyChange: 5,
+				lastPurchase: '2 days ago',
+			},
 			trend: 'up',
 			riskScore: 15,
 		},
@@ -179,7 +203,15 @@ export default function Main() {
 			email: 'lucas.t@email.com',
 			initials: 'LT',
 			segment: 'Regular',
-			metrics: { ltv: '$3,200', ltvChange: -5, aov: '$180', aovChange: 2, purchaseFrequency: 2.1, frequencyChange: -8, lastPurchase: '3 weeks ago' },
+			metrics: {
+				ltv: '$3,200',
+				ltvChange: -5,
+				aov: '$180',
+				aovChange: 2,
+				purchaseFrequency: 2.1,
+				frequencyChange: -8,
+				lastPurchase: '3 weeks ago',
+			},
 			trend: 'down',
 			riskScore: 55,
 		},
@@ -189,7 +221,15 @@ export default function Main() {
 			email: 'sophia.m@email.com',
 			initials: 'SM',
 			segment: 'VIP',
-			metrics: { ltv: '$12,800', ltvChange: 18, aov: '$320', aovChange: 15, purchaseFrequency: 5.8, frequencyChange: 10, lastPurchase: 'Today' },
+			metrics: {
+				ltv: '$12,800',
+				ltvChange: 18,
+				aov: '$320',
+				aovChange: 15,
+				purchaseFrequency: 5.8,
+				frequencyChange: 10,
+				lastPurchase: 'Today',
+			},
 			trend: 'up',
 			riskScore: 8,
 		},
@@ -199,7 +239,15 @@ export default function Main() {
 			email: 'oliver.w@email.com',
 			initials: 'OW',
 			segment: 'At Risk',
-			metrics: { ltv: '$1,450', ltvChange: -15, aov: '$120', aovChange: -5, purchaseFrequency: 1.2, frequencyChange: -20, lastPurchase: '2 months ago' },
+			metrics: {
+				ltv: '$1,450',
+				ltvChange: -15,
+				aov: '$120',
+				aovChange: -5,
+				purchaseFrequency: 1.2,
+				frequencyChange: -20,
+				lastPurchase: '2 months ago',
+			},
 			trend: 'down',
 			riskScore: 78,
 		},
@@ -209,7 +257,15 @@ export default function Main() {
 			email: 'ava.j@email.com',
 			initials: 'AJ',
 			segment: 'New',
-			metrics: { ltv: '$520', ltvChange: 0, aov: '$260', aovChange: 0, purchaseFrequency: 2.0, frequencyChange: 0, lastPurchase: '1 week ago' },
+			metrics: {
+				ltv: '$520',
+				ltvChange: 0,
+				aov: '$260',
+				aovChange: 0,
+				purchaseFrequency: 2.0,
+				frequencyChange: 0,
+				lastPurchase: '1 week ago',
+			},
 			trend: 'stable',
 			riskScore: 35,
 		},
@@ -219,7 +275,15 @@ export default function Main() {
 			email: 'noah.d@email.com',
 			initials: 'ND',
 			segment: 'Regular',
-			metrics: { ltv: '$4,890', ltvChange: 8, aov: '$195', aovChange: 12, purchaseFrequency: 3.5, frequencyChange: 3, lastPurchase: '5 days ago' },
+			metrics: {
+				ltv: '$4,890',
+				ltvChange: 8,
+				aov: '$195',
+				aovChange: 12,
+				purchaseFrequency: 3.5,
+				frequencyChange: 3,
+				lastPurchase: '5 days ago',
+			},
 			trend: 'up',
 			riskScore: 22,
 		},
@@ -229,7 +293,15 @@ export default function Main() {
 			email: 'mia.w@email.com',
 			initials: 'MW',
 			segment: 'Dormant',
-			metrics: { ltv: '$890', ltvChange: -25, aov: '$145', aovChange: -10, purchaseFrequency: 0.5, frequencyChange: -40, lastPurchase: '4 months ago' },
+			metrics: {
+				ltv: '$890',
+				ltvChange: -25,
+				aov: '$145',
+				aovChange: -10,
+				purchaseFrequency: 0.5,
+				frequencyChange: -40,
+				lastPurchase: '4 months ago',
+			},
 			trend: 'down',
 			riskScore: 92,
 		},
@@ -239,7 +311,15 @@ export default function Main() {
 			email: 'ethan.b@email.com',
 			initials: 'EB',
 			segment: 'VIP',
-			metrics: { ltv: '$15,200', ltvChange: 22, aov: '$380', aovChange: 18, purchaseFrequency: 6.2, frequencyChange: 12, lastPurchase: 'Yesterday' },
+			metrics: {
+				ltv: '$15,200',
+				ltvChange: 22,
+				aov: '$380',
+				aovChange: 18,
+				purchaseFrequency: 6.2,
+				frequencyChange: 12,
+				lastPurchase: 'Yesterday',
+			},
 			trend: 'up',
 			riskScore: 5,
 		},

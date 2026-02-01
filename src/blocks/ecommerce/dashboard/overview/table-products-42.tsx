@@ -74,18 +74,92 @@ const getStatusStyle = (status: ProductRow['status']) => {
 export default function Main() {
 	const kpis: KpiItem[] = [
 		{ title: 'Total Products', value: '1,247', change: '+12', icon: Package },
-		{ title: 'Total Revenue', value: '$89.4k', change: '+24%', icon: DollarSign },
+		{
+			title: 'Total Revenue',
+			value: '$89.4k',
+			change: '+24%',
+			icon: DollarSign,
+		},
 		{ title: 'Avg Rating', value: '4.6', change: '+0.2', icon: Star },
 		{ title: 'Low Stock', value: '18', change: '-5', icon: Box },
 	];
 
 	const products: ProductRow[] = [
-		{ id: 'PRD-001', name: 'Wireless Headphones Pro', category: 'Electronics', price: '$129.99', stock: 45, sold: 432, revenue: '$56,157', rating: 4.8, status: 'active', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80' },
-		{ id: 'PRD-002', name: 'Smart Watch Ultra', category: 'Electronics', price: '$299.99', stock: 12, sold: 324, revenue: '$97,197', rating: 4.7, status: 'low-stock', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80' },
-		{ id: 'PRD-003', name: 'Ergonomic Laptop Stand', category: 'Accessories', price: '$79.99', stock: 78, sold: 287, revenue: '$22,957', rating: 4.9, status: 'active', image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=80' },
-		{ id: 'PRD-004', name: 'Mechanical Keyboard', category: 'Electronics', price: '$159.99', stock: 0, sold: 156, revenue: '$24,958', rating: 4.6, status: 'out-of-stock', image: '' },
-		{ id: 'PRD-005', name: 'USB-C Hub 7-in-1', category: 'Accessories', price: '$49.99', stock: 234, sold: 512, revenue: '$25,595', rating: 4.5, status: 'active', image: '' },
-		{ id: 'PRD-006', name: 'Noise Cancelling Earbuds', category: 'Electronics', price: '$89.99', stock: 8, sold: 189, revenue: '$17,008', rating: 4.4, status: 'low-stock', image: '' },
+		{
+			id: 'PRD-001',
+			name: 'Wireless Headphones Pro',
+			category: 'Electronics',
+			price: '$129.99',
+			stock: 45,
+			sold: 432,
+			revenue: '$56,157',
+			rating: 4.8,
+			status: 'active',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80',
+		},
+		{
+			id: 'PRD-002',
+			name: 'Smart Watch Ultra',
+			category: 'Electronics',
+			price: '$299.99',
+			stock: 12,
+			sold: 324,
+			revenue: '$97,197',
+			rating: 4.7,
+			status: 'low-stock',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80',
+		},
+		{
+			id: 'PRD-003',
+			name: 'Ergonomic Laptop Stand',
+			category: 'Accessories',
+			price: '$79.99',
+			stock: 78,
+			sold: 287,
+			revenue: '$22,957',
+			rating: 4.9,
+			status: 'active',
+			image:
+				'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=80',
+		},
+		{
+			id: 'PRD-004',
+			name: 'Mechanical Keyboard',
+			category: 'Electronics',
+			price: '$159.99',
+			stock: 0,
+			sold: 156,
+			revenue: '$24,958',
+			rating: 4.6,
+			status: 'out-of-stock',
+			image: '',
+		},
+		{
+			id: 'PRD-005',
+			name: 'USB-C Hub 7-in-1',
+			category: 'Accessories',
+			price: '$49.99',
+			stock: 234,
+			sold: 512,
+			revenue: '$25,595',
+			rating: 4.5,
+			status: 'active',
+			image: '',
+		},
+		{
+			id: 'PRD-006',
+			name: 'Noise Cancelling Earbuds',
+			category: 'Electronics',
+			price: '$89.99',
+			stock: 8,
+			sold: 189,
+			revenue: '$17,008',
+			rating: 4.4,
+			status: 'low-stock',
+			image: '',
+		},
 	];
 
 	return (
@@ -112,12 +186,20 @@ export default function Main() {
 								<TableHeader>
 									<TableRow>
 										<TableHead>Product</TableHead>
-										<TableHead className="hidden @lg:table-cell">Category</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Category
+										</TableHead>
 										<TableHead>Price</TableHead>
-										<TableHead className="hidden @xl:table-cell">Stock</TableHead>
-										<TableHead className="hidden @lg:table-cell">Sold</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Stock
+										</TableHead>
+										<TableHead className="hidden @lg:table-cell">
+											Sold
+										</TableHead>
 										<TableHead>Revenue</TableHead>
-										<TableHead className="hidden @xl:table-cell">Rating</TableHead>
+										<TableHead className="hidden @xl:table-cell">
+											Rating
+										</TableHead>
 										<TableHead>Status</TableHead>
 										<TableHead className="w-10"></TableHead>
 									</TableRow>
@@ -138,15 +220,27 @@ export default function Main() {
 													</div>
 													<div>
 														<p className="font-medium">{product.name}</p>
-														<p className="text-xs text-muted-foreground">{product.id}</p>
+														<p className="text-xs text-muted-foreground">
+															{product.id}
+														</p>
 													</div>
 												</div>
 											</TableCell>
-											<TableCell className="hidden @lg:table-cell">{product.category}</TableCell>
-											<TableCell className="font-medium">{product.price}</TableCell>
-											<TableCell className="hidden @xl:table-cell">{product.stock}</TableCell>
-											<TableCell className="hidden @lg:table-cell">{product.sold}</TableCell>
-											<TableCell className="font-medium">{product.revenue}</TableCell>
+											<TableCell className="hidden @lg:table-cell">
+												{product.category}
+											</TableCell>
+											<TableCell className="font-medium">
+												{product.price}
+											</TableCell>
+											<TableCell className="hidden @xl:table-cell">
+												{product.stock}
+											</TableCell>
+											<TableCell className="hidden @lg:table-cell">
+												{product.sold}
+											</TableCell>
+											<TableCell className="font-medium">
+												{product.revenue}
+											</TableCell>
 											<TableCell className="hidden @xl:table-cell">
 												<div className="flex items-center gap-1 text-amber-500">
 													<Star className="size-3 fill-current" />
@@ -154,7 +248,10 @@ export default function Main() {
 												</div>
 											</TableCell>
 											<TableCell>
-												<Badge variant="secondary" className={getStatusStyle(product.status)}>
+												<Badge
+													variant="secondary"
+													className={getStatusStyle(product.status)}
+												>
 													{product.status.replace('-', ' ')}
 												</Badge>
 											</TableCell>

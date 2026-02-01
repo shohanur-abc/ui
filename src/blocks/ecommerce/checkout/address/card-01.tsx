@@ -40,7 +40,8 @@ const AddressCard = ({
 	phone,
 	isDefault,
 }: AddressCardProps) => {
-	const TypeIcon = type === 'home' ? Home : type === 'work' ? Building2 : MapPin;
+	const TypeIcon =
+		type === 'home' ? Home : type === 'work' ? Building2 : MapPin;
 	return (
 		<label className="block cursor-pointer group">
 			<Card className="relative overflow-hidden transition-all border-2 hover:border-primary/40 has-[:checked]:border-primary has-[:checked]:bg-primary/5">
@@ -64,7 +65,11 @@ const AddressCard = ({
 							<p className="text-sm text-muted-foreground">{city}</p>
 							<p className="text-sm text-muted-foreground mt-1">{phone}</p>
 						</div>
-						<Button variant="ghost" size="icon-sm" className="opacity-0 group-hover:opacity-100 transition-opacity">
+						<Button
+							variant="ghost"
+							size="icon-sm"
+							className="opacity-0 group-hover:opacity-100 transition-opacity"
+						>
 							<Edit className="size-4" />
 						</Button>
 					</div>

@@ -171,7 +171,9 @@ const RemindersSection = () => (
 					<p className="text-sm font-medium">Email</p>
 					<p className="text-xs text-muted-foreground">24h before</p>
 				</div>
-				<Badge variant="outline" className="text-xs">Active</Badge>
+				<Badge variant="outline" className="text-xs">
+					Active
+				</Badge>
 			</div>
 			<div className="p-3 rounded-lg border flex items-center gap-3">
 				<div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -181,7 +183,9 @@ const RemindersSection = () => (
 					<p className="text-sm font-medium">SMS</p>
 					<p className="text-xs text-muted-foreground">2h before</p>
 				</div>
-				<Badge variant="outline" className="text-xs">Active</Badge>
+				<Badge variant="outline" className="text-xs">
+					Active
+				</Badge>
 			</div>
 		</div>
 	</div>
@@ -244,14 +248,21 @@ export default function Main() {
 
 				<RemindersSection />
 
-				<CancellationPolicy
-					policy="Free cancellation up to 24 hours before your appointment. Late cancellations may incur a 50% fee."
-				/>
+				<CancellationPolicy policy="Free cancellation up to 24 hours before your appointment. Late cancellations may incur a 50% fee." />
 
 				<CTA
 					items={[
-						{ label: 'Add to Calendar', href: '/calendar', icon: CalendarCheck },
-						{ label: 'Manage Booking', href: '/bookings', variant: 'outline', icon: ArrowRight },
+						{
+							label: 'Add to Calendar',
+							href: '/calendar',
+							icon: CalendarCheck,
+						},
+						{
+							label: 'Manage Booking',
+							href: '/bookings',
+							variant: 'outline',
+							icon: ArrowRight,
+						},
 					]}
 				/>
 			</div>

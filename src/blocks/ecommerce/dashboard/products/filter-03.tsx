@@ -61,14 +61,27 @@ interface SavedFilterCardProps {
 	onApply: (filter: SavedFilter) => void;
 	onSetDefault: (id: string) => void;
 	onDelete: (id: string) => void;
-	labels: { apply: string; setDefault: string; delete: string; default: string };
+	labels: {
+		apply: string;
+		setDefault: string;
+		delete: string;
+		default: string;
+	};
 }
 
-const SavedFilterCard = ({ filter, onApply, onSetDefault, onDelete, labels }: SavedFilterCardProps) => {
+const SavedFilterCard = ({
+	filter,
+	onApply,
+	onSetDefault,
+	onDelete,
+	labels,
+}: SavedFilterCardProps) => {
 	const filterCount =
 		filter.filters.categories.length +
 		filter.filters.status.length +
-		(filter.filters.priceRange[0] > 0 || filter.filters.priceRange[1] < 500 ? 1 : 0);
+		(filter.filters.priceRange[0] > 0 || filter.filters.priceRange[1] < 500
+			? 1
+			: 0);
 
 	return (
 		<div className="flex items-center gap-3 rounded-lg border bg-card p-3 transition-colors hover:bg-muted/50">
@@ -124,7 +137,11 @@ interface RecentSearchRowProps {
 	onRemove: (id: string) => void;
 }
 
-const RecentSearchRow = ({ search, onApply, onRemove }: RecentSearchRowProps) => (
+const RecentSearchRow = ({
+	search,
+	onApply,
+	onRemove,
+}: RecentSearchRowProps) => (
 	<div className="group flex items-center gap-3 rounded-md px-2 py-1.5 hover:bg-muted">
 		<Clock className="size-4 text-muted-foreground" />
 		<button
@@ -133,7 +150,9 @@ const RecentSearchRow = ({ search, onApply, onRemove }: RecentSearchRowProps) =>
 		>
 			{search.query}
 		</button>
-		<span className="text-xs text-muted-foreground">{search.resultCount} results</span>
+		<span className="text-xs text-muted-foreground">
+			{search.resultCount} results
+		</span>
 		<button
 			onClick={() => onRemove(search.id)}
 			className="opacity-0 transition-opacity group-hover:opacity-100"
@@ -145,7 +164,14 @@ const RecentSearchRow = ({ search, onApply, onRemove }: RecentSearchRowProps) =>
 
 interface SaveFilterDialogProps {
 	onSave: (name: string, isDefault: boolean) => void;
-	labels: { title: string; description: string; name: string; default: string; save: string; cancel: string };
+	labels: {
+		title: string;
+		description: string;
+		name: string;
+		default: string;
+		save: string;
+		cancel: string;
+	};
 }
 
 const SaveFilterDialog = ({ onSave, labels }: SaveFilterDialogProps) => {
@@ -224,7 +250,11 @@ export default function Main() {
 			name: 'Premium Electronics',
 			isDefault: false,
 			lastUsed: 'Yesterday',
-			filters: { categories: ['electronics'], status: ['active'], priceRange: [200, 500] },
+			filters: {
+				categories: ['electronics'],
+				status: ['active'],
+				priceRange: [200, 500],
+			},
 		},
 		{
 			id: '3',
@@ -236,8 +266,18 @@ export default function Main() {
 	]);
 
 	const [recentSearches, setRecentSearches] = React.useState<RecentSearch[]>([
-		{ id: '1', query: 'wireless headphones', resultCount: 45, timestamp: '1 hour ago' },
-		{ id: '2', query: 'gaming keyboard RGB', resultCount: 23, timestamp: '3 hours ago' },
+		{
+			id: '1',
+			query: 'wireless headphones',
+			resultCount: 45,
+			timestamp: '1 hour ago',
+		},
+		{
+			id: '2',
+			query: 'gaming keyboard RGB',
+			resultCount: 23,
+			timestamp: '3 hours ago',
+		},
 		{ id: '3', query: 'USB-C hub', resultCount: 12, timestamp: 'Yesterday' },
 	]);
 
@@ -247,7 +287,7 @@ export default function Main() {
 
 	const handleSetDefault = (id: string) => {
 		setSavedFilters((prev) =>
-			prev.map((f) => ({ ...f, isDefault: f.id === id }))
+			prev.map((f) => ({ ...f, isDefault: f.id === id })),
 		);
 	};
 
@@ -293,7 +333,8 @@ export default function Main() {
 							onSave={handleSaveFilter}
 							labels={{
 								title: 'Save Filter',
-								description: 'Save your current filter settings for quick access later.',
+								description:
+									'Save your current filter settings for quick access later.',
 								name: 'Filter Name',
 								default: 'Set as default filter',
 								save: 'Save',

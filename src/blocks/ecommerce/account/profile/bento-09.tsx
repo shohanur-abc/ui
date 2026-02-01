@@ -46,7 +46,9 @@ const FitnessProfileCard = ({
 				<div className="relative">
 					<Avatar className="size-20 ring-4 ring-orange-500/30">
 						<AvatarImage src={src} alt={name} />
-						<AvatarFallback className="bg-orange-500 text-white text-2xl">{fallback}</AvatarFallback>
+						<AvatarFallback className="bg-orange-500 text-white text-2xl">
+							{fallback}
+						</AvatarFallback>
 					</Avatar>
 					<div className="absolute -bottom-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full size-7 flex items-center justify-center ring-2 ring-background">
 						{level}
@@ -60,7 +62,9 @@ const FitnessProfileCard = ({
 							<Flame className="size-4 text-orange-500" />
 							<span className="text-sm font-medium">{streak} day streak</span>
 						</div>
-						<Badge className="bg-orange-500/20 text-orange-600">Level {level}</Badge>
+						<Badge className="bg-orange-500/20 text-orange-600">
+							Level {level}
+						</Badge>
 					</div>
 				</div>
 				<Button variant="outline" className="gap-2" asChild>
@@ -77,7 +81,14 @@ const FitnessProfileCard = ({
 const DailyGoalsCard = ({
 	items,
 }: {
-	items: { icon: React.ElementType; label: string; current: number; target: number; unit: string; color: string }[];
+	items: {
+		icon: React.ElementType;
+		label: string;
+		current: number;
+		target: number;
+		unit: string;
+		color: string;
+	}[];
 }) => (
 	<Card className="row-span-2">
 		<CardContent className="p-4 h-full flex flex-col">
@@ -93,9 +104,14 @@ const DailyGoalsCard = ({
 								<goal.icon className={`size-4 ${goal.color}`} />
 								<span className="text-sm">{goal.label}</span>
 							</div>
-							<span className="text-sm font-medium">{goal.current}/{goal.target} {goal.unit}</span>
+							<span className="text-sm font-medium">
+								{goal.current}/{goal.target} {goal.unit}
+							</span>
 						</div>
-						<Progress value={(goal.current / goal.target) * 100} className="h-2" />
+						<Progress
+							value={(goal.current / goal.target) * 100}
+							className="h-2"
+						/>
 					</div>
 				))}
 			</div>
@@ -196,7 +212,12 @@ const AchievementsCard = ({
 	recent,
 	total,
 }: {
-	recent: { icon: React.ElementType; title: string; date: string; color: string }[];
+	recent: {
+		icon: React.ElementType;
+		title: string;
+		date: string;
+		color: string;
+	}[];
 	total: number;
 }) => (
 	<Card className="col-span-full @lg:col-span-2">
@@ -210,13 +231,20 @@ const AchievementsCard = ({
 			</div>
 			<div className="grid @sm:grid-cols-3 gap-3">
 				{recent.map((achievement, i) => (
-					<div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
+					<div
+						key={i}
+						className="flex items-center gap-3 p-3 rounded-lg bg-muted/30"
+					>
 						<div className={`p-2 rounded-lg ${achievement.color}`}>
 							<achievement.icon className="size-5" />
 						</div>
 						<div className="min-w-0">
-							<p className="text-sm font-medium truncate">{achievement.title}</p>
-							<p className="text-xs text-muted-foreground">{achievement.date}</p>
+							<p className="text-sm font-medium truncate">
+								{achievement.title}
+							</p>
+							<p className="text-xs text-muted-foreground">
+								{achievement.date}
+							</p>
 						</div>
 					</div>
 				))}
@@ -228,13 +256,7 @@ const AchievementsCard = ({
 	</Card>
 );
 
-const SleepCard = ({
-	hours,
-	quality,
-}: {
-	hours: string;
-	quality: string;
-}) => (
+const SleepCard = ({ hours, quality }: { hours: string; quality: string }) => (
 	<Card className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10">
 		<CardContent className="p-4">
 			<div className="flex items-center gap-2 mb-3">
@@ -263,10 +285,38 @@ export default function Main() {
 			level: 15,
 		},
 		dailyGoals: [
-			{ icon: Flame, label: 'Calories', current: 1850, target: 2500, unit: 'kcal', color: 'text-orange-500' },
-			{ icon: Dumbbell, label: 'Steps', current: 7234, target: 10000, unit: '', color: 'text-blue-500' },
-			{ icon: Heart, label: 'Active Minutes', current: 42, target: 60, unit: 'min', color: 'text-red-500' },
-			{ icon: Zap, label: 'Water', current: 6, target: 8, unit: 'glasses', color: 'text-cyan-500' },
+			{
+				icon: Flame,
+				label: 'Calories',
+				current: 1850,
+				target: 2500,
+				unit: 'kcal',
+				color: 'text-orange-500',
+			},
+			{
+				icon: Dumbbell,
+				label: 'Steps',
+				current: 7234,
+				target: 10000,
+				unit: '',
+				color: 'text-blue-500',
+			},
+			{
+				icon: Heart,
+				label: 'Active Minutes',
+				current: 42,
+				target: 60,
+				unit: 'min',
+				color: 'text-red-500',
+			},
+			{
+				icon: Zap,
+				label: 'Water',
+				current: 6,
+				target: 8,
+				unit: 'glasses',
+				color: 'text-cyan-500',
+			},
 		],
 		weeklyStats: {
 			workouts: 5,
@@ -281,9 +331,24 @@ export default function Main() {
 		},
 		achievements: {
 			recent: [
-				{ icon: Medal, title: '21 Day Streak', date: 'Today', color: 'bg-amber-500/20 text-amber-500' },
-				{ icon: Trophy, title: '100km Runner', date: 'Yesterday', color: 'bg-blue-500/20 text-blue-500' },
-				{ icon: Zap, title: 'Early Bird', date: '3 days ago', color: 'bg-purple-500/20 text-purple-500' },
+				{
+					icon: Medal,
+					title: '21 Day Streak',
+					date: 'Today',
+					color: 'bg-amber-500/20 text-amber-500',
+				},
+				{
+					icon: Trophy,
+					title: '100km Runner',
+					date: 'Yesterday',
+					color: 'bg-blue-500/20 text-blue-500',
+				},
+				{
+					icon: Zap,
+					title: 'Early Bird',
+					date: '3 days ago',
+					color: 'bg-purple-500/20 text-purple-500',
+				},
 			],
 			total: 24,
 		},

@@ -20,8 +20,12 @@ interface FormAreaProps {
 
 const Content = ({ title, description, features }: ContentProps) => (
 	<div className="flex flex-col gap-6">
-		<h1 className="text-3xl @sm:text-4xl @lg:text-5xl @xl:text-6xl font-bold tracking-tight leading-tight">{title}</h1>
-		<p className="text-muted-foreground text-lg @md:text-xl max-w-xl">{description}</p>
+		<h1 className="text-3xl @sm:text-4xl @lg:text-5xl @xl:text-6xl font-bold tracking-tight leading-tight">
+			{title}
+		</h1>
+		<p className="text-muted-foreground text-lg @md:text-xl max-w-xl">
+			{description}
+		</p>
 		<ul className="grid @sm:grid-cols-2 gap-3">
 			{features.map((feature, i) => (
 				<li key={i} className="flex items-center gap-2 text-sm">
@@ -33,7 +37,14 @@ const Content = ({ title, description, features }: ContentProps) => (
 	</div>
 );
 
-const FormArea = ({ avatars, subscriberCount, rating, placeholder, buttonText, buttonIcon: Icon }: FormAreaProps) => (
+const FormArea = ({
+	avatars,
+	subscriberCount,
+	rating,
+	placeholder,
+	buttonText,
+	buttonIcon: Icon,
+}: FormAreaProps) => (
 	<div className="flex flex-col gap-6 p-6 @md:p-8 rounded-2xl border bg-card">
 		<div className="flex items-center gap-4">
 			<div className="flex -space-x-2">
@@ -53,17 +64,15 @@ const FormArea = ({ avatars, subscriberCount, rating, placeholder, buttonText, b
 			</div>
 		</div>
 		<form className="flex flex-col gap-3">
-			<Input
-				type="email"
-				placeholder={placeholder}
-				className="h-12"
-			/>
+			<Input type="email" placeholder={placeholder} className="h-12" />
 			<Button size="lg" className="gap-2 w-full h-12">
 				{buttonText}
 				{Icon && <Icon className="size-4" />}
 			</Button>
 		</form>
-		<p className="text-xs text-muted-foreground text-center">Free forever. No credit card required.</p>
+		<p className="text-xs text-muted-foreground text-center">
+			Free forever. No credit card required.
+		</p>
 	</div>
 );
 

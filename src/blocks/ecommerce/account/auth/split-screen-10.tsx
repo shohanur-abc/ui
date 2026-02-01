@@ -42,7 +42,13 @@ const ProductShowcase = ({
 	</div>
 );
 
-const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) => (
+const Logo = ({
+	name,
+	icon: Icon,
+}: {
+	name: string;
+	icon: React.ElementType;
+}) => (
 	<div className="flex items-center gap-2 mb-8">
 		<div className="flex size-10 items-center justify-center rounded-xl bg-primary">
 			<Icon className="size-5 text-primary-foreground" />
@@ -53,7 +59,9 @@ const Logo = ({ name, icon: Icon }: { name: string; icon: React.ElementType }) =
 
 const Title = ({ text, subtitle }: { text: string; subtitle?: string }) => (
 	<div className="mb-8">
-		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">{text}</h1>
+		<h1 className="text-2xl @sm:text-3xl font-bold tracking-tight mb-2">
+			{text}
+		</h1>
 		{subtitle && <p className="text-muted-foreground">{subtitle}</p>}
 	</div>
 );
@@ -139,10 +147,30 @@ const FooterLink = ({
 
 export default function Main() {
 	const products = [
-		{ image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop', name: 'Premium Sneakers', price: '$129' },
-		{ image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop', name: 'Smart Watch', price: '$299' },
-		{ image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&h=400&fit=crop', name: 'Perfume Collection', price: '$89' },
-		{ image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=400&fit=crop', name: 'Leather Bag', price: '$199' },
+		{
+			image:
+				'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop',
+			name: 'Premium Sneakers',
+			price: '$129',
+		},
+		{
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop',
+			name: 'Smart Watch',
+			price: '$299',
+		},
+		{
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&h=400&fit=crop',
+			name: 'Perfume Collection',
+			price: '$89',
+		},
+		{
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=400&fit=crop',
+			name: 'Leather Bag',
+			price: '$199',
+		},
 	];
 
 	return (
@@ -151,11 +179,24 @@ export default function Main() {
 				<div className="flex flex-col justify-center px-6 @sm:px-8 @xl:px-16 py-12">
 					<div className="w-full max-w-md mx-auto @lg:mx-0 @lg:ml-auto">
 						<Logo name="TrendSpot" icon={Palette} />
-						<Title text="Welcome back" subtitle="Sign in to view your wishlist" />
+						<Title
+							text="Welcome back"
+							subtitle="Sign in to view your wishlist"
+						/>
 
 						<form className="space-y-5">
-							<FormField label="Email" type="email" placeholder="you@example.com" icon={Mail} />
-							<FormField label="Password" type="password" placeholder="••••••••" icon={Lock} />
+							<FormField
+								label="Email"
+								type="email"
+								placeholder="you@example.com"
+								icon={Mail}
+							/>
+							<FormField
+								label="Password"
+								type="password"
+								placeholder="••••••••"
+								icon={Lock}
+							/>
 							<RememberForgot
 								rememberLabel="Remember me"
 								forgotLabel="Forgot password?"
@@ -165,7 +206,11 @@ export default function Main() {
 						</form>
 
 						<div className="mt-8">
-							<FooterLink text="New to TrendSpot?" linkText="Create account" href="/signup" />
+							<FooterLink
+								text="New to TrendSpot?"
+								linkText="Create account"
+								href="/signup"
+							/>
 						</div>
 					</div>
 				</div>

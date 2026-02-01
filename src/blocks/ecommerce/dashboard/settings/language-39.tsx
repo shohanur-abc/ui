@@ -85,7 +85,11 @@ const TranslationRow = ({
 	keyName,
 	defaultValue,
 	translation,
-}: { keyName: string; defaultValue: string; translation: string }) => (
+}: {
+	keyName: string;
+	defaultValue: string;
+	translation: string;
+}) => (
 	<div className="grid gap-2 border-b py-4 @lg:grid-cols-3 @lg:gap-4">
 		<div>
 			<code className="text-xs text-muted-foreground">{keyName}</code>
@@ -101,7 +105,13 @@ const TranslationRow = ({
 
 export default function Main() {
 	const languages: Language[] = [
-		{ code: 'en', name: 'English', nativeName: 'English', progress: 100, isDefault: true },
+		{
+			code: 'en',
+			name: 'English',
+			nativeName: 'English',
+			progress: 100,
+			isDefault: true,
+		},
 		{ code: 'es', name: 'Spanish', nativeName: 'Español', progress: 92 },
 		{ code: 'fr', name: 'French', nativeName: 'Français', progress: 85 },
 		{ code: 'de', name: 'German', nativeName: 'Deutsch', progress: 78 },
@@ -112,17 +122,26 @@ export default function Main() {
 		{
 			key: 'notification.order_confirmed',
 			defaultValue: 'Your order has been confirmed',
-			translations: { es: 'Tu pedido ha sido confirmado', fr: 'Votre commande est confirmée' },
+			translations: {
+				es: 'Tu pedido ha sido confirmado',
+				fr: 'Votre commande est confirmée',
+			},
 		},
 		{
 			key: 'notification.order_shipped',
 			defaultValue: 'Your order is on its way',
-			translations: { es: 'Tu pedido está en camino', fr: 'Votre commande est en route' },
+			translations: {
+				es: 'Tu pedido está en camino',
+				fr: 'Votre commande est en route',
+			},
 		},
 		{
 			key: 'notification.welcome',
 			defaultValue: 'Welcome to our store!',
-			translations: { es: '¡Bienvenido a nuestra tienda!', fr: 'Bienvenue dans notre boutique!' },
+			translations: {
+				es: '¡Bienvenido a nuestra tienda!',
+				fr: 'Bienvenue dans notre boutique!',
+			},
 		},
 	];
 
@@ -186,7 +205,9 @@ export default function Main() {
 										<RadioGroup defaultValue="default">
 											<div className="flex items-center gap-2">
 												<RadioGroupItem value="default" id="fallback-default" />
-												<Label htmlFor="fallback-default">Use default language</Label>
+												<Label htmlFor="fallback-default">
+													Use default language
+												</Label>
 											</div>
 											<div className="flex items-center gap-2">
 												<RadioGroupItem value="skip" id="fallback-skip" />
@@ -196,7 +217,9 @@ export default function Main() {
 									</div>
 									<div className="flex items-center gap-3 pt-2">
 										<Checkbox id="autoDetect" defaultChecked />
-										<Label htmlFor="autoDetect">Auto-detect user language</Label>
+										<Label htmlFor="autoDetect">
+											Auto-detect user language
+										</Label>
 									</div>
 								</CardContent>
 							</Card>
@@ -207,7 +230,9 @@ export default function Main() {
 										<Globe className="size-6 text-primary" />
 									</div>
 									<p className="text-sm font-medium">5 Languages</p>
-									<p className="text-xs text-muted-foreground">80% average completion</p>
+									<p className="text-xs text-muted-foreground">
+										80% average completion
+									</p>
 								</CardContent>
 							</Card>
 						</div>
@@ -217,8 +242,12 @@ export default function Main() {
 						<CardHeader className="border-b">
 							<div className="flex flex-col gap-4 @sm:flex-row @sm:items-center @sm:justify-between">
 								<div>
-									<CardTitle className="text-base">Translation Editor</CardTitle>
-									<CardDescription>Edit notification translations</CardDescription>
+									<CardTitle className="text-base">
+										Translation Editor
+									</CardTitle>
+									<CardDescription>
+										Edit notification translations
+									</CardDescription>
 								</div>
 								<div className="flex gap-2">
 									<Select defaultValue="es">
@@ -226,11 +255,13 @@ export default function Main() {
 											<SelectValue placeholder="Language" />
 										</SelectTrigger>
 										<SelectContent>
-											{languages.filter((l) => !l.isDefault).map((lang) => (
-												<SelectItem key={lang.code} value={lang.code}>
-													{lang.name}
-												</SelectItem>
-											))}
+											{languages
+												.filter((l) => !l.isDefault)
+												.map((lang) => (
+													<SelectItem key={lang.code} value={lang.code}>
+														{lang.name}
+													</SelectItem>
+												))}
 										</SelectContent>
 									</Select>
 									<div className="relative">

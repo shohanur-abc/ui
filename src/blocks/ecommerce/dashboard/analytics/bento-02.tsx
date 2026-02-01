@@ -23,15 +23,27 @@ type StatCardProps = {
 	trend: 'up' | 'down';
 };
 
-const StatCard = ({ icon: Icon, label, value, change, trend }: StatCardProps) => (
+const StatCard = ({
+	icon: Icon,
+	label,
+	value,
+	change,
+	trend,
+}: StatCardProps) => (
 	<Card className="group border-border/50 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
 		<CardContent className="p-4">
 			<div className="flex items-center justify-between mb-3">
 				<div className="rounded-lg bg-primary/10 p-2 ring-1 ring-primary/20 group-hover:bg-primary/20 transition-colors">
 					<Icon className="size-4 text-primary" />
 				</div>
-				<div className={`flex items-center gap-0.5 text-xs font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}>
-					{trend === 'up' ? <ArrowUpRight className="size-3" /> : <ArrowDownRight className="size-3" />}
+				<div
+					className={`flex items-center gap-0.5 text-xs font-medium ${trend === 'up' ? 'text-emerald-500' : 'text-rose-500'}`}
+				>
+					{trend === 'up' ? (
+						<ArrowUpRight className="size-3" />
+					) : (
+						<ArrowDownRight className="size-3" />
+					)}
 					{Math.abs(change)}%
 				</div>
 			</div>
@@ -48,7 +60,12 @@ type LargeChartCardProps = {
 	subtitle: string;
 };
 
-const LargeChartCard = ({ title, badge, value, subtitle }: LargeChartCardProps) => (
+const LargeChartCard = ({
+	title,
+	badge,
+	value,
+	subtitle,
+}: LargeChartCardProps) => (
 	<Card className="border-border/50 bg-card/80 col-span-2 row-span-2">
 		<CardHeader className="flex flex-row items-center justify-between pb-2">
 			<CardTitle className="text-sm font-medium">{title}</CardTitle>
@@ -88,11 +105,18 @@ const ListCard = ({ title, items }: ListCardProps) => (
 		</CardHeader>
 		<CardContent className="space-y-3">
 			{items.map((item, i) => (
-				<div key={i} className="flex items-center justify-between py-1.5 border-b border-border/30 last:border-0">
+				<div
+					key={i}
+					className="flex items-center justify-between py-1.5 border-b border-border/30 last:border-0"
+				>
 					<span className="text-sm">{item.label}</span>
 					<div className="flex items-center gap-2">
 						<span className="text-sm font-semibold">{item.value}</span>
-						{item.badge && <Badge variant="outline" className="text-[10px]">{item.badge}</Badge>}
+						{item.badge && (
+							<Badge variant="outline" className="text-[10px]">
+								{item.badge}
+							</Badge>
+						)}
 					</div>
 				</div>
 			))}
@@ -101,10 +125,34 @@ const ListCard = ({ title, items }: ListCardProps) => (
 );
 
 const stats: StatCardProps[] = [
-	{ icon: DollarSign, label: 'Total Revenue', value: '$45.2K', change: 12.5, trend: 'up' },
-	{ icon: ShoppingCart, label: 'Total Orders', value: '2,345', change: 8.2, trend: 'up' },
-	{ icon: Users, label: 'New Customers', value: '456', change: 3.1, trend: 'down' },
-	{ icon: Package, label: 'Products Sold', value: '8,901', change: 15.3, trend: 'up' },
+	{
+		icon: DollarSign,
+		label: 'Total Revenue',
+		value: '$45.2K',
+		change: 12.5,
+		trend: 'up',
+	},
+	{
+		icon: ShoppingCart,
+		label: 'Total Orders',
+		value: '2,345',
+		change: 8.2,
+		trend: 'up',
+	},
+	{
+		icon: Users,
+		label: 'New Customers',
+		value: '456',
+		change: 3.1,
+		trend: 'down',
+	},
+	{
+		icon: Package,
+		label: 'Products Sold',
+		value: '8,901',
+		change: 15.3,
+		trend: 'up',
+	},
 ];
 
 const topProducts = [

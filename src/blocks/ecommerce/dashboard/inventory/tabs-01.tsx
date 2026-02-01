@@ -11,7 +11,13 @@ import {
 	Clock,
 } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -43,13 +49,23 @@ const StockItemRow = ({ item }: StockItemRowProps) => (
 		</div>
 		<div className="flex items-center gap-6">
 			<div className="text-right">
-				<p className="font-semibold tabular-nums">{item.stock.toLocaleString()}</p>
+				<p className="font-semibold tabular-nums">
+					{item.stock.toLocaleString()}
+				</p>
 				<p className="text-xs text-muted-foreground">units</p>
 			</div>
 			<div className="text-right">
-				<p className="font-semibold tabular-nums">${item.value.toLocaleString()}</p>
-				<div className={`flex items-center justify-end gap-0.5 text-xs ${item.change >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
-					{item.change >= 0 ? <TrendingUp className="size-3" /> : <TrendingDown className="size-3" />}
+				<p className="font-semibold tabular-nums">
+					${item.value.toLocaleString()}
+				</p>
+				<div
+					className={`flex items-center justify-end gap-0.5 text-xs ${item.change >= 0 ? 'text-emerald-500' : 'text-red-500'}`}
+				>
+					{item.change >= 0 ? (
+						<TrendingUp className="size-3" />
+					) : (
+						<TrendingDown className="size-3" />
+					)}
 					{Math.abs(item.change)}%
 				</div>
 			</div>
@@ -70,18 +86,60 @@ const TabPanel = ({ items, emptyMessage }: TabPanelProps) => (
 		{items.length > 0 ? (
 			items.map((item) => <StockItemRow key={item.id} item={item} />)
 		) : (
-			<div className="py-8 text-center text-muted-foreground">{emptyMessage}</div>
+			<div className="py-8 text-center text-muted-foreground">
+				{emptyMessage}
+			</div>
 		)}
 	</div>
 );
 
 export default function Main() {
 	const allItems: StockItem[] = [
-		{ id: '1', name: 'Wireless Earbuds Pro', sku: 'WEP-001', stock: 2450, value: 195600, change: 15, lastUpdated: '2024-01-18' },
-		{ id: '2', name: 'Smart Watch Ultra', sku: 'SWU-002', stock: 1890, value: 377811, change: -8, lastUpdated: '2024-01-18' },
-		{ id: '3', name: 'USB-C Fast Charger', sku: 'UFC-003', stock: 1654, value: 24810, change: 22, lastUpdated: '2024-01-17' },
-		{ id: '4', name: 'Mechanical Keyboard', sku: 'MK-004', stock: 1420, value: 212858, change: -3, lastUpdated: '2024-01-17' },
-		{ id: '5', name: 'Bluetooth Speaker', sku: 'BS-005', stock: 1205, value: 60250, change: 5, lastUpdated: '2024-01-16' },
+		{
+			id: '1',
+			name: 'Wireless Earbuds Pro',
+			sku: 'WEP-001',
+			stock: 2450,
+			value: 195600,
+			change: 15,
+			lastUpdated: '2024-01-18',
+		},
+		{
+			id: '2',
+			name: 'Smart Watch Ultra',
+			sku: 'SWU-002',
+			stock: 1890,
+			value: 377811,
+			change: -8,
+			lastUpdated: '2024-01-18',
+		},
+		{
+			id: '3',
+			name: 'USB-C Fast Charger',
+			sku: 'UFC-003',
+			stock: 1654,
+			value: 24810,
+			change: 22,
+			lastUpdated: '2024-01-17',
+		},
+		{
+			id: '4',
+			name: 'Mechanical Keyboard',
+			sku: 'MK-004',
+			stock: 1420,
+			value: 212858,
+			change: -3,
+			lastUpdated: '2024-01-17',
+		},
+		{
+			id: '5',
+			name: 'Bluetooth Speaker',
+			sku: 'BS-005',
+			stock: 1205,
+			value: 60250,
+			change: 5,
+			lastUpdated: '2024-01-16',
+		},
 	];
 
 	const lowStockItems = allItems.filter((i) => i.stock < 1500);
@@ -92,7 +150,9 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 py-8 @sm:px-6 @md:py-10 @2xl:px-8">
 				<Card>
 					<CardHeader>
-						<CardTitle className="text-xl @lg:text-2xl">Inventory Tabs</CardTitle>
+						<CardTitle className="text-xl @lg:text-2xl">
+							Inventory Tabs
+						</CardTitle>
 						<CardDescription>View and manage stock by category</CardDescription>
 					</CardHeader>
 					<CardContent>
@@ -127,10 +187,16 @@ export default function Main() {
 								<TabPanel items={allItems} emptyMessage="No products found" />
 							</TabsContent>
 							<TabsContent value="low-stock" className="mt-6">
-								<TabPanel items={lowStockItems} emptyMessage="No low stock items" />
+								<TabPanel
+									items={lowStockItems}
+									emptyMessage="No low stock items"
+								/>
 							</TabsContent>
 							<TabsContent value="high-value" className="mt-6">
-								<TabPanel items={highValueItems} emptyMessage="No high value items" />
+								<TabPanel
+									items={highValueItems}
+									emptyMessage="No high value items"
+								/>
 							</TabsContent>
 						</Tabs>
 					</CardContent>

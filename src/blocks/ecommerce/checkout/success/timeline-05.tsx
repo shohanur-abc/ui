@@ -94,7 +94,10 @@ const ProviderCard = ({
 				<Avatar className="size-14">
 					<AvatarImage src={image} alt={name} />
 					<AvatarFallback>
-						{name.split(' ').map((n) => n[0]).join('')}
+						{name
+							.split(' ')
+							.map((n) => n[0])
+							.join('')}
 					</AvatarFallback>
 				</Avatar>
 				<div className="flex-1">
@@ -172,7 +175,13 @@ const ReminderCard = ({
 const CTA = ({ items }: CTAProps) => (
 	<div className="flex flex-col @sm:flex-row gap-3 justify-center">
 		{items.map(({ label, href, variant, icon: Icon }, i) => (
-			<Button key={i} size="lg" variant={variant || 'default'} className="gap-2" asChild>
+			<Button
+				key={i}
+				size="lg"
+				variant={variant || 'default'}
+				className="gap-2"
+				asChild
+			>
 				<Link href={href}>
 					{Icon && <Icon className="size-4" />}
 					{label}

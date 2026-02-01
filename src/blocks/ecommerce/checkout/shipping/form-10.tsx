@@ -137,9 +137,16 @@ export default function Main() {
 							error="Please enter a valid email address"
 						/>
 
-						<ValidationInput label="Phone" placeholder="+1 (555) 000-0000" type="tel" />
+						<ValidationInput
+							label="Phone"
+							placeholder="+1 (555) 000-0000"
+							type="tel"
+						/>
 						<ValidationInput label="Street Address" placeholder="123 Main St" />
-						<ValidationInput label="Apartment / Suite" placeholder="Apt 4B (optional)" />
+						<ValidationInput
+							label="Apartment / Suite"
+							placeholder="Apt 4B (optional)"
+						/>
 
 						<div className="grid @sm:grid-cols-3 gap-4">
 							<ValidationInput label="City" placeholder="New York" />

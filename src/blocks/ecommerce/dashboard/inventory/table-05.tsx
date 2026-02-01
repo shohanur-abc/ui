@@ -1,12 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	Check,
-	X,
-	Pencil,
-} from 'lucide-react';
+import { Package, Check, X, Pencil } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -19,7 +14,13 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ui/table';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 
 type InventoryItem = {
 	id: string;
@@ -89,9 +90,13 @@ type StockIndicatorProps = {
 	maxStock: number;
 };
 
-const StockIndicator = ({ quantity, minStock, maxStock }: StockIndicatorProps) => {
+const StockIndicator = ({
+	quantity,
+	minStock,
+	maxStock,
+}: StockIndicatorProps) => {
 	let status: 'critical' | 'low' | 'normal' | 'excess';
-	
+
 	if (quantity === 0) {
 		status = 'critical';
 	} else if (quantity <= minStock) {
@@ -102,7 +107,10 @@ const StockIndicator = ({ quantity, minStock, maxStock }: StockIndicatorProps) =
 		status = 'normal';
 	}
 
-	const variants: Record<typeof status, 'destructive' | 'secondary' | 'default' | 'outline'> = {
+	const variants: Record<
+		typeof status,
+		'destructive' | 'secondary' | 'default' | 'outline'
+	> = {
 		critical: 'destructive',
 		low: 'secondary',
 		normal: 'default',
@@ -139,16 +147,65 @@ type EditingState = {
 
 export default function Main() {
 	const [inventory, setInventory] = React.useState<InventoryItem[]>([
-		{ id: '1', name: 'Noise Canceling Headphones', sku: 'NCH-001', image: '', quantity: 45, minStock: 20, maxStock: 100, location: 'A-01' },
-		{ id: '2', name: 'Portable SSD 1TB', sku: 'PSSD-002', image: '', quantity: 12, minStock: 15, maxStock: 50, location: 'B-03' },
-		{ id: '3', name: 'Wireless Charging Pad', sku: 'WCP-003', image: '', quantity: 0, minStock: 10, maxStock: 80, location: 'A-02' },
-		{ id: '4', name: 'USB Microphone', sku: 'UM-004', image: '', quantity: 78, minStock: 25, maxStock: 60, location: 'C-01' },
-		{ id: '5', name: 'LED Desk Lamp', sku: 'LDL-005', image: '', quantity: 200, minStock: 30, maxStock: 150, location: 'D-02' },
+		{
+			id: '1',
+			name: 'Noise Canceling Headphones',
+			sku: 'NCH-001',
+			image: '',
+			quantity: 45,
+			minStock: 20,
+			maxStock: 100,
+			location: 'A-01',
+		},
+		{
+			id: '2',
+			name: 'Portable SSD 1TB',
+			sku: 'PSSD-002',
+			image: '',
+			quantity: 12,
+			minStock: 15,
+			maxStock: 50,
+			location: 'B-03',
+		},
+		{
+			id: '3',
+			name: 'Wireless Charging Pad',
+			sku: 'WCP-003',
+			image: '',
+			quantity: 0,
+			minStock: 10,
+			maxStock: 80,
+			location: 'A-02',
+		},
+		{
+			id: '4',
+			name: 'USB Microphone',
+			sku: 'UM-004',
+			image: '',
+			quantity: 78,
+			minStock: 25,
+			maxStock: 60,
+			location: 'C-01',
+		},
+		{
+			id: '5',
+			name: 'LED Desk Lamp',
+			sku: 'LDL-005',
+			image: '',
+			quantity: 200,
+			minStock: 30,
+			maxStock: 150,
+			location: 'D-02',
+		},
 	]);
 
 	const [editing, setEditing] = React.useState<EditingState>(null);
 
-	const handleEdit = (itemId: string, field: 'quantity' | 'minStock' | 'maxStock', value: number) => {
+	const handleEdit = (
+		itemId: string,
+		field: 'quantity' | 'minStock' | 'maxStock',
+		value: number,
+	) => {
 		setEditing({ itemId, field, value });
 	};
 
@@ -164,8 +221,8 @@ export default function Main() {
 				prev.map((item) =>
 					item.id === editing.itemId
 						? { ...item, [editing.field]: editing.value }
-						: item
-				)
+						: item,
+				),
 			);
 			setEditing(null);
 		}
@@ -202,7 +259,11 @@ export default function Main() {
 											<div className="flex items-center gap-3">
 												<div className="relative size-10 overflow-hidden rounded-lg border bg-muted">
 													{item.image ? (
-														<img src={item.image} alt={item.name} className="size-full object-cover" />
+														<img
+															src={item.image}
+															alt={item.name}
+															className="size-full object-cover"
+														/>
 													) : (
 														<div className="flex size-full items-center justify-center">
 															<Package className="size-5 text-muted-foreground" />
@@ -211,7 +272,9 @@ export default function Main() {
 												</div>
 												<div>
 													<div className="font-medium">{item.name}</div>
-													<div className="text-xs text-muted-foreground">{item.sku}</div>
+													<div className="text-xs text-muted-foreground">
+														{item.sku}
+													</div>
 												</div>
 											</div>
 										</TableCell>
@@ -220,32 +283,62 @@ export default function Main() {
 										</TableCell>
 										<TableCell>
 											<EditableCell
-												value={editing?.itemId === item.id && editing.field === 'quantity' ? editing.value : item.quantity}
-												isEditing={editing?.itemId === item.id && editing.field === 'quantity'}
+												value={
+													editing?.itemId === item.id &&
+													editing.field === 'quantity'
+														? editing.value
+														: item.quantity
+												}
+												isEditing={
+													editing?.itemId === item.id &&
+													editing.field === 'quantity'
+												}
 												onChange={handleChange}
 												onSave={handleSave}
 												onCancel={handleCancel}
-												onEdit={() => handleEdit(item.id, 'quantity', item.quantity)}
+												onEdit={() =>
+													handleEdit(item.id, 'quantity', item.quantity)
+												}
 											/>
 										</TableCell>
 										<TableCell>
 											<EditableCell
-												value={editing?.itemId === item.id && editing.field === 'minStock' ? editing.value : item.minStock}
-												isEditing={editing?.itemId === item.id && editing.field === 'minStock'}
+												value={
+													editing?.itemId === item.id &&
+													editing.field === 'minStock'
+														? editing.value
+														: item.minStock
+												}
+												isEditing={
+													editing?.itemId === item.id &&
+													editing.field === 'minStock'
+												}
 												onChange={handleChange}
 												onSave={handleSave}
 												onCancel={handleCancel}
-												onEdit={() => handleEdit(item.id, 'minStock', item.minStock)}
+												onEdit={() =>
+													handleEdit(item.id, 'minStock', item.minStock)
+												}
 											/>
 										</TableCell>
 										<TableCell>
 											<EditableCell
-												value={editing?.itemId === item.id && editing.field === 'maxStock' ? editing.value : item.maxStock}
-												isEditing={editing?.itemId === item.id && editing.field === 'maxStock'}
+												value={
+													editing?.itemId === item.id &&
+													editing.field === 'maxStock'
+														? editing.value
+														: item.maxStock
+												}
+												isEditing={
+													editing?.itemId === item.id &&
+													editing.field === 'maxStock'
+												}
 												onChange={handleChange}
 												onSave={handleSave}
 												onCancel={handleCancel}
-												onEdit={() => handleEdit(item.id, 'maxStock', item.maxStock)}
+												onEdit={() =>
+													handleEdit(item.id, 'maxStock', item.maxStock)
+												}
 											/>
 										</TableCell>
 										<TableCell>

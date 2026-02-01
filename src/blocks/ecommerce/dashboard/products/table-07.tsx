@@ -29,12 +29,7 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ui/table';
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import {
 	Tooltip,
@@ -76,7 +71,10 @@ const SyncStatusBadge = ({ status, labels }: SyncStatusBadgeProps) => {
 		syncing: <RefreshCw className="size-3 animate-spin" />,
 	};
 
-	const variants: Record<'synced' | 'pending' | 'error' | 'syncing', 'default' | 'secondary' | 'destructive' | 'outline'> = {
+	const variants: Record<
+		'synced' | 'pending' | 'error' | 'syncing',
+		'default' | 'secondary' | 'destructive' | 'outline'
+	> = {
 		synced: 'default',
 		pending: 'secondary',
 		error: 'destructive',
@@ -125,10 +123,13 @@ const StockComparison = ({ local, synced, labels }: StockComparisonProps) => {
 	return (
 		<div className="space-y-1">
 			<div className="flex items-center gap-2">
-				<span className={hasDiff ? 'font-medium text-amber-500' : ''}>{local}</span>
+				<span className={hasDiff ? 'font-medium text-amber-500' : ''}>
+					{local}
+				</span>
 				{hasDiff && (
 					<span className="text-xs text-muted-foreground">
-						({diff > 0 ? '+' : ''}{diff})
+						({diff > 0 ? '+' : ''}
+						{diff})
 					</span>
 				)}
 			</div>
@@ -244,7 +245,10 @@ const ProductRow = ({ product, actions, syncLabels }: ProductRowProps) => (
 			/>
 		</TableCell>
 		<TableCell>
-			<PriceComparison local={product.priceLocal} synced={product.priceSynced} />
+			<PriceComparison
+				local={product.priceLocal}
+				synced={product.priceSynced}
+			/>
 		</TableCell>
 		<TableCell>
 			<DropdownMenu>
@@ -296,7 +300,8 @@ export default function Main() {
 			id: '1',
 			name: 'Bluetooth Speaker Pro',
 			sku: 'SPK-BT-001',
-			image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100&h=100&fit=crop',
 			supplier: { id: 's1', name: 'TechDistro', logo: '' },
 			syncStatus: 'synced',
 			lastSync: '5 min ago',
@@ -310,7 +315,8 @@ export default function Main() {
 			id: '2',
 			name: 'Wireless Charger Stand',
 			sku: 'CHG-WS-002',
-			image: 'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=100&h=100&fit=crop',
 			supplier: { id: 's2', name: 'GlobalTech', logo: '' },
 			syncStatus: 'pending',
 			lastSync: '2 hours ago',
@@ -324,7 +330,8 @@ export default function Main() {
 			id: '3',
 			name: 'USB-C Cable 2m',
 			sku: 'CBL-UC-003',
-			image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100&h=100&fit=crop',
 			supplier: { id: 's1', name: 'TechDistro', logo: '' },
 			syncStatus: 'syncing',
 			lastSync: 'Just now',
@@ -338,7 +345,8 @@ export default function Main() {
 			id: '4',
 			name: 'Laptop Stand Aluminum',
 			sku: 'STD-AL-004',
-			image: 'https://images.unsplash.com/photo-1527443060795-0402a218799b?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1527443060795-0402a218799b?w=100&h=100&fit=crop',
 			supplier: { id: 's3', name: 'OfficePro', logo: '' },
 			syncStatus: 'error',
 			lastSync: '1 day ago',
@@ -352,7 +360,8 @@ export default function Main() {
 			id: '5',
 			name: 'Webcam HD 1080p',
 			sku: 'CAM-HD-005',
-			image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=100&h=100&fit=crop',
 			supplier: { id: 's2', name: 'GlobalTech', logo: '' },
 			syncStatus: 'synced',
 			lastSync: '30 min ago',
@@ -364,12 +373,13 @@ export default function Main() {
 		},
 	];
 
-	const syncLabels: Record<'synced' | 'pending' | 'error' | 'syncing', string> = {
-		synced: 'Synced',
-		pending: 'Pending',
-		error: 'Error',
-		syncing: 'Syncing',
-	};
+	const syncLabels: Record<'synced' | 'pending' | 'error' | 'syncing', string> =
+		{
+			synced: 'Synced',
+			pending: 'Pending',
+			error: 'Error',
+			syncing: 'Syncing',
+		};
 
 	const actions = [
 		{ label: 'Sync Now', onClick: (id: string) => console.log('Sync', id) },
@@ -385,7 +395,15 @@ export default function Main() {
 		{ label: 'Errors', value: 1, color: 'bg-red-500' },
 	];
 
-	const columns = ['Product', 'Supplier', 'External ID', 'Status', 'Last Sync', 'Stock', 'Price'];
+	const columns = [
+		'Product',
+		'Supplier',
+		'External ID',
+		'Status',
+		'Last Sync',
+		'Stock',
+		'Price',
+	];
 
 	return (
 		<section className="@container" data-theme="dashboard">

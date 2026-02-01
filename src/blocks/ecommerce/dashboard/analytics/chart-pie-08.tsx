@@ -9,7 +9,13 @@ type ComparisonData = {
 };
 
 const ComparisonDonut = ({ data }: { data: ComparisonData }) => {
-	const createDonut = (value: number, total: number, color: string, innerR: number, outerR: number) => {
+	const createDonut = (
+		value: number,
+		total: number,
+		color: string,
+		innerR: number,
+		outerR: number,
+	) => {
 		const percentage = (value / total) * 100;
 		const angle = (percentage / 100) * 360;
 		const startAngle = -90;
@@ -35,15 +41,42 @@ const ComparisonDonut = ({ data }: { data: ComparisonData }) => {
 		return { d, percentage };
 	};
 
-	const currentDonut = createDonut(data.current.value, 100, data.current.color, 32, 42);
-	const previousDonut = createDonut(data.previous.value, 100, data.previous.color, 20, 28);
+	const currentDonut = createDonut(
+		data.current.value,
+		100,
+		data.current.color,
+		32,
+		42,
+	);
+	const previousDonut = createDonut(
+		data.previous.value,
+		100,
+		data.previous.color,
+		20,
+		28,
+	);
 
 	return (
 		<div className="flex flex-col items-center">
 			<div className="relative w-32 h-32">
 				<svg viewBox="0 0 100 100" className="w-full h-full">
-					<circle cx="50" cy="50" r="37" fill="none" stroke="hsl(var(--muted))" strokeWidth="10" />
-					<circle cx="50" cy="50" r="24" fill="none" stroke="hsl(var(--muted))" strokeWidth="8" strokeOpacity="0.5" />
+					<circle
+						cx="50"
+						cy="50"
+						r="37"
+						fill="none"
+						stroke="hsl(var(--muted))"
+						strokeWidth="10"
+					/>
+					<circle
+						cx="50"
+						cy="50"
+						r="24"
+						fill="none"
+						stroke="hsl(var(--muted))"
+						strokeWidth="8"
+						strokeOpacity="0.5"
+					/>
 					<path d={currentDonut.d} fill={data.current.color} />
 					<path d={previousDonut.d} fill={data.previous.color} />
 				</svg>
@@ -51,11 +84,17 @@ const ComparisonDonut = ({ data }: { data: ComparisonData }) => {
 			<p className="text-sm font-medium mt-3">{data.label}</p>
 			<div className="flex items-center gap-4 mt-2">
 				<div className="flex items-center gap-1.5">
-					<div className="w-2 h-2 rounded-full" style={{ backgroundColor: data.current.color }} />
+					<div
+						className="w-2 h-2 rounded-full"
+						style={{ backgroundColor: data.current.color }}
+					/>
 					<span className="text-xs">Current: {data.current.value}%</span>
 				</div>
 				<div className="flex items-center gap-1.5">
-					<div className="w-2 h-2 rounded-full" style={{ backgroundColor: data.previous.color }} />
+					<div
+						className="w-2 h-2 rounded-full"
+						style={{ backgroundColor: data.previous.color }}
+					/>
 					<span className="text-xs">Previous: {data.previous.value}%</span>
 				</div>
 			</div>
@@ -92,8 +131,12 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/80 backdrop-blur-sm">
 					<CardHeader className="pb-2">
-						<CardTitle className="text-sm font-medium">Period Comparison</CardTitle>
-						<p className="text-xs text-muted-foreground">Current vs Previous period performance</p>
+						<CardTitle className="text-sm font-medium">
+							Period Comparison
+						</CardTitle>
+						<p className="text-xs text-muted-foreground">
+							Current vs Previous period performance
+						</p>
 					</CardHeader>
 					<CardContent>
 						<div className="grid grid-cols-2 @lg:grid-cols-4 gap-6">

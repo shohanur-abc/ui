@@ -92,11 +92,7 @@ const TestimonialCard = ({
 					</blockquote>
 					{caseStudyUrl && (
 						<div>
-							<Button
-								variant="outline"
-								className="group/btn gap-2"
-								asChild
-							>
+							<Button variant="outline" className="group/btn gap-2" asChild>
 								<Link href={caseStudyUrl}>
 									Read Case Study
 									<ArrowRight className="size-4 transition-transform group-hover/btn:translate-x-1" />

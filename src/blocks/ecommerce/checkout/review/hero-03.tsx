@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
 	ArrowRight,
@@ -23,7 +29,13 @@ interface Product {
 	image: string;
 }
 
-const HeroProduct = ({ product, featured }: { product: Product; featured?: boolean }) => {
+const HeroProduct = ({
+	product,
+	featured,
+}: {
+	product: Product;
+	featured?: boolean;
+}) => {
 	if (featured) {
 		return (
 			<div className="relative overflow-hidden rounded-2xl @md:col-span-2 @md:row-span-2">
@@ -39,7 +51,9 @@ const HeroProduct = ({ product, featured }: { product: Product; featured?: boole
 					<h3 className="text-xl font-bold text-white">{product.name}</h3>
 					<p className="text-sm text-white/80">{product.variant}</p>
 					<div className="mt-2 flex items-center justify-between">
-						<span className="text-2xl font-bold text-white">${product.price.toFixed(2)}</span>
+						<span className="text-2xl font-bold text-white">
+							${product.price.toFixed(2)}
+						</span>
 						<Badge variant="secondary">×{product.qty}</Badge>
 					</div>
 				</div>
@@ -62,7 +76,9 @@ const HeroProduct = ({ product, featured }: { product: Product; featured?: boole
 				<p className="text-xs text-muted-foreground">{product.variant}</p>
 				<div className="mt-1 flex items-center justify-between">
 					<span className="font-bold">${product.price.toFixed(2)}</span>
-					<Badge variant="secondary" className="text-xs">×{product.qty}</Badge>
+					<Badge variant="secondary" className="text-xs">
+						×{product.qty}
+					</Badge>
 				</div>
 			</div>
 		</div>
@@ -102,9 +118,13 @@ const SummaryLine = ({
 	bold?: boolean;
 	green?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-sm'}`}
+	>
 		<span className={bold ? '' : 'text-muted-foreground'}>{label}</span>
-		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>{value}</span>
+		<span className={green ? 'text-green-600 dark:text-green-400' : ''}>
+			{value}
+		</span>
 	</div>
 );
 
@@ -116,7 +136,8 @@ export default function Main() {
 			variant: 'Full Frame / 45MP',
 			price: 2499.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=600&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=600&fit=crop',
 		},
 		{
 			id: '2',
@@ -124,7 +145,8 @@ export default function Main() {
 			variant: '50mm f/1.4',
 			price: 449.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=400&h=400&fit=crop',
 		},
 		{
 			id: '3',
@@ -132,7 +154,8 @@ export default function Main() {
 			variant: 'Large / Waterproof',
 			price: 129.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop',
 		},
 		{
 			id: '4',
@@ -140,7 +163,8 @@ export default function Main() {
 			variant: 'Carbon Fiber',
 			price: 299.99,
 			qty: 1,
-			image: 'https://images.unsplash.com/photo-1617953141905-b27fb1f17d88?w=400&h=400&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1617953141905-b27fb1f17d88?w=400&h=400&fit=crop',
 		},
 	];
 

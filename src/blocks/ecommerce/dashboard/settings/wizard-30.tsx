@@ -20,7 +20,11 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
+import {
+	InputOTP,
+	InputOTPGroup,
+	InputOTPSlot,
+} from '@/components/ui/input-otp';
 import { Label } from '@/components/ui/label';
 import { Progress } from '@/components/ui/progress';
 
@@ -35,7 +39,10 @@ type WizardStep = {
 const WizardProgress = ({
 	steps,
 	currentStep,
-}: { steps: WizardStep[]; currentStep: number }) => (
+}: {
+	steps: WizardStep[];
+	currentStep: number;
+}) => (
 	<div className="mb-8">
 		<div className="flex items-center justify-between mb-4">
 			{steps.map((step, index) => (
@@ -101,7 +108,12 @@ const Step1Profile = () => (
 			</div>
 			<div className="space-y-2 @sm:col-span-2">
 				<Label htmlFor="email">Email Address</Label>
-				<Input id="email" type="email" placeholder="john@example.com" defaultValue="john@example.com" />
+				<Input
+					id="email"
+					type="email"
+					placeholder="john@example.com"
+					defaultValue="john@example.com"
+				/>
 			</div>
 		</div>
 	</div>
@@ -125,7 +137,11 @@ const Step2Password = () => (
 			</div>
 			<div className="space-y-2">
 				<Label htmlFor="confirmPassword">Confirm Password</Label>
-				<Input id="confirmPassword" type="password" placeholder="Confirm password" />
+				<Input
+					id="confirmPassword"
+					type="password"
+					placeholder="Confirm password"
+				/>
 			</div>
 		</div>
 		<div className="space-y-2">
@@ -147,7 +163,8 @@ const Step3TwoFactor = () => (
 		</div>
 		<div className="text-center">
 			<p className="text-sm text-muted-foreground">
-				Scan the QR code with your authenticator app, then enter the 6-digit code below.
+				Scan the QR code with your authenticator app, then enter the 6-digit
+				code below.
 			</p>
 		</div>
 		<div className="flex justify-center">
@@ -176,8 +193,8 @@ const Step4Complete = () => (
 		<div>
 			<h3 className="text-xl font-semibold">Setup Complete!</h3>
 			<p className="mt-2 text-muted-foreground">
-				Your security settings have been configured. You're all set to start using
-				your account securely.
+				Your security settings have been configured. You're all set to start
+				using your account securely.
 			</p>
 		</div>
 		<div className="grid gap-3 @sm:grid-cols-2">
@@ -203,7 +220,12 @@ export default function Main() {
 		{ id: 4, title: 'Complete', icon: Check, completed: false, current: false },
 	];
 
-	const stepComponents = [Step1Profile, Step2Password, Step3TwoFactor, Step4Complete];
+	const stepComponents = [
+		Step1Profile,
+		Step2Password,
+		Step3TwoFactor,
+		Step4Complete,
+	];
 	const CurrentStepComponent = stepComponents[currentStep - 1];
 
 	return (

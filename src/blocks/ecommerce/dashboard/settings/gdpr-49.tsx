@@ -144,8 +144,19 @@ export default function Main() {
 	];
 
 	const existingRequests: ExistingRequest[] = [
-		{ id: '1', type: 'Access My Data', status: 'completed', submittedAt: 'Jan 10, 2026', completedAt: 'Jan 15, 2026' },
-		{ id: '2', type: 'Data Portability', status: 'processing', submittedAt: 'Jan 18, 2026' },
+		{
+			id: '1',
+			type: 'Access My Data',
+			status: 'completed',
+			submittedAt: 'Jan 10, 2026',
+			completedAt: 'Jan 15, 2026',
+		},
+		{
+			id: '2',
+			type: 'Data Portability',
+			status: 'processing',
+			submittedAt: 'Jan 18, 2026',
+		},
 	];
 
 	return (
@@ -177,7 +188,9 @@ export default function Main() {
 
 						<Card>
 							<CardHeader className="border-b">
-								<CardTitle className="text-base">Additional Information</CardTitle>
+								<CardTitle className="text-base">
+									Additional Information
+								</CardTitle>
 								<CardDescription>
 									Provide details about your request
 								</CardDescription>
@@ -203,8 +216,8 @@ export default function Main() {
 								<div className="flex items-start gap-3">
 									<Checkbox id="verify" className="mt-1" />
 									<Label htmlFor="verify" className="text-sm cursor-pointer">
-										I confirm that I am the data subject or authorized to make this
-										request on behalf of the data subject
+										I confirm that I am the data subject or authorized to make
+										this request on behalf of the data subject
 									</Label>
 								</div>
 								<Button className="w-full gap-2">
@@ -239,8 +252,8 @@ export default function Main() {
 									<div>
 										<h4 className="font-medium">Your Rights</h4>
 										<p className="mt-1 text-sm text-muted-foreground">
-											Under GDPR, you have the right to access, rectify, erase, and
-											port your personal data. We'll respond within 30 days.
+											Under GDPR, you have the right to access, rectify, erase,
+											and port your personal data. We'll respond within 30 days.
 										</p>
 									</div>
 								</div>
@@ -254,8 +267,8 @@ export default function Main() {
 									<div>
 										<h4 className="font-medium">Verification Required</h4>
 										<p className="mt-1 text-sm text-muted-foreground">
-											We may need to verify your identity before processing certain
-											requests to protect your data.
+											We may need to verify your identity before processing
+											certain requests to protect your data.
 										</p>
 									</div>
 								</div>

@@ -77,7 +77,8 @@ export default function Main() {
 			author: 'Maya Chen',
 			role: 'Director',
 			company: 'SimpleWorks',
-			avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop',
 			initials: 'MC',
 			rating: 5,
 		},
@@ -86,7 +87,8 @@ export default function Main() {
 			author: 'Nathan Lee',
 			role: 'Manager',
 			company: 'WorkflowPro',
-			avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
 			initials: 'NL',
 			rating: 5,
 		},
@@ -95,14 +97,18 @@ export default function Main() {
 			author: 'Olivia Park',
 			role: 'CEO',
 			company: 'FastResults',
-			avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+			avatar:
+				'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
 			initials: 'OP',
 			rating: 5,
 		},
 	];
 
 	return (
-		<section className="@container relative overflow-hidden" data-theme="testimonial">
+		<section
+			className="@container relative overflow-hidden"
+			data-theme="testimonial"
+		>
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-16 @md:py-20 @xl:py-24 @3xl:py-32">
 				<SectionHeader
 					badge="Side by Side"

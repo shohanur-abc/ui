@@ -49,7 +49,9 @@ const Title = ({ text, highlight }: TitleProps) => (
 );
 
 const Description = ({ text }: DescriptionProps) => (
-	<p className="text-muted-foreground text-sm @md:text-base max-w-lg mx-auto">{text}</p>
+	<p className="text-muted-foreground text-sm @md:text-base max-w-lg mx-auto">
+		{text}
+	</p>
 );
 
 const Form = ({ placeholder, buttonText, buttonIcon: Icon }: FormProps) => (
@@ -67,7 +69,10 @@ const Stats = ({ items }: StatsProps) => (
 		{items.map((item, i) => {
 			const Icon = item.icon;
 			return (
-				<div key={i} className="flex flex-col items-center gap-1 p-3 rounded-lg bg-muted/50">
+				<div
+					key={i}
+					className="flex flex-col items-center gap-1 p-3 rounded-lg bg-muted/50"
+				>
 					<Icon className="size-4 text-primary" />
 					<span className="text-lg @md:text-xl font-bold">{item.value}</span>
 					<span className="text-xs text-muted-foreground">{item.label}</span>
@@ -82,7 +87,11 @@ const TrustBadges = ({ items }: TrustBadgesProps) => (
 		{items.map((item, i) => {
 			const Icon = item.icon;
 			return (
-				<Badge key={i} variant="outline" className="gap-1.5 text-xs font-normal">
+				<Badge
+					key={i}
+					variant="outline"
+					className="gap-1.5 text-xs font-normal"
+				>
 					<Icon className="size-3" />
 					{item.text}
 				</Badge>
@@ -107,7 +116,11 @@ export default function Main() {
 								{ icon: TrendingUp, value: '98%', label: 'Open Rate' },
 							]}
 						/>
-						<Form placeholder="your@company.com" buttonText="Subscribe Now" buttonIcon={Send} />
+						<Form
+							placeholder="your@company.com"
+							buttonText="Subscribe Now"
+							buttonIcon={Send}
+						/>
 						<TrustBadges
 							items={[
 								{ icon: Shield, text: 'Privacy first' },

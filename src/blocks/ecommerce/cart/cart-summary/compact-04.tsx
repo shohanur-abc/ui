@@ -38,7 +38,11 @@ const TotalCompact = ({
 	icon: Icon,
 	label,
 	value,
-}: { icon: LucideIcon; label: string; value: string }) => (
+}: {
+	icon: LucideIcon;
+	label: string;
+	value: string;
+}) => (
 	<div className="flex items-center gap-2">
 		<div className="flex size-8 items-center justify-center rounded-full bg-primary/10">
 			<Icon className="size-4 text-primary" />

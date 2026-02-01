@@ -49,13 +49,25 @@ export default function Main() {
 				<div className="grid grid-cols-1 @lg:grid-cols-2 gap-6">
 					{goals.map((goal, i) => {
 						const percent = (goal.current / goal.target) * 100;
-						
+
 						return (
-							<Card key={i} className="border-border/50 bg-card/80 backdrop-blur-sm">
+							<Card
+								key={i}
+								className="border-border/50 bg-card/80 backdrop-blur-sm"
+							>
 								<CardHeader className="pb-2">
 									<div className="flex items-center justify-between">
-										<CardTitle className="text-sm font-medium">{goal.title}</CardTitle>
-										<Badge variant="outline" className={percent >= 100 ? 'text-emerald-500 border-emerald-500/30' : ''}>
+										<CardTitle className="text-sm font-medium">
+											{goal.title}
+										</CardTitle>
+										<Badge
+											variant="outline"
+											className={
+												percent >= 100
+													? 'text-emerald-500 border-emerald-500/30'
+													: ''
+											}
+										>
 											{percent.toFixed(0)}%
 										</Badge>
 									</div>
@@ -69,7 +81,7 @@ export default function Main() {
 												style={{ width: `${Math.min(percent, 100)}%` }}
 											/>
 										</div>
-										
+
 										{/* Milestone markers */}
 										<div className="relative mt-1">
 											{goal.milestones.map((milestone, j) => {
@@ -80,7 +92,9 @@ export default function Main() {
 														className="absolute -top-4 transform -translate-x-1/2"
 														style={{ left: `${position}%` }}
 													>
-														<div className={`size-3 rounded-full border-2 ${milestone.achieved ? 'bg-emerald-500 border-emerald-500' : 'bg-background border-muted-foreground'}`} />
+														<div
+															className={`size-3 rounded-full border-2 ${milestone.achieved ? 'bg-emerald-500 border-emerald-500' : 'bg-background border-muted-foreground'}`}
+														/>
 														<span className="absolute top-4 left-1/2 -translate-x-1/2 text-[10px] text-muted-foreground whitespace-nowrap">
 															{milestone.label}
 														</span>
@@ -89,14 +103,18 @@ export default function Main() {
 											})}
 										</div>
 									</div>
-									
+
 									<div className="mt-8 flex items-center justify-between text-sm">
 										<span className="text-muted-foreground">Current</span>
-										<span className="font-semibold">${goal.current.toLocaleString()}</span>
+										<span className="font-semibold">
+											${goal.current.toLocaleString()}
+										</span>
 									</div>
 									<div className="flex items-center justify-between text-sm">
 										<span className="text-muted-foreground">Remaining</span>
-										<span className="text-muted-foreground">${(goal.target - goal.current).toLocaleString()}</span>
+										<span className="text-muted-foreground">
+											${(goal.target - goal.current).toLocaleString()}
+										</span>
 									</div>
 								</CardContent>
 							</Card>

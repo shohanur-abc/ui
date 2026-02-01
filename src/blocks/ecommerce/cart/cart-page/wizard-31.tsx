@@ -1,9 +1,25 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Progress } from '@/components/ui/progress';
-import { Minus, Plus, X, ArrowRight, Check, Circle, ShoppingCart, CreditCard, Truck } from 'lucide-react';
+import {
+	Minus,
+	Plus,
+	X,
+	ArrowRight,
+	Check,
+	Circle,
+	ShoppingCart,
+	CreditCard,
+	Truck,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -34,7 +50,10 @@ const StepIndicator = ({ steps }: { steps: Step[] }) => {
 
 	return (
 		<div className="relative">
-			<Progress value={progress} className="h-1 absolute top-5 left-0 right-0" />
+			<Progress
+				value={progress}
+				className="h-1 absolute top-5 left-0 right-0"
+			/>
 			<div className="relative flex justify-between">
 				{steps.map((step) => (
 					<div key={step.id} className="flex flex-col items-center">
@@ -47,11 +66,17 @@ const StepIndicator = ({ steps }: { steps: Step[] }) => {
 										: 'bg-muted text-muted-foreground'
 							}`}
 						>
-							{step.completed ? <Check className="size-5" /> : <step.icon className="size-5" />}
+							{step.completed ? (
+								<Check className="size-5" />
+							) : (
+								<step.icon className="size-5" />
+							)}
 						</div>
 						<span
 							className={`mt-2 text-sm font-medium ${
-								step.active || step.completed ? 'text-foreground' : 'text-muted-foreground'
+								step.active || step.completed
+									? 'text-foreground'
+									: 'text-muted-foreground'
 							}`}
 						>
 							{step.label}
@@ -88,12 +113,20 @@ const QuantityControl = ({ quantity }: { quantity: number }) => (
 	</div>
 );
 
-const ItemPrice = ({ price, quantity }: { price: number; quantity: number }) => (
-	<p className="font-semibold">${(price * quantity).toFixed(2)}</p>
-);
+const ItemPrice = ({
+	price,
+	quantity,
+}: {
+	price: number;
+	quantity: number;
+}) => <p className="font-semibold">${(price * quantity).toFixed(2)}</p>;
 
 const RemoveItem = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<X className="size-4" />
 	</Button>
 );
@@ -117,7 +150,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -151,7 +186,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • US 10',
 			price: 129.99,
@@ -159,7 +195,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Silver',
 			price: 199.99,
@@ -168,9 +205,21 @@ export default function Main() {
 	];
 
 	const steps: Step[] = [
-		{ id: 1, label: 'Cart', icon: ShoppingCart, completed: false, active: true },
+		{
+			id: 1,
+			label: 'Cart',
+			icon: ShoppingCart,
+			completed: false,
+			active: true,
+		},
 		{ id: 2, label: 'Shipping', icon: Truck, completed: false, active: false },
-		{ id: 3, label: 'Payment', icon: CreditCard, completed: false, active: false },
+		{
+			id: 3,
+			label: 'Payment',
+			icon: CreditCard,
+			completed: false,
+			active: false,
+		},
 	];
 
 	const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
@@ -202,7 +251,11 @@ export default function Main() {
 							<SummaryLine label="Shipping" value="Calculated next" />
 							<SummaryLine label="Tax" value="Calculated next" />
 							<Separator className="my-3" />
-							<SummaryLine label="Estimated Total" value={`$${subtotal.toFixed(2)}`} bold />
+							<SummaryLine
+								label="Estimated Total"
+								value={`$${subtotal.toFixed(2)}`}
+								bold
+							/>
 						</div>
 					</CardContent>
 					<CardFooter>

@@ -19,7 +19,11 @@ const SummaryLine = ({
 	subtotal,
 	shipping,
 	tax,
-}: { subtotal: string; shipping: string; tax: string }) => (
+}: {
+	subtotal: string;
+	shipping: string;
+	tax: string;
+}) => (
 	<span className="text-sm text-muted-foreground">
 		{subtotal} + {shipping} shipping + {tax} tax
 	</span>

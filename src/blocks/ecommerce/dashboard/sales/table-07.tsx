@@ -31,7 +31,13 @@ type ShipmentTableCardProps = {
 };
 
 const getStatusBadge = (status: ShipmentData['status']) => {
-	const styles: Record<ShipmentData['status'], { variant: 'default' | 'secondary' | 'destructive' | 'outline'; icon: typeof Package }> = {
+	const styles: Record<
+		ShipmentData['status'],
+		{
+			variant: 'default' | 'secondary' | 'destructive' | 'outline';
+			icon: typeof Package;
+		}
+	> = {
 		processing: { variant: 'secondary', icon: Package },
 		shipped: { variant: 'outline', icon: Truck },
 		'in-transit': { variant: 'default', icon: Truck },
@@ -77,11 +83,16 @@ const ShipmentTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{shipments.map((shipment) => (
-							<TableRow key={shipment.orderId} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={shipment.orderId}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell>
 									<div>
 										<p className="font-mono font-medium">{shipment.orderId}</p>
-										<p className="text-xs text-muted-foreground">{shipment.customer}</p>
+										<p className="text-xs text-muted-foreground">
+											{shipment.customer}
+										</p>
 									</div>
 								</TableCell>
 								<TableCell>
@@ -116,11 +127,56 @@ const ShipmentTableCard = ({
 
 export default function Main() {
 	const shipments: ShipmentData[] = [
-		{ orderId: 'ORD-2851', customer: 'John Doe', destination: 'New York, NY', carrier: 'FedEx', status: 'in-transit', progress: 65, estimatedDelivery: 'Tomorrow', trackingNumber: 'FX123456789' },
-		{ orderId: 'ORD-2850', customer: 'Jane Smith', destination: 'Los Angeles, CA', carrier: 'UPS', status: 'delivered', progress: 100, estimatedDelivery: 'Delivered', trackingNumber: 'UP987654321' },
-		{ orderId: 'ORD-2849', customer: 'Bob Wilson', destination: 'Chicago, IL', carrier: 'USPS', status: 'shipped', progress: 25, estimatedDelivery: 'In 3 days', trackingNumber: 'US456789123' },
-		{ orderId: 'ORD-2848', customer: 'Alice Brown', destination: 'Miami, FL', carrier: 'DHL', status: 'delayed', progress: 45, estimatedDelivery: 'TBD', trackingNumber: 'DH789123456' },
-		{ orderId: 'ORD-2847', customer: 'Charlie Davis', destination: 'Seattle, WA', carrier: 'FedEx', status: 'processing', progress: 10, estimatedDelivery: 'In 4 days', trackingNumber: 'FX321654987' },
+		{
+			orderId: 'ORD-2851',
+			customer: 'John Doe',
+			destination: 'New York, NY',
+			carrier: 'FedEx',
+			status: 'in-transit',
+			progress: 65,
+			estimatedDelivery: 'Tomorrow',
+			trackingNumber: 'FX123456789',
+		},
+		{
+			orderId: 'ORD-2850',
+			customer: 'Jane Smith',
+			destination: 'Los Angeles, CA',
+			carrier: 'UPS',
+			status: 'delivered',
+			progress: 100,
+			estimatedDelivery: 'Delivered',
+			trackingNumber: 'UP987654321',
+		},
+		{
+			orderId: 'ORD-2849',
+			customer: 'Bob Wilson',
+			destination: 'Chicago, IL',
+			carrier: 'USPS',
+			status: 'shipped',
+			progress: 25,
+			estimatedDelivery: 'In 3 days',
+			trackingNumber: 'US456789123',
+		},
+		{
+			orderId: 'ORD-2848',
+			customer: 'Alice Brown',
+			destination: 'Miami, FL',
+			carrier: 'DHL',
+			status: 'delayed',
+			progress: 45,
+			estimatedDelivery: 'TBD',
+			trackingNumber: 'DH789123456',
+		},
+		{
+			orderId: 'ORD-2847',
+			customer: 'Charlie Davis',
+			destination: 'Seattle, WA',
+			carrier: 'FedEx',
+			status: 'processing',
+			progress: 10,
+			estimatedDelivery: 'In 4 days',
+			trackingNumber: 'FX321654987',
+		},
 	];
 
 	return (

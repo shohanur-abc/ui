@@ -131,9 +131,18 @@ const SearchAndFilters = ({
 
 const TypeBadge = ({ type }: { type: CustomerAddress['type'] }) => {
 	const config = {
-		shipping: { label: 'Shipping', className: 'bg-blue-500/10 text-blue-500 border-blue-500/20' },
-		billing: { label: 'Billing', className: 'bg-violet-500/10 text-violet-500 border-violet-500/20' },
-		both: { label: 'Both', className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' },
+		shipping: {
+			label: 'Shipping',
+			className: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+		},
+		billing: {
+			label: 'Billing',
+			className: 'bg-violet-500/10 text-violet-500 border-violet-500/20',
+		},
+		both: {
+			label: 'Both',
+			className: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+		},
 	};
 	return (
 		<Badge variant="outline" className={config[type].className}>
@@ -179,14 +188,19 @@ const AddressRow = ({ address }: { address: CustomerAddress }) => (
 		<TableCell>
 			<div className="flex items-center gap-3">
 				<Avatar className="size-9">
-					<AvatarImage src={address.customer.avatar} alt={address.customer.name} />
+					<AvatarImage
+						src={address.customer.avatar}
+						alt={address.customer.name}
+					/>
 					<AvatarFallback className="bg-primary/10 text-primary text-xs">
 						{address.customer.initials}
 					</AvatarFallback>
 				</Avatar>
 				<div>
 					<p className="font-medium">{address.customer.name}</p>
-					<p className="text-muted-foreground text-xs">{address.customer.email}</p>
+					<p className="text-muted-foreground text-xs">
+						{address.customer.email}
+					</p>
 				</div>
 			</div>
 		</TableCell>
@@ -254,7 +268,11 @@ export default function Main() {
 	const addresses: CustomerAddress[] = [
 		{
 			id: '1',
-			customer: { name: 'Frank Miller', email: 'frank.m@email.com', initials: 'FM' },
+			customer: {
+				name: 'Frank Miller',
+				email: 'frank.m@email.com',
+				initials: 'FM',
+			},
 			type: 'both',
 			isDefault: true,
 			address: {
@@ -272,7 +290,11 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			customer: { name: 'Grace Park', email: 'grace.p@email.com', initials: 'GP' },
+			customer: {
+				name: 'Grace Park',
+				email: 'grace.p@email.com',
+				initials: 'GP',
+			},
 			type: 'shipping',
 			isDefault: false,
 			address: {
@@ -289,7 +311,11 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			customer: { name: 'Henry Chen', email: 'henry.c@email.com', initials: 'HC' },
+			customer: {
+				name: 'Henry Chen',
+				email: 'henry.c@email.com',
+				initials: 'HC',
+			},
 			type: 'billing',
 			isDefault: true,
 			address: {
@@ -306,7 +332,11 @@ export default function Main() {
 		},
 		{
 			id: '4',
-			customer: { name: 'Ivy Wilson', email: 'ivy.w@email.com', initials: 'IW' },
+			customer: {
+				name: 'Ivy Wilson',
+				email: 'ivy.w@email.com',
+				initials: 'IW',
+			},
 			type: 'shipping',
 			isDefault: false,
 			address: {
@@ -323,7 +353,11 @@ export default function Main() {
 		},
 		{
 			id: '5',
-			customer: { name: 'Jack Thompson', email: 'jack.t@email.com', initials: 'JT' },
+			customer: {
+				name: 'Jack Thompson',
+				email: 'jack.t@email.com',
+				initials: 'JT',
+			},
 			type: 'both',
 			isDefault: true,
 			address: {
@@ -360,8 +394,12 @@ export default function Main() {
 								<TableHead className="hidden @md:table-cell">Type</TableHead>
 								<TableHead>Address</TableHead>
 								<TableHead className="hidden @lg:table-cell">Phone</TableHead>
-								<TableHead className="hidden @xl:table-cell text-center">Orders</TableHead>
-								<TableHead className="hidden @xl:table-cell">Last Used</TableHead>
+								<TableHead className="hidden @xl:table-cell text-center">
+									Orders
+								</TableHead>
+								<TableHead className="hidden @xl:table-cell">
+									Last Used
+								</TableHead>
 								<TableHead className="w-12" />
 							</TableRow>
 						</TableHeader>

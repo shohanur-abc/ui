@@ -202,11 +202,7 @@ export default function Main() {
 					<IllustrationPanel />
 
 					<div className="p-6 @lg:p-10 space-y-8">
-						<OrderInfo
-							orderNumber="78432"
-							items={3}
-							delivery="Jan 20-22"
-						/>
+						<OrderInfo orderNumber="78432" items={3} delivery="Jan 20-22" />
 
 						<PaymentCard
 							method="Visa Credit Card"

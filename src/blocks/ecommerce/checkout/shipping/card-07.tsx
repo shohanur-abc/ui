@@ -1,4 +1,11 @@
-import { Store, MapPin, Clock, Phone, Navigation, ChevronRight } from 'lucide-react';
+import {
+	Store,
+	MapPin,
+	Clock,
+	Phone,
+	Navigation,
+	ChevronRight,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -36,21 +43,31 @@ const LocationCard = ({
 		>
 			<CardContent className="p-5">
 				<div className="flex items-start gap-4">
-					<RadioGroupItem value={value} id={value} className="mt-1" disabled={!available} />
+					<RadioGroupItem
+						value={value}
+						id={value}
+						className="mt-1"
+						disabled={!available}
+					/>
 					<div className="flex-1 min-w-0">
 						<div className="flex items-start justify-between gap-2 mb-3">
 							<div>
 								<div className="flex items-center gap-2">
 									<h3 className="font-semibold">{name}</h3>
 									{isOpen && (
-										<Badge variant="secondary" className="text-xs bg-green-500/10 text-green-600">
+										<Badge
+											variant="secondary"
+											className="text-xs bg-green-500/10 text-green-600"
+										>
 											Open Now
 										</Badge>
 									)}
 								</div>
 								<p className="text-sm text-muted-foreground mt-1">{address}</p>
 							</div>
-							<Badge variant="outline" className="shrink-0">{distance}</Badge>
+							<Badge variant="outline" className="shrink-0">
+								{distance}
+							</Badge>
 						</div>
 
 						<div className="grid @sm:grid-cols-2 gap-2 text-sm">
@@ -65,7 +82,9 @@ const LocationCard = ({
 						</div>
 
 						{!available && (
-							<p className="text-sm text-destructive mt-2">Not available for pickup today</p>
+							<p className="text-sm text-destructive mt-2">
+								Not available for pickup today
+							</p>
 						)}
 					</div>
 				</div>
@@ -78,7 +97,10 @@ const SearchBar = ({ placeholder }: { placeholder: string }) => (
 	<div className="relative">
 		<MapPin className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-muted-foreground" />
 		<Input placeholder={placeholder} className="pl-10 h-12" />
-		<Button size="sm" className="absolute right-2 top-1/2 -translate-y-1/2 gap-1">
+		<Button
+			size="sm"
+			className="absolute right-2 top-1/2 -translate-y-1/2 gap-1"
+		>
 			<Navigation className="size-4" />
 			Find
 		</Button>
@@ -138,7 +160,9 @@ export default function Main() {
 					</div>
 					<div>
 						<h1 className="text-2xl font-bold">Store Pickup</h1>
-						<p className="text-muted-foreground">Select a store to pick up your order</p>
+						<p className="text-muted-foreground">
+							Select a store to pick up your order
+						</p>
 					</div>
 				</div>
 
@@ -149,7 +173,9 @@ export default function Main() {
 				<MapPlaceholder />
 
 				<div className="mt-8">
-					<h3 className="font-semibold mb-4">Nearby Stores ({locations.length})</h3>
+					<h3 className="font-semibold mb-4">
+						Nearby Stores ({locations.length})
+					</h3>
 					<RadioGroup defaultValue="downtown" className="space-y-4">
 						{locations.map((location) => (
 							<LocationCard key={location.value} {...location} />
@@ -158,7 +184,9 @@ export default function Main() {
 				</div>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1 gap-2">
 						Select Store
 						<ChevronRight className="size-4" />

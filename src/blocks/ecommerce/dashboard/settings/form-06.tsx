@@ -93,7 +93,12 @@ export default function Main() {
 	const themes: ThemeOption[] = [
 		{ id: 'light', label: 'Light', icon: Sun, description: 'Bright and clean' },
 		{ id: 'dark', label: 'Dark', icon: Moon, description: 'Easy on the eyes' },
-		{ id: 'system', label: 'System', icon: Palette, description: 'Match device' },
+		{
+			id: 'system',
+			label: 'System',
+			icon: Palette,
+			description: 'Match device',
+		},
 	];
 
 	const languages: LocaleOption[] = [
@@ -124,12 +129,17 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Appearance</CardTitle>
-									<CardDescription>Customize how the dashboard looks</CardDescription>
+									<CardDescription>
+										Customize how the dashboard looks
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>
 						<CardContent className="pt-6">
-							<RadioGroup defaultValue="dark" className="grid gap-4 @sm:grid-cols-3">
+							<RadioGroup
+								defaultValue="dark"
+								className="grid gap-4 @sm:grid-cols-3"
+							>
 								{themes.map((theme) => (
 									<ThemeCard key={theme.id} {...theme} />
 								))}
@@ -145,7 +155,9 @@ export default function Main() {
 								</div>
 								<div>
 									<CardTitle>Regional Settings</CardTitle>
-									<CardDescription>Set your language and timezone preferences</CardDescription>
+									<CardDescription>
+										Set your language and timezone preferences
+									</CardDescription>
 								</div>
 							</div>
 						</CardHeader>
@@ -154,14 +166,21 @@ export default function Main() {
 								<SelectField
 									label="Language"
 									icon={Languages}
-									options={languages.map((l) => ({ value: l.value, label: l.label, extra: l.flag }))}
+									options={languages.map((l) => ({
+										value: l.value,
+										label: l.label,
+										extra: l.flag,
+									}))}
 									defaultValue="en"
 									placeholder="Select language"
 								/>
 								<SelectField
 									label="Timezone"
 									icon={Clock}
-									options={timezones.map((t) => ({ value: t.value, label: `${t.label} (${t.offset})` }))}
+									options={timezones.map((t) => ({
+										value: t.value,
+										label: `${t.label} (${t.offset})`,
+									}))}
 									defaultValue="utc"
 									placeholder="Select timezone"
 								/>

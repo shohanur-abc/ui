@@ -2,7 +2,14 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
-import { Repeat, Calendar, TrendingUp, Pause, Edit, MoreHorizontal } from 'lucide-react';
+import {
+	Repeat,
+	Calendar,
+	TrendingUp,
+	Pause,
+	Edit,
+	MoreHorizontal,
+} from 'lucide-react';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -24,10 +31,21 @@ interface RecurringOrder {
 
 interface RecurringOrderRowProps {
 	order: RecurringOrder;
-	labels: { next: string; orders: string; ltv: string; pause: string; edit: string; cancel: string };
+	labels: {
+		next: string;
+		orders: string;
+		ltv: string;
+		pause: string;
+		edit: string;
+		cancel: string;
+	};
 }
 
-const FrequencyBadge = ({ frequency }: { frequency: RecurringOrder['frequency'] }) => {
+const FrequencyBadge = ({
+	frequency,
+}: {
+	frequency: RecurringOrder['frequency'];
+}) => {
 	const labels: Record<RecurringOrder['frequency'], string> = {
 		weekly: 'Weekly',
 		biweekly: 'Bi-weekly',
@@ -43,26 +61,46 @@ const FrequencyBadge = ({ frequency }: { frequency: RecurringOrder['frequency'] 
 };
 
 const StatusBadge = ({ status }: { status: RecurringOrder['status'] }) => {
-	const config: Record<RecurringOrder['status'], { className: string; label: string }> = {
-		active: { className: 'bg-accent/10 text-accent border-accent/30', label: 'Active' },
-		paused: { className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30', label: 'Paused' },
-		cancelled: { className: 'bg-muted text-muted-foreground', label: 'Cancelled' },
+	const config: Record<
+		RecurringOrder['status'],
+		{ className: string; label: string }
+	> = {
+		active: {
+			className: 'bg-accent/10 text-accent border-accent/30',
+			label: 'Active',
+		},
+		paused: {
+			className: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30',
+			label: 'Paused',
+		},
+		cancelled: {
+			className: 'bg-muted text-muted-foreground',
+			label: 'Cancelled',
+		},
 	};
 	const { className, label } = config[status];
-	return <Badge variant="outline" className={className}>{label}</Badge>;
+	return (
+		<Badge variant="outline" className={className}>
+			{label}
+		</Badge>
+	);
 };
 
 const RecurringOrderRow = ({ order, labels }: RecurringOrderRowProps) => (
 	<div className="flex items-center gap-4 p-4 hover:bg-muted/30 transition-colors rounded-lg">
 		<Avatar className="size-10">
 			<AvatarImage src={order.customer.avatar} alt={order.customer.name} />
-			<AvatarFallback className="bg-primary/10 text-primary text-sm">{order.customer.initials}</AvatarFallback>
+			<AvatarFallback className="bg-primary/10 text-primary text-sm">
+				{order.customer.initials}
+			</AvatarFallback>
 		</Avatar>
 
 		<div className="flex-1 min-w-0">
 			<div className="flex items-center gap-2 mb-0.5">
 				<span className="font-semibold">{order.customer.name}</span>
-				<span className="text-xs text-muted-foreground font-mono">{order.id}</span>
+				<span className="text-xs text-muted-foreground font-mono">
+					{order.id}
+				</span>
 			</div>
 			<p className="text-sm text-muted-foreground truncate">{order.product}</p>
 		</div>
@@ -123,13 +161,60 @@ const RecurringOrderRow = ({ order, labels }: RecurringOrderRowProps) => (
 );
 
 export default function Main() {
-	const labels = { next: 'Next', orders: 'orders', ltv: 'LTV', pause: 'Pause', edit: 'Edit', cancel: 'Cancel' };
+	const labels = {
+		next: 'Next',
+		orders: 'orders',
+		ltv: 'LTV',
+		pause: 'Pause',
+		edit: 'Edit',
+		cancel: 'Cancel',
+	};
 
 	const orders: RecurringOrder[] = [
-		{ id: 'REC-001', customer: { name: 'Sarah Johnson', avatar: '', initials: 'SJ' }, product: 'Premium Coffee Subscription - Dark Roast', frequency: 'biweekly', amount: '$29.99', nextDate: 'Feb 3', totalOrders: 24, status: 'active', lifetimeValue: '$719.76' },
-		{ id: 'REC-002', customer: { name: 'Mike Chen', avatar: '', initials: 'MC' }, product: 'Vitamin Bundle - Complete Daily', frequency: 'monthly', amount: '$49.99', nextDate: 'Feb 1', totalOrders: 12, status: 'active', lifetimeValue: '$599.88' },
-		{ id: 'REC-003', customer: { name: 'Emily Davis', avatar: '', initials: 'ED' }, product: 'Healthy Snack Box - Family Size', frequency: 'weekly', amount: '$24.99', nextDate: 'On hold', totalOrders: 52, status: 'paused', lifetimeValue: '$1,299.48' },
-		{ id: 'REC-004', customer: { name: 'Alex Brown', avatar: '', initials: 'AB' }, product: 'Organic Tea Collection', frequency: 'quarterly', amount: '$89.99', nextDate: 'Apr 1', totalOrders: 4, status: 'active', lifetimeValue: '$359.96' },
+		{
+			id: 'REC-001',
+			customer: { name: 'Sarah Johnson', avatar: '', initials: 'SJ' },
+			product: 'Premium Coffee Subscription - Dark Roast',
+			frequency: 'biweekly',
+			amount: '$29.99',
+			nextDate: 'Feb 3',
+			totalOrders: 24,
+			status: 'active',
+			lifetimeValue: '$719.76',
+		},
+		{
+			id: 'REC-002',
+			customer: { name: 'Mike Chen', avatar: '', initials: 'MC' },
+			product: 'Vitamin Bundle - Complete Daily',
+			frequency: 'monthly',
+			amount: '$49.99',
+			nextDate: 'Feb 1',
+			totalOrders: 12,
+			status: 'active',
+			lifetimeValue: '$599.88',
+		},
+		{
+			id: 'REC-003',
+			customer: { name: 'Emily Davis', avatar: '', initials: 'ED' },
+			product: 'Healthy Snack Box - Family Size',
+			frequency: 'weekly',
+			amount: '$24.99',
+			nextDate: 'On hold',
+			totalOrders: 52,
+			status: 'paused',
+			lifetimeValue: '$1,299.48',
+		},
+		{
+			id: 'REC-004',
+			customer: { name: 'Alex Brown', avatar: '', initials: 'AB' },
+			product: 'Organic Tea Collection',
+			frequency: 'quarterly',
+			amount: '$89.99',
+			nextDate: 'Apr 1',
+			totalOrders: 4,
+			status: 'active',
+			lifetimeValue: '$359.96',
+		},
 	];
 
 	return (

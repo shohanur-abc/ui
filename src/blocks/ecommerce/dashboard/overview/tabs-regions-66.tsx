@@ -12,7 +12,13 @@ import {
 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import {
 	ChartConfig,
 	ChartContainer,
@@ -44,7 +50,10 @@ const RegionCard = ({ name, revenue, orders, growth, share }: RegionData) => (
 				<MapPin className="size-4 text-primary" />
 				<span className="font-medium">{name}</span>
 			</div>
-			<Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 text-xs">
+			<Badge
+				variant="secondary"
+				className="bg-emerald-500/10 text-emerald-500 text-xs"
+			>
 				{growth}
 			</Badge>
 		</div>
@@ -76,21 +85,75 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const naRegions: RegionData[] = [
-		{ name: 'United States', revenue: '$142,350', orders: 3845, growth: '+28%', share: 65 },
-		{ name: 'Canada', revenue: '$45,230', orders: 1234, growth: '+22%', share: 21 },
-		{ name: 'Mexico', revenue: '$18,420', orders: 567, growth: '+18%', share: 14 },
+		{
+			name: 'United States',
+			revenue: '$142,350',
+			orders: 3845,
+			growth: '+28%',
+			share: 65,
+		},
+		{
+			name: 'Canada',
+			revenue: '$45,230',
+			orders: 1234,
+			growth: '+22%',
+			share: 21,
+		},
+		{
+			name: 'Mexico',
+			revenue: '$18,420',
+			orders: 567,
+			growth: '+18%',
+			share: 14,
+		},
 	];
 
 	const euRegions: RegionData[] = [
-		{ name: 'United Kingdom', revenue: '$52,340', orders: 1456, growth: '+24%', share: 35 },
-		{ name: 'Germany', revenue: '$48,230', orders: 1324, growth: '+20%', share: 32 },
-		{ name: 'France', revenue: '$32,560', orders: 897, growth: '+15%', share: 22 },
+		{
+			name: 'United Kingdom',
+			revenue: '$52,340',
+			orders: 1456,
+			growth: '+24%',
+			share: 35,
+		},
+		{
+			name: 'Germany',
+			revenue: '$48,230',
+			orders: 1324,
+			growth: '+20%',
+			share: 32,
+		},
+		{
+			name: 'France',
+			revenue: '$32,560',
+			orders: 897,
+			growth: '+15%',
+			share: 22,
+		},
 	];
 
 	const apRegions: RegionData[] = [
-		{ name: 'Australia', revenue: '$38,450', orders: 987, growth: '+32%', share: 42 },
-		{ name: 'Japan', revenue: '$28,340', orders: 756, growth: '+18%', share: 31 },
-		{ name: 'Singapore', revenue: '$15,670', orders: 423, growth: '+25%', share: 17 },
+		{
+			name: 'Australia',
+			revenue: '$38,450',
+			orders: 987,
+			growth: '+32%',
+			share: 42,
+		},
+		{
+			name: 'Japan',
+			revenue: '$28,340',
+			orders: 756,
+			growth: '+18%',
+			share: 31,
+		},
+		{
+			name: 'Singapore',
+			revenue: '$15,670',
+			orders: 423,
+			growth: '+25%',
+			share: 17,
+		},
 	];
 
 	const trendData: TimeSeriesData[] = [
@@ -108,7 +171,9 @@ export default function Main() {
 				<Card>
 					<CardHeader>
 						<CardTitle>Regional Performance</CardTitle>
-						<CardDescription>Sales breakdown by geographic region</CardDescription>
+						<CardDescription>
+							Sales breakdown by geographic region
+						</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Tabs defaultValue="na" className="w-full">
@@ -140,28 +205,74 @@ export default function Main() {
 								</div>
 							</TabsContent>
 							<TabsContent value="trends">
-								<ChartContainer config={chartConfig} className="h-[280px] w-full">
+								<ChartContainer
+									config={chartConfig}
+									className="h-[280px] w-full"
+								>
 									<AreaChart data={trendData}>
 										<defs>
 											<linearGradient id="tabs66na" x1="0" y1="0" x2="0" y2="1">
-												<stop offset="5%" stopColor="var(--color-na)" stopOpacity={0.3} />
-												<stop offset="95%" stopColor="var(--color-na)" stopOpacity={0} />
+												<stop
+													offset="5%"
+													stopColor="var(--color-na)"
+													stopOpacity={0.3}
+												/>
+												<stop
+													offset="95%"
+													stopColor="var(--color-na)"
+													stopOpacity={0}
+												/>
 											</linearGradient>
 											<linearGradient id="tabs66eu" x1="0" y1="0" x2="0" y2="1">
-												<stop offset="5%" stopColor="var(--color-eu)" stopOpacity={0.3} />
-												<stop offset="95%" stopColor="var(--color-eu)" stopOpacity={0} />
+												<stop
+													offset="5%"
+													stopColor="var(--color-eu)"
+													stopOpacity={0.3}
+												/>
+												<stop
+													offset="95%"
+													stopColor="var(--color-eu)"
+													stopOpacity={0}
+												/>
 											</linearGradient>
 											<linearGradient id="tabs66ap" x1="0" y1="0" x2="0" y2="1">
-												<stop offset="5%" stopColor="var(--color-ap)" stopOpacity={0.3} />
-												<stop offset="95%" stopColor="var(--color-ap)" stopOpacity={0} />
+												<stop
+													offset="5%"
+													stopColor="var(--color-ap)"
+													stopOpacity={0.3}
+												/>
+												<stop
+													offset="95%"
+													stopColor="var(--color-ap)"
+													stopOpacity={0}
+												/>
 											</linearGradient>
 										</defs>
 										<XAxis dataKey="name" tickLine={false} axisLine={false} />
-										<YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}K`} />
+										<YAxis
+											tickLine={false}
+											axisLine={false}
+											tickFormatter={(v) => `$${v}K`}
+										/>
 										<ChartTooltip content={<ChartTooltipContent />} />
-										<Area type="monotone" dataKey="na" stroke="var(--color-na)" fill="url(#tabs66na)" />
-										<Area type="monotone" dataKey="eu" stroke="var(--color-eu)" fill="url(#tabs66eu)" />
-										<Area type="monotone" dataKey="ap" stroke="var(--color-ap)" fill="url(#tabs66ap)" />
+										<Area
+											type="monotone"
+											dataKey="na"
+											stroke="var(--color-na)"
+											fill="url(#tabs66na)"
+										/>
+										<Area
+											type="monotone"
+											dataKey="eu"
+											stroke="var(--color-eu)"
+											fill="url(#tabs66eu)"
+										/>
+										<Area
+											type="monotone"
+											dataKey="ap"
+											stroke="var(--color-ap)"
+											fill="url(#tabs66ap)"
+										/>
 									</AreaChart>
 								</ChartContainer>
 							</TabsContent>

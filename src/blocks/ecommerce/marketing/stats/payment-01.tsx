@@ -11,7 +11,13 @@ interface PaymentStatProps {
 	percentage: number;
 }
 
-const PaymentStat = ({ icon: Icon, method, amount, transactions, percentage }: PaymentStatProps) => (
+const PaymentStat = ({
+	icon: Icon,
+	method,
+	amount,
+	transactions,
+	percentage,
+}: PaymentStatProps) => (
 	<Card className="group p-5 transition-all duration-300 hover:shadow-md">
 		<div className="flex items-center gap-3">
 			<div className="rounded-lg bg-primary/10 p-2.5">
@@ -19,7 +25,9 @@ const PaymentStat = ({ icon: Icon, method, amount, transactions, percentage }: P
 			</div>
 			<div className="flex-1">
 				<p className="font-medium">{method}</p>
-				<p className="text-xs text-muted-foreground">{transactions} transactions</p>
+				<p className="text-xs text-muted-foreground">
+					{transactions} transactions
+				</p>
 			</div>
 			<Badge variant="secondary">{percentage}%</Badge>
 		</div>
@@ -34,10 +42,34 @@ const PaymentStat = ({ icon: Icon, method, amount, transactions, percentage }: P
 
 export default function Main() {
 	const stats: PaymentStatProps[] = [
-		{ icon: CreditCard, method: 'Credit Cards', amount: '$1.2M', transactions: '8,294', percentage: 58 },
-		{ icon: Wallet, method: 'Digital Wallets', amount: '$524K', transactions: '4,847', percentage: 25 },
-		{ icon: Building, method: 'Bank Transfer', amount: '$248K', transactions: '847', percentage: 12 },
-		{ icon: Smartphone, method: 'Buy Now Pay Later', amount: '$98K', transactions: '1,284', percentage: 5 },
+		{
+			icon: CreditCard,
+			method: 'Credit Cards',
+			amount: '$1.2M',
+			transactions: '8,294',
+			percentage: 58,
+		},
+		{
+			icon: Wallet,
+			method: 'Digital Wallets',
+			amount: '$524K',
+			transactions: '4,847',
+			percentage: 25,
+		},
+		{
+			icon: Building,
+			method: 'Bank Transfer',
+			amount: '$248K',
+			transactions: '847',
+			percentage: 12,
+		},
+		{
+			icon: Smartphone,
+			method: 'Buy Now Pay Later',
+			amount: '$98K',
+			transactions: '1,284',
+			percentage: 5,
+		},
 	];
 
 	return (

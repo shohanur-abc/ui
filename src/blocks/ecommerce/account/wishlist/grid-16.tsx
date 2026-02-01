@@ -3,7 +3,13 @@ import { Heart, ShoppingCart, Trash2, Palette, Ruler } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
 
 interface ColorOption {
 	name: string;
@@ -26,7 +32,13 @@ interface WishlistGridProps {
 	items: WishlistItem[];
 }
 
-const ColorSelector = ({ colors, selected }: { colors: ColorOption[]; selected: string }) => (
+const ColorSelector = ({
+	colors,
+	selected,
+}: {
+	colors: ColorOption[];
+	selected: string;
+}) => (
 	<div className="flex items-center gap-2 mt-3">
 		<Palette className="size-4 text-muted-foreground" />
 		<div className="flex gap-1.5">
@@ -34,7 +46,9 @@ const ColorSelector = ({ colors, selected }: { colors: ColorOption[]; selected: 
 				<button
 					key={color.name}
 					className={`size-5 rounded-full border-2 transition-all ${
-						selected === color.name ? 'border-primary ring-2 ring-primary/20' : 'border-border'
+						selected === color.name
+							? 'border-primary ring-2 ring-primary/20'
+							: 'border-border'
 					}`}
 					style={{ backgroundColor: color.hex }}
 					title={color.name}
@@ -44,7 +58,13 @@ const ColorSelector = ({ colors, selected }: { colors: ColorOption[]; selected: 
 	</div>
 );
 
-const SizeSelector = ({ sizes, selected }: { sizes: string[]; selected: string }) => (
+const SizeSelector = ({
+	sizes,
+	selected,
+}: {
+	sizes: string[];
+	selected: string;
+}) => (
 	<div className="flex items-center gap-2 mt-2">
 		<Ruler className="size-4 text-muted-foreground" />
 		<Select defaultValue={selected}>
@@ -113,8 +133,9 @@ export default function Main() {
 		{
 			id: '1',
 			name: 'Classic Polo Shirt',
-			price: 65.00,
-			image: 'https://images.unsplash.com/photo-1625910513413-5fc69d8a0b88?w=400&h=533&fit=crop',
+			price: 65.0,
+			image:
+				'https://images.unsplash.com/photo-1625910513413-5fc69d8a0b88?w=400&h=533&fit=crop',
 			colors: [
 				{ name: 'White', hex: '#FFFFFF' },
 				{ name: 'Navy', hex: '#000080' },
@@ -129,8 +150,9 @@ export default function Main() {
 		{
 			id: '2',
 			name: 'Slim Fit Dress Shirt',
-			price: 89.00,
-			image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&h=533&fit=crop',
+			price: 89.0,
+			image:
+				'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&h=533&fit=crop',
 			colors: [
 				{ name: 'White', hex: '#FFFFFF' },
 				{ name: 'Light Blue', hex: '#93C5FD' },
@@ -144,8 +166,9 @@ export default function Main() {
 		{
 			id: '3',
 			name: 'Relaxed Fit Jeans',
-			price: 79.00,
-			image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&h=533&fit=crop',
+			price: 79.0,
+			image:
+				'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&h=533&fit=crop',
 			colors: [
 				{ name: 'Light Wash', hex: '#93C5FD' },
 				{ name: 'Medium Wash', hex: '#3B82F6' },
@@ -160,8 +183,9 @@ export default function Main() {
 		{
 			id: '4',
 			name: 'Leather Oxford Shoes',
-			price: 189.00,
-			image: 'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=533&fit=crop',
+			price: 189.0,
+			image:
+				'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=533&fit=crop',
 			colors: [
 				{ name: 'Tan', hex: '#D2691E' },
 				{ name: 'Brown', hex: '#8B4513' },
@@ -180,7 +204,9 @@ export default function Main() {
 				<div className="flex items-center justify-between mb-6 @md:mb-8">
 					<div>
 						<h1 className="text-2xl @md:text-3xl font-bold">My Wishlist</h1>
-						<p className="text-muted-foreground mt-1">{wishlistItems.length} items saved</p>
+						<p className="text-muted-foreground mt-1">
+							{wishlistItems.length} items saved
+						</p>
 					</div>
 					<Button variant="outline" className="gap-2">
 						<ShoppingCart className="size-4" />

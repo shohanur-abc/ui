@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Minus, Plus, X, ArrowRight, Infinity, Loader2 } from 'lucide-react';
@@ -16,7 +22,15 @@ interface CartItem {
 	quantity: number;
 }
 
-const PageHeader = ({ title, loaded, total }: { title: string; loaded: number; total: number }) => (
+const PageHeader = ({
+	title,
+	loaded,
+	total,
+}: {
+	title: string;
+	loaded: number;
+	total: number;
+}) => (
 	<div className="flex items-center justify-between">
 		<div className="flex items-center gap-3">
 			<Infinity className="size-6 text-primary" />
@@ -55,13 +69,19 @@ const InfiniteItem = ({ item }: { item: CartItem }) => (
 					<h4 className="font-medium text-sm line-clamp-1">{item.name}</h4>
 					<p className="text-xs text-muted-foreground">{item.variant}</p>
 				</div>
-				<Button size="icon-sm" variant="ghost" className="size-6 text-muted-foreground hover:text-destructive shrink-0">
+				<Button
+					size="icon-sm"
+					variant="ghost"
+					className="size-6 text-muted-foreground hover:text-destructive shrink-0"
+				>
 					<X className="size-3" />
 				</Button>
 			</div>
 			<div className="flex items-center justify-between mt-2">
 				<QuantityControl quantity={item.quantity} />
-				<p className="font-semibold text-sm">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-semibold text-sm">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -84,7 +104,13 @@ const LoadMoreButton = ({ remaining }: { remaining: number }) => (
 	</div>
 );
 
-const ScrollProgress = ({ loaded, total }: { loaded: number; total: number }) => {
+const ScrollProgress = ({
+	loaded,
+	total,
+}: {
+	loaded: number;
+	total: number;
+}) => {
 	const percentage = Math.round((loaded / total) * 100);
 	return (
 		<div className="space-y-1">
@@ -111,7 +137,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-xl font-bold' : 'text-muted-foreground'}`}
+	>
 		<span>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -120,12 +148,60 @@ const SummaryLine = ({
 export default function Main() {
 	// Simulating loaded items (would be loaded incrementally)
 	const loadedItems: CartItem[] = [
-		{ id: '1', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop', name: 'Studio Headphones Pro', variant: 'Black • Wireless', price: 299.99, quantity: 1 },
-		{ id: '2', image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&h=150&fit=crop', name: 'Wireless Earbuds', variant: 'White • ANC', price: 179.99, quantity: 1 },
-		{ id: '3', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop', name: 'Running Shoes', variant: 'Red • US 10', price: 149.99, quantity: 1 },
-		{ id: '4', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop', name: 'Classic Watch', variant: 'Silver • Leather', price: 249.99, quantity: 1 },
-		{ id: '5', image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=150&h=150&fit=crop', name: 'Silk Scarf', variant: 'Navy pattern', price: 89.99, quantity: 2 },
-		{ id: '6', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=150&h=150&fit=crop', name: 'Leather Bag', variant: 'Brown', price: 329.99, quantity: 1 },
+		{
+			id: '1',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop',
+			name: 'Studio Headphones Pro',
+			variant: 'Black • Wireless',
+			price: 299.99,
+			quantity: 1,
+		},
+		{
+			id: '2',
+			image:
+				'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&h=150&fit=crop',
+			name: 'Wireless Earbuds',
+			variant: 'White • ANC',
+			price: 179.99,
+			quantity: 1,
+		},
+		{
+			id: '3',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150&h=150&fit=crop',
+			name: 'Running Shoes',
+			variant: 'Red • US 10',
+			price: 149.99,
+			quantity: 1,
+		},
+		{
+			id: '4',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&h=150&fit=crop',
+			name: 'Classic Watch',
+			variant: 'Silver • Leather',
+			price: 249.99,
+			quantity: 1,
+		},
+		{
+			id: '5',
+			image:
+				'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=150&h=150&fit=crop',
+			name: 'Silk Scarf',
+			variant: 'Navy pattern',
+			price: 89.99,
+			quantity: 2,
+		},
+		{
+			id: '6',
+			image:
+				'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=150&h=150&fit=crop',
+			name: 'Leather Bag',
+			variant: 'Brown',
+			price: 329.99,
+			quantity: 1,
+		},
 	];
 
 	const totalItems = 15; // Total items in cart
@@ -134,14 +210,25 @@ export default function Main() {
 	const isLoading = false;
 
 	// Calculate based on all items (simulated total)
-	const estimatedSubtotal = loadedItems.reduce((sum, i) => sum + i.price * i.quantity, 0) * (totalItems / loadedCount);
-	const subtotal = loadedItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
+	const estimatedSubtotal =
+		loadedItems.reduce((sum, i) => sum + i.price * i.quantity, 0) *
+		(totalItems / loadedCount);
+	const subtotal = loadedItems.reduce(
+		(sum, i) => sum + i.price * i.quantity,
+		0,
+	);
 	const tax = subtotal * 0.08;
 	const total = subtotal + tax;
 
 	const summaryLines = [
-		{ label: `Loaded items (${loadedCount})`, value: `$${subtotal.toFixed(2)}` },
-		{ label: 'Estimated total (all)', value: `~$${estimatedSubtotal.toFixed(2)}` },
+		{
+			label: `Loaded items (${loadedCount})`,
+			value: `$${subtotal.toFixed(2)}`,
+		},
+		{
+			label: 'Estimated total (all)',
+			value: `~$${estimatedSubtotal.toFixed(2)}`,
+		},
 		{ label: 'Shipping', value: 'Free' },
 		{ label: 'Tax (loaded)', value: `$${tax.toFixed(2)}` },
 		{ label: 'Current Total', value: `$${total.toFixed(2)}`, bold: true },
@@ -150,7 +237,11 @@ export default function Main() {
 	return (
 		<section className="@container">
 			<div className="mx-auto max-w-5xl px-4 py-8 @md:py-12">
-				<PageHeader title="Infinite Cart" loaded={loadedCount} total={totalItems} />
+				<PageHeader
+					title="Infinite Cart"
+					loaded={loadedCount}
+					total={totalItems}
+				/>
 
 				<div className="mt-8 grid gap-8 @lg:grid-cols-3">
 					<div className="@lg:col-span-2">

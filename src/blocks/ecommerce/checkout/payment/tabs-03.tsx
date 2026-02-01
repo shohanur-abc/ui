@@ -1,10 +1,24 @@
 'use client';
 
-import { Check, CreditCard, Gift, Lock, Percent, Settings, Shield, User } from 'lucide-react';
+import {
+	Check,
+	CreditCard,
+	Gift,
+	Lock,
+	Percent,
+	Settings,
+	Shield,
+	User,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -18,7 +32,13 @@ interface StepTabProps {
 	completed?: boolean;
 }
 
-const StepTabs = ({ tabs, children }: { tabs: StepTabProps[]; children: React.ReactNode }) => (
+const StepTabs = ({
+	tabs,
+	children,
+}: {
+	tabs: StepTabProps[];
+	children: React.ReactNode;
+}) => (
 	<Tabs defaultValue={tabs[0]?.value} className="w-full">
 		<TabsList className="w-full flex h-auto p-0 bg-transparent border-b border-border rounded-none gap-0">
 			{tabs.map((tab) => (
@@ -27,9 +47,13 @@ const StepTabs = ({ tabs, children }: { tabs: StepTabProps[]; children: React.Re
 					value={tab.value}
 					className="flex-1 flex items-center gap-2 py-4 px-2 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
 				>
-					<div className={`size-6 rounded-full flex items-center justify-center text-xs font-medium ${
-						tab.completed ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
-					}`}>
+					<div
+						className={`size-6 rounded-full flex items-center justify-center text-xs font-medium ${
+							tab.completed
+								? 'bg-primary text-primary-foreground'
+								: 'bg-muted text-muted-foreground'
+						}`}
+					>
 						{tab.completed ? <Check className="size-3" /> : tab.step}
 					</div>
 					<span className="hidden @sm:inline text-sm">{tab.label}</span>
@@ -54,10 +78,19 @@ const FormField = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
@@ -71,7 +104,11 @@ const BillingInfoContent = () => (
 			<FormField id="email" label="Email" placeholder="john@example.com" />
 			<FormField id="phone" label="Phone" placeholder="+1 (555) 000-0000" />
 			<div className="@sm:col-span-2">
-				<FormField id="address" label="Billing Address" placeholder="123 Main St" />
+				<FormField
+					id="address"
+					label="Billing Address"
+					placeholder="123 Main St"
+				/>
 			</div>
 			<FormField id="city" label="City" placeholder="New York" />
 			<FormField id="zip" label="ZIP Code" placeholder="10001" />
@@ -83,11 +120,25 @@ const PaymentContent = () => (
 	<div className="space-y-4">
 		<h3 className="font-semibold">Payment Details</h3>
 		<div className="space-y-4">
-			<FormField id="card-number" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
-			<FormField id="card-holder" label="Cardholder Name" placeholder="JOHN DOE" />
+			<FormField
+				id="card-number"
+				label="Card Number"
+				placeholder="1234 5678 9012 3456"
+				icon={CreditCard}
+			/>
+			<FormField
+				id="card-holder"
+				label="Cardholder Name"
+				placeholder="JOHN DOE"
+			/>
 			<div className="grid grid-cols-2 gap-4">
 				<FormField id="expiry" label="Expiry Date" placeholder="MM/YY" />
-				<FormField id="cvc" label="Security Code" placeholder="CVC" type="password" />
+				<FormField
+					id="cvc"
+					label="Security Code"
+					placeholder="CVC"
+					type="password"
+				/>
 			</div>
 		</div>
 		<div className="flex items-center gap-3 p-4 rounded-xl bg-muted/50">
@@ -145,8 +196,12 @@ const ReviewContent = () => (
 					<User className="size-4 text-muted-foreground" />
 					<span className="text-sm font-medium">Billing</span>
 				</div>
-				<p className="text-sm text-muted-foreground">John Doe, john@example.com</p>
-				<p className="text-sm text-muted-foreground">123 Main St, New York 10001</p>
+				<p className="text-sm text-muted-foreground">
+					John Doe, john@example.com
+				</p>
+				<p className="text-sm text-muted-foreground">
+					123 Main St, New York 10001
+				</p>
 			</div>
 			<div className="p-4 rounded-xl bg-muted/30">
 				<div className="flex items-center gap-2 mb-2">
@@ -166,13 +221,21 @@ const ReviewContent = () => (
 	</div>
 );
 
-const OrderTotal = ({ items }: { items: { label: string; value: string; isTotal?: boolean }[] }) => (
+const OrderTotal = ({
+	items,
+}: {
+	items: { label: string; value: string; isTotal?: boolean }[];
+}) => (
 	<div className="p-4 rounded-xl bg-muted/50 space-y-2">
 		{items.map((item, index) => (
 			<div key={index}>
 				{item.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${item.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={item.isTotal ? '' : 'text-muted-foreground'}>{item.label}</span>
+				<div
+					className={`flex justify-between ${item.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span className={item.isTotal ? '' : 'text-muted-foreground'}>
+						{item.label}
+					</span>
 					<span>{item.value}</span>
 				</div>
 			</div>
@@ -180,9 +243,17 @@ const OrderTotal = ({ items }: { items: { label: string; value: string; isTotal?
 	</div>
 );
 
-const NavigationButtons = ({ backLabel, nextLabel }: { backLabel: string; nextLabel: string }) => (
+const NavigationButtons = ({
+	backLabel,
+	nextLabel,
+}: {
+	backLabel: string;
+	nextLabel: string;
+}) => (
 	<div className="flex gap-3">
-		<Button variant="outline" className="flex-1">{backLabel}</Button>
+		<Button variant="outline" className="flex-1">
+			{backLabel}
+		</Button>
 		<Button className="flex-1 gap-2">
 			<Lock className="size-4" />
 			{nextLabel}

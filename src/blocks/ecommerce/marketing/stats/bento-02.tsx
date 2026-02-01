@@ -21,9 +21,13 @@ const MainStatCard = ({ label, value, subtitle, progress }: MainStatProps) => (
 	<Card className="group relative overflow-hidden p-8 @md:col-span-2 @md:row-span-2">
 		<div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-primary/[0.02] to-transparent" />
 		<div className="relative flex h-full flex-col justify-between">
-			<Badge variant="secondary" className="w-fit">{label}</Badge>
+			<Badge variant="secondary" className="w-fit">
+				{label}
+			</Badge>
 			<div className="my-8 space-y-4">
-				<p className="text-6xl font-bold tracking-tighter @lg:text-7xl">{value}</p>
+				<p className="text-6xl font-bold tracking-tighter @lg:text-7xl">
+					{value}
+				</p>
 				<Progress value={progress} className="h-2 w-full max-w-xs" />
 				<p className="text-sm text-muted-foreground">{subtitle}</p>
 			</div>
@@ -38,7 +42,9 @@ const SmallStatCard = ({ icon: Icon, label, value, badge }: SmallStatProps) => (
 				<div className="rounded-lg bg-secondary p-2">
 					<Icon className="size-4 text-primary" />
 				</div>
-				<Badge variant="outline" className="text-[10px]">{badge}</Badge>
+				<Badge variant="outline" className="text-[10px]">
+					{badge}
+				</Badge>
 			</div>
 			<div className="space-y-1">
 				<p className="text-2xl font-bold tracking-tight">{value}</p>

@@ -89,12 +89,7 @@ const SectionHeader = ({
 const OrderItemCard = ({ item }: { item: OrderItem }) => (
 	<div className="flex gap-4 py-4">
 		<div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-muted">
-			<Image
-				src={item.image}
-				alt={item.name}
-				fill
-				className="object-cover"
-			/>
+			<Image src={item.image} alt={item.name} fill className="object-cover" />
 		</div>
 		<div className="flex flex-1 flex-col justify-between">
 			<div>
@@ -111,7 +106,13 @@ const OrderItemCard = ({ item }: { item: OrderItem }) => (
 	</div>
 );
 
-const AddressBlock = ({ address, label }: { address: Address; label: string }) => (
+const AddressBlock = ({
+	address,
+	label,
+}: {
+	address: Address;
+	label: string;
+}) => (
 	<div>
 		<p className="text-sm font-medium text-muted-foreground mb-1">{label}</p>
 		<p className="font-medium">{address.name}</p>
@@ -131,8 +132,12 @@ const PaymentDisplay = ({ payment }: { payment: PaymentMethod }) => {
 				<Icon className="size-6" />
 			</div>
 			<div>
-				<p className="font-medium">{payment.type} •••• {payment.last4}</p>
-				<p className="text-sm text-muted-foreground">Expires {payment.expiry}</p>
+				<p className="font-medium">
+					{payment.type} •••• {payment.last4}
+				</p>
+				<p className="text-sm text-muted-foreground">
+					Expires {payment.expiry}
+				</p>
 			</div>
 		</div>
 	);
@@ -174,7 +179,8 @@ export default function Main() {
 			variant: 'Midnight Black',
 			price: 299.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop',
 		},
 		{
 			id: '2',
@@ -182,7 +188,8 @@ export default function Main() {
 			variant: '15" - Brown',
 			price: 89.99,
 			quantity: 1,
-			image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&h=200&fit=crop',
 		},
 	];
 
@@ -256,8 +263,14 @@ export default function Main() {
 						</CardHeader>
 						<CardContent>
 							<div className="grid gap-6 @md:grid-cols-2">
-								<AddressBlock address={shippingAddress} label="Shipping Address" />
-								<AddressBlock address={billingAddress} label="Billing Address" />
+								<AddressBlock
+									address={shippingAddress}
+									label="Shipping Address"
+								/>
+								<AddressBlock
+									address={billingAddress}
+									label="Billing Address"
+								/>
 							</div>
 							<div className="mt-4">
 								<DeliveryBadge estimate="Dec 24-26, 2025" />
@@ -302,7 +315,8 @@ export default function Main() {
 								Confirm Order
 							</Button>
 							<p className="text-center text-xs text-muted-foreground">
-								By confirming, you agree to our Terms of Service and Privacy Policy
+								By confirming, you agree to our Terms of Service and Privacy
+								Policy
 							</p>
 						</CardFooter>
 					</Card>

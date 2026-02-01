@@ -1,10 +1,28 @@
 'use client';
 
-import { ArrowLeft, Building2, Check, CreditCard, FileText, Lock, Mail, Phone, Shield, Upload, User, X } from 'lucide-react';
+import {
+	ArrowLeft,
+	Building2,
+	Check,
+	CreditCard,
+	FileText,
+	Lock,
+	Mail,
+	Phone,
+	Shield,
+	Upload,
+	User,
+	X,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,10 +30,20 @@ import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 
-const DrawerHeader = ({ title, subtitle, onClose }: { title: string; subtitle: string; onClose: () => void }) => (
+const DrawerHeader = ({
+	title,
+	subtitle,
+	onClose,
+}: {
+	title: string;
+	subtitle: string;
+	onClose: () => void;
+}) => (
 	<div className="flex items-start justify-between">
 		<div>
-			<Badge variant="secondary" className="mb-2">B2B</Badge>
+			<Badge variant="secondary" className="mb-2">
+				B2B
+			</Badge>
 			<h2 className="text-lg font-semibold">{title}</h2>
 			<p className="text-sm text-muted-foreground">{subtitle}</p>
 		</div>
@@ -68,7 +96,11 @@ const ContactInfoForm = () => (
 			<Label className="text-sm">Email</Label>
 			<div className="relative">
 				<Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-				<Input type="email" placeholder="billing@company.com" className="pl-10" />
+				<Input
+					type="email"
+					placeholder="billing@company.com"
+					className="pl-10"
+				/>
 			</div>
 		</div>
 		<div className="space-y-2">
@@ -147,20 +179,34 @@ const PaymentMethodTabs = () => (
 const NotesSection = () => (
 	<div className="space-y-2">
 		<Label className="text-sm">Order Notes</Label>
-		<Textarea placeholder="Add any special instructions..." className="h-20 resize-none" />
+		<Textarea
+			placeholder="Add any special instructions..."
+			className="h-20 resize-none"
+		/>
 	</div>
 );
 
 const ApprovalCheckbox = () => (
 	<div className="flex items-start gap-3">
 		<Checkbox id="approval" className="mt-0.5" />
-		<Label htmlFor="approval" className="text-xs cursor-pointer text-muted-foreground">
+		<Label
+			htmlFor="approval"
+			className="text-xs cursor-pointer text-muted-foreground"
+		>
 			This order requires additional approval from finance@company.com
 		</Label>
 	</div>
 );
 
-const OrderTotal = ({ subtotal, tax, total }: { subtotal: string; tax: string; total: string }) => (
+const OrderTotal = ({
+	subtotal,
+	tax,
+	total,
+}: {
+	subtotal: string;
+	tax: string;
+	total: string;
+}) => (
 	<div className="p-4 rounded-xl bg-muted/30 space-y-2">
 		<div className="flex justify-between text-sm">
 			<span className="text-muted-foreground">Subtotal</span>
@@ -184,7 +230,11 @@ export default function Main() {
 			<div className="mx-auto max-w-7xl px-4 @sm:px-6 @2xl:px-8 py-8 @md:py-12 @xl:py-16">
 				<Card className="border-border/50 bg-card/50 backdrop-blur-sm @sm:max-w-md mx-auto">
 					<CardHeader>
-						<DrawerHeader title="Business Checkout" subtitle="Complete your B2B order" onClose={() => {}} />
+						<DrawerHeader
+							title="Business Checkout"
+							subtitle="Complete your B2B order"
+							onClose={() => {}}
+						/>
 					</CardHeader>
 					<CardContent className="space-y-6">
 						<CompanyInfoForm />

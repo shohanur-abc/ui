@@ -12,7 +12,17 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
-import { Box, CalendarDays, Clock, Minus, Plus, Rocket, ShoppingBag, X, Zap } from 'lucide-react';
+import {
+	Box,
+	CalendarDays,
+	Clock,
+	Minus,
+	Plus,
+	Rocket,
+	ShoppingBag,
+	X,
+	Zap,
+} from 'lucide-react';
 import Image from 'next/image';
 
 interface CartItem {
@@ -138,7 +148,9 @@ const DeliverySpeedSelector = ({
 								<Badge className="text-[10px]">Fastest</Badge>
 							)}
 						</div>
-						<p className="text-sm text-muted-foreground">{option.description}</p>
+						<p className="text-sm text-muted-foreground">
+							{option.description}
+						</p>
 						<Badge variant="outline" className="mt-2">
 							{option.deliveryDate}
 						</Badge>
@@ -190,14 +202,16 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 				name: 'Smart Watch Pro',
 				price: 349.99,
 				quantity: 1,
 			},
 			{
 				id: '2',
-				image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&h=200&fit=crop',
 				name: 'Wireless Earbuds',
 				price: 199.99,
 				quantity: 1,
@@ -245,8 +259,12 @@ export default function Main() {
 		0,
 	);
 	const shippingCost =
-		cartData.speedOptions.find((o) => o.id === cartData.selectedSpeed)?.price || 0;
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+		cartData.speedOptions.find((o) => o.id === cartData.selectedSpeed)?.price ||
+		0;
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">

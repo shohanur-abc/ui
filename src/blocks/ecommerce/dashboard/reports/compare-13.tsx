@@ -1,6 +1,14 @@
 'use client';
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Cell, ResponsiveContainer } from 'recharts';
+import {
+	Bar,
+	BarChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	Cell,
+	ResponsiveContainer,
+} from 'recharts';
 import { Star, Users } from 'lucide-react';
 
 import {
@@ -30,13 +38,23 @@ type CompetitorProps = {
 	sentiment: number;
 };
 
-const CompetitorCard = ({ name, avatar, initials, marketShare, rating, priceIndex, sentiment }: CompetitorProps) => (
+const CompetitorCard = ({
+	name,
+	avatar,
+	initials,
+	marketShare,
+	rating,
+	priceIndex,
+	sentiment,
+}: CompetitorProps) => (
 	<Card className="border-border/30 bg-card/60">
 		<CardContent className="p-5">
 			<div className="flex items-center gap-3">
 				<Avatar className="size-10">
 					<AvatarImage src={avatar} />
-					<AvatarFallback className="bg-primary/10 text-primary">{initials}</AvatarFallback>
+					<AvatarFallback className="bg-primary/10 text-primary">
+						{initials}
+					</AvatarFallback>
 				</Avatar>
 				<div>
 					<p className="font-bold">{name}</p>
@@ -82,10 +100,42 @@ const chartConfig: ChartConfig = {
 
 export default function Main() {
 	const competitors: CompetitorProps[] = [
-		{ name: 'Your Store', avatar: '', initials: 'YS', marketShare: 28, rating: 4.7, priceIndex: 95, sentiment: 82 },
-		{ name: 'Competitor A', avatar: '', initials: 'CA', marketShare: 32, rating: 4.5, priceIndex: 88, sentiment: 76 },
-		{ name: 'Competitor B', avatar: '', initials: 'CB', marketShare: 22, rating: 4.3, priceIndex: 92, sentiment: 71 },
-		{ name: 'Competitor C', avatar: '', initials: 'CC', marketShare: 18, rating: 4.1, priceIndex: 78, sentiment: 68 },
+		{
+			name: 'Your Store',
+			avatar: '',
+			initials: 'YS',
+			marketShare: 28,
+			rating: 4.7,
+			priceIndex: 95,
+			sentiment: 82,
+		},
+		{
+			name: 'Competitor A',
+			avatar: '',
+			initials: 'CA',
+			marketShare: 32,
+			rating: 4.5,
+			priceIndex: 88,
+			sentiment: 76,
+		},
+		{
+			name: 'Competitor B',
+			avatar: '',
+			initials: 'CB',
+			marketShare: 22,
+			rating: 4.3,
+			priceIndex: 92,
+			sentiment: 71,
+		},
+		{
+			name: 'Competitor C',
+			avatar: '',
+			initials: 'CC',
+			marketShare: 18,
+			rating: 4.1,
+			priceIndex: 78,
+			sentiment: 68,
+		},
 	];
 
 	const chartData = competitors.map((c) => ({
@@ -128,18 +178,39 @@ export default function Main() {
 						<div className="grid gap-6 @lg:grid-cols-2">
 							<Card className="border-border/30 bg-muted/10">
 								<CardContent className="p-4">
-									<p className="mb-4 text-sm font-medium">Market Share Distribution</p>
-									<ChartContainer config={chartConfig} className="h-[200px] w-full">
-										<BarChart data={chartData} layout="vertical" margin={{ left: 80 }}>
-											<CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
+									<p className="mb-4 text-sm font-medium">
+										Market Share Distribution
+									</p>
+									<ChartContainer
+										config={chartConfig}
+										className="h-[200px] w-full"
+									>
+										<BarChart
+											data={chartData}
+											layout="vertical"
+											margin={{ left: 80 }}
+										>
+											<CartesianGrid
+												strokeDasharray="3 3"
+												horizontal={true}
+												vertical={false}
+											/>
 											<XAxis type="number" tickLine={false} axisLine={false} />
-											<YAxis type="category" dataKey="name" tickLine={false} axisLine={false} width={70} />
+											<YAxis
+												type="category"
+												dataKey="name"
+												tickLine={false}
+												axisLine={false}
+												width={70}
+											/>
 											<ChartTooltip content={<ChartTooltipContent />} />
 											<Bar dataKey="share" fill="var(--chart-1)" radius={4}>
 												{chartData.map((_, index) => (
 													<Cell
 														key={`cell-${index}`}
-														fill={index === 0 ? 'var(--chart-1)' : 'var(--chart-2)'}
+														fill={
+															index === 0 ? 'var(--chart-1)' : 'var(--chart-2)'
+														}
 													/>
 												))}
 											</Bar>
@@ -149,11 +220,18 @@ export default function Main() {
 							</Card>
 							<Card className="border-border/30 bg-muted/10">
 								<CardContent className="p-4">
-									<p className="mb-4 text-sm font-medium">Competitive Insights</p>
+									<p className="mb-4 text-sm font-medium">
+										Competitive Insights
+									</p>
 									<div className="grid gap-3 @sm:grid-cols-2">
 										{insights.map((ins, i) => (
-											<div key={i} className="rounded-lg border border-border/30 bg-muted/20 p-3">
-												<p className="text-xs text-muted-foreground">{ins.label}</p>
+											<div
+												key={i}
+												className="rounded-lg border border-border/30 bg-muted/20 p-3"
+											>
+												<p className="text-xs text-muted-foreground">
+													{ins.label}
+												</p>
 												<p className="mt-1 font-medium">{ins.value}</p>
 											</div>
 										))}

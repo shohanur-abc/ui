@@ -100,7 +100,10 @@ const ContactInfoSection = () => (
 		<Field label="Phone Number" placeholder="+1 (555) 000-0000" type="tel" />
 		<div className="flex items-center gap-2">
 			<Checkbox id="update-profile" />
-			<Label htmlFor="update-profile" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="update-profile"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Update my profile with this information
 			</Label>
 		</div>
@@ -115,7 +118,11 @@ const ShippingAddressSection = ({
 	states: { value: string; label: string }[];
 }) => (
 	<div className="space-y-4 pt-4">
-		<SelectField label="Country" placeholder="Select country" options={countries} />
+		<SelectField
+			label="Country"
+			placeholder="Select country"
+			options={countries}
+		/>
 		<Field label="Street Address" placeholder="123 Main Street" />
 		<Field label="Apt / Suite" placeholder="Apt 4B (Optional)" />
 		<div className="grid @sm:grid-cols-3 gap-4">
@@ -126,13 +133,19 @@ const ShippingAddressSection = ({
 		<div className="flex flex-wrap gap-4">
 			<div className="flex items-center gap-2">
 				<Checkbox id="save-address" defaultChecked />
-				<Label htmlFor="save-address" className="text-sm font-normal cursor-pointer">
+				<Label
+					htmlFor="save-address"
+					className="text-sm font-normal cursor-pointer"
+				>
 					Save to my addresses
 				</Label>
 			</div>
 			<div className="flex items-center gap-2">
 				<Checkbox id="make-default" />
-				<Label htmlFor="make-default" className="text-sm font-normal cursor-pointer">
+				<Label
+					htmlFor="make-default"
+					className="text-sm font-normal cursor-pointer"
+				>
 					Make default
 				</Label>
 			</div>
@@ -150,7 +163,10 @@ const BillingSection = ({
 	<div className="space-y-4 pt-4">
 		<div className="flex items-center gap-2 mb-4">
 			<Checkbox id="same-as-shipping" defaultChecked />
-			<Label htmlFor="same-as-shipping" className="text-sm font-normal cursor-pointer">
+			<Label
+				htmlFor="same-as-shipping"
+				className="text-sm font-normal cursor-pointer"
+			>
 				Same as shipping address
 			</Label>
 		</div>

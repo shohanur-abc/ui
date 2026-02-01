@@ -1,6 +1,12 @@
 'use client';
 
-import { ArrowUpRight, ArrowDownRight, Smartphone, Monitor, Tablet } from 'lucide-react';
+import {
+	ArrowUpRight,
+	ArrowDownRight,
+	Smartphone,
+	Monitor,
+	Tablet,
+} from 'lucide-react';
 
 import {
 	Card,
@@ -23,7 +29,16 @@ type DeviceCompareProps = {
 	growth: number;
 };
 
-const DeviceCompare = ({ device, icon: Icon, sessions, sessionShare, convRate, revenue, revenueShare, growth }: DeviceCompareProps) => (
+const DeviceCompare = ({
+	device,
+	icon: Icon,
+	sessions,
+	sessionShare,
+	convRate,
+	revenue,
+	revenueShare,
+	growth,
+}: DeviceCompareProps) => (
 	<Card className="border-border/30 bg-card/60">
 		<CardContent className="p-5">
 			<div className="flex items-center justify-between">
@@ -33,7 +48,9 @@ const DeviceCompare = ({ device, icon: Icon, sessions, sessionShare, convRate, r
 					</div>
 					<div>
 						<p className="font-bold">{device}</p>
-						<p className="text-xs text-muted-foreground">{sessionShare}% of traffic</p>
+						<p className="text-xs text-muted-foreground">
+							{sessionShare}% of traffic
+						</p>
 					</div>
 				</div>
 				<Badge
@@ -44,8 +61,13 @@ const DeviceCompare = ({ device, icon: Icon, sessions, sessionShare, convRate, r
 							: 'border-rose-500/20 bg-rose-500/10 text-rose-500'
 					}
 				>
-					{growth >= 0 ? <ArrowUpRight className="mr-1 size-3" /> : <ArrowDownRight className="mr-1 size-3" />}
-					{growth >= 0 ? '+' : ''}{growth}%
+					{growth >= 0 ? (
+						<ArrowUpRight className="mr-1 size-3" />
+					) : (
+						<ArrowDownRight className="mr-1 size-3" />
+					)}
+					{growth >= 0 ? '+' : ''}
+					{growth}%
 				</Badge>
 			</div>
 			<div className="mt-5 space-y-4">
@@ -113,7 +135,11 @@ export default function Main() {
 		{ label: 'Mobile leads in traffic', value: '58% of sessions', trend: 'up' },
 		{ label: 'Desktop leads in revenue', value: '49% of sales', trend: 'up' },
 		{ label: 'Tablet declining', value: '-2.8% YoY', trend: 'down' },
-		{ label: 'Mobile conversion gap', value: '2.6% below desktop', trend: 'warning' },
+		{
+			label: 'Mobile conversion gap',
+			value: '2.6% below desktop',
+			trend: 'warning',
+		},
 	];
 
 	return (
@@ -150,7 +176,9 @@ export default function Main() {
 												}`}
 											/>
 											<div>
-												<p className="text-xs text-muted-foreground">{ins.label}</p>
+												<p className="text-xs text-muted-foreground">
+													{ins.label}
+												</p>
 												<p className="text-sm font-medium">{ins.value}</p>
 											</div>
 										</div>

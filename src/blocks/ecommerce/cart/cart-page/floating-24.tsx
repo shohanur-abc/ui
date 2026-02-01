@@ -1,6 +1,12 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Minus, Plus, X, ShoppingCart, ArrowRight, Lock } from 'lucide-react';
 import Image from 'next/image';
@@ -57,7 +63,11 @@ const QuantitySelector = ({ quantity }: { quantity: number }) => (
 );
 
 const RemoveButton = () => (
-	<Button size="icon-sm" variant="ghost" className="text-muted-foreground hover:text-destructive">
+	<Button
+		size="icon-sm"
+		variant="ghost"
+		className="text-muted-foreground hover:text-destructive"
+	>
 		<X className="size-4" />
 	</Button>
 );
@@ -67,12 +77,18 @@ const CartItemRow = ({ item }: { item: CartItem }) => (
 		<ItemImage src={item.image} alt={item.name} />
 		<div className="flex-1 flex flex-col justify-between">
 			<div className="flex items-start justify-between gap-2">
-				<ItemDetails name={item.name} variant={item.variant} price={item.price} />
+				<ItemDetails
+					name={item.name}
+					variant={item.variant}
+					price={item.price}
+				/>
 				<RemoveButton />
 			</div>
 			<div className="flex items-center justify-between">
 				<QuantitySelector quantity={item.quantity} />
-				<p className="font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+				<p className="font-semibold">
+					${(item.price * item.quantity).toFixed(2)}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -87,7 +103,9 @@ const SummaryLine = ({
 	value: string;
 	bold?: boolean;
 }) => (
-	<div className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-muted-foreground'}`}>
+	<div
+		className={`flex justify-between ${bold ? 'text-lg font-bold' : 'text-muted-foreground'}`}
+	>
 		<span className={bold ? '' : ''}>{label}</span>
 		<span className={bold ? 'text-primary' : ''}>{value}</span>
 	</div>
@@ -141,7 +159,8 @@ export default function Main() {
 	const items: CartItem[] = [
 		{
 			id: '1',
-			image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 			name: 'Running Shoes',
 			variant: 'Red • Size 10',
 			price: 129.99,
@@ -149,7 +168,8 @@ export default function Main() {
 		},
 		{
 			id: '2',
-			image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop',
 			name: 'Classic Watch',
 			variant: 'Gold • Leather',
 			price: 249.99,
@@ -157,7 +177,8 @@ export default function Main() {
 		},
 		{
 			id: '3',
-			image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
+			image:
+				'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop',
 			name: 'Phone Case',
 			variant: 'Clear • iPhone 15',
 			price: 29.99,
@@ -179,7 +200,10 @@ export default function Main() {
 	return (
 		<section className="@container">
 			<div className="mx-auto max-w-6xl px-4 py-8 pb-40 @md:pb-8 @md:py-12">
-				<PageTitle text="Your Cart" subtitle="Review your items before checkout" />
+				<PageTitle
+					text="Your Cart"
+					subtitle="Review your items before checkout"
+				/>
 
 				<div className="mt-8 grid gap-8 @md:grid-cols-5">
 					<div className="divide-y @md:col-span-3">

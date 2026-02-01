@@ -61,7 +61,12 @@ const BulkActionBar = ({
 					</span>
 				</div>
 				{selectedCount < totalCount && (
-					<Button variant="link" size="sm" onClick={onSelectAll} className="h-auto p-0">
+					<Button
+						variant="link"
+						size="sm"
+						onClick={onSelectAll}
+						className="h-auto p-0"
+					>
 						Select all
 					</Button>
 				)}
@@ -70,7 +75,9 @@ const BulkActionBar = ({
 				{actions.slice(0, 3).map((action) => (
 					<Button
 						key={action.label}
-						variant={action.variant === 'destructive' ? 'destructive' : 'secondary'}
+						variant={
+							action.variant === 'destructive' ? 'destructive' : 'secondary'
+						}
 						size="sm"
 						onClick={action.onClick}
 					>
@@ -90,7 +97,9 @@ const BulkActionBar = ({
 								<DropdownMenuItem
 									key={action.label}
 									onClick={action.onClick}
-									className={action.variant === 'destructive' ? 'text-destructive' : ''}
+									className={
+										action.variant === 'destructive' ? 'text-destructive' : ''
+									}
 								>
 									<action.icon className="mr-2 size-4" />
 									{action.label}
@@ -150,7 +159,11 @@ const LocationMenu = ({ locations, onSelect }: LocationMenuProps) => (
 );
 
 export default function Main() {
-	const [selectedItems, setSelectedItems] = React.useState<string[]>(['1', '3', '5']);
+	const [selectedItems, setSelectedItems] = React.useState<string[]>([
+		'1',
+		'3',
+		'5',
+	]);
 	const totalItems = 25;
 
 	const categories = [
@@ -169,9 +182,18 @@ export default function Main() {
 		{ icon: Archive, label: 'Archive', onClick: () => console.log('Archive') },
 		{ icon: Tag, label: 'Tag', onClick: () => console.log('Tag') },
 		{ icon: Download, label: 'Export', onClick: () => console.log('Export') },
-		{ icon: Printer, label: 'Print Labels', onClick: () => console.log('Print') },
+		{
+			icon: Printer,
+			label: 'Print Labels',
+			onClick: () => console.log('Print'),
+		},
 		{ icon: Copy, label: 'Duplicate', onClick: () => console.log('Duplicate') },
-		{ icon: Trash2, label: 'Delete', variant: 'destructive', onClick: () => console.log('Delete') },
+		{
+			icon: Trash2,
+			label: 'Delete',
+			variant: 'destructive',
+			onClick: () => console.log('Delete'),
+		},
 	];
 
 	return (
@@ -182,7 +204,11 @@ export default function Main() {
 						selectedCount={selectedItems.length}
 						totalCount={totalItems}
 						onClearSelection={() => setSelectedItems([])}
-						onSelectAll={() => setSelectedItems(Array.from({ length: totalItems }, (_, i) => String(i + 1)))}
+						onSelectAll={() =>
+							setSelectedItems(
+								Array.from({ length: totalItems }, (_, i) => String(i + 1)),
+							)
+						}
 						actions={actions}
 					/>
 
@@ -207,14 +233,20 @@ export default function Main() {
 								>
 									<div
 										className={`flex size-5 items-center justify-center rounded border ${
-											isSelected ? 'border-primary bg-primary' : 'border-muted-foreground'
+											isSelected
+												? 'border-primary bg-primary'
+												: 'border-muted-foreground'
 										}`}
 									>
-										{isSelected && <CheckSquare className="size-4 text-primary-foreground" />}
+										{isSelected && (
+											<CheckSquare className="size-4 text-primary-foreground" />
+										)}
 									</div>
 									<div className="flex-1">
 										<p className="font-medium">Product {i + 1}</p>
-										<p className="text-sm text-muted-foreground">SKU-00{i + 1}</p>
+										<p className="text-sm text-muted-foreground">
+											SKU-00{i + 1}
+										</p>
 									</div>
 									<Badge variant="secondary">In Stock</Badge>
 								</div>

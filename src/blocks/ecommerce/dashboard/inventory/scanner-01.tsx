@@ -1,17 +1,16 @@
 'use client';
 
 import * as React from 'react';
-import {
-	Package,
-	Scan,
-	Plus,
-	Minus,
-	Check,
-	Search,
-	X,
-} from 'lucide-react';
+import { Package, Scan, Plus, Minus, Check, Search, X } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardFooter,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -97,7 +96,12 @@ type ScannedItemProps = {
 	onRemove: (id: string) => void;
 };
 
-const ScannedItem = ({ item, onUpdateCount, onVerify, onRemove }: ScannedItemProps) => {
+const ScannedItem = ({
+	item,
+	onUpdateCount,
+	onVerify,
+	onRemove,
+}: ScannedItemProps) => {
 	const statusConfig = {
 		pending: { label: 'Pending', variant: 'secondary' as const },
 		verified: { label: 'Verified', variant: 'default' as const },
@@ -121,22 +125,36 @@ const ScannedItem = ({ item, onUpdateCount, onVerify, onRemove }: ScannedItemPro
 			</div>
 			<div className="text-center">
 				<p className="text-xs text-muted-foreground">Counted</p>
-				<Counter count={item.countedStock} onChange={(count) => onUpdateCount(item.id, count)} />
+				<Counter
+					count={item.countedStock}
+					onChange={(count) => onUpdateCount(item.id, count)}
+				/>
 			</div>
 			<div className="text-center">
 				<p className="text-xs text-muted-foreground">Variance</p>
-				<p className={`font-semibold ${item.variance > 0 ? 'text-emerald-500' : item.variance < 0 ? 'text-red-500' : ''}`}>
-					{item.variance > 0 ? '+' : ''}{item.variance}
+				<p
+					className={`font-semibold ${item.variance > 0 ? 'text-emerald-500' : item.variance < 0 ? 'text-red-500' : ''}`}
+				>
+					{item.variance > 0 ? '+' : ''}
+					{item.variance}
 				</p>
 			</div>
 			<Badge variant={variant}>{label}</Badge>
 			<div className="flex gap-1">
 				{item.status !== 'verified' && (
-					<Button variant="ghost" size="icon-sm" onClick={() => onVerify(item.id)}>
+					<Button
+						variant="ghost"
+						size="icon-sm"
+						onClick={() => onVerify(item.id)}
+					>
 						<Check className="size-4 text-emerald-500" />
 					</Button>
 				)}
-				<Button variant="ghost" size="icon-sm" onClick={() => onRemove(item.id)}>
+				<Button
+					variant="ghost"
+					size="icon-sm"
+					onClick={() => onRemove(item.id)}
+				>
 					<X className="size-4 text-destructive" />
 				</Button>
 			</div>
@@ -151,7 +169,12 @@ type SummaryProps = {
 	labels: { scanned: string; verified: string; discrepancies: string };
 };
 
-const Summary = ({ scannedCount, verifiedCount, discrepancyCount, labels }: SummaryProps) => (
+const Summary = ({
+	scannedCount,
+	verifiedCount,
+	discrepancyCount,
+	labels,
+}: SummaryProps) => (
 	<div className="grid gap-4 @sm:grid-cols-3">
 		<div className="rounded-lg border p-4 text-center">
 			<p className="text-2xl font-bold">{scannedCount}</p>
@@ -170,9 +193,36 @@ const Summary = ({ scannedCount, verifiedCount, discrepancyCount, labels }: Summ
 
 export default function Main() {
 	const [scannedItems, setScannedItems] = React.useState<ScanResult[]>([
-		{ id: '1', name: 'Wireless Headphones', sku: 'WH-001', barcode: '1234567890123', expectedStock: 50, countedStock: 48, variance: -2, status: 'discrepancy' },
-		{ id: '2', name: 'USB-C Cable', sku: 'USB-001', barcode: '2345678901234', expectedStock: 200, countedStock: 200, variance: 0, status: 'verified' },
-		{ id: '3', name: 'Power Bank', sku: 'PB-001', barcode: '3456789012345', expectedStock: 75, countedStock: 75, variance: 0, status: 'pending' },
+		{
+			id: '1',
+			name: 'Wireless Headphones',
+			sku: 'WH-001',
+			barcode: '1234567890123',
+			expectedStock: 50,
+			countedStock: 48,
+			variance: -2,
+			status: 'discrepancy',
+		},
+		{
+			id: '2',
+			name: 'USB-C Cable',
+			sku: 'USB-001',
+			barcode: '2345678901234',
+			expectedStock: 200,
+			countedStock: 200,
+			variance: 0,
+			status: 'verified',
+		},
+		{
+			id: '3',
+			name: 'Power Bank',
+			sku: 'PB-001',
+			barcode: '3456789012345',
+			expectedStock: 75,
+			countedStock: 75,
+			variance: 0,
+			status: 'pending',
+		},
 	]);
 
 	const handleUpdateCount = (id: string, count: number) => {
@@ -184,13 +234,15 @@ export default function Main() {
 					return { ...item, countedStock: count, variance, status };
 				}
 				return item;
-			})
+			}),
 		);
 	};
 
 	const handleVerify = (id: string) => {
 		setScannedItems((items) =>
-			items.map((item) => (item.id === id ? { ...item, status: 'verified' } : item))
+			items.map((item) =>
+				item.id === id ? { ...item, status: 'verified' } : item,
+			),
 		);
 	};
 
@@ -198,8 +250,12 @@ export default function Main() {
 		setScannedItems((items) => items.filter((item) => item.id !== id));
 	};
 
-	const verifiedCount = scannedItems.filter((i) => i.status === 'verified').length;
-	const discrepancyCount = scannedItems.filter((i) => i.status === 'discrepancy').length;
+	const verifiedCount = scannedItems.filter(
+		(i) => i.status === 'verified',
+	).length;
+	const discrepancyCount = scannedItems.filter(
+		(i) => i.status === 'discrepancy',
+	).length;
 
 	return (
 		<section className="@container" data-theme="dashboard">
@@ -210,12 +266,19 @@ export default function Main() {
 						<CardDescription>Scan products to count inventory</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-6">
-						<ScanInput onScan={(barcode) => console.log(barcode)} placeholder="Scan or enter barcode..." />
+						<ScanInput
+							onScan={(barcode) => console.log(barcode)}
+							placeholder="Scan or enter barcode..."
+						/>
 						<Summary
 							scannedCount={scannedItems.length}
 							verifiedCount={verifiedCount}
 							discrepancyCount={discrepancyCount}
-							labels={{ scanned: 'Items Scanned', verified: 'Verified', discrepancies: 'Discrepancies' }}
+							labels={{
+								scanned: 'Items Scanned',
+								verified: 'Verified',
+								discrepancies: 'Discrepancies',
+							}}
 						/>
 						<div className="space-y-2">
 							{scannedItems.map((item) => (

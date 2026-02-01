@@ -1,9 +1,23 @@
-import { ArrowLeft, Check, Clock, CreditCard, Download, Lock, Mail, Shield } from 'lucide-react';
+import {
+	ArrowLeft,
+	Check,
+	Clock,
+	CreditCard,
+	Download,
+	Lock,
+	Mail,
+	Shield,
+} from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
@@ -35,12 +49,21 @@ const BackLink = ({ label }: { label: string }) => (
 	</Button>
 );
 
-const ProductCard = ({ name, type, size, image, initials, price }: DigitalProductProps) => (
+const ProductCard = ({
+	name,
+	type,
+	size,
+	image,
+	initials,
+	price,
+}: DigitalProductProps) => (
 	<div className="flex gap-4 p-4 rounded-xl bg-muted/30 border border-border/50">
 		<div className="size-24 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden shrink-0">
 			<Avatar className="size-16">
 				<AvatarImage src={image} alt={name} />
-				<AvatarFallback className="text-xl bg-primary/10">{initials}</AvatarFallback>
+				<AvatarFallback className="text-xl bg-primary/10">
+					{initials}
+				</AvatarFallback>
 			</Avatar>
 		</div>
 		<div className="flex-1 space-y-2">
@@ -66,12 +89,16 @@ const ProductCard = ({ name, type, size, image, initials, price }: DigitalProduc
 const LicenseOption = ({ type, description, selected }: LicenseProps) => (
 	<div
 		className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
-			selected ? 'border-primary bg-primary/5' : 'border-border/50 hover:border-primary/30'
+			selected
+				? 'border-primary bg-primary/5'
+				: 'border-border/50 hover:border-primary/30'
 		}`}
 	>
-		<div className={`size-5 rounded-full border-2 flex items-center justify-center ${
-			selected ? 'border-primary bg-primary' : 'border-muted-foreground'
-		}`}>
+		<div
+			className={`size-5 rounded-full border-2 flex items-center justify-center ${
+				selected ? 'border-primary bg-primary' : 'border-muted-foreground'
+			}`}
+		>
 			{selected && <Check className="size-3 text-primary-foreground" />}
 		</div>
 		<div className="flex-1">
@@ -119,21 +146,38 @@ const FormField = ({
 	icon?: React.ComponentType<{ className?: string }>;
 }) => (
 	<div className="space-y-2">
-		<Label htmlFor={id} className="text-sm">{label}</Label>
+		<Label htmlFor={id} className="text-sm">
+			{label}
+		</Label>
 		<div className="relative">
-			{Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />}
-			<Input id={id} type={type} placeholder={placeholder} className={Icon ? 'pl-10' : ''} />
+			{Icon && (
+				<Icon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+			)}
+			<Input
+				id={id}
+				type={type}
+				placeholder={placeholder}
+				className={Icon ? 'pl-10' : ''}
+			/>
 		</div>
 	</div>
 );
 
-const PriceSummary = ({ items }: { items: { label: string; value: string; isTotal?: boolean }[] }) => (
+const PriceSummary = ({
+	items,
+}: {
+	items: { label: string; value: string; isTotal?: boolean }[];
+}) => (
 	<div className="space-y-2 p-4 rounded-xl bg-muted/30">
 		{items.map((item, index) => (
 			<div key={index}>
 				{item.isTotal && <Separator className="my-2" />}
-				<div className={`flex justify-between ${item.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={item.isTotal ? '' : 'text-muted-foreground'}>{item.label}</span>
+				<div
+					className={`flex justify-between ${item.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span className={item.isTotal ? '' : 'text-muted-foreground'}>
+						{item.label}
+					</span>
 					<span>{item.value}</span>
 				</div>
 			</div>
@@ -151,7 +195,9 @@ const PurchaseButton = ({ label }: { label: string }) => (
 const DeliveryNote = ({ email }: { email: string }) => (
 	<div className="flex items-center gap-2 p-3 rounded-lg bg-primary/5 border border-primary/20 text-sm">
 		<Mail className="size-4 text-primary" />
-		<span>Download link will be sent to <strong>{email}</strong></span>
+		<span>
+			Download link will be sent to <strong>{email}</strong>
+		</span>
 	</div>
 );
 
@@ -166,8 +212,15 @@ export default function Main() {
 	};
 
 	const licenses: LicenseProps[] = [
-		{ type: 'Personal License', description: 'Use for personal projects only', selected: true },
-		{ type: 'Commercial License', description: 'Use for client & commercial work (+$40)' },
+		{
+			type: 'Personal License',
+			description: 'Use for personal projects only',
+			selected: true,
+		},
+		{
+			type: 'Commercial License',
+			description: 'Use for client & commercial work (+$40)',
+		},
 	];
 
 	const benefits: BenefitProps[] = [
@@ -206,11 +259,26 @@ export default function Main() {
 								</div>
 							</CardHeader>
 							<CardContent className="space-y-4">
-								<FormField id="email" label="Email Address" placeholder="john@example.com" icon={Mail} />
-								<FormField id="card" label="Card Number" placeholder="1234 5678 9012 3456" icon={CreditCard} />
+								<FormField
+									id="email"
+									label="Email Address"
+									placeholder="john@example.com"
+									icon={Mail}
+								/>
+								<FormField
+									id="card"
+									label="Card Number"
+									placeholder="1234 5678 9012 3456"
+									icon={CreditCard}
+								/>
 								<div className="grid grid-cols-2 gap-4">
 									<FormField id="exp" label="Expiry" placeholder="MM/YY" />
-									<FormField id="cvc" label="CVC" placeholder="123" type="password" />
+									<FormField
+										id="cvc"
+										label="CVC"
+										placeholder="123"
+										type="password"
+									/>
 								</div>
 								<PriceSummary items={priceItems} />
 								<DeliveryNote email="john@example.com" />

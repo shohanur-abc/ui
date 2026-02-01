@@ -25,7 +25,13 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 type ExpiryStatus = 'expired' | 'expiring-soon' | 'valid';
@@ -61,7 +67,10 @@ type ExpiryBadgeProps = {
 };
 
 const ExpiryBadge = ({ status, daysUntilExpiry, labels }: ExpiryBadgeProps) => {
-	const variants: Record<ExpiryStatus, 'destructive' | 'secondary' | 'default'> = {
+	const variants: Record<
+		ExpiryStatus,
+		'destructive' | 'secondary' | 'default'
+	> = {
 		expired: 'destructive',
 		'expiring-soon': 'secondary',
 		valid: 'default',
@@ -85,9 +94,12 @@ type ExpiryProgressProps = {
 };
 
 const ExpiryProgress = ({ daysUntilExpiry, maxDays }: ExpiryProgressProps) => {
-	const percentage = Math.max(0, Math.min(100, (daysUntilExpiry / maxDays) * 100));
+	const percentage = Math.max(
+		0,
+		Math.min(100, (daysUntilExpiry / maxDays) * 100),
+	);
 	let colorClass = '';
-	
+
 	if (daysUntilExpiry <= 0) {
 		colorClass = '[&>div]:bg-destructive';
 	} else if (daysUntilExpiry <= 30) {
@@ -116,7 +128,11 @@ const InventoryRow = ({ item, statusLabels, actions }: InventoryRowProps) => (
 			<div className="flex items-center gap-3">
 				<div className="relative size-10 overflow-hidden rounded-lg border bg-muted">
 					{item.image ? (
-						<img src={item.image} alt={item.name} className="size-full object-cover" />
+						<img
+							src={item.image}
+							alt={item.name}
+							className="size-full object-cover"
+						/>
 					) : (
 						<div className="flex size-full items-center justify-center">
 							<Package className="size-5 text-muted-foreground" />
@@ -185,7 +201,12 @@ type SummaryCardProps = {
 	variant: 'destructive' | 'warning' | 'default';
 };
 
-const SummaryCard = ({ icon: Icon, label, value, variant }: SummaryCardProps) => {
+const SummaryCard = ({
+	icon: Icon,
+	label,
+	value,
+	variant,
+}: SummaryCardProps) => {
 	const colors = {
 		destructive: 'text-destructive bg-destructive/10',
 		warning: 'text-yellow-600 bg-yellow-500/10',
@@ -207,11 +228,61 @@ const SummaryCard = ({ icon: Icon, label, value, variant }: SummaryCardProps) =>
 
 export default function Main() {
 	const inventory: InventoryItem[] = [
-		{ id: '1', name: 'Vitamin C Serum', sku: 'VCS-001', batchNumber: 'B2024-001', image: '', quantity: 150, expiryDate: '2024-01-10', daysUntilExpiry: -5, status: 'expired' },
-		{ id: '2', name: 'Face Moisturizer', sku: 'FM-002', batchNumber: 'B2024-002', image: '', quantity: 80, expiryDate: '2024-02-15', daysUntilExpiry: 12, status: 'expiring-soon' },
-		{ id: '3', name: 'Eye Cream', sku: 'EC-003', batchNumber: 'B2024-003', image: '', quantity: 200, expiryDate: '2024-02-28', daysUntilExpiry: 25, status: 'expiring-soon' },
-		{ id: '4', name: 'Sunscreen SPF50', sku: 'SS-004', batchNumber: 'B2024-004', image: '', quantity: 300, expiryDate: '2024-06-30', daysUntilExpiry: 147, status: 'valid' },
-		{ id: '5', name: 'Night Cream', sku: 'NC-005', batchNumber: 'B2024-005', image: '', quantity: 45, expiryDate: '2024-01-20', daysUntilExpiry: 5, status: 'expiring-soon' },
+		{
+			id: '1',
+			name: 'Vitamin C Serum',
+			sku: 'VCS-001',
+			batchNumber: 'B2024-001',
+			image: '',
+			quantity: 150,
+			expiryDate: '2024-01-10',
+			daysUntilExpiry: -5,
+			status: 'expired',
+		},
+		{
+			id: '2',
+			name: 'Face Moisturizer',
+			sku: 'FM-002',
+			batchNumber: 'B2024-002',
+			image: '',
+			quantity: 80,
+			expiryDate: '2024-02-15',
+			daysUntilExpiry: 12,
+			status: 'expiring-soon',
+		},
+		{
+			id: '3',
+			name: 'Eye Cream',
+			sku: 'EC-003',
+			batchNumber: 'B2024-003',
+			image: '',
+			quantity: 200,
+			expiryDate: '2024-02-28',
+			daysUntilExpiry: 25,
+			status: 'expiring-soon',
+		},
+		{
+			id: '4',
+			name: 'Sunscreen SPF50',
+			sku: 'SS-004',
+			batchNumber: 'B2024-004',
+			image: '',
+			quantity: 300,
+			expiryDate: '2024-06-30',
+			daysUntilExpiry: 147,
+			status: 'valid',
+		},
+		{
+			id: '5',
+			name: 'Night Cream',
+			sku: 'NC-005',
+			batchNumber: 'B2024-005',
+			image: '',
+			quantity: 45,
+			expiryDate: '2024-01-20',
+			daysUntilExpiry: 5,
+			status: 'expiring-soon',
+		},
 	];
 
 	const statusLabels: Record<ExpiryStatus, string> = {
@@ -222,13 +293,21 @@ export default function Main() {
 
 	const actions = [
 		{ label: 'View Batch', onClick: (id: string) => console.log('View', id) },
-		{ label: 'Mark for Disposal', onClick: (id: string) => console.log('Dispose', id) },
-		{ label: 'Create Discount', onClick: (id: string) => console.log('Discount', id) },
+		{
+			label: 'Mark for Disposal',
+			onClick: (id: string) => console.log('Dispose', id),
+		},
+		{
+			label: 'Create Discount',
+			onClick: (id: string) => console.log('Discount', id),
+		},
 	];
 
-	const expiredCount = inventory.filter(i => i.status === 'expired').length;
-	const expiringSoonCount = inventory.filter(i => i.status === 'expiring-soon').length;
-	const validCount = inventory.filter(i => i.status === 'valid').length;
+	const expiredCount = inventory.filter((i) => i.status === 'expired').length;
+	const expiringSoonCount = inventory.filter(
+		(i) => i.status === 'expiring-soon',
+	).length;
+	const validCount = inventory.filter((i) => i.status === 'valid').length;
 
 	return (
 		<section className="@container" data-theme="dashboard">

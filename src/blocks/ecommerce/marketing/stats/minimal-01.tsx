@@ -11,12 +11,12 @@ const StatItem = ({ value, label, badge }: StatItemProps) => (
 		<div className="absolute -right-4 -top-4 size-24 rounded-full bg-primary/5 blur-2xl transition-all duration-500 group-hover:bg-primary/10" />
 		<div className="relative flex items-start justify-between">
 			<div>
-				<p className="text-3xl font-bold tracking-tight @sm:text-4xl">{value}</p>
+				<p className="text-3xl font-bold tracking-tight @sm:text-4xl">
+					{value}
+				</p>
 				<p className="mt-2 text-sm text-muted-foreground">{label}</p>
 			</div>
-			{badge && (
-				<Badge variant="secondary">{badge}</Badge>
-			)}
+			{badge && <Badge variant="secondary">{badge}</Badge>}
 		</div>
 	</div>
 );

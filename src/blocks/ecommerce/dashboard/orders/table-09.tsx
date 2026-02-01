@@ -17,7 +17,16 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { MoreVertical, Printer, Mail, FileText, Truck, Ban, Copy, ExternalLink } from 'lucide-react';
+import {
+	MoreVertical,
+	Printer,
+	Mail,
+	FileText,
+	Truck,
+	Ban,
+	Copy,
+	ExternalLink,
+} from 'lucide-react';
 
 interface Product {
 	name: string;
@@ -41,7 +50,11 @@ interface BulkActionsProps {
 }
 
 interface ActionMenuProps {
-	actions: { icon: React.ComponentType<{ className?: string }>; label: string; variant?: 'default' | 'destructive' }[];
+	actions: {
+		icon: React.ComponentType<{ className?: string }>;
+		label: string;
+		variant?: 'default' | 'destructive';
+	}[];
 }
 
 interface ProductCellProps {
@@ -86,7 +99,10 @@ const ProductCell = ({ product }: ProductCellProps) => (
 );
 
 const StatusBadge = ({ status }: { status: Order['status'] }) => {
-	const config: Record<Order['status'], { label: string; variant: 'default' | 'secondary' | 'outline' }> = {
+	const config: Record<
+		Order['status'],
+		{ label: string; variant: 'default' | 'secondary' | 'outline' }
+	> = {
 		confirmed: { label: 'Confirmed', variant: 'outline' },
 		packed: { label: 'Packed', variant: 'secondary' },
 		shipped: { label: 'Shipped', variant: 'default' },
@@ -105,7 +121,9 @@ const ActionMenu = ({ actions }: ActionMenuProps) => (
 		<DropdownMenuContent align="end" className="w-48">
 			{actions.map((action, i) => (
 				<>
-					{action.variant === 'destructive' && <DropdownMenuSeparator key={`sep-${i}`} />}
+					{action.variant === 'destructive' && (
+						<DropdownMenuSeparator key={`sep-${i}`} />
+					)}
 					<DropdownMenuItem
 						key={i}
 						className={`gap-2 ${action.variant === 'destructive' ? 'text-destructive focus:text-destructive' : ''}`}
@@ -119,7 +137,13 @@ const ActionMenu = ({ actions }: ActionMenuProps) => (
 	</DropdownMenu>
 );
 
-const OrderRow = ({ order, actions }: { order: Order; actions: ActionMenuProps['actions'] }) => (
+const OrderRow = ({
+	order,
+	actions,
+}: {
+	order: Order;
+	actions: ActionMenuProps['actions'];
+}) => (
 	<TableRow className="hover:bg-muted/30 transition-colors">
 		<TableCell>
 			<Checkbox />
@@ -155,7 +179,11 @@ export default function Main() {
 	const orders: Order[] = [
 		{
 			id: 'SO-2024001',
-			product: { name: 'Premium Wireless Earbuds', image: '', variant: 'Midnight Black' },
+			product: {
+				name: 'Premium Wireless Earbuds',
+				image: '',
+				variant: 'Midnight Black',
+			},
 			quantity: 2,
 			unitPrice: '$149.00',
 			total: '$298.00',
@@ -164,7 +192,11 @@ export default function Main() {
 		},
 		{
 			id: 'SO-2024002',
-			product: { name: 'Smart Fitness Tracker', image: '', variant: 'Rose Gold / Small' },
+			product: {
+				name: 'Smart Fitness Tracker',
+				image: '',
+				variant: 'Rose Gold / Small',
+			},
 			quantity: 1,
 			unitPrice: '$199.00',
 			total: '$199.00',
@@ -189,7 +221,17 @@ export default function Main() {
 		},
 	];
 
-	const headers = ['', 'Order ID', 'Product', 'Qty', 'Unit Price', 'Total', 'Status', 'Tracking', ''];
+	const headers = [
+		'',
+		'Order ID',
+		'Product',
+		'Qty',
+		'Unit Price',
+		'Total',
+		'Status',
+		'Tracking',
+		'',
+	];
 
 	return (
 		<section className="@container" data-theme="orders">
@@ -197,7 +239,12 @@ export default function Main() {
 				<div className="rounded-xl border border-border/50 overflow-hidden bg-card/50 backdrop-blur-sm">
 					<BulkActions
 						selectedCount={2}
-						labels={{ selected: 'orders selected', print: 'Print', email: 'Email', export: 'Export' }}
+						labels={{
+							selected: 'orders selected',
+							print: 'Print',
+							email: 'Email',
+							export: 'Export',
+						}}
 					/>
 					<Table>
 						<TableHeader>
@@ -206,7 +253,10 @@ export default function Main() {
 									<Checkbox />
 								</TableHead>
 								{headers.slice(1).map((header) => (
-									<TableHead key={header} className={header === 'Qty' ? 'text-center' : ''}>
+									<TableHead
+										key={header}
+										className={header === 'Qty' ? 'text-center' : ''}
+									>
 										{header}
 									</TableHead>
 								))}

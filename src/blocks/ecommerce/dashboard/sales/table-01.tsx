@@ -71,7 +71,10 @@ const TransactionTableCard = ({
 					</TableHeader>
 					<TableBody>
 						{transactions.map((tx) => (
-							<TableRow key={tx.id} className="hover:bg-muted/50 transition-colors">
+							<TableRow
+								key={tx.id}
+								className="hover:bg-muted/50 transition-colors"
+							>
 								<TableCell className="font-mono text-sm">{tx.id}</TableCell>
 								<TableCell>
 									<div>
@@ -83,12 +86,16 @@ const TransactionTableCard = ({
 									${tx.amount.toLocaleString()}
 								</TableCell>
 								<TableCell>
-									<Badge variant={getStatusVariant(tx.status)}>{tx.status}</Badge>
+									<Badge variant={getStatusVariant(tx.status)}>
+										{tx.status}
+									</Badge>
 								</TableCell>
 								<TableCell className="text-muted-foreground">
 									{tx.paymentMethod}
 								</TableCell>
-								<TableCell className="text-muted-foreground">{tx.date}</TableCell>
+								<TableCell className="text-muted-foreground">
+									{tx.date}
+								</TableCell>
 							</TableRow>
 						))}
 					</TableBody>
@@ -100,11 +107,51 @@ const TransactionTableCard = ({
 
 export default function Main() {
 	const transactions: Transaction[] = [
-		{ id: 'ORD-001', customer: 'Alice Johnson', email: 'alice@example.com', amount: 1250, status: 'completed', date: '2024-01-15', paymentMethod: 'Credit Card' },
-		{ id: 'ORD-002', customer: 'Bob Smith', email: 'bob@example.com', amount: 890, status: 'pending', date: '2024-01-15', paymentMethod: 'PayPal' },
-		{ id: 'ORD-003', customer: 'Carol White', email: 'carol@example.com', amount: 2100, status: 'completed', date: '2024-01-14', paymentMethod: 'Credit Card' },
-		{ id: 'ORD-004', customer: 'David Brown', email: 'david@example.com', amount: 450, status: 'failed', date: '2024-01-14', paymentMethod: 'Debit Card' },
-		{ id: 'ORD-005', customer: 'Emma Davis', email: 'emma@example.com', amount: 1680, status: 'refunded', date: '2024-01-13', paymentMethod: 'Credit Card' },
+		{
+			id: 'ORD-001',
+			customer: 'Alice Johnson',
+			email: 'alice@example.com',
+			amount: 1250,
+			status: 'completed',
+			date: '2024-01-15',
+			paymentMethod: 'Credit Card',
+		},
+		{
+			id: 'ORD-002',
+			customer: 'Bob Smith',
+			email: 'bob@example.com',
+			amount: 890,
+			status: 'pending',
+			date: '2024-01-15',
+			paymentMethod: 'PayPal',
+		},
+		{
+			id: 'ORD-003',
+			customer: 'Carol White',
+			email: 'carol@example.com',
+			amount: 2100,
+			status: 'completed',
+			date: '2024-01-14',
+			paymentMethod: 'Credit Card',
+		},
+		{
+			id: 'ORD-004',
+			customer: 'David Brown',
+			email: 'david@example.com',
+			amount: 450,
+			status: 'failed',
+			date: '2024-01-14',
+			paymentMethod: 'Debit Card',
+		},
+		{
+			id: 'ORD-005',
+			customer: 'Emma Davis',
+			email: 'emma@example.com',
+			amount: 1680,
+			status: 'refunded',
+			date: '2024-01-13',
+			paymentMethod: 'Credit Card',
+		},
 	];
 
 	return (

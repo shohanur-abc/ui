@@ -96,9 +96,7 @@ const SuccessCard = ({
 				</div>
 				<div>
 					<h1 className="text-xl font-bold">Order Complete!</h1>
-					<p className="text-muted-foreground text-sm">
-						Order #{orderNumber}
-					</p>
+					<p className="text-muted-foreground text-sm">Order #{orderNumber}</p>
 				</div>
 			</div>
 			<div className="grid grid-cols-2 gap-4">
@@ -111,9 +109,7 @@ const SuccessCard = ({
 				</div>
 				<div className="p-3 rounded-lg bg-primary/10">
 					<p className="text-sm text-muted-foreground">Points Earned</p>
-					<p className="font-bold text-lg text-primary">
-						+{pointsEarned}
-					</p>
+					<p className="font-bold text-lg text-primary">+{pointsEarned}</p>
 				</div>
 			</div>
 		</CardContent>
@@ -191,7 +187,8 @@ const TierProgressCard = ({
 					/>
 				</div>
 				<p className="text-xs text-muted-foreground mt-2 text-center">
-					{currentPoints.toLocaleString()} / {nextTierPoints.toLocaleString()} points
+					{currentPoints.toLocaleString()} / {nextTierPoints.toLocaleString()}{' '}
+					points
 				</p>
 			</CardContent>
 		</Card>
@@ -246,7 +243,12 @@ export default function Main() {
 				<CTA
 					items={[
 						{ label: 'View Rewards', href: '/rewards', icon: Gift },
-						{ label: 'Track Order', href: '/track', variant: 'outline', icon: ArrowRight },
+						{
+							label: 'Track Order',
+							href: '/track',
+							variant: 'outline',
+							icon: ArrowRight,
+						},
 					]}
 				/>
 			</div>

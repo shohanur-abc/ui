@@ -1,10 +1,26 @@
 'use client';
 
-import { ArrowRight, Check, ChevronRight, CreditCard, Gift, Lock, Package, Shield, Sparkles, Truck } from 'lucide-react';
+import {
+	ArrowRight,
+	Check,
+	ChevronRight,
+	CreditCard,
+	Gift,
+	Lock,
+	Package,
+	Shield,
+	Sparkles,
+	Truck,
+} from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -18,14 +34,24 @@ interface CartItem {
 	image: string;
 }
 
-const BreadcrumbSteps = ({ steps, currentIndex }: { steps: string[]; currentIndex: number }) => (
+const BreadcrumbSteps = ({
+	steps,
+	currentIndex,
+}: {
+	steps: string[];
+	currentIndex: number;
+}) => (
 	<div className="flex items-center gap-1 text-sm overflow-x-auto pb-2">
 		{steps.map((step, index) => (
 			<div key={index} className="flex items-center shrink-0">
-				<span className={`${index === currentIndex ? 'text-primary font-medium' : index < currentIndex ? 'text-foreground' : 'text-muted-foreground'}`}>
+				<span
+					className={`${index === currentIndex ? 'text-primary font-medium' : index < currentIndex ? 'text-foreground' : 'text-muted-foreground'}`}
+				>
 					{step}
 				</span>
-				{index < steps.length - 1 && <ChevronRight className="size-4 text-muted-foreground mx-1" />}
+				{index < steps.length - 1 && (
+					<ChevronRight className="size-4 text-muted-foreground mx-1" />
+				)}
 			</div>
 		))}
 	</div>
@@ -117,16 +143,31 @@ const PromoCodeInput = () => (
 	</div>
 );
 
-const OrderBreakdown = ({ lines }: { lines: { label: string; value: string; isTotal?: boolean; isSavings?: boolean }[] }) => (
+const OrderBreakdown = ({
+	lines,
+}: {
+	lines: {
+		label: string;
+		value: string;
+		isTotal?: boolean;
+		isSavings?: boolean;
+	}[];
+}) => (
 	<div className="space-y-2">
 		{lines.map((line, index) => (
 			<div key={index}>
 				{line.isTotal && <Separator className="my-3" />}
-				<div className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}>
-					<span className={`${line.isSavings ? 'text-emerald-600' : ''} ${!line.isTotal && !line.isSavings ? 'text-muted-foreground' : ''}`}>
+				<div
+					className={`flex justify-between ${line.isTotal ? 'font-semibold text-lg' : 'text-sm'}`}
+				>
+					<span
+						className={`${line.isSavings ? 'text-emerald-600' : ''} ${!line.isTotal && !line.isSavings ? 'text-muted-foreground' : ''}`}
+					>
 						{line.label}
 					</span>
-					<span className={line.isSavings ? 'text-emerald-600' : ''}>{line.value}</span>
+					<span className={line.isSavings ? 'text-emerald-600' : ''}>
+						{line.value}
+					</span>
 				</div>
 			</div>
 		))}
@@ -157,8 +198,20 @@ export default function Main() {
 	const steps = ['Cart', 'Payment', 'Confirmation'];
 
 	const cartItems: CartItem[] = [
-		{ name: 'Wireless Headphones Pro', variant: 'Midnight Black', quantity: 1, price: '$249.00', image: '🎧' },
-		{ name: 'USB-C Cable 2m', variant: 'White', quantity: 2, price: '$29.00', image: '🔌' },
+		{
+			name: 'Wireless Headphones Pro',
+			variant: 'Midnight Black',
+			quantity: 1,
+			price: '$249.00',
+			image: '🎧',
+		},
+		{
+			name: 'USB-C Cable 2m',
+			variant: 'White',
+			quantity: 2,
+			price: '$29.00',
+			image: '🔌',
+		},
 	];
 
 	const orderLines = [

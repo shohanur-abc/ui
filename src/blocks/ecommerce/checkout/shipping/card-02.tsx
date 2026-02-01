@@ -42,7 +42,9 @@ const AddressCard = ({
 						<div className="flex items-center gap-2 mb-2">
 							<span className="font-semibold">{type}</span>
 							{isDefault && (
-								<Badge variant="secondary" className="text-xs">Default</Badge>
+								<Badge variant="secondary" className="text-xs">
+									Default
+								</Badge>
 							)}
 						</div>
 						<div className="space-y-1.5 text-sm">
@@ -72,7 +74,13 @@ const AddressCard = ({
 	</Label>
 );
 
-const AddNewCard = ({ label, description }: { label: string; description: string }) => (
+const AddNewCard = ({
+	label,
+	description,
+}: {
+	label: string;
+	description: string;
+}) => (
 	<Card className="border-dashed hover:border-primary/50 transition-colors cursor-pointer">
 		<CardContent className="p-5">
 			<div className="flex flex-col items-center justify-center text-center py-6">
@@ -121,7 +129,9 @@ export default function Main() {
 			<div className="mx-auto max-w-2xl px-4 @sm:px-6 @2xl:px-8 py-12 @md:py-16 @xl:py-20">
 				<div className="text-center mb-10">
 					<h1 className="text-2xl font-bold mb-2">Delivery Address</h1>
-					<p className="text-muted-foreground">Select where you want your order delivered</p>
+					<p className="text-muted-foreground">
+						Select where you want your order delivered
+					</p>
 				</div>
 
 				<RadioGroup defaultValue="home" className="space-y-4">
@@ -131,11 +141,16 @@ export default function Main() {
 				</RadioGroup>
 
 				<div className="mt-6">
-					<AddNewCard label="Add New Address" description="Save a new delivery location" />
+					<AddNewCard
+						label="Add New Address"
+						description="Save a new delivery location"
+					/>
 				</div>
 
 				<div className="flex gap-3 pt-8">
-					<Button variant="outline" className="flex-1">Back</Button>
+					<Button variant="outline" className="flex-1">
+						Back
+					</Button>
 					<Button className="flex-1">Continue</Button>
 				</div>
 			</div>

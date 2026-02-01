@@ -140,8 +140,18 @@ export default function Main() {
 	];
 
 	const trustedContacts: TrustedContact[] = [
-		{ id: '1', name: 'Jane Doe', email: 'jane@example.com', added: 'Jan 10, 2026' },
-		{ id: '2', name: 'Bob Smith', email: 'bob@example.com', added: 'Dec 5, 2025' },
+		{
+			id: '1',
+			name: 'Jane Doe',
+			email: 'jane@example.com',
+			added: 'Jan 10, 2026',
+		},
+		{
+			id: '2',
+			name: 'Bob Smith',
+			email: 'bob@example.com',
+			added: 'Dec 5, 2025',
+		},
 	];
 
 	return (
@@ -157,7 +167,8 @@ export default function Main() {
 								<div>
 									<CardTitle>Account Recovery</CardTitle>
 									<CardDescription>
-										Set up recovery options to regain access if you lose your password
+										Set up recovery options to regain access if you lose your
+										password
 									</CardDescription>
 								</div>
 							</div>

@@ -118,7 +118,9 @@ const OrderSummary = ({
 			</div>
 			<div className="flex justify-between text-sm">
 				<span className="text-muted-foreground">Shipping</span>
-				<span>{shipping === 0 ? 'Free' : `${currency}${shipping.toFixed(2)}`}</span>
+				<span>
+					{shipping === 0 ? 'Free' : `${currency}${shipping.toFixed(2)}`}
+				</span>
 			</div>
 			<div className="flex justify-between text-sm">
 				<span className="text-muted-foreground">Tax</span>
@@ -166,9 +168,7 @@ const ShippingInfo = ({
 				<Truck className="size-5 text-muted-foreground mt-0.5" />
 				<div>
 					<p className="font-medium">{method}</p>
-					<p className="text-sm text-muted-foreground">
-						Estimated: {estimate}
-					</p>
+					<p className="text-sm text-muted-foreground">Estimated: {estimate}</p>
 				</div>
 			</div>
 		</div>
@@ -228,7 +228,12 @@ const CTA = ({ items }: CTAProps) => (
 
 export default function Main() {
 	const orderItems: OrderSummaryItemProps[] = [
-		{ name: 'Premium Wireless Headphones', quantity: 1, price: 299.99, currency: '$' },
+		{
+			name: 'Premium Wireless Headphones',
+			quantity: 1,
+			price: 299.99,
+			currency: '$',
+		},
 		{ name: 'USB-C Charging Cable', quantity: 2, price: 19.99, currency: '$' },
 	];
 
@@ -246,7 +251,7 @@ export default function Main() {
 					items={orderItems}
 					subtotal={339.97}
 					shipping={0}
-					tax={27.20}
+					tax={27.2}
 					total={367.17}
 					currency="$"
 				/>
@@ -263,12 +268,7 @@ export default function Main() {
 
 				<Separator />
 
-				<PaymentInfo
-					method="Visa"
-					last4="4242"
-					amount={367.17}
-					currency="$"
-				/>
+				<PaymentInfo method="Visa" last4="4242" amount={367.17} currency="$" />
 
 				<CTA
 					items={[

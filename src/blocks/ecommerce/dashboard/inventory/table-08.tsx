@@ -27,7 +27,13 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+} from '@/components/ui/card';
 
 type TransferStatus = 'pending' | 'in-transit' | 'delivered' | 'cancelled';
 
@@ -69,7 +75,13 @@ type StatusBadgeProps = {
 };
 
 const StatusBadge = ({ status, labels }: StatusBadgeProps) => {
-	const config: Record<TransferStatus, { variant: 'default' | 'secondary' | 'destructive' | 'outline'; icon: React.ElementType }> = {
+	const config: Record<
+		TransferStatus,
+		{
+			variant: 'default' | 'secondary' | 'destructive' | 'outline';
+			icon: React.ElementType;
+		}
+	> = {
 		pending: { variant: 'secondary', icon: Clock },
 		'in-transit': { variant: 'default', icon: Truck },
 		delivered: { variant: 'outline', icon: CheckCircle2 },
@@ -117,7 +129,11 @@ const TransferRow = ({ transfer, statusLabels, actions }: TransferRowProps) => (
 			<div className="flex items-center gap-3">
 				<div className="relative size-10 overflow-hidden rounded-lg border bg-muted">
 					{transfer.productImage ? (
-						<img src={transfer.productImage} alt={transfer.productName} className="size-full object-cover" />
+						<img
+							src={transfer.productImage}
+							alt={transfer.productName}
+							className="size-full object-cover"
+						/>
 					) : (
 						<div className="flex size-full items-center justify-center">
 							<Package className="size-5 text-muted-foreground" />
@@ -126,11 +142,15 @@ const TransferRow = ({ transfer, statusLabels, actions }: TransferRowProps) => (
 				</div>
 				<div>
 					<div className="font-medium">{transfer.productName}</div>
-					<div className="text-xs text-muted-foreground">{transfer.productSku}</div>
+					<div className="text-xs text-muted-foreground">
+						{transfer.productSku}
+					</div>
 				</div>
 			</div>
 		</TableCell>
-		<TableCell className="font-semibold tabular-nums">{transfer.quantity}</TableCell>
+		<TableCell className="font-semibold tabular-nums">
+			{transfer.quantity}
+		</TableCell>
 		<TableCell>
 			<LocationPath from={transfer.fromLocation} to={transfer.toLocation} />
 		</TableCell>
@@ -242,8 +262,14 @@ export default function Main() {
 
 	const actions = [
 		{ label: 'View Details', onClick: (id: string) => console.log('View', id) },
-		{ label: 'Track Shipment', onClick: (id: string) => console.log('Track', id) },
-		{ label: 'Cancel Transfer', onClick: (id: string) => console.log('Cancel', id) },
+		{
+			label: 'Track Shipment',
+			onClick: (id: string) => console.log('Track', id),
+		},
+		{
+			label: 'Cancel Transfer',
+			onClick: (id: string) => console.log('Cancel', id),
+		},
 	];
 
 	return (

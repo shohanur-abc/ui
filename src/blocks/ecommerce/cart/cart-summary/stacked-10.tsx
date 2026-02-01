@@ -47,7 +47,11 @@ const TotalRow = ({
 	label,
 	value,
 	pointsLabel,
-}: { label: string; value: string; pointsLabel: string }) => (
+}: {
+	label: string;
+	value: string;
+	pointsLabel: string;
+}) => (
 	<div className="rounded-lg bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-red-500/10 p-4">
 		<div className="flex items-center justify-between">
 			<span className="text-lg font-semibold">{label}</span>
@@ -62,7 +66,10 @@ const TotalRow = ({
 const Header = ({
 	title,
 	tierBadge,
-}: { title: string; tierBadge: { label: string; icon: LucideIcon } }) => (
+}: {
+	title: string;
+	tierBadge: { label: string; icon: LucideIcon };
+}) => (
 	<CardHeader className="border-b">
 		<CardTitle className="flex items-center justify-between">
 			{title}
@@ -109,7 +116,9 @@ const PointsEarned = ({ points, multiplier }: PointsEarnedProps) => (
 			<Star className="size-5 text-amber-500" />
 			<div>
 				<p className="text-sm font-medium">Points You&apos;ll Earn</p>
-				<p className="text-xs text-muted-foreground">{multiplier}x multiplier active</p>
+				<p className="text-xs text-muted-foreground">
+					{multiplier}x multiplier active
+				</p>
 			</div>
 		</div>
 		<span className="text-lg font-bold text-amber-500">+{points}</span>

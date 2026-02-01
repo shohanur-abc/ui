@@ -185,7 +185,11 @@ export default function Main() {
 								country="United States"
 								phone="+1 (555) 123-4567"
 							/>
-							<PaymentMethod type="Visa Credit Card" last4="4242" expiry="12/25" />
+							<PaymentMethod
+								type="Visa Credit Card"
+								last4="4242"
+								expiry="12/25"
+							/>
 						</div>
 					</div>
 

@@ -118,7 +118,12 @@ const BundleCard = ({
 						key={item.id}
 						className="relative size-16 shrink-0 overflow-hidden rounded-lg bg-muted"
 					>
-						<Image src={item.image} alt={item.name} fill className="object-cover" />
+						<Image
+							src={item.image}
+							alt={item.name}
+							fill
+							className="object-cover"
+						/>
 					</div>
 				))}
 			</div>
@@ -175,7 +180,8 @@ export default function Main() {
 		items: [
 			{
 				id: '1',
-				image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
+				image:
+					'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop',
 				name: 'Running Shoes',
 				price: 129.99,
 				quantity: 1,
@@ -189,19 +195,22 @@ export default function Main() {
 			items: [
 				{
 					id: 'b1',
-					image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=200&h=200&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=200&h=200&fit=crop',
 					name: 'Athletic Socks',
 					price: 29.99,
 				},
 				{
 					id: 'b2',
-					image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop',
 					name: 'Running Cap',
 					price: 29.99,
 				},
 				{
 					id: 'b3',
-					image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
+					image:
+						'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop',
 					name: 'Sports Bottle',
 					price: 29.99,
 				},
@@ -213,7 +222,10 @@ export default function Main() {
 		(sum, item) => sum + item.price * item.quantity,
 		0,
 	);
-	const itemCount = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+	const itemCount = cartData.items.reduce(
+		(sum, item) => sum + item.quantity,
+		0,
+	);
 
 	return (
 		<section className="@container">
